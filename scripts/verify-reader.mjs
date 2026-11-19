@@ -2,10 +2,10 @@ import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import {spawn} from 'node:child_process';
 const port=4173,base='http://127.0.0.1:'+port;
-const server=spawn(process.execPath,['node_modules/astro/astro.js','preview','--host','127.0.0.1','--port',String(port)],{stdio:'inherit'});
+const server=spawn(process.execPath,['node_modules/.bin/astro','preview','--host','127.0.0.1','--port',String(port)],{stdio:'inherit'});
 let browser;
 try{
- for(let i=0;i<60;i++){try{if((await fetch(base)).ok)break;}catch{}if(i===59)throw Error('Preview did not start');await new Promise(r=>setTimeout(r,250));}
+ for(let i=0;i<60;i++){try{if((await fetch(base)).ok)break;}catch{}if(server.exitCode!==null||i===59)throw Error('Preview did not start');await new Promise(r=>setTimeout(r,250));}
  browser=await chromium.launch({headless:true});
  const path='/read/slavoj-zizek-signs-from-the-future/';
  const mock=`
