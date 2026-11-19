@@ -2,19 +2,51 @@
 import Archive from '../layouts/Archive.astro';
 import DocumentCard from '../components/DocumentCard.astro';
 import GenreNav from '../components/GenreNav.astro';
-import {documents,genres} from '../lib/discovery';
+import RandomChapter from '../components/RandomChapter.astro';
+import {documents,chapterUrl,chapterSearchText,chapterSeconds,timeBand,topicUrl,documentUrl} from '../lib/discovery';
 const ds=await documents();
+const chapters=ds.flatMap(d=>d.data.chapterIndex.map(c=>({d,c,seconds:chapterSeconds(d,c)})));
+const distinct=(items:string[])=>[...new Set(items.filter(Boolean))].sort();
+const formats=distinct(ds.map(d=>d.data.category)),levels=distinct(ds.map(d=>d.data.difficulty||'')),features=distinct(ds.flatMap(d=>d.data.englishFeatures)),series=distinct(ds.map(d=>d.data.series||''));
 ---
 <Archive title="全資料 — The Annotated World" wide>
- <header class="browse-header"><p class="eyebrow">LIBRARY</p><h1>すべての資料</h1><p>タイトル、話者、テーマ、章の内容から探す。</p></header>
+ <header class="browse-header"><p class="eyebrow">LIBRARY</p><h1>すべての資料</h1><p>タイトル、話者、テーマから、読みたい資料や章を見つける。</p></header>
+ <div class="discovery-actions"><RandomChapter docs={ds}/></div>
  <div class="library-toolbar"><label for="find">検索<input type="search" id="find" placeholder="例：ジジェク、映画、AI"/></label><span id="result-count" aria-live="polite">{ds.length}資料</span></div>
+ <div class="library-filters" data-library-controls hidden>
+ <div class="library-tabs" role="group" aria-label="検索対象"><button type="button" data-scope="docs" aria-pressed="true">資料</button><button type="button" data-scope="chapters" aria-pressed="false">章</button></div>
+ <details class="library-filter-details"><summary>絞り込み</summary><div class="library-filter-inputs">
+ <label>長さ<select id="filter-time"><option value="">すべて</option><option value="5">5分以内</option><option value="15">15分以内</option><option value="30">30分以内</option><option value="long">30分超</option><option value="unknown">不明</option></select></label>
+ <label>形式<select id="filter-format"><option value="">すべて</option>{formats.map(x=><option>{x}</option>)}</select></label>
+ {levels.length>0&&<label>推定難易度<select id="filter-difficulty"><option value="">すべて</option>{levels.map(x=><option>{x}</option>)}</select></label>}
+ {features.length>0&&<label>英語の特徴<select id="filter-feature"><option value="">すべて</option>{features.map(x=><option>{x}</option>)}</select></label>}
+ {series.length>0&&<label>シリーズ<select id="filter-series"><option value="">すべて</option>{series.map(x=><option>{x}</option>)}</select></label>}
+ <button type="button" id="reset-filters">解除</button></div></details></div>
  <GenreNav docs={ds}/>
- <section class="browse-section"><div class="document-grid" id="result-grid">{ds.map(d=><DocumentCard doc={d}/>)}</div><p id="no-documents" hidden>該当する資料がありません。別のキーワードをお試しください。</p></section>
+ <section class="browse-section"><div class="document-grid" id="result-grid">{ds.map(d=><DocumentCard doc={d}/>)}</div>
+ <div class="chapter-discovery" id="chapter-results" hidden>{chapters.map(({d,c,seconds})=><article class="chapter-item" data-chapter-result data-search={chapterSearchText(d,c)} data-time={timeBand(seconds)} data-format={d.data.category} data-difficulty={d.data.difficulty||''} data-features={JSON.stringify(d.data.englishFeatures)} data-series={d.data.series||''}><div class="chapter-time">{String(c.order).padStart(2,'0')}<small>{c.time}</small></div><div><h3><a href={chapterUrl(d,c)}>{c.title}</a></h3><a class="chapter-source" href={documentUrl(d)}>{d.data.title}</a>{seconds!==null&&<p>約{Math.ceil(seconds/60)}分（動画内の区間）</p>}{c.description&&<p>{c.description}</p>}<div class="tag-row">{c.topics.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></div></article>)}</div>
+ <p id="no-documents" hidden>該当する資料・章がありません。条件を変更してください。</p></section>
 </Archive>
 <script>
 const input=document.querySelector<HTMLInputElement>('#find')!;
+const controls=document.querySelector<HTMLElement>('[data-library-controls]')!;
 const params=new URLSearchParams(location.search);input.value=params.get('q')||'';
-const cards=[...document.querySelectorAll<HTMLElement>('[data-document]')];
-function filter(){const q=input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);let n=0;for(const card of cards){card.hidden=!q.every(t=>card.dataset.search?.includes(t));if(!card.hidden)n++;}document.getElementById('result-count')!.textContent=n+'資料';document.getElementById('no-documents')!.hidden=n!==0;}
-input.addEventListener('input',filter);filter();
+const cards=[...document.querySelectorAll<HTMLElement>('[data-document]')],chapters=[...document.querySelectorAll<HTMLElement>('[data-chapter-result]')];
+const filters=['time','format','difficulty','feature','series'].map(id=>[id,document.querySelector<HTMLSelectElement>('#filter-'+id)] as const);
+const scopeButtons=[...document.querySelectorAll<HTMLButtonElement>('[data-scope]')];
+let scope=params.get('scope')==='chapters'?'chapters':'docs';
+function filter(){
+ const q=input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);let n=0;
+ for(const button of scopeButtons)button.setAttribute('aria-pressed',String(button.dataset.scope===scope));
+ document.getElementById('result-grid')!.hidden=scope!=='docs';document.getElementById('chapter-results')!.hidden=scope!=='chapters';
+ for(const card of scope==='docs'?cards:chapters){const matches=q.every(t=>card.dataset.search?.includes(t))&&filters.every(([id,select])=>{const value=select?.value;if(!value)return true;if(id==='feature')return (JSON.parse(card.dataset.features||'[]') as string[]).includes(value);if(id==='time'&&value!=='unknown'&&value!=='long'){const allowed=['5','15','30'];return allowed.indexOf(card.dataset.time||'')>=0&&allowed.indexOf(card.dataset.time||'')<=allowed.indexOf(value);}return card.dataset[id]===value;});card.hidden=!matches;if(matches)n++;}
+ document.getElementById('result-count')!.textContent=n+(scope==='docs'?'資料':'章');document.getElementById('no-documents')!.hidden=n!==0;
+}
+for(const b of scopeButtons)b.addEventListener('click',()=>{scope=b.dataset.scope==='chapters'?'chapters':'docs';filter();});
+for(const [,select] of filters)select?.addEventListener('change',filter);
+document.getElementById('reset-filters')?.addEventListener('click',()=>{for(const [,select] of filters)if(select)select.value='';filter();});
+controls.hidden=false;input.addEventListener('input',filter);filter();
 </script>
+<style>
+.library-filters{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;margin:0 0 22px}.library-tabs{display:flex;gap:4px}.library-tabs button,.library-filter-inputs button{font:inherit;font-size:13px;border:1px solid var(--hair);padding:10px 15px;min-height:44px;background:#fff;color:var(--ink);cursor:pointer}.library-tabs button[aria-pressed=true]{background:var(--accent-text);border-color:var(--accent-text);color:white}.library-filter-details{flex:1;min-width:160px}.library-filter-details summary{font-size:13px;cursor:pointer;padding:11px 0;color:var(--accent-text)}.library-filter-inputs{display:flex;flex-wrap:wrap;gap:8px;align-items:end}.library-filter-inputs label{display:flex;flex-direction:column;font-size:11px;color:var(--mute);flex:1;min-width:125px}.library-filter-inputs select{font:inherit;font-size:14px;padding:8px;min-height:44px;border:1px solid var(--hair);border-radius:0;background:#fff;color:var(--ink);max-width:100%}.discovery-actions{display:flex;flex-flow:column;gap:8px;margin-bottom:12px;align-items:flex-start}
+</style>

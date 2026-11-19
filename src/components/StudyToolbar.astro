@@ -1,0 +1,16 @@
+---
+import type {Doc} from '../lib/discovery';
+interface Props{doc:Doc}
+const {doc:d}=Astro.props;
+---
+<div class="study-toolbar" id="study-toolbar" data-study-toolbar hidden>
+ <div class="study-mode" role="group" aria-label="学習モード">
+ <button type="button" data-mode="parallel" aria-pressed="true">対訳</button>
+ <button type="button" data-mode="english" aria-pressed="false">英文のみ</button>
+ {d.data.videoId&&<button type="button" data-mode="listen" aria-pressed="false">リスニング</button>}
+ </div>
+ <div class="study-secondary">
+ <label class="study-chapter-label"><span class="sr-only">章に移動</span><select id="study-chapter-nav" aria-label="章に移動"><option value="">目次・章へ移動</option>{d.data.chapterIndex.map(c=><option value={c.anchor}>{c.order}. {c.title}</option>)}</select></label>
+ <button type="button" id="study-size" class="study-control" aria-label="文字サイズを変更">A↗</button>
+ </div>
+</div>

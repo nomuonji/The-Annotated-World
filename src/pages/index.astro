@@ -1,5 +1,6 @@
 ---
 import Archive from '../layouts/Archive.astro';
+import RandomChapter from '../components/RandomChapter.astro';
 import DocumentCard from '../components/DocumentCard.astro';
 import GenreNav from '../components/GenreNav.astro';
 import ChapterList from '../components/ChapterList.astro';
@@ -13,7 +14,7 @@ const chapters=ds.flatMap(d=>d.data.chapterIndex.map(c=>({d,c})));
 const picks=chapters.filter(({c})=>c.topics.length>0).sort((a,b)=>b.c.topics.length-a.c.topics.length||a.c.order-b.c.order).slice(0,6);
 ---
 <Archive wide>
- <header class="discovery-intro"><div><p class="eyebrow">THE ANNOTATED LIBRARY</p><h1>世界を、原文で読む。</h1><p>講演・対談・思想・文化。気になるテーマから、英語と日本語の対訳へ。</p></div><a class="library-search-link" href="/library/">⌕ 資料・人物・テーマを探す <span>→</span></a></header>
+ <header class="discovery-intro"><div><p class="eyebrow">THE ANNOTATED LIBRARY</p><h1>世界を、原文で読む。</h1><p>講演・対談・思想・文化。気になるテーマから、英語と日本語の対訳へ。</p></div><div class="discovery-actions"><a class="library-search-link" href="/library/">⌕ 資料・人物・テーマを探す <span>→</span></a><RandomChapter docs={ds}/></div></header>
  <section aria-labelledby="genre-heading" class="browse-section"><div class="section-heading"><h2 id="genre-heading">Browse by genre <small>ジャンルから探す</small></h2></div><GenreNav docs={ds}/></section>
  {featured&&<section aria-labelledby="feature-heading" class="browse-section featured-section"><div class="section-heading"><h2 id="feature-heading">Featured <small>注目の資料</small></h2><a href="/library/">全{ds.length}資料 →</a></div><DocumentCard doc={featured} featured/></section>}
  {picks.length>0&&<section aria-labelledby="chapter-heading" class="browse-section"><div class="section-heading"><h2 id="chapter-heading">Follow your curiosity <small>気になる話題から読む</small></h2><a href="/topics/">テーマ一覧 →</a></div><p class="section-description">長い講演も、関心のある章から読み始められます。</p><ChapterList items={picks}/></section>}

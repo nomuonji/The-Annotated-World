@@ -1,0 +1,14 @@
+---
+import {chapterUrl,type Doc} from '../lib/discovery';
+interface Props{docs:Doc[]}
+const {docs}=Astro.props;
+const paths=docs.flatMap(d=>d.data.chapterIndex.map(c=>chapterUrl(d,c)));
+---
+{paths.length>0&&<button class="random-chapter" type="button" data-random={JSON.stringify(paths)} hidden>↗ ランダムな章へ</button>}
+<script>
+for(const button of document.querySelectorAll<HTMLButtonElement>('[data-random]')){
+ const paths:string[]=JSON.parse(button.dataset.random||'[]');
+ if(paths.length){button.hidden=false;button.addEventListener('click',()=>location.assign(paths[Math.floor(Math.random()*paths.length)]));}
+}
+</script>
+<style>.random-chapter{font:inherit;font-size:13px;padding:12px 16px;min-height:44px;border:1px solid var(--hair);background:#fff;color:var(--accent-text);cursor:pointer}.random-chapter:hover{background:#edf3fa}</style>

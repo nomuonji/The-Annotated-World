@@ -6,17 +6,17 @@ const vid=d.data.videoId;
 const embed='https://www.youtube-nocookie.com/embed/'+vid;
 const chapters=d.data.chapterIndex.filter(c=>c.seconds!==null);
 ---
-{vid&&<section class="source-video" id="source-video" data-video={embed}>
-<div class="section-heading"><h2>Original video <small>教材の元動画</small></h2><a href={d.data.source} target="_blank" rel="noopener noreferrer">YouTubeで開く ↗</a></div>
-<div class="video-frame"><iframe id="original-player" src={embed} title={d.data.title+' — 元動画'} loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-{chapters.length>0&&<div class="video-controls"><label for="video-chapter">章の開始位置<select id="video-chapter">{chapters.map(c=><option value={String(c.seconds)}>{c.time} · {c.title}</option>)}</select></label><button type="button" id="play-chapter">この位置から再生</button></div>}
-<p class="video-note">元動画を見ながら、下の対訳を読めます。埋め込み再生できない場合はYouTubeで開いてください。</p>
+{vid&&<section class="source-video study-video" id="source-video" data-video={embed}>
+<div class="section-heading"><h2>Original video <small>元動画</small></h2><a href={d.data.source} target="_blank" rel="noopener noreferrer">YouTube ↗</a></div>
+<div class="video-frame"><iframe id="original-player" src={embed} title={d.data.title+' — 元動画'} loading="eager" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<div class="video-quick-controls" data-video-enhancement hidden>
+ <button type="button" id="play-pause" class="study-control" disabled aria-label="動画を再生">▶ 再生</button>
+ <label class="speed-label">速度 <select id="playback-speed" disabled aria-label="再生速度"><option value="1">1×</option></select></label>
+ <button type="button" id="follow-video" aria-pressed="false" class="study-control" disabled>自動追従</button>
+ <button type="button" id="mobile-pin-video" aria-pressed="false" class="study-control">動画固定</button>
+</div>
+<p class="video-state" id="video-state" role="status" aria-live="polite" hidden>動画連携を準備中…</p>
+<div class="video-position" data-video-enhancement hidden><span id="video-clock">00:00</span><button id="jump-current" type="button" disabled class="study-control">再生中の発話へ ↓</button><button id="stop-repeat" type="button" hidden class="study-control">リピート解除</button></div>
+{chapters.length>0&&<details class="video-chapter-picker" data-video-enhancement hidden><summary>章の開始位置から再生</summary><div class="video-controls"><label for="video-chapter">章<select id="video-chapter">{chapters.map(c=><option value={String(c.seconds)}>{c.time} · {c.title}</option>)}</select></label><button type="button" id="play-chapter">再生</button></div></details>}
+<p class="video-note">埋め込み再生や同期が利用できない場合は、元動画のリンクから視聴できます。同期は教材の発話時刻に基づきます。</p>
 </section>}
-<script>
-const root=document.querySelector<HTMLElement>('[data-video]');
-const frame=document.querySelector<HTMLIFrameElement>('#original-player');
-const select=document.querySelector<HTMLSelectElement>('#video-chapter');
-function seek(seconds:string){if(!root?.dataset.video||!frame||!/^\d+$/.test(seconds))return;frame.src=root.dataset.video+'?start='+seconds+'&autoplay=1';if(select)select.value=seconds;root.scrollIntoView({block:'start'});}
-document.getElementById('play-chapter')?.addEventListener('click',()=>{if(select)seek(select.value);});
-for(const button of document.querySelectorAll<HTMLButtonElement>('[data-video-seek]'))button.addEventListener('click',()=>seek(button.dataset.videoSeek||''));
-</script>
