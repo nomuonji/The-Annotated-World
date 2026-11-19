@@ -37,6 +37,18 @@ try{
    assert.ok(geometry.toolbar.bottom<geometry.vh,'Fixed controls leave no reading space');
    await page.locator('#mobile-pin-video').click();
   }
+  // Exercise the new reader tools with the real generated transcript, not synthetic content.
+  const word=first.locator('a[data-word]').first(), destination=await word.getAttribute('href');
+  await word.click();await page.locator('#word-dialog[open]').waitFor();
+  assert.ok((await page.locator('#word-dialog-note').textContent()).includes('未割譲'));
+  assert.equal(new URL(await page.locator('#word-dialog-more').getAttribute('href'),base).pathname,destination);
+  await page.locator('#word-dialog button').click();
+  await page.locator('.quick-reader-tools').click();await page.locator('#reader-query').fill('unceded territories');
+  await page.locator('#reader-next').click();assert.ok(await first.evaluate(e=>e.classList.contains('search-current')));
+  await page.locator('.quick-reader-tools').click();await page.locator('#reader-focus').click();assert.equal(await page.locator('.study-sidebar').isVisible(),false);
+  await page.locator('#reader-dark').click();assert.equal(await page.locator('html').evaluate(e=>e.classList.contains('reader-dark')),true);
+  await page.locator('#reader-dark').click();await page.locator('#reader-focus').click();
+  assert.equal(await page.locator('.study-sidebar').isVisible(),true);
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Reader causes horizontal overflow');
   await page.goto(base+'/library/');await page.locator('[data-scope=chapters]').click();await page.locator('#find').fill('映画');assert.ok(await page.locator('[data-chapter-result]:visible').count()>0);
   await page.locator('#find').fill('');await page.locator('.library-filter-details summary').click();await page.locator('#filter-time').selectOption('15');assert.ok(await page.locator('[data-chapter-result]:visible').count()>0);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Library causes horizontal overflow');
