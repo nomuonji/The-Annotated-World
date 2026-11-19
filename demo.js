@@ -1,0 +1,11 @@
+// Original editorial demonstration; not a transcript or a quotation.
+window.AW_DEMO={
+id:"demo-reading-with-attention",title:"The Art of Paying Attention",author:"The Annotated World — original sample",category:"Culture",description:"日常の風景をよく見ることについての短いオリジナル対訳エッセイ。リーダーの操作を試せます。",source:"",duration:"約3分",chapters:[
+{title:"The familiar",time:"",description:"見慣れた風景に対する注意。",blocks:[
+{speaker:"Essay",time:"",en:"A familiar street can become almost invisible. We cross it every morning, yet we rarely notice what has changed. Familiarity is not the same as understanding.",ja:"見慣れた通りは、ほとんど見えない存在になりうる。毎朝そこを通るのに、何が変わったかにはめったに気づかない。慣れていることと理解していることは同じではない。",note:"familiarity：慣れ、よく知っていること。not the same as は二つの概念を区別する表現。yet は「それでも、しかし」。",keys:["familiarity","rarely notice","not the same as"]},
+{speaker:"Essay",time:"",en:"To pay attention is to resist the temptation to decide too quickly what something means. A closed shop might be a sign of failure, or it might simply be a place where someone is taking a day off.",ja:"注意を向けるとは、物事の意味を性急に決めつけたい誘惑に抗うことだ。閉まった店は失敗の兆しかもしれないし、単に誰かが休みを取っているだけかもしれない。",note:"resist the temptation to do：〜したい誘惑に抗う。might be ... or it might ... は複数の可能性を並べる。take a day off：一日休みを取る。",keys:["resist the temptation","a sign of","taking a day off"]}
+]},
+{title:"Learning to see again",time:"",description:"読むことと観察すること。",blocks:[
+{speaker:"Essay",time:"",en:"Reading in another language can restore this kind of attention. A sentence that would normally pass unnoticed becomes a small problem worth thinking about.",ja:"別の言語で読むことは、こうした注意力を取り戻させてくれることがある。普段なら気にも留めず読み過ごす一文が、考えてみる価値のある小さな問題になる。",note:"restore：取り戻す、回復させる。pass unnoticed：気づかれずに過ぎる。worth doing：〜する価値がある。",keys:["restore","pass unnoticed","worth thinking about"]},
+{speaker:"Essay",time:"",en:"The point is not to turn every sentence into an exercise. It is to make room for the unexpected, and to keep reading long enough for a new idea to emerge.",ja:"すべての文を練習問題に変えることが目的ではない。予想外のものが入る余地を作り、新しい考えが浮かぶまで読み続けることが目的だ。",note:"make room for：〜の余地を作る。emerge：現れる、浮かび上がる。long enough for A to do：Aが〜するのに十分長く。",keys:["make room for","emerge"]}
+]}]};
