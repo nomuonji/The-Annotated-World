@@ -1,0 +1,6 @@
+---
+import {topicUrl} from '../lib/discovery';
+interface Props{items:{id:string;name:string;count:number;chapters:number}[]}
+const {items}=Astro.props;
+---
+<div class="topic-index">{items.map(t=><a href={topicUrl(t.id)} class="topic-index-link"><span>#{t.name}</span><small>{t.chapters?t.chapters+'章':t.count+'資料'}</small></a>)}</div>

@@ -1,0 +1,17 @@
+---
+import Archive from '../../layouts/Archive.astro';
+import ChapterList from '../../components/ChapterList.astro';
+import DocumentCard from '../../components/DocumentCard.astro';
+import {documents,topics,docTopics,topicUrl,type Doc} from '../../lib/discovery';
+export async function getStaticPaths(){return topics(await documents()).map(t=>({params:{id:t.id},props:{topic:t}}));}
+const {topic:t}=Astro.props;
+const ds=await documents();
+const matching=ds.filter(d=>docTopics(d).some(x=>x.id===t.id));
+const chapters=matching.flatMap(d=>d.data.chapterIndex.filter(c=>c.topics.some(x=>x.id===t.id)).map(c=>({d,c})));
+const adjacent=[...new Map(chapters.flatMap(({c})=>c.topics).filter(x=>x.id!==t.id).map(x=>[x.id,x])).values()];
+---
+<Archive title={t.name+' — The Annotated World'} wide><header class="browse-header"><p class="eyebrow"><a href="/topics/">テーマ</a> / TOPIC</p><h1>#{t.name}</h1><p>{matching.length}資料 · {chapters.length}関連章</p></header>
+ {chapters.length>0&&<section class="browse-section"><div class="section-heading"><h2>Chapters <small>このテーマが登場する章</small></h2></div><ChapterList items={chapters}/></section>}
+ <section class="browse-section"><div class="section-heading"><h2>Documents <small>関連する資料全文</small></h2></div><div class="document-grid">{matching.map(d=><DocumentCard doc={d}/>)}</div></section>
+ {adjacent.length>0&&<section class="browse-section"><div class="section-heading"><h2>Related topics <small>同じ章で扱われているテーマ</small></h2></div><div class="tag-row">{adjacent.map(x=><a class="topic-tag" href={topicUrl(x.id)}>#{x.name}</a>)}</div></section>}
+</Archive>

@@ -1,0 +1,7 @@
+---
+import Archive from '../../layouts/Archive.astro';
+import PeopleLinks from '../../components/PeopleLinks.astro';
+import {documents,people} from '../../lib/discovery';
+const ps=people(await documents());
+---
+<Archive wide title="人物 — The Annotated World"><header class="browse-header"><p class="eyebrow"><a href="/">発見</a> / PEOPLE</p><h1>People</h1><p>話者・著者から資料をたどる。{ps.length}人。</p></header><section class="browse-section"><PeopleLinks items={ps}/></section></Archive>

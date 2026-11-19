@@ -1,0 +1,11 @@
+---
+import Archive from '../../layouts/Archive.astro';
+import DocumentCard from '../../components/DocumentCard.astro';
+import TopicLinks from '../../components/TopicLinks.astro';
+import {documents,people,topics} from '../../lib/discovery';
+export async function getStaticPaths(){return people(await documents()).map(p=>({params:{id:p.id},props:{person:p}}));}
+const {person:p}=Astro.props;
+const ds=(await documents()).filter(d=>d.data.people.some(x=>x.id===p.id));
+---
+<Archive title={p.name+' — The Annotated World'} wide><header class="browse-header person-header"><span class="person-monogram" aria-hidden="true">{p.name.split(' ').map(s=>s[0]).slice(0,2).join('')}</span><div><p class="eyebrow"><a href="/people/">人物</a> / PERSON</p><h1>{p.name}</h1><p>{p.ja} · {ds.length}資料</p></div></header>
+<section class="browse-section"><div class="section-heading"><h2>Documents <small>この人物の講演・対談・文章</small></h2></div><div class="document-grid">{ds.map(d=><DocumentCard doc={d}/>)}</div></section><section class="browse-section"><div class="section-heading"><h2>Topics <small>この人物が語るテーマ</small></h2></div><TopicLinks items={topics(ds)}/></section></Archive>

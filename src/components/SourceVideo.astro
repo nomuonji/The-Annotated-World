@@ -1,0 +1,22 @@
+---
+import type {Doc} from '../lib/discovery';
+interface Props{doc:Doc}
+const {doc:d}=Astro.props;
+const vid=d.data.videoId;
+const embed='https://www.youtube-nocookie.com/embed/'+vid;
+const chapters=d.data.chapterIndex.filter(c=>c.seconds!==null);
+---
+{vid&&<section class="source-video" id="source-video" data-video={embed}>
+<div class="section-heading"><h2>Original video <small>教材の元動画</small></h2><a href={d.data.source} target="_blank" rel="noopener noreferrer">YouTubeで開く ↗</a></div>
+<div class="video-frame"><iframe id="original-player" src={embed} title={d.data.title+' — 元動画'} loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+{chapters.length>0&&<div class="video-controls"><label for="video-chapter">章の開始位置<select id="video-chapter">{chapters.map(c=><option value={String(c.seconds)}>{c.time} · {c.title}</option>)}</select></label><button type="button" id="play-chapter">この位置から再生</button></div>}
+<p class="video-note">元動画を見ながら、下の対訳を読めます。埋め込み再生できない場合はYouTubeで開いてください。</p>
+</section>}
+<script>
+const root=document.querySelector<HTMLElement>('[data-video]');
+const frame=document.querySelector<HTMLIFrameElement>('#original-player');
+const select=document.querySelector<HTMLSelectElement>('#video-chapter');
+function seek(seconds:string){if(!root?.dataset.video||!frame||!/^\d+$/.test(seconds))return;frame.src=root.dataset.video+'?start='+seconds+'&autoplay=1';if(select)select.value=seconds;root.scrollIntoView({block:'start'});}
+document.getElementById('play-chapter')?.addEventListener('click',()=>{if(select)seek(select.value);});
+for(const button of document.querySelectorAll<HTMLButtonElement>('[data-video-seek]'))button.addEventListener('click',()=>seek(button.dataset.videoSeek||''));
+</script>

@@ -1,0 +1,7 @@
+---
+import Archive from '../../layouts/Archive.astro';
+import TopicLinks from '../../components/TopicLinks.astro';
+import {documents,topics} from '../../lib/discovery';
+const ts=topics(await documents());
+---
+<Archive wide title="テーマ — The Annotated World"><header class="browse-header"><p class="eyebrow"><a href="/">発見</a> / TOPICS</p><h1>Topics</h1><p>分野を越えて、同じテーマを語る資料と章へ。{ts.length}テーマ。</p></header><section class="browse-section"><TopicLinks items={ts}/></section></Archive>

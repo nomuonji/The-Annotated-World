@@ -1,0 +1,193 @@
+{
+  "genre": "philosophy",
+  "format": "講演・対談",
+  "people": [
+    {
+      "id": "slavoj-zizek",
+      "name": "Slavoj Žižek",
+      "ja": "スラヴォイ・ジジェク"
+    }
+  ],
+  "chapterMetadata": {
+    "ch1": {
+      "genres": [
+        "society"
+      ],
+      "topics": [
+        {
+          "id": "us-politics",
+          "name": "アメリカ政治"
+        }
+      ]
+    },
+    "ch2": {
+      "genres": [
+        "philosophy",
+        "society"
+      ],
+      "topics": [
+        {
+          "id": "psychoanalysis",
+          "name": "精神分析"
+        },
+        {
+          "id": "ideology",
+          "name": "イデオロギー"
+        },
+        {
+          "id": "us-politics",
+          "name": "アメリカ政治"
+        }
+      ]
+    },
+    "ch3": {
+      "genres": [
+        "philosophy",
+        "society"
+      ],
+      "topics": [
+        {
+          "id": "ideology",
+          "name": "イデオロギー"
+        },
+        {
+          "id": "us-politics",
+          "name": "アメリカ政治"
+        }
+      ]
+    },
+    "ch4": {
+      "genres": [
+        "society",
+        "philosophy"
+      ],
+      "topics": [
+        {
+          "id": "world-order",
+          "name": "国際秩序"
+        },
+        {
+          "id": "ideology",
+          "name": "イデオロギー"
+        }
+      ]
+    },
+    "ch5": {
+      "genres": [
+        "philosophy",
+        "technology",
+        "society"
+      ],
+      "topics": [
+        {
+          "id": "ecology",
+          "name": "自然と環境"
+        },
+        {
+          "id": "ai",
+          "name": "AI"
+        },
+        {
+          "id": "world-order",
+          "name": "国際秩序"
+        }
+      ]
+    },
+    "ch6": {
+      "genres": [
+        "philosophy",
+        "society"
+      ],
+      "topics": [
+        {
+          "id": "ideology",
+          "name": "イデオロギー"
+        },
+        {
+          "id": "hegemony",
+          "name": "ヘゲモニー"
+        }
+      ]
+    },
+    "ch7": {
+      "genres": [
+        "philosophy",
+        "technology",
+        "society"
+      ],
+      "topics": [
+        {
+          "id": "ecology",
+          "name": "自然と環境"
+        },
+        {
+          "id": "quantum-physics",
+          "name": "量子力学"
+        }
+      ]
+    },
+    "ch8": {
+      "genres": [
+        "film-culture",
+        "philosophy"
+      ],
+      "topics": [
+        {
+          "id": "film",
+          "name": "映画"
+        },
+        {
+          "id": "psychoanalysis",
+          "name": "精神分析"
+        }
+      ]
+    },
+    "ch9": {
+      "genres": [
+        "film-culture",
+        "philosophy"
+      ],
+      "topics": [
+        {
+          "id": "television",
+          "name": "ドラマ"
+        },
+        {
+          "id": "psychoanalysis",
+          "name": "精神分析"
+        }
+      ]
+    },
+    "ch10": {
+      "genres": [
+        "philosophy"
+      ],
+      "topics": [
+        {
+          "id": "marx",
+          "name": "マルクス"
+        },
+        {
+          "id": "ethics",
+          "name": "倫理"
+        }
+      ]
+    },
+    "ch11": {
+      "genres": [
+        "society",
+        "philosophy"
+      ],
+      "topics": [
+        {
+          "id": "world-order",
+          "name": "国際秩序"
+        },
+        {
+          "id": "ecology",
+          "name": "自然と環境"
+        }
+      ]
+    }
+  }
+}

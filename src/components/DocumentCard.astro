@@ -1,0 +1,23 @@
+---
+import {documentUrl,genreById,genreUrl,personUrl,docTopics,topicUrl,searchText,type Doc} from '../lib/discovery';
+interface Props{doc:Doc;featured?:boolean;reason?:string}
+const {doc:d,featured=false,reason}=Astro.props;
+const g=genreById(d.data.genre);
+---
+<article class:list={['document-entry','discovery-card',{'featured-document':featured}]} data-document data-search={searchText(d)}>
+ <a href={documentUrl(d)} class="document-cover" aria-label={d.data.title} style={'--genre-color:'+(g?.color||'#344f68')}>
+  <div class="cover-fallback"><span>THE ANNOTATED WORLD / {g?.name||'DOCUMENT'}</span><strong>{d.data.title}</strong><small>{d.data.duration||d.data.chapterCount+'章'}</small></div>
+  {d.data.videoId&&<img src={'https://i.ytimg.com/vi/'+d.data.videoId+'/hqdefault.jpg'} alt="" width="480" height="360" loading={featured?'eager':'lazy'} decoding="async" class="source-thumbnail"/>}
+  {d.data.videoId&&<span class="video-marker" aria-hidden="true">▶</span>}
+ </a>
+ <div class="document-info"><div class="card-kicker">{g&&<a href={genreUrl(g.id)}>{g.name}</a>}<span>{d.data.category}</span>{reason&&<span>{reason}</span>}</div>
+ <h3><a href={documentUrl(d)}>{d.data.title}</a></h3>
+ <div class="document-author">{d.data.people.length?d.data.people.map(p=><a href={personUrl(p.id)}>{p.name}</a>):d.data.author}</div>
+ <p class="document-deck">{d.data.description}</p>
+ <p class="document-facts">{d.data.duration||d.data.chapterCount+'章'} · {d.data.utteranceCount}発話</p>
+ <div class="tag-row">{docTopics(d).slice(0,featured?6:3).map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div>
+ <a class="read-link" href={documentUrl(d)}>対訳全文を読む →</a>
+ </div>
+</article>
+<style>.source-thumbnail{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.source-thumbnail:not([src]){display:none}</style>
+<script>for(const img of document.querySelectorAll<HTMLImageElement>('.source-thumbnail')){const fallback=()=>img.hidden=true;img.addEventListener('error',fallback,{once:true});if(img.complete&&img.naturalWidth===0)fallback();}</script>

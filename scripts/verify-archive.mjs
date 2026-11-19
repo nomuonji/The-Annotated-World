@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { load } from 'cheerio';
 const dir='src/content/documents';
 const entries=(await readdir(dir)).filter(n=>n.endsWith('.html'));
-const home=load(await readFile('dist/index.html','utf8'));
+const home=load(await readFile('dist/library/index.html','utf8'));
 assert.equal(home('.document-entry').length,entries.length,'Index should list every document exactly once');
 for(const file of entries){
  const id=file.slice(0,-5);const raw=await readFile(dir+'/'+file);const source=load(raw.toString('utf8'));
@@ -24,3 +24,24 @@ for(const file of entries){
  }
  console.log(id+': '+page('section.sec').length+' chapters, '+page('.utterance').length+' utterances, source text and emphasis matched');
 }
+
+const index=load(await readFile('dist/index.html','utf8'));
+assert.equal(index('.genre-tile').length,6);
+const sample=load(await readFile('dist/read/slavoj-zizek-signs-from-the-future/index.html','utf8'));
+assert.equal(sample('#original-player').attr('src'),'https://www.youtube-nocookie.com/embed/j7pEsBbGg5A');
+assert.equal(sample('[data-video-seek]').length,11);
+assert.equal(sample('section.sec#ch1 [data-video-seek]').attr('data-video-seek'),'21');
+assert.ok(sample('a[href="/topics/psychoanalysis/"]').length);
+assert.ok(sample('a[href="/people/slavoj-zizek/"]').length);
+const genre=load(await readFile('dist/genres/film-culture/index.html','utf8'));
+assert.ok(genre('a[href="/read/slavoj-zizek-signs-from-the-future/#ch8"]').length);
+const topic=load(await readFile('dist/topics/psychoanalysis/index.html','utf8'));
+assert.ok(topic('a[href="/read/slavoj-zizek-signs-from-the-future/#ch2"]').length);
+const person=load(await readFile('dist/people/slavoj-zizek/index.html','utf8'));
+assert.ok(person('a[href="/read/slavoj-zizek-signs-from-the-future/"]').length);
+// Validate all local generated navigation targets and fragments. Skip the legacy importer.
+async function walk(dir){const fs=await readdir(dir,{withFileTypes:true});return (await Promise.all(fs.map(f=>f.isDirectory()?walk(dir+'/'+f.name):[dir+'/'+f.name]))).flat();}
+const pages=(await walk('dist')).filter(p=>p.endsWith('/index.html')&&!p.includes('/workspace/'));
+const byPath=new Map();for(const p of pages){const url='/'+p.slice(5,-'index.html'.length);byPath.set(url,load(await readFile(p,'utf8')));}
+for(const [url,$] of byPath)for(const a of $('a[href]').toArray()){const href=$(a).attr('href');if(!href||(!href.startsWith('/')&&!href.startsWith('#'))||href.startsWith('//'))continue;const u=new URL(href,'https://archive.local'+url);const target=byPath.get(u.pathname);assert.ok(target,'Broken internal link '+url+' -> '+href);if(u.hash)assert.ok(target('[id]').toArray().some(e=>target(e).attr('id')===decodeURIComponent(u.hash.slice(1))),'Broken anchor '+url+' -> '+href);}
+console.log('Discovery routes, video source and internal links verified: '+pages.length+' static pages');

@@ -1,0 +1,22 @@
+---
+import Archive from '../../layouts/Archive.astro';
+import GenreNav from '../../components/GenreNav.astro';
+import DocumentCard from '../../components/DocumentCard.astro';
+import ChapterList from '../../components/ChapterList.astro';
+import {documents,genres,genreDocs,genreChapters,topics,topicUrl} from '../../lib/discovery';
+export async function getStaticPaths(){return genres.map(g=>({params:{id:g.id},props:{genre:g}}));}
+const {genre:g}=Astro.props;
+const ds=await documents(),matching=genreDocs(ds,g.id),chapters=genreChapters(ds,g.id);
+const primary=matching.filter(d=>d.data.genre===g.id);
+const adjacent=matching.filter(d=>d.data.genre!==g.id);
+const tags=[...new Map(chapters.flatMap(({c})=>c.topics).map(t=>[t.id,t])).values()];
+---
+<Archive title={g.name+' — The Annotated World'} wide>
+ <header class="browse-header"><p class="eyebrow"><a href="/">発見</a> / GENRES / {g.number}</p><h1>{g.name}</h1><p>{g.ja} · {matching.length}資料 · {chapters.length}関連章</p></header>
+ <GenreNav docs={ds} active={g.id}/>
+ {primary.length>0&&<section class="browse-section"><div class="section-heading"><h2>Documents <small>この分野の資料</small></h2></div><div class="document-grid">{primary.map(d=><DocumentCard doc={d}/>)}</div></section>}
+ {chapters.length>0&&<section class="browse-section"><div class="section-heading"><h2>Chapters <small>この分野について語る章</small></h2></div><ChapterList items={chapters}/></section>}
+ {adjacent.length>0&&<section class="browse-section"><div class="section-heading"><h2>Across genres <small>別ジャンルの関連資料</small></h2></div><div class="document-grid">{adjacent.map(d=><DocumentCard doc={d} reason="関連する章あり"/>)}</div></section>}
+ {tags.length>0&&<section class="browse-section"><div class="section-heading"><h2>Topics <small>さらに掘り下げる</small></h2></div><div class="tag-row">{tags.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></section>}
+ {!matching.length&&<div class="empty-section"><h2>この分野の資料はまだありません。</h2><p>現在の資料から関連するテーマを探してください。</p><a href="/topics/">テーマ一覧へ →</a> · <a href="/library/">全資料へ →</a></div>}
+</Archive>

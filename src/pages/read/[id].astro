@@ -1,12 +1,36 @@
 ---
 import Archive from '../../layouts/Archive.astro';
-import {getCollection} from 'astro:content';
-import type {CollectionEntry} from 'astro:content';
+import SourceVideo from '../../components/SourceVideo.astro';
+import ChapterList from '../../components/ChapterList.astro';
+import DocumentCard from '../../components/DocumentCard.astro';
+import {getCollection,type CollectionEntry} from 'astro:content';
+import {load} from 'cheerio';
+import {genreById,genreUrl,personUrl,docTopics,topicUrl,related,documents,chapterUrl} from '../../lib/discovery';
 export async function getStaticPaths(){return (await getCollection('documents')).map(document=>({params:{id:document.id},props:{document}}));}
-interface Props {document:CollectionEntry<'documents'>}
-const {data:d}=Astro.props.document;
+interface Props{document:CollectionEntry<'documents'>}
+const doc=Astro.props.document,d=doc.data;
+const g=genreById(d.genre),ts=docTopics(doc);
+const recommendations=related(await documents(),doc);
+const $=load(d.bodyHtml,null,false);
+const hero=$('.hero').first().toString();$('.hero').first().remove();
+for(const c of d.chapterIndex){
+ const head=$('section.sec').filter((_,el)=>$(el).attr('id')===c.anchor).find('.sec-header').first();
+ if(!head.length)continue;
+ const row=$('<div>').addClass('chapter-crosslinks');
+ for(const t of c.topics)row.append($('<a>').addClass('topic-tag').attr('href',topicUrl(t.id)).text('#'+t.name));
+ if(d.videoId&&c.seconds!==null)row.append($('<button>').attr({'type':'button','data-video-seek':String(c.seconds)}).addClass('chapter-play').text('▶ '+c.time+'から再生'));
+ if(row.children().length)head.append(row);
+}
+const body=$.root().html()||'';
 ---
 <Archive title={d.title+' — The Annotated World'} description={d.description}>
- <Fragment set:html={d.bodyHtml}/>
- <div class="publication-note"><p>提供された対訳資料の本文・注釈・章構成を保持しています。原典との照合および転載許諾の確認状況は未確認です。</p><a href="/">← 資料一覧へ</a></div>
+ <div class="reader-breadcrumbs"><a href="/">発見</a><span>/</span>{g&&<><a href={genreUrl(g.id)}>{g.name}</a><span>/</span></>}<span>対訳資料</span></div>
+ <Fragment set:html={hero}/>
+ <div class="reader-crosslinks"><div class="reader-person">{d.people.map(p=><a href={personUrl(p.id)}>{p.name}の資料 →</a>)}</div><div class="tag-row">{ts.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></div>
+ <SourceVideo doc={doc}/>
+ <Fragment set:html={body}/>
+ <div class="publication-note"><p>提供された対訳資料の本文・注釈・章構成を保持しています。原典との照合および転載許諾の確認状況は未確認です。</p></div>
+ {recommendations.length>0&&<section class="browse-section"><div class="section-heading"><h2>Read next <small>関連する資料</small></h2></div><div class="document-grid">{recommendations.map(r=><DocumentCard doc={r.d} reason={r.reason}/>)}</div></section>}
+ <section class="browse-section"><div class="section-heading"><h2>Explore further <small>テーマから次の発見へ</small></h2><a href="/topics/">全テーマ →</a></div><div class="tag-row">{ts.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></section>
+ <a href="/library/" class="read-link">← 全資料へ</a>
 </Archive>

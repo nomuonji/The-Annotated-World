@@ -1,0 +1,9 @@
+---
+import {chapterUrl,topicUrl,documentUrl,type Doc,type Chapter} from '../lib/discovery';
+interface Props{items:{d:Doc;c:Chapter}[];limit?:number}
+const {items,limit=items.length}=Astro.props;
+---
+<div class="chapter-discovery">{items.slice(0,limit).map(({d,c})=><article class="chapter-item">
+ <div class="chapter-time">{String(c.order).padStart(2,'0')}{c.time&&<small>{c.time}</small>}</div>
+ <div><h3><a href={chapterUrl(d,c)}>{c.title}</a></h3><a class="chapter-source" href={documentUrl(d)}>{d.data.title}</a>{c.description&&<p>{c.description}</p>}<div class="tag-row">{c.topics.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></div>
+</article>)}</div>
