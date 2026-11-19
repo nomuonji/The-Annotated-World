@@ -1,3 +1,4 @@
+export {};
 type Player = {
  getCurrentTime():number;getDuration():number;getPlayerState():number;getAvailablePlaybackRates():number[];getPlaybackRate():number;setPlaybackRate(rate:number):void;seekTo(seconds:number,allowSeekAhead:boolean):void;playVideo():void;pauseVideo():void;
 };
@@ -29,6 +30,7 @@ function setup(reader:HTMLElement){
  for(const b of modeButtons)b.addEventListener('click',()=>setMode(b.dataset.mode as Mode));
  for(const b of blocks){b.querySelector('[data-reveal]')?.addEventListener('click',()=>{b.classList.toggle('revealed');updateReveal(b);});}
  toolbar?.removeAttribute('hidden');setMode('parallel');
+ if(toolbar){const update=()=>reader.style.setProperty('--study-toolbar-height',toolbar.getBoundingClientRect().height+'px');new ResizeObserver(update).observe(toolbar);update();}
  byId('study-size')?.addEventListener('click',()=>{size=(size+1)%3;reader.dataset.textSize=String(size);const btn=byId('study-size');if(btn){btn.textContent=['A↗','A+','A++'][size];btn.setAttribute('aria-label','文字サイズ '+['標準','大','特大'][size]+'。クリックして変更');}});
  nav?.addEventListener('change',()=>{const target=byId(nav.value);if(target){scrollTo(target);history.replaceState(null,'','#'+encodeURIComponent(target.id));}else{const toc=reader.querySelector<HTMLElement>('.toc');if(toc)scrollTo(toc);}});
  if(!panel||!iframe||!frameBase)return;
