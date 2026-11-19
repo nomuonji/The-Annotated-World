@@ -13,3 +13,6 @@ Vocabulary indexes must derive from source marked expressions and verbatim note 
 
 
 New source files belong in `src/content/documents/`; new supplemental annotations live in the corresponding `<slug>.annotations.json`, not a central annotation file. Machine-readable catalog: `/catalog.json` (generated, not hand-edited). Do not change layouts, registry labels, stable IDs, application behavior, other documents or deployment configuration merely to add a document. The first supplied document's unverified rights are an explicit existing exception, not authorization for new publication.
+
+## 派生発信コンテンツ
+思想・知識の解説動画やSNS企画を作る前に [docs/EDITORIAL-POLICY.md](docs/EDITORIAL-POLICY.md) を参照する。制作方針の検討版と試作は公開承認ではない。教材制作と派生発信を分離し、元動画の引用可否と取得・配信規約を個別確認する。
