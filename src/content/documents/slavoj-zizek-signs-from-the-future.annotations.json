@@ -1,0 +1,63 @@
+{
+  "ch1-line-1": [
+    {
+      "kind": "syntax",
+      "quote": "What's your take?",
+      "explanation": "What is your take? の短縮形。take はここでは動詞ではなく名詞で「見解」。",
+      "parts": [
+        {
+          "text": "What",
+          "role": "疑問詞"
+        },
+        {
+          "text": "'s",
+          "role": "be動詞"
+        },
+        {
+          "text": " your take?",
+          "role": "主語"
+        }
+      ]
+    },
+    {
+      "kind": "sound",
+      "quote": "What's your take?",
+      "explanation": "一般的な会話では what's と your が切れ目なく発音されることがある。実際の音声を確認するための聞き取りの目印であり、この講演の発音を実測した注釈ではない。"
+    }
+  ],
+  "ch1-line-2": [
+    {
+      "kind": "syntax",
+      "quote": "Not only has Trump lost, but he even accepted his loss and promised collaboration with the Democratic majority.",
+      "explanation": "Not only を節頭に置くと、助動詞 has が主語 Trump より前に出る。but 以下は通常の語順。",
+      "parts": [
+        {
+          "text": "Not only ",
+          "role": "否定的な副詞句"
+        },
+        {
+          "text": "has ",
+          "role": "助動詞（倒置）"
+        },
+        {
+          "text": "Trump ",
+          "role": "主語"
+        },
+        {
+          "text": "lost, ",
+          "role": "過去分詞"
+        },
+        {
+          "text": "but he even accepted his loss and promised collaboration with the Democratic majority.",
+          "role": "追加の節"
+        }
+      ]
+    },
+    {
+      "kind": "alignment",
+      "quote": "What does this mean?",
+      "translation": "これは何を意味するのでしょうか？",
+      "explanation": "原文と和訳の対応例。"
+    }
+  ]
+}

@@ -53,3 +53,10 @@ const firstLink=sample('.en strong.key a[data-word]').first().attr('href');asser
 assert.ok(byPath.get('/concepts/surplus-enjoyment/')('.occurrence').length);assert.equal(sample('.editorial-annotation').length,4);
 console.log('Knowledge indexes: '+words('.word-card').length+' expressions, '+concepts('.word-card').length+' concepts and references');
 console.log('Discovery routes, video source and internal links verified: '+pages.length+' static pages');
+
+const catalog=JSON.parse(await readFile('dist/catalog.json','utf8'));
+assert.equal(catalog.documents.length,entries.length);
+const firstDoc=catalog.documents.find(d=>d.id==='slavoj-zizek-signs-from-the-future');assert.equal(firstDoc.chapters.length,11);assert.equal(firstDoc.provenance.rights,'unverified');
+assert.ok(sample('section#ch1 .chapter-end-nav a[href="#ch2"]').length);
+assert.ok(sample('.provenance-grid').length);
+assert.ok(catalog.documents.every(d=>!('bodyHtml' in d)));

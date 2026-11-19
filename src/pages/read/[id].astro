@@ -8,7 +8,7 @@ import {annotationsFor} from '../../lib/annotations';
 import DocumentCard from '../../components/DocumentCard.astro';
 import {getCollection,type CollectionEntry} from 'astro:content';
 import {load} from 'cheerio';
-import {genreById,genreUrl,personUrl,docTopics,topicUrl,related,documents,chapterUrl} from '../../lib/discovery';
+import {genreById,genreUrl,personUrl,docTopics,topicUrl,related,documents,chapterSeconds} from '../../lib/discovery';
 export async function getStaticPaths(){return (await getCollection('documents')).map(document=>({params:{id:document.id},props:{document}}));}
 interface Props{document:CollectionEntry<'documents'>}
 const doc=Astro.props.document,d=doc.data;
@@ -61,7 +61,23 @@ for(const c of d.chapterIndex){
   }
  });
 }
+// Add in-place exits between chapters, without changing the canonical source text.
+for(const c of d.chapterIndex){
+ const section=$('section.sec').filter((_,el)=>$(el).attr('id')===c.anchor);
+ const duration=chapterSeconds(doc,c);
+ if(duration!==null)section.find('.sec-header').first().append($('<p>').addClass('chapter-duration').text('動画内の区間：約'+Math.ceil(duration/60)+'分'));
+ const nav=$('<nav>').addClass('chapter-end-nav').attr('aria-label','章の移動');
+ const prev=d.chapterIndex[c.order-2],next=d.chapterIndex[c.order];
+ if(prev)nav.append($('<a>').attr('href','#'+prev.anchor).text('← 第'+prev.order+'章'));
+ if(next)nav.append($('<a>').attr('href','#'+next.anchor).addClass('chapter-next').text('次の章：'+next.title+' →'));
+ const shared=new Set(c.topics.map(t=>t.id));
+ const adjacent=d.chapterIndex.filter(x=>x.anchor!==c.anchor&&x.anchor!==next?.anchor&&x.anchor!==prev?.anchor).map(x=>({x,score:x.topics.filter(t=>shared.has(t.id)).length})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score||a.x.order-b.x.order).slice(0,2);
+ if(adjacent.length){const more=$('<div>').addClass('chapter-related');more.append($('<span>').text('同じテーマの章'));for(const {x} of adjacent)more.append($('<a>').attr('href','#'+x.anchor).text(x.title));nav.append(more);}
+ if(nav.children().length)section.append(nav);
+}
 const body=$.root().html()||'';
+const status=d.provenance;
+const labels={coverage:{full:'全文（照合済みの範囲）',excerpt:'抜粋',unverified:'収録範囲未確認'},transcript:{verified:'照合済み',unverified:'未確認','not-applicable':'音声なし'},translation:{verified:'確認済み',unverified:'未確認'},rights:{original:'オリジナル',licensed:'許諾・ライセンス確認済み','public-domain':'パブリックドメイン確認済み',unverified:'未確認'}};
 ---
 <Archive title={d.title+' — The Annotated World'} description={d.description} reader>
  <div class="reader-breadcrumbs"><a href="/">発見</a><span>/</span>{g&&<><a href={genreUrl(g.id)}>{g.name}</a><span>/</span></>}<span>対訳資料</span></div>
@@ -71,7 +87,7 @@ const body=$.root().html()||'';
   {d.videoId&&<aside class="study-sidebar" aria-label="動画・再生操作"><SourceVideo doc={doc}/></aside>}
   <div class="study-text"><StudyToolbar doc={doc}/><ReaderTools/><div class="study-original"><Fragment set:html={body}/></div></div>
  </div>
- <div class="publication-note"><p>提供された対訳資料の本文・注釈・章構成を保持しています。原典との照合および転載許諾の確認状況は未確認です。</p></div>
+ <div class="publication-note"><h2>資料の来歴・確認状況</h2>{status?<><dl class="provenance-grid"><div><dt>収録範囲</dt><dd>{labels.coverage[status.coverage]}</dd></div><div><dt>原文・音声照合</dt><dd>{labels.transcript[status.transcript]}</dd></div><div><dt>和訳レビュー</dt><dd>{labels.translation[status.translation]}</dd></div><div><dt>掲載権利</dt><dd>{labels.rights[status.rights]}</dd></div></dl><p>{status.basis}</p><p><a href={status.sourceUrl} target="_blank" rel="noopener noreferrer">原典を開く ↗</a></p><p>確認状況は編集時の記録であり、第三者による認証ではありません。</p></>:<p>原典・和訳・掲載権利の確認状況は記録されていません。</p>}</div>
  {recommendations.length>0&&<section class="browse-section"><div class="section-heading"><h2>Read next <small>関連する資料</small></h2></div><div class="document-grid">{recommendations.map(r=><DocumentCard doc={r.d} reason={r.reason}/>)}</div></section>}
  <section class="browse-section"><div class="section-heading"><h2>Explore further <small>テーマから次の発見へ</small></h2><a href="/topics/">全テーマ →</a></div><div class="tag-row">{ts.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></section>
  <a href="/library/" class="read-link">← 全資料へ</a>

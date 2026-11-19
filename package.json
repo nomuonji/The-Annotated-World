@@ -8,7 +8,9 @@
     "preview": "astro preview",
     "check": "astro check",
     "verify:archive": "node scripts/verify-archive.mjs",
-    "verify:reader": "node scripts/verify-reader.mjs"
+    "verify:reader": "node scripts/verify-reader.mjs",
+    "content:inspect": "node scripts/content-inspect.mjs",
+    "content:check": "node scripts/content-inspect.mjs --check"
   },
   "engines": {
     "node": ">=22.12.0"

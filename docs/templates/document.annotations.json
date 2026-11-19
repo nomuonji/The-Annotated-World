@@ -1,0 +1,15 @@
+{
+  "ch1-line-1": [
+    {
+      "kind": "syntax",
+      "quote": "REPLACE",
+      "explanation": "REPLACE",
+      "parts": [
+        {
+          "text": "REPLACE",
+          "role": "REPLACE"
+        }
+      ]
+    }
+  ]
+}
