@@ -1,0 +1,53 @@
+name: Japanese documentary prototype footage and narration
+on:
+  push:
+    branches: [prototype/japanese-marx-zizek-2026]
+    paths:
+      - .github/workflows/jp-marx-assets.yml
+      - docs/prototypes/jp-marx-narration.json
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  material:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install synthesis packages
+        run: python -m pip install edge-tts gTTS requests
+      - name: Generate Japanese voice and documentary footage
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          python - <<'PY'
+          import asyncio, json, os
+          lines=json.load(open('docs/prototypes/jp-marx-narration.json',encoding='utf-8'))
+          async def make(i,text):
+              import edge_tts
+              await edge_tts.Communicate(text,voice='ja-JP-KeitaNeural',rate='+14%').save(f'output/speech-{i:02d}.mp3')
+          async def main():
+              for i,s in enumerate(lines):
+                  try:
+                      await make(i,s)
+                      print('Synthesized',i,os.path.getsize(f'output/speech-{i:02d}.mp3'),flush=True)
+                  except Exception as e:
+                      print('Edge TTS failed',str(e)[:160],flush=True)
+                      from gtts import gTTS
+                      gTTS(text=s,lang='ja').save(f'output/speech-{i:02d}.mp3')
+          asyncio.run(main())
+          PY
+          curl --fail --location --retry 5 --retry-delay 3 --max-time 500 --user-agent 'TheAnnotatedWorldPrototype/0.1 (CC-BY-3 media research)' 'https://upload.wikimedia.org/wikipedia/commons/8/86/Slavoj_%C5%BDi%C5%BEek_-_Karl_Marx_and_Georg_Hegel_2013.webm' -o original-2013.webm
+          ffprobe -v error -show_entries format=duration,size -of default=nw=1 original-2013.webm
+          ffmpeg -y -hide_banner -loglevel error -ss 110 -i original-2013.webm -t 185 -vf 'scale=640:360,fps=20' -c:v libx264 -preset veryfast -crf 29 -an -movflags +faststart output/archival-2013-trim.mp4
+          ffprobe -v error -show_entries format=duration,size -of default=nw=1 output/archival-2013-trim.mp4
+          cp docs/prototypes/jp-marx-narration.json output/narration.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jp-marx-assets-licensed-footage-voice
+          path: output/
+          retention-days: 14
