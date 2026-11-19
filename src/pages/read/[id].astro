@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import {publishedLessons,originalAt,highlightParts} from '../../lib/lessons';
+import type {CollectionEntry} from 'astro:content';
+export async function getStaticPaths(){return (await publishedLessons()).map(lesson=>({params:{id:lesson.data.id},props:{lesson}}));}
+interface Props {lesson:CollectionEntry<'lessons'>}
+const {data:l}=Astro.props.lesson;
+---
+<Base title={l.title+' — The Annotated World'} description={l.description}>
+<div class="reader-head"><p class="eyebrow">{l.category.toUpperCase()} / {l.rights.status==='original'?'ORIGINAL':'ANNOTATED READING'}</p><h1 class="reader-title">{l.title}</h1><p>{l.author}</p><p>{l.description}</p><p class="tag">{l.chapters.length}章 {l.duration&&' · '+l.duration}</p><div class="head-actions">{l.source&&<a href={l.source} target="_blank" rel="noopener noreferrer">原典を開く ↗</a>}<a href="/" class="action">ライブラリへ</a><a id="resume" class="action" hidden>続きから読む</a></div></div>
+<div class="reader-layout" data-public-reader data-lesson={l.id} data-title={l.title}>
+<aside><details open><summary>チャプター</summary><nav aria-label="チャプター" class="chapter-links">{l.chapters.map(c=><a href={'#'+c.id}>{c.time&&<small>{c.time}</small>}{c.title}</a>)}</nav></details></aside>
+<div class="reading"><div class="toolbar"><span>READING MODE</span><div>{[['ja','和訳'],['note','注釈'],['mark','重要語句']].map(([k,label])=><button type="button" data-toggle={k} aria-pressed="true">{label}</button>)}</div></div>
+<article id="chapter">{l.chapters.map(c=><section class="public-chapter" id={c.id} data-chapter>
+{c.time&&<p class="eyebrow">{c.time}</p>}<h2>{c.title}</h2><p class="chapter-sub">{c.description}</p>
+{c.blocks.map(b=><section class="utterance" id={c.id+'--'+b.id} data-block><div class="speaker"><span>{b.speaker}</span><span>{b.time}</span></div>
+<p class="en" lang="en">{highlightParts(b.en,b.keys).map(p=>p.marked?<mark>{p.text}</mark>:p.text)}</p><p class="ja" lang="ja">{b.ja}</p>{b.note&&<p class="note"><span class="note-label">LANGUAGE & CONTEXT</span>{b.note}</p>}
+<div class="block-actions"><button type="button" data-save aria-pressed="false">発話を保存</button>{l.source&&<a href={originalAt(l.source,b.time)} target="_blank" rel="noopener noreferrer">{b.time?'原典 '+b.time+' ↗':'原典 ↗'}</a>}</div></section>)}
+</section>)}</article><p class="rights-note">利用条件・出典: {l.rights.note}</p><a href="/">← ライブラリ</a></div></div>
+</Base>
+<script>
+import '../../scripts/public-reader';
+</script>

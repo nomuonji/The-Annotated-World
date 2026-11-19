@@ -1,34 +1,27 @@
 # The Annotated World
 
-Read the world, not just English.
+Read the world, not just English. Astro-based bilingual reading library.
 
-知的コンテンツを、英文・和訳・語彙・構文・背景の注釈とともに読む独立した学習サイト。
+## Development / deployment
 
-## Local development
+Node 22.12+ (use current Node 22 LTS patch). `npm install`, `npm run dev`. Verify with `npm run check` and `npm run build`. Deploy `dist/` with build command `npm run build`; no server adapter, runtime API, database or secrets required. Root deployment assumed.
 
-No dependencies, build step, API keys or backend required.
+## Publishing more lessons
 
-```sh
-python -m http.server 8000
-```
+One JSON file per lesson in `src/content/lessons/`. Copy the original demo shape, choose stable unique ids for the lesson, chapters and utterances, and set title, author, category, description, tags, duration, publishedAt (YYYY-MM-DD), source, rights status/note and chapters. Each utterance has en, ja, note, keys, speaker, time. Schema: `src/content.config.ts`. All draft:false entries are indexed automatically on the home page and prerendered at `/read/<id>/`. Draft defaults to true. Build rejects invalid data, duplicate IDs within chapters and published duplicate lesson IDs or unverified rights. Check source and permission yourself; metadata is not a legal verification. Do not commit unlicensed full transcripts into a public repository, even as drafts. The original demo is a demonstration, not a lecture.
 
-Open http://localhost:8000. Static hosting (Cloudflare Pages, Netlify, GitHub Pages) can serve the repository root with no build command.
+## Private imports
 
-## Import your own materials
+`/workspace/` retains the original HTML/JSON importer, personal library, chapter reader, saved utterances, local progress, export/delete. Imported files never upload to a server. Include `.sec`, `.sec-header`, `.utterance`, `.speaker-line`, `.en`, `.ja`, `.note` in a supported HTML file. JSON export can be adapted into the public schema after rights clearance; add the required stable chapter/block IDs and editorial metadata. Public reading progress/bookmarks live in a separate browser localStorage namespace; original personal data stays in `annotated-world-v1`. Clearing browser data removes local records. No hosting or scheduled jobs currently configured by this migration.
 
-Use **教材を追加** to select a local annotated HTML file (including the supplied Žižek format) or a JSON archive. HTML must contain chapter sections `.sec` with `.sec-header`, and `.utterance` blocks containing `.speaker-line`, `.en`, `.ja`, `.note`. The importer reads text and marked vocabulary, not executable markup. The original file and reader state remain in the browser; they are not uploaded to a server. Export an individual lesson as JSON for backup or editorial exchange.
+## Structure
 
-The repository is public. The original full lecture transcript is intentionally not committed: its redistribution license and transcript accuracy have not been verified. The included demonstration is original editorial sample text, not an actual lecture. Import only materials you may use, and verify permissions before publishing.
-
-## Data contract
-
-A lesson is `{id,title,author,category,description,source,duration,chapters:[{title,time,description,blocks:[{speaker,time,en,ja,note,keys:[]}]}]}`. Source must be an HTTPS URL or blank. Times are optional HH:MM:SS strings. IDs are stable for progress and bookmarks. JSON exports use this same format. Content updates should preserve block ordering or deliberately migrate reading state.
-
-## Architecture
-
-- `index.html`: application shell and navigation
-- `styles.css`: responsive editorial design
-- `demo.js`: bundled original demo in the lesson schema
-- `app.js`: library, reader, local import/export and browser-local persistence
-
-Public editorial content and personal imports are separate. Do not commit unlicensed source materials or private learner data. No deployment, domain, scheduled jobs or existing English Notes / Learning OS changes are implied by this repository.
+- `src/content/lessons/`: source of truth for public content
+- `src/content.config.ts`: validation
+- `src/pages/read/[id].astro`: reusable static reader
+- `src/pages/index.astro`: search/category library
+- `src/pages/saved.astro`: public bookmarks
+- `src/pages/workspace.astro`: personal imports
+- `src/layouts/`, `src/components/`, `src/scripts/`: presentation and reading enhancements
+- `public/`: styles and pre-existing private reader
+- `AGENTS.md`: editorial / implementation contract

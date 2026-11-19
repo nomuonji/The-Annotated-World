@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import LessonCard from '../components/LessonCard.astro';
+import {publishedLessons} from '../lib/lessons';
+const lessons=await publishedLessons();
+const categories=[...new Set(lessons.map(l=>l.data.category))].sort();
+---
+<Base>
+<section class="intro"><div><p class="eyebrow">A LIBRARY BETWEEN LANGUAGES</p><h1>Read something<br/>worth reading<span>.</span></h1><p class="lead">知りたいことを知るために、英語を読む。<br/>原文、和訳、言葉の解説をひとつのページに。</p></div><div class="editorial-note"><span>THE READING ROOM</span><p>英語は目的ではなく、世界を知るための入口。</p><small>Philosophy / Literature / Society / Culture</small></div></section>
+<section><div class="shelf-heading"><h2>Library <span>公開教材 · {lessons.length}本</span></h2><div class="library-filters"><label>分野 <select id="category"><option value="">すべて</option>{categories.map(c=><option value={c}>{c}</option>)}</select></label><label>検索 <input type="search" id="search" placeholder="タイトル・著者・テーマ"/></label></div></div>
+<div id="shelf">{lessons.map(l=><LessonCard lesson={l}/>)}</div><p id="empty" hidden>該当する教材がありません。</p></section>
+<div class="import-hint"><h3>自分の読みたいものを持ち込む。</h3><p>対訳HTMLやJSON教材を端末内で読むことができます。</p><a href="/workspace/" class="action">個人教材を開く</a></div>
+</Base>
+<script>
+const search=document.querySelector<HTMLInputElement>('#search')!;
+const category=document.querySelector<HTMLSelectElement>('#category')!;
+const entries=[...document.querySelectorAll<HTMLElement>('[data-entry]')];
+function filter(){let count=0;for(const item of entries){item.hidden=!(item.dataset.search?.includes(search.value.trim().toLowerCase())&&(!category.value||item.dataset.category===category.value));if(!item.hidden)count++;}document.getElementById('empty')!.hidden=count!==0;}
+search.addEventListener('input',filter);category.addEventListener('change',filter);
+</script>

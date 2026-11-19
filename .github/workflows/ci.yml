@@ -1,0 +1,26 @@
+name: Validate and build
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+      - run: npm run check
+      - run: npm run build
+      - run: |
+          test -s dist/index.html
+          test -s dist/read/demo-reading-with-attention/index.html
+          test -s dist/workspace/index.html
+          test -s dist/saved/index.html
+          grep -q 'The Art of Paying Attention' dist/index.html
+          grep -q 'A familiar street can become almost invisible' dist/read/demo-reading-with-attention/index.html
