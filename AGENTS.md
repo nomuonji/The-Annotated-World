@@ -16,3 +16,5 @@ New source files belong in `src/content/documents/`; new supplemental annotation
 
 ## 派生発信コンテンツ
 思想・知識の解説動画やSNS企画を作る前に [docs/EDITORIAL-POLICY.md](docs/EDITORIAL-POLICY.md) を参照する。制作方針の検討版と試作は公開承認ではない。教材制作と派生発信を分離し、元動画の引用可否と取得・配信規約を個別確認する。
+
+プロトタイプ第2版の演出については [docs/prototypes/holiday-score-pilot-002.md](docs/prototypes/holiday-score-pilot-002.md) を参照。従来のスライド主体の映像はユーザーフィードバックで不採用。人物の行動・映像の反転・実際の画面上の変化を中心に制作し、元の動画を見ていない場合は未検証と明記する。
