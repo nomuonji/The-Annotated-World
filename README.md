@@ -1,27 +1,13 @@
 # The Annotated World
 
-Read the world, not just English. Astro-based bilingual reading library.
+Annotated source documents, not a generic English learning portal. The supplied initial HTML is the visual and structural reference: white paper, editorial typography, chapter table of contents, continuous text in English, Japanese translation, and language/context notes immediately below each utterance.
 
-## Development / deployment
+## Add a document
 
-Node 22.12+ (use current Node 22 LTS patch). `npm install`, `npm run dev`. Verify with `npm run check` and `npm run build`. Deploy `dist/` with build command `npm run build`; no server adapter, runtime API, database or secrets required. Root deployment assumed.
+Place **one complete annotated HTML file** in `src/content/documents/<lowercase-slug>.html`. Astro's content collection reads the HTML, automatically derives the title, author, duration, date, description, chapter/utterance counts and builds its own URL `/read/<slug>/`; the index updates automatically. No JSON conversion, layout or route changes are needed. The first document is `slavoj-zizek-signs-from-the-future.html`, an exact copy of the user-provided file. The public library starts with this one document.
 
-## Publishing more lessons
+Use `main.page`, `.hero` (h1, .hero-meta, .deck and .meta-strip), `.toc`, `section.sec`, `.sec-header h2`, and `.utterance` with `.speaker-line`, `.en`, `.ja`, `.note`, and a source footer. Include source links, mark uncertainties in transcripts, and preserve chapter order and inline typography. Optional `<meta name="aw:category" content="...">`. The reader extracts only the document body and uses the shared stylesheet derived from the original file, rather than running arbitrary imported styles or scripts. The loader rejects unexpected markup, unsafe attributes/links and missing bilingual blocks. Do not commit personal data, untrusted files or material you lack permission to publish. The initial upload was explicitly requested by the owner; transcript accuracy and redistribution rights are unverified and disclosed on its page. Do not label the text as verified without evidence.
 
-One JSON file per lesson in `src/content/lessons/`. Copy the original demo shape, choose stable unique ids for the lesson, chapters and utterances, and set title, author, category, description, tags, duration, publishedAt (YYYY-MM-DD), source, rights status/note and chapters. Each utterance has en, ja, note, keys, speaker, time. Schema: `src/content.config.ts`. All draft:false entries are indexed automatically on the home page and prerendered at `/read/<id>/`. Draft defaults to true. Build rejects invalid data, duplicate IDs within chapters and published duplicate lesson IDs or unverified rights. Check source and permission yourself; metadata is not a legal verification. Do not commit unlicensed full transcripts into a public repository, even as drafts. The original demo is a demonstration, not a lecture.
+## Development
 
-## Private imports
-
-`/workspace/` retains the original HTML/JSON importer, personal library, chapter reader, saved utterances, local progress, export/delete. Imported files never upload to a server. Include `.sec`, `.sec-header`, `.utterance`, `.speaker-line`, `.en`, `.ja`, `.note` in a supported HTML file. JSON export can be adapted into the public schema after rights clearance; add the required stable chapter/block IDs and editorial metadata. Public reading progress/bookmarks live in a separate browser localStorage namespace; original personal data stays in `annotated-world-v1`. Clearing browser data removes local records. No hosting or scheduled jobs currently configured by this migration.
-
-## Structure
-
-- `src/content/lessons/`: source of truth for public content
-- `src/content.config.ts`: validation
-- `src/pages/read/[id].astro`: reusable static reader
-- `src/pages/index.astro`: search/category library
-- `src/pages/saved.astro`: public bookmarks
-- `src/pages/workspace.astro`: personal imports
-- `src/layouts/`, `src/components/`, `src/scripts/`: presentation and reading enhancements
-- `public/`: styles and pre-existing private reader
-- `AGENTS.md`: editorial / implementation contract
+Node 22.12+, `npm install`, `npm run dev`. Run `npm run check`, `npm run build`, then `npm run verify:archive`. Deploy `dist/` to a static host (build command `npm run build`); no server, database or secrets required. Root deployment assumed. The legacy private importer remains separately accessible at `/workspace/` but is not part of the public archive navigation; its example is not a public archive entry.

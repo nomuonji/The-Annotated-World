@@ -6,13 +6,15 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "verify:archive": "node scripts/verify-archive.mjs"
   },
   "engines": {
     "node": ">=22.12.0"
   },
   "dependencies": {
-    "astro": "^6.0.0"
+    "astro": "^6.0.0",
+    "cheerio": "^1.1.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",

@@ -1,0 +1,303 @@
+
+/* Balanced · Humanities & Education · Headline-above-deck hero · 11-chapter interlinear flow · Newsreader + Plus Jakarta Sans + Noto Sans JP · Crisp Gallery White (#FFFFFF) · 0px radius · Emphasis: 86m full transcript · Signature: Interlinear EN/JP + Study Notes · No charts */
+:root {
+  --paper: #FFFFFF;
+  --ink: #111315;
+  --ink2: #2B3036;
+  --mute: #4B525A;
+  --hair: #D8DDE3;
+  --accent: #1E4D8C;
+  --accent-text: #163A6B;
+  --accent-2: #7C2D12;
+  --accent-2-text: #6B230C;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  padding: 68px clamp(24px, 10.4vw, 112px) 96px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.measure {
+  max-width: 72ch;
+}
+
+/* Header / Hero */
+.hero {
+  padding-bottom: 48px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.hero-meta {
+  font-size: 13px;
+  color: var(--mute);
+  margin: 0 0 16px;
+  letter-spacing: 0.01em;
+}
+
+h1 {
+  font-family: 'Newsreader', 'Noto Sans JP', serif;
+  font-weight: 500;
+  font-size: clamp(40px, 5.5vw, 72px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px;
+  text-wrap: balance;
+  color: var(--ink);
+}
+
+.deck {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink2);
+  margin: 0 0 28px;
+  max-width: 64ch;
+}
+
+.meta-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 20px 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hair);
+}
+
+.meta-item dt {
+  font-size: 12px;
+  color: var(--mute);
+  margin: 0 0 4px;
+}
+
+.meta-item dd {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+.meta-item dd a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* TOC / Chapter Navigation */
+.toc {
+  padding: 40px 0 48px;
+  border-bottom: 1px solid var(--hair);
+}
+
+.toc h2 {
+  font-family: 'Newsreader', 'Noto Sans JP', serif;
+  font-weight: 500;
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+
+.toc-lead {
+  color: var(--mute);
+  font-size: 15px;
+  margin: 0 0 24px;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 14px 36px;
+}
+
+.toc-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--hair);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.toc-list a {
+  color: var(--ink);
+  text-decoration: none;
+  display: block;
+}
+
+.toc-list a:hover {
+  color: var(--accent-text);
+}
+
+.toc-time {
+  font-size: 12px;
+  color: var(--accent-text);
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+/* Chapters */
+.sec {
+  padding: 64px 0 48px;
+  border-bottom: 1px solid var(--hair);
+}
+
+.sec-header {
+  margin-bottom: 36px;
+}
+
+.sec-time {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-text);
+  margin: 0 0 8px;
+}
+
+.sec h2 {
+  font-family: 'Newsreader', 'Noto Sans JP', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+
+.sec-sub {
+  font-size: 16px;
+  color: var(--mute);
+  margin: 0;
+}
+
+/* Interlinear Study Blocks */
+.utterance {
+  margin: 0 0 34px;
+  max-width: 74ch;
+}
+
+.speaker-line {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mute);
+  margin: 0 0 6px;
+}
+
+.speaker-host {
+  color: var(--accent-2-text);
+}
+
+.speaker-zizek {
+  color: var(--accent-text);
+}
+
+.en {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.68;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+
+.en strong.key {
+  font-weight: 600;
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-decoration-color: var(--hair);
+  text-underline-offset: 3px;
+}
+
+.ja {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink2);
+  margin: 0 0 12px;
+  padding-left: 16px;
+  border-left: 2px solid var(--hair);
+}
+
+.note {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink2);
+  margin: 10px 0 0;
+  padding-left: 16px;
+  border-left: 3px solid var(--accent);
+}
+
+.note-label {
+  font-weight: 700;
+  color: var(--accent-text);
+  margin-right: 6px;
+}
+
+/* Sources Footer */
+.sources {
+  padding-top: 56px;
+}
+
+.sources h2 {
+  font-family: 'Newsreader', 'Noto Sans JP', serif;
+  font-weight: 500;
+  font-size: 28px;
+  margin: 0 0 16px;
+}
+
+.sources ol {
+  padding-left: 20px;
+  margin: 0;
+  color: var(--ink2);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.sources a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .en { font-size: 17.5px; }
+  .ja { font-size: 14.5px; }
+}
+
+/* Archive chrome only; the document typography above is taken from the supplied HTML. */
+.site-bar{max-width:1280px;margin:0 auto;padding:18px clamp(24px,10.4vw,112px);display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--hair)}
+.site-title{font:500 22px 'Newsreader',Georgia,serif;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+.archive-link,.read-link,.publication-note a{color:var(--accent-text);font-size:14px;text-underline-offset:4px}
+.archive-link{text-decoration:none;white-space:nowrap}.archive-link:hover,.site-title:hover{text-decoration:underline;text-underline-offset:4px}
+.skip-link:not(:focus){position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
+.skip-link:focus{position:fixed;left:16px;top:8px;background:white;z-index:10;padding:8px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.archive-head{padding-bottom:40px;border-bottom:2px solid var(--ink)}
+.archive-head h1{margin-bottom:16px}.archive-head .deck{margin:0}
+.archive-list{padding-top:40px}
+.archive-list-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:18px}
+.archive-list-head h2{font:500 28px 'Newsreader',Georgia,serif;margin:0}
+.archive-list-head h2 span{font:400 13px 'Noto Sans JP',sans-serif;color:var(--mute);margin-left:12px}
+.archive-list-head label{font-size:13px;color:var(--mute)}.archive-list-head input{border:1px solid var(--hair);background:white;padding:8px;font:inherit;margin-left:8px;max-width:100%}
+.document-entry{padding:28px 0 32px;border-top:1px solid var(--hair);max-width:78ch}
+.document-entry h3{font:500 clamp(28px,4.2vw,40px)/1.2 'Newsreader','Noto Sans JP',serif;margin:0 0 12px;letter-spacing:-.015em}
+.document-entry h3 a{color:var(--ink);text-decoration:none}.document-entry h3 a:hover{color:var(--accent-text)}
+.document-author,.document-facts{font-size:14px;color:var(--mute);margin:0 0 12px}.document-deck{font-size:15px;margin:0 0 16px;color:var(--ink2)}
+.read-link{display:inline-block;font-weight:600}.publication-note{margin-top:36px;padding-top:20px;border-top:1px solid var(--hair);color:var(--mute);font-size:13px}
+[hidden]{display:none!important}
+@media(max-width:640px){.page{padding-top:36px;padding-bottom:64px}.site-title{font-size:19px}.toc-list{grid-template-columns:minmax(0,1fr)}.sec{padding-top:44px}.archive-list-head{align-items:flex-start;flex-direction:column}.archive-list-head input{margin-left:0}.en,.ja,.note,.sec h2,.document-entry h3{overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

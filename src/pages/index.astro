@@ -1,20 +1,28 @@
 ---
-import Base from '../layouts/Base.astro';
-import LessonCard from '../components/LessonCard.astro';
-import {publishedLessons} from '../lib/lessons';
-const lessons=await publishedLessons();
-const categories=[...new Set(lessons.map(l=>l.data.category))].sort();
+import Archive from '../layouts/Archive.astro';
+import {getCollection} from 'astro:content';
+const documents=(await getCollection('documents')).sort((a,b)=>b.data.date.localeCompare(a.data.date)||a.id.localeCompare(b.id));
 ---
-<Base>
-<section class="intro"><div><p class="eyebrow">A LIBRARY BETWEEN LANGUAGES</p><h1>Read something<br/>worth reading<span>.</span></h1><p class="lead">知りたいことを知るために、英語を読む。<br/>原文、和訳、言葉の解説をひとつのページに。</p></div><div class="editorial-note"><span>THE READING ROOM</span><p>英語は目的ではなく、世界を知るための入口。</p><small>Philosophy / Literature / Society / Culture</small></div></section>
-<section><div class="shelf-heading"><h2>Library <span>公開教材 · {lessons.length}本</span></h2><div class="library-filters"><label>分野 <select id="category"><option value="">すべて</option>{categories.map(c=><option value={c}>{c}</option>)}</select></label><label>検索 <input type="search" id="search" placeholder="タイトル・著者・テーマ"/></label></div></div>
-<div id="shelf">{lessons.map(l=><LessonCard lesson={l}/>)}</div><p id="empty" hidden>該当する教材がありません。</p></section>
-<div class="import-hint"><h3>自分の読みたいものを持ち込む。</h3><p>対訳HTMLやJSON教材を端末内で読むことができます。</p><a href="/workspace/" class="action">個人教材を開く</a></div>
-</Base>
+<Archive>
+<header class="archive-head">
+ <p class="hero-meta">原文・対訳・注釈</p>
+ <h1>The Annotated World</h1>
+ <p class="deck">講演、対談、読み物を、英文と日本語訳、言葉と背景の注釈を添えて読むためのアーカイブ。</p>
+</header>
+<section aria-labelledby="archive-heading" class="archive-list">
+ <div class="archive-list-head"><h2 id="archive-heading">Documents <span>全{documents.length}件</span></h2>{documents.length>1&&<label for="find">資料を検索 <input type="search" id="find" placeholder="タイトル・話者"/></label>}</div>
+ {documents.map(({id,data:d})=><article class="document-entry" data-document data-search={[d.title,d.author,d.description,d.category].join(' ').toLowerCase()}>
+  <p class="hero-meta">{d.meta||d.category}</p>
+  <h3><a href={'/read/'+id+'/'}>{d.title}</a></h3>
+  <p class="document-author">{d.author}</p>
+  <p class="document-deck">{d.description}</p>
+  <p class="document-facts">{d.duration||d.chapterCount+'章'} · {d.utteranceCount}発話ブロック</p>
+  <a class="read-link" href={'/read/'+id+'/'}>対訳全文を読む →</a>
+ </article>)}
+ <p id="no-documents" hidden>該当する資料がありません。</p>
+</section>
+</Archive>
 <script>
-const search=document.querySelector<HTMLInputElement>('#search')!;
-const category=document.querySelector<HTMLSelectElement>('#category')!;
-const entries=[...document.querySelectorAll<HTMLElement>('[data-entry]')];
-function filter(){let count=0;for(const item of entries){item.hidden=!(item.dataset.search?.includes(search.value.trim().toLowerCase())&&(!category.value||item.dataset.category===category.value));if(!item.hidden)count++;}document.getElementById('empty')!.hidden=count!==0;}
-search.addEventListener('input',filter);category.addEventListener('change',filter);
+const search=document.querySelector<HTMLInputElement>('#find');
+if(search)search.addEventListener('input',()=>{let count=0;for(const item of document.querySelectorAll<HTMLElement>('[data-document]')){item.hidden=!item.dataset.search?.includes(search.value.trim().toLowerCase());if(!item.hidden)count++;}document.getElementById('no-documents')!.hidden=count!==0;});
 </script>
