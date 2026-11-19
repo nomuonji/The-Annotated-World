@@ -7,7 +7,9 @@ import ChapterList from '../components/ChapterList.astro';
 import TopicLinks from '../components/TopicLinks.astro';
 import PeopleLinks from '../components/PeopleLinks.astro';
 import {documents,topics,people} from '../lib/discovery';
+import {buildLexicon,conceptUrl,documentCount} from '../lib/lexicon';
 const ds=await documents();
+const {terms,concepts}=buildLexicon(ds);
 const featured=ds[0];
 const ts=topics(ds),ps=people(ds);
 const chapters=ds.flatMap(d=>d.data.chapterIndex.map(c=>({d,c})));
@@ -21,4 +23,5 @@ const picks=chapters.filter(({c})=>c.topics.length>0).sort((a,b)=>b.c.topics.len
  {ts.length>0&&<section class="browse-section"><div class="section-heading"><h2>Topics <small>テーマで横断する</small></h2><a href="/topics/">すべてのテーマ →</a></div><TopicLinks items={ts.slice(0,18)}/></section>}
  {ds.length>1&&<section class="browse-section"><div class="section-heading"><h2>Latest <small>新着資料</small></h2><a href="/library/">もっと見る →</a></div><div class="document-grid">{ds.slice(1,13).map(d=><DocumentCard doc={d}/>)}</div></section>}
  {ps.length>0&&<section class="browse-section"><div class="section-heading"><h2>People <small>話者・著者</small></h2><a href="/people/">人物一覧 →</a></div><PeopleLinks items={ps.slice(0,12)}/></section>}
-</Archive>
+<section class="browse-section"><div class="section-heading"><h2>Words &amp; phrases <small>教材から語彙を発見</small></h2><a href="/words/">全{terms.length}表現 →</a></div><div class="word-grid">{[...terms].sort((a,b)=>b.occurrences.length-a.occurrences.length||a.label.localeCompare(b.label)).slice(0,8).map(t=><a class="word-card" href={'/words/'+t.id+'/'}><strong lang="en">{t.label}</strong><small>{t.occurrences.length}発話</small></a>)}</div></section>
+<section class="browse-section"><div class="section-heading"><h2>Knowledge index <small>人物・作品・概念</small></h2><a href="/concepts/">全{concepts.length}項目 →</a></div><div class="word-grid">{concepts.slice(0,8).map(c=><a class="word-card" href={conceptUrl(c.id)}><strong>{c.name}</strong><span>{c.ja}</span><small>{c.kind} · {documentCount(c.occurrences)}資料</small></a>)}</div></section></Archive>

@@ -1,0 +1,14 @@
+---
+import Archive from '../../layouts/Archive.astro';
+import OccurrenceList from '../../components/OccurrenceList.astro';
+import {documents,topics,topicUrl} from '../../lib/discovery';
+import {buildLexicon,conceptUrl,containsPhrase,documentCount} from '../../lib/lexicon';
+export async function getStaticPaths(){const ds=await documents(),{concepts,terms}=buildLexicon(ds),ts=topics(ds);return concepts.map(c=>({params:{id:c.id},props:{concept:c,words:terms.filter(t=>c.aliases.some(a=>containsPhrase(t.label,a))),related:concepts.filter(x=>x.id!==c.id&&x.occurrences.some(o=>c.occurrences.some(y=>y.documentId===o.documentId&&y.anchor===o.anchor))),topics:ts.filter(t=>c.topics.includes(t.id)||c.occurrences.some(o=>o.topics.includes(t.id)))}}));}
+const {concept:c,words,related,topics:ts}=Astro.props;
+---
+<Archive title={c.name+' — 知識索引'} wide><header class="browse-header"><p class="eyebrow"><a href="/concepts/">知識索引</a> / {c.kind}</p><h1>{c.name}</h1><p>{c.ja} · {documentCount(c.occurrences)}資料 · {c.occurrences.length}発話</p><p>本文中の登録語に基づく索引。人物・作品の詳細や発言内容の真偽を検証した事典ではありません。</p></header>
+<section class="browse-section"><div class="section-heading"><h2>In context <small>教材で登場する箇所</small></h2></div><OccurrenceList items={c.occurrences} needle={c.name} aliases={c.aliases}/></section>
+{words.length>0&&<section class="browse-section"><div class="section-heading"><h2>Words <small>語彙・表現</small></h2></div><div class="tag-row">{words.map(t=><a class="topic-tag" href={'/words/'+t.id+'/'}>{t.label}</a>)}</div></section>}
+{related.length>0&&<section class="browse-section"><div class="section-heading"><h2>Connections <small>同じ発話に登場する項目</small></h2></div><div class="tag-row">{related.map(x=><a class="topic-tag" href={conceptUrl(x.id)}>{x.ja}</a>)}</div></section>}
+{ts.length>0&&<section class="browse-section"><div class="section-heading"><h2>Topics <small>関連テーマ</small></h2></div><div class="tag-row">{ts.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></section>}
+</Archive>

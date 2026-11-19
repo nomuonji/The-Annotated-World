@@ -1,0 +1,159 @@
+[
+  {
+    "id": "jacques-lacan",
+    "name": "Jacques Lacan",
+    "ja": "ジャック・ラカン",
+    "kind": "人物",
+    "aliases": [
+      "Lacan"
+    ],
+    "topics": [
+      "psychoanalysis"
+    ]
+  },
+  {
+    "id": "antonio-gramsci",
+    "name": "Antonio Gramsci",
+    "ja": "アントニオ・グラムシ",
+    "kind": "人物",
+    "aliases": [
+      "Gramsci"
+    ],
+    "topics": [
+      "hegemony",
+      "ideology"
+    ]
+  },
+  {
+    "id": "hegel",
+    "name": "G. W. F. Hegel",
+    "ja": "ヘーゲル",
+    "kind": "人物",
+    "aliases": [
+      "Hegel"
+    ],
+    "topics": [
+      "philosophy",
+      "ideology"
+    ]
+  },
+  {
+    "id": "immanuel-kant",
+    "name": "Immanuel Kant",
+    "ja": "イマヌエル・カント",
+    "kind": "人物",
+    "aliases": [
+      "Kant"
+    ],
+    "topics": [
+      "ethics"
+    ]
+  },
+  {
+    "id": "karl-marx",
+    "name": "Karl Marx",
+    "ja": "カール・マルクス",
+    "kind": "人物",
+    "aliases": [
+      "Marx"
+    ],
+    "topics": [
+      "marx"
+    ]
+  },
+  {
+    "id": "digger",
+    "name": "Digger",
+    "ja": "映画『Digger』",
+    "kind": "映画",
+    "aliases": [
+      "Digger"
+    ],
+    "topics": [
+      "film"
+    ]
+  },
+  {
+    "id": "pluribus",
+    "name": "Pluribus",
+    "ja": "ドラマ『Pluribus』",
+    "kind": "ドラマ",
+    "aliases": [
+      "Pluribus"
+    ],
+    "topics": [
+      "television"
+    ]
+  },
+  {
+    "id": "signs-from-the-future",
+    "name": "Signs from the Future",
+    "ja": "『Signs from the Future』",
+    "kind": "書籍",
+    "aliases": [
+      "Signs from the Future"
+    ],
+    "topics": []
+  },
+  {
+    "id": "hegemony",
+    "name": "Hegemony",
+    "ja": "ヘゲモニー",
+    "kind": "概念",
+    "aliases": [
+      "hegemony"
+    ],
+    "topics": [
+      "hegemony",
+      "ideology"
+    ]
+  },
+  {
+    "id": "surplus-enjoyment",
+    "name": "Surplus enjoyment",
+    "ja": "余剰享楽",
+    "kind": "概念",
+    "aliases": [
+      "surplus enjoyment"
+    ],
+    "topics": [
+      "psychoanalysis"
+    ]
+  },
+  {
+    "id": "fetish",
+    "name": "Fetish",
+    "ja": "フェティッシュ",
+    "kind": "概念",
+    "aliases": [
+      "fetish"
+    ],
+    "topics": [
+      "psychoanalysis"
+    ]
+  },
+  {
+    "id": "repressive-desublimation",
+    "name": "Repressive desublimation",
+    "ja": "抑圧的脱昇華",
+    "kind": "概念",
+    "aliases": [
+      "repressive desublimation"
+    ],
+    "topics": [
+      "psychoanalysis"
+    ]
+  },
+  {
+    "id": "categorical-imperative",
+    "name": "Categorical imperative",
+    "ja": "定言命法",
+    "kind": "概念",
+    "aliases": [
+      "categorical imperative"
+    ],
+    "topics": [
+      "ethics"
+    ]
+  }
+]

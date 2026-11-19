@@ -1,0 +1,6 @@
+---
+import {occurrenceUrl,snippet,type Occurrence} from '../lib/lexicon';
+interface Props{items:Occurrence[];needle:string;aliases?:string[]}
+const {items,needle,aliases=[]}=Astro.props;
+---
+<div class="occurrences">{items.map(o=><article class="occurrence"><div class="occurrence-meta"><a href={occurrenceUrl(o)}>{o.documentTitle}</a><span>{o.time}</span></div><h3><a href={occurrenceUrl(o)}>{o.chapterTitle} →</a></h3><p class="occurrence-en" lang="en">{snippet(o.en,aliases.find(a=>o.en.toLowerCase().includes(a.toLowerCase()))||needle)}</p>{o.termNote&&<p class="occurrence-note">{o.termNote}</p>}<details><summary>発話全体・対訳・注釈</summary><p class="occurrence-en" lang="en">{o.en}</p><p class="occurrence-ja">{o.ja}</p><p class="occurrence-note">{o.note}</p></details></article>)}</div>

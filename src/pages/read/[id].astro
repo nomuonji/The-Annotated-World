@@ -2,6 +2,9 @@
 import Archive from '../../layouts/Archive.astro';
 import SourceVideo from '../../components/SourceVideo.astro';
 import StudyToolbar from '../../components/StudyToolbar.astro';
+import ReaderTools from '../../components/ReaderTools.astro';
+import {termUrl,findTerms,noteFor,matchingConcepts,conceptUrl} from '../../lib/lexicon';
+import {annotationsFor} from '../../lib/annotations';
 import DocumentCard from '../../components/DocumentCard.astro';
 import {getCollection,type CollectionEntry} from 'astro:content';
 import {load} from 'cheerio';
@@ -40,6 +43,22 @@ for(const c of d.chapterIndex){
   }
   bar.append($('<button>').attr({'type':'button','data-reveal':'','aria-expanded':'false','hidden':''}).text('和訳・注釈を見る'));
   block.find('.speaker-line').first().after(bar);
+  const en=block.find('.en').first(),ja=block.find('.ja').first(),note=block.find('.note').first();
+  const terms=findTerms(en.text(),en.find('strong.key').toArray().map(e=>$(e).text()),note.find('strong').toArray().map(e=>$(e).text()));
+  const linkWord=(term:string)=>$('<a>').addClass('word-link').attr({'href':termUrl(term),'data-word':term,'data-word-note':noteFor($,note,term)||note.text().replace(/^ポイント\s*/,'').trim()}).text(term);
+  const used=new Set<string>();
+  for(const el of en.find('strong.key').toArray()){const node=$(el),term=node.text().trim();if(!term||node.find('a').length)continue;const original=node.html()||'';node.empty().append(linkWord(term).html(original));used.add(term);}
+  const extra=$('<div>').addClass('reader-term-links');
+  for(const term of terms.filter(t=>!used.has(t)))extra.append(linkWord(term).addClass('extra-word'));
+  for(const c of matchingConcepts(en.text()))extra.append($('<a>').addClass('concept-link').attr('href',conceptUrl(c.id)).text(c.ja));
+  if(extra.children().length)block.append(extra);
+  for(const a of annotationsFor(doc.id,anchor,en.text(),ja.text())){
+   const detail=$('<details>').addClass('editorial-annotation');
+   detail.append($('<summary>').text(a.kind==='syntax'?'構文を読み解く':a.kind==='sound'?'聞き取りのヒント（一般的な音の変化）':'英文と和訳を照合'));
+   const example=$('<p>').addClass('annotation-quote').attr('lang','en');
+   if(a.parts){for(const p of a.parts)example.append($('<span>').addClass('syntax-part').append($('<span>').text(p.text),$('<small>').text(p.role)));}else example.text(a.quote);
+   detail.append(example);if(a.translation)detail.append($('<p>').text(a.translation));detail.append($('<p>').text(a.explanation));block.append(detail);
+  }
  });
 }
 const body=$.root().html()||'';
@@ -50,11 +69,11 @@ const body=$.root().html()||'';
  <div class="reader-crosslinks"><div class="reader-person">{d.people.map(p=><a href={personUrl(p.id)}>{p.name}の資料 →</a>)}</div><div class="tag-row">{ts.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></div>
  <div class:list={["study-layout",{"has-video":!!d.videoId}]} data-study-reader>
   {d.videoId&&<aside class="study-sidebar" aria-label="動画・再生操作"><SourceVideo doc={doc}/></aside>}
-  <div class="study-text"><StudyToolbar doc={doc}/><div class="study-original"><Fragment set:html={body}/></div></div>
+  <div class="study-text"><StudyToolbar doc={doc}/><ReaderTools/><div class="study-original"><Fragment set:html={body}/></div></div>
  </div>
  <div class="publication-note"><p>提供された対訳資料の本文・注釈・章構成を保持しています。原典との照合および転載許諾の確認状況は未確認です。</p></div>
  {recommendations.length>0&&<section class="browse-section"><div class="section-heading"><h2>Read next <small>関連する資料</small></h2></div><div class="document-grid">{recommendations.map(r=><DocumentCard doc={r.d} reason={r.reason}/>)}</div></section>}
  <section class="browse-section"><div class="section-heading"><h2>Explore further <small>テーマから次の発見へ</small></h2><a href="/topics/">全テーマ →</a></div><div class="tag-row">{ts.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></section>
  <a href="/library/" class="read-link">← 全資料へ</a>
 </Archive>
-<script>import "../../scripts/study-reader";</script>
+<script>import "../../scripts/study-reader";import "../../scripts/reader-tools";</script>
