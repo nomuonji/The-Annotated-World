@@ -1,0 +1,182 @@
+[
+  {
+    "id": 0,
+    "en": "We acted too much. That's Žižek's answer to Marx.",
+    "ja": "「私たちは行動しすぎた」。これがジジェクの答えです。",
+    "asset": "zizek",
+    "hi_en": "We acted too much",
+    "hi_ja": "行動しすぎた",
+    "group": "claim"
+  },
+  {
+    "id": 1,
+    "en": "Marx said philosophers had only interpreted the world. The point was to change it.",
+    "ja": "マルクスは、哲学者は世界を解釈してきたが、肝心なのは変えることだと言った。",
+    "asset": "marx",
+    "hi_en": "change it",
+    "hi_ja": "変えること",
+    "group": "claim"
+  },
+  {
+    "id": 2,
+    "en": "Now, Žižek calls his own reading problematic. He knows it's provocative.",
+    "ja": "ジジェク自身、この解釈は問題含みだと断っています。挑発だと分かっている。",
+    "asset": "zizek",
+    "hi_en": "problematic",
+    "hi_ja": "問題含み",
+    "group": "nuance"
+  },
+  {
+    "id": 3,
+    "en": "The twentieth century wasn't short on action. Quite the opposite.",
+    "ja": "20世紀は、行動が足りなかった時代ではない。むしろ逆です。",
+    "asset": "ww1",
+    "hi_en": "",
+    "hi_ja": "",
+    "group": ""
+  },
+  {
+    "id": 4,
+    "en": "The consequences, he says, were shocking.",
+    "ja": "その結果は、彼の言葉では衝撃的だった。",
+    "asset": "ww1",
+    "hi_en": "shocking",
+    "hi_ja": "衝撃的",
+    "group": "claim"
+  },
+  {
+    "id": 5,
+    "en": "He even jokes that Hegel would have had a permanent intellectual orgasm analyzing it.",
+    "ja": "しかもヘーゲルなら、分析しながら知的な絶頂が止まらなかっただろう、と冗談を言う。",
+    "asset": "hegel",
+    "hi_en": "intellectual orgasm",
+    "hi_ja": "知的な絶頂",
+    "group": "nuance"
+  },
+  {
+    "id": 6,
+    "en": "Take the Great War. How did an era of gradual progress erupt into World War One?",
+    "ja": "第一次世界大戦。漸進的な進歩の時代が、なぜ大戦へと爆発したのか。",
+    "asset": "ww1",
+    "hi_en": "erupt",
+    "hi_ja": "爆発した",
+    "group": "claim"
+  },
+  {
+    "id": 7,
+    "en": "Or the October Revolution. Žižek insists it was authentic at the beginning.",
+    "ja": "十月革命については、出発点は真正な出来事だったと彼は評価します。",
+    "asset": "lenin",
+    "hi_en": "authentic",
+    "hi_ja": "真正な",
+    "group": "nuance"
+  },
+  {
+    "id": 8,
+    "en": "And then, just ten years later, you get Stalin. Why?",
+    "ja": "それがわずか十年ほどでスターリンへ。なぜ？",
+    "asset": "stalin",
+    "hi_en": "",
+    "hi_ja": "",
+    "group": ""
+  },
+  {
+    "id": 9,
+    "en": "Now Hegel enters the picture. And Žižek admits he doesn't always agree with him.",
+    "ja": "ここでヘーゲルが登場する。ただしジジェクは全面的に賛成しているわけではない。",
+    "asset": "hegel",
+    "hi_en": "doesn't always agree",
+    "hi_ja": "全面的に賛成しているわけではない",
+    "group": "nuance"
+  },
+  {
+    "id": 10,
+    "en": "Think of the French Revolution. Freedom—and then revolutionary terror.",
+    "ja": "フランス革命。自由を求めた運動が、恐怖政治へと反転する。",
+    "asset": "terror",
+    "hi_en": "revolutionary terror",
+    "hi_ja": "恐怖政治",
+    "group": "claim"
+  },
+  {
+    "id": 11,
+    "en": "The question is not just what we hope to achieve. It's how things can reverse.",
+    "ja": "問いは何を実現したいかだけじゃない。どう逆転しうるかです。",
+    "asset": "hegel",
+    "hi_en": "reverse",
+    "hi_ja": "逆転",
+    "group": "claim"
+  },
+  {
+    "id": 12,
+    "en": "How could things go wrong? That's Žižek's question for philosophy.",
+    "ja": "「どう裏目に出るのか」。これがジジェクの言う哲学の問いです。",
+    "asset": "zizek",
+    "hi_en": "How could things go wrong",
+    "hi_ja": "どう裏目に出るのか",
+    "group": "question"
+  },
+  {
+    "id": 13,
+    "en": "And no, he doesn't limit this to revolutions. He asks the same of A I.",
+    "ja": "これは革命の話だけじゃありません。AIにも同じ問いを向けます。",
+    "asset": "robot",
+    "hi_en": "",
+    "hi_ja": "",
+    "group": ""
+  },
+  {
+    "id": 14,
+    "en": "The optimists say robots could do everything for us. Wonderful, perhaps.",
+    "ja": "楽観論では、ロボットが何でもやってくれる。それは素晴らしいかもしれない。",
+    "asset": "robot",
+    "hi_en": "optimists",
+    "hi_ja": "楽観論",
+    "group": "nuance"
+  },
+  {
+    "id": 15,
+    "en": "But what are the actual consequences?",
+    "ja": "でも、実際の帰結はどうなる？",
+    "asset": "robot",
+    "hi_en": "actual consequences",
+    "hi_ja": "実際の帰結",
+    "group": "question"
+  },
+  {
+    "id": 16,
+    "en": "How might A I compel us to redefine what it means to be human?",
+    "ja": "AIによって「人間であること」をどう再定義させられるのか。",
+    "asset": "robot",
+    "hi_en": "redefine",
+    "hi_ja": "再定義",
+    "group": "claim"
+  },
+  {
+    "id": 17,
+    "en": "So Žižek reverses Marx's famous thesis.",
+    "ja": "そこでジジェクは、マルクスの有名なテーゼを逆転させる。",
+    "asset": "marx",
+    "hi_en": "reverses",
+    "hi_ja": "逆転",
+    "group": "claim"
+  },
+  {
+    "id": 18,
+    "en": "The time has come to interpret it again.",
+    "ja": "「今こそ世界を、もう一度解釈し直す時だ」。",
+    "asset": "zizek",
+    "hi_en": "interpret it again",
+    "hi_ja": "もう一度解釈し直す",
+    "group": "claim"
+  },
+  {
+    "id": 19,
+    "en": "Not an easy slogan against action. A demand to understand history's twists.",
+    "ja": "単純な反行動論ではない。歴史のねじれを理解せよ、という要求です。",
+    "asset": "zizek",
+    "hi_en": "history's twists",
+    "hi_ja": "歴史のねじれ",
+    "group": "claim"
+  }
+]
