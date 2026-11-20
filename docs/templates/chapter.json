@@ -1,0 +1,34 @@
+{
+  "id": "ch1",
+  "title": "1. REPLACE: chapter title",
+  "timeRange": "00:00:00 – 00:05:00",
+  "summary": "REPLACE: chapter argument and context",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "replace-topic",
+      "name": "REPLACE"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch1-line-1",
+      "speaker": {
+        "name": "REPLACE",
+        "className": "speaker-zizek"
+      },
+      "time": "00:00:00",
+      "english": "I want to <strong class=\"key\">challenge the assumption</strong> behind this argument.",
+      "japanese": "私はこの議論の背後にある前提に異議を唱えたい。",
+      "annotations": [
+        {
+          "id": "ch1-line-1-note-1",
+          "phrase": "challenge the assumption",
+          "explanation": "前提そのものを疑い、異議を唱える表現。"
+        }
+      ]
+    }
+  ]
+}
