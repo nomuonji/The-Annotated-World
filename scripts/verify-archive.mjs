@@ -74,11 +74,14 @@ console.log('Discovery routes, video source and internal links verified: '+pages
 
 const catalog=JSON.parse(await readFile('dist/catalog.json','utf8'));
 assert.equal(catalog.documents.length,entries.length);
+assert.ok(!catalog.documents.some(d=>d.id==='slavoj-zizek-how-to-become-free'),'Withdrawn article remains in catalog');
+assert.ok(!byPath.has('/read/slavoj-zizek-how-to-become-free/'),'Withdrawn page was still built');
+assert.equal([...byPath.values()].some($=>$('a[href*="slavoj-zizek-how-to-become-free"]').length>0),false,'Other pages still link to withdrawn article');
 const firstDoc=catalog.documents.find(d=>d.id==='slavoj-zizek-signs-from-the-future');assert.equal(firstDoc.chapters.length,11);assert.equal(firstDoc.provenance.rights,'unverified');
 assert.equal(sample('.chapter-end-nav').length,0,'Normal article must not contain legacy chapter-end navigation');
 assert.equal(sample('.chapter-trail').length,11,'Chapter-only trails must exist for all chapters');
 assert.ok(sample('section#ch1 .chapter-trail a[href="/read/slavoj-zizek-signs-from-the-future/?chapter=ch2"]').length);
-assert.ok(sample('section#ch2 .chapter-trail a[href^="/read/slavoj-zizek-how-to-become-free/?chapter="]').length,
- 'Related chapter navigation should cross document boundaries');
+assert.ok(sample('section#ch2 .chapter-trail a[href="/read/slavoj-zizek-signs-from-the-future/?chapter=ch3"]').length,
+ 'Chapter mode must keep next-chapter navigation when a related article was withdrawn');
 assert.ok(sample('.provenance-grid').length);
 assert.ok(catalog.documents.every(d=>!('bodyHtml' in d)));
