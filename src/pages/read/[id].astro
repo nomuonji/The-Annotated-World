@@ -87,63 +87,74 @@ for(const c of d.chapterIndex){
    const text=remainder.text().trim();
    if(text)annotations.push({label:'',explanation:text,id:anchor+'-note-1',kind:'context'});
   }
-  // One interaction model for every real editorial note:
-  // underlined source phrase -> tap to reveal its single, local explanation.
-  // Unannotated emphasized words remain ordinary text, never dead-end links.
+
+  // Every editorial note is visible with 注釈 ON and is injected directly
+  // alongside its source English.  Group overlapping ranges so language and
+  // historical/context explanations never create competing or dead-end taps.
   const sourceEnglish=en.text().toLocaleLowerCase();
-  const contextNotes=$('<div>').addClass('reader-context-notes');
-  for(const [index,item] of annotations.entries()){
+  type InlineNote={id:string;kind:'language'|'context';text:string};
+  type NoteGroup={start:number;end:number;notes:InlineNote[]};
+  const ranges:NoteGroup[]=[];
+  for(const item of annotations){
    if(!item.explanation)continue;
-   const label=item.label;
    const candidates=[
-    label.replace(/（[^）]*）/gu,'').trim(),
-    label.replace(/\s+\([^)]*\)\s*$/u,'').trim(),
-    label.replace(/\[[^\]]+\]/gu,'').trim(),
-    label.split(/\s+\/\s+/u)[0].trim(),
-    label.replace(/\s+[A-Z]$/u,'').trim(),
-    label.trim()
+    item.label.replace(/（[^）]*）/gu,'').trim(),
+    item.label.replace(/\s+\([^)]*\)\s*$/u,'').trim(),
+    item.label.replace(/\[[^\]]+\]/gu,'').trim(),
+    item.label.split(/\s+\/\s+/u)[0].trim(),
+    item.label.replace(/\s+[A-Z]$/u,'').trim(),
+    item.label.trim()
    ].flatMap(value=>[value,value.replace(/^steal the show$/i,'stole the show'),value.replace(/^stick out$/i,'sticking out')]);
    const phrase=candidates.find(value=>value.length>=4&&sourceEnglish.includes(value.toLocaleLowerCase()));
-   const noteId=anchor+'-gloss-'+(index+1);
-   const gloss=$(item.kind==='context'?'<div>':'<span>').addClass('in-situ-annotation').attr({
-    id:noteId,lang:'ja',role:'note','data-editorial-gloss':item.id,'data-note-kind':item.kind,hidden:''
-   });
-   const meaning=label.match(/（([^）]+)）$/u)?.[1];
-   const content=(meaning?meaning+'：':'')+item.explanation;
-   const explanation=phrase?content:(label?label+'：':'')+item.explanation;
-   if(item.kind==='context'){
-    gloss.append($('<strong>').addClass('annotation-note-heading').text('背景・論点'));
-    gloss.append($('<span>').text(explanation));
-    contextNotes.append(gloss);
-   }else gloss.text('〔'+explanation+'〕');
-   const mark=(value:string)=>$('<span>').addClass('annotation-term').attr({
-    role:'button',tabindex:'0','data-note-toggle':'','aria-controls':noteId,
-    'data-note-kind':item.kind,'aria-expanded':'false',
-    'aria-label':value+' の'+(item.kind==='context'?'背景解説':'語学注釈')+'を表示'
-   }).text(value);
-   let placed=false;
-   if(phrase){
-    for(const node of en.find('*').addBack().contents().toArray()){
-     if(node.type!=='text'||$(node).closest('.in-situ-annotation').length)continue;
-     const offset=node.data.toLocaleLowerCase().indexOf(phrase.toLocaleLowerCase());
-     if(offset<0)continue;
-     const fragment=$('<span>').addClass('annotation-fragment');
-     fragment.append($('<span>').text(node.data.slice(0,offset)));
-     fragment.append(mark(node.data.slice(offset,offset+phrase.length)));
-     if(item.kind==='language')fragment.append(gloss);
-     fragment.append($('<span>').text(node.data.slice(offset+phrase.length)));
-     $(node).replaceWith(fragment);
-     placed=true;break;
-    }
-   }
-   // Notes on editorial ideas rather than verbatim surface strings have a
-   // clearly labeled inline trigger, not a mismatched clickable English word.
-   if(!placed){
-    bar.append(mark(item.kind==='context'?'背景解説':'語学注釈').addClass('annotation-fallback'));
-    if(item.kind==='language')bar.append(gloss);
-   }
+   const start=phrase?sourceEnglish.indexOf(phrase.toLocaleLowerCase()):sourceEnglish.length;
+   const end=phrase?start+phrase.length:start;
+   const meaning=item.label.match(/（([^）]+)）$/u)?.[1];
+   const noteText=(meaning?meaning+'：':'')+
+    (phrase?item.explanation:(item.label?item.label+'：':'')+item.explanation);
+   ranges.push({start,end,notes:[{id:item.id,kind:item.kind,text:noteText}]});
   }
-  if(contextNotes.children().length)en.after(contextNotes);
+  ranges.sort((a,b)=>a.start-b.start||a.end-b.end);
+  const groups:NoteGroup[]=[];
+  for(const range of ranges){
+   const last=groups.at(-1);
+   if(last&&(range.start<last.end||(range.start===last.start&&range.start===last.end))){
+    last.end=Math.max(last.end,range.end);
+    last.notes.push(...range.notes);
+   }else groups.push({...range,notes:[...range.notes]});
+  }
+  // Process from the end so inserting a later gloss cannot shift any earlier
+  // source-text offsets. The source paragraph's original text stays intact.
+  for(const group of groups.reverse()){
+   const glosses=$('<span>').addClass('annotation-group');
+   if(group.notes.length>1)glosses.addClass('annotation-group-combined');
+   for(const item of group.notes.sort((a,b)=>Number(b.kind==='language')-Number(a.kind==='language'))){
+    const gloss=$('<span>').addClass('in-situ-annotation').attr({
+     lang:'ja',role:'note','data-editorial-gloss':item.id,'data-note-kind':item.kind
+    });
+    gloss.append($('<b>').addClass('annotation-kind').text(item.kind==='language'?'語学':'背景'));
+    gloss.append($('<span>').text(item.text));
+    glosses.append(gloss);
+   }
+   if(group.end===sourceEnglish.length){
+    en.append(' ',glosses);
+    continue;
+   }
+   let count=0,placed=false;
+   for(const node of en.find('*').addBack().contents().toArray()){
+    if(node.type!=='text'||$(node).parents('.annotation-group').length)continue;
+    const text=node.data,limit=count+text.length;
+    if(group.end>limit){count=limit;continue;}
+    const cut=Math.max(0,group.end-count);
+    const fragment=$('<span>').addClass('annotation-fragment');
+    if(cut)fragment.append($('<span>').text(text.slice(0,cut)));
+    fragment.append(glosses);
+    if(cut<text.length)fragment.append($('<span>').text(text.slice(cut)));
+    $(node).replaceWith(fragment);
+    placed=true;
+    break;
+   }
+   if(!placed)en.append(' ',glosses);
+  }
   if(annotations.length)note.addClass('annotation-converted');
  });
 }
@@ -193,7 +204,7 @@ const labels={coverage:{full:'全文（照合済みの範囲）',excerpt:'抜粋
  <div class="reader-crosslinks"><div class="reader-person">{d.people.map(p=><a href={personUrl(p.id)}>{p.name}の資料 →</a>)}</div><div class="tag-row">{ts.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></div>
  <div class:list={["study-layout",{"has-video":!!d.videoId}]} data-study-reader>
   {d.videoId&&<aside class="study-sidebar" aria-label="動画・再生操作"><SourceVideo doc={doc}/></aside>}
-  <div class="study-text"><StudyToolbar doc={doc}/>{hasAnnotations&&<p class="reader-annotation-legend" aria-label="注釈の種類"><span class="legend-language">語学</span><span class="legend-context">背景・論点</span><small>下線の語句をタップして解説</small></p>}<div class="chapter-mode-control" id="chapter-mode-control" hidden><button type="button" id="chapter-view-toggle" aria-pressed="false">章単位で読む</button><span class="chapter-mode-context" id="chapter-mode-context" hidden>出典：{d.title}</span></div><ReaderTools/><div class="study-original"><Fragment set:html={body}/></div></div>
+  <div class="study-text"><StudyToolbar doc={doc}/>{hasAnnotations&&<p class="reader-annotation-legend" aria-label="注釈の種類"><span class="legend-language">語学</span><span class="legend-context">背景・論点</span><small>注釈 ON で文中に表示</small></p>}<div class="chapter-mode-control" id="chapter-mode-control" hidden><button type="button" id="chapter-view-toggle" aria-pressed="false">章単位で読む</button><span class="chapter-mode-context" id="chapter-mode-context" hidden>出典：{d.title}</span></div><ReaderTools/><div class="study-original"><Fragment set:html={body}/></div></div>
   <aside id="mobile-translation-dock" class="mobile-translation-dock" aria-label="今読んでいる英文の日本語訳" hidden>
    <div class="mobile-translation-dock-head"><span>日本語訳 <small>スクロールに連動</small></span><button type="button" id="mobile-translation-unpin" aria-label="日本語訳の固定を解除して本文内に戻す">固定解除</button></div>
    <div id="mobile-translation-text" class="mobile-translation-dock-body" lang="ja"></div>
