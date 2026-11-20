@@ -23,7 +23,7 @@
  box-decoration-break:clone;-webkit-box-decoration-break:clone;
 }
 .study-original .note.annotation-converted{display:none!important}
-.reader-dark .study-original .en .in-situ-annotation{
+html[data-theme="dark"] .study-original .en .in-situ-annotation{
  background:#263746;color:#deebf7;border-color:#58738b;
 }
 @media(max-width:899px){
@@ -72,4 +72,60 @@
 @media(max-width:380px){
  .video-pinned .study-video .video-frame,
  .video-pinned .study-video .video-quick-controls{width:min(100%,220px);max-width:220px}
+}
+
+
+/* Reader annotations are on by default; hiding them restores the exact source English. */
+.study-layout[data-annotations="off"] .study-original .in-situ-annotation{display:none!important}
+.study-layout[data-annotations="off"] .study-original .annotation-term{text-decoration:none}
+.study-layout[data-annotations="off"] .study-original .note.annotation-converted{display:none!important}
+.chapter-mode-control{
+ display:flex;flex-wrap:wrap;align-items:center;gap:9px 14px;
+ margin:10px 0 8px;padding:8px 0;border-bottom:1px solid var(--hair);
+ font-size:12px;color:var(--mute);
+}
+.chapter-mode-control[hidden]{display:none!important}
+.chapter-mode-control button{
+ border:1px solid var(--hair);border-radius:4px;background:var(--paper);color:var(--accent-text);
+ font:600 12px/1.4 'Noto Sans JP',sans-serif;padding:9px 12px;min-height:39px;cursor:pointer;
+}
+.chapter-mode-control button[aria-pressed="true"]{background:var(--accent-text);color:var(--paper)}
+.chapter-mode-control a{color:var(--accent-text);text-underline-offset:3px}
+.chapter-mode-context[hidden]{display:none}
+.study-layout[data-chapter-view="single"] .study-original .sec:not(.chapter-selected),
+.study-layout[data-chapter-view="single"] .study-original .toc,
+.study-layout[data-chapter-view="single"] .study-original .sources{display:none!important}
+.study-layout[data-chapter-view="single"] .study-original .sec.chapter-selected{
+ padding-top:22px;margin-top:0;border-top:0;
+}
+body.chapter-reading-page .reader-page>.hero,
+body.chapter-reading-page .reader-page>.reader-breadcrumbs,
+body.chapter-reading-page .reader-page>.reader-crosslinks,
+body.chapter-reading-page .reader-page>.publication-note,
+body.chapter-reading-page .reader-page>.browse-section,
+body.chapter-reading-page .reader-page>.read-link{display:none!important}
+body.chapter-reading-page .reader-page{padding-top:12px}
+.chapter-trail{display:none}
+.study-layout[data-chapter-view="single"] .chapter-trail{
+ display:flex;flex-wrap:wrap;gap:10px 12px;
+ border-top:1px solid var(--hair);padding-top:18px;margin-top:26px;
+}
+.chapter-trail .chapter-trail-group{width:100%;display:flex;flex-wrap:wrap;gap:8px}
+.chapter-trail .chapter-trail-heading{
+ display:block;width:100%;font:600 12px/1.5 'Noto Sans JP',sans-serif;color:var(--mute);
+}
+.chapter-trail a{
+ flex:1 1 180px;display:block;color:var(--accent-text);
+ padding:11px 12px;border:1px solid var(--hair);text-decoration:none;
+ min-width:0;font-size:13px;overflow-wrap:anywhere;
+}
+.chapter-trail a:hover,.chapter-trail a:focus-visible{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,var(--paper))}
+.chapter-trail a small{display:block;color:var(--mute);font-size:11px;margin-bottom:4px}
+html[data-theme="dark"] .study-original .en .in-situ-annotation{
+ background:#263746;color:#deebf7;border-color:#58738b;
+}
+html[data-theme="dark"] .study-mode button[aria-pressed=true],html[data-theme="dark"] .study-control[aria-pressed=true]{background:#28476b;color:#e5eaf2}
+@media(max-width:899px){
+ .chapter-mode-control{margin-top:6px}
+ .chapter-trail a{flex-basis:100%}
 }
