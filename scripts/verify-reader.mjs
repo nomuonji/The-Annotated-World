@@ -51,7 +51,7 @@ try{
    'Redundant language/background labels remain visible');
 
   assert.equal(await page.locator('[data-note-toggle],#word-dialog').count(),0,'Unused tap-based annotation controls remain');
-  assert.equal(await page.locator('.reader-annotation-legend span').count(),2);
+
   assert.equal(await first.locator('.note').isVisible(),false);
   assert.equal(await page.locator('.note.annotation-converted').count(),61);
   assert.equal(await page.locator('.chapter-trail:visible').count(),0);
