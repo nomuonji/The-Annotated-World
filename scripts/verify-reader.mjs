@@ -138,7 +138,7 @@ try{
   await page.locator('#reader-annotations').click();
   assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),false);
   await page.goto(base+'/library/');
-  assert.equal(await page.locator('[data-document]').count(),1,'Withdrawn article remains listed');
+  assert.equal(await page.locator('[data-document]').count(),2,'Rebuilt RapidAPI article must be listed alongside the original lesson');
   await page.goto(base+path);
   assert.equal(await page.locator('#reader-annotations').getAttribute('aria-pressed'),'false','Annotation OFF did not persist across navigation');
   assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),false);

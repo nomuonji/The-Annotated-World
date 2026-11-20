@@ -1,0 +1,55 @@
+{
+  "id": "ch8",
+  "title": "8. 行動し続けることが、変化を妨げる",
+  "timeRange": "00:53:30 – 01:01:45",
+  "summary": "絶えず忙しく動いていることと、状況を変える行動ができることは別だ。シニシズムの下では、真相の暴露だけで構造が変わるとは限らない。",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    },
+    {
+      "id": "freedom",
+      "name": "自由"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch8-line-1",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:53:32",
+      "english": "we cannot act precisely because we are hyperactive all the time",
+      "japanese": "私たちは常に過剰に活動しているからこそ、行動できない。",
+      "annotations": [
+        {
+          "id": "ch8-line-1-note-1",
+          "phrase": "hyperactive all the time",
+          "explanation": "hyperactive は「過活動の」。活動量の多さを、政治的な行為能力と取り違えないという逆説。"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-2",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:59:14",
+      "english": "cynical reasoning where telling the truth is not enough",
+      "japanese": "真実を語るだけでは足りない、シニカルな理性。",
+      "annotations": [
+        {
+          "id": "ch8-line-2-note-1",
+          "phrase": "telling the truth is not enough",
+          "explanation": "不正を知っていることと、不正を再生産する仕組みから離れることは別問題。"
+        }
+      ]
+    }
+  ]
+}

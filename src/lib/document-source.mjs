@@ -50,7 +50,22 @@ function verifyDirectYoutubeCapture(id,document){
  }
  if(id===suppliedLegacy)return;
  const proof=document.youtubeCapture;
- if(!proof||proof.provider!=='youtube'||proof.videoId!==videoId)fail(id,'a new YouTube lesson requires direct YouTube capture evidence matching the video ID; third-party transcript mirrors are forbidden');
+ // This is a deliberately narrow source-uncertainty mode for original
+ // critical commentary with short attributed excerpts, never a full transcript.
+ // The RapidAPI candidate is NOT authenticated as the direct YouTube track.
+ if(proof?.provider==='rapidapi'&&proof?.transport==='rapidapi-caption-proxy'){
+  if(proof.videoId!==videoId||proof.method!=='existing-caption-candidate'
+    ||proof.language!=='en'||proof.originVerified!==false
+    ||!text(proof.tool)||!/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?Z$/.test(proof.capturedAt||'')
+    ||!Number.isFinite(Date.parse(proof.capturedAt))
+    ||!/^[0-9a-f]{64}$/.test(proof.sha256||''))
+   fail(id,'RapidAPI source must be honestly labeled as an unverified candidate with real evidence');
+  if(document.provenance.coverage!=='excerpt'||document.provenance.transcript!=='unverified'
+    ||document.provenance.rights!=='unverified')
+   fail(id,'RapidAPI candidate may only support short quotations with unverified transcript and rights');
+  return;
+ }
+ if(!proof||proof.provider!=='youtube'||proof.videoId!==videoId)fail(id,'a new YouTube lesson requires documented source capture; third-party transcript mirrors are forbidden');
  if(!['youtube-captions','youtube-auto-captions','youtube-audio-asr'].includes(proof.method))fail(id,'capture method must be direct YouTube captions or audio-derived ASR');
  if(!text(proof.language)||!text(proof.tool)||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(proof.capturedAt||'')||!Number.isFinite(Date.parse(proof.capturedAt)))fail(id,'capture language, tool and UTC timestamp required');
  if(!/^[0-9a-f]{64}$/.test(proof.sha256||''))fail(id,'capture must have actual SHA-256 digest of the YouTube-derived source file');

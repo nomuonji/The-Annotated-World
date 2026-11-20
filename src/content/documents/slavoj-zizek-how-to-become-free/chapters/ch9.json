@@ -1,0 +1,55 @@
+{
+  "id": "ch9",
+  "title": "9. 慈善と移民──問題の立て方そのものを疑う",
+  "timeRange": "01:01:45 – 01:10:00",
+  "summary": "企業の慈善活動がその企業の利潤構造とどう結びつくか、移民政策の二者択一が何を隠すか。答えを選ぶ前に、問いの枠を疑う。",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    },
+    {
+      "id": "society",
+      "name": "社会"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch9-line-1",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "01:01:47",
+      "english": "Charity which is part of the big corporate capitalism today",
+      "japanese": "現代の大企業資本主義の一部になっている慈善活動。",
+      "annotations": [
+        {
+          "id": "ch9-line-1-note-1",
+          "phrase": "corporate capitalism",
+          "explanation": "企業による利潤追求と慈善活動が、単純な対立関係ではないことを示す。"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-2",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "01:05:23",
+      "english": "the basic mystification",
+      "japanese": "根本的な神秘化、つまり問題の取り違え。",
+      "annotations": [
+        {
+          "id": "ch9-line-2-note-1",
+          "phrase": "mystification",
+          "explanation": "議論を特定の二択に閉じ込め、本来問うべき原因から注意を逸らす仕組み。"
+        }
+      ]
+    }
+  ]
+}

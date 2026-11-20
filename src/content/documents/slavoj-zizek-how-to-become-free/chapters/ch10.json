@@ -1,0 +1,55 @@
+{
+  "id": "ch10",
+  "title": "10. 戦争を動かすのは兵器だけではない",
+  "timeRange": "01:10:00 – 01:18:35",
+  "summary": "軍産複合体をめぐる常識的な説明から、詩人・思想家が戦争の物語を支える役割に論点を移す。ロシアの国家観と歴史解釈も扱われる。",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "war",
+      "name": "戦争"
+    },
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch10-line-1",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "01:10:05",
+      "english": "I think we should call it the poetic military complex",
+      "japanese": "私はそれを、詩的な軍事複合体と呼ぶべきだと思う。",
+      "annotations": [
+        {
+          "id": "ch10-line-1-note-1",
+          "phrase": "poetic military complex",
+          "explanation": "既存の military-industrial complex（軍産複合体）をもじり、文化・言説が戦争に果たす役割へ注意を向ける。"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-2",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "01:13:42",
+      "english": "he mentioned critically only one name",
+      "japanese": "彼が批判的に言及した名は、ただ一つだった。",
+      "annotations": [
+        {
+          "id": "ch10-line-2-note-1",
+          "phrase": "mentioned critically",
+          "explanation": "直後にレーニンの名が登場する。発言が述べた人物名と、編者の歴史的評価を混同しない。"
+        }
+      ]
+    }
+  ]
+}

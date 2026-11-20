@@ -1,0 +1,55 @@
+{
+  "id": "ch4",
+  "title": "4. コーヒーと「存在しないもの」の違い",
+  "timeRange": "00:26:30 – 00:33:45",
+  "summary": "ミルクがないコーヒーとクリームがないコーヒーは同じ飲料でも、欠けているものの意味は違う。ジジェクはその差を社会的平等の議論にも重ねる。",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    },
+    {
+      "id": "film",
+      "name": "映画"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch4-line-1",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:27:10",
+      "english": "coffee without cream",
+      "japanese": "クリーム抜きのコーヒー。",
+      "annotations": [
+        {
+          "id": "ch4-line-1-note-1",
+          "phrase": "without cream",
+          "explanation": "物理的にはブラックコーヒーでも、何が「欠けている」と見なされるかで意味は異なる。"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-2",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:30:22",
+      "english": "no we are not women without milk without legal equality we want more",
+      "japanese": "いや、私たちはミルク抜き、つまり法的平等だけを欠く女性なのではない。もっと多くを望む。",
+      "annotations": [
+        {
+          "id": "ch4-line-2-note-1",
+          "phrase": "without legal equality",
+          "explanation": "法的な平等と実際の社会的な権力・機会の差を、欠如の比喩で区別している。"
+        }
+      ]
+    }
+  ]
+}

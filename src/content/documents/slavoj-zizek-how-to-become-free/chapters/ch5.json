@@ -1,0 +1,55 @@
+{
+  "id": "ch5",
+  "title": "5. タバコをいつでもやめられるという不自由",
+  "timeRange": "00:33:45 – 00:39:20",
+  "summary": "やめる自由があるという意識そのものが、選択を先延ばしにさせる。ここでの問題は、自由の形式が実際の行為を阻むことだ。",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "freedom",
+      "name": "自由"
+    },
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch5-line-1",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:33:50",
+      "english": "freedom and liberty unfortunately it works only in English",
+      "japanese": "freedom と liberty の区別は、残念ながら英語でしかうまく機能しない。",
+      "annotations": [
+        {
+          "id": "ch5-line-1-note-1",
+          "phrase": "freedom and liberty",
+          "explanation": "近い意味の二語をあえて使い分け、実質的な自由と既存秩序が許す自由との違いを論じている。"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-2",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:35:21",
+      "english": "have the chance to stop so you de facto never stop smoking",
+      "japanese": "やめる機会はある。だから、事実上ずっと禁煙しない。",
+      "annotations": [
+        {
+          "id": "ch5-line-2-note-1",
+          "phrase": "de facto",
+          "explanation": "「事実上」。選択可能性の意識が、実際の選択を回避する口実になる逆説。"
+        }
+      ]
+    }
+  ]
+}
