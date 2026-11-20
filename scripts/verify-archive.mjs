@@ -11,8 +11,12 @@ for(const file of entries){
  const page=load(await readFile('dist/read/'+id+'/index.html','utf8'));
  assert.equal(home('.document-entry h3 a').filter((_,e)=>home(e).attr('href')==='/read/'+id+'/').length,1);
  for(const selector of ['.hero h1','.hero-meta','.deck','.meta-strip','.toc-list li','section.sec h2','.speaker-line','.utterance .en','.utterance .ja','.utterance .note','.sources']){
-  const extract=($)=>$(selector).toArray().map(e=>$(e).text().trim());
-  // The reader contains exactly the source document elements, plus its site chrome.
+  const extract=($)=>$(selector).toArray().map(e=>{
+   const copy=$(e).clone();
+   if(selector==='.utterance .en')copy.find('.in-situ-annotation').remove();
+   return copy.text().trim();
+  });
+  // Strip the separate visible gloss layer before checking the verbatim English source.
   assert.deepEqual(extract(page),extract(source),file+': '+selector);
  }
  const inline=($)=>$('.en strong.key,.note strong,.en em').toArray().map(e=>$(e).text());
