@@ -4,6 +4,6 @@ export interface Provenance{coverage:'full'|'excerpt'|'unverified';transcript:'v
 export interface Annotation{id:string;phrase:string;explanation:string}
 export interface Utterance{id:string;speaker:{name:string;className:string};time:string;english:string;japanese:string;annotations:Annotation[]}
 export interface Chapter{id:string;title:string;timeRange:string;summary:string;genres:string[];topics:Topic[];utterances:Utterance[]}
-export interface DocumentInfo{title:string;heroMeta:string;description:string;facts:{label:string;value:string;url?:string}[];toc:{title:string;description:string};sources:{title:string;items:{before:string;url:string;label:string;after:string}[]};chapterOrder:string[];transcriptBaseUrl?:string;genre:string;format:string;difficulty?:'B1'|'B2'|'C1'|'C2';englishFeatures?:string[];series?:string;people:Person[];topics:Topic[];provenance:Provenance}
+export interface DocumentInfo{title:string;heroMeta:string;description:string;facts:{label:string;value:string;url?:string}[];toc:{title:string;description:string};sources:{title:string;items:{before:string;url:string;label:string;after:string}[]};chapterOrder:string[];genre:string;format:string;difficulty?:'B1'|'B2'|'C1'|'C2';englishFeatures?:string[];series?:string;people:Person[];topics:Topic[];provenance:Provenance}
 export const CONTENT_DIR:string;
 export function loadStructuredDocuments():Promise<{id:string;document:DocumentInfo;chapters:Chapter[];bodyHtml:string}[]>;
