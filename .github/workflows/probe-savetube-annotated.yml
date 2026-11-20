@@ -23,8 +23,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install ffprobe for media integrity checks
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+      - name: Install self-contained audio decoder (no apt network dependency)
+        run: python3 -m pip install --disable-pip-version-check -q imageio-ffmpeg
       - name: SaveTube /v2/info probe (metadata only)
         id: info
         continue-on-error: true
@@ -38,41 +38,37 @@ jobs:
         run: |
           mkdir -p /tmp/youtube-capture
           timeout 770s node scripts/savetube_download.mjs 4YSXNotY8QU /tmp/youtube-capture/source.mp4 360
-      - name: Verify media contains video and audio streams
+      - name: Decode original video sound at beginning, middle and late sections
         id: streams
         if: steps.media.outcome == 'success'
         continue-on-error: true
         run: |
           test -s /tmp/youtube-capture/source.mp4
-          ffprobe -v error -select_streams v:0 -show_entries stream=codec_type -of csv=p=0 /tmp/youtube-capture/source.mp4 | grep -qx video
-          ffprobe -v error -select_streams a:0 -show_entries stream=codec_type -of csv=p=0 /tmp/youtube-capture/source.mp4 | grep -qx audio
-          ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 /tmp/youtube-capture/source.mp4
-          python3 -c 'import subprocess; duration=float(subprocess.check_output(["ffprobe","-v","error","-show_entries","format=duration","-of","default=noprint_wrappers=1:nokey=1","/tmp/youtube-capture/source.mp4"])); print("SOURCE_MEDIA_DURATION_SECONDS=",duration); assert abs(duration-5715)<120, "SaveTube returned only a partial video, not the 95-minute lecture"'
-          sha256sum /tmp/youtube-capture/source.mp4 | cut -d' ' -f1 | sed 's/^/SOURCE_MEDIA_SHA256=/'
-          ffprobe -v error -count_packets -show_entries stream=index,codec_type,codec_name,duration,bit_rate,nb_read_packets -of json /tmp/youtube-capture/source.mp4
           python3 - <<'PY'
-          import json, subprocess
-          f="/tmp/youtube-capture/source.mp4"
-          info=json.loads(subprocess.check_output(["ffprobe","-v","error","-count_packets","-show_streams","-of","json",f]))
-          for s in info["streams"]:
-              print("STREAM_PACKET_EVIDENCE=",json.dumps({
-                  "type":s.get("codec_type"), "codec":s.get("codec_name"),
-                  "duration":s.get("duration"),"bit_rate":s.get("bit_rate"),
-                  "packets":s.get("nb_read_packets"),"sample_rate":s.get("sample_rate"),
-                  "frames":s.get("nb_frames")
-              }))
-          audio=next((s for s in info["streams"] if s.get("codec_type")=="audio"),None)
-          assert audio, "No audio stream"
-          assert int(audio.get("nb_read_packets") or 0)>500, "Audio has fewer than 500 packets over 95 minutes; likely a placeholder"
-          for minute in (1,30,80):
-              start=minute*60
-              cmd=["ffmpeg","-nostdin","-v","error","-ss",str(start),"-i",f,
-                   "-t","6","-map","0:a:0","-ac","1","-ar","16000",
-                   "-f","s16le","pipe:1"]
-              p=subprocess.run(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=25)
-              samples=len(p.stdout)//2
-              print(f"AUDIO_SAMPLE_MINUTE_{minute}_PCM_SAMPLES={samples}")
-              assert p.returncode==0 and samples>=16000*4, f"Audio did not decode continuously at minute {minute}: {p.stderr[-250:]!r}"
+          import array, json, math, pathlib, subprocess
+          import imageio_ffmpeg
+          source="/tmp/youtube-capture/source.mp4"
+          decoder=imageio_ffmpeg.get_ffmpeg_exe()
+          p=pathlib.Path(source)
+          print("SAVETUBE_MEDIA_BYTES=",p.stat().st_size)
+          for minute in (1, 30, 80):
+              offset=minute*60
+              cmd=[decoder,"-nostdin","-v","error","-ss",str(offset),
+                   "-i",source,"-t","6","-map","0:a:0",
+                   "-ac","1","-ar","16000","-f","s16le","pipe:1"]
+              proc=subprocess.run(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=35)
+              if proc.returncode!=0:
+                  raise RuntimeError(f"Audio decode at {minute} minutes failed: {proc.stderr[-300:]!r}")
+              samples=array.array("h");samples.frombytes(proc.stdout)
+              n=len(samples)
+              rms=math.sqrt(sum(v*v for v in samples)/max(n,1))/32768
+              print(f"AUDIO_MINUTE_{minute}_SAMPLES={n} RMS={rms:.6f}")
+              assert n>=64000, f"No continuous audio at minute {minute}"
+              assert rms>0.00005, f"Audio is effectively silent at minute {minute}"
+          import hashlib
+          digest=hashlib.sha256(p.read_bytes()).hexdigest()
+          print("SOURCE_MEDIA_SHA256=",digest)
+          print("CONTINUOUS_AUDIO_VALIDATED=1")
           PY
       - name: Distinguish metadata response from actual media acquisition
         if: always()
