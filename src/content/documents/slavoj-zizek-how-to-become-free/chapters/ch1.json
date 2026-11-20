@@ -1,0 +1,55 @@
+{
+  "id": "ch1",
+  "title": "1. 「自由に選べる」だけでは自由ではない",
+  "timeRange": "00:00:00 – 00:07:50",
+  "summary": "自由を消費者の選択肢に還元してよいのか。闘争に向かう自由と、それぞれが思い描く自由の違いから講演が始まる。",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "freedom",
+      "name": "自由"
+    },
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch1-line-1",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:00:08",
+      "english": "when you are really free it's not just about free to choose",
+      "japanese": "本当に自由であるというのは、単に選択できるということではない。",
+      "annotations": [
+        {
+          "id": "ch1-line-1-note-1",
+          "phrase": "free to choose",
+          "explanation": "選択の自由。後に「選択肢そのものを決める条件」に論点が移る。"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-2",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:02:13",
+      "english": "can be United in a struggle for Freedom",
+      "japanese": "自由を求める闘争の中で団結することはできる。",
+      "annotations": [
+        {
+          "id": "ch1-line-2-note-1",
+          "phrase": "a struggle for Freedom",
+          "explanation": "同じ「自由」という言葉の下で連帯していても、実現したい社会像が同一とは限らない。"
+        }
+      ]
+    }
+  ]
+}
