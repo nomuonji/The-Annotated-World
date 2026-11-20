@@ -192,6 +192,25 @@ if (process.env.SAVETUBE_INFO_ONLY === '1') {
   console.log('SAVETUBE_INFO_VIDEO_ID=' + videoId);
   console.log('SAVETUBE_INFO_TITLE=' + info.title);
   console.log('SAVETUBE_INFO_DURATION=' + (info.duration || 'unknown'));
+  if (process.env.SAVETUBE_CAPTION_METADATA === '1') {
+    // Schema inspection only: DO NOT print signed URLs, conversion keys, raw text,
+    // or claim that a subtitle field represents original YouTube captions.
+    console.log('SAVETUBE_METADATA_FIELDS=' + JSON.stringify(Object.keys(info)));
+    const findings = [];
+    const walk = (obj, base, depth) => {
+      if (!obj || typeof obj !== 'object' || depth > 4) return;
+      for (const [k, v] of Object.entries(obj)) {
+        const p = base ? base + '.' + k : k;
+        if (/caption|subtitle|timed.?text|transcript|language|track/i.test(k)) {
+          findings.push({ path:p, type:Array.isArray(v)?'array':typeof v,
+            count:Array.isArray(v)?v.length:undefined });
+        }
+        if (v && typeof v === 'object') walk(v,p,depth+1);
+      }
+    };
+    walk(info, '', 0);
+    console.log('SAVETUBE_CAPTION_FIELD_SCHEMA=' + JSON.stringify(findings).slice(0,4000));
+  }
   console.log('SAVETUBE_MEDIA_ACQUIRED=0');
   process.exit(0);
 }
