@@ -1,0 +1,55 @@
+{
+  "id": "ch11",
+  "title": "11. ウクライナの戦争と世界秩序",
+  "timeRange": "01:18:35 – 01:28:00",
+  "summary": "地政学的な勢力圏の奪い合いに還元せず、将来の世界秩序とヨーロッパの姿を争う問題として考える。講演時点の主張と現在の情勢は区別して読む。",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "war",
+      "name": "戦争"
+    },
+    {
+      "id": "freedom",
+      "name": "自由"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch11-line-1",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "01:20:20",
+      "english": "Ukraine is a universal Global battle",
+      "japanese": "ウクライナをめぐる争いは、世界全体に関わる普遍的な闘いだ。",
+      "annotations": [
+        {
+          "id": "ch11-line-1-note-1",
+          "phrase": "universal Global battle",
+          "explanation": "局地的な領土紛争だけでなく、世界秩序を左右する問題として位置づける表現。"
+        }
+      ]
+    },
+    {
+      "id": "ch11-line-2",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "01:23:35",
+      "english": "confront the real problem which is what kind of Europe do they want to join",
+      "japanese": "直面するのは、どのようなヨーロッパに加わりたいのかという本当の問題だ。",
+      "annotations": [
+        {
+          "id": "ch11-line-2-note-1",
+          "phrase": "what kind of Europe",
+          "explanation": "「ヨーロッパ」という名だけで制度や価値観が一意に決まるわけではない。"
+        }
+      ]
+    }
+  ]
+}
