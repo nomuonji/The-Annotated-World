@@ -111,29 +111,15 @@ try{
   assert.ok(page.url().includes('chapter=ch3'));
   await page.goBack();
   assert.equal(await page.locator('#ch2').isVisible(),true,'Browser back did not restore selected chapter');
-  const cross=page.locator('#ch2 .chapter-trail a[href*="/read/slavoj-zizek-how-to-become-free/"]').first();
-  assert.ok(await cross.count()>0,'Chapter trail has no cross-article recommendation');
-  const crossHref=await cross.getAttribute('href');
-  assert.ok(crossHref.includes('?chapter='));
-  await cross.click();
-  await page.waitForURL('**/read/slavoj-zizek-how-to-become-free/?chapter=*');
+  const nextChapter=page.locator('#ch2 .chapter-trail a[href*="?chapter=ch3"]').first();
+  assert.ok(await nextChapter.count()>0,'Remaining article lost its chapter-mode navigation');
+  await nextChapter.click();
+  assert.equal(await page.locator('#ch3').isVisible(),true);
   assert.equal(await page.locator('.study-original section.sec:visible').count(),1);
-  assert.equal(await page.locator('#chapter-view-toggle').getAttribute('aria-pressed'),'true');
   await page.locator('#chapter-view-toggle').click();
-  assert.equal(await page.locator('.study-original section.sec:visible').count(),6,'Returning to full view did not restore document sections');
+  assert.equal(await page.locator('.study-original section.sec:visible').count(),11,'Returning to full view did not restore all 11 chapters');
   assert.equal(await page.locator('.chapter-trail:visible').count(),0,'Chapter trails leak into normal article mode');
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Reader causes horizontal overflow');
-  // The second published document originally used numbered source notes.
-  // Ensure all 18 are still readable, but in the same permanent inline format.
-  await page.goto(base+'/read/slavoj-zizek-how-to-become-free/');
-  const secondNotes=page.locator('.utterance .note.annotation-converted');
-  assert.equal(await secondNotes.count(),18,'Numbered source notes were not converted');
-  assert.ok(await page.locator('.en .in-situ-annotation').count()>=32,'Existing source notes went missing during conversion');
-  assert.equal(await page.locator('.en .inline-note-ref').count(),0,'Original footnote numbers survive conversion');
-  assert.equal(await page.locator('.note:visible').count(),0,'Duplicate notes are visible beneath the English');
-  assert.equal(await page.locator('.editorial-annotation').count(),0,'Supplemental details remain in the second lesson');
-  assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),true);
-  assert.ok(!(await page.locator('.hero').innerText()).includes('青い番号'),'Second article still advertises removed numbered note controls');
   await page.goto(base+'/library/');await page.locator('[data-scope=chapters]').click();await page.locator('#find').fill('映画');assert.ok(await page.locator('[data-chapter-result]:visible').count()>0);
   await page.locator('#find').fill('');await page.locator('.library-filter-details summary').click();await page.locator('#filter-time').selectOption('15');assert.ok(await page.locator('[data-chapter-result]:visible').count()>0);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Library causes horizontal overflow');
   const card=page.locator('[data-chapter-result] h3 a').first();
@@ -151,8 +137,10 @@ try{
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark','Theme did not persist back to article');
   await page.locator('#reader-annotations').click();
   assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),false);
-  await page.goto(base+'/read/slavoj-zizek-how-to-become-free/');
-  assert.equal(await page.locator('#reader-annotations').getAttribute('aria-pressed'),'false','Annotation OFF did not persist between articles');
+  await page.goto(base+'/library/');
+  assert.equal(await page.locator('[data-document]').count(),1,'Withdrawn article remains listed');
+  await page.goto(base+path);
+  assert.equal(await page.locator('#reader-annotations').getAttribute('aria-pressed'),'false','Annotation OFF did not persist across navigation');
   assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),false);
   await page.locator('#reader-annotations').click();
   assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),true);
