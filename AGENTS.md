@@ -31,7 +31,7 @@
 - `nomuonji/kirinuki-generator/transcribe_rapidapi.py` に既存字幕の取得実績がある。直接YouTubeを最初に試し、失敗すると既存RapidAPI字幕ダウンロードへフォールバックする。ただし**中継APIの字幕が本当にYouTubeの原本字幕であることは別途照合必須**。診断の成功や件数だけで `youtubeCapture.transport='youtube-direct'` と記録しない。原本未照合なら公開制作を停止する。
 - SaveTubeは**動画・音声の取得のみ**。字幕の取得元ではない。動画MP4を取得できても字幕の原典取得を成功扱いしない。
 - 公開用のファイルは `src/content/documents/<slug>/document.json` と `chapters/*.json` のみ。原本字幕、権利不明の長文、認証情報を公開Gitへコミットしない。新規記事の `youtubeCapture` には正しい元動画ID、字幕の取得方式・時刻・原本SHA-256を記録。権利根拠がない限り記事を公開しない。
-- 取得できない場合は原因を記録し終了。削除済みの「How to become free」を過去の第三者原稿から自動復活させない。対象動画 `4YSXNotY8QU` は実際にRapidAPIで1,533件を取得し、非公開Driveに保存済み。旧第三者原稿の復活や全文転載は禁止するが、取得根拠を明示した少量の批評引用は新たな編集対象として扱う。[実取得の記録](docs/research/2026-11-21-zizek-rapidapi-private-source.md) を参照。
+- 取得できない場合は原因を記録し終了。削除済みの「How to become free」を過去の第三者原稿から自動復活させない。対象動画 `4YSXNotY8QU` は実際にRapidAPIで1,533件を取得し、非公開Driveに保存済み。旧第三者原稿の再使用は禁止。実取得済みRapidAPI字幕候補については、各元字幕セグメントをすべて保持した全文対訳を制作し、原YouTube字幕との独立同一性検証・権利状態は未確認として正しく表示する。[実取得の記録](docs/research/2026-11-21-zizek-rapidapi-private-source.md) を参照。
 - `npm run content:check` はJSON・証跡フィールドの**形式的検証**であり、字幕の真正性、逐語一致、著作権・転載許諾を証明するものではない。CI成功と本番反映も区別する。
 
 ## 派生発信コンテンツ
