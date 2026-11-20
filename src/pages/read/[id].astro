@@ -15,16 +15,6 @@ const g=genreById(d.genre),ts=docTopics(doc);
 const allDocuments=await documents();
 const recommendations=related(allDocuments,doc);
 const $=load(d.bodyHtml,null,false);
-// Legacy source files stay byte-for-byte intact; correct obsolete reader-facing copy here.
-const legacyCopy=new Map([
- ['英文の直下に自然な日本語訳と語彙・背景知識のポイントを配置しました。','英文中に語彙と背景知識の注釈を直接挿入し、日本語訳も併記しました。'],
- ['英文 → 日本語訳 → ポイントの順次精読','文中注釈つき英文＋日本語訳'],
- ['青い番号から各文中註へ移動できます。','注釈は英文の該当箇所に直接表示しています。']
-]);
-$('.hero .deck,.hero .meta-strip dd').contents().each((_,node)=>{
- if(node.type!=='text')return;
- for(const [oldText,newText] of legacyCopy)node.data=node.data.replace(oldText,newText);
-});
 const hero=$('.hero').first().toString();$('.hero').first().remove();
 for(const c of d.chapterIndex){
  const head=$('section.sec').filter((_,el)=>$(el).attr('id')===c.anchor).find('.sec-header').first();
@@ -39,7 +29,7 @@ const seen=new Set<string>();
 for(const c of d.chapterIndex){
  const chapter=$('section.sec').filter((_,el)=>$(el).attr('id')===c.anchor);
  chapter.find('.utterance').each((index,el)=>{
-  const block=$(el),anchor=c.anchor+'-line-'+(index+1);
+  const block=$(el),anchor=block.attr('id')||c.anchor+'-line-'+(index+1);
   if(seen.has(anchor))throw Error('Duplicate study anchor '+anchor);
   seen.add(anchor);
   block.attr('id',anchor);
@@ -64,8 +54,7 @@ for(const c of d.chapterIndex){
   if(extra.children().length)block.append(extra);
 
   // Canonical reader: exactly one visible format, permanently embedded in the English.
-  // Preserve the original .note and its labels in source metadata, but never display it twice.
-  // The legacy numbered footnotes are replaced in the generated page, not the source file.
+  // Structured annotations are rendered into a hidden compatibility .note for vocabulary indexing; only inline glosses appear.
   en.find('.inline-note-ref').remove();
   const annotations:Array<{label:string;explanation:string;id:string}>=[];
   const sourceItems=note.find('.inline-note-item').toArray();
