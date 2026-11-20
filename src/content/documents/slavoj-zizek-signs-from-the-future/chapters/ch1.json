@@ -1,0 +1,120 @@
+{
+  "id": "ch1",
+  "title": "1. 導入と中間選挙後の安堵をぶち壊す哲学者の務め",
+  "timeRange": "00:00:21 – 00:03:15",
+  "summary": "バンクーバーUBCでの開会挨拶から、アメリカ中間選挙後の「熱狂的な安堵」に対するジジェク流の冷水まで。",
+  "genres": [
+    "society"
+  ],
+  "topics": [
+    {
+      "id": "us-politics",
+      "name": "アメリカ政治"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch1-line-1",
+      "speaker": {
+        "name": "Host & Žižek",
+        "className": "speaker-host"
+      },
+      "time": "00:00:21",
+      "english": "<strong>Host:</strong> How are we doing here? Good? Still alive? Still lively? Yeah, not... okay, not \"between two deaths.\" Slavoj, welcome to Vancouver, here at UBC, which is on the traditional, <strong class=\"key\">unceded territories</strong> of the Musqueam First Nation—perhaps, I don't know. Let's talk about the midterms. Is this a case of \"miracles happen,\" or is it foolish to pay attention to electoral politics? What's your take?",
+      "japanese": "<strong>司会：</strong>みなさん調子はどうですか？元気ですか？まだ生きてますか？生き生きしてますね。ええと、「二つの死の間」ではないですね（笑）。スラヴォイ、バンクーバーへ、ここUBC（ブリティッシュコロンビア大学）へようこそ。ここはマスキーム・ファースト・ネーションの伝統的な未割譲の領土の上にあります——おそらくですが。さて、中間選挙について話しましょう。これは「奇跡は起きる」というケースでしょうか、それとも選挙政治に注目すること自体が愚かだということでしょうか？あなたの見解（take）は？",
+      "annotations": [
+        {
+          "id": "ch1-line-1-note-1",
+          "phrase": "between two deaths（二つの死の間）",
+          "explanation": "ラカン派精神分析およびジジェク哲学の定番概念（生物学的死と象徴的死の間）。司会者が冒頭からジジェクの用語でジョークを飛ばしています。"
+        },
+        {
+          "id": "ch1-line-1-note-2",
+          "phrase": "unceded territories（未割譲の領土）",
+          "explanation": "カナダの公的イベントで先住民に敬意を表す定型挨拶（Land Acknowledgment）。"
+        },
+        {
+          "id": "ch1-line-1-note-3",
+          "phrase": "What's your take?",
+          "explanation": "「あなたの見解／解釈は？」はディスカッションで頻出の口語表現。"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-2",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:00:55",
+      "english": "Okay, I even prepared—because everybody expects me to say something—a short, 20-minutes-maximum speech. I think my duty as a philosopher is to <strong class=\"key\">spoil the ecstatic relief</strong> after the US midterm elections. At first appearance, we all triumphed. Not only has Trump lost, but he even accepted his loss and promised collaboration with the Democratic majority. No emergency state, no cancelled elections. What does this mean?",
+      "japanese": "ええ、みなさんが私に何か言うことを期待しているので、最大20分の短いスピーチまで用意してきました。哲学者としての私の務めは、アメリカの中間選挙後のこの熱狂的な安堵を台無しにすること（水を差すこと）だと思います。一見すると、私たちはみな勝利したように見えます。トランプが敗北しただけでなく、敗北を受け入れ、民主党の多数派との協力さえ約束したのです。非常事態宣言もなければ、選挙の中止もありませんでした。これは何を意味するのでしょうか？",
+      "annotations": [
+        {
+          "id": "ch1-line-2-note-1",
+          "phrase": "spoil the ecstatic relief",
+          "explanation": "「熱狂的な（有頂天の）安堵を台無しにする」。spoilは「（楽しみやムードを）ぶち壊す」。"
+        },
+        {
+          "id": "ch1-line-2-note-2",
+          "phrase": "At first appearance",
+          "explanation": "「一見したところ」（= At first glance）。"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-3",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:01:36",
+      "english": "In an interview published in 2016, I declared that I would vote for Trump against Hillary Clinton. The victory of Trump—that was my argument—despite Trump being absolutely disgusting, would trigger a big awakening. It would cause a fundamental shock to the American political system and <strong class=\"key\">force realignment</strong>, or the emergence of a new political phenomenon. I preferred Trump to Hillary Clinton, who was a <strong class=\"key\">war hawk</strong> deeply linked with big banks. Trump is not any better, but with Trump you can at least count on, or perhaps hope for, public resistance. You can imagine the brutal attacks on me this stance provoked. But I think I was right, although with a delay.",
+      "japanese": "2016年に公開されたインタビューで、私はヒラリー・クリントンに対してトランプに投票すると宣言しました。当時の私の主張はこうです——トランプはまったく吐き気がするような人物であるにもかかわらず、彼の勝利は大きな覚醒を引き起こすだろう、と。それはアメリカの政治システムに根本的な衝撃を与え、政界再編や新たな政治現象の出現を強いるはずだ、と。私は、大手銀行と深く結びついた戦争タカ派であるヒラリー・クリントンよりもトランプを選びました。トランプが少しでもマシだというわけではありませんが、トランプ相手なら少なくとも大衆の抵抗を当てにできる——あるいは期待できる——からです。この立場が私に対してどれほど激しい攻撃を引き起こしたか、想像がつくでしょう。しかし、遅ればせながら、私は正しかったのだと思います。",
+      "annotations": [
+        {
+          "id": "ch1-line-3-note-1",
+          "phrase": "force realignment",
+          "explanation": "「（政治的な）再編を強いる」。"
+        },
+        {
+          "id": "ch1-line-3-note-2",
+          "phrase": "war hawk",
+          "explanation": "「（戦争を辞さない）タカ派」。対義語は dove（ハト派）。"
+        },
+        {
+          "id": "ch1-line-3-note-3",
+          "phrase": "count on A",
+          "explanation": "「Aを当てにする、頼りにする」。"
+        },
+        {
+          "id": "ch1-line-3-note-4",
+          "phrase": "provoke",
+          "explanation": "「（反応や攻撃を）引き起こす、挑発する」。"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-4",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:02:45",
+      "english": "Back in 2016, Trump made a <strong class=\"key\">notorious statement</strong>: \"I could stand in the middle of Fifth Avenue in New York and shoot somebody, and I wouldn't lose any voters.\" Now, he would not only lose voters; he would even be arrested instantly. However, wait a minute.",
+      "japanese": "2016年当時、トランプは悪名高い発言をしました。「ニューヨークの5番街の真ん中に立って誰かを撃っても、票を1票も失わないだろう」と。今や彼は票を失うだけでなく、即座に逮捕されるでしょう。しかし、ちょっと待ってください。",
+      "annotations": [
+        {
+          "id": "ch1-line-4-note-1",
+          "phrase": "notorious",
+          "explanation": "「悪名高い」。famous（有名）と違い、悪い意味で使われます。"
+        },
+        {
+          "id": "ch1-line-4-note-2",
+          "phrase": "not only A, (but) B",
+          "explanation": "「AだけでなくBも」。倒置が起きている `Now, he would not only...` は口語的な語順です。"
+        }
+      ]
+    }
+  ]
+}
