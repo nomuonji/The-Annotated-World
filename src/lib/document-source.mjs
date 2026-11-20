@@ -54,6 +54,11 @@ function verifyDirectYoutubeCapture(id,document){
  if(!['youtube-captions','youtube-auto-captions','youtube-audio-asr'].includes(proof.method))fail(id,'capture method must be direct YouTube captions or audio-derived ASR');
  if(!text(proof.language)||!text(proof.tool)||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(proof.capturedAt||'')||!Number.isFinite(Date.parse(proof.capturedAt)))fail(id,'capture language, tool and UTC timestamp required');
  if(!/^[0-9a-f]{64}$/.test(proof.sha256||''))fail(id,'capture must have actual SHA-256 digest of the YouTube-derived source file');
+ if(!['youtube-direct','savetube-media-proxy'].includes(proof.transport))fail(id,'YouTube capture transport required: direct or SaveTube source-media proxy; third-party transcripts prohibited');
+ if(proof.transport==='savetube-media-proxy'){
+  if(proof.method!=='youtube-audio-asr')fail(id,'SaveTube may transport source media only; no third-party-prepared captions or transcript accepted');
+  if(!/^[0-9a-f]{64}$/.test(proof.mediaSha256||''))fail(id,'SaveTube media transport requires an independently measured original-media SHA-256');
+ }
 }
 
 function verifyDocument(id,document){
