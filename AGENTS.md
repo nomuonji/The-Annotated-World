@@ -21,6 +21,8 @@
 - 新規YouTube教材には `document.json` の `youtubeCapture` に直接取得証跡を必須とし、ビルド時にも検証する。既存のユーザー提供第一弾教材は移行済みの例外で、新規のYouTube取得成功を意味しない。**第三者文字起こしを根拠に作り直した「How to become free」の12章記事は削除済み。YouTubeから直接取得・確認できるまで再公開禁止。**
 - 取得経路の調査と、著作物の全文転載・公開許諾の判断は独立。取得できても新規の全文転載権限が当然に付与されるわけではない。
 
+- YouTube取得の検証・失敗記録： [直接取得プローブ](docs/research/2026-11-21-youtube-direct-capture-probe.md)。取得手順は `scripts/probe-youtube-direct.py`。GitHub Actionsでの実測はBot確認により取得不可。成功した原文・字幕ファイルが存在するかは結果コードと `CAPTURE_EVIDENCE` で判定し、診断Workflowの緑色表示では判定しない。
+
 ## 派生発信コンテンツ
 思想・知識の解説動画やSNS企画を作る前に [docs/EDITORIAL-POLICY.md](docs/EDITORIAL-POLICY.md) を参照する。制作方針の検討版と試作は公開承認ではない。教材制作と派生発信を分離し、元動画の引用可否と取得・配信規約を個別確認する。
 

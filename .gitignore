@@ -4,3 +4,6 @@ dist/
 .env
 .env.*
 !.env.example
+# Never commit directly acquired source audio, subtitles, or transcript dumps
+/private-youtube-source/
+/private-source/

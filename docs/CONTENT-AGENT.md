@@ -30,6 +30,8 @@ The Annotated World は、知的に面白い原典を英語と日本語の対訳
 ```
 `method` は `youtube-captions`、`youtube-auto-captions`、`youtube-audio-asr` のいずれかのみ。
 
+- 直接取得の実行スクリプトとGitHub-hosted runnerでの失敗証跡は [2026-11-21 YouTube直接取得実験](research/2026-11-21-youtube-direct-capture-probe.md)。クラウドのIPブロックは字幕が存在しないことの証明ではない。成功したときだけ `CAPTURE_EVIDENCE` を記事へ転記する。
+
 ## 0. 着手前（必ず実行）
 - `AGENTS.md` と本書、`src/lib/document-source.mjs` と `src/content.config.ts` を読む。Node 22.12+、`npm install`。
 - `npm run content:inspect` で全資料・既存テーマID・人物ID・概念IDを取得する。公開済みサイトの機械用索引は `/catalog.json`。生成物を直接編集しない。
