@@ -34,6 +34,8 @@ The Annotated World は、知的に面白い原典を英語と日本語の対訳
 
 - **SaveTubeは元動画の媒体中継に限って使用可。第三者の字幕原稿を取得する経路ではない。** `nomuonji/kirinuki-generator`と同じSaveTube CDNsで実際の動画 `4YSXNotY8QU` を720pで取得（373,095,240バイト）。0・1・30・80分の音声を実復号確認。[検証結果](research/2026-11-21-savetube-media-probe.md)。360pはメタデータがあっても途中の音声がないため不採用。元動画のIDと長さ、動画・音声の有無、離れた複数箇所の音声復号を通過してから自分のASRを実施する。取得した音声を第三者の転写済み文章で代用しない。`youtubeCapture.transport='savetube-media-proxy'`、`method='youtube-audio-asr'`、`mediaSha256`（元動画MP4）、`sha256`（自前ASRの原文データ）を記録。**直接取得できたMP4をもって、文字起こし完了・教材公開許可と見なさない。**
 
+- **この動画に対する最新条件**: 『How to become free』（`4YSXNotY8QU`）は文字起こし/自前ASRを実施しない。まず YouTube既存の英語字幕トラック（投稿者字幕・YouTube自動字幕）の原本ファイルを取得する。SaveTube /v2/info に字幕フィールドが無いこと、ActionsのYouTubeアクセスが失敗することを [実測記録](research/2026-11-21-youtube-existing-captions.md) に記載。通常のYouTubeブラウザで `scripts/youtube-original-captions.user.js` を使って原本字幕を保存する実験経路を用意したが未実証。第三者文字起こしサイトへのフォールバックは禁止、字幕取得成功前の教材制作も禁止。
+
 ## 0. 着手前（必ず実行）
 - `AGENTS.md` と本書、`src/lib/document-source.mjs` と `src/content.config.ts` を読む。Node 22.12+、`npm install`。
 - `npm run content:inspect` で全資料・既存テーマID・人物ID・概念IDを取得する。公開済みサイトの機械用索引は `/catalog.json`。生成物を直接編集しない。
