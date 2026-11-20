@@ -18,38 +18,909 @@
   ],
   "utterances": [
     {
-      "id": "ch6-line-1",
+      "id": "ch6-line-0631",
+      "time": "00:39:21",
+      "english": "interaction even more important here is that to enjoy this concrete social freedom I have to obey Unwritten rules written rules are not enough I think our freedom only works if me and people around me support sustain again Unwritten rules what do I mean by this",
+      "japanese": "ここでさらに重要なのは、この具体的な社会的自由を享受するには、私は書かれていないルールに従わなければならないということです。書かれたルールだけでは十分ではありません。私の自由は、私と周りの人々が、繰り返しますが、書かれていないルールを支え、維持して初めて機能するのだと思います。これはどういう意味でしょうか。",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "00:39:25",
-      "english": "that to enjoy this concrete social freedom I have to obey Unwritten rules",
-      "japanese": "この具体的な社会的自由を享受するには、暗黙のルールに従わなければならない。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch6-line-1-note-1",
-          "phrase": "Unwritten rules",
-          "explanation": "不文律、明文化されない慣習。自由の条件を法の条文だけに求めないという論点。"
+          "index": 630,
+          "start": 2361.72,
+          "end": 2369.52,
+          "text": "interaction even more important here is"
+        },
+        {
+          "index": 631,
+          "start": 2365.64,
+          "end": 2373.52,
+          "text": "that to enjoy this concrete social"
+        },
+        {
+          "index": 632,
+          "start": 2369.52,
+          "end": 2377.56,
+          "text": "freedom I have to obey Unwritten rules"
+        },
+        {
+          "index": 633,
+          "start": 2373.52,
+          "end": 2381.2,
+          "text": "written rules are not enough I think our"
+        },
+        {
+          "index": 634,
+          "start": 2377.56,
+          "end": 2385.96,
+          "text": "freedom only works if me and people"
+        },
+        {
+          "index": 635,
+          "start": 2381.2,
+          "end": 2389.12,
+          "text": "around me support sustain again"
+        },
+        {
+          "index": 636,
+          "start": 2385.96,
+          "end": 2392.76,
+          "text": "Unwritten rules what do I mean by this"
         }
       ]
     },
     {
-      "id": "ch6-line-2",
+      "id": "ch6-line-0638",
+      "time": "00:39:49",
+      "english": "one beautiful example and there are many others here in Europe especially at least in my own country country is that you have a strange phenomenon of what I called false free choice for example let's say that I have more money than you and I invite you out",
+      "japanese": "一つの美しい例ですが、ここヨーロッパには他にもたくさんあります。特に、少なくとも私の国では、私が「偽の自由な選択」と呼ぶ奇妙な現象があります。例えば、私があなたよりお金を持っていて、あなたを夕食に招待するとしましょう。",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "00:40:34",
-      "english": "it's pure politeness",
-      "japanese": "それは純粋に礼儀のためだ。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch6-line-2-note-1",
-          "phrase": "pure politeness",
-          "explanation": "割り勘の申し出に関する一節。文字どおりの申し出と、社交的な合図とのずれを説明する。"
+          "index": 637,
+          "start": 2389.12,
+          "end": 2396.28,
+          "text": "one beautiful example and there are many"
+        },
+        {
+          "index": 638,
+          "start": 2392.76,
+          "end": 2397.84,
+          "text": "others here in Europe especially at"
+        },
+        {
+          "index": 639,
+          "start": 2396.28,
+          "end": 2401.12,
+          "text": "least in my own country"
+        },
+        {
+          "index": 640,
+          "start": 2397.84,
+          "end": 2405.6,
+          "text": "country is that you have a strange"
+        },
+        {
+          "index": 641,
+          "start": 2401.12,
+          "end": 2408.88,
+          "text": "phenomenon of what I called false free"
+        },
+        {
+          "index": 642,
+          "start": 2405.6,
+          "end": 2413.64,
+          "text": "choice for example let&#39;s say that I have"
+        },
+        {
+          "index": 643,
+          "start": 2408.88,
+          "end": 2418.48,
+          "text": "more money than you and I invite you out"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0645",
+      "time": "00:40:13",
+      "english": "to dinner it's clear to both of us that I will pay but there is a ritual in my country that when the bill arrives you my guest you have to pretend oh let us spit let me pay and so on it's pure politeness the worst thing",
+      "japanese": "私が払うことは二人とも分かっています。しかし私の国には儀礼があり、勘定が来ると、あなた、私の客人は、「ああ、割り勘にしましょう、私に払わせてください」などと装わなければなりません。それは純粋な礼儀です。あなたに対して私ができる最悪のことは、",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 644,
+          "start": 2413.64,
+          "end": 2420.4,
+          "text": "to dinner it&#39;s clear to both of us that"
+        },
+        {
+          "index": 645,
+          "start": 2418.48,
+          "end": 2424.72,
+          "text": "I will"
+        },
+        {
+          "index": 646,
+          "start": 2420.4,
+          "end": 2428.2,
+          "text": "pay but there is a ritual in my country"
+        },
+        {
+          "index": 647,
+          "start": 2424.72,
+          "end": 2431.88,
+          "text": "that when the bill arrives you"
+        },
+        {
+          "index": 648,
+          "start": 2428.2,
+          "end": 2434.76,
+          "text": "my guest you have to pretend oh let us"
+        },
+        {
+          "index": 649,
+          "start": 2431.88,
+          "end": 2439.2,
+          "text": "spit let me pay and so"
+        },
+        {
+          "index": 650,
+          "start": 2434.76,
+          "end": 2441.84,
+          "text": "on it&#39;s pure politeness the worst thing"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0652",
+      "time": "00:40:39",
+      "english": "I can do to you is to say okay then you pay I mean you know and this is what human culture is I make an you make an empty offer we both know that I will pay but to assert our think and friendship we have to go through",
+      "japanese": "「では、あなたが払ってください」と言うことです。つまり、分かりますよね。これが人間の文化というものです。私が空の申し出をし、あなたも空の申し出をする。私が払うことは二人とも分かっていますが、私たちの思いやりと友情を主張するために、私たちはこれを経なければならないのです。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 651,
+          "start": 2439.2,
+          "end": 2443.24,
+          "text": "I can do to you is to say okay then you"
+        },
+        {
+          "index": 652,
+          "start": 2441.84,
+          "end": 2446.68,
+          "text": "pay I"
+        },
+        {
+          "index": 653,
+          "start": 2443.24,
+          "end": 2451.28,
+          "text": "mean you know and this is what human"
+        },
+        {
+          "index": 654,
+          "start": 2446.68,
+          "end": 2455.96,
+          "text": "culture is I make an you make an empty"
+        },
+        {
+          "index": 655,
+          "start": 2451.28,
+          "end": 2459.16,
+          "text": "offer we both know that I will pay but"
+        },
+        {
+          "index": 656,
+          "start": 2455.96,
+          "end": 2462,
+          "text": "to assert our think and friendship we"
+        },
+        {
+          "index": 657,
+          "start": 2459.16,
+          "end": 2464.48,
+          "text": "have to go through"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0659",
+      "time": "00:41:02",
+      "english": "this so again an even more radical example is language we are only free within a language to think freely means to totally obey the rules of language otherwise you cannot even think so this is again concrete Freedom B and here I",
+      "japanese": "そう、さらに極端な例は言語です。私たちは言語の中でしか自由ではありません。自由に考えるとは、言語のルールに完全に従うことです。そうでなければ、考えることすらできません。ですから、これもまた具体的な自由です。そしてここで私は",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 658,
+          "start": 2462,
+          "end": 2468.16,
+          "text": "this so"
+        },
+        {
+          "index": 659,
+          "start": 2464.48,
+          "end": 2472.24,
+          "text": "again an even more radical example is"
+        },
+        {
+          "index": 660,
+          "start": 2468.16,
+          "end": 2475.68,
+          "text": "language we are only free within a"
+        },
+        {
+          "index": 661,
+          "start": 2472.24,
+          "end": 2478.6,
+          "text": "language to think freely means to"
+        },
+        {
+          "index": 662,
+          "start": 2475.68,
+          "end": 2481.44,
+          "text": "totally obey the rules of language"
+        },
+        {
+          "index": 663,
+          "start": 2478.6,
+          "end": 2486.56,
+          "text": "otherwise you cannot even think so this"
+        },
+        {
+          "index": 664,
+          "start": 2481.44,
+          "end": 2489.96,
+          "text": "is again concrete Freedom B and here I"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0666",
+      "time": "00:41:26",
+      "english": "am radically on the left the left is right to point out that to be free a whole set of conditions have to be established like uh to be free you have to have some kind of a social health care social welfare and so on without all this you are formally free but in",
+      "japanese": "徹底して左派の立場にいます。左派が、自由であるためには一連の条件が確立されなければならないと指摘するのは正しいのです。例えば、自由であるためには、ある種の社会的医療、社会福祉などが必要です。これらすべてがなければ、あなたは形式的には自由ですが、現実には",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 665,
+          "start": 2486.56,
+          "end": 2495.36,
+          "text": "am radically on the left the left is"
+        },
+        {
+          "index": 666,
+          "start": 2489.96,
+          "end": 2498.84,
+          "text": "right to point out that to be free a"
+        },
+        {
+          "index": 667,
+          "start": 2495.36,
+          "end": 2502.88,
+          "text": "whole set of conditions have to be"
+        },
+        {
+          "index": 668,
+          "start": 2498.84,
+          "end": 2506.12,
+          "text": "established like uh to be free you have"
+        },
+        {
+          "index": 669,
+          "start": 2502.88,
+          "end": 2509.8,
+          "text": "to have some kind of a social health"
+        },
+        {
+          "index": 670,
+          "start": 2506.12,
+          "end": 2515,
+          "text": "care social welfare and so on without"
+        },
+        {
+          "index": 671,
+          "start": 2509.8,
+          "end": 2519,
+          "text": "all this you are formally free but in"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0673",
+      "time": "00:41:55",
+      "english": "reality you are in to danger in constant anxiety and so on and so on uh so this is concrete Freedom Hegel was aware of them where Liberty as concrete Freedom Liberty to live the way you want within a social order that Liberty Falls aart and you",
+      "japanese": "危険にさらされ、絶え間ない不安の中にいるのです。などなど。ですから、これが具体的な自由です。ヘーゲルはそれらを意識していました。社会的秩序の中で望むように生きる自由としての自由は、具体的な自由であり、その自由は崩れ去り、あなたは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 672,
+          "start": 2515,
+          "end": 2523.4,
+          "text": "reality you are in to danger in constant"
+        },
+        {
+          "index": 673,
+          "start": 2519,
+          "end": 2527.6,
+          "text": "anxiety and so on and so on uh so this"
+        },
+        {
+          "index": 674,
+          "start": 2523.4,
+          "end": 2532.16,
+          "text": "is concrete Freedom Hegel was aware of"
+        },
+        {
+          "index": 675,
+          "start": 2527.6,
+          "end": 2536.12,
+          "text": "them where Liberty as concrete Freedom"
+        },
+        {
+          "index": 676,
+          "start": 2532.16,
+          "end": 2537.8,
+          "text": "Liberty to live the way you want within"
+        },
+        {
+          "index": 677,
+          "start": 2536.12,
+          "end": 2542.32,
+          "text": "a social"
+        },
+        {
+          "index": 678,
+          "start": 2537.8,
+          "end": 2546.64,
+          "text": "order that Liberty Falls aart and you"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0680",
+      "time": "00:42:22",
+      "english": "need the more radical freedom to act outside The Contours of Liberty as in a situation of social Revolt revolution war and so on Zan Paul stter the French existentialist put this in a wonderful way in uh a text that he wrote uh at the",
+      "japanese": "社会的反乱、革命、戦争などの状況のように、自由の輪郭の外で行動する、より急進的な自由を必要とします。フランスの実存主義者ジャン＝ポール・サルトルは、1944年の終わりに書いたテキストの中で、これを素晴らしい形で表現しました。フランスが解放された後、サルトルはこう書きました。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 679,
+          "start": 2542.32,
+          "end": 2548.48,
+          "text": "need the more radical freedom to act"
+        },
+        {
+          "index": 680,
+          "start": 2546.64,
+          "end": 2550.88,
+          "text": "outside"
+        },
+        {
+          "index": 681,
+          "start": 2548.48,
+          "end": 2554.44,
+          "text": "The Contours of Liberty as in a"
+        },
+        {
+          "index": 682,
+          "start": 2550.88,
+          "end": 2559.92,
+          "text": "situation of social Revolt revolution"
+        },
+        {
+          "index": 683,
+          "start": 2554.44,
+          "end": 2564.16,
+          "text": "war and so on Zan Paul stter the French"
+        },
+        {
+          "index": 684,
+          "start": 2559.92,
+          "end": 2569.72,
+          "text": "existentialist put this in a wonderful"
+        },
+        {
+          "index": 685,
+          "start": 2564.16,
+          "end": 2571.44,
+          "text": "way in uh a text that he wrote uh at the"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0687",
+      "time": "00:42:49",
+      "english": "end of 1944 after France was liberated serter wrote never were we French people more free than under the German occupation we had lost all our rights and first of all our right to speak they",
+      "japanese": "「私たちフランス人がドイツ占領下よりも自由だったことはなかった。私たちはすべての権利を、まず第一に話す権利を失っていた。彼らは」",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 686,
+          "start": 2569.72,
+          "end": 2574.72,
+          "text": "end of"
+        },
+        {
+          "index": 687,
+          "start": 2571.44,
+          "end": 2579.4,
+          "text": "1944 after France was"
+        },
+        {
+          "index": 688,
+          "start": 2574.72,
+          "end": 2582.48,
+          "text": "liberated serter wrote never were we"
+        },
+        {
+          "index": 689,
+          "start": 2579.4,
+          "end": 2584.8,
+          "text": "French people more free than under the"
+        },
+        {
+          "index": 690,
+          "start": 2582.48,
+          "end": 2588.8,
+          "text": "German"
+        },
+        {
+          "index": 691,
+          "start": 2584.8,
+          "end": 2592.24,
+          "text": "occupation we had lost all our rights"
+        },
+        {
+          "index": 692,
+          "start": 2588.8,
+          "end": 2596.96,
+          "text": "and first of all our right to speak they"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0694",
+      "time": "00:43:12",
+      "english": "they the Germans insulted us to our faces and that is why the resistance was a true democracy for the soldier esos here Superior the same danger the same loneliness so the situation shter is describing it's not of Liberty you were",
+      "japanese": "「彼ら」、ドイツ人は私たちの面前で私たちを侮辱した。だからこそレジスタンスは真の民主主義だったのだ。兵士たちはここでは同等であり、同じ危険、同じ孤独を共有していた。つまり、サルトルが描いている状況は自由の状況ではありません。あなたは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 693,
+          "start": 2592.24,
+          "end": 2600.44,
+          "text": "they the Germans insulted us to our"
+        },
+        {
+          "index": 694,
+          "start": 2596.96,
+          "end": 2603.16,
+          "text": "faces and that is why the resistance was"
+        },
+        {
+          "index": 695,
+          "start": 2600.44,
+          "end": 2606.4,
+          "text": "a true"
+        },
+        {
+          "index": 696,
+          "start": 2603.16,
+          "end": 2611.48,
+          "text": "democracy for the soldier esos here"
+        },
+        {
+          "index": 697,
+          "start": 2606.4,
+          "end": 2611.48,
+          "text": "Superior the same danger the same"
+        },
+        {
+          "index": 698,
+          "start": 2611.88,
+          "end": 2618,
+          "text": "loneliness so the situation shter is"
+        },
+        {
+          "index": 699,
+          "start": 2614.84,
+          "end": 2619.96,
+          "text": "describing it&#39;s not of Liberty you were"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0701",
+      "time": "00:43:38",
+      "english": "totally controlled by the German people were liquidated tortured abducted and so on but in some sense they were radically free they had to make the radical Choice Risk Everything fight for freedom and I think the same holds now for Ukraine they are certainly not living in Liberty",
+      "japanese": "ドイツ人によって完全に支配され、人々は抹殺され、拷問され、連れ去られました。しかしある意味で彼らは急進的に自由でした。彼らは急進的な選択をし、すべてを危険にさらし、自由のために戦わなければならなかったのです。そして同じことが今のウクライナにも当てはまると思います。彼らは確かに自由の中に生きてはいません。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 700,
+          "start": 2618,
+          "end": 2622.88,
+          "text": "totally controlled by the German people"
+        },
+        {
+          "index": 701,
+          "start": 2619.96,
+          "end": 2626.12,
+          "text": "were liquidated tortured abducted and so"
+        },
+        {
+          "index": 702,
+          "start": 2622.88,
+          "end": 2629.48,
+          "text": "on but in some sense they were radically"
+        },
+        {
+          "index": 703,
+          "start": 2626.12,
+          "end": 2633.28,
+          "text": "free they had to make the radical Choice"
+        },
+        {
+          "index": 704,
+          "start": 2629.48,
+          "end": 2638.2,
+          "text": "Risk Everything fight for freedom and I"
+        },
+        {
+          "index": 705,
+          "start": 2633.28,
+          "end": 2642.52,
+          "text": "think the same holds now for Ukraine"
+        },
+        {
+          "index": 706,
+          "start": 2638.2,
+          "end": 2644.52,
+          "text": "they are certainly not living in Liberty"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0708",
+      "time": "00:44:02",
+      "english": "even in the parts which are not yet occupied by the Russian army they have to obey certain discipline and so on but since their way of life is at stake they have to decide radically to choose a sight to fight for their way of life and the",
+      "japanese": "ロシア軍にまだ占領されていない地域でさえ、彼らはある種の規律に従わなければなりません。しかし彼らの生き方が危機に瀕しているため、彼らは急進的に決断し、自分たちの生き方のために戦う側を選ばなければならないのです。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 707,
+          "start": 2642.52,
+          "end": 2647.6,
+          "text": "even in the parts which are not yet"
+        },
+        {
+          "index": 708,
+          "start": 2644.52,
+          "end": 2650.96,
+          "text": "occupied by the Russian army they have"
+        },
+        {
+          "index": 709,
+          "start": 2647.6,
+          "end": 2655.44,
+          "text": "to obey certain discipline and so on but"
+        },
+        {
+          "index": 710,
+          "start": 2650.96,
+          "end": 2659.64,
+          "text": "since their way of life is at stake they"
+        },
+        {
+          "index": 711,
+          "start": 2655.44,
+          "end": 2664.52,
+          "text": "have to decide radically to choose a"
+        },
+        {
+          "index": 712,
+          "start": 2659.64,
+          "end": 2664.52,
+          "text": "sight to fight for their way of"
+        },
+        {
+          "index": 713,
+          "start": 2665.4,
+          "end": 2669.76,
+          "text": "life and the"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0715",
+      "time": "00:44:27",
+      "english": "is freedom now I come to our today's situation I think something very strange is happening now more and more people think that they have to practice radical Freedom which means violating social rules and so on to",
+      "japanese": "今や自由です、さて今日の状況に移りますが、今何かとても奇妙なことが起こっていると思います。ますます多くの人々が、自分たちの自由を保持するためには、社会的ルールに違反するなどといった過激な自由を実践しなければならないと考えています、そして",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 714,
+          "start": 2667.64,
+          "end": 2674.08,
+          "text": "is"
+        },
+        {
+          "index": 715,
+          "start": 2669.76,
+          "end": 2676.8,
+          "text": "freedom now I come to our today&#39;s"
+        },
+        {
+          "index": 716,
+          "start": 2674.08,
+          "end": 2680.32,
+          "text": "situation I think something very strange"
+        },
+        {
+          "index": 717,
+          "start": 2676.8,
+          "end": 2685.96,
+          "text": "is happening now more and"
+        },
+        {
+          "index": 718,
+          "start": 2680.32,
+          "end": 2689.8,
+          "text": "more people think that they have"
+        },
+        {
+          "index": 719,
+          "start": 2685.96,
+          "end": 2692.8,
+          "text": "to practice radical Freedom which means"
+        },
+        {
+          "index": 720,
+          "start": 2689.8,
+          "end": 2696.24,
+          "text": "violating social rules and so on to"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0722",
+      "time": "00:44:52",
+      "english": "retain their Liberty the distinction is no longer clear what do I mean by this uh think about uh the attack on Capital on the 6th of January last year 2021 when the mop of trump supporters did something which was an act of Freedom they violated the rules of",
+      "japanese": "自分たちの自由を保持するために。その区別はもはや明確ではありません。これはどういう意味かというと、ええと、昨年2021年1月6日の国会議事堂への襲撃について考えてみてください。トランプ支持者の群衆が、自由の行為であることをしたとき、彼らは自由のルールに違反しました、",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 721,
+          "start": 2692.8,
+          "end": 2700.16,
+          "text": "retain their Liberty the distinction is"
+        },
+        {
+          "index": 722,
+          "start": 2696.24,
+          "end": 2705.08,
+          "text": "no longer clear what do I mean by this"
+        },
+        {
+          "index": 723,
+          "start": 2700.16,
+          "end": 2709.6,
+          "text": "uh think about uh the attack on"
+        },
+        {
+          "index": 724,
+          "start": 2705.08,
+          "end": 2713.88,
+          "text": "Capital on the 6th of January last year"
+        },
+        {
+          "index": 725,
+          "start": 2709.6,
+          "end": 2716.96,
+          "text": "2021 when the mop of trump supporters"
+        },
+        {
+          "index": 726,
+          "start": 2713.88,
+          "end": 2720.04,
+          "text": "did something which was an act of"
+        },
+        {
+          "index": 727,
+          "start": 2716.96,
+          "end": 2723.08,
+          "text": "Freedom they violated the rules of"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0729",
+      "time": "00:45:20",
+      "english": "Liberty of social order they occupied the capital so they think that the only way to retain their Liberty is to exercise [Music] freedom I think",
+      "japanese": "社会的秩序の自由のルールに。彼らは国会議事堂を占拠しました、つまり彼らは自分たちの自由を保持する唯一の方法は［音楽］自由を行使することだと考えているのです。私は思います",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 728,
+          "start": 2720.04,
+          "end": 2726.24,
+          "text": "Liberty of social order they occupied"
+        },
+        {
+          "index": 729,
+          "start": 2723.08,
+          "end": 2732,
+          "text": "the capital so they think that the only"
+        },
+        {
+          "index": 730,
+          "start": 2726.24,
+          "end": 2733.6,
+          "text": "way to retain their Liberty is"
+        },
+        {
+          "index": 731,
+          "start": 2732,
+          "end": 2736.6,
+          "text": "to"
+        },
+        {
+          "index": 732,
+          "start": 2733.6,
+          "end": 2736.6,
+          "text": "exercise"
+        },
+        {
+          "index": 733,
+          "start": 2740.24,
+          "end": 2744.55,
+          "text": "[Music]"
+        },
+        {
+          "index": 734,
+          "start": 2747,
+          "end": 2754.48,
+          "text": "freedom I think"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0736",
+      "time": "00:45:50",
+      "english": "that we Humanity not just the developed world are entering a new era in which liberal capitalism as we knew it is coming to an end what it is replaced with is what some people call uh corporate",
+      "japanese": "私たち人類は、先進国だけでなく、私たちが知っていた自由資本主義が終わりを迎えつつある新しい時代に入りつつあると。それが置き換えられるのは、一部の人々が企業",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 735,
+          "start": 2750.68,
+          "end": 2757.92,
+          "text": "that we Humanity not just the developed"
+        },
+        {
+          "index": 736,
+          "start": 2754.48,
+          "end": 2762.64,
+          "text": "world are entering a new era"
+        },
+        {
+          "index": 737,
+          "start": 2757.92,
+          "end": 2767.2,
+          "text": "in which liberal capitalism as we knew"
+        },
+        {
+          "index": 738,
+          "start": 2762.64,
+          "end": 2772.2,
+          "text": "it is coming to an end what it is"
+        },
+        {
+          "index": 739,
+          "start": 2767.2,
+          "end": 2772.2,
+          "text": "replaced with is what some"
+        },
+        {
+          "index": 740,
+          "start": 2772.44,
+          "end": 2777.4,
+          "text": "people"
+        },
+        {
+          "index": 741,
+          "start": 2774.16,
+          "end": 2780.76,
+          "text": "call uh corporate"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-0743",
+      "time": "00:46:17",
+      "english": "neoism it's a problematic term but there",
+      "japanese": "ネオイズムと呼ぶものです。それは問題のある用語ですが、しかしそこには",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 742,
+          "start": 2777.4,
+          "end": 2784.52,
+          "text": "neoism it&#39;s a problematic term but there"
         }
       ]
     }
-  ]
+  ],
+  "sourceCueCoverage": {
+    "firstIndex": 630,
+    "lastIndex": 742,
+    "count": 113
+  },
+  "translationStatus": "machine-translated-unreviewed"
 }
