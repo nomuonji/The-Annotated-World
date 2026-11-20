@@ -4,6 +4,8 @@ export type Doc=CollectionEntry<'documents'>;
 export type Chapter=Doc['data']['chapterIndex'][number];
 export const documentUrl=(d:Doc)=>'/read/'+d.id+'/';
 export const chapterUrl=(d:Doc,c:Chapter)=>documentUrl(d)+'#'+c.anchor;
+// Explicit chapter-only reading mode: the old #anchor URL keeps its full-document meaning.
+export const chapterReadingUrl=(d:Doc,c:Chapter)=>documentUrl(d)+'?chapter='+encodeURIComponent(c.anchor);
 export const genreUrl=(id:string)=>'/genres/'+id+'/';
 export const topicUrl=(id:string)=>'/topics/'+id+'/';
 export const personUrl=(id:string)=>'/people/'+id+'/';
