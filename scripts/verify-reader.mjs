@@ -20,9 +20,10 @@ try{
   assert.equal(await page.locator('.utterance').count(),61);
   // All editorial notes have the same affordance: a marked phrase expands its
   // own explanation in place. Plain bold vocabulary must not open a dead end.
-  const inline=first.locator('.en .in-situ-annotation');
+  const inline=first.locator('[data-editorial-gloss="ch1-line-1-note-1"]');
+  const languageNote=first.locator('[data-editorial-gloss="ch1-line-1-note-3"]');
   const firstMark=first.locator('[data-note-toggle]').first();
-  assert.ok((await inline.count())>=2,'No real source annotations were rendered');
+  assert.equal(await first.locator('.in-situ-annotation').count(),3,'Source annotations were not all rendered');
   assert.ok((await first.locator('.en').textContent()).startsWith('Host: How are we doing here? Good? Still alive? Still lively?'));
   assert.equal(await inline.first().getAttribute('data-editorial-gloss'),'ch1-line-1-note-1');
   assert.ok((await inline.first().textContent()).includes('ラカン派'));
@@ -30,7 +31,12 @@ try{
   assert.ok(await firstMark.isVisible(),'Annotated phrase has no visible, tappable cue');
   assert.equal(await page.locator('a[data-word]').count(),0,'Unannotated key terms still create dead-end links');
   assert.equal(await page.locator('#word-dialog').count(),0,'Obsolete vocabulary modal still exists');
-  assert.equal(await first.locator('.en .in-situ-annotation').count(),3);
+  assert.equal(await first.locator('.in-situ-annotation').count(),3);
+  assert.equal(await firstMark.getAttribute('data-note-kind'),'context');
+  assert.equal(await firstMark.getAttribute('aria-label'),'between two deaths の背景解説を表示');
+  assert.equal(await page.locator('.reader-annotation-legend span').count(),2);
+  assert.equal(await inline.locator('.annotation-note-heading').textContent(),'背景・論点');
+  assert.ok(await languageNote.count(),'Linguistic note not rendered');
   assert.equal(await first.locator('.note').isVisible(),false);
   assert.equal(await page.locator('.note.annotation-converted').count(),61);
   assert.equal(await page.locator('.chapter-trail:visible').count(),0);
@@ -42,10 +48,17 @@ try{
   assert.equal(await first.locator('.in-situ-annotation:visible').count(),1,'An unrelated note became visible');
   await firstMark.click();
   assert.equal(await inline.first().isVisible(),false,'Second tap did not close the note');
+  const languageMark=first.locator('[data-note-toggle][data-note-kind="language"]').first();
+  await languageMark.click();
+  assert.equal(await languageNote.isVisible(),true,'Language note did not open inline');
+  assert.equal(await first.locator('.reader-context-notes .in-situ-annotation:visible').count(),0,'Linguistic note unexpectedly opened a context panel');
+  await firstMark.click();
+  assert.equal(await languageNote.isVisible(),false,'Opening a context note must close the linguistic note');
+  assert.equal(await inline.isVisible(),true);
   await annotationsButton.click();
   assert.equal(await firstMark.getAttribute('aria-disabled'),'true','Annotation OFF still exposes actionable English text');
   assert.equal(await firstMark.getAttribute('tabindex'),'-1');
-  assert.equal(await first.locator('.en .in-situ-annotation:visible').count(),0);
+  assert.equal(await first.locator('.in-situ-annotation:visible').count(),0);
   assert.ok((await first.locator('.en').textContent()).includes('unceded territories'));
   await annotationsButton.click();
   assert.equal(await firstMark.getAttribute('aria-disabled'),'false');
@@ -193,8 +206,10 @@ try{
   await page.locator('#reader-annotations').click();
   assert.equal(await page.locator('[data-note-toggle]').first().getAttribute('aria-disabled'),'false');
   assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),false);
-  await page.locator('[data-note-toggle]').first().click();
-  assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),true);
+  const restoredToggle=page.locator('[data-note-toggle]').first();
+  const pairedId=await restoredToggle.getAttribute('aria-controls');
+  await restoredToggle.click();
+  assert.equal(await page.locator('[id="'+pairedId+'"]').isVisible(),true,'Restored toggle did not reveal its paired note');
   await page.locator('#site-theme-toggle').click();
   assert.equal(await page.locator('html').getAttribute('data-theme'),'light');
   console.log(viewport.width+'px: reading modes, mocked seek/rate/repeat/sync, mobile layout and chapter search passed');await page.close();

@@ -22,7 +22,7 @@ function renderDocument(document,chapters){
  c.utterances.map(u=>'<div class="utterance" id="'+escape(u.id)+'">'+
  '<p class="speaker-line"><span class="'+escape(u.speaker.className)+'">'+escape(u.speaker.name)+'</span> · '+escape(u.time)+'</p>'+
  '<p class="en">'+(document.provenance.coverage==='full'?escape(u.english):u.english)+'</p><p class="ja">'+(document.provenance.coverage==='full'?escape(u.japanese):u.japanese)+'</p>'+
- (u.annotations.length?'<p class="note">'+u.annotations.map(a=>'<span class="note-entry" data-note-id="'+escape(a.id)+'">'+(a.phrase?'<strong>'+escape(a.phrase)+'</strong>：':'')+escape(a.explanation)+'</span>').join('')+'</p>':'')+'</div>').join('\n')+
+ (u.annotations.length?'<p class="note">'+u.annotations.map(a=>'<span class="note-entry" data-note-id="'+escape(a.id)+'" data-note-kind="'+escape(a.kind)+'">'+(a.phrase?'<strong>'+escape(a.phrase)+'</strong>：':'')+escape(a.explanation)+'</span>').join('')+'</p>':'')+'</div>').join('\n')+
  '</section>').join('\n');
  const sources=document.sources.items.map(s=>'<li>'+escape(s.before)+'<a href="'+escape(s.url)+'" target="_blank" rel="noopener noreferrer">'+escape(s.label)+'</a>'+escape(s.after)+'</li>').join('\n');
  return '<header class="hero"><p class="hero-meta">'+escape(document.heroMeta)+'</p><h1>'+escape(document.title)+'</h1><p class="deck">'+escape(document.description)+'</p><dl class="meta-strip">'+facts+'</dl></header>\n'+
@@ -130,7 +130,7 @@ function verifyChapter(id,chapter,seen,full=false){
   }
   const sourceEnglish=load('<p>'+u.english+'</p>')('p').text().toLocaleLowerCase();
   for(const a of u.annotations){
-   if(!text(a.id)||!a.id.startsWith(u.id+'-note-')||noteIds.has(a.id)||typeof a.phrase!=='string'||!text(a.explanation))fail(u.id,'invalid note id, phrase or explanation');
+   if(!text(a.id)||!a.id.startsWith(u.id+'-note-')||noteIds.has(a.id)||typeof a.phrase!=='string'||!text(a.explanation)||!['language','context'].includes(a.kind))fail(u.id,'invalid note id, phrase, kind or explanation');
    noteIds.add(a.id);
    // The imported first article includes historic pattern-based labels. New articles quote exact English.
    if(id!=='slavoj-zizek-signs-from-the-future'&&(!a.phrase||!sourceEnglish.includes(a.phrase.toLocaleLowerCase())))fail(a.id,'annotation must match source English');

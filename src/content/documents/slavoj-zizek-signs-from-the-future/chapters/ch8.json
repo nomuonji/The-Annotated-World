@@ -31,17 +31,20 @@
         {
           "id": "ch8-line-1-note-1",
           "phrase": "Digger",
-          "explanation": "アレハンドロ・ゴンサレス・イニャリトゥ監督、トム・クルーズ主演の映画（2026年公開）。"
+          "explanation": "アレハンドロ・ゴンサレス・イニャリトゥ監督、トム・クルーズ主演の映画（2026年公開）。",
+          "kind": "context"
         },
         {
           "id": "ch8-line-1-note-2",
           "phrase": "mega-tycoon",
-          "explanation": "「超大物実業家」。"
+          "explanation": "「超大物実業家」。",
+          "kind": "language"
         },
         {
           "id": "ch8-line-1-note-3",
           "phrase": "sagging belly",
-          "explanation": "「垂れ下がった腹」。"
+          "explanation": "「垂れ下がった腹」。",
+          "kind": "language"
         }
       ]
     },
@@ -58,17 +61,20 @@
         {
           "id": "ch8-line-2-note-1",
           "phrase": "ruthless",
-          "explanation": "「無慈悲な、冷酷な」。"
+          "explanation": "「無慈悲な、冷酷な」。",
+          "kind": "language"
         },
         {
           "id": "ch8-line-2-note-2",
           "phrase": "Eva Wiseman",
-          "explanation": "英『The Guardian / The Observer』のコラムニスト（字幕では `Eve Viceman`）。"
+          "explanation": "英『The Guardian / The Observer』のコラムニスト（字幕では `Eve Viceman`）。",
+          "kind": "context"
         },
         {
           "id": "ch8-line-2-note-3",
           "phrase": "Pornhub",
-          "explanation": "（字幕では `porn cup`）。ジジェクお馴染みの「性的関係に第三項としてのファンタジーが不可欠である」というラカン的論点。"
+          "explanation": "（字幕では `porn cup`）。ジジェクお馴染みの「性的関係に第三項としてのファンタジーが不可欠である」というラカン的論点。",
+          "kind": "context"
         }
       ]
     },
@@ -85,12 +91,14 @@
         {
           "id": "ch8-line-3-note-1",
           "phrase": "Alejandro González Iñárritu",
-          "explanation": "メキシコ出身の映画監督（『バードマン』『レヴェナント』など。字幕では `Inarito`）。"
+          "explanation": "メキシコ出身の映画監督（『バードマン』『レヴェナント』など。字幕では `Inarito`）。",
+          "kind": "context"
         },
         {
           "id": "ch8-line-3-note-2",
           "phrase": "forthcoming",
-          "explanation": "「差し迫った、今度の」。"
+          "explanation": "「差し迫った、今度の」。",
+          "kind": "language"
         }
       ]
     },
@@ -107,12 +115,14 @@
         {
           "id": "ch8-line-4-note-1",
           "phrase": "Confucian values",
-          "explanation": "「儒教的価値観」。"
+          "explanation": "「儒教的価値観」。",
+          "kind": "language"
         },
         {
           "id": "ch8-line-4-note-2",
           "phrase": "the early Middle Ages",
-          "explanation": "「中世初期（暗黒時代）」。都市国家や要塞だけが安全で、その外部が荒廃するネオ・フェウダリズム（新封建制）のイメージ。"
+          "explanation": "「中世初期（暗黒時代）」。都市国家や要塞だけが安全で、その外部が荒廃するネオ・フェウダリズム（新封建制）のイメージ。",
+          "kind": "context"
         }
       ]
     },
@@ -129,7 +139,8 @@
         {
           "id": "ch8-line-5-note-1",
           "phrase": "surplus enjoyment（余剰享楽 / 仏: plus-de-jouir）",
-          "explanation": "ラカンがマルクスの「剰余価値（surplus value）」になぞらえて作った概念。道徳的に非難したり苦痛を訴えたりする行為そのものから無意識に引き出される密かな快楽（字幕では `Plutir`）。"
+          "explanation": "ラカンがマルクスの「剰余価値（surplus value）」になぞらえて作った概念。道徳的に非難したり苦痛を訴えたりする行為そのものから無意識に引き出される密かな快楽（字幕では `Plutir`）。",
+          "kind": "context"
         }
       ]
     },
@@ -146,7 +157,8 @@
         {
           "id": "ch8-line-6-note-1",
           "phrase": "get off on ~",
-          "explanation": "「〜に性的興奮を覚える、〜から密かな快感を得る」（口語・スラング）。"
+          "explanation": "「〜に性的興奮を覚える、〜から密かな快感を得る」（口語・スラング）。",
+          "kind": "language"
         }
       ]
     }

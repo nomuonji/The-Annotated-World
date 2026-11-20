@@ -35,17 +35,20 @@
         {
           "id": "ch2-line-1-note-1",
           "phrase": "To cut a long history [story] short",
-          "explanation": "「手短に言うと、要するに」（慣用句）。"
+          "explanation": "「手短に言うと、要するに」（慣用句）。",
+          "kind": "language"
         },
         {
           "id": "ch2-line-1-note-2",
           "phrase": "fetish",
-          "explanation": "精神分析では、直視できないトラウマ的な現実（欠如や対立）から目を逸らすために執着する対象のこと。"
+          "explanation": "精神分析では、直視できないトラウマ的な現実（欠如や対立）から目を逸らすために執着する対象のこと。",
+          "kind": "context"
         },
         {
           "id": "ch2-line-1-note-3",
           "phrase": "pathological",
-          "explanation": "「病的な」。"
+          "explanation": "「病的な」。",
+          "kind": "language"
         }
       ]
     },
@@ -62,22 +65,26 @@
         {
           "id": "ch2-line-2-note-1",
           "phrase": "Along the same lines",
-          "explanation": "「同じ方向性で、同様に」。"
+          "explanation": "「同じ方向性で、同様に」。",
+          "kind": "language"
         },
         {
           "id": "ch2-line-2-note-2",
           "phrase": "repress",
-          "explanation": "「抑圧する」（精神分析の重要語）。"
+          "explanation": "「抑圧する」（精神分析の重要語）。",
+          "kind": "language"
         },
         {
           "id": "ch2-line-2-note-3",
           "phrase": "account for",
-          "explanation": "「〜を説明する、〜の原因となる」。"
+          "explanation": "「〜を説明する、〜の原因となる」。",
+          "kind": "language"
         },
         {
           "id": "ch2-line-2-note-4",
           "phrase": "displacement and condensation",
-          "explanation": "「置き換え（転位）と凝縮」はフロイトの夢判断の基本メカニズム。"
+          "explanation": "「置き換え（転位）と凝縮」はフロイトの夢判断の基本メカニズム。",
+          "kind": "context"
         }
       ]
     },
@@ -94,12 +101,14 @@
         {
           "id": "ch2-line-3-note-1",
           "phrase": "Evil resides in the gaze which sees evil everywhere",
-          "explanation": "ジジェクが好んで引用するヘーゲルの『精神現象学』由来の言葉（reside in＝〜に宿る、存在する）。"
+          "explanation": "ジジェクが好んで引用するヘーゲルの『精神現象学』由来の言葉（reside in＝〜に宿る、存在する）。",
+          "kind": "context"
         },
         {
           "id": "ch2-line-3-note-2",
           "phrase": "demonize",
-          "explanation": "「悪魔化する、極悪人扱いする」。"
+          "explanation": "「悪魔化する、極悪人扱いする」。",
+          "kind": "language"
         }
       ]
     },
@@ -116,12 +125,14 @@
         {
           "id": "ch2-line-4-note-1",
           "phrase": "Der Stürmer",
-          "explanation": "ナチス党のユリウス・シュトライヒャーが発行した悪名高い反ユダヤ主義の週刊新聞。字幕の `prosecuted` は文脈から"
+          "explanation": "ナチス党のユリウス・シュトライヒャーが発行した悪名高い反ユダヤ主義の週刊新聞。字幕の `prosecuted` は文脈から",
+          "kind": "context"
         },
         {
           "id": "ch2-line-4-note-2",
           "phrase": "persecuted（迫害された）",
-          "explanation": "の言い間違い・聞き取り違いです。"
+          "explanation": "の言い間違い・聞き取り違いです。",
+          "kind": "context"
         }
       ]
     },
@@ -138,7 +149,8 @@
         {
           "id": "ch2-line-5-note-1",
           "phrase": "Mamdani",
-          "explanation": "ニューヨーク州議会議員で民主社会主義者（DSA）の Zohran Mamdani（ゾーラン・マムダニ）のこと（2025〜2026年のNYC市長選でも話題となった人物）。字幕では `Mandani` と表記されています。"
+          "explanation": "ニューヨーク州議会議員で民主社会主義者（DSA）の Zohran Mamdani（ゾーラン・マムダニ）のこと（2025〜2026年のNYC市長選でも話題となった人物）。字幕では `Mandani` と表記されています。",
+          "kind": "context"
         }
       ]
     }

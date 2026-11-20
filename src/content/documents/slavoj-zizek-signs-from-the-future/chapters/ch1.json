@@ -26,17 +26,20 @@
         {
           "id": "ch1-line-1-note-1",
           "phrase": "between two deaths（二つの死の間）",
-          "explanation": "ラカン派精神分析およびジジェク哲学の定番概念（生物学的死と象徴的死の間）。司会者が冒頭からジジェクの用語でジョークを飛ばしています。"
+          "explanation": "ラカン派精神分析およびジジェク哲学の定番概念（生物学的死と象徴的死の間）。司会者が冒頭からジジェクの用語でジョークを飛ばしています。",
+          "kind": "context"
         },
         {
           "id": "ch1-line-1-note-2",
           "phrase": "unceded territories（未割譲の領土）",
-          "explanation": "カナダの公的イベントで先住民に敬意を表す定型挨拶（Land Acknowledgment）。"
+          "explanation": "カナダの公的イベントで先住民に敬意を表す定型挨拶（Land Acknowledgment）。",
+          "kind": "context"
         },
         {
           "id": "ch1-line-1-note-3",
           "phrase": "What's your take?",
-          "explanation": "「あなたの見解／解釈は？」はディスカッションで頻出の口語表現。"
+          "explanation": "「あなたの見解／解釈は？」はディスカッションで頻出の口語表現。",
+          "kind": "language"
         }
       ]
     },
@@ -53,12 +56,14 @@
         {
           "id": "ch1-line-2-note-1",
           "phrase": "spoil the ecstatic relief",
-          "explanation": "「熱狂的な（有頂天の）安堵を台無しにする」。spoilは「（楽しみやムードを）ぶち壊す」。"
+          "explanation": "「熱狂的な（有頂天の）安堵を台無しにする」。spoilは「（楽しみやムードを）ぶち壊す」。",
+          "kind": "language"
         },
         {
           "id": "ch1-line-2-note-2",
           "phrase": "At first appearance",
-          "explanation": "「一見したところ」（= At first glance）。"
+          "explanation": "「一見したところ」（= At first glance）。",
+          "kind": "language"
         }
       ]
     },
@@ -75,22 +80,26 @@
         {
           "id": "ch1-line-3-note-1",
           "phrase": "force realignment",
-          "explanation": "「（政治的な）再編を強いる」。"
+          "explanation": "「（政治的な）再編を強いる」。",
+          "kind": "language"
         },
         {
           "id": "ch1-line-3-note-2",
           "phrase": "war hawk",
-          "explanation": "「（戦争を辞さない）タカ派」。対義語は dove（ハト派）。"
+          "explanation": "「（戦争を辞さない）タカ派」。対義語は dove（ハト派）。",
+          "kind": "language"
         },
         {
           "id": "ch1-line-3-note-3",
           "phrase": "count on A",
-          "explanation": "「Aを当てにする、頼りにする」。"
+          "explanation": "「Aを当てにする、頼りにする」。",
+          "kind": "language"
         },
         {
           "id": "ch1-line-3-note-4",
           "phrase": "provoke",
-          "explanation": "「（反応や攻撃を）引き起こす、挑発する」。"
+          "explanation": "「（反応や攻撃を）引き起こす、挑発する」。",
+          "kind": "language"
         }
       ]
     },
@@ -107,12 +116,14 @@
         {
           "id": "ch1-line-4-note-1",
           "phrase": "notorious",
-          "explanation": "「悪名高い」。famous（有名）と違い、悪い意味で使われます。"
+          "explanation": "「悪名高い」。famous（有名）と違い、悪い意味で使われます。",
+          "kind": "language"
         },
         {
           "id": "ch1-line-4-note-2",
           "phrase": "not only A, (but) B",
-          "explanation": "「AだけでなくBも」。倒置が起きている `Now, he would not only...` は口語的な語順です。"
+          "explanation": "「AだけでなくBも」。倒置が起きている `Now, he would not only...` は口語的な語順です。",
+          "kind": "language"
         }
       ]
     }

@@ -265,3 +265,82 @@ html[data-theme="dark"] .study-mode button[aria-pressed=true],html[data-theme="d
  color:var(--ink2);
  overflow-wrap:anywhere;
 }
+
+
+/* Two-track annotation system.
+   Language = blue dotted source phrase + compact inline gloss.
+   Context = warm dashed source phrase + source-adjacent explanation panel. */
+.reader-annotation-legend{
+ display:flex;align-items:center;flex-wrap:wrap;gap:6px 13px;
+ margin:8px 0 12px;
+ color:var(--mute);
+ font:400 11px/1.5 'Noto Sans JP',sans-serif;
+}
+.reader-annotation-legend span{display:inline-flex;align-items:center;gap:5px}
+.reader-annotation-legend span::before{
+ content:"";display:inline-block;width:17px;height:7px;
+ border-bottom:2px dotted #75a8d4;
+}
+.reader-annotation-legend .legend-context::before{border-bottom:2px dashed #c09150}
+.reader-annotation-legend small{font-size:10px}
+.study-original .en .annotation-term[data-note-kind="language"]{
+ text-decoration:underline dotted #75a8d4 1.5px;
+}
+.study-original .en .annotation-term[data-note-kind="context"]{
+ text-decoration:underline dashed #c09150 1.5px;
+}
+.study-original .en .annotation-term[data-note-kind="context"]::after{
+ content:"ⓘ";font:600 .55em/1 'Noto Sans JP',sans-serif;
+ display:inline-block;vertical-align:super;margin-left:.1em;
+ color:#b17d39;
+ text-decoration:none;
+}
+/* Empty panels should not reserve space between English paragraphs. */
+.study-original .reader-context-notes{display:contents}
+.study-layout[data-mode="listen"] .utterance:not(.revealed) .reader-context-notes{display:none!important}
+.study-original .reader-context-notes .in-situ-annotation:not([hidden]){
+ display:block;
+ padding:10px 13px 12px;
+ margin:8px 0;
+ border-radius:5px;
+ border:1px solid #e1c9a2;
+ border-left:3px solid #b17d39;
+ background:#fff7eb;
+ color:#503c24;
+ font:400 13px/1.8 'Noto Sans JP',sans-serif;
+ overflow-wrap:anywhere;
+}
+.study-original .reader-context-notes .annotation-note-heading{
+ display:block;
+ margin:0 0 4px;
+ font:700 11px/1.5 'Noto Sans JP',sans-serif;
+ color:#8b571d;
+}
+.study-original .en .in-situ-annotation[data-note-kind="language"]:not([hidden]){
+ background:#ecf4fc;
+ border-color:#adc6df;
+ color:#274a6b;
+}
+.study-original .utterance-tools .annotation-fallback[data-note-kind="context"]{
+ border-color:#c09150;
+ color:#995c23;
+}
+.study-layout[data-annotations="off"] .study-original .annotation-term[data-note-kind="context"]::after,
+.study-layout[data-annotations="off"] .reader-annotation-legend{display:none!important}
+html[data-theme="dark"] .study-original .reader-context-notes .in-situ-annotation:not([hidden]){
+ background:#352c23;border-color:#7a6040;border-left-color:#ddb47b;color:#f0e0c9;
+}
+html[data-theme="dark"] .study-original .reader-context-notes .annotation-note-heading{color:#edc58e}
+html[data-theme="dark"] .study-original .en .annotation-term[data-note-kind="context"]{
+ text-decoration-color:#edc58e;
+}
+html[data-theme="dark"] .study-original .en .annotation-term[data-note-kind="context"]::after{color:#edc58e}
+html[data-theme="dark"] .study-original .en .in-situ-annotation[data-note-kind="language"]:not([hidden]){
+ background:#263746;border-color:#58738b;color:#deebf7;
+}
+@media(max-width:899px){
+ .reader-annotation-legend{margin:7px 0 9px;gap:5px 10px}
+ .study-original .reader-context-notes .in-situ-annotation:not([hidden]){
+  font-size:12.5px;line-height:1.75;padding:9px 10px;
+ }
+}
