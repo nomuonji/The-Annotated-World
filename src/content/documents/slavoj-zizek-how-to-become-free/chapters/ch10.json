@@ -18,38 +18,1074 @@
   ],
   "utterances": [
     {
-      "id": "ch10-line-1",
+      "id": "ch10-line-1124",
+      "time": "01:10:00",
+      "english": "War the military industrial complex but I think we should call it the poetic military complex the Army doing the work outlined by Poets and thinkers and it's the case today in Russia you cannot understand Putin without Russian nationalist artists doing propaganda for",
+      "japanese": "軍産複合体との戦争だが、私はそれを詩的軍産複合体と呼ぶべきだと思う。詩人や思想家が概説した仕事を軍が行っているのだ。そして今日のロシアでもそうだ。ロシアの民族主義芸術家が宣伝を行っているのを見なければ、プーチンを理解することはできない。",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "01:10:05",
-      "english": "I think we should call it the poetic military complex",
-      "japanese": "私はそれを、詩的な軍事複合体と呼ぶべきだと思う。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch10-line-1-note-1",
-          "phrase": "poetic military complex",
-          "explanation": "既存の military-industrial complex（軍産複合体）をもじり、文化・言説が戦争に果たす役割へ注意を向ける。"
+          "index": 1123,
+          "start": 4200.76,
+          "end": 4208.32,
+          "text": "War the military industrial complex but"
+        },
+        {
+          "index": 1124,
+          "start": 4205.32,
+          "end": 4213.52,
+          "text": "I think we should call it the poetic"
+        },
+        {
+          "index": 1125,
+          "start": 4208.32,
+          "end": 4217.72,
+          "text": "military complex the Army doing the work"
+        },
+        {
+          "index": 1126,
+          "start": 4213.52,
+          "end": 4221.08,
+          "text": "outlined by Poets and thinkers and it&#39;s"
+        },
+        {
+          "index": 1127,
+          "start": 4217.72,
+          "end": 4224.32,
+          "text": "the case today in Russia you cannot"
+        },
+        {
+          "index": 1128,
+          "start": 4221.08,
+          "end": 4229.32,
+          "text": "understand Putin without Russian"
+        },
+        {
+          "index": 1129,
+          "start": 4224.32,
+          "end": 4229.32,
+          "text": "nationalist artists doing propaganda for"
         }
       ]
     },
     {
-      "id": "ch10-line-2",
+      "id": "ch10-line-1131",
+      "time": "01:10:29",
+      "english": "him convincing Russians that they have a special miss or without his court philosophers like Alexander Dugan who claim there is a special Russian truth against opposed to European truth and that only War can decide so we are in a very difficult",
+      "japanese": "彼を説得してロシア人には特別な使命があると信じさせている、あるいはアレクサンドル・ドゥーギンのような宮廷哲学者たち、ヨーロッパの真理に対抗する特別なロシアの真理があり、戦争だけがそれを決められるという主張を抜きにしては。だから我々は非常に困難な状況にある。",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "01:13:42",
-      "english": "he mentioned critically only one name",
-      "japanese": "彼が批判的に言及した名は、ただ一つだった。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch10-line-2-note-1",
-          "phrase": "mentioned critically",
-          "explanation": "直後にレーニンの名が登場する。発言が述べた人物名と、編者の歴史的評価を混同しない。"
+          "index": 1130,
+          "start": 4229.52,
+          "end": 4237.12,
+          "text": "him convincing Russians that they have a"
+        },
+        {
+          "index": 1131,
+          "start": 4233.32,
+          "end": 4239.96,
+          "text": "special miss or without his court"
+        },
+        {
+          "index": 1132,
+          "start": 4237.12,
+          "end": 4244.4,
+          "text": "philosophers like Alexander Dugan who"
+        },
+        {
+          "index": 1133,
+          "start": 4239.96,
+          "end": 4246.96,
+          "text": "claim there is a special Russian truth"
+        },
+        {
+          "index": 1134,
+          "start": 4244.4,
+          "end": 4249.4,
+          "text": "against opposed to European truth and"
+        },
+        {
+          "index": 1135,
+          "start": 4246.96,
+          "end": 4254.68,
+          "text": "that only War"
+        },
+        {
+          "index": 1136,
+          "start": 4249.4,
+          "end": 4259.52,
+          "text": "can decide so we are in a very difficult"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1138",
+      "time": "01:10:54",
+      "english": "situation both obvious solutions that is to say uh uh poetry thinking but also its opposite brutal pragmatism they don't work and uh I think this is why a true Revolution is needed not the old Communist",
+      "japanese": "明白な解決策、つまり詩的な思考も、その反対の残忍な実用主義も、どちらも機能しない。そして私はこれが真の革命が必要な理由だと思う。古い共産主義革命ではなく。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1137,
+          "start": 4254.68,
+          "end": 4259.52,
+          "text": "situation both obvious"
+        },
+        {
+          "index": 1138,
+          "start": 4259.88,
+          "end": 4268.52,
+          "text": "solutions that is to say uh uh poetry"
+        },
+        {
+          "index": 1139,
+          "start": 4264.2,
+          "end": 4271.76,
+          "text": "thinking but also its opposite brutal"
+        },
+        {
+          "index": 1140,
+          "start": 4268.52,
+          "end": 4276.64,
+          "text": "pragmatism they don&#39;t"
+        },
+        {
+          "index": 1141,
+          "start": 4271.76,
+          "end": 4280,
+          "text": "work and uh I think this is why a true"
+        },
+        {
+          "index": 1142,
+          "start": 4276.64,
+          "end": 4281.28,
+          "text": "Revolution is needed not the old"
+        },
+        {
+          "index": 1143,
+          "start": 4280,
+          "end": 4284.76,
+          "text": "Communist"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1145",
+      "time": "01:11:21",
+      "english": "Revolution but we have to change the basic paradigms of how we perceive reality in 20th century we tried to change the world too quickly too much now we have to step back and interpret understand our world in a different way thank you",
+      "japanese": "しかし我々は現実を認識する基本的なパラダイムを変えなければならない。20世紀には我々は世界をあまりに速く、あまりに多く変えようとした。今は一歩下がって、異なる方法で我々の世界を解釈し理解しなければならない。ありがとう。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1144,
+          "start": 4281.28,
+          "end": 4286.04,
+          "text": "Revolution but we have to change the"
+        },
+        {
+          "index": 1145,
+          "start": 4284.76,
+          "end": 4290.08,
+          "text": "basic"
+        },
+        {
+          "index": 1146,
+          "start": 4286.04,
+          "end": 4293.44,
+          "text": "paradigms of how we perceive reality in"
+        },
+        {
+          "index": 1147,
+          "start": 4290.08,
+          "end": 4297.64,
+          "text": "20th century we tried to change the"
+        },
+        {
+          "index": 1148,
+          "start": 4293.44,
+          "end": 4301.8,
+          "text": "world too quickly too much now we have"
+        },
+        {
+          "index": 1149,
+          "start": 4297.64,
+          "end": 4307.48,
+          "text": "to step back and interpret understand"
+        },
+        {
+          "index": 1150,
+          "start": 4301.8,
+          "end": 4307.48,
+          "text": "our world in a different way thank you"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1152",
+      "time": "01:11:49",
+      "english": "[Music] today we conclude with a topic which unfortunately is on all our minds War again so what has the ongoing war in Ukraine to do with freedom I think that ultimately this is some kind",
+      "japanese": "［音楽］今日は残念ながら我々全員の心にある話題、再び戦争について締めくくる。ではウクライナで進行中の戦争は自由とどう関係するのか。結局のところこれはある種の形而上学的な戦争だと思う。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1151,
+          "start": 4309.59,
+          "end": 4313.89,
+          "text": "[Music]"
+        },
+        {
+          "index": 1152,
+          "start": 4316.24,
+          "end": 4326.56,
+          "text": "today we conclude with a topic which"
+        },
+        {
+          "index": 1153,
+          "start": 4320,
+          "end": 4326.56,
+          "text": "unfortunately is on all our minds War"
+        },
+        {
+          "index": 1154,
+          "start": 4331.84,
+          "end": 4340.16,
+          "text": "again so what has the ongoing war in"
+        },
+        {
+          "index": 1155,
+          "start": 4336.2,
+          "end": 4345.32,
+          "text": "Ukraine to do with"
+        },
+        {
+          "index": 1156,
+          "start": 4340.16,
+          "end": 4347.24,
+          "text": "freedom I think that ultimately this is"
+        },
+        {
+          "index": 1157,
+          "start": 4345.32,
+          "end": 4351.68,
+          "text": "some kind"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1159",
+      "time": "01:12:27",
+      "english": "of metaphysical war in the sense that it's not just a war about controlling to territory exercise of power it is ultimately a war between different Notions of not freedom but Liberty who is puting here here I don't underestimate Putin he's not just a",
+      "japanese": "領土を支配し権力を行使するための戦争だけではないという意味で。それは究極的には自由ではなくリバティの異なる概念間の戦争だ。ここで誰が話しているかというと、私はプーチンを過小評価していない。彼は単なる偏執的な狂人ではない。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1158,
+          "start": 4347.24,
+          "end": 4357.44,
+          "text": "of metaphysical war in the sense that"
+        },
+        {
+          "index": 1159,
+          "start": 4351.68,
+          "end": 4362.64,
+          "text": "it&#39;s not just a war about controlling to"
+        },
+        {
+          "index": 1160,
+          "start": 4357.44,
+          "end": 4366.84,
+          "text": "territory exercise of power it is"
+        },
+        {
+          "index": 1161,
+          "start": 4362.64,
+          "end": 4371.28,
+          "text": "ultimately a war between different"
+        },
+        {
+          "index": 1162,
+          "start": 4366.84,
+          "end": 4371.28,
+          "text": "Notions of not freedom but"
+        },
+        {
+          "index": 1163,
+          "start": 4372.36,
+          "end": 4379.84,
+          "text": "Liberty who is puting here here I don&#39;t"
+        },
+        {
+          "index": 1164,
+          "start": 4376.84,
+          "end": 4383.04,
+          "text": "underestimate Putin he&#39;s not just a"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1166",
+      "time": "01:12:59",
+      "english": "paranoic maniac who wants to occupy all of Europe he is supported by a well elaborated metaphysical [Music] vision and I oppose Putin already at this philosophical",
+      "japanese": "ヨーロッパ全体を占領したいという狂人ではない。彼はよく練られた形而上学的［音楽］ビジョンに支えられている。そして私はすでにこの哲学的レベルでプーチンに対抗している。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1165,
+          "start": 4379.84,
+          "end": 4385.96,
+          "text": "paranoic maniac who wants to occupy all"
+        },
+        {
+          "index": 1166,
+          "start": 4383.04,
+          "end": 4392.32,
+          "text": "of Europe he"
+        },
+        {
+          "index": 1167,
+          "start": 4385.96,
+          "end": 4394.74,
+          "text": "is supported by a well elaborated"
+        },
+        {
+          "index": 1168,
+          "start": 4392.32,
+          "end": 4397.16,
+          "text": "metaphysical"
+        },
+        {
+          "index": 1169,
+          "start": 4394.74,
+          "end": 4402.92,
+          "text": "[Music]"
+        },
+        {
+          "index": 1170,
+          "start": 4397.16,
+          "end": 4405.72,
+          "text": "vision and I oppose Putin already at"
+        },
+        {
+          "index": 1171,
+          "start": 4402.92,
+          "end": 4410.28,
+          "text": "this philosophical"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1173",
+      "time": "01:13:25",
+      "english": "level I don't know how many of those who follow me now how many of you did notice a very important detail when Putin announced military intervention in Ukraine he mentioned critically only one name Lenin he said you",
+      "japanese": "私に従う人のうち何人が、あなた方のうち何人が非常に重要な細部に気づいたかわからない。プーチンがウクライナへの軍事介入を発表したとき、彼は批判的にただ一つの名前、レーニンだけを挙げた。彼は言った。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1172,
+          "start": 4405.72,
+          "end": 4414.04,
+          "text": "level I don&#39;t know how many of those"
+        },
+        {
+          "index": 1173,
+          "start": 4410.28,
+          "end": 4418.44,
+          "text": "who follow me now how many of you did"
+        },
+        {
+          "index": 1174,
+          "start": 4414.04,
+          "end": 4422.92,
+          "text": "notice a very important detail when"
+        },
+        {
+          "index": 1175,
+          "start": 4418.44,
+          "end": 4427.36,
+          "text": "Putin announced military intervention in"
+        },
+        {
+          "index": 1176,
+          "start": 4422.92,
+          "end": 4429.48,
+          "text": "Ukraine he mentioned critically only one"
+        },
+        {
+          "index": 1177,
+          "start": 4427.36,
+          "end": 4432.32,
+          "text": "name"
+        },
+        {
+          "index": 1178,
+          "start": 4429.48,
+          "end": 4435.92,
+          "text": "Lenin he said you"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1180",
+      "time": "01:13:52",
+      "english": "remember uh Ukraine war bevic invention it doesn't exist as a nation and so on and so on so for all those leftists who still think nonetheless the great enemy today is American imperialism so in even if Putin is not exactly a model of",
+      "japanese": "覚えているだろう、ウクライナはボリシェヴィキの発明であり、国家として存在しない、などなど。だから、それでもなお今日の偉大な敵はアメリカ帝国主義だと考えているすべての左翼主義者たちにとって、たとえプーチンが民主主義の模範でなくても。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1179,
+          "start": 4432.32,
+          "end": 4439.52,
+          "text": "remember uh Ukraine war"
+        },
+        {
+          "index": 1180,
+          "start": 4435.92,
+          "end": 4442.2,
+          "text": "bevic invention it doesn&#39;t exist as a"
+        },
+        {
+          "index": 1181,
+          "start": 4439.52,
+          "end": 4448.08,
+          "text": "nation and so on and so"
+        },
+        {
+          "index": 1182,
+          "start": 4442.2,
+          "end": 4450.84,
+          "text": "on so for all those leftists who still"
+        },
+        {
+          "index": 1183,
+          "start": 4448.08,
+          "end": 4454.4,
+          "text": "think nonetheless the great enemy today"
+        },
+        {
+          "index": 1184,
+          "start": 4450.84,
+          "end": 4456.68,
+          "text": "is American imperialism so in even if"
+        },
+        {
+          "index": 1185,
+          "start": 4454.4,
+          "end": 4461.28,
+          "text": "Putin is not exactly a model of"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1187",
+      "time": "01:14:16",
+      "english": "democracy he opposes the greatest threat NATO and United States so we can be his allies if you think like this this should ruin your last Illusions Putin is simply a dangerous National conservative who is thinking in what",
+      "japanese": "彼は最大の脅威であるNATOとアメリカ合衆国に対抗している、だから我々は彼の同盟者になれる。もしそう考えるなら、これはあなたの最後の幻想を打ち砕くはずだ。プーチンは単に危険な国家保守主義者であり、次のような用語で考えている。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1186,
+          "start": 4456.68,
+          "end": 4464.64,
+          "text": "democracy he opposes the greatest threat"
+        },
+        {
+          "index": 1187,
+          "start": 4461.28,
+          "end": 4466.04,
+          "text": "NATO and United States so we can be his"
+        },
+        {
+          "index": 1188,
+          "start": 4464.64,
+          "end": 4469.08,
+          "text": "allies"
+        },
+        {
+          "index": 1189,
+          "start": 4466.04,
+          "end": 4473.56,
+          "text": "if you think like this this should ruin"
+        },
+        {
+          "index": 1190,
+          "start": 4469.08,
+          "end": 4476.64,
+          "text": "your last Illusions Putin is simply a"
+        },
+        {
+          "index": 1191,
+          "start": 4473.56,
+          "end": 4482.4,
+          "text": "dangerous National"
+        },
+        {
+          "index": 1192,
+          "start": 4476.64,
+          "end": 4485.28,
+          "text": "conservative who is thinking in what"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1194",
+      "time": "01:14:42",
+      "english": "terms remember many people don't know this which is Liberty provided by a safe network of authoritarian power it's interesting to to know who is Putin's official philosopher it's Ian Ilan a conservative Russian theologist from 1920s he escaped Soviet",
+      "japanese": "覚えているだろう、多くの人はこれを知らないが、権威主義的権力の安全なネットワークによって提供されるリバティという用語で。プーチンの公式哲学者が誰か知るのは興味深い。イワン・イリイン、1920年代の保守的なロシアの神学者で、ソビエト連邦から逃れた。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1193,
+          "start": 4482.4,
+          "end": 4490.84,
+          "text": "terms remember many people don&#39;t know"
+        },
+        {
+          "index": 1194,
+          "start": 4485.28,
+          "end": 4494.24,
+          "text": "this which is Liberty provided by a safe"
+        },
+        {
+          "index": 1195,
+          "start": 4490.84,
+          "end": 4497.08,
+          "text": "network of authoritarian power it&#39;s"
+        },
+        {
+          "index": 1196,
+          "start": 4494.24,
+          "end": 4501.84,
+          "text": "interesting to to know who is Putin&#39;s"
+        },
+        {
+          "index": 1197,
+          "start": 4497.08,
+          "end": 4504.4,
+          "text": "official philosopher it&#39;s Ian Ilan a"
+        },
+        {
+          "index": 1198,
+          "start": 4501.84,
+          "end": 4508.4,
+          "text": "conservative Russian"
+        },
+        {
+          "index": 1199,
+          "start": 4504.4,
+          "end": 4511.6,
+          "text": "theologist from 1920s he escaped Soviet"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1201",
+      "time": "01:15:08",
+      "english": "Union and then he developed something that he directly called a new Russian fascism which was an authoritarian patriarchal order Ilan said we only vote in order to affirm our Collective support for our leader isn't this incidentally how",
+      "japanese": "そして彼は直接新しいロシア・ファシズムと呼んだものを発展させた。それは権威主義的で家父長制的な秩序だった。イリインは言った、我々は指導者への集団的支援を確認するためにのみ投票するのだと。ちなみにこれは我々が",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1200,
+          "start": 4508.4,
+          "end": 4516,
+          "text": "Union and then he developed something"
+        },
+        {
+          "index": 1201,
+          "start": 4511.6,
+          "end": 4519.16,
+          "text": "that he directly called a new Russian"
+        },
+        {
+          "index": 1202,
+          "start": 4516,
+          "end": 4524.08,
+          "text": "fascism which was an authoritarian"
+        },
+        {
+          "index": 1203,
+          "start": 4519.16,
+          "end": 4527.04,
+          "text": "patriarchal order Ilan said we only vote"
+        },
+        {
+          "index": 1204,
+          "start": 4524.08,
+          "end": 4530.8,
+          "text": "in order to affirm our Collective"
+        },
+        {
+          "index": 1205,
+          "start": 4527.04,
+          "end": 4530.8,
+          "text": "support for our"
+        },
+        {
+          "index": 1206,
+          "start": 4531.6,
+          "end": 4540.2,
+          "text": "leader isn&#39;t this incidentally how"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1208",
+      "time": "01:15:34",
+      "english": "elections effectively work now in Russia so no wonder Ilan is really the official philosopher now do you know that I heard from Russian friendch his books are now reprinted in hundreds of thousands of copies by the state every military con script is given them every",
+      "japanese": "選挙は今やロシアで事実上機能しているので、イランが今や本当に公式の哲学者であるのも不思議ではない。ロシア人の友人から聞いたのだが、彼の本は今や国家によって数十万部も再版されており、すべての徴兵兵にそれらが与えられ、すべての",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1207,
+          "start": 4534.64,
+          "end": 4543.36,
+          "text": "elections effectively work now in Russia"
+        },
+        {
+          "index": 1208,
+          "start": 4540.2,
+          "end": 4546.2,
+          "text": "so no wonder Ilan is really the official"
+        },
+        {
+          "index": 1209,
+          "start": 4543.36,
+          "end": 4549.36,
+          "text": "philosopher now do you know that I heard"
+        },
+        {
+          "index": 1210,
+          "start": 4546.2,
+          "end": 4552,
+          "text": "from Russian friendch his books are now"
+        },
+        {
+          "index": 1211,
+          "start": 4549.36,
+          "end": 4555.08,
+          "text": "reprinted in hundreds of thousands of"
+        },
+        {
+          "index": 1212,
+          "start": 4552,
+          "end": 4557.96,
+          "text": "copies by the state every military con"
+        },
+        {
+          "index": 1213,
+          "start": 4555.08,
+          "end": 4562.16,
+          "text": "script is given them every"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1215",
+      "time": "01:15:57",
+      "english": "state administrator is given his books and so on and so on then the present Court philosopher of Putin Alexander dugin follows this line but with a postmodern spin of historicist relativism a quote you have to hear it to believe it that it's true I'm quoting",
+      "japanese": "国家管理者に彼の本が与えられる、などなど。そしてプーチンの現在の宮廷哲学者アレクサンドル・ドゥーギンはこの路線に従うが、歴史主義的相対主義のポストモダン的なひねりを加えている。引用すると、信じるには聞いてもらうしかないが、それは本当だ、私は引用している",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1214,
+          "start": 4557.96,
+          "end": 4566.24,
+          "text": "state administrator is given his books"
+        },
+        {
+          "index": 1215,
+          "start": 4562.16,
+          "end": 4570.76,
+          "text": "and so on and so on then the present"
+        },
+        {
+          "index": 1216,
+          "start": 4566.24,
+          "end": 4575.28,
+          "text": "Court philosopher of Putin Alexander"
+        },
+        {
+          "index": 1217,
+          "start": 4570.76,
+          "end": 4580.32,
+          "text": "dugin follows this line but with a"
+        },
+        {
+          "index": 1218,
+          "start": 4575.28,
+          "end": 4583.72,
+          "text": "postmodern spin of historicist"
+        },
+        {
+          "index": 1219,
+          "start": 4580.32,
+          "end": 4586.56,
+          "text": "relativism a quote you have to hear it"
+        },
+        {
+          "index": 1220,
+          "start": 4583.72,
+          "end": 4590.44,
+          "text": "to believe it that it&#39;s true I&#39;m quoting"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1222",
+      "time": "01:16:26",
+      "english": "Alexander dugin postmodernity shows that every so-called truth is a matter of believing so we believe in what we do we believe in what we say and that is the only way to define the truth so we have our special Russian truth that you need to",
+      "japanese": "アレクサンドル・ドゥーギン、ポストモダニティは、いわゆるあらゆる真理が信じることの問題であることを示している。だから我々は自分たちがすること信じ、自分たちが言うことを信じる。そしてそれが真理を定義する唯一の方法だ。だから我々には特別なロシアの真理があり、あなたはそれを",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1221,
+          "start": 4586.56,
+          "end": 4593.48,
+          "text": "Alexander dugin postmodernity shows that"
+        },
+        {
+          "index": 1222,
+          "start": 4590.44,
+          "end": 4597.12,
+          "text": "every so-called truth is a matter of"
+        },
+        {
+          "index": 1223,
+          "start": 4593.48,
+          "end": 4599.96,
+          "text": "believing so we believe in what we do we"
+        },
+        {
+          "index": 1224,
+          "start": 4597.12,
+          "end": 4603.48,
+          "text": "believe in what we say and that is the"
+        },
+        {
+          "index": 1225,
+          "start": 4599.96,
+          "end": 4603.48,
+          "text": "only way to define the"
+        },
+        {
+          "index": 1226,
+          "start": 4604.8,
+          "end": 4612.6,
+          "text": "truth so we have our special Russian"
+        },
+        {
+          "index": 1227,
+          "start": 4608.64,
+          "end": 4615.52,
+          "text": "truth that you need to"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1229",
+      "time": "01:16:52",
+      "english": "accept if the United States does not want to start a war you should recognize that United States is not anymore a unique Master this is the question of who rules the world only War could decide really that's Putin's",
+      "japanese": "受け入れる必要がある。もしアメリカ合衆国が戦争を始めたくなければ、アメリカ合衆国はもはや唯一の支配者ではないことを認めるべきだ。これは誰が世界を支配するかという問題であり、実際にそれを決められるのは戦争だけだ。それがプーチンの",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1228,
+          "start": 4612.6,
+          "end": 4618.76,
+          "text": "accept if the United States does not"
+        },
+        {
+          "index": 1229,
+          "start": 4615.52,
+          "end": 4621.64,
+          "text": "want to start a war you should recognize"
+        },
+        {
+          "index": 1230,
+          "start": 4618.76,
+          "end": 4625,
+          "text": "that United States is not anymore a"
+        },
+        {
+          "index": 1231,
+          "start": 4621.64,
+          "end": 4629.72,
+          "text": "unique Master this is the question of"
+        },
+        {
+          "index": 1232,
+          "start": 4625,
+          "end": 4632.68,
+          "text": "who rules the world only War could"
+        },
+        {
+          "index": 1233,
+          "start": 4629.72,
+          "end": 4632.68,
+          "text": "decide"
+        },
+        {
+          "index": 1234,
+          "start": 4632.76,
+          "end": 4640.48,
+          "text": "really that&#39;s Putin&#39;s"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1236",
+      "time": "01:17:16",
+      "english": "official uh philosopher so what's important to note here is that uh when putting when sorry when Dugan says we have our own truth and so on and so on he reduces this truth nonetheless to a couple of big spares like we can ask what about Ukrainian truth what",
+      "japanese": "公式の、ええと、哲学者だ。ここで重要なのは、ええと、プーチンが、失礼、ドゥーギンが我々には独自の真理があるなどと言うとき、それでも彼はこの真理をいくつかの大きな枠組みに還元するということだ。例えば、ウクライナの真理はどうなのか、何が",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1235,
+          "start": 4636.48,
+          "end": 4644.52,
+          "text": "official uh philosopher so what&#39;s"
+        },
+        {
+          "index": 1236,
+          "start": 4640.48,
+          "end": 4647.76,
+          "text": "important to note here is that uh when"
+        },
+        {
+          "index": 1237,
+          "start": 4644.52,
+          "end": 4650.52,
+          "text": "putting when sorry when Dugan"
+        },
+        {
+          "index": 1238,
+          "start": 4647.76,
+          "end": 4654.44,
+          "text": "says we have our own truth and so on and"
+        },
+        {
+          "index": 1239,
+          "start": 4650.52,
+          "end": 4657.2,
+          "text": "so on he reduces this truth nonetheless"
+        },
+        {
+          "index": 1240,
+          "start": 4654.44,
+          "end": 4660.6,
+          "text": "to a couple of big spares like we can"
+        },
+        {
+          "index": 1241,
+          "start": 4657.2,
+          "end": 4663.84,
+          "text": "ask what about Ukrainian truth what"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1243",
+      "time": "01:17:40",
+      "english": "about Syrian truth no they don't they don't care Russians about them another Russian State philosopher Ephraim of Dimitri said brutally in the next couple of decades the world will be changed into four great spheres of influence American",
+      "japanese": "シリアの真理はどうなのか、と問うことができる。いや、彼らは、ロシア人は彼らのことを気にかけない。別のロシアの国家哲学者、ディミトリのエフライムは残酷にこう言った。今後数十年で世界は四つの大きな勢力圏に変わるだろう。アメリカ",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1242,
+          "start": 4660.6,
+          "end": 4666.88,
+          "text": "about Syrian truth no they"
+        },
+        {
+          "index": 1243,
+          "start": 4663.84,
+          "end": 4670,
+          "text": "don&#39;t they don&#39;t care Russians about"
+        },
+        {
+          "index": 1244,
+          "start": 4666.88,
+          "end": 4673.56,
+          "text": "them another Russian State"
+        },
+        {
+          "index": 1245,
+          "start": 4670,
+          "end": 4677.4,
+          "text": "philosopher Ephraim of Dimitri said"
+        },
+        {
+          "index": 1246,
+          "start": 4673.56,
+          "end": 4681.28,
+          "text": "brutally in the next couple of decades"
+        },
+        {
+          "index": 1247,
+          "start": 4677.4,
+          "end": 4685,
+          "text": "the world will be changed into four"
+        },
+        {
+          "index": 1248,
+          "start": 4681.28,
+          "end": 4689,
+          "text": "great spheres of influence American"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1250",
+      "time": "01:18:05",
+      "english": "Russian Chinese and Indian all other sovereign states will disappear they will maybe continue to exist formally but they will be uh they will be uh subordinated to this this is the vision which you should bear in mind this which is no longer the vision of War as a war",
+      "japanese": "ロシア、中国、インド。他のすべての主権国家は消滅するだろう。彼らはおそらく形式的には存在し続けるかもしれないが、彼らは、ええと、彼らは、ええと、これに従属することになる。これは心に留めておくべきビジョンであり、もはや国家間の戦争としての戦争のビジョンではない",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1249,
+          "start": 4685,
+          "end": 4692.32,
+          "text": "Russian Chinese and Indian all other"
+        },
+        {
+          "index": 1250,
+          "start": 4689,
+          "end": 4695.64,
+          "text": "sovereign states will disappear they"
+        },
+        {
+          "index": 1251,
+          "start": 4692.32,
+          "end": 4700.12,
+          "text": "will maybe continue to exist formally"
+        },
+        {
+          "index": 1252,
+          "start": 4695.64,
+          "end": 4703.88,
+          "text": "but they will be uh they will be uh"
+        },
+        {
+          "index": 1253,
+          "start": 4700.12,
+          "end": 4706.4,
+          "text": "subordinated to this this is the vision"
+        },
+        {
+          "index": 1254,
+          "start": 4703.88,
+          "end": 4711.44,
+          "text": "which you should bear in mind this which"
+        },
+        {
+          "index": 1255,
+          "start": 4706.4,
+          "end": 4716.52,
+          "text": "is no longer the vision of War as a war"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-1257",
+      "time": "01:18:31",
+      "english": "between nation states no uh this is why",
+      "japanese": "いや、ええと、だからこそだ",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1256,
+          "start": 4711.44,
+          "end": 4718.68,
+          "text": "between nation states no uh this is why"
         }
       ]
     }
-  ]
+  ],
+  "sourceCueCoverage": {
+    "firstIndex": 1123,
+    "lastIndex": 1256,
+    "count": 134
+  },
+  "translationStatus": "machine-translated-unreviewed"
 }
