@@ -23,6 +23,10 @@ for(const file of entries){
     .replace('英文の直下に自然な日本語訳と語彙・背景知識のポイントを配置しました。','英文中に語彙と背景知識の注釈を直接挿入し、日本語訳も併記しました。')
     .replace('青い番号から各文中註へ移動できます。','注釈は英文の該当箇所に直接表示しています。');
   }
+  if(selector==='.meta-strip'){
+   for(let i=0;i<sourceValues.length;i++)sourceValues[i]=sourceValues[i]
+    .replace('英文 → 日本語訳 → ポイントの順次精読','文中注釈つき英文＋日本語訳');
+  }
   assert.deepEqual(extract(page),sourceValues,file+': '+selector);
  }
  const inline=($)=>$('.en strong.key,.note strong,.en em').toArray().map(e=>{const copy=$(e).clone();copy.find('.in-situ-annotation,.inline-note-ref').remove();return copy.text();});
