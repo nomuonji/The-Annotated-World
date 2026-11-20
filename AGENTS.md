@@ -34,3 +34,6 @@ New source files belong in `src/content/documents/`; new supplemental annotation
 
 ## ショート Pilot 007: クロスプラットフォームUIと音
 第7版のフィードバック「字幕をもっと上へ」「視聴者をもっと引きつける」「音関連も」に対応した制作契約は [docs/prototypes/zizek-marx-v7-audio-safezone.md](docs/prototypes/zizek-marx-v7-audio-safezone.md) を参照。英語発話のペースを不必要に上げず、論証の逆転と音響の変化で視聴を支える。字幕は下端や右側のSNS操作UIと重ねず、英語句と日本語句の同時ハイライトを守る。適法に利用可能な写真・史料とナレーションを分けて出所を残す。
+
+## Pilot 008: BGMと余白の修正
+2026-11-20 の本人FB「BGM聞こえない／字幕が読みづらい／スペースがやたら開いててもったいない」に対応する [編集仕様](docs/prototypes/zizek-marx-v8-bgm-captions.md) を優先参照する。字幕の『安全』のために400px以上空けて、文字を小さくする設計は採用しない。BGMの平均音量や帯域を最終音声と分けて検査し、声を邪魔しないが音楽として存在感が分かる水準にする。日英の対応ハイライト・思想の情報密度・原典のニュアンスを維持する。
