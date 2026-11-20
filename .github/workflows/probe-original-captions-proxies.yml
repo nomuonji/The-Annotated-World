@@ -1,0 +1,21 @@
+name: Source caption track provenance probe
+on:
+  pull_request:
+    paths:
+      - scripts/probe-original-captions-proxies.mjs
+      - .github/workflows/probe-original-captions-proxies.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/probe-original-captions-proxies.mjs
