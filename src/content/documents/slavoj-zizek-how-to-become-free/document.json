@@ -113,5 +113,6 @@
     "rights": "original",
     "basis": "原典はfediak 22のYouTube動画4YSXNotY8QU。2026-11-21にžižek archive上の約9,318語・9ターンの発話テキストを実際に確認し、12章を発話と概念位置に基づき独立に編集。本文の英語解説・日本語訳・注釈は新規執筆、原文引用は2箇所計17英語語程度の短句のみ。動画の録音・字幕ファイルを直接取得して照合したわけではなく、話者や秒単位の位置には第三者文字起こしによる不確実性がある。元講演全文・長い翻訳の転載許諾は未確認のため掲載しない。rights=originalは編集部執筆文についてであり、講演映像・文字起こし全体の権利を示さない。",
     "sourceUrl": "https://www.youtube.com/watch?v=4YSXNotY8QU"
-  }
+  },
+  "transcriptBaseUrl": "https://www.zizek.org/talk/slavoj-zizek-how-to-become-free"
 }
