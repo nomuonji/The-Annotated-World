@@ -1,4 +1,4 @@
-export interface YoutubeCapture{provider:'youtube';videoId:string;method:'youtube-captions'|'youtube-auto-captions'|'youtube-audio-asr';language:string;tool:string;capturedAt:string;sha256:string}
+export interface YoutubeCapture{provider:'youtube';videoId:string;method:'youtube-captions'|'youtube-auto-captions'|'youtube-audio-asr';language:string;tool:string;capturedAt:string;sha256:string;transport:'youtube-direct'|'savetube-media-proxy';mediaSha256?:string}
 export interface Topic{id:string;name:string}
 export interface Person{id:string;name:string;ja:string}
 export interface Provenance{coverage:'full'|'excerpt'|'unverified';transcript:'verified'|'unverified'|'not-applicable';translation:'verified'|'unverified';rights:'original'|'licensed'|'public-domain'|'unverified';basis:string;sourceUrl:string}

@@ -1,0 +1,92 @@
+name: Probe SaveTube media transport for original YouTube source
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/savetube_download.mjs'
+      - '.github/workflows/probe-savetube-annotated.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  youtube-media:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    env:
+      SAVETUBE_NODE_ATTEMPTS: '2'
+      SAVETUBE_POLL_MINUTES: '7'
+      SAVETUBE_POLL_INTERVAL_SECONDS: '30'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install self-contained audio decoder (no apt network dependency)
+        run: python3 -m pip install --disable-pip-version-check -q imageio-ffmpeg
+      - name: SaveTube /v2/info probe (metadata only)
+        id: info
+        continue-on-error: true
+        env:
+          SAVETUBE_INFO_ONLY: '1'
+        run: timeout 100s node scripts/savetube_download.mjs 4YSXNotY8QU /tmp/metadata-only 720
+      - name: Download the exact original-video media through SaveTube CDN
+        id: media
+        if: steps.info.outcome == 'success'
+        continue-on-error: true
+        run: |
+          mkdir -p /tmp/youtube-capture
+          timeout 950s node scripts/savetube_download.mjs 4YSXNotY8QU /tmp/youtube-capture/source.mp4 720
+      - name: Decode original video sound at beginning, middle and late sections
+        id: streams
+        if: steps.media.outcome == 'success'
+        continue-on-error: true
+        run: |
+          test -s /tmp/youtube-capture/source.mp4
+          python3 - <<'PY'
+          import array, json, math, pathlib, subprocess
+          import imageio_ffmpeg
+          source="/tmp/youtube-capture/source.mp4"
+          decoder=imageio_ffmpeg.get_ffmpeg_exe()
+          p=pathlib.Path(source)
+          print("SAVETUBE_MEDIA_BYTES=",p.stat().st_size)
+          for minute in (0, 1, 30, 80):
+              offset=minute*60
+              cmd=[decoder,"-nostdin","-v","error","-ss",str(offset),
+                   "-i",source,"-t","6","-map","0:a:0",
+                   "-ac","1","-ar","16000","-f","s16le","pipe:1"]
+              proc=subprocess.run(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=35)
+              if proc.returncode!=0:
+                  raise RuntimeError(f"Audio decode at {minute} minutes failed: {proc.stderr[-300:]!r}")
+              samples=array.array("h");samples.frombytes(proc.stdout)
+              n=len(samples)
+              rms=math.sqrt(sum(v*v for v in samples)/max(n,1))/32768
+              print(f"AUDIO_MINUTE_{minute}_SAMPLES={n} RMS={rms:.6f}")
+              assert n>=64000, f"No continuous audio at minute {minute}"
+              assert rms>0.00005, f"Audio is effectively silent at minute {minute}"
+          import hashlib
+          digest=hashlib.sha256(p.read_bytes()).hexdigest()
+          print("SOURCE_MEDIA_SHA256=",digest)
+          print("CONTINUOUS_AUDIO_VALIDATED=1")
+          PY
+      - name: Distinguish metadata response from actual media acquisition
+        if: always()
+        env:
+          METADATA_OUTCOME: ${{ steps.info.outcome }}
+          MEDIA_OUTCOME: ${{ steps.media.outcome }}
+          STREAMS_OUTCOME: ${{ steps.streams.outcome }}
+        run: |
+          echo "SAVETUBE_METADATA_OUTCOME=$METADATA_OUTCOME"
+          echo "SAVETUBE_MEDIA_OUTCOME=$MEDIA_OUTCOME"
+          echo "SAVETUBE_STREAMS_OUTCOME=$STREAMS_OUTCOME"
+          if [ "$STREAMS_OUTCOME" = success ]; then
+            echo "SAVETUBE_SOURCE_MEDIA_VERIFIED=1"
+            echo "NOTE=Source media was acquired through a THIRD-PARTY MEDIA PROXY, not directly from YouTube and NOT a third-party transcript. No ASR transcription or republishing approved."
+          else
+            echo "SAVETUBE_SOURCE_MEDIA_VERIFIED=0"
+            echo "::warning::No verified source media acquired. Do not build or republish any article."
+          fi
+      - name: Delete original media on runner
+        if: always()
+        run: rm -rf /tmp/youtube-capture
