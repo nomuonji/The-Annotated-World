@@ -56,6 +56,23 @@ python transcribe_rapidapi.py VIDEO_ID --lang en \
 - GitHub Actionsの場合は **`kirinuki-generator` 内の手動診断Workflowから実行する（キーの値は不要）**。**同リポジトリの [字幕診断PR #88](https://github.com/nomuonji/kirinuki-generator/pull/88) のワークフローは本文を保存せず、件数・時間範囲・ハッシュを報告する診断専用**。診断が通っただけで本文ファイルが永続保存されたとみなさない。実制作では許可された非公開作業領域へ取得ファイルを保管する。
 - `/tmp` や `private-youtube-source/` の原本は公開コンテンツではない。権利不明の長文、APIキー、認証CookieをGit・Actionsログ・公開artifactへ出さない。
 
+### ブラウザ直結エクスポートの実行・ローカル検査（実物がある場合）
+
+公式YouTubeページ `https://www.youtube.com/watch?v=4YSXNotY8QU` を、一般利用者の接続回線で開き、`scripts/youtube-original-captions.user.js`（v0.2.0）をViolentmonkeyに登録して「YouTubeの英語字幕を保存」を押す。成功時には元字幕ファイル `4YSXNotY8QU_en_youtube-auto.json3`（または `_uploader.json3` / `.vtt`）と、証跡 `4YSXNotY8QU.evidence.json` の**2つ**がローカルへ保存される。複数ファイルのダウンロード許可をChromeが確認する場合がある。ファイル名・方式は実際の取得トラックに従い、例と違ってもよい。
+
+上記の**現物2ファイルを持っている場合だけ**、次の読み取り専用チェックを行う。本文は標準出力へ表示しない。
+
+```bash
+node scripts/verify-youtube-caption-capture.mjs \
+  /path/to/4YSXNotY8QU_en_youtube-auto.json3 \
+  /path/to/4YSXNotY8QU.evidence.json
+```
+
+- 取得元動画ID、言語、字幕の種別、取得UTC日時、字幕ファイルのサイズ・SHA-256、時刻の単調増加、末尾の収録範囲、イベント件数を検証する。目的の動画では字幕終端が90分未満の不完全ファイルを拒否する。
+- ここで検査するのは**ブラウザから保存された字幕データと証跡の内部整合性**。YouTube音声との逐語照合、実際の発言者、字幕の精度、全文掲載の許諾は別のゲートであり、このコマンドの成功を公開許可とみなさない。
+- `*.json3`、`*.vtt`、`*.evidence.json` は**非公開制作素材**。Git、PR、CIログ、公開artifactや公開サイトへ転載しない。著作権未確認の全文を読み取り用Issueやチャットに貼り付けない。
+- 原字幕の現物を取得できないときは、この手順を仮データで通さず**制作を停止する**。前回削除した原稿・第三者転写アーカイブを戻さない。
+
 ## 3. 出所の照合 — ここが公開可否の分岐
 
 **RapidAPIが151,871バイト返しただけでは、YouTube公式の既存字幕と同一だとは判定できない。** 外部の転写原稿を採用しないというユーザー指示は、この経路でも維持する。
