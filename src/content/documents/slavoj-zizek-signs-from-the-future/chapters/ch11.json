@@ -31,12 +31,14 @@
         {
           "id": "ch11-line-1-note-1",
           "phrase": "permissive capitalism",
-          "explanation": "「許容的・寛容な資本主義」（68年世代の反権威・自己表現・快楽主義の要求を、新しいマーケティングやライフスタイルとして吸収してしまった現代資本主義）。"
+          "explanation": "「許容的・寛容な資本主義」（68年世代の反権威・自己表現・快楽主義の要求を、新しいマーケティングやライフスタイルとして吸収してしまった現代資本主義）。",
+          "kind": "context"
         },
         {
           "id": "ch11-line-1-note-2",
           "phrase": "translate A into B",
-          "explanation": "「AをBへ翻訳・転換する」。"
+          "explanation": "「AをBへ翻訳・転換する」。",
+          "kind": "language"
         }
       ]
     },
@@ -53,17 +55,20 @@
         {
           "id": "ch11-line-2-note-1",
           "phrase": "Yellow Vests",
-          "explanation": "フランスの反増税・反マクロンデモ「黄色いベスト運動（Gilets jaunes）」。"
+          "explanation": "フランスの反増税・反マクロンデモ「黄色いベスト運動（Gilets jaunes）」。",
+          "kind": "context"
         },
         {
           "id": "ch11-line-2-note-2",
           "phrase": "La France Insoumise",
-          "explanation": "ジャン＝リュック・メランション率いる左派政党「不服従のフランス」（英語訳は France Unbowed。字幕の `subordinator` は `insoumise` 関連の誤認識）。"
+          "explanation": "ジャン＝リュック・メランション率いる左派政党「不服従のフランス」（英語訳は France Unbowed。字幕の `subordinator` は `insoumise` 関連の誤認識）。",
+          "kind": "context"
         },
         {
           "id": "ch11-line-2-note-3",
           "phrase": "datum",
-          "explanation": "data の単数形。"
+          "explanation": "data の単数形。",
+          "kind": "language"
         }
       ]
     },
@@ -80,17 +85,20 @@
         {
           "id": "ch11-line-3-note-1",
           "phrase": "alienated",
-          "explanation": "「疎外された」。"
+          "explanation": "「疎外された」。",
+          "kind": "language"
         },
         {
           "id": "ch11-line-3-note-2",
           "phrase": "political representation",
-          "explanation": "「政治的代表制（代議制）」。"
+          "explanation": "「政治的代表制（代議制）」。",
+          "kind": "language"
         },
         {
           "id": "ch11-line-3-note-3",
           "phrase": "transnational authority",
-          "explanation": "「国境を越えた超国家的権威」。"
+          "explanation": "「国境を越えた超国家的権威」。",
+          "kind": "language"
         }
       ]
     },
@@ -107,17 +115,20 @@
         {
           "id": "ch11-line-4-note-1",
           "phrase": "heat dome",
-          "explanation": "「ヒートドーム」（高気圧が蓋のように停滞し極端な猛暑を引き起こす現象。2021年夏にBC州リットンで49.6℃を記録した災害を指す）。"
+          "explanation": "「ヒートドーム」（高気圧が蓋のように停滞し極端な猛暑を引き起こす現象。2021年夏にBC州リットンで49.6℃を記録した災害を指す）。",
+          "kind": "context"
         },
         {
           "id": "ch11-line-4-note-2",
           "phrase": "perturbed",
-          "explanation": "「乱された、かき乱された」。"
+          "explanation": "「乱された、かき乱された」。",
+          "kind": "language"
         },
         {
           "id": "ch11-line-4-note-3",
           "phrase": "more alienation",
-          "explanation": "直接民主主義や「草の根の純粋さ」に頼るのではなく、市民からある程度距離を置いた（＝疎外された）強力な官僚機構や超国家的制度をあえて受け入れるべきだというジジェクならではの逆説的結論。"
+          "explanation": "直接民主主義や「草の根の純粋さ」に頼るのではなく、市民からある程度距離を置いた（＝疎外された）強力な官僚機構や超国家的制度をあえて受け入れるべきだというジジェクならではの逆説的結論。",
+          "kind": "context"
         }
       ]
     }
