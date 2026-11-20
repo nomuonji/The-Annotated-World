@@ -18,38 +18,1074 @@
   ],
   "utterances": [
     {
-      "id": "ch9-line-1",
+      "id": "ch9-line-0990",
+      "time": "01:01:45",
+      "english": "the logic of Charity which is part of the big corporate capitalism today charity I think helps reproducing the very situation which it pretends to fight",
+      "japanese": "今日の大企業資本主義の一部である慈善の論理、慈善は、それが戦うふりをしているまさにその状況を再生産するのに役立つと私は思う",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "01:01:47",
-      "english": "Charity which is part of the big corporate capitalism today",
-      "japanese": "現代の大企業資本主義の一部になっている慈善活動。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch9-line-1-note-1",
-          "phrase": "corporate capitalism",
-          "explanation": "企業による利潤追求と慈善活動が、単純な対立関係ではないことを示す。"
+          "index": 989,
+          "start": 3705.08,
+          "end": 3710.56,
+          "text": "the logic of"
+        },
+        {
+          "index": 990,
+          "start": 3706.96,
+          "end": 3715,
+          "text": "Charity which is part of the big"
+        },
+        {
+          "index": 991,
+          "start": 3710.56,
+          "end": 3716.64,
+          "text": "corporate capitalism today charity I"
+        },
+        {
+          "index": 992,
+          "start": 3715,
+          "end": 3718.16,
+          "text": "think"
+        },
+        {
+          "index": 993,
+          "start": 3716.64,
+          "end": 3720.6,
+          "text": "helps"
+        },
+        {
+          "index": 994,
+          "start": 3718.16,
+          "end": 3724.96,
+          "text": "reproducing the very"
+        },
+        {
+          "index": 995,
+          "start": 3720.6,
+          "end": 3729.04,
+          "text": "situation which it pretends to fight"
         }
       ]
     },
     {
-      "id": "ch9-line-2",
+      "id": "ch9-line-0997",
+      "time": "01:02:04",
+      "english": "what do I mean by this allow me to read you a quote the beginning of Oscar Wild's excellent essay the soul of men under socialism which tells it all why Oscar wild claims that",
+      "japanese": "これはどういう意味かというと、オスカー・ワイルドの優れたエッセイ『社会主義下の人間の魂』の冒頭からの引用を読ませてほしい、それはすべてを語っている、なぜオスカー・ワイルドが主張するのか",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "01:05:23",
-      "english": "the basic mystification",
-      "japanese": "根本的な神秘化、つまり問題の取り違え。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch9-line-2-note-1",
-          "phrase": "mystification",
-          "explanation": "議論を特定の二択に閉じ込め、本来問うべき原因から注意を逸らす仕組み。"
+          "index": 996,
+          "start": 3724.96,
+          "end": 3734.04,
+          "text": "what do I mean by this allow me to read"
+        },
+        {
+          "index": 997,
+          "start": 3729.04,
+          "end": 3737,
+          "text": "you a quote the beginning of Oscar"
+        },
+        {
+          "index": 998,
+          "start": 3734.04,
+          "end": 3739.44,
+          "text": "Wild&#39;s"
+        },
+        {
+          "index": 999,
+          "start": 3737,
+          "end": 3743.84,
+          "text": "excellent"
+        },
+        {
+          "index": 1000,
+          "start": 3739.44,
+          "end": 3747.84,
+          "text": "essay the soul of men under socialism"
+        },
+        {
+          "index": 1001,
+          "start": 3743.84,
+          "end": 3747.84,
+          "text": "which tells it all"
+        },
+        {
+          "index": 1002,
+          "start": 3747.88,
+          "end": 3754.24,
+          "text": "why Oscar wild claims that"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1004",
+      "time": "01:02:30",
+      "english": "quote indeed their remedies charity and so on are part of the [Music] disease the proper aim is to try and reconstruct Society on such a basis that poverty will be impossible it is immoral to use private",
+      "japanese": "引用すると、実に彼らの救済策である慈善などは［音楽］病の一部である、適切な目的は貧困が不可能になるような基盤の上に社会を再建しようと試みることである、私有",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1003,
+          "start": 3750.76,
+          "end": 3757.7,
+          "text": "quote indeed their remedies charity and"
+        },
+        {
+          "index": 1004,
+          "start": 3754.24,
+          "end": 3759.72,
+          "text": "so on are part of the"
+        },
+        {
+          "index": 1005,
+          "start": 3757.7,
+          "end": 3763.52,
+          "text": "[Music]"
+        },
+        {
+          "index": 1006,
+          "start": 3759.72,
+          "end": 3767.68,
+          "text": "disease the proper aim is to try and"
+        },
+        {
+          "index": 1007,
+          "start": 3763.52,
+          "end": 3770.08,
+          "text": "reconstruct Society on such a basis that"
+        },
+        {
+          "index": 1008,
+          "start": 3767.68,
+          "end": 3773.48,
+          "text": "poverty will be"
+        },
+        {
+          "index": 1009,
+          "start": 3770.08,
+          "end": 3776.84,
+          "text": "impossible it is immoral to use private"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1011",
+      "time": "01:02:53",
+      "english": "property in order to Alle avate the horrible evils that result from the institution of private property this last sentence I think provides a nice formula of what is wrong with for example Bill and Melinda Gates Foundation Bill Gates first in a very",
+      "japanese": "財産を用いて、私有財産制度から生じる恐ろしい悪を緩和することは不道徳である、この最後の文は、たとえばビル・アンド・メリンダ・ゲイツ財団の何が間違っているかについての見事な定式を与えていると私は思う、ビル・ゲイツはまず非常に",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1010,
+          "start": 3773.48,
+          "end": 3780.32,
+          "text": "property in order to Alle avate the"
+        },
+        {
+          "index": 1011,
+          "start": 3776.84,
+          "end": 3784.68,
+          "text": "horrible evils that result from the"
+        },
+        {
+          "index": 1012,
+          "start": 3780.32,
+          "end": 3788.28,
+          "text": "institution of private"
+        },
+        {
+          "index": 1013,
+          "start": 3784.68,
+          "end": 3791.52,
+          "text": "property this last sentence I think"
+        },
+        {
+          "index": 1014,
+          "start": 3788.28,
+          "end": 3795.84,
+          "text": "provides a nice formula of what is wrong"
+        },
+        {
+          "index": 1015,
+          "start": 3791.52,
+          "end": 3800.16,
+          "text": "with for example Bill and Melinda Gates"
+        },
+        {
+          "index": 1016,
+          "start": 3795.84,
+          "end": 3802.48,
+          "text": "Foundation Bill Gates first in a very"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1018",
+      "time": "01:03:20",
+      "english": "brutal capitalist tactic a masses enormous amount of money and then gives part of it back I think that we should attack also Bill Gates vacuous Pan humanitarianism the answer to Bill Gates should be the title of a book published",
+      "japanese": "残忍な資本主義的戦術で、莫大な金額を蓄え、それからその一部を返す、私はビル・ゲイツの空虚な汎人道主義も攻撃すべきだと思う、ビル・ゲイツへの答えは、私のオーストリア人の友人が出版した本のタイトルであるべきだ",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1017,
+          "start": 3800.16,
+          "end": 3805.6,
+          "text": "brutal capitalist"
+        },
+        {
+          "index": 1018,
+          "start": 3802.48,
+          "end": 3810.24,
+          "text": "tactic a masses enormous amount of money"
+        },
+        {
+          "index": 1019,
+          "start": 3805.6,
+          "end": 3815.28,
+          "text": "and then gives part of it back I think"
+        },
+        {
+          "index": 1020,
+          "start": 3810.24,
+          "end": 3818,
+          "text": "that we should attack also Bill Gates"
+        },
+        {
+          "index": 1021,
+          "start": 3815.28,
+          "end": 3821.76,
+          "text": "vacuous Pan"
+        },
+        {
+          "index": 1022,
+          "start": 3818,
+          "end": 3825,
+          "text": "humanitarianism the answer to Bill Gates"
+        },
+        {
+          "index": 1023,
+          "start": 3821.76,
+          "end": 3829.24,
+          "text": "should be the title of a book published"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1025",
+      "time": "01:03:45",
+      "english": "by an Austrian friend of mine s naami the title of the book is refusal of respect why we should not respect foreign cultures and our own also not I think this Multicultural formula of all cultures are worth of respect and so on is totally deceiving and false no behind",
+      "japanese": "スナーミ、その本のタイトルは『尊敬の拒否』、なぜ我々は外国の文化も自分たちの文化も尊敬すべきでないのか、これもまた、すべての文化は尊敬に値するといった多文化主義の定式は完全に欺瞞的で虚偽だと思う、いいか、背後には",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1024,
+          "start": 3825,
+          "end": 3833.4,
+          "text": "by an Austrian friend of mine s naami"
+        },
+        {
+          "index": 1025,
+          "start": 3829.24,
+          "end": 3837.04,
+          "text": "the title of the book is refusal of"
+        },
+        {
+          "index": 1026,
+          "start": 3833.4,
+          "end": 3841.76,
+          "text": "respect why we should not respect"
+        },
+        {
+          "index": 1027,
+          "start": 3837.04,
+          "end": 3844.76,
+          "text": "foreign cultures and our own also not I"
+        },
+        {
+          "index": 1028,
+          "start": 3841.76,
+          "end": 3848.72,
+          "text": "think this Multicultural formula of all"
+        },
+        {
+          "index": 1029,
+          "start": 3844.76,
+          "end": 3853.72,
+          "text": "cultures are worth of respect and so on"
+        },
+        {
+          "index": 1030,
+          "start": 3848.72,
+          "end": 3857.12,
+          "text": "is totally deceiving and false no behind"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1032",
+      "time": "01:04:13",
+      "english": "every culture there is a barbarism so the solution is not respect other cultures but despise your own it's also not of course the racist form of only our culture is great one despise others no uh we should be Universal in the sense of",
+      "japanese": "あらゆる文化の背後には野蛮がある、だから解決策は他の文化を尊敬することではなく、自分の文化を軽蔑することだ、もちろんこれは、我々の文化だけが偉大で他は軽蔑するという人種主義的な形でもない、いや、我々は普遍的であるべきだ、という意味で",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1031,
+          "start": 3853.72,
+          "end": 3860.56,
+          "text": "every culture there is a barbarism so"
+        },
+        {
+          "index": 1032,
+          "start": 3857.12,
+          "end": 3863.92,
+          "text": "the solution is not respect other"
+        },
+        {
+          "index": 1033,
+          "start": 3860.56,
+          "end": 3866.68,
+          "text": "cultures but despise your own it&#39;s also"
+        },
+        {
+          "index": 1034,
+          "start": 3863.92,
+          "end": 3870.28,
+          "text": "not of course the racist form of only"
+        },
+        {
+          "index": 1035,
+          "start": 3866.68,
+          "end": 3872.84,
+          "text": "our culture is great one despise others"
+        },
+        {
+          "index": 1036,
+          "start": 3870.28,
+          "end": 3877.24,
+          "text": "no uh we"
+        },
+        {
+          "index": 1037,
+          "start": 3872.84,
+          "end": 3880.32,
+          "text": "should be Universal in the sense of"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1039",
+      "time": "01:04:37",
+      "english": "sharing what is wrong connecting what is wrong in our culture with what is wrong in other culture I that's why I will go to the end here it may shock you the citizens of a developed country who thinks that most that he can do is to open his land to",
+      "japanese": "何が間違っているかを共有し、我々の文化の何が間違っているかを他の文化の何が間違っているかと結びつけることだ、だから私はここで最後まで行く、ショックを受けるかもしれないが、開発途上国の市民が、自分にできる最大のことは自分の土地を",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1038,
+          "start": 3877.24,
+          "end": 3883.64,
+          "text": "sharing what is wrong connecting what is"
+        },
+        {
+          "index": 1039,
+          "start": 3880.32,
+          "end": 3888.44,
+          "text": "wrong in our culture with what is wrong"
+        },
+        {
+          "index": 1040,
+          "start": 3883.64,
+          "end": 3891.8,
+          "text": "in other culture I that&#39;s why I will go"
+        },
+        {
+          "index": 1041,
+          "start": 3888.44,
+          "end": 3896.16,
+          "text": "to the end here it may shock you the"
+        },
+        {
+          "index": 1042,
+          "start": 3891.8,
+          "end": 3899,
+          "text": "citizens of a developed country"
+        },
+        {
+          "index": 1043,
+          "start": 3896.16,
+          "end": 3903.16,
+          "text": "who thinks that most that he can do is"
+        },
+        {
+          "index": 1044,
+          "start": 3899,
+          "end": 3903.16,
+          "text": "to open his land to"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1046",
+      "time": "01:05:03",
+      "english": "immigrants is in a way wrong no I'm not saying that I'm against immigrants but I'm saying that already to formulate the problem in this way as if the big dilemma is open our limits to immigrants or not is to accept the basic mystification to confront the",
+      "japanese": "移民に開放することだと思うのは、ある意味で間違っている、いや、私は移民に反対だと言っているのではない、しかし、問題をすでにこのように定式化すること、つまり大きなジレンマは我々の限界を移民に開放するか否かであるかのように定式化することは、基本的な神秘化を受け入れることだ、真の",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1045,
+          "start": 3903.44,
+          "end": 3909.8,
+          "text": "immigrants is in a way wrong no I&#39;m not"
+        },
+        {
+          "index": 1046,
+          "start": 3907.44,
+          "end": 3913.4,
+          "text": "saying that I&#39;m against immigrants but"
+        },
+        {
+          "index": 1047,
+          "start": 3909.8,
+          "end": 3916.04,
+          "text": "I&#39;m saying that already to formulate the"
+        },
+        {
+          "index": 1048,
+          "start": 3913.4,
+          "end": 3920,
+          "text": "problem in this"
+        },
+        {
+          "index": 1049,
+          "start": 3916.04,
+          "end": 3923.56,
+          "text": "way as if the big dilemma is open our"
+        },
+        {
+          "index": 1050,
+          "start": 3920,
+          "end": 3926.8,
+          "text": "limits to immigrants or not is to accept"
+        },
+        {
+          "index": 1051,
+          "start": 3923.56,
+          "end": 3929.16,
+          "text": "the basic mystification to confront the"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1053",
+      "time": "01:05:26",
+      "english": "True problem but why are there why are there immigrants we should fight to change the social order which makes some people immigrants humanitarianism again is not",
+      "japanese": "問題に立ち向かうことだが、なぜ移民がいるのか、なぜ移民がいるのか、我々はある人々を移民にする社会秩序を変えるために戦うべきだ、人道主義もまた十分では",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1052,
+          "start": 3926.8,
+          "end": 3929.16,
+          "text": "True"
+        },
+        {
+          "index": 1053,
+          "start": 3932.96,
+          "end": 3939.84,
+          "text": "problem but why are there why are there"
+        },
+        {
+          "index": 1054,
+          "start": 3945.44,
+          "end": 3952.36,
+          "text": "immigrants we should"
+        },
+        {
+          "index": 1055,
+          "start": 3948.08,
+          "end": 3954.64,
+          "text": "fight to change the social order which"
+        },
+        {
+          "index": 1056,
+          "start": 3952.36,
+          "end": 3957.64,
+          "text": "makes some"
+        },
+        {
+          "index": 1057,
+          "start": 3954.64,
+          "end": 3957.64,
+          "text": "people"
+        },
+        {
+          "index": 1058,
+          "start": 3957.68,
+          "end": 3964.48,
+          "text": "immigrants humanitarianism again is not"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1060",
+      "time": "01:06:00",
+      "english": "enough and especially to go even more to the end pacifism is not enough it's horrible to say this a propo Ukrainian War but I really despise all those who are saying these days we need peace and so on are We aware that peace the desire for peace is",
+      "japanese": "ない、そして特にさらに最後まで行くと、平和主義も十分ではない、ウクライナ戦争についてこれを言うのは恐ろしいが、私は最近、我々は平和が必要だなどと言っているすべての人々を本当に軽蔑する、我々は平和への願望が",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1059,
+          "start": 3960.92,
+          "end": 3968.16,
+          "text": "enough and especially to go even more to"
+        },
+        {
+          "index": 1060,
+          "start": 3964.48,
+          "end": 3971.56,
+          "text": "the end pacifism is not enough it&#39;s"
+        },
+        {
+          "index": 1061,
+          "start": 3968.16,
+          "end": 3975.08,
+          "text": "horrible to say this a propo Ukrainian"
+        },
+        {
+          "index": 1062,
+          "start": 3971.56,
+          "end": 3979.28,
+          "text": "War but I really despise all those who"
+        },
+        {
+          "index": 1063,
+          "start": 3975.08,
+          "end": 3983.04,
+          "text": "are saying these days we need peace and"
+        },
+        {
+          "index": 1064,
+          "start": 3979.28,
+          "end": 3989.88,
+          "text": "so on are We aware"
+        },
+        {
+          "index": 1065,
+          "start": 3983.04,
+          "end": 3993.84,
+          "text": "that peace the desire for peace is"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1067",
+      "time": "01:06:29",
+      "english": "always the desire of occupiers Israel doesn't want anything more than peace on the West Bank peace means you firmly have under your hand the terrain that you occupied and I'm totally convinced that Russia now wants peace in Ukraine peace means we occupy",
+      "japanese": "常に占領者の願望であることを認識しているのか、イスラエルはヨルダン川西岸で平和以上に望むものは何もない、平和とは占領した地形をしっかりと手中に収めることだ、そして私はロシアが今ウクライナで平和を望んでいると完全に確信している、平和とは我々が占領するという意味だ",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1066,
+          "start": 3989.88,
+          "end": 3996.84,
+          "text": "always the desire of"
+        },
+        {
+          "index": 1067,
+          "start": 3993.84,
+          "end": 3999.2,
+          "text": "occupiers Israel doesn&#39;t want anything"
+        },
+        {
+          "index": 1068,
+          "start": 3996.84,
+          "end": 4002.48,
+          "text": "more than peace on the West Bank peace"
+        },
+        {
+          "index": 1069,
+          "start": 3999.2,
+          "end": 4004.84,
+          "text": "means you firmly have under your hand"
+        },
+        {
+          "index": 1070,
+          "start": 4002.48,
+          "end": 4007.12,
+          "text": "the terrain that you occupied and I&#39;m"
+        },
+        {
+          "index": 1071,
+          "start": 4004.84,
+          "end": 4011.28,
+          "text": "totally convinced that Russia now wants"
+        },
+        {
+          "index": 1072,
+          "start": 4007.12,
+          "end": 4016.36,
+          "text": "peace in Ukraine peace means we occupy"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1074",
+      "time": "01:06:51",
+      "english": "it we we have the firm hold over it no we live in a crazy time where Wars are no longer the old Wars between nation states but they are really in some sense peace peacekeeping interventions so we need a total",
+      "japanese": "それに私たちはそれをしっかりと掌握しているいや私たちは狂った時代に生きているそこでは戦争はもはや国民国家間の昔の戦争ではなく本当にある意味で平和平和維持介入なのだだから私たちは総",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1073,
+          "start": 4011.28,
+          "end": 4021.96,
+          "text": "it we we have the firm hold over it no"
+        },
+        {
+          "index": 1074,
+          "start": 4016.36,
+          "end": 4021.96,
+          "text": "we live in a crazy time"
+        },
+        {
+          "index": 1075,
+          "start": 4022.56,
+          "end": 4029.84,
+          "text": "where Wars are no longer the old Wars"
+        },
+        {
+          "index": 1076,
+          "start": 4026.96,
+          "end": 4031.92,
+          "text": "between nation states but they are"
+        },
+        {
+          "index": 1077,
+          "start": 4029.84,
+          "end": 4035.8,
+          "text": "really in some"
+        },
+        {
+          "index": 1078,
+          "start": 4031.92,
+          "end": 4040.76,
+          "text": "sense peace peacekeeping"
+        },
+        {
+          "index": 1079,
+          "start": 4035.8,
+          "end": 4045.16,
+          "text": "interventions so we need a total"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1081",
+      "time": "01:07:20",
+      "english": "mobilization against this type of false pie uh so uh to conclude I want to destroy another of your maybe Illusions which is yes we have to step out of this political manipulations and",
+      "japanese": "この種の偽のパイに対する動員が必要なのだええそれでええ結論として私はあなたのもう一つの幻想を壊したいと思うそれはそう私たちはこの政治的操作から抜け出さなければならないそして",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1080,
+          "start": 4040.76,
+          "end": 4047.52,
+          "text": "mobilization against this type of false"
+        },
+        {
+          "index": 1081,
+          "start": 4045.16,
+          "end": 4047.52,
+          "text": "pie"
+        },
+        {
+          "index": 1082,
+          "start": 4047.56,
+          "end": 4055.08,
+          "text": "uh so uh to"
+        },
+        {
+          "index": 1083,
+          "start": 4050.08,
+          "end": 4057.04,
+          "text": "conclude I want to destroy another of"
+        },
+        {
+          "index": 1084,
+          "start": 4055.08,
+          "end": 4060.36,
+          "text": "your maybe"
+        },
+        {
+          "index": 1085,
+          "start": 4057.04,
+          "end": 4062.92,
+          "text": "Illusions which is yes we have to step"
+        },
+        {
+          "index": 1086,
+          "start": 4060.36,
+          "end": 4066.84,
+          "text": "out of this political manipulations and"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1088",
+      "time": "01:07:42",
+      "english": "so on we need poets and thinkers no they're the worst I hope to shock you here a little bit my formula is no ethnic cleansing without poetry you know most of us we are relatively decent people and take any of you since you are probably normally",
+      "japanese": "などなど私たちには詩人と思想家が必要だいや彼らは最悪だ私はここであなたを少し衝撃を与えたい私の定式は詩なしの民族浄化はないということだご存じの通り私たちのほとんどは比較的まともな人間でそしてあなた方の誰でもおそらく普通に",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1087,
+          "start": 4062.92,
+          "end": 4070.04,
+          "text": "so on we need poets and thinkers no"
+        },
+        {
+          "index": 1088,
+          "start": 4066.84,
+          "end": 4074.2,
+          "text": "they&#39;re the worst I hope to shock you"
+        },
+        {
+          "index": 1089,
+          "start": 4070.04,
+          "end": 4077.24,
+          "text": "here a little bit my formula is no"
+        },
+        {
+          "index": 1090,
+          "start": 4074.2,
+          "end": 4080.68,
+          "text": "ethnic cleansing without"
+        },
+        {
+          "index": 1091,
+          "start": 4077.24,
+          "end": 4086.64,
+          "text": "poetry you know most of us we are"
+        },
+        {
+          "index": 1092,
+          "start": 4080.68,
+          "end": 4090.92,
+          "text": "relatively decent people and take any of"
+        },
+        {
+          "index": 1093,
+          "start": 4086.64,
+          "end": 4095.76,
+          "text": "you since you are probably normally"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1095",
+      "time": "01:08:10",
+      "english": "human and me also if I were to kill you obliged to kill you it would be very difficult for me I see you in your eye I see you are another human being I cannot do it and here poetry and thinking or religion some high ideology enters as Steven vinberg the well-known Quantum",
+      "japanese": "人間であり私もまたもし私があなたを殺すとしたら殺さざるを得ないとしたらそれは私にとって非常に難しいだろう私はあなたの目を見るあなたは別の人間だと分かる私はそれはできないそしてここで詩と思考あるいは宗教ある種の高いイデオロギーが入り込むスティーブン・ワインバーグとしてよく知られた量子",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1094,
+          "start": 4090.92,
+          "end": 4098.56,
+          "text": "human and me also if I were to kill you"
+        },
+        {
+          "index": 1095,
+          "start": 4095.76,
+          "end": 4101.32,
+          "text": "obliged to kill you it would be very"
+        },
+        {
+          "index": 1096,
+          "start": 4098.56,
+          "end": 4104.68,
+          "text": "difficult for me I see you in your eye I"
+        },
+        {
+          "index": 1097,
+          "start": 4101.32,
+          "end": 4109.64,
+          "text": "see you are another human being I cannot"
+        },
+        {
+          "index": 1098,
+          "start": 4104.68,
+          "end": 4114.28,
+          "text": "do it and here poetry and thinking or"
+        },
+        {
+          "index": 1099,
+          "start": 4109.64,
+          "end": 4117.68,
+          "text": "religion some high ideology enters as"
+        },
+        {
+          "index": 1100,
+          "start": 4114.28,
+          "end": 4121.56,
+          "text": "Steven vinberg the well-known Quantum"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1102",
+      "time": "01:08:37",
+      "english": "cosmologist said he said without religion good people would have been good people and bad people would have been bad people but we need something like religion to make good people do bad things I'm speaking here from my own experience",
+      "japanese": "宇宙論者が言った彼は言った宗教がなければ善人は善人であり悪人は悪人であっただろうしかし私たちには宗教のようなものが必要なのだ善人に悪いことをさせるために私はここで自分の経験から話している",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1101,
+          "start": 4117.68,
+          "end": 4123.72,
+          "text": "cosmologist said he said without"
+        },
+        {
+          "index": 1102,
+          "start": 4121.56,
+          "end": 4125.84,
+          "text": "religion good people would have been"
+        },
+        {
+          "index": 1103,
+          "start": 4123.72,
+          "end": 4129.68,
+          "text": "good people and bad people would have"
+        },
+        {
+          "index": 1104,
+          "start": 4125.84,
+          "end": 4134.16,
+          "text": "been bad people but we need something"
+        },
+        {
+          "index": 1105,
+          "start": 4129.68,
+          "end": 4136.8,
+          "text": "like religion to make good people do bad"
+        },
+        {
+          "index": 1106,
+          "start": 4134.16,
+          "end": 4140.28,
+          "text": "things"
+        },
+        {
+          "index": 1107,
+          "start": 4136.8,
+          "end": 4144.4,
+          "text": "I&#39;m speaking here from my own experience"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1109",
+      "time": "01:09:00",
+      "english": "the horrible Civil War in ex Yugoslavia where we can clearly see how the war was grounded decades ago in nationalist poets and so on just look at modern poetry how many of them from Yates to Ezra pound and so were",
+      "japanese": "旧ユーゴスラビアでの恐ろしい内戦そこでは戦争が何十年も前にどのように民族主義の詩人などによって根拠づけられたかをはっきりと見ることができる現代の詩を見てみなさいイェイツからエズラ・パウンドまでそしてその他多くの詩人のうちどれだけが",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1108,
+          "start": 4140.28,
+          "end": 4150.76,
+          "text": "the horrible Civil War in ex Yugoslavia"
+        },
+        {
+          "index": 1109,
+          "start": 4144.4,
+          "end": 4154.56,
+          "text": "where we can clearly see how the war was"
+        },
+        {
+          "index": 1110,
+          "start": 4150.76,
+          "end": 4158.92,
+          "text": "grounded decades ago in nationalist"
+        },
+        {
+          "index": 1111,
+          "start": 4154.56,
+          "end": 4164.08,
+          "text": "poets and so on just look at modern"
+        },
+        {
+          "index": 1112,
+          "start": 4158.92,
+          "end": 4166,
+          "text": "poetry how many of them from Yates to"
+        },
+        {
+          "index": 1113,
+          "start": 4164.08,
+          "end": 4167.68,
+          "text": "Ezra pound and so"
+        },
+        {
+          "index": 1114,
+          "start": 4166,
+          "end": 4172.72,
+          "text": "were"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1116",
+      "time": "01:09:27",
+      "english": "fascists so uh uh again since we are minimally decent people we need poetry or national mythology to make us ready to do horrible things again the horror of today's Wars is that they express something that we no longer can",
+      "japanese": "ファシストだったかええそれでええ繰り返すが私たちは最低限まともな人間なので詩や国民的神話が必要なのだ私たちを恐ろしいことをする準備をさせるために今日の戦争の恐怖は彼らがもはや私たちが呼ぶことのできない何かを表現しているということだ",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1115,
+          "start": 4167.68,
+          "end": 4174.6,
+          "text": "fascists so uh uh again since we are"
+        },
+        {
+          "index": 1116,
+          "start": 4172.72,
+          "end": 4179.36,
+          "text": "minimally decent"
+        },
+        {
+          "index": 1117,
+          "start": 4174.6,
+          "end": 4183.32,
+          "text": "people we need poetry or national"
+        },
+        {
+          "index": 1118,
+          "start": 4179.36,
+          "end": 4188.4,
+          "text": "mythology to make us ready to do"
+        },
+        {
+          "index": 1119,
+          "start": 4183.32,
+          "end": 4194.24,
+          "text": "horrible things again the horror of"
+        },
+        {
+          "index": 1120,
+          "start": 4188.4,
+          "end": 4197.8,
+          "text": "today&#39;s Wars is that they express"
+        },
+        {
+          "index": 1121,
+          "start": 4194.24,
+          "end": 4200.76,
+          "text": "something that we no longer can"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-1123",
+      "time": "01:09:57",
+      "english": "call as when I was young a propo Vietnam",
+      "japanese": "私が若かった頃のベトナム戦争のように呼ぶことのできない何かを",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1122,
+          "start": 4197.8,
+          "end": 4205.32,
+          "text": "call as when I was young a propo Vietnam"
         }
       ]
     }
-  ]
+  ],
+  "sourceCueCoverage": {
+    "firstIndex": 989,
+    "lastIndex": 1122,
+    "count": 134
+  },
+  "translationStatus": "machine-translated-unreviewed"
 }
