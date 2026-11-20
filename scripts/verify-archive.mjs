@@ -28,6 +28,31 @@ for(const {id,document,chapters,bodyHtml} of sources){
   const copy=$(e).clone();copy.find('.in-situ-annotation,.inline-note-ref').remove();return copy.text();
  });
  assert.deepEqual(inline(page),inline(source),id+': inline emphasis lost');
+ // Every editorial explanation must attach to a highlighted, literal English
+ // source span. No note may be dropped, duplicated or silently dumped at the
+ // end because a dictionary headword differs from the spoken transcript.
+ for(const ch of chapters)for(const u of ch.utterances){
+  const block=page('#'+u.id);
+  const sourceText=source('#'+u.id+' .en').text();
+  for(const note of u.annotations){
+   const gloss=block('.en .in-situ-annotation[data-editorial-gloss="'+note.id+'"]');
+   assert.equal(gloss.length,1,note.id+': missing or duplicate inline annotation');
+   const targets=block('.en .annotation-source').filter((_,el)=>
+    (page(el).attr('data-note-targets')||'').split(' ').includes(note.id));
+   assert.ok(targets.length,note.id+': source English is not highlighted');
+   const expectedText=note.anchor||note.phrase;
+   if(note.anchor)assert.ok(sourceText.toLowerCase().includes(note.anchor.toLowerCase()),
+    note.id+': explicit source anchor missing from English');
+   assert.ok(!gloss.text().includes('語学')&&!gloss.text().includes('背景'),
+    note.id+': redundant annotation-kind text leaked into note');
+   const group=gloss.parent('.annotation-group');
+   assert.equal(group.length,1,note.id+': note no longer follows a shared annotation group');
+   const previous=group.prev();
+   assert.ok(previous.hasClass('annotation-source')&&
+     (previous.attr('data-note-targets')||'').split(' ').includes(note.id),
+    note.id+': note is not immediately after its highlighted source phrase');
+  }
+ }
  const expected=chapters.flatMap(c=>c.utterances.map(u=>u.id));
  assert.deepEqual(page('.utterance').toArray().map(e=>page(e).attr('id')),expected,id+': fixed IDs changed');
  if(document.provenance.coverage!=='full'){
