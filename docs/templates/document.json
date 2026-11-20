@@ -65,6 +65,7 @@
     "language": "en",
     "tool": "yt-dlp",
     "capturedAt": "REPLACE_WITH_REAL_UTC_TIMESTAMP",
-    "sha256": "REPLACE_WITH_REAL_64_CHAR_SHA256"
+    "sha256": "REPLACE_WITH_REAL_64_CHAR_SHA256",
+    "transport": "youtube-direct"
   }
 }
