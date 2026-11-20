@@ -4,7 +4,6 @@ import SourceVideo from '../../components/SourceVideo.astro';
 import StudyToolbar from '../../components/StudyToolbar.astro';
 import ReaderTools from '../../components/ReaderTools.astro';
 import {termUrl,findTerms,noteFor,matchingConcepts,conceptUrl} from '../../lib/lexicon';
-import {annotationsFor} from '../../lib/annotations';
 import DocumentCard from '../../components/DocumentCard.astro';
 import {getCollection,type CollectionEntry} from 'astro:content';
 import {load} from 'cheerio';
@@ -15,6 +14,16 @@ const doc=Astro.props.document,d=doc.data;
 const g=genreById(d.genre),ts=docTopics(doc);
 const recommendations=related(await documents(),doc);
 const $=load(d.bodyHtml,null,false);
+// Legacy source files stay byte-for-byte intact; correct obsolete reader-facing copy here.
+const legacyCopy=new Map([
+ ['英文の直下に自然な日本語訳と語彙・背景知識のポイントを配置しました。','英文中に語彙と背景知識の注釈を直接挿入し、日本語訳も併記しました。'],
+ ['英文 → 日本語訳 → ポイントの順次精読','文中注釈つき英文＋日本語訳'],
+ ['青い番号から各文中註へ移動できます。','注釈は英文の該当箇所に直接表示しています。']
+]);
+$('.hero .deck,.hero .meta-strip dd').contents().each((_,node)=>{
+ if(node.type!=='text')return;
+ for(const [oldText,newText] of legacyCopy)node.data=node.data.replace(oldText,newText);
+});
 const hero=$('.hero').first().toString();$('.hero').first().remove();
 for(const c of d.chapterIndex){
  const head=$('section.sec').filter((_,el)=>$(el).attr('id')===c.anchor).find('.sec-header').first();
@@ -53,74 +62,77 @@ for(const c of d.chapterIndex){
   for(const c of matchingConcepts(en.text()))extra.append($('<a>').addClass('concept-link').attr('href',conceptUrl(c.id)).text(c.ja));
   if(extra.children().length)block.append(extra);
 
-  // Put each complete editorial explanation immediately after its source phrase.
-  // Keep the original note nodes for indexing and textual source verification.
-  if(note.length&&!note.find('.inline-note-item').length){
-   const noteNodes=note.contents().toArray();
-   let current=$('<span>'),hasCurrent=false;
-   let noteIndex=0,inserted=0;
-   const applyInlineNotes:Array<()=>void>=[];
-   const fullEnglish=en.text().toLocaleLowerCase();
-   for(const part of noteNodes){
+  // Canonical reader: exactly one visible format, permanently embedded in the English.
+  // Preserve the original .note and its labels in source metadata, but never display it twice.
+  // The legacy numbered footnotes are replaced in the generated page, not the source file.
+  en.find('.inline-note-ref').remove();
+  const annotations:Array<{label:string;explanation:string;id:string}>=[];
+  const sourceItems=note.find('.inline-note-item').toArray();
+  if(sourceItems.length){
+   for(const [i,item] of sourceItems.entries()){
+    const label=$(item).find('strong').first().text().trim();
+    const raw=$(item).text().trim();
+    annotations.push({label,explanation:raw.slice(label.length).replace(/^\s*[：:]\s*/u,'').trim(),id:anchor+'-note-'+(i+1)});
+   }
+  }else{
+   let current:{label:string;parts:string[]}|null=null;
+   for(const part of note.contents().toArray()){
     if(part.type==='tag'&&part.name==='strong'){
-     noteIndex++;
-     const label=$(part).text().trim(),noteId=anchor+'-note-'+noteIndex;
-     const item=$('<span>').addClass('inline-note-item').attr('id',noteId);
-     $(part).before(item);item.append($(part));current=item;hasCurrent=true;
-     const candidates=[
-      label.replace(/（[^）]*）/gu,'').trim(),
-      label.replace(/\s+\([^)]*\)\s*$/u,'').trim(),
-      label.replace(/\s+[A-Z]$/u,'').trim(),
-      label.trim()
-     ];
-     const phrase=candidates.find(value=>value.length>=4&&fullEnglish.includes(value.toLocaleLowerCase()));
-     if(!phrase)continue;
-     for(const node of en.find('*').addBack().contents().toArray()){
-      if(node.type!=='text')continue;
-      const offset=node.data.toLocaleLowerCase().indexOf(phrase.toLocaleLowerCase());
-      if(offset<0)continue;
-      const gloss=$('<span>').addClass('in-situ-annotation').attr({'lang':'ja','data-editorial-gloss':noteId,'role':'note'});
-      const parent=$(node).parent(),emphasis=parent.closest('strong,em').first(),linked=parent.closest('a').first();
-      if(emphasis.length||linked.length){
-       const target=emphasis.length?emphasis:linked;
-       target.addClass('annotation-term');target.after(gloss);
-      }else{
-       const fragment=$('<span>').addClass('annotation-fragment');
-       fragment.append($('<span>').text(node.data.slice(0,offset)));
-       fragment.append($('<span>').addClass('annotation-term').text(node.data.slice(offset,offset+phrase.length)));
-       fragment.append(gloss);
-       fragment.append($('<span>').text(node.data.slice(offset+phrase.length)));
-       $(node).replaceWith(fragment);
-      }
-      applyInlineNotes.push(()=>{
-       const explanation=item.text().slice(label.length).replace(/^\s*[：:]\s*/u,'').trim();
-       if(!explanation){gloss.remove();return;}
-       gloss.text('〔'+explanation+'〕');
-       item.addClass('is-in-situ');
-       inserted++;
-      });
-      break;
+     current={label:$(part).text().trim(),parts:[]};
+     annotations.push({label:current.label,explanation:'',id:anchor+'-note-'+(annotations.length+1)});
+    }else if(current)current.parts.push($(part).text());
+    if(current)annotations[annotations.length-1].explanation=current.parts.join('').replace(/^\s*[：:]\s*/u,'').trim();
+   }
+  }
+  if(!annotations.length&&note.length){
+   const remainder=note.clone();remainder.find('.note-label').remove();
+   const text=remainder.text().trim();
+   if(text)annotations.push({label:'',explanation:text,id:anchor+'-note-1'});
+  }
+  const sourceEnglish=en.text().toLocaleLowerCase();
+  for(const item of annotations){
+   if(!item.explanation)continue;
+   const label=item.label;
+   const candidates=[
+    label.replace(/（[^）]*）/gu,'').trim(),
+    label.replace(/\s+\([^)]*\)\s*$/u,'').trim(),
+    label.replace(/\[[^\]]+\]/gu,'').trim(),
+    label.split(/\s+\/\s+/u)[0].trim(),
+    label.replace(/\s+[A-Z]$/u,'').trim(),
+    label.trim()
+   ];
+   // Partial idiom/pattern notes still attach to an actual phrase where possible.
+   const phrase=candidates.find(value=>value.length>=4&&sourceEnglish.includes(value.toLocaleLowerCase()));
+   const gloss=$('<span>').addClass('in-situ-annotation').attr({'lang':'ja','role':'note','data-editorial-gloss':item.id});
+   const meaning=label.match(/（([^）]+)）$/u)?.[1];
+   const content=(meaning?meaning+'：':'')+item.explanation;
+   gloss.text('〔'+(phrase?content:(label?label+'：':'')+item.explanation)+'〕');
+   let placed=false;
+   if(phrase){
+    for(const node of en.find('*').addBack().contents().toArray()){
+     if(node.type!=='text'||$(node).closest('.in-situ-annotation').length)continue;
+     const offset=node.data.toLocaleLowerCase().indexOf(phrase.toLocaleLowerCase());
+     if(offset<0)continue;
+     const parent=$(node).parent(),emphasis=parent.closest('strong,em').first(),linked=parent.closest('a').first();
+     if(emphasis.length||linked.length){
+      const target=emphasis.length?emphasis:linked;
+      target.addClass('annotation-term');target.after(gloss);
+     }else{
+      const fragment=$('<span>').addClass('annotation-fragment');
+      fragment.append($('<span>').text(node.data.slice(0,offset)));
+      fragment.append($('<span>').addClass('annotation-term').text(node.data.slice(offset,offset+phrase.length)));
+      fragment.append(gloss);
+      fragment.append($('<span>').text(node.data.slice(offset+phrase.length)));
+      $(node).replaceWith(fragment);
      }
-    }else if(hasCurrent){
-     current.append($(part));
+     placed=true;break;
     }
    }
-   for(const apply of applyInlineNotes)apply();
-   if(noteIndex){
-    note.addClass('has-inline-annotations');
-    block.addClass('has-inline-annotations');
-    if(inserted===noteIndex)note.addClass('all-in-situ');
-   }
+   // Legacy source labels occasionally describe a pattern rather than quoting literal English.
+   // Keep those explanations in the same in-text style, instead of resurrecting a "ポイント" box.
+   if(!placed)en.append(' ',gloss);
   }
-  // Retain legacy sidecar data for validation, but remove redundant syntax/alignment panels.
-  for(const a of annotationsFor(doc.id,anchor,en.text(),ja.text())){
-   if(a.kind!=='sound')continue;
-   const detail=$('<details>').addClass('editorial-annotation');
-   detail.append($('<summary>').text('聞き取りのヒント（一般的な音の変化）'));
-   const example=$('<p>').addClass('annotation-quote').attr('lang','en');
-   if(a.parts){for(const p of a.parts)example.append($('<span>').addClass('syntax-part').append($('<span>').text(p.text),$('<small>').text(p.role)));}else example.text(a.quote);
-   detail.append(example);if(a.translation)detail.append($('<p>').text(a.translation));detail.append($('<p>').text(a.explanation));block.append(detail);
-  }
+  if(annotations.length)note.addClass('annotation-converted');
  });
 }
 // Add in-place exits between chapters, without changing the canonical source text.
