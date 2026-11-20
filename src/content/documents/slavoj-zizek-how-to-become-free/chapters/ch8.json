@@ -18,38 +18,1055 @@
   ],
   "utterances": [
     {
-      "id": "ch8-line-1",
+      "id": "ch8-line-0857",
+      "time": "00:53:30",
+      "english": "why we cannot act precisely because we are hyperactive all the time look at our daily life in today's global capitalism all the time you have to be active intervene participate in something and so on and so on but in",
+      "japanese": "なぜ私たちが行動できないのかというと、まさに私たちがいつも過活動だからです。今日のグローバル資本主義における私たちの日常生活を見てください。いつもあなたは活動的でなければならず、何かに介入し、参加し、などなど、などなど。しかし",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "00:53:32",
-      "english": "we cannot act precisely because we are hyperactive all the time",
-      "japanese": "私たちは常に過剰に活動しているからこそ、行動できない。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch8-line-1-note-1",
-          "phrase": "hyperactive all the time",
-          "explanation": "hyperactive は「過活動の」。活動量の多さを、政治的な行為能力と取り違えないという逆説。"
+          "index": 856,
+          "start": 3210.16,
+          "end": 3217.08,
+          "text": "why"
+        },
+        {
+          "index": 857,
+          "start": 3212,
+          "end": 3220.92,
+          "text": "we cannot act precisely because we are"
+        },
+        {
+          "index": 858,
+          "start": 3217.08,
+          "end": 3225.2,
+          "text": "hyperactive all the time look at our"
+        },
+        {
+          "index": 859,
+          "start": 3220.92,
+          "end": 3228.4,
+          "text": "daily life in today&#39;s global"
+        },
+        {
+          "index": 860,
+          "start": 3225.2,
+          "end": 3230.8,
+          "text": "capitalism all the time you have to be"
+        },
+        {
+          "index": 861,
+          "start": 3228.4,
+          "end": 3233.52,
+          "text": "active intervene participate in"
+        },
+        {
+          "index": 862,
+          "start": 3230.8,
+          "end": 3237.64,
+          "text": "something and so on and so on but in"
         }
       ]
     },
     {
-      "id": "ch8-line-2",
+      "id": "ch8-line-0864",
+      "time": "00:53:53",
+      "english": "order to properly act to change things you have to step back a little bit to acquire a minimal distance this we cannot do it the system never leaves us alone it's something that I know very well because in psychoanalysis we call it obsessional",
+      "japanese": "物事を変えるために適切に行動するためには、少し後退して最小限の距離を取らなければなりません。これは私たちにはできません。システムは決して私たちを放っておきません。これは私がよく知っていることです。なぜなら精神分析ではこれを強迫",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "00:59:14",
-      "english": "cynical reasoning where telling the truth is not enough",
-      "japanese": "真実を語るだけでは足りない、シニカルな理性。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch8-line-2-note-1",
-          "phrase": "telling the truth is not enough",
-          "explanation": "不正を知っていることと、不正を再生産する仕組みから離れることは別問題。"
+          "index": 863,
+          "start": 3233.52,
+          "end": 3241.36,
+          "text": "order to properly act to change things"
+        },
+        {
+          "index": 864,
+          "start": 3237.64,
+          "end": 3246.32,
+          "text": "you have to step back a little bit to"
+        },
+        {
+          "index": 865,
+          "start": 3241.36,
+          "end": 3250.64,
+          "text": "acquire a minimal distance this we"
+        },
+        {
+          "index": 866,
+          "start": 3246.32,
+          "end": 3255.64,
+          "text": "cannot do it the system never leaves"
+        },
+        {
+          "index": 867,
+          "start": 3250.64,
+          "end": 3257.96,
+          "text": "us alone it&#39;s something that I know very"
+        },
+        {
+          "index": 868,
+          "start": 3255.64,
+          "end": 3262.36,
+          "text": "well because in"
+        },
+        {
+          "index": 869,
+          "start": 3257.96,
+          "end": 3264.76,
+          "text": "psychoanalysis we call it obsessional"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0871",
+      "time": "00:54:22",
+      "english": "neurosis and I know what I'm talking about because I think I'm one of them an obsessional neurotic is active talks all the time but not in order to achieve something but in order to make it sure that nothing will really change and I sometimes like that I talk",
+      "japanese": "神経症と呼ぶからです。そして私が何を言っているか分かっています。なぜなら私は自分がその一人だと思うからです。強迫神経症者は活動的でいつも話しますが、何かを達成するためではなく、本当に何も変わらないことを確実にするために話すのです。そして私は時々そういうふうに話し",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 870,
+          "start": 3262.36,
+          "end": 3268.08,
+          "text": "neurosis and I know what I&#39;m talking"
+        },
+        {
+          "index": 871,
+          "start": 3264.76,
+          "end": 3272.16,
+          "text": "about because I think I&#39;m one of them an"
+        },
+        {
+          "index": 872,
+          "start": 3268.08,
+          "end": 3277.12,
+          "text": "obsessional neurotic is active talks all"
+        },
+        {
+          "index": 873,
+          "start": 3272.16,
+          "end": 3281,
+          "text": "the time but not in order to achieve"
+        },
+        {
+          "index": 874,
+          "start": 3277.12,
+          "end": 3283.68,
+          "text": "something but in order to make it sure"
+        },
+        {
+          "index": 875,
+          "start": 3281,
+          "end": 3288,
+          "text": "that nothing will really"
+        },
+        {
+          "index": 876,
+          "start": 3283.68,
+          "end": 3290.96,
+          "text": "change and I sometimes like that I talk"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0878",
+      "time": "00:54:48",
+      "english": "all the time why because I am afraid that if for a short minute I stop talking you will maybe notice the vacuity of what I'm saying and ask me a real question so you see the Paradox being hyperactive is a way to make it sure that nothing will really change you",
+      "japanese": "ます。なぜなら、もし私がほんの少しの間話すのをやめたら、あなたは私が言っていることの空虚さに気づいて、本当の質問をするかもしれないと恐れるからです。ですからご覧ください、過活動であることのパラドックスは、本当に何も変わらないことを確実にする方法なのです。あなた",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 877,
+          "start": 3288,
+          "end": 3295,
+          "text": "all the time why because I am afraid"
+        },
+        {
+          "index": 878,
+          "start": 3290.96,
+          "end": 3298.92,
+          "text": "that if for a short minute I stop"
+        },
+        {
+          "index": 879,
+          "start": 3295,
+          "end": 3301.84,
+          "text": "talking you will maybe notice the"
+        },
+        {
+          "index": 880,
+          "start": 3298.92,
+          "end": 3305.28,
+          "text": "vacuity of what I&#39;m saying and ask me a"
+        },
+        {
+          "index": 881,
+          "start": 3301.84,
+          "end": 3309.16,
+          "text": "real question so you see the Paradox"
+        },
+        {
+          "index": 882,
+          "start": 3305.28,
+          "end": 3312.64,
+          "text": "being hyperactive is a way to make it"
+        },
+        {
+          "index": 883,
+          "start": 3309.16,
+          "end": 3315.64,
+          "text": "sure that nothing will really change you"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0885",
+      "time": "00:55:12",
+      "english": "know who knew this clearly George Orwell he wrote already back in 1937 that Progressive radical leftist talk all the time about how necessary it is to change society but he said they talk all the time about it but with a",
+      "japanese": "は誰がこれを明確に知っていたか。ジョージ・オーウェルです。彼はすでに1937年に書いていました。進歩的な急進的左翼は社会を変えることがどれほど必要かについていつも話すと。しかし彼は言いました、彼らはそれについていつも話すが、",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 884,
+          "start": 3312.64,
+          "end": 3320.12,
+          "text": "know who knew this"
+        },
+        {
+          "index": 885,
+          "start": 3315.64,
+          "end": 3322.8,
+          "text": "clearly George Orwell he wrote already"
+        },
+        {
+          "index": 886,
+          "start": 3320.12,
+          "end": 3322.8,
+          "text": "back in"
+        },
+        {
+          "index": 887,
+          "start": 3323,
+          "end": 3330.92,
+          "text": "1937 that Progressive radical leftist"
+        },
+        {
+          "index": 888,
+          "start": 3327.6,
+          "end": 3334.6,
+          "text": "talk all the time about how necessary it"
+        },
+        {
+          "index": 889,
+          "start": 3330.92,
+          "end": 3338.28,
+          "text": "is to change society but he said they"
+        },
+        {
+          "index": 890,
+          "start": 3334.6,
+          "end": 3341.88,
+          "text": "talk all the time about it but with a"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0892",
+      "time": "00:55:38",
+      "english": "secret wish that nothing will really change this is also why I think many public intellectuals today like to spread total pessimism like we are already 5 minutes past 12 we are doomed it means I'm in a comfortable position of knowing that everything points",
+      "japanese": "本当に何も変わらないことを密かに望みながら、と。これがまた、今日の多くの公共知識人が全体主義的な悲観主義を広めるのを好む理由だと思います。まるで私たちはすでに12時を5分過ぎている、私たちは運命づけられている、と言うように。それはつまり、すべてが破局に向かっていることを知っているという快適な立場に私がいるということです。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 891,
+          "start": 3338.28,
+          "end": 3345.8,
+          "text": "secret wish that nothing will really"
+        },
+        {
+          "index": 892,
+          "start": 3341.88,
+          "end": 3348.48,
+          "text": "change this is also why I think many"
+        },
+        {
+          "index": 893,
+          "start": 3345.8,
+          "end": 3351.44,
+          "text": "public intellectuals today like to"
+        },
+        {
+          "index": 894,
+          "start": 3348.48,
+          "end": 3356.36,
+          "text": "spread total pessimism like we are"
+        },
+        {
+          "index": 895,
+          "start": 3351.44,
+          "end": 3359.96,
+          "text": "already 5 minutes past 12 we are doomed"
+        },
+        {
+          "index": 896,
+          "start": 3356.36,
+          "end": 3361.84,
+          "text": "it means I&#39;m in a comfortable position"
+        },
+        {
+          "index": 897,
+          "start": 3359.96,
+          "end": 3365.56,
+          "text": "of knowing that everything points"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0899",
+      "time": "00:56:01",
+      "english": "towards a catastrophe I don't have to act to do anything in a psychoanalysis we uh we call this cynical reason or in technical terms fetishism we",
+      "japanese": "私は何もするために行動する必要はありません。精神分析では、ええと、私たちはこれをシニカルな理性、あるいは専門用語ではフェティシズムと呼びます。私たち",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 898,
+          "start": 3361.84,
+          "end": 3367.44,
+          "text": "towards a catastrophe I don&#39;t have to"
+        },
+        {
+          "index": 899,
+          "start": 3365.56,
+          "end": 3371.16,
+          "text": "act to do"
+        },
+        {
+          "index": 900,
+          "start": 3367.44,
+          "end": 3376,
+          "text": "anything in a"
+        },
+        {
+          "index": 901,
+          "start": 3371.16,
+          "end": 3381.08,
+          "text": "psychoanalysis we uh we"
+        },
+        {
+          "index": 902,
+          "start": 3376,
+          "end": 3383.24,
+          "text": "call this cynical reason or in technical"
+        },
+        {
+          "index": 903,
+          "start": 3381.08,
+          "end": 3386.36,
+          "text": "terms"
+        },
+        {
+          "index": 904,
+          "start": 3383.24,
+          "end": 3390.4,
+          "text": "fetishism we"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0906",
+      "time": "00:56:26",
+      "english": "know what the situation is but instead of making us act talking is here as an excuse not to do anything if some of people viewing this show are in any way involved in art art exhibitions art balis they know what I'm talking about if there is a for form of art which is",
+      "japanese": "は状況がどうなっているか知っていますが、それが私たちを行動させる代わりに、ここでは話すことが何もしないための言い訳になっています。この番組を見ている人々の中に、何らかの形でアート、アート展、アートビエンナーレに関わっている人がいれば、彼らは私が何を言っているか分かるでしょう。もし資本主義の循環に完全に統合された",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 905,
+          "start": 3386.36,
+          "end": 3396.04,
+          "text": "know what the situation is but instead"
+        },
+        {
+          "index": 906,
+          "start": 3390.4,
+          "end": 3401.44,
+          "text": "of making us act talking is here as an"
+        },
+        {
+          "index": 907,
+          "start": 3396.04,
+          "end": 3405.32,
+          "text": "excuse not to do anything if some of"
+        },
+        {
+          "index": 908,
+          "start": 3401.44,
+          "end": 3411,
+          "text": "people viewing this show are in any way"
+        },
+        {
+          "index": 909,
+          "start": 3405.32,
+          "end": 3414.52,
+          "text": "involved in art art exhibitions art"
+        },
+        {
+          "index": 910,
+          "start": 3411,
+          "end": 3418.64,
+          "text": "balis they know what I&#39;m talking about"
+        },
+        {
+          "index": 911,
+          "start": 3414.52,
+          "end": 3421.44,
+          "text": "if there is a for form of art which is"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0913",
+      "time": "00:56:58",
+      "english": "fully integrated into capitalist circulation are this big art banales Venice castle and so on and their ideology is strictly radically leftist you have endless debates about how to fight global capitalism how we are all manipulated by",
+      "japanese": "芸術の形式があるとすれば、それはこの大きなアートビエンナーレ、ヴェネツィア、カッセルなどであり、そのイデオロギーは厳密に急進的左翼です。グローバル資本主義とどう戦うか、私たちがどのように大資本に操られているかについて終わりのない討論があります",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 912,
+          "start": 3418.64,
+          "end": 3426.2,
+          "text": "fully integrated into capitalist"
+        },
+        {
+          "index": 913,
+          "start": 3421.44,
+          "end": 3426.2,
+          "text": "circulation are this big art"
+        },
+        {
+          "index": 914,
+          "start": 3426.84,
+          "end": 3434.08,
+          "text": "banales Venice castle and so"
+        },
+        {
+          "index": 915,
+          "start": 3430.48,
+          "end": 3436.28,
+          "text": "on and their ideology is strictly"
+        },
+        {
+          "index": 916,
+          "start": 3434.08,
+          "end": 3438.84,
+          "text": "radically leftist you have endless"
+        },
+        {
+          "index": 917,
+          "start": 3436.28,
+          "end": 3441.76,
+          "text": "debates about how to fight global"
+        },
+        {
+          "index": 918,
+          "start": 3438.84,
+          "end": 3446.36,
+          "text": "capitalism how we are all manipulated by"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0920",
+      "time": "00:57:21",
+      "english": "big Capital but they fit perfectly the global Capital the formula of cynical reason was proposed half a century ago by German philosopher Peter Slaughter Dy who said people know what they are doing Horrors dangers about what they're doing but they are nonetheless doing it did",
+      "japanese": "が、彼らはグローバル資本に完全に適合しています。シニカルな理性の公式は半世紀前にドイツの哲学者ペーター・スローターダイクによって提唱されました。彼は言いました、人々は自分が何をしているか知っている、自分がしていることの恐怖や危険を知っている、しかしそれでもなお彼らはそれをしている、と。あなた",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 919,
+          "start": 3441.76,
+          "end": 3449.72,
+          "text": "big Capital but they fit perfectly the"
+        },
+        {
+          "index": 920,
+          "start": 3446.36,
+          "end": 3453,
+          "text": "global Capital the formula of cynical"
+        },
+        {
+          "index": 921,
+          "start": 3449.72,
+          "end": 3456.48,
+          "text": "reason was proposed half a century ago"
+        },
+        {
+          "index": 922,
+          "start": 3453,
+          "end": 3460.68,
+          "text": "by German philosopher Peter Slaughter Dy"
+        },
+        {
+          "index": 923,
+          "start": 3456.48,
+          "end": 3463.48,
+          "text": "who said people know what they are doing"
+        },
+        {
+          "index": 924,
+          "start": 3460.68,
+          "end": 3467.44,
+          "text": "Horrors dangers about what they&#39;re doing"
+        },
+        {
+          "index": 925,
+          "start": 3463.48,
+          "end": 3470.8,
+          "text": "but they are nonetheless doing it did"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0927",
+      "time": "00:57:47",
+      "english": "you already encounter a person who is properly cynical like this I did when I was young in communist time at my department of philosophy there was a very cynical corrupted Professor who openly told us student I know I'm a piece of [ __ ] I cheat I inform to police",
+      "japanese": "はすでにこのように適切にシニカルな人に出会ったことがありますか。私は若い頃、共産主義時代にありました。私の哲学部には非常にシニカルで腐敗した教授がいて、学生の私たちに公然と言いました、私は自分がクズだということを知っている、私は不正をし、警察に通報し",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 926,
+          "start": 3467.44,
+          "end": 3474.28,
+          "text": "you already encounter a person who is"
+        },
+        {
+          "index": 927,
+          "start": 3470.8,
+          "end": 3476.64,
+          "text": "properly cynical like this I did when I"
+        },
+        {
+          "index": 928,
+          "start": 3474.28,
+          "end": 3479.24,
+          "text": "was young in communist time"
+        },
+        {
+          "index": 929,
+          "start": 3476.64,
+          "end": 3483.24,
+          "text": "at my department of philosophy there was"
+        },
+        {
+          "index": 930,
+          "start": 3479.24,
+          "end": 3485.96,
+          "text": "a very cynical corrupted Professor who"
+        },
+        {
+          "index": 931,
+          "start": 3483.24,
+          "end": 3490.12,
+          "text": "openly told us student I know I&#39;m a"
+        },
+        {
+          "index": 932,
+          "start": 3485.96,
+          "end": 3493.12,
+          "text": "piece of [ __ ] I cheat I inform to police"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0934",
+      "time": "00:58:10",
+      "english": "but that's it what can I do I'm like that you know where he was cheating he thought that if he says this openly if it in some way redeems him it makes him better no it doesn't the formula that applies here is the wonderful formula a joke from one of the Marx Brothers",
+      "japanese": "、しかしそれだけだ、私は何ができる？私はそういう人間だ、と。彼がどこで不正をしていたか知っていますか。彼はこれを公然と言えば、それが何らかの形で彼を償い、彼をより良くすると思っていました。いいえ、そうはなりません。ここに当てはまる公式は、マルクス兄弟の一人の素晴らしい公式、ジョークです。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 933,
+          "start": 3490.12,
+          "end": 3495.96,
+          "text": "but that&#39;s it what can I do I&#39;m like"
+        },
+        {
+          "index": 934,
+          "start": 3493.12,
+          "end": 3499.96,
+          "text": "that you know where he was cheating he"
+        },
+        {
+          "index": 935,
+          "start": 3495.96,
+          "end": 3504.4,
+          "text": "thought that if he says this openly if"
+        },
+        {
+          "index": 936,
+          "start": 3499.96,
+          "end": 3508.2,
+          "text": "it in some way redeems him it makes him"
+        },
+        {
+          "index": 937,
+          "start": 3504.4,
+          "end": 3511.92,
+          "text": "better no it doesn&#39;t the formula that"
+        },
+        {
+          "index": 938,
+          "start": 3508.2,
+          "end": 3515.44,
+          "text": "applies here is the wonderful formula a"
+        },
+        {
+          "index": 939,
+          "start": 3511.92,
+          "end": 3518.56,
+          "text": "joke from one of the Marx Brothers"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0941",
+      "time": "00:58:35",
+      "english": "movies I think it's Duck Soup but I'm not sure where Gro marks a lawyer in the movie defending an idiot saysin this man looks as an idiot and acts as an idiot but this shouldn't",
+      "japanese": "映画は『我輩はカモである』だと思うが、グルが映画の中で弁護士が馬鹿を弁護する場面をどこに記しているかは確かではない、この男は馬鹿のように見え、馬鹿のように振る舞うが、これは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 940,
+          "start": 3515.44,
+          "end": 3520.76,
+          "text": "movies I think it&#39;s Duck Soup but I&#39;m"
+        },
+        {
+          "index": 941,
+          "start": 3518.56,
+          "end": 3520.76,
+          "text": "not"
+        },
+        {
+          "index": 942,
+          "start": 3525,
+          "end": 3530.08,
+          "text": "sure where Gro marks a lawyer in the"
+        },
+        {
+          "index": 943,
+          "start": 3528.76,
+          "end": 3533.72,
+          "text": "movie"
+        },
+        {
+          "index": 944,
+          "start": 3530.08,
+          "end": 3533.72,
+          "text": "defending an idiot"
+        },
+        {
+          "index": 945,
+          "start": 3534.44,
+          "end": 3540.52,
+          "text": "saysin this man looks as an idiot and"
+        },
+        {
+          "index": 946,
+          "start": 3537.84,
+          "end": 3543.4,
+          "text": "acts as an idiot but this shouldn&#39;t"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0948",
+      "time": "00:59:00",
+      "english": "deceive you this man really is an idiot he is an idiot I employ you that's how we function today uh unfortunately again we live in an era of cynical reasoning where telling the truth is not enough you can say the truth but it's immediately",
+      "japanese": "あなたを欺くべきではない、この男は本当に馬鹿だ、彼は馬鹿だ、私はあなたを雇う、それが今日私たちが機能する方法だ、ああ残念ながら、再び私たちは皮肉な推論の時代に生きており、真実を語るだけでは十分ではない、あなたは真実を言うことができるが、それはすぐに",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 947,
+          "start": 3540.52,
+          "end": 3546.56,
+          "text": "deceive you this man really is an idiot"
+        },
+        {
+          "index": 948,
+          "start": 3543.4,
+          "end": 3550.44,
+          "text": "he is an idiot I employ you that&#39;s how"
+        },
+        {
+          "index": 949,
+          "start": 3546.56,
+          "end": 3554.92,
+          "text": "we function today uh"
+        },
+        {
+          "index": 950,
+          "start": 3550.44,
+          "end": 3559.64,
+          "text": "unfortunately again we live in an era of"
+        },
+        {
+          "index": 951,
+          "start": 3554.92,
+          "end": 3563.56,
+          "text": "cynical reasoning where telling the"
+        },
+        {
+          "index": 952,
+          "start": 3559.64,
+          "end": 3566.6,
+          "text": "truth is not enough you can say the"
+        },
+        {
+          "index": 953,
+          "start": 3563.56,
+          "end": 3569.08,
+          "text": "truth but it&#39;s immediately"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0955",
+      "time": "00:59:26",
+      "english": "Incorporated there is a film which is not a great film but nonetheless it demonstrates this aspect of our predicament uh perfectly it is Adam MC don't look up about you know a Comet approaching the Earth threatening to destroy all life on",
+      "japanese": "組み込まれてしまう、偉大な映画ではないが、それでも私たちの窮状のこの側面を完璧に示している映画がある、それはアダム・マッケイの『ドント・ルック・アップ』で、地球に接近しすべての生命を破壊すると脅す彗星についてだ",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 954,
+          "start": 3566.6,
+          "end": 3573.44,
+          "text": "Incorporated there is a"
+        },
+        {
+          "index": 955,
+          "start": 3569.08,
+          "end": 3576.8,
+          "text": "film which is not a great film but"
+        },
+        {
+          "index": 956,
+          "start": 3573.44,
+          "end": 3580.76,
+          "text": "nonetheless it demonstrates this aspect"
+        },
+        {
+          "index": 957,
+          "start": 3576.8,
+          "end": 3585.56,
+          "text": "of our predicament uh perfectly it is"
+        },
+        {
+          "index": 958,
+          "start": 3580.76,
+          "end": 3588.08,
+          "text": "Adam MC don&#39;t look up about you know a"
+        },
+        {
+          "index": 959,
+          "start": 3585.56,
+          "end": 3591.64,
+          "text": "Comet approaching the"
+        },
+        {
+          "index": 960,
+          "start": 3588.08,
+          "end": 3596.24,
+          "text": "Earth threatening to destroy all life on"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0962",
+      "time": "00:59:51",
+      "english": "the earth and the target of the film are not some kind of Donald Trump like populists but precisely the Democratic establishment and protesters who Warren we are all in danger look up and they just make the spectacle out of the",
+      "japanese": "地球の、そしてこの映画の標的はドナルド・トランプのようなポピュリストではなく、まさに民主党の体制と抗議者たちであり、ウォーレンは私たちは皆危険にさらされている、見上げろ、そして彼らはただ危険から見せ物を作るだけだ",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 961,
+          "start": 3591.64,
+          "end": 3599.16,
+          "text": "the earth and the target of the film are"
+        },
+        {
+          "index": 962,
+          "start": 3596.24,
+          "end": 3603.28,
+          "text": "not some kind of Donald Trump like"
+        },
+        {
+          "index": 963,
+          "start": 3599.16,
+          "end": 3605.96,
+          "text": "populists but precisely the Democratic"
+        },
+        {
+          "index": 964,
+          "start": 3603.28,
+          "end": 3608.44,
+          "text": "establishment and"
+        },
+        {
+          "index": 965,
+          "start": 3605.96,
+          "end": 3612.44,
+          "text": "protesters who Warren we are all in"
+        },
+        {
+          "index": 966,
+          "start": 3608.44,
+          "end": 3614.64,
+          "text": "danger look up and they just make the"
+        },
+        {
+          "index": 967,
+          "start": 3612.44,
+          "end": 3619.6,
+          "text": "spectacle out of the"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0969",
+      "time": "01:00:14",
+      "english": "danger but uh they don't do anything really life goes on as normal and this is I think our again this is our problem [Music] today knowledge is not enough what we need is",
+      "japanese": "しかし、ああ、彼らは実際には何もせず、人生は普通に続く、そしてこれが私が思うに、これが私たちの、繰り返すが、これが今日の私たちの問題だ［音楽］、知識だけでは十分ではない、私たちに必要なのは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 968,
+          "start": 3614.64,
+          "end": 3621.44,
+          "text": "danger but uh they don&#39;t do"
+        },
+        {
+          "index": 969,
+          "start": 3619.6,
+          "end": 3625.36,
+          "text": "anything"
+        },
+        {
+          "index": 970,
+          "start": 3621.44,
+          "end": 3632.2,
+          "text": "really life goes on as normal and this"
+        },
+        {
+          "index": 971,
+          "start": 3625.36,
+          "end": 3632.2,
+          "text": "is I think our again this is our problem"
+        },
+        {
+          "index": 972,
+          "start": 3635.69,
+          "end": 3639.99,
+          "text": "[Music]"
+        },
+        {
+          "index": 973,
+          "start": 3641.6,
+          "end": 3649.64,
+          "text": "today knowledge is not enough what we"
+        },
+        {
+          "index": 974,
+          "start": 3647.08,
+          "end": 3653.76,
+          "text": "need is"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0976",
+      "time": "01:00:49",
+      "english": "truth truth is not simply knowledge truth is knowledge which subjectively engages you and today we know everything but we don't really subjectively assume this knowledge that's why I think today more than ever we need to distinguish between knowledge and Truth again",
+      "japanese": "真実だ、真実は単なる知識ではない、真実はあなたを主体的に巻き込む知識だ、そして今日私たちはすべてを知っているが、私たちは本当に主体的にこの知識を引き受けてはいない、だからこそ私は今日、かつてないほどに知識と真実を区別する必要があると思う、繰り返すが",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 975,
+          "start": 3649.64,
+          "end": 3658.04,
+          "text": "truth truth is not simply knowledge"
+        },
+        {
+          "index": 976,
+          "start": 3653.76,
+          "end": 3663.8,
+          "text": "truth is knowledge which subjectively"
+        },
+        {
+          "index": 977,
+          "start": 3658.04,
+          "end": 3668.32,
+          "text": "engages you and today we know everything"
+        },
+        {
+          "index": 978,
+          "start": 3663.8,
+          "end": 3673.84,
+          "text": "but we don&#39;t really subjectively assume"
+        },
+        {
+          "index": 979,
+          "start": 3668.32,
+          "end": 3677.12,
+          "text": "this knowledge that&#39;s why I think today"
+        },
+        {
+          "index": 980,
+          "start": 3673.84,
+          "end": 3680.56,
+          "text": "more than ever we need to distinguish"
+        },
+        {
+          "index": 981,
+          "start": 3677.12,
+          "end": 3683.72,
+          "text": "between knowledge and Truth again"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-0983",
+      "time": "01:01:20",
+      "english": "knowledge is objective knowledge but it doesn't oblige you to anything uh we don't need just science telling us how things are we need knowledge which is engaged knowledge this is why I hate although they do some good work I hate",
+      "japanese": "知識は客観的な知識だが、それはあなたに何の義務も負わせない、ああ、私たちには物事がどうあるかを教える科学だけが必要なのではない、私たちには関与する知識が必要だ、だからこそ私は嫌いだ、彼らはいくつかの良い仕事をするが、私は嫌いだ",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 982,
+          "start": 3680.56,
+          "end": 3686.96,
+          "text": "knowledge is objective knowledge but it"
+        },
+        {
+          "index": 983,
+          "start": 3683.72,
+          "end": 3690.2,
+          "text": "doesn&#39;t oblige you to"
+        },
+        {
+          "index": 984,
+          "start": 3686.96,
+          "end": 3694.4,
+          "text": "anything uh we don&#39;t need just science"
+        },
+        {
+          "index": 985,
+          "start": 3690.2,
+          "end": 3697.04,
+          "text": "telling us how things are we need"
+        },
+        {
+          "index": 986,
+          "start": 3694.4,
+          "end": 3701.88,
+          "text": "knowledge which is"
+        },
+        {
+          "index": 987,
+          "start": 3697.04,
+          "end": 3705.08,
+          "text": "engaged knowledge this is why I hate"
+        },
+        {
+          "index": 988,
+          "start": 3701.88,
+          "end": 3706.96,
+          "text": "although they do some good work I hate"
         }
       ]
     }
-  ]
+  ],
+  "sourceCueCoverage": {
+    "firstIndex": 856,
+    "lastIndex": 988,
+    "count": 133
+  },
+  "translationStatus": "machine-translated-unreviewed"
 }
