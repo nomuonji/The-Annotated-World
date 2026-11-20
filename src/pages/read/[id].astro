@@ -80,9 +80,9 @@ for(const c of d.chapterIndex){
       const offset=node.data.toLocaleLowerCase().indexOf(phrase.toLocaleLowerCase());
       if(offset<0)continue;
       const gloss=$('<span>').addClass('in-situ-annotation').attr({'lang':'ja','data-editorial-gloss':noteId,'role':'note'});
-      const parent=$(node).parent(),strong=parent.closest('strong.key').first(),linked=parent.closest('a').first();
-      if(strong.length||linked.length){
-       const target=strong.length?strong:linked;
+      const parent=$(node).parent(),emphasis=parent.closest('strong,em').first(),linked=parent.closest('a').first();
+      if(emphasis.length||linked.length){
+       const target=emphasis.length?emphasis:linked;
        target.addClass('annotation-term');target.after(gloss);
       }else{
        const fragment=$('<span>').addClass('annotation-fragment');
