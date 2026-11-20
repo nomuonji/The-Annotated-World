@@ -49,7 +49,8 @@
           "id": "ch10-line-2-note-1",
           "phrase": "The Great War",
           "explanation": "「第一次世界大戦」（第二次世界大戦以前は単に Great War と呼ばれた）。",
-          "kind": "context"
+          "kind": "context",
+          "anchor": "Great War"
         },
         {
           "id": "ch10-line-2-note-2",
@@ -181,7 +182,8 @@
           "id": "ch10-line-7-note-1",
           "phrase": "be better off without ~",
           "explanation": "「〜がない方がずっとマシだ／幸せだ」。",
-          "kind": "language"
+          "kind": "language",
+          "anchor": "better off without hope"
         },
         {
           "id": "ch10-line-7-note-2",
