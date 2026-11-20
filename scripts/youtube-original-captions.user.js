@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         The Annotated World - YouTube Original Captions Export
 // @namespace    https://github.com/nomuonji/The-Annotated-World
-// @version      0.1.0
+// @version      0.2.0
 // @description  Export the existing YouTube caption track in the logged-in browser. No ASR, mirrors, external APIs, or uploads.
 // @match        https://www.youtube.com/watch*
 // @run-at       document-idle
@@ -50,6 +50,12 @@
     }
     return {track:preferred,url,available:tracks.length};
   }
+  function saveBlob(bytes,filename,type){
+    const url=URL.createObjectURL(new Blob([bytes],{type}));
+    const link=document.createElement('a');
+    link.href=url;link.download=filename;document.body.append(link);link.click();link.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),30000);
+  }
   async function exportTrack(){
     const id=videoId();
     if(!id)throw new Error('動画IDを確認できません。');
@@ -72,17 +78,37 @@
       bytes=raw;extension=format;break;
     }
     if(!bytes)throw new Error('YouTubeが字幕データを返しませんでした（HTTP成功でも空データの場合あり）。');
-    const digest=await crypto.subtle.digest('SHA-256',bytes);
-    const sha=[...new Uint8Array(digest)].map(v=>v.toString(16).padStart(2,'0')).join('');
-    const filename=id+'_'+track.languageCode+'_'+(track.kind==='asr'?'youtube-auto':'uploader')+'.'+extension;
-    const blob=new Blob([bytes],{type:extension==='vtt'?'text/vtt':'application/json'});
-    const objectUrl=URL.createObjectURL(blob);
-    const a=document.createElement('a');a.href=objectUrl;a.download=filename;
-    document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(objectUrl),30000);
-    console.info('Original YouTube caption evidence:',{videoId:id,
-      language:track.languageCode,kind:track.kind||'manual',trackCount:available,
-      size:bytes.length,sha256:sha,filename});
-    visibleStatus('取得成功: '+filename+'（'+bytes.length+' bytes） SHA256: '+sha.slice(0,12)+'…');
+    const sha=[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))]
+      .map(v=>v.toString(16).padStart(2,'0')).join('');
+    const kind=track.kind==='asr'?'youtube-auto':'uploader';
+    const filename=id+'_'+track.languageCode+'_'+kind+'.'+extension;
+    const decoded=new TextDecoder().decode(bytes);
+    const count=extension==='json3'
+      ? JSON.parse(decoded).events.filter(e=>e.segs?.some(s=>s.utf8?.trim())).length
+      : (decoded.match(/-->/g)||[]).length;
+    const capturedAt=new Date().toISOString();
+    const evidence={
+      provider:'youtube',
+      videoId:id,
+      sourceUrl:'https://www.youtube.com/watch?v='+id,
+      method:track.kind==='asr'?'youtube-auto-captions':'youtube-captions',
+      transport:'youtube-direct',
+      language:track.languageCode,
+      tool:'youtube-original-captions.user.js',
+      capturedAt,
+      format:extension,
+      fileName:filename,
+      bytes:bytes.length,
+      captionEvents:count,
+      sha256:sha,
+      trackCount:available
+    };
+    saveBlob(bytes,filename,extension==='vtt'?'text/vtt':'application/json');
+    // No auth cookies, signed caption URL or subtitle text in the evidence sidecar.
+    saveBlob(JSON.stringify(evidence,null,2)+'\n',id+'.evidence.json','application/json');
+    console.info('Original YouTube caption evidence:',evidence);
+    visibleStatus('字幕と取得証跡を保存: '+count+'件 / SHA256 '+sha.slice(0,12)+'…');
+
   }
   function mount(){
     if(!videoId())return;
