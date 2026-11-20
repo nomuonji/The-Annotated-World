@@ -183,6 +183,7 @@ for(const c of d.chapterIndex){
 
 }
 const body=$.root().html()||'';
+const hasAnnotations=$('.note-entry[data-note-kind]').length>0;
 const status=d.provenance;
 const labels={coverage:{full:'全文（照合済みの範囲）',excerpt:'抜粋',unverified:'収録範囲未確認'},transcript:{verified:'照合済み',unverified:'未確認','not-applicable':'音声なし'},translation:{verified:'確認済み',unverified:'未確認'},rights:{original:'オリジナル',licensed:'許諾・ライセンス確認済み','public-domain':'パブリックドメイン確認済み',unverified:'未確認'}};
 ---
@@ -192,7 +193,7 @@ const labels={coverage:{full:'全文（照合済みの範囲）',excerpt:'抜粋
  <div class="reader-crosslinks"><div class="reader-person">{d.people.map(p=><a href={personUrl(p.id)}>{p.name}の資料 →</a>)}</div><div class="tag-row">{ts.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></div>
  <div class:list={["study-layout",{"has-video":!!d.videoId}]} data-study-reader>
   {d.videoId&&<aside class="study-sidebar" aria-label="動画・再生操作"><SourceVideo doc={doc}/></aside>}
-  <div class="study-text"><StudyToolbar doc={doc}/><div class="chapter-mode-control" id="chapter-mode-control" hidden><button type="button" id="chapter-view-toggle" aria-pressed="false">章単位で読む</button><span class="chapter-mode-context" id="chapter-mode-context" hidden>出典：{d.title}</span></div><ReaderTools/><div class="study-original"><Fragment set:html={body}/></div></div>
+  <div class="study-text"><StudyToolbar doc={doc}/>{hasAnnotations&&<p class="reader-annotation-legend" aria-label="注釈の種類"><span class="legend-language">語学</span><span class="legend-context">背景・論点</span><small>下線の語句をタップして解説</small></p>}<div class="chapter-mode-control" id="chapter-mode-control" hidden><button type="button" id="chapter-view-toggle" aria-pressed="false">章単位で読む</button><span class="chapter-mode-context" id="chapter-mode-context" hidden>出典：{d.title}</span></div><ReaderTools/><div class="study-original"><Fragment set:html={body}/></div></div>
   <aside id="mobile-translation-dock" class="mobile-translation-dock" aria-label="今読んでいる英文の日本語訳" hidden>
    <div class="mobile-translation-dock-head"><span>日本語訳 <small>スクロールに連動</small></span><button type="button" id="mobile-translation-unpin" aria-label="日本語訳の固定を解除して本文内に戻す">固定解除</button></div>
    <div id="mobile-translation-text" class="mobile-translation-dock-body" lang="ja"></div>
