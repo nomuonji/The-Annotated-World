@@ -50,7 +50,7 @@ const byPath=new Map();for(const p of pages){const url='/'+p.slice(5,-'index.htm
 for(const [url,$] of byPath)for(const a of $('a[href]').toArray()){const href=$(a).attr('href');if(!href||(!href.startsWith('/')&&!href.startsWith('#'))||href.startsWith('//'))continue;const u=new URL(href,'https://archive.local'+url);const target=byPath.get(u.pathname);assert.ok(target,'Broken internal link '+url+' -> '+href);if(u.hash)assert.ok(target('[id]').toArray().some(e=>target(e).attr('id')===decodeURIComponent(u.hash.slice(1))),'Broken anchor '+url+' -> '+href);}
 const words=byPath.get('/words/');const concepts=byPath.get('/concepts/');assert.ok(words('.word-card').length>50);assert.ok(concepts('.word-card').length>=10);
 const firstLink=sample('.en strong.key a[data-word]').first().attr('href');assert.ok(firstLink&&byPath.has(firstLink));assert.ok(byPath.get(firstLink)('.occurrence a[href="/read/slavoj-zizek-signs-from-the-future/#ch1-line-1"]').length);
-assert.ok(byPath.get('/concepts/surplus-enjoyment/')('.occurrence').length);assert.equal(sample('.editorial-annotation').length,4);
+assert.ok(byPath.get('/concepts/surplus-enjoyment/')('.occurrence').length);assert.equal(sample('.editorial-annotation').length,1);assert.equal(sample('.editorial-annotation summary').text(),'聞き取りのヒント（一般的な音の変化）');
 console.log('Knowledge indexes: '+words('.word-card').length+' expressions, '+concepts('.word-card').length+' concepts and references');
 console.log('Discovery routes, video source and internal links verified: '+pages.length+' static pages');
 

@@ -31,16 +31,106 @@ function setup(reader:HTMLElement){
   note.prepend(toggle);
  }
  reader.classList.add('annotation-enhanced');
+ // Show the exact editorial note beside the highlighted phrase on small screens.
+ // Never navigate to a far-away footnote or force the source text to scroll.
+ const smallReader=matchMedia('(max-width: 899px)');
+ const popover=document.createElement('aside');
+ popover.className='inline-annotation-popover';
+ popover.hidden=true;
+ popover.setAttribute('role','dialog');
+ popover.setAttribute('aria-label','本文注釈');
+ const popoverHead=document.createElement('div');
+ popoverHead.className='inline-annotation-popover-head';
+ const popoverTitle=document.createElement('strong');
+ const popoverClose=document.createElement('button');
+ popoverClose.type='button';
+ popoverClose.className='inline-annotation-popover-close';
+ popoverClose.textContent='閉じる ×';
+ popoverHead.append(popoverTitle,popoverClose);
+ const popoverText=document.createElement('p');
+ popoverText.className='inline-annotation-popover-text';
+ const popoverLink=document.createElement('a');
+ popoverLink.className='inline-annotation-popover-link';
+ popoverLink.textContent='語彙の用例を見る ↗';
+ popover.append(popoverHead,popoverText,popoverLink);
+ document.body.append(popover);
+ let activeNoteTrigger:HTMLElement|null=null;
+ const closePopover=()=>{
+  popover.hidden=true;
+  activeNoteTrigger?.removeAttribute('aria-expanded');
+  activeNoteTrigger=null;
+ };
+ popoverClose.addEventListener('click',()=>{closePopover();});
+ const positionPopover=()=>{
+  if(popover.hidden||!activeNoteTrigger)return;
+  const rect=activeNoteTrigger.getBoundingClientRect();
+  const width=Math.min(360,window.innerWidth-24);
+  popover.style.width=width+'px';
+  const left=Math.max(12,Math.min(window.innerWidth-width-12,rect.left+rect.width/2-width/2));
+  // Leave the pinned player and sticky study toolbar unobstructed.
+  const stickyBottom=Math.max(0,toolbar?.getBoundingClientRect().bottom??0);
+  const topLimit=Math.max(12,stickyBottom+8);
+  const bottomLimit=window.visualViewport?.height??window.innerHeight;
+  const height=popover.getBoundingClientRect().height;
+  const below=rect.bottom+8;
+  const above=rect.top-height-8;
+  const desired=below+height<=bottomLimit-12?below:above>=topLimit?above:below;
+  const top=Math.max(topLimit,Math.min(desired,Math.max(topLimit,bottomLimit-height-12)));
+  popover.style.left=left+'px';
+  popover.style.top=top+'px';
+ };
+ const openPopover=(trigger:HTMLElement,note:HTMLElement,word:HTMLElement|null)=>{
+  if(!popover.hidden&&activeNoteTrigger===trigger){closePopover();return;}
+  activeNoteTrigger?.removeAttribute('aria-expanded');
+  activeNoteTrigger=trigger;
+  trigger.setAttribute('aria-expanded','true');
+  const title=word?.textContent?.trim()||note.querySelector('strong')?.textContent?.trim()||'本文注釈';
+  popoverTitle.textContent=title;
+  popoverText.textContent=note.textContent?.trim()||'';
+  const glossary=word?.querySelector<HTMLAnchorElement>('a[data-word]')||
+   (word?.matches('a[data-word]')?word as HTMLAnchorElement:null);
+  if(glossary){popoverLink.href=glossary.href;popoverLink.hidden=false;}
+  else{popoverLink.removeAttribute('href');popoverLink.hidden=true;}
+  popover.hidden=false;
+  positionPopover();
+ };
+ // Use capture so the source-linked word dialog does not steal an annotation tap.
  reader.addEventListener('click',event=>{
-  const link=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('.inline-note-ref a[href^="#"]'):null;
-  if(!link)return;
-  const target=document.getElementById(link.hash.slice(1));
-  const note=target?.closest<HTMLElement>('.note');
+  if(!(event.target instanceof Element))return;
+  const word=event.target.closest<HTMLElement>('.en .annotation-term');
+  const ref=event.target.closest<HTMLAnchorElement>('.inline-note-ref a[href^="#"]')||
+   word?.nextElementSibling?.querySelector<HTMLAnchorElement>('.inline-note-ref a[href^="#"]')||
+   (word?.nextElementSibling?.matches('.inline-note-ref')?word.nextElementSibling.querySelector<HTMLAnchorElement>('a[href^="#"]'):null);
+  if(!ref)return;
+  const note=document.getElementById(ref.hash.slice(1));
   if(!note)return;
-  expandNote(note,true);
   const utterance=note.closest<HTMLElement>('.utterance');
-  if(utterance){utterance.classList.add('revealed');updateReveal(utterance);}
+  if(smallReader.matches){
+   event.preventDefault();
+   event.stopImmediatePropagation();
+   const trigger=(word||ref) as HTMLElement;
+   openPopover(trigger,note,word);
+   return;
+  }
+  if(event.target.closest('.inline-note-ref')){
+   expandNote(note.closest<HTMLElement>('.note')!,true);
+   if(utterance){utterance.classList.add('revealed');updateReveal(utterance);}
+  }
+ },true);
+ document.addEventListener('pointerdown',event=>{
+  if(popover.hidden)return;
+  const target=event.target as Node;
+  if(!popover.contains(target)&&!activeNoteTrigger?.contains(target))closePopover();
  });
+ document.addEventListener('keydown',event=>{if(event.key==='Escape')closePopover();});
+ window.addEventListener('scroll',()=>{
+  if(popover.hidden||!activeNoteTrigger)return;
+  const rect=activeNoteTrigger.getBoundingClientRect();
+  if(rect.bottom<0||rect.top>window.innerHeight){closePopover();return;}
+  positionPopover();
+ },{passive:true});
+ window.addEventListener('resize',()=>{if(!smallReader.matches)closePopover();else positionPopover();},{passive:true});
+ smallReader.addEventListener('change',closePopover);
  const entries:TimedBlock[]=blocks.flatMap(element=>{const raw=element.dataset.utteranceStart;return raw!==undefined&&/^\d+$/.test(raw)?[{element,start:Number(raw),end:null}]:[];}).sort((a,b)=>a.start-b.start);
  // A timestamp is usable as a repeat boundary only if the next timed block is strictly later.
  entries.forEach((entry,i)=>{const next=entries[i+1];if(next&&next.start>entry.start)entry.end=next.start;});

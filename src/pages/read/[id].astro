@@ -95,9 +95,11 @@ for(const c of d.chapterIndex){
    }
    if(noteIndex){note.addClass('has-inline-annotations');block.addClass('has-inline-annotations');}
   }
+  // Retain legacy sidecar data for validation, but remove redundant syntax/alignment panels.
   for(const a of annotationsFor(doc.id,anchor,en.text(),ja.text())){
+   if(a.kind!=='sound')continue;
    const detail=$('<details>').addClass('editorial-annotation');
-   detail.append($('<summary>').text(a.kind==='syntax'?'構文を読み解く':a.kind==='sound'?'聞き取りのヒント（一般的な音の変化）':'英文と和訳を照合'));
+   detail.append($('<summary>').text('聞き取りのヒント（一般的な音の変化）'));
    const example=$('<p>').addClass('annotation-quote').attr('lang','en');
    if(a.parts){for(const p of a.parts)example.append($('<span>').addClass('syntax-part').append($('<span>').text(p.text),$('<small>').text(p.role)));}else example.text(a.quote);
    detail.append(example);if(a.translation)detail.append($('<p>').text(a.translation));detail.append($('<p>').text(a.explanation));block.append(detail);
