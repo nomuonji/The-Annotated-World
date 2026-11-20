@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: python -m pip install edge-tts
+      - run: python -m pip install edge-tts gTTS
       - name: Generate natural-rate English voiceover
         shell: bash
         run: |
@@ -32,7 +32,19 @@ jobs:
           async def main():
               for i,entry in enumerate(beats):
                   f=f'voice-v6/{i:02d}.mp3'
-                  await Communicate(entry['en'],voice='en-US-AndrewNeural',rate='+6%',pitch='-2Hz').save(f)
+                  import time
+                  for attempt in range(3):
+                      try:
+                          await Communicate(entry['en'],voice='en-US-AndrewNeural',rate='+6%',pitch='-2Hz').save(f)
+                          if Path(f).stat().st_size < 1000: raise RuntimeError('empty voice output')
+                          break
+                      except Exception as ex:
+                          print('VOICE_RETRY',i,attempt,str(ex)[:120],flush=True)
+                          await asyncio.sleep(2*(attempt+1))
+                  else:
+                      print('VOICE_FALLBACK_GTTS',i,flush=True)
+                      from gtts import gTTS
+                      gTTS(text=entry['en'],lang='en',slow=False).save(f)
                   print(i,Path(f).stat().st_size,flush=True)
           asyncio.run(main())
           PY
