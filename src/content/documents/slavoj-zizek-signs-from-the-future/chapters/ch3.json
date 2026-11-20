@@ -31,17 +31,20 @@
         {
           "id": "ch3-line-1-note-1",
           "phrase": "inauguration",
-          "explanation": "「（大統領などの）就任式」。"
+          "explanation": "「（大統領などの）就任式」。",
+          "kind": "language"
         },
         {
           "id": "ch3-line-1-note-2",
           "phrase": "anomaly",
-          "explanation": "「異常事態、例外、変則」。"
+          "explanation": "「異常事態、例外、変則」。",
+          "kind": "language"
         },
         {
           "id": "ch3-line-1-note-3",
           "phrase": "poet laureate",
-          "explanation": "「桂冠詩人」（アメリカでは議会図書館が任命する公式詩人。ゴーマンは全米初代青年桂冠詩人）。"
+          "explanation": "「桂冠詩人」（アメリカでは議会図書館が任命する公式詩人。ゴーマンは全米初代青年桂冠詩人）。",
+          "kind": "context"
         }
       ]
     },
@@ -58,12 +61,14 @@
         {
           "id": "ch3-line-2-note-1",
           "phrase": "put our differences aside",
-          "explanation": "「意見の違い・相違を脇に置く（水に流す）」。"
+          "explanation": "「意見の違い・相違を脇に置く（水に流す）」。",
+          "kind": "language"
         },
         {
           "id": "ch3-line-2-note-2",
           "phrase": "lay down our arms / reach out our arms",
-          "explanation": "arms（武器）と arms（腕）を掛けた修辞表現（wordplay）。"
+          "explanation": "arms（武器）と arms（腕）を掛けた修辞表現（wordplay）。",
+          "kind": "language"
         }
       ]
     },
@@ -80,22 +85,26 @@
         {
           "id": "ch3-line-3-note-1",
           "phrase": "sublime",
-          "explanation": "「崇高な」。"
+          "explanation": "「崇高な」。",
+          "kind": "language"
         },
         {
           "id": "ch3-line-3-note-2",
           "phrase": "be immersed into/in",
-          "explanation": "「〜に浸っている、没頭している」。"
+          "explanation": "「〜に浸っている、没頭している」。",
+          "kind": "language"
         },
         {
           "id": "ch3-line-3-note-3",
           "phrase": "traverse",
-          "explanation": "「〜を貫く、横断する」。字幕の `univil war` は文脈上"
+          "explanation": "「〜を貫く、横断する」。字幕の `univil war` は文脈上",
+          "kind": "language"
         },
         {
           "id": "ch3-line-3-note-4",
           "phrase": "civil war（内戦）",
-          "explanation": "の言い間違い・誤認識です。"
+          "explanation": "の言い間違い・誤認識です。",
+          "kind": "language"
         }
       ]
     },
@@ -112,12 +121,14 @@
         {
           "id": "ch3-line-4-note-1",
           "phrase": "establishment swamp",
-          "explanation": "トランプ自身のスローガン \"Drain the swamp\"（ワシントンの腐敗した既成権力の沼を干上がらせろ）を逆手に取った皮肉。"
+          "explanation": "トランプ自身のスローガン \"Drain the swamp\"（ワシントンの腐敗した既成権力の沼を干上がらせろ）を逆手に取った皮肉。",
+          "kind": "context"
         },
         {
           "id": "ch3-line-4-note-2",
           "phrase": "emancipatory",
-          "explanation": "「解放的な」（名詞は emancipation）。"
+          "explanation": "「解放的な」（名詞は emancipation）。",
+          "kind": "language"
         }
       ]
     },
@@ -134,12 +145,14 @@
         {
           "id": "ch3-line-5-note-1",
           "phrase": "primary contest",
-          "explanation": "「予備選挙」。"
+          "explanation": "「予備選挙」。",
+          "kind": "language"
         },
         {
           "id": "ch3-line-5-note-2",
           "phrase": "last-minute backing",
-          "explanation": "「土壇場での支援・後ろ盾」。固有名詞補足：ミシガン州の政治家 Haley Stevens, Abdul El-Sayed, Mike Rogers（字幕では `Abdul Elsad`, `becking` となっています）。"
+          "explanation": "「土壇場での支援・後ろ盾」。固有名詞補足：ミシガン州の政治家 Haley Stevens, Abdul El-Sayed, Mike Rogers（字幕では `Abdul Elsad`, `becking` となっています）。",
+          "kind": "context"
         }
       ]
     },
@@ -156,17 +169,20 @@
         {
           "id": "ch3-line-6-note-1",
           "phrase": "steal the show",
-          "explanation": "「（主役を食って）一番の人気・注目をさらう」。"
+          "explanation": "「（主役を食って）一番の人気・注目をさらう」。",
+          "kind": "language"
         },
         {
           "id": "ch3-line-6-note-2",
           "phrase": "stick out",
-          "explanation": "「目立つ、浮き出る」。"
+          "explanation": "「目立つ、浮き出る」。",
+          "kind": "language"
         },
         {
           "id": "ch3-line-6-note-3",
           "phrase": "element of discord",
-          "explanation": "「不協和音の要素」。ヘーゲルが1806年にナポレオンを目撃したのはドイツのイェナ（Jena）ですが、ジジェクは口頭でウィーンと言っています。"
+          "explanation": "「不協和音の要素」。ヘーゲルが1806年にナポレオンを目撃したのはドイツのイェナ（Jena）ですが、ジジェクは口頭でウィーンと言っています。",
+          "kind": "context"
         }
       ]
     }
