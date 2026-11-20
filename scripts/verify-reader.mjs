@@ -138,8 +138,7 @@ try{
   await page.locator('#reader-annotations').click();
   assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),false);
   await page.goto(base+'/library/');
-  assert.equal(await page.locator('[data-document]').count(),2,'Source-backed replacement and first article must both be listed');
-   assert.ok(await page.locator('[data-document] a[href="/read/slavoj-zizek-how-to-become-free/"]').count()>0,'Rebuilt article is missing from library');
+  assert.equal(await page.locator('[data-document]').count(),1,'Withdrawn article remains listed');
   await page.goto(base+path);
   assert.equal(await page.locator('#reader-annotations').getAttribute('aria-pressed'),'false','Annotation OFF did not persist across navigation');
   assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),false);

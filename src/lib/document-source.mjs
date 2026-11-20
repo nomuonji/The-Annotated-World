@@ -17,9 +17,8 @@ const genreSet=new Set(['philosophy','literature','film-culture','society','tech
 function renderDocument(document,chapters){
  const facts=document.facts.map(f=>'<div class="meta-item"><dt>'+escape(f.label)+'</dt><dd>'+(f.url?'<a href="'+escape(f.url)+'" target="_blank" rel="noopener noreferrer">'+escape(f.value)+'</a>':escape(f.value))+'</dd></div>').join('\n');
  const toc=chapters.map((c,i)=>'<li><a href="#'+escape(c.id)+'"><span class="toc-time">'+escape(c.timeRange.match(/\d{1,3}:\d{2}:\d{2}/)?.[0]||'')+'</span>'+(i+1)+'. '+escape(c.title.replace(/^\d+[.．]\s*/,''))+'</a></li>').join('\n');
- const transcriptLink=c=>{if(!document.transcriptBaseUrl)return '';const url=new URL(document.transcriptBaseUrl);const start=c.timeRange.match(/\d{1,3}:\d{2}:\d{2}/)?.[0];if(start)url.searchParams.set('t',String(seconds(start)));return '<p class="source-transcript"><a href="'+escape(url.href)+'" target="_blank" rel="noopener noreferrer">この章の原文スクリプトを出典で読む</a></p>';};
  const body=chapters.map(c=>'<section class="sec" id="'+escape(c.id)+'">'+
- '<div class="sec-header"><p class="sec-time">'+escape(c.timeRange)+'</p><h2>'+escape(c.title)+'</h2><p class="sec-sub">'+escape(c.summary)+'</p>'+transcriptLink(c)+'</div>'+
+ '<div class="sec-header"><p class="sec-time">'+escape(c.timeRange)+'</p><h2>'+escape(c.title)+'</h2><p class="sec-sub">'+escape(c.summary)+'</p></div>'+
  c.utterances.map(u=>'<div class="utterance" id="'+escape(u.id)+'">'+
  '<p class="speaker-line"><span class="'+escape(u.speaker.className)+'">'+escape(u.speaker.name)+'</span> · '+escape(u.time)+'</p>'+
  '<p class="en">'+u.english+'</p><p class="ja">'+u.japanese+'</p>'+
@@ -29,6 +28,32 @@ function renderDocument(document,chapters){
  return '<header class="hero"><p class="hero-meta">'+escape(document.heroMeta)+'</p><h1>'+escape(document.title)+'</h1><p class="deck">'+escape(document.description)+'</p><dl class="meta-strip">'+facts+'</dl></header>\n'+
  '<nav class="toc" aria-label="チャプター目次"><h2>'+escape(document.toc.title)+'</h2><p class="toc-lead">'+escape(document.toc.description)+'</p><ol class="toc-list">'+toc+'</ol></nav>\n'+
  body+'\n<footer class="sources"><h2>'+escape(document.sources.title)+'</h2><ol>'+sources+'</ol></footer>';
+}
+
+// New YouTube lessons may only originate from video-specific directly acquired YouTube streams.
+// Existing first document was supplied by the user before this contract and is not proof of extraction.
+const suppliedLegacy='slavoj-zizek-signs-from-the-future';
+function sourceYouTubeId(raw){
+ try{
+  const u=new URL(raw),host=u.hostname.toLowerCase();
+  let value=null;
+  if(host==='youtu.be')value=u.pathname.split('/')[1];
+  else if(['youtube.com','www.youtube.com','m.youtube.com'].includes(host))value=u.searchParams.get('v')||u.pathname.match(/^\/(?:shorts|live|embed)\/([^/]+)/)?.[1];
+  return value&&/^[A-Za-z0-9_-]{11}$/.test(value)?value:null;
+ }catch{return null;}
+}
+function verifyDirectYoutubeCapture(id,document){
+ const videoId=sourceYouTubeId(document.provenance?.sourceUrl||'');
+ if(!videoId){
+  if(document.youtubeCapture)fail(id,'youtubeCapture present without a valid YouTube source URL');
+  return;
+ }
+ if(id===suppliedLegacy)return;
+ const proof=document.youtubeCapture;
+ if(!proof||proof.provider!=='youtube'||proof.videoId!==videoId)fail(id,'a new YouTube lesson requires direct YouTube capture evidence matching the video ID; third-party transcript mirrors are forbidden');
+ if(!['youtube-captions','youtube-auto-captions','youtube-audio-asr'].includes(proof.method))fail(id,'capture method must be direct YouTube captions or audio-derived ASR');
+ if(!text(proof.language)||!text(proof.tool)||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(proof.capturedAt||'')||!Number.isFinite(Date.parse(proof.capturedAt)))fail(id,'capture language, tool and UTC timestamp required');
+ if(!/^[0-9a-f]{64}$/.test(proof.sha256||''))fail(id,'capture must have actual SHA-256 digest of the YouTube-derived source file');
 }
 
 function verifyDocument(id,document){
@@ -41,7 +66,6 @@ function verifyDocument(id,document){
  if(!document.sources||!text(document.sources.title)||!Array.isArray(document.sources.items)||!document.sources.items.length)fail(id,'invalid sources');
  for(const item of document.sources.items)if(typeof item.before!=='string'||typeof item.after!=='string'||!text(item.label)||!urlOk(item.url))fail(id,'invalid source item');
  if(!genreSet.has(document.genre)||!text(document.format))fail(id,'genre and format are mandatory');
- if(document.transcriptBaseUrl!==undefined&&!urlOk(document.transcriptBaseUrl))fail(id,'invalid transcriptBaseUrl');
  if(!document.provenance||!urlOk(document.provenance.sourceUrl)||!text(document.provenance.basis))fail(id,'provenance required');
  if(!['full','excerpt','unverified'].includes(document.provenance.coverage)||
   !['verified','unverified','not-applicable'].includes(document.provenance.transcript)||
@@ -49,6 +73,7 @@ function verifyDocument(id,document){
   !['original','licensed','public-domain','unverified'].includes(document.provenance.rights))fail(id,'invalid provenance status');
  if(!Array.isArray(document.people)||!Array.isArray(document.topics))fail(id,'people and topics must be arrays');
  // Content publication is controlled by presence in the repository, never an editorial status flag.
+ verifyDirectYoutubeCapture(id,document);
  for(const key of ['status','draft','published','retired','chapterMetadata'])if(Object.hasOwn(document,key))fail(id,'unsupported legacy field '+key);
 }
 function verifyChapter(id,chapter,seen){
