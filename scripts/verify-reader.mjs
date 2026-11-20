@@ -28,7 +28,14 @@ try{
   assert.equal(await first.locator('.inline-note-ref').count(),0,'Old footnote jump buttons remain');
   assert.equal(await first.locator('.annotation-note-toggle').count(),0,'Old annotation disclosure button remains');
   assert.equal(await page.locator('.inline-annotation-popover').count(),0,'Old annotation popup remains');
-  assert.equal(await first.locator('.note .inline-note-item').count(),3,'Original annotation nodes were lost');
+  assert.equal(await first.locator('.en .in-situ-annotation').count(),3,'First utterance did not convert all 3 point notes');
+  assert.equal(await first.locator('.note').isVisible(),false,'Legacy point box is still visible');
+  assert.equal(await page.locator('.note.annotation-converted').count(),61,'Not all 61 utterances are using the new format');
+  assert.equal(await page.locator('.editorial-annotation').count(),0,'Legacy listening-hint details remain');
+  assert.equal(await page.locator('.note-label:visible').count(),0,'Legacy point labels remain visible');
+  assert.equal(await page.locator('.en .inline-note-ref').count(),0,'Legacy jump-to-note numbers remain in English');
+  const intro=await page.locator('.hero').innerText();
+  assert.ok(!intro.includes('ポイント')&&!intro.includes('英文 → 日本語訳 →'),'Intro advertises obsolete point format');
   assert.equal(await first.locator('.editorial-annotation summary').filter({hasText:'構文を読み解く'}).count(),0);
   assert.equal(await second.locator('.editorial-annotation summary').filter({hasText:'英文と和訳を照合'}).count(),0);
   const atStart=await page.evaluate(()=>window.scrollY);
@@ -84,6 +91,17 @@ try{
   await page.locator('#reader-dark').click();await page.locator('#reader-focus').click();
   assert.equal(await page.locator('.study-sidebar').isVisible(),true);
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Reader causes horizontal overflow');
+  // The second published document originally used numbered source notes.
+  // Ensure all 18 are still readable, but in the same permanent inline format.
+  await page.goto(base+'/read/slavoj-zizek-how-to-become-free/');
+  const secondNotes=page.locator('.utterance .note.annotation-converted');
+  assert.equal(await secondNotes.count(),18,'Numbered source notes were not converted');
+  assert.ok(await page.locator('.en .in-situ-annotation').count()>=32,'Existing source notes went missing during conversion');
+  assert.equal(await page.locator('.en .inline-note-ref').count(),0,'Original footnote numbers survive conversion');
+  assert.equal(await page.locator('.note:visible').count(),0,'Duplicate notes are visible beneath the English');
+  assert.equal(await page.locator('.editorial-annotation').count(),0,'Supplemental details remain in the second lesson');
+  assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),true);
+  assert.ok(!(await page.locator('.hero').innerText()).includes('青い番号'),'Second article still advertises removed numbered note controls');
   await page.goto(base+'/library/');await page.locator('[data-scope=chapters]').click();await page.locator('#find').fill('映画');assert.ok(await page.locator('[data-chapter-result]:visible').count()>0);
   await page.locator('#find').fill('');await page.locator('.library-filter-details summary').click();await page.locator('#filter-time').selectOption('15');assert.ok(await page.locator('[data-chapter-result]:visible').count()>0);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Library causes horizontal overflow');
   console.log(viewport.width+'px: reading modes, mocked seek/rate/repeat/sync, mobile layout and chapter search passed');await page.close();
