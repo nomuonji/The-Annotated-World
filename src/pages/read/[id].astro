@@ -53,12 +53,13 @@ for(const c of d.chapterIndex){
   for(const c of matchingConcepts(en.text()))extra.append($('<a>').addClass('concept-link').attr('href',conceptUrl(c.id)).text(c.ja));
   if(extra.children().length)block.append(extra);
 
-  // Join the existing editorial notes to their exact phrase in the English,
-  // without changing any source text or duplicating prose inside the paragraph.
+  // Put each complete editorial explanation immediately after its source phrase.
+  // Keep the original note nodes for indexing and textual source verification.
   if(note.length&&!note.find('.inline-note-item').length){
    const noteNodes=note.contents().toArray();
    let current=$('<span>'),hasCurrent=false;
-   let noteIndex=0;
+   let noteIndex=0,inserted=0;
+   const applyInlineNotes:Array<()=>void>=[];
    const fullEnglish=en.text().toLocaleLowerCase();
    for(const part of noteNodes){
     if(part.type==='tag'&&part.name==='strong'){
@@ -66,34 +67,50 @@ for(const c of d.chapterIndex){
      const label=$(part).text().trim(),noteId=anchor+'-note-'+noteIndex;
      const item=$('<span>').addClass('inline-note-item').attr('id',noteId);
      $(part).before(item);item.append($(part));current=item;hasCurrent=true;
-     const candidates=[label,label.replace(/（[^）]*）/gu,'').trim(),label.replace(/\\s+\\([^)]*\\)$/u,'').trim(),label.replace(/\\s+[A-Z]$/u,'').trim()];
+     const candidates=[
+      label.replace(/（[^）]*）/gu,'').trim(),
+      label.replace(/\s+\([^)]*\)\s*$/u,'').trim(),
+      label.replace(/\s+[A-Z]$/u,'').trim(),
+      label.trim()
+     ];
      const phrase=candidates.find(value=>value.length>=4&&fullEnglish.includes(value.toLocaleLowerCase()));
      if(!phrase)continue;
      for(const node of en.find('*').addBack().contents().toArray()){
       if(node.type!=='text')continue;
       const offset=node.data.toLocaleLowerCase().indexOf(phrase.toLocaleLowerCase());
       if(offset<0)continue;
-      const ref=$('<sup>').addClass('inline-note-ref');
-      ref.append($('<a>').attr({href:'#'+noteId,'aria-label':'注釈 '+noteIndex+'：'+label,'data-note-index':String(noteIndex)}));
-      const parent=$(node).parent(),strong=parent.closest('strong.key').first(),linked=parent.closest('a').first();
-      if(strong.length||linked.length){
-       const target=strong.length?strong:linked;
-       target.addClass('annotation-term');target.after(ref);
+      const gloss=$('<span>').addClass('in-situ-annotation').attr({'lang':'ja','data-editorial-gloss':noteId,'role':'note'});
+      const parent=$(node).parent(),emphasis=parent.closest('strong,em').first(),linked=parent.closest('a').first();
+      if(emphasis.length||linked.length){
+       const target=emphasis.length?emphasis:linked;
+       target.addClass('annotation-term');target.after(gloss);
       }else{
        const fragment=$('<span>').addClass('annotation-fragment');
        fragment.append($('<span>').text(node.data.slice(0,offset)));
        fragment.append($('<span>').addClass('annotation-term').text(node.data.slice(offset,offset+phrase.length)));
-       fragment.append(ref);
+       fragment.append(gloss);
        fragment.append($('<span>').text(node.data.slice(offset+phrase.length)));
        $(node).replaceWith(fragment);
       }
+      applyInlineNotes.push(()=>{
+       const explanation=item.text().slice(label.length).replace(/^\s*[：:]\s*/u,'').trim();
+       if(!explanation){gloss.remove();return;}
+       gloss.text('〔'+explanation+'〕');
+       item.addClass('is-in-situ');
+       inserted++;
+      });
       break;
      }
     }else if(hasCurrent){
      current.append($(part));
     }
    }
-   if(noteIndex){note.addClass('has-inline-annotations');block.addClass('has-inline-annotations');}
+   for(const apply of applyInlineNotes)apply();
+   if(noteIndex){
+    note.addClass('has-inline-annotations');
+    block.addClass('has-inline-annotations');
+    if(inserted===noteIndex)note.addClass('all-in-situ');
+   }
   }
   // Retain legacy sidecar data for validation, but remove redundant syntax/alignment panels.
   for(const a of annotationsFor(doc.id,anchor,en.text(),ja.text())){
