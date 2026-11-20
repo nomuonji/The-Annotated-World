@@ -56,12 +56,12 @@ for(const c of d.chapterIndex){
   // Canonical reader: exactly one visible format, permanently embedded in the English.
   // Structured annotations are rendered into a hidden compatibility .note for vocabulary indexing; only inline glosses appear.
   en.find('.inline-note-ref').remove();
-  const annotations:Array<{label:string;explanation:string;id:string}>=[];
+  const annotations:Array<{label:string;explanation:string;id:string;kind:'language'|'context'}>=[];
   const records=note.find('.note-entry[data-note-id]').toArray();
   if(records.length){
    for(const entry of records){
     const raw=$(entry),label=raw.find('strong').first().text().trim(),full=raw.text().trim();
-    annotations.push({label,explanation:full.slice(label.length).replace(/^\s*[：:]\s*/u,'').trim(),id:raw.attr('data-note-id')||''});
+    annotations.push({label,explanation:full.slice(label.length).replace(/^\s*[：:]\s*/u,'').trim(),id:raw.attr('data-note-id')||'',kind:raw.attr('data-note-kind')==='context'?'context':'language'});
    }
   }else{
   const sourceItems=note.find('.inline-note-item').toArray();
@@ -69,14 +69,14 @@ for(const c of d.chapterIndex){
    for(const [i,item] of sourceItems.entries()){
     const label=$(item).find('strong').first().text().trim();
     const raw=$(item).text().trim();
-    annotations.push({label,explanation:raw.slice(label.length).replace(/^\s*[：:]\s*/u,'').trim(),id:anchor+'-note-'+(i+1)});
+    annotations.push({label,explanation:raw.slice(label.length).replace(/^\s*[：:]\s*/u,'').trim(),id:anchor+'-note-'+(i+1),kind:'language'});
    }
   }else{
    let current:{label:string;parts:string[]}|null=null;
    for(const part of note.contents().toArray()){
     if(part.type==='tag'&&part.name==='strong'){
      current={label:$(part).text().trim(),parts:[]};
-     annotations.push({label:current.label,explanation:'',id:anchor+'-note-'+(annotations.length+1)});
+     annotations.push({label:current.label,explanation:'',id:anchor+'-note-'+(annotations.length+1),kind:'language'});
     }else if(current)current.parts.push($(part).text());
     if(current)annotations[annotations.length-1].explanation=current.parts.join('').replace(/^\s*[：:]\s*/u,'').trim();
    }
@@ -85,12 +85,13 @@ for(const c of d.chapterIndex){
   if(!annotations.length&&note.length){
    const remainder=note.clone();remainder.find('.note-label').remove();
    const text=remainder.text().trim();
-   if(text)annotations.push({label:'',explanation:text,id:anchor+'-note-1'});
+   if(text)annotations.push({label:'',explanation:text,id:anchor+'-note-1',kind:'context'});
   }
   // One interaction model for every real editorial note:
   // underlined source phrase -> tap to reveal its single, local explanation.
   // Unannotated emphasized words remain ordinary text, never dead-end links.
   const sourceEnglish=en.text().toLocaleLowerCase();
+  const contextNotes=$('<div>').addClass('reader-context-notes');
   for(const [index,item] of annotations.entries()){
    if(!item.explanation)continue;
    const label=item.label;
@@ -104,15 +105,21 @@ for(const c of d.chapterIndex){
    ].flatMap(value=>[value,value.replace(/^steal the show$/i,'stole the show'),value.replace(/^stick out$/i,'sticking out')]);
    const phrase=candidates.find(value=>value.length>=4&&sourceEnglish.includes(value.toLocaleLowerCase()));
    const noteId=anchor+'-gloss-'+(index+1);
-   const gloss=$('<span>').addClass('in-situ-annotation').attr({
-    id:noteId,lang:'ja',role:'note','data-editorial-gloss':item.id,hidden:''
+   const gloss=$(item.kind==='context'?'<div>':'<span>').addClass('in-situ-annotation').attr({
+    id:noteId,lang:'ja',role:'note','data-editorial-gloss':item.id,'data-note-kind':item.kind,hidden:''
    });
    const meaning=label.match(/（([^）]+)）$/u)?.[1];
    const content=(meaning?meaning+'：':'')+item.explanation;
-   gloss.text('〔'+(phrase?content:(label?label+'：':'')+item.explanation)+'〕');
+   const explanation=phrase?content:(label?label+'：':'')+item.explanation;
+   if(item.kind==='context'){
+    gloss.append($('<strong>').addClass('annotation-note-heading').text('背景・論点'));
+    gloss.append($('<span>').text(explanation));
+    contextNotes.append(gloss);
+   }else gloss.text('〔'+explanation+'〕');
    const mark=(value:string)=>$('<span>').addClass('annotation-term').attr({
     role:'button',tabindex:'0','data-note-toggle':'','aria-controls':noteId,
-    'aria-expanded':'false','aria-label':value+' の注釈を表示'
+    'data-note-kind':item.kind,'aria-expanded':'false',
+    'aria-label':value+' の'+(item.kind==='context'?'背景解説':'語学注釈')+'を表示'
    }).text(value);
    let placed=false;
    if(phrase){
@@ -123,7 +130,7 @@ for(const c of d.chapterIndex){
      const fragment=$('<span>').addClass('annotation-fragment');
      fragment.append($('<span>').text(node.data.slice(0,offset)));
      fragment.append(mark(node.data.slice(offset,offset+phrase.length)));
-     fragment.append(gloss);
+     if(item.kind==='language')fragment.append(gloss);
      fragment.append($('<span>').text(node.data.slice(offset+phrase.length)));
      $(node).replaceWith(fragment);
      placed=true;break;
@@ -132,9 +139,11 @@ for(const c of d.chapterIndex){
    // Notes on editorial ideas rather than verbatim surface strings have a
    // clearly labeled inline trigger, not a mismatched clickable English word.
    if(!placed){
-    bar.append(mark('編集メモ').addClass('annotation-fallback'),gloss);
+    bar.append(mark(item.kind==='context'?'背景解説':'語学注釈').addClass('annotation-fallback'));
+    if(item.kind==='language')bar.append(gloss);
    }
   }
+  if(contextNotes.children().length)en.after(contextNotes);
   if(annotations.length)note.addClass('annotation-converted');
  });
 }
