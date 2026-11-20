@@ -2,12 +2,18 @@ import assert from 'node:assert/strict';
 import { readdir, readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { load } from 'cheerio';
-const dir='src/content/documents';
-const entries=(await readdir(dir)).filter(n=>n.endsWith('.html'));
+const sources=await loadStructuredDocuments();
 const home=load(await readFile('dist/library/index.html','utf8'));
-assert.equal(home('.document-entry').length,entries.length,'Index should list every document exactly once');
-for(const file of entries){
- const id=file.slice(0,-5);const raw=await readFile(dir+'/'+file);const source=load(raw.toString('utf8'));
+assert.equal(home('.document-entry').length,sources.length,'Library should list every source exactly once');
+const historicChecksums={
+ ch1:'e51610598383d472',ch2:'97e6016b90247d9c',ch3:'f8d72525e5963534',
+ ch4:'25c85fa8ea04685a',ch5:'14ebe13fcb4eb92c',ch6:'fc5a6a46d2d887f0',
+ ch7:'9b3771e22704928e',ch8:'ae8aa506af00e7a3',ch9:'85ebbe384a70db0e',
+ ch10:'63a2d15c14668bb8',ch11:'4a4f624a2d72503f'
+};
+const fingerprint=s=>{let h=0xcbf29ce484222325n;for(let i=0;i<s.length;i++){h^=BigInt(s.charCodeAt(i));h=(h*0x100000001b3n)&0xffffffffffffffffn;}return h.toString(16).padStart(16,'0');};
+for(const {id,document,chapters,bodyHtml} of sources){
+ const source=load('<main class="page">'+bodyHtml+'</main>');
  const page=load(await readFile('dist/read/'+id+'/index.html','utf8'));
  assert.equal(home('.document-entry h3 a').filter((_,e)=>home(e).attr('href')==='/read/'+id+'/').length,1);
  for(const selector of ['.hero h1','.hero-meta','.deck','.meta-strip','.toc-list li','section.sec h2','.speaker-line','.utterance .en','.utterance .ja','.utterance .note','.sources']){
@@ -16,31 +22,29 @@ for(const file of entries){
    if(selector==='.utterance .en')copy.find('.in-situ-annotation,.inline-note-ref').remove();
    return copy.text().trim();
   });
-  // The supplied source stays unchanged. Only the rendered reader copy of a legacy hero changes.
-  const sourceValues=extract(source);
-  if(selector==='.deck'){
-   for(let i=0;i<sourceValues.length;i++)sourceValues[i]=sourceValues[i]
-    .replace('英文の直下に自然な日本語訳と語彙・背景知識のポイントを配置しました。','英文中に語彙と背景知識の注釈を直接挿入し、日本語訳も併記しました。')
-    .replace('青い番号から各文中註へ移動できます。','注釈は英文の該当箇所に直接表示しています。');
-  }
-  if(selector==='.meta-strip'){
-   for(let i=0;i<sourceValues.length;i++)sourceValues[i]=sourceValues[i]
-    .replace('英文 → 日本語訳 → ポイントの順次精読','文中注釈つき英文＋日本語訳');
-  }
-  assert.deepEqual(extract(page),sourceValues,file+': '+selector);
+  assert.deepEqual(extract(page),extract(source),id+': '+selector);
  }
- const inline=($)=>$('.en strong.key,.note strong,.en em').toArray().map(e=>{const copy=$(e).clone();copy.find('.in-situ-annotation,.inline-note-ref').remove();return copy.text();});
- assert.deepEqual(inline(page),inline(source),'Inline emphasis lost');
- assert.equal(page('.in-situ-annotation').length>=page('.utterance').length,true,id+': not every utterance has an in-text annotation');
- assert.equal(page('.note.annotation-converted').length,page('.utterance').length,id+': a duplicate note panel can remain visible');
- assert.equal(page('.en .inline-note-ref').length,0,id+': legacy footnote links remain');
- assert.equal(page('.editorial-annotation').length,0,id+': redundant listening/syntax disclosure remains');
+ const inline=($)=>$('.en strong.key,.note strong,.en em').toArray().map(e=>{
+  const copy=$(e).clone();copy.find('.in-situ-annotation,.inline-note-ref').remove();return copy.text();
+ });
+ assert.deepEqual(inline(page),inline(source),id+': inline emphasis lost');
+ const expected=chapters.flatMap(c=>c.utterances.map(u=>u.id));
+ assert.deepEqual(page('.utterance').toArray().map(e=>page(e).attr('id')),expected,id+': fixed IDs changed');
+ assert.equal(page('.in-situ-annotation').length>=expected.length,true,id+': not every utterance has a note');
+ assert.equal(page('.note.annotation-converted').length,expected.length,id+': visible duplicate note panel');
+ assert.equal(page('.en .inline-note-ref').length,0,id+': legacy footnote references remain');
+ assert.equal(page('.editorial-annotation').length,0,id+': redundant audio hint remains');
  if(id==='slavoj-zizek-signs-from-the-future'){
-  assert.equal(createHash('sha256').update(raw).digest('hex'),'50700dc852923e693d7104111c9c729ccdb82d51c8e5af121b4c539d80fbb701','Original file was modified');
-  assert.equal(page('section.sec').length,11);
-  assert.equal(page('.utterance').length,61);
+  assert.equal(chapters.length,11);assert.equal(expected.length,61);
+  for(const chapter of chapters){
+   const digest=fingerprint(JSON.stringify({
+    title:chapter.title,timeRange:chapter.timeRange,summary:chapter.summary,
+    utterances:chapter.utterances.map(u=>[u.id,u.speaker.name,u.time,u.english,u.japanese,u.annotations.map(a=>[a.phrase,a.explanation])])
+   }));
+   assert.equal(digest,historicChecksums[chapter.id],chapter.id+': migrated transcript or annotation changed unexpectedly');
+  }
  }
- console.log(id+': '+page('section.sec').length+' chapters, '+page('.utterance').length+' utterances, source text and emphasis matched');
+ console.log(id+': '+chapters.length+' chapters, '+expected.length+' stable utterance IDs; source content and inline notes matched');
 }
 
 const index=load(await readFile('dist/index.html','utf8'));
@@ -73,7 +77,7 @@ console.log('Knowledge indexes: '+words('.word-card').length+' expressions, '+co
 console.log('Discovery routes, video source and internal links verified: '+pages.length+' static pages');
 
 const catalog=JSON.parse(await readFile('dist/catalog.json','utf8'));
-assert.equal(catalog.documents.length,entries.length);
+assert.equal(catalog.documents.length,sources.length);
 assert.ok(!catalog.documents.some(d=>d.id==='slavoj-zizek-how-to-become-free'),'Withdrawn article remains in catalog');
 assert.ok(!byPath.has('/read/slavoj-zizek-how-to-become-free/'),'Withdrawn page was still built');
 assert.equal([...byPath.values()].some($=>$('a[href*="slavoj-zizek-how-to-become-free"]').length>0),false,'Other pages still link to withdrawn article');
