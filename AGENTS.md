@@ -43,3 +43,6 @@ New source files belong in `src/content/documents/`; new supplemental annotation
 
 ## 最新の短編編集ルール：Pilot 009
 ユーザー「見づらい。構成も見た目ももっと研究して」「改善して」を受けた最新版は [docs/prototypes/zizek-marx-v9-semantic-visual-hierarchy.md](docs/prototypes/zizek-marx-v9-semantic-visual-hierarchy.md)。最初に[第8版の監査](docs/research/2026-11-20-v8-composition-visual-audit.md)と併読する。前版の常設タイトル・全画面の巨大字幕枠・英5行＋日3行の一括表示へ戻さない。字幕は短い意味句へ分割し、**全文を維持したまま同時表示を最大4行程度**とする。人物・史料・比較でレイアウトを使い分け、日英連動強調を維持する。本人の評価・実機UI検証がない状態を完成版の採用と取り違えない。
+
+## 最新の主従修正 — Pilot 010／原典の声を主役に
+ユーザー2026-11-20の直接指示「ジジェクの言葉がメイン、われわれの説明は細い註」「主従が逆」を最優先。実装・禁則の正本は [docs/prototypes/zizek-v10-quote-first-annotations.md](docs/prototypes/zizek-v10-quote-first-annotations.md)。**本人の原文引用を映像の中心に、英語音声と英文字幕を主役、日本語字幕とごく短い註を脇役に置く。** 合成音声は別ナレーターと明示し、ジジェク本人の実録や同時代映像に偽装しない。本人の温度・留保・冗談・革命や哲学への複雑な立場を保ち、解説者が主人公にならないようにする。引用部分の公表権利は別検討、公開は未承認。
