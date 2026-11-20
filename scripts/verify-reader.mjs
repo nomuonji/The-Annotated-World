@@ -18,57 +18,29 @@ try{
   await page.goto(base+path);await page.waitForFunction(()=>!document.getElementById('play-pause').disabled);
   const first=page.locator('.utterance').first();const second=page.locator('.utterance').nth(1);
   assert.equal(await page.locator('.utterance').count(),61);
-  // All editorial notes have the same affordance: a marked phrase expands its
-  // own explanation in place. Plain bold vocabulary must not open a dead end.
+  // One global ON/OFF switch owns all annotations; no tap is necessary.
   const inline=first.locator('[data-editorial-gloss="ch1-line-1-note-1"]');
   const languageNote=first.locator('[data-editorial-gloss="ch1-line-1-note-3"]');
-  const firstMark=first.locator('[data-note-toggle]').first();
-  assert.equal(await first.locator('.in-situ-annotation').count(),3,'Source annotations were not all rendered');
+  const annotationsButton=page.locator('#reader-annotations');
+  assert.equal(await first.locator('.in-situ-annotation').count(),3,'Original editorial notes were lost');
   assert.ok((await first.locator('.en').textContent()).startsWith('Host: How are we doing here? Good? Still alive? Still lively?'));
-  assert.equal(await inline.first().getAttribute('data-editorial-gloss'),'ch1-line-1-note-1');
-  assert.ok((await inline.first().textContent()).includes('ラカン派'));
-  assert.equal(await inline.first().isVisible(),false,'Notes should not clutter English before tapping');
-  assert.ok(await firstMark.isVisible(),'Annotated phrase has no visible, tappable cue');
-  assert.equal(await page.locator('a[data-word]').count(),0,'Unannotated key terms still create dead-end links');
-  assert.equal(await page.locator('#word-dialog').count(),0,'Obsolete vocabulary modal still exists');
-  assert.equal(await first.locator('.in-situ-annotation').count(),3);
-  assert.equal(await firstMark.getAttribute('data-note-kind'),'context');
-  assert.equal(await firstMark.getAttribute('aria-label'),'between two deaths の背景解説を表示');
+  assert.equal(await inline.getAttribute('data-note-kind'),'context');
+  assert.equal(await languageNote.getAttribute('data-note-kind'),'language');
+  assert.ok((await inline.textContent()).includes('ラカン派'));
+  assert.equal(await inline.isVisible(),true,'Background explanation must be inline without tapping');
+  assert.equal(await languageNote.isVisible(),true,'Language explanation must be inline without tapping');
+  assert.equal(await annotationsButton.getAttribute('aria-pressed'),'true');
+  assert.equal(await page.locator('[data-note-toggle],#word-dialog').count(),0,'Unused tap-based annotation controls remain');
   assert.equal(await page.locator('.reader-annotation-legend span').count(),2);
-  assert.equal(await inline.locator('.annotation-note-heading').textContent(),'背景・論点');
-  assert.ok(await languageNote.count(),'Linguistic note not rendered');
   assert.equal(await first.locator('.note').isVisible(),false);
   assert.equal(await page.locator('.note.annotation-converted').count(),61);
   assert.equal(await page.locator('.chapter-trail:visible').count(),0);
-  const annotationsButton=page.locator('#reader-annotations');
-  assert.equal(await annotationsButton.getAttribute('aria-pressed'),'true');
-  await firstMark.click();
-  assert.equal(await inline.first().isVisible(),true,'Tap did not reveal the paired note');
-  assert.equal(await firstMark.getAttribute('aria-expanded'),'true');
-  assert.equal(await first.locator('.in-situ-annotation:visible').count(),1,'An unrelated note became visible');
-  await firstMark.click();
-  assert.equal(await inline.first().isVisible(),false,'Second tap did not close the note');
-  const languageMark=first.locator('[data-note-toggle][data-note-kind="language"]').first();
-  await languageMark.click();
-  assert.equal(await languageNote.isVisible(),true,'Language note did not open inline');
-  assert.equal(await first.locator('.reader-context-notes .in-situ-annotation:visible').count(),0,'Linguistic note unexpectedly opened a context panel');
-  await firstMark.click();
-  assert.equal(await languageNote.isVisible(),false,'Opening a context note must close the linguistic note');
-  assert.equal(await inline.isVisible(),true);
   await annotationsButton.click();
-  assert.equal(await firstMark.getAttribute('aria-disabled'),'true','Annotation OFF still exposes actionable English text');
-  assert.equal(await firstMark.getAttribute('tabindex'),'-1');
-  assert.equal(await first.locator('.in-situ-annotation:visible').count(),0);
-  assert.ok((await first.locator('.en').textContent()).includes('unceded territories'));
+  assert.equal(await first.locator('.in-situ-annotation:visible').count(),0,'OFF did not hide both annotation kinds');
+  assert.ok((await first.locator('.en').textContent()).includes('unceded territories'),'OFF lost source English');
   await annotationsButton.click();
-  assert.equal(await firstMark.getAttribute('aria-disabled'),'false');
-  assert.equal(await firstMark.getAttribute('tabindex'),'0');
-  await firstMark.focus();
-  await page.keyboard.press('Enter');
-  assert.equal(await inline.first().isVisible(),true,'Keyboard activation did not open the note');
-  await annotationsButton.click();
-  assert.equal(await inline.first().isVisible(),false,'Disabling notes must close an open note');
-  await annotationsButton.click();
+  assert.equal(await inline.isVisible(),true,'ON did not restore the background explanation');
+  assert.equal(await languageNote.isVisible(),true,'ON did not restore the language explanation');
   const intro=await page.locator('.hero').innerText();
   assert.ok(!intro.includes('ポイント')&&!intro.includes('英文 → 日本語訳 →'));
   assert.equal(await first.locator('.editorial-annotation summary').count(),0);
@@ -84,11 +56,21 @@ try{
    assert.equal(await page.locator('#mobile-translation-text').textContent(),await second.locator('.ja').textContent(),'Dock shows the wrong utterance translation');
    const dock=await page.locator('#mobile-translation-dock').boundingBox();
    assert.ok(dock&&dock.y+dock.height<=viewport.height+1,'Translation panel is outside the mobile viewport');
+   // Deep in the document, expanding/collapsing every earlier inline JA
+   // paragraph used to displace the current English by thousands of pixels.
+   const deep=page.locator('#ch8-line-3 .en');
+   await deep.evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
+   await page.waitForFunction(()=>document.querySelector('#mobile-translation-dock')?.getAttribute('data-utterance-id')==='ch8-line-3');
+   const originalY=(await deep.boundingBox()).y;
    await page.locator('#mobile-translation-unpin').click();
-   assert.equal(await second.locator('.ja').isVisible(),true,'Unpin should restore inline parallel translation');
    assert.equal(await page.locator('#mobile-translation-dock').isVisible(),false);
+   assert.equal(await page.locator('#ch8-line-3 .ja').isVisible(),true);
+   const unpinnedY=(await deep.boundingBox()).y;
+   assert.ok(Math.abs(unpinnedY-originalY)<20,'Unpin displaced the English reading position by '+(unpinnedY-originalY)+'px');
    await page.locator('#mobile-translation-pin').click();
-   await page.waitForFunction(()=>document.querySelector('#mobile-translation-dock')?.getAttribute('data-utterance-id')==='ch1-line-2');
+   await page.waitForFunction(()=>document.querySelector('#mobile-translation-dock')?.getAttribute('data-utterance-id')==='ch8-line-3');
+   const repinnedY=(await deep.boundingBox()).y;
+   assert.ok(Math.abs(repinnedY-originalY)<20,'Repin displaced the English reading position by '+(repinnedY-originalY)+'px');
    await page.locator('[data-mode=english]').click();
    assert.equal(await page.locator('#mobile-translation-dock').isVisible(),false,'English-only mode should never show Japanese in a dock');
    await page.locator('[data-mode=parallel]').click();
@@ -96,6 +78,12 @@ try{
    assert.equal(await second.locator('.ja').isVisible(),true,'Desktop should retain inline parallel translation');
    assert.equal(await page.locator('#mobile-translation-dock').isVisible(),false);
   }
+  // The location picker must follow the reading position, not remain on its
+  // initial "目次" placeholder once a new chapter is visible.
+  const chapter3=page.locator('#ch3-line-6 .en');
+  await chapter3.evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
+  await page.waitForFunction(()=>document.querySelector('#study-chapter-nav')?.value==='ch3');
+  assert.ok((await page.locator('#study-chapter-nav option:checked').textContent()).includes('第3章'));
   await first.locator('[data-utterance-play]').click();const time=Number(await first.getAttribute('data-utterance-start'));
   await page.waitForFunction(t=>window.mockPlayer.time===t,time);assert.equal(await first.evaluate(e=>e.classList.contains('is-playing')),true);
   await page.locator('#playback-speed').selectOption('0.75');assert.equal(await page.evaluate(()=>window.mockPlayer.rate),.75);
@@ -125,31 +113,25 @@ try{
    assert.ok(geometry.panel.height+geometry.toolbar.height<geometry.vh*.44,'Fixed controls leave insufficient reading space');
    assert.ok(geometry.toolbar.top>=geometry.panel.bottom-2,'Pinned video and toolbar overlap');
    assert.ok(geometry.toolbar.bottom<geometry.vh,'Fixed controls leave no reading space');
-   assert.ok(await firstMark.isVisible(),'Annotated English must remain accessible when video is pinned');
+   assert.ok(await inline.isVisible(),'Inline notes should remain readable with pinned video');
    await page.locator('#mobile-pin-video').click();
   }
-  // Real regression example reported by the user: notes for stole the show,
-  // sticking out and element of discord are three separate interactions.
+  // Every note is printed adjacent to its English source. A combined
+  // language/context range never creates an additional clickable word.
   const subject=page.locator('#ch3-line-6');
-  const vocabularyCases=[
-   {word:'stole the show',expected:'主役を食って',excluded:['目立つ、浮き出る','不協和音']},
-   {word:'sticking out',expected:'目立つ、浮き出る',excluded:['主役を食って','不協和音']},
-   {word:'element of discord',expected:'不協和音',excluded:['主役を食って','目立つ、浮き出る']}
+  const checks=[
+   ['ch3-line-6-note-1','主役を食って'],
+   ['ch3-line-6-note-2','目立つ、浮き出る'],
+   ['ch3-line-6-note-3','不協和音']
   ];
-  for(const {word,expected,excluded} of vocabularyCases){
-   const tapped=subject.locator('[data-note-toggle]').filter({hasText:word}).first();
-   assert.ok(await tapped.count(),word+' is missing its tap affordance');
-   await tapped.click();
-   const visible=subject.locator('.in-situ-annotation:visible');
-   assert.equal(await visible.count(),1,'Multiple unrelated annotations opened at once');
-   const explanation=await visible.first().textContent()||'';
-   assert.ok(explanation.includes(expected),word+' did not open its own note: '+explanation);
-   for(const unrelated of excluded)assert.ok(!explanation.includes(unrelated),word+' showed unrelated note');
+  for(const [id,meaning] of checks){
+   const note=subject.locator('[data-editorial-gloss="'+id+'"]');
+   assert.equal(await note.count(),1,'A source note disappeared or was duplicated: '+id);
+   assert.ok((await note.textContent()).includes(meaning),'Wrong note matched to source: '+id);
+   assert.equal(await note.isVisible(),true,'Inline explanation is hidden despite global ON');
   }
-  const unannotated=subject.locator('strong.key').filter({hasText:'World Spirit'}).first();
-  assert.ok(await unannotated.count(),'Source text no longer contains the emphasized phrase World Spirit');
-  assert.equal(await unannotated.locator('[data-note-toggle],a[data-word]').count(),0,'Unannotated vocabulary must not pretend to have a note');
-  assert.equal(await page.locator('#word-dialog').count(),0);
+  assert.equal(await subject.locator('[data-note-toggle],a[data-word]').count(),0);
+  assert.ok(await subject.locator('strong.key').filter({hasText:'World Spirit'}).count());
   await page.locator('.quick-reader-tools').click();await page.locator('#reader-query').fill('unceded territories');
   await page.locator('#reader-next').click();assert.ok(await first.evaluate(e=>e.classList.contains('search-current')));
   // The chapter-only view keeps its own shareable URL and shows exactly one chapter.
@@ -204,12 +186,7 @@ try{
   assert.equal(await page.locator('#reader-annotations').getAttribute('aria-pressed'),'false','Annotation OFF did not persist across navigation');
   assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),false);
   await page.locator('#reader-annotations').click();
-  assert.equal(await page.locator('[data-note-toggle]').first().getAttribute('aria-disabled'),'false');
-  assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),false);
-  const restoredToggle=page.locator('[data-note-toggle]').first();
-  const pairedId=await restoredToggle.getAttribute('aria-controls');
-  await restoredToggle.click();
-  assert.equal(await page.locator('[id="'+pairedId+'"]').isVisible(),true,'Restored toggle did not reveal its paired note');
+  assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),true,'Restored ON preference did not show annotations');
   await page.locator('#site-theme-toggle').click();
   assert.equal(await page.locator('html').getAttribute('data-theme'),'light');
   console.log(viewport.width+'px: reading modes, mocked seek/rate/repeat/sync, mobile layout and chapter search passed');await page.close();
