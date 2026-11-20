@@ -14,6 +14,25 @@ function setup(reader:HTMLElement){
  const toolbar=byId('study-toolbar'),sidebar=reader.querySelector<HTMLElement>('.study-sidebar'),panel=byId('source-video'),iframe=byId<HTMLIFrameElement>('original-player');
  const modeButtons=Array.from(reader.querySelectorAll<HTMLButtonElement>('[data-mode]'));
  const blocks=Array.from(reader.querySelectorAll<HTMLElement>('.utterance'));
+ const chapters=Array.from(reader.querySelectorAll<HTMLElement>('.study-original section.sec'));
+ const viewControl=byId<HTMLElement>('chapter-mode-control'),viewToggle=byId<HTMLButtonElement>('chapter-view-toggle'),viewContext=byId<HTMLElement>('chapter-mode-context');
+ const annotationsButton=byId<HTMLButtonElement>('reader-annotations');
+ let annotationsVisible=true;
+ try{annotationsVisible=localStorage.getItem('aw-annotations')!=='off';}catch{}
+ const showAnnotations=(on:boolean)=>{
+  annotationsVisible=on;
+  reader.dataset.annotations=on?'on':'off';
+  if(annotationsButton){
+   annotationsButton.setAttribute('aria-pressed',String(on));
+   annotationsButton.textContent=on?'注釈 ON':'注釈 OFF';
+   annotationsButton.setAttribute('aria-label',on?'文中注釈を非表示にする':'文中注釈を表示する');
+  }
+ };
+ showAnnotations(annotationsVisible);
+ annotationsButton?.addEventListener('click',()=>{
+  showAnnotations(!annotationsVisible);
+  try{localStorage.setItem('aw-annotations',annotationsVisible?'on':'off');}catch{}
+ });
  const entries:TimedBlock[]=blocks.flatMap(element=>{const raw=element.dataset.utteranceStart;return raw!==undefined&&/^\d+$/.test(raw)?[{element,start:Number(raw),end:null}]:[];}).sort((a,b)=>a.start-b.start);
  // A timestamp is usable as a repeat boundary only if the next timed block is strictly later.
  entries.forEach((entry,i)=>{const next=entries[i+1];if(next&&next.start>entry.start)entry.end=next.start;});
@@ -25,6 +44,80 @@ function setup(reader:HTMLElement){
  const frameUrl=(seconds?:number)=>{const u=new URL(frameBase!);u.searchParams.set('playsinline','1');u.searchParams.set('enablejsapi','1');if(location.protocol==='http:'||location.protocol==='https:')u.searchParams.set('origin',location.origin);if(seconds!==undefined){u.searchParams.set('start',String(seconds));u.searchParams.set('autoplay','1');}return u.href;};
  const say=(message:string)=>{if(status){status.textContent=message;status.hidden=!message;}};
  function scrollTo(el:HTMLElement){el.scrollIntoView({block:'start',behavior:reduced.matches?'instant':'smooth'});}
+ // The full article is the default; ?chapter=chN is a shareable, one-chapter reading mode.
+ let selectedChapterId:string|null=null;
+ const findChapter=(id:string|null)=>id?chapters.find(chapter=>chapter.id===id)||null:null;
+ function setChapterView(id:string|null,updateUrl=true){
+  const chapter=findChapter(id);
+  const previous=selectedChapterId;
+  selectedChapterId=chapter?.id||null;
+  if(chapter){
+   reader.dataset.chapterView='single';
+   document.body.classList.add('chapter-reading-page');
+  }else{
+   reader.removeAttribute('data-chapter-view');
+   document.body.classList.remove('chapter-reading-page');
+  }
+  for(const item of chapters)item.classList.toggle('chapter-selected',item===chapter);
+  if(viewToggle){
+   viewToggle.setAttribute('aria-pressed',String(!!chapter));
+   viewToggle.textContent=chapter?'全文表示へ戻る':'章単位で読む';
+  }
+  if(viewContext)viewContext.hidden=!chapter;
+  if(nav)nav.value=chapter?.id||'';
+  if(updateUrl){
+   const url=new URL(window.location.href);
+   if(chapter){url.searchParams.set('chapter',chapter.id);url.hash='';}
+   else{url.searchParams.delete('chapter');if(previous)url.hash=previous;}
+   window.history.pushState(null,'',url);
+  }
+ }
+ const openChapter=(id:string)=>{
+  const target=findChapter(id);
+  if(!target)return;
+  setChapterView(id);
+  requestAnimationFrame(()=>scrollTo(target));
+ };
+ if(viewControl&&viewToggle&&chapters.length){
+  viewControl.hidden=false;
+  const query=new URLSearchParams(location.search).get('chapter');
+  if(findChapter(query))setChapterView(query,false);
+  viewToggle.addEventListener('click',()=>{
+   if(selectedChapterId){
+    const selected=findChapter(selectedChapterId);
+    setChapterView(null);
+    if(selected)requestAnimationFrame(()=>scrollTo(selected));
+   }else{
+    const hash=decodeURIComponent(location.hash.slice(1));
+    const fromHash=byId<HTMLElement>(hash)?.closest<HTMLElement>('section.sec');
+    const current=fromHash||chapters.find(chapter=>{
+     const rect=chapter.getBoundingClientRect();
+     return rect.top<=window.innerHeight*.4&&rect.bottom>=window.innerHeight*.4;
+    })||chapters[0];
+    openChapter(current.id);
+   }
+  });
+  reader.addEventListener('click',event=>{
+   if(!(event.target instanceof Element))return;
+   const link=event.target.closest<HTMLAnchorElement>('a[data-chapter-link]');
+   if(!link||event instanceof MouseEvent&&(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey))return;
+   const target=new URL(link.href);
+   if(target.origin!==location.origin||target.pathname!==location.pathname)return;
+   const id=target.searchParams.get('chapter');
+   if(!findChapter(id))return;
+   event.preventDefault();
+   openChapter(id!);
+  });
+  reader.addEventListener('reader-select-chapter',event=>{
+   if(!selectedChapterId)return;
+   const id=(event as CustomEvent<{id:string}>).detail?.id;
+   if(findChapter(id))setChapterView(id);
+  });
+  window.addEventListener('popstate',()=>{
+   const id=new URLSearchParams(location.search).get('chapter');
+   setChapterView(id,false);
+  });
+ }
  function updateReveal(b:HTMLElement){const btn=b.querySelector<HTMLButtonElement>('[data-reveal]');if(!btn)return;const open=b.classList.contains('revealed');btn.hidden=mode==='parallel';btn.setAttribute('aria-expanded',String(open));btn.textContent=open?'もう一度隠す':mode==='listen'?'英文・和訳を確認':'和訳・注釈を見る';}
  function setMode(next:Mode){mode=next;reader.dataset.mode=next;for(const b of modeButtons)b.setAttribute('aria-pressed',String(b.dataset.mode===next));for(const b of blocks){b.classList.remove('revealed');updateReveal(b);}if(next==='listen'&&panel)say(ready?'リスニング：発話を聞いてから英文を確認できます。':'リスニング：元動画を再生して聞き取ります。');else if(ready)say('');}
  for(const b of modeButtons)b.addEventListener('click',()=>setMode(b.dataset.mode as Mode));
@@ -32,14 +125,16 @@ function setup(reader:HTMLElement){
  toolbar?.removeAttribute('hidden');setMode('parallel');
  if(toolbar){const update=()=>reader.style.setProperty('--study-toolbar-height',toolbar.getBoundingClientRect().height+'px');new ResizeObserver(update).observe(toolbar);update();}
  byId('study-size')?.addEventListener('click',()=>{size=(size+1)%3;reader.dataset.textSize=String(size);const btn=byId('study-size');if(btn){btn.textContent=['A↗','A+','A++'][size];btn.setAttribute('aria-label','文字サイズ '+['標準','大','特大'][size]+'。クリックして変更');}});
- nav?.addEventListener('change',()=>{const target=byId(nav.value);if(target){scrollTo(target);history.replaceState(null,'','#'+encodeURIComponent(target.id));}else{const toc=reader.querySelector<HTMLElement>('.toc');if(toc)scrollTo(toc);}});
+ nav?.addEventListener('change',()=>{const target=byId(nav.value);if(target){
+  if(selectedChapterId&&target.matches('section.sec'))openChapter(target.id);
+  else{scrollTo(target);history.replaceState(null,'','#'+encodeURIComponent(target.id));}
+ }else{const toc=reader.querySelector<HTMLElement>('.toc');if(toc)scrollTo(toc);}});
  if(!panel||!iframe||!frameBase)return;
  const videoPanel=panel;const videoFrame=iframe;
  for(const node of panel.querySelectorAll<HTMLElement>('[data-video-enhancement]'))node.hidden=false;
  if(sidebar){const updateHeight=()=>reader.style.setProperty('--pinned-video-height',reader.classList.contains('video-pinned')&&mobile.matches?sidebar.getBoundingClientRect().height+'px':'0px');const observer=new ResizeObserver(updateHeight);observer.observe(sidebar);mobile.addEventListener('change',updateHeight);pin?.addEventListener('click',()=>{const on=reader.classList.toggle('video-pinned');pin.setAttribute('aria-pressed',String(on));pin.textContent=on?'固定解除':'動画固定';updateHeight();});}
  function usableEnd(entry:TimedBlock){if(entry.end!==null)return entry.end;return entries.at(-1)===entry&&player&&player.getDuration()>entry.start?player.getDuration():null;}
  function updateRepeatButtons(){for(const item of entries){const b=item.element.querySelector<HTMLButtonElement>('[data-repeat]');if(!b)continue;const usable=ready&&usableEnd(item)!==null;b.hidden=!usable;b.setAttribute('aria-pressed',String(loop===item));b.textContent=loop===item?'↻ リピート中':'↻ リピート';}if(stop)stop.hidden=!loop;}
- reader.addEventListener('reader-focus-on',()=>{if(ready)player?.pauseVideo();clearLoop();setFollow(false);if(reader.classList.contains('video-pinned'))pin?.click();});
  function clearLoop(){if(!loop)return;loop=null;loopPendingUntil=0;updateRepeatButtons();}
  function setLoop(item:TimedBlock){if(!ready||usableEnd(item)===null)return;clearLoop();loop=item;loopPendingUntil=performance.now()+1300;updateRepeatButtons();performSeek(item.start);}
  function setFollow(on:boolean){follow=on;followButton?.setAttribute('aria-pressed',String(on));}
