@@ -57,7 +57,7 @@ for(const c of d.chapterIndex){
   // without changing any source text or duplicating prose inside the paragraph.
   if(note.length&&!note.find('.inline-note-item').length){
    const noteNodes=note.contents().toArray();
-   let current:typeof note|null=null;
+   let current=$('<span>'),hasCurrent=false;
    let noteIndex=0;
    const fullEnglish=en.text().toLocaleLowerCase();
    for(const part of noteNodes){
@@ -65,7 +65,7 @@ for(const c of d.chapterIndex){
      noteIndex++;
      const label=$(part).text().trim(),noteId=anchor+'-note-'+noteIndex;
      const item=$('<span>').addClass('inline-note-item').attr('id',noteId);
-     $(part).before(item);item.append($(part));current=item;
+     $(part).before(item);item.append($(part));current=item;hasCurrent=true;
      const candidates=[label,label.replace(/（[^）]*）/gu,'').trim(),label.replace(/\\s+\\([^)]*\\)$/u,'').trim(),label.replace(/\\s+[A-Z]$/u,'').trim()];
      const phrase=candidates.find(value=>value.length>=4&&fullEnglish.includes(value.toLocaleLowerCase()));
      if(!phrase)continue;
@@ -89,7 +89,7 @@ for(const c of d.chapterIndex){
       }
       break;
      }
-    }else if(current){
+    }else if(hasCurrent){
      current.append($(part));
     }
    }
