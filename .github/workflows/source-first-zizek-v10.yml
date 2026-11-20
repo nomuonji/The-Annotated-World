@@ -1,0 +1,61 @@
+name: Source-first Zizek voice v10
+on:
+  push:
+    branches: [prototype/source-first-zizek-v10]
+    paths:
+      - .github/workflows/source-first-zizek-v10.yml
+      - docs/prototypes/v10-verbatim-quotes.json
+permissions:
+  contents: read
+jobs:
+  synthesize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install edge-tts gTTS
+      - name: English reading of verbatim excerpts with word boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output/voice
+          python - <<'PY'
+          import json,asyncio
+          from pathlib import Path
+          from edge_tts import Communicate
+          quotes=json.load(open('docs/prototypes/v10-verbatim-quotes.json',encoding='utf8'))
+          async def main():
+              for i,phrase in enumerate(quotes):
+                  path=Path(f'output/voice/{i:02d}.mp3')
+                  word_events=[]
+                  for attempt in range(3):
+                      try:
+                          chunks=[]
+                          async for msg in Communicate(phrase,voice='en-US-AndrewNeural',rate='+2%',pitch='-2Hz').stream():
+                              if msg['type']=='audio': chunks.append(msg['data'])
+                              elif msg['type']=='WordBoundary':
+                                  word_events.append(dict(text=msg['text'],offset=msg['offset']/10000000,duration=msg['duration']/10000000))
+                          if not chunks:raise RuntimeError('NoAudio')
+                          path.write_bytes(b''.join(chunks))
+                          break
+                      except Exception as e:
+                          print('retry',i,attempt,str(e)[:130],flush=True)
+                          word_events=[]
+                          await asyncio.sleep(2*(attempt+1))
+                  else:
+                      from gtts import gTTS
+                      gTTS(phrase,lang='en').save(str(path))
+                      print('fallback_gtts',i,flush=True)
+                  Path(f'output/voice/{i:02d}.json').write_text(json.dumps(word_events,ensure_ascii=False),encoding='utf8')
+                  print('QUOTE',i,'bytes',path.stat().st_size,'words',len(word_events),flush=True)
+          asyncio.run(main())
+          PY
+          cp docs/prototypes/v10-verbatim-quotes.json output/quotes.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-first-zizek-v10-synthetic-quote-readings
+          path: output/
+          retention-days: 14
