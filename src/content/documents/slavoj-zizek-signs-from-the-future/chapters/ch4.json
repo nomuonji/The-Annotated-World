@@ -31,22 +31,26 @@
         {
           "id": "ch4-line-1-note-1",
           "phrase": "deprive A of B",
-          "explanation": "「AからBを奪う」。"
+          "explanation": "「AからBを奪う」。",
+          "kind": "language"
         },
         {
           "id": "ch4-line-1-note-2",
           "phrase": "disintegration",
-          "explanation": "「崩壊、解体」。"
+          "explanation": "「崩壊、解体」。",
+          "kind": "language"
         },
         {
           "id": "ch4-line-1-note-3",
           "phrase": "viable alternative",
-          "explanation": "「実行可能な代替案」。"
+          "explanation": "「実行可能な代替案」。",
+          "kind": "language"
         },
         {
           "id": "ch4-line-1-note-4",
           "phrase": "cast a critical glance at",
-          "explanation": "「〜に批判的な一瞥（眼差し）を向ける」。"
+          "explanation": "「〜に批判的な一瞥（眼差し）を向ける」。",
+          "kind": "language"
         }
       ]
     },
@@ -63,22 +67,26 @@
         {
           "id": "ch4-line-2-note-1",
           "phrase": "hail",
-          "explanation": "「〜を絶賛する、歓迎する」。"
+          "explanation": "「〜を絶賛する、歓迎する」。",
+          "kind": "language"
         },
         {
           "id": "ch4-line-2-note-2",
           "phrase": "greengrocer",
-          "explanation": "「八百屋（英）」（字幕では `green grosser`）。"
+          "explanation": "「八百屋（英）」（字幕では `green grosser`）。",
+          "kind": "language"
         },
         {
           "id": "ch4-line-2-note-3",
           "phrase": "signal compliance",
-          "explanation": "「服従・コンプライアンスの合図を送る」。"
+          "explanation": "「服従・コンプライアンスの合図を送る」。",
+          "kind": "language"
         },
         {
           "id": "ch4-line-2-note-4",
           "phrase": "fragility",
-          "explanation": "「脆さ、脆弱性」。"
+          "explanation": "「脆さ、脆弱性」。",
+          "kind": "language"
         }
       ]
     },
@@ -95,17 +103,20 @@
         {
           "id": "ch4-line-3-note-1",
           "phrase": "renounce",
-          "explanation": "「（主張・権利・秩序などを）公式に放棄する、捨てる」。"
+          "explanation": "「（主張・権利・秩序などを）公式に放棄する、捨てる」。",
+          "kind": "language"
         },
         {
           "id": "ch4-line-3-note-2",
           "phrase": "dissident",
-          "explanation": "「反体制派、異議申し立て者」。"
+          "explanation": "「反体制派、異議申し立て者」。",
+          "kind": "language"
         },
         {
           "id": "ch4-line-3-note-3",
           "phrase": "hegemony",
-          "explanation": "「覇権、主導権」。"
+          "explanation": "「覇権、主導権」。",
+          "kind": "language"
         }
       ]
     },
@@ -122,12 +133,14 @@
         {
           "id": "ch4-line-4-note-1",
           "phrase": "morbid phenomena",
-          "explanation": "アントニオ・グラムシの有名な一節「古いものが死にかけ、新しいものがまだ生まれないとき、さまざまな病的な現象（morbid phenomena / symptoms）が現れる」に由来。"
+          "explanation": "アントニオ・グラムシの有名な一節「古いものが死にかけ、新しいものがまだ生まれないとき、さまざまな病的な現象（morbid phenomena / symptoms）が現れる」に由来。",
+          "kind": "context"
         },
         {
           "id": "ch4-line-4-note-2",
           "phrase": "techno-feudalism",
-          "explanation": "ヤニス・バルファキスらが提唱する「テクノ封建制」（巨大テック企業がプラットフォームの地代を独占する体制。字幕では `technofodalism`）。"
+          "explanation": "ヤニス・バルファキスらが提唱する「テクノ封建制」（巨大テック企業がプラットフォームの地代を独占する体制。字幕では `technofodalism`）。",
+          "kind": "context"
         }
       ]
     }
