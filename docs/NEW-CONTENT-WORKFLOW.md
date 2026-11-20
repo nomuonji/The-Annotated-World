@@ -21,6 +21,14 @@
 
 **SaveTubeは動画/音声のCDN経由取得専用。字幕取得は別処理。** SaveTube MP4が取得できても「字幕取得完了」ではない。
 
+### RapidAPIキーの保管・権限・料金
+
+- **キーの正本は `nomuonji/kirinuki-generator` のGitHub Actions Repository Secret `RAPIDAPI_KEY`。** このプロジェクトのGitHubリポジトリ、記事JSON、フロントエンド、エージェントの会話にキーを複製しない。
+- 字幕診断は**切り抜きジェネレーター側の手動Actions**「Probe existing YouTube captions for an exact video ID (no ASR)」で `video_id` を指定。キー入力は不要。PR起動を禁止してあり、ソース取得候補の件数・時間範囲・SHAだけを診断する。診断は**字幕本文ファイルの保存はしない**。
+- 既存の字幕本文が制作に必要なときは、同じリポジトリの実行環境で、認証情報を外へ出さず権限ある非公開領域へ保存する設計を別途用意する。**別リポジトリのGitHub Actionsは他リポジトリのRepository Secretを自動参照できない**。キーをGitHub Actionsから標準出力やartifact経由で転送しない。
+- **契約プラン・残枠・超過課金は今回の字幕成功だけでは確認できない。** RapidAPI Developer DashboardのSubscriptions/UsageとAPI個別の料金を人が確認する。予算未確認の無制限自動実行は禁止。既存切り抜きジョブと利用枠を共用する点に注意。
+- 運用・キー交換・費用確認の正本：[kirinuki-generator / RapidAPIキー管理ガイド](https://github.com/nomuonji/kirinuki-generator/blob/main/docs/rapidapi-key-management.md)。
+
 ## 1. 元動画の選定と重複確認
 
 1. 本リポジトリのルートで `npm install`（Node >=22.12）および `npm run content:inspect` を実行。既存記事・YouTube ID・topics / people / conceptsを確認する。
@@ -45,7 +53,7 @@ python transcribe_rapidapi.py VIDEO_ID --lang en \
 - `VIDEO_ID` は対象の11文字IDに置換する。既存の正式な `transcribe_rapidapi.py` を流用し、別の文章アーカイブを取得する処理に置き換えない。
 - **注意:** 現行コードは、`--lang en` を指定しても直接取得時の言語候補に `ja` / `ja-JP` を含む。**出力されたファイルが本当に英語か、指定言語・YouTubeの字幕言語が一致するか必ず検査する。** `transcript.json` というファイル名や成功終了だけで英語原文とみなさない。
 - 空ファイル、発話件数が少なすぎる、時刻が逆行する、動画長に比べて終端が著しく早い、別動画の内容が混在する場合は不採用。短い抜粋動画なら原動画長と収録範囲から妥当な期待値を決め、固定件数のノルマでは判断しない。
-- GitHub Actionsの場合は `kirinuki-generator` で既存Secretsを使って実行する。**同リポジトリの [字幕診断PR #88](https://github.com/nomuonji/kirinuki-generator/pull/88) のワークフローは本文を保存せず、件数・時間範囲・ハッシュを報告する診断専用**。診断が通っただけで本文ファイルが永続保存されたとみなさない。実制作では許可された非公開作業領域へ取得ファイルを保管する。
+- GitHub Actionsの場合は **`kirinuki-generator` 内の手動診断Workflowから実行する（キーの値は不要）**。**同リポジトリの [字幕診断PR #88](https://github.com/nomuonji/kirinuki-generator/pull/88) のワークフローは本文を保存せず、件数・時間範囲・ハッシュを報告する診断専用**。診断が通っただけで本文ファイルが永続保存されたとみなさない。実制作では許可された非公開作業領域へ取得ファイルを保管する。
 - `/tmp` や `private-youtube-source/` の原本は公開コンテンツではない。権利不明の長文、APIキー、認証CookieをGit・Actionsログ・公開artifactへ出さない。
 
 ## 3. 出所の照合 — ここが公開可否の分岐
