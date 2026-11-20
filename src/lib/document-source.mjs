@@ -21,7 +21,7 @@ function renderDocument(document,chapters){
  '<div class="sec-header"><p class="sec-time">'+escape(c.timeRange)+'</p><h2>'+escape(c.title)+'</h2><p class="sec-sub">'+escape(c.summary)+'</p></div>'+
  c.utterances.map(u=>'<div class="utterance" id="'+escape(u.id)+'">'+
  '<p class="speaker-line"><span class="'+escape(u.speaker.className)+'">'+escape(u.speaker.name)+'</span> · '+escape(u.time)+'</p>'+
- '<p class="en">'+(document.provenance.coverage==='full'?escape(u.english):u.english)+'</p><p class="ja">'+escape(u.japanese)+'</p>'+
+ '<p class="en">'+(document.provenance.coverage==='full'?escape(u.english):u.english)+'</p><p class="ja">'+(document.provenance.coverage==='full'?escape(u.japanese):u.japanese)+'</p>'+
  (u.annotations.length?'<p class="note">'+u.annotations.map(a=>'<span class="note-entry" data-note-id="'+escape(a.id)+'">'+(a.phrase?'<strong>'+escape(a.phrase)+'</strong>：':'')+escape(a.explanation)+'</span>').join('')+'</p>':'')+'</div>').join('\n')+
  '</section>').join('\n');
  const sources=document.sources.items.map(s=>'<li>'+escape(s.before)+'<a href="'+escape(s.url)+'" target="_blank" rel="noopener noreferrer">'+escape(s.label)+'</a>'+escape(s.after)+'</li>').join('\n');
