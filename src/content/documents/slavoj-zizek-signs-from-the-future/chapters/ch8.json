@@ -1,0 +1,154 @@
+{
+  "id": "ch8",
+  "title": "8. 映画『Digger』、メタ・ポルノ、ディストピアの余剰享楽",
+  "timeRange": "00:47:38 – 00:58:10",
+  "summary": "イニャリトゥ監督・トム・クルーズ主演『Digger』の二重のどんでん返し、中国の儒教的ソフト・ファシズム、そしてマーガレット・アトウッド『侍女の物語』への鋭い精神分析的批判。",
+  "genres": [
+    "film-culture",
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "film",
+      "name": "映画"
+    },
+    {
+      "id": "psychoanalysis",
+      "name": "精神分析"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch8-line-1",
+      "speaker": {
+        "name": "Host & Žižek",
+        "className": "speaker-host & Žižek"
+      },
+      "time": "00:47:32",
+      "english": "<strong>Host:</strong> Here's—let's talk about TV. Sorry, you talk about TV in your book, you talk about the television show <em>Pluribus</em> [?]. I think it gives you a good example of this idea of \"signs from the future.\"<br>\n    <strong>Žižek:</strong> Yeah, yeah, but I almost prefer, if I may, to take another example.<br>\n    <strong>Host:</strong> Sure.<br>\n    <strong>Žižek:</strong> Which is the best, I think. You will not agree with me; many people don't like it. I hope some of you at least saw the movie <em>Digger</em>. I know people criticize it for very stupid reasons. One reproaches that it's too pathetic—you know, in the first half of the movie, the image of a group of mega-rich people, an American president, a mega-tycoon, who cause a catastrophe around the North Pole, in Greenland, I think—a big chunk of ice moves towards Europe, it causes global catastrophe. Okay, it's done in an exaggerated, pathetic way. What I like—we don't have time to do this—isn't this ingenious what Tom Cruise did there? It's a deeply realist film: Tom Cruise is masked as a 70-year-old guy with a sagging belly and so on. I think we see there Tom Cruise the way he should really have been without all his special operations and so on.",
+      "japanese": "<strong>司会：</strong>ここで、テレビドラマの話をしましょう。本の中で『Pluribus』（※字幕では `clear`）という番組を取り上げていますよね。「未来からの兆候」の好例になっていると思います。<br>\n    <strong>ジジェク：</strong>ええ、でもできれば別の例を挙げたいのですが。<br>\n    <strong>司会：</strong>もちろんどうぞ。<br>\n    <strong>ジジェク：</strong>これが最高だと思います。みなさんは同意しないでしょうし、多くの人が嫌っていますが。みなさんのうち何人かは映画『Digger（ディガー）』を観たことを願います。人々がとても愚かな理由で批判しているのは知っています。ある人は「大げさで感傷的（pathetic）すぎる」と非難します。映画の前半で、超富裕層の連中——アメリカ大統領や大富豪——が北極圏、たしかグリーンランド周辺で大惨事を引き起こし、巨大な氷塊がヨーロッパへ向かって動き出して地球規模の破局をもたらすイメージですね。確かに大げさで誇張された表現です。しかし私が好きなのは——詳しく話す時間はありませんが——あそこでトム・クルーズがやったことは天才的ではないですか？あれは深くリアリストな映画です。トム・クルーズは垂れ下がったお腹をした70歳の男に特殊メイクで扮している。あらゆる整形や特撮なしの本来のトム・クルーズの姿がそこにあると思います（笑）。",
+      "annotations": [
+        {
+          "id": "ch8-line-1-note-1",
+          "phrase": "Digger",
+          "explanation": "アレハンドロ・ゴンサレス・イニャリトゥ監督、トム・クルーズ主演の映画（2026年公開）。"
+        },
+        {
+          "id": "ch8-line-1-note-2",
+          "phrase": "mega-tycoon",
+          "explanation": "「超大物実業家」。"
+        },
+        {
+          "id": "ch8-line-1-note-3",
+          "phrase": "sagging belly",
+          "explanation": "「垂れ下がった腹」。"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-2",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:49:08",
+      "english": "But what I want to say is this: then comes the first ingenious shift. You think this is simply one among many movies which portray in a comical way how the ruthless rich capitalists will ruin our ecology, our world. Then the camera moves back and we discover that we were watching a play in a big theater! You know, that this was just a play. So this accounts for the ridiculous exaggerations and so on. Now comes—if you are looking for it—the obscene part, which is my favorite. I will make a horrible admission to you: I like to watch hardcore porn, but only a very specific kind—I don't know if they have a term, this... how do they call it? <strong class=\"key\">\"Meta-pornography\"</strong>—where you have a camera in the back and it shows not just what the players are doing, but the entire scene, all the despair: like there a couple is making love, then you see on the side a guy desperately masturbating, cannot get an erection to enter, then you see a lady there quickly putting lipstick on, and so on. And you know, I quoted already in some of my previous books, maybe also this one—this brings me to a wonderful example: a commentator from the British newspaper <em>The Guardian</em>, Eva Wiseman, saw in one of these movies a wonderful scene (\"wonderfully\" with me means disgusting): a guy is doing it to a lady on the bed, intense sex, then all of a sudden the guy steps back and says, \"Oh my God, I'm losing my erection! Please give me my phone so that I can look at Pornhub a little bit.\" That's the truth of sexuality, I claim: you are never just alone with your partner; fantasy is always there. So I think we should read in this way the second part: that what we thought we are seeing is a fantasy, and the reality is that scene of a theater, everyday life, and so on.",
+      "japanese": "しかし私が言いたいのはここからです。その次に最初の天才的な転換が訪れます。観客は最初、冷酷な金持ちの資本家がいかに私たちの生態系や世界を破滅させるかをコミカルに描いたよくある映画だと思っています。ところがカメラが引くと、私たちが観ていたのは大きな劇場で上演されている「劇」だったと判明するのです！つまり、ただの芝居だった。これでさっきの馬鹿げた誇張などの説明がつきます。そしてここからが——みなさんが期待している——猥褻なパート、私のお気に入りです。恐ろしい告白をしましょう。私はハードコア・ポルノを観るのが好きですが、ごく特定の種類のものだけです。何と呼ぶのか知りませんが「メタ・ポルノグラフィ」とでも言うべきもので、カメラが後ろにあって、演者がしていることだけでなく現場全体、そのあらゆる悲哀を映し出すのです。一組のカップルが愛し合っている傍らで、勃起できずに必死に自慰をしている男がいたり、急いで口紅を塗り直している女性がいたり。以前の本やもしかするとこの本でも引用したと思いますが、これに関連して素晴らしい例があります。イギリスのガーディアン紙のコラムニスト、エヴァ・ワイズマンがそうした映画の中で見つけた素晴らしい（「素晴らしい」は私の場合「吐き気がする」の意味ですが）シーンです。ベッドの上で男が女性と激しくセックスをしている最中、突然男が身を引いてこう言うのです。「ああ神様、勃起が収まってきた！ちょっとスマホを取ってくれ、Pornhubを少し見たいんだ」と。これこそがセクシュアリティの真実だと私は主張します——あなたはパートナーと二人きりになることなど決してなく、そこには常に「ファンタジー（幻想）」が介在しているのです。映画『Digger』の第2部もこのように読むべきです。私たちが現実だと思って見ていたものはファンタジーであり、現実とは劇場の光景や日常生活の方なのだと。",
+      "annotations": [
+        {
+          "id": "ch8-line-2-note-1",
+          "phrase": "ruthless",
+          "explanation": "「無慈悲な、冷酷な」。"
+        },
+        {
+          "id": "ch8-line-2-note-2",
+          "phrase": "Eva Wiseman",
+          "explanation": "英『The Guardian / The Observer』のコラムニスト（字幕では `Eve Viceman`）。"
+        },
+        {
+          "id": "ch8-line-2-note-3",
+          "phrase": "Pornhub",
+          "explanation": "（字幕では `porn cup`）。ジジェクお馴染みの「性的関係に第三項としてのファンタジーが不可欠である」というラカン的論点。"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-3",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:51:57",
+      "english": "Now comes—my God, a truly ingenious aspect, and I love Iñárritu, the director; I met him once, he is a genius—you know what happens? So you think you see actors in real life acting in a play about the forthcoming ecological catastrophe. Then the play ends, the public applauds and gradually leaves the room, and a voice tells them the quality level of air: \"The air outside is level four.\" They all understand it means they should put their masks on, and they exit. And you see that we are in the future—that the whole movie takes place decades in the future, where the catastrophe described in the play already happened! We live in that world! And I think this is ingenious: the true sign of the future was not the play that we saw. It's not that we today in our safe reality watch a play describing a possible catastrophe. No, the whole situation takes place in the future. This would be, how I would say, the true \"sign from the future\": the very last shot of the movie.",
+      "japanese": "そして次に——なんということでしょう、本当に天才的な側面が来ます。監督のイニャリトゥは大好きです、一度会ったことがありますが天才ですよ——何が起きるか分かりますか？観客は、差し迫った生態系の大惨事についての劇を現実世界で演じている俳優たちを見ているのだと思います。ところが劇が終わり、観客が拍手して徐々に会場を後にすると、アナウンスが外の大気汚染レベルを告げるのです。「外の大気はレベル4です」。観客はみな、それがマスクを着用すべき合図だと理解してマスクを着け、外へ出ていきます。そこで私たちは気づくのです——これは未来なのだ、映画全体が数十年後の未来を舞台にしており、劇の中で描かれていた大惨事は「すでに起きてしまった」のだと！私たちはその世界に生きているのです！これこそ天才的だと思います。真の「未来からの兆候」は、私たちが観ていた劇ではありませんでした。安全な現実の只中にいる今日の私たちが、起こりうる大惨事を描いた劇を観ているのではありません。そうではなく、状況全体が未来において起きているのです。映画のまさに最後のワンショットこそが、真の「未来からの兆候」と言えるでしょう。",
+      "annotations": [
+        {
+          "id": "ch8-line-3-note-1",
+          "phrase": "Alejandro González Iñárritu",
+          "explanation": "メキシコ出身の映画監督（『バードマン』『レヴェナント』など。字幕では `Inarito`）。"
+        },
+        {
+          "id": "ch8-line-3-note-2",
+          "phrase": "forthcoming",
+          "explanation": "「差し迫った、今度の」。"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-4",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:53:46",
+      "english": "So the debate today should be this openness of the future. What will happen? Where are we moving? Will it be what I call a <strong class=\"key\">\"soft fascism\"</strong>—not \"good fascism,\" by \"soft\" I mean it doesn't have to be self-destructive in the style of Nazism, but fascism in the sense of still capitalism, but supplemented by stronger state power grounded in some ancient nationalist ideology? Even China, one can say, is moving in this direction. I was there: they no longer even mention communism; they mention Confucian values, tradition—they don't even use the term \"freedom\"—tradition, stability, welfare. So that's one option. We have the option—I think it's another quite believable option—of returning to the early Middle Ages, where we will have places of safety like cities and their surroundings, but in between, brutal, barbaric reality and so on.",
+      "japanese": "ですから今日の議論は、この「未来の開かれた可能性」についてであるべきです。何が起きるのか？私たちはどこへ向かっているのか？それは私が「ソフト・ファシズム」と呼ぶものになるのでしょうか——「良いファシズム」という意味ではなく、「ソフト」とはナチズムのように自己破壊的である必要はないという意味で、依然として資本主義でありながら、何らかの古代的・民族主義的イデオロギーに根ざした強力な国家権力によって補完されるファシズムです。中国でさえ、この方向に向かっていると言えます。私は現地に行きましたが、彼らはもはや共産主義に言及すらせず、儒教的価値観や伝統を口にします——「自由」という言葉さえ使わず、「伝統、安定、福祉」と言うのです。これが一つの選択肢です。もう一つのかなり現実味のある選択肢として、中世初期への回帰があります。都市とその周辺のような安全な場所（飛び地）がある一方で、その間には残忍で野蛮な現実が広がっているという世界です。",
+      "annotations": [
+        {
+          "id": "ch8-line-4-note-1",
+          "phrase": "Confucian values",
+          "explanation": "「儒教的価値観」。"
+        },
+        {
+          "id": "ch8-line-4-note-2",
+          "phrase": "the early Middle Ages",
+          "explanation": "「中世初期（暗黒時代）」。都市国家や要塞だけが安全で、その外部が荒廃するネオ・フェウダリズム（新封建制）のイメージ。"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-5",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:55:06",
+      "english": "This is why I think the most realist genre today are dystopian movies. First, as Fredric Jameson noticed, you have in many of them hidden elements of a new authentic way of life. Like my favorite: did you see the TV series <em>Station Eleven</em>? Where, did you notice how this new society—no electricity, total catastrophe and so on—but it's kind of a society of new solidarity and so on? There is always a utopian dimension. Another thing—now I will become a Lacanian pessimist, more... Your great Canadian writer—I have problems with her ideology nonetheless—Margaret Atwood, <em>The Handmaid's Tale</em>. I think it's a very dangerous book, and I'm saying this as definitely pro-feminist. You know what happened to me? I wonder if the same thing happened to you while reading the book: because you see different modes of how women are controlled, humiliated, hated, and so on. But you know, all of a sudden I discovered that I'm playing with myself a very perverted game: I secretly—I didn't acknowledge it, not even to myself first—enjoyed these different ways of how to humiliate women, exploit them in this way (\"they cannot read,\" all these scenes), but I was able to do it without feeling guilty because I could tell myself, \"Oh, it's horrible, I know, but it's just the way the future will be.\" No! It's what Jacques Lacan called <em lang=\"fr\">plus-de-jouir</em>—<strong class=\"key\">surplus enjoyment</strong>. I think there is this ambiguity written into that book.",
+      "japanese": "だからこそ、今日最もリアリストなジャンルはディストピア映画（やドラマ）だと私は思います。第一に、フレドリック・ジェイムソン（字幕では `Fred Glainstone`）が指摘したように、それらの多くには新しい真正な生き方の隠れた要素が含まれています。たとえば私のお気に入りですが、テレビシリーズ『ステーション・イレブン（Station Eleven）』を観ましたか？電気もなく完全な大惨事の後でありながら、ある種の新しい連帯の社会が描かれているのに気づきましたか？そこには常にユートピア的な次元があるのです。もう一つ——ここで私はラカン派の悲観主義者になりますが——あなた方カナダの偉大な作家マーガレット・アトウッドの『侍女の物語（The Handmaid's Tale）』です。私は彼女の作品にイデオロギー的な問題を感じています。これは非常に危険な本だと思いますし、私は間違いなく親フェミニストの立場からこれを言っています。私に何が起きたか分かりますか？本を読んでいる間にあなた方にも同じことが起きなかったか気になります。そこでは女性たちがどう支配され、屈辱を与えられ、憎まれるかのさまざまな様式が描かれます。しかし突然、私は自分自身と非常に倒錯したゲームをしていることに気づいたのです。私は密かに——最初は自分自身に対してさえ認めませんでしたが——女性に屈辱を与え、搾取するこれらの手口（「文字を読んではいけない」といったあらゆるシーン）を「楽しんで」いたのです。しかも罪悪感を抱くことなくそれを楽しめたのは、自分に「ああ、恐ろしいことだとは分かっている、でも未来はこうなってしまうんだ」と言い聞かせられたからです。違います！それこそジャック・ラカンが「余剰享楽（plus-de-jouir / surplus enjoyment）」と呼んだものです。この本にはそうした曖昧さが書き込まれていると思います。",
+      "annotations": [
+        {
+          "id": "ch8-line-5-note-1",
+          "phrase": "surplus enjoyment（余剰享楽 / 仏: plus-de-jouir）",
+          "explanation": "ラカンがマルクスの「剰余価値（surplus value）」になぞらえて作った概念。道徳的に非難したり苦痛を訴えたりする行為そのものから無意識に引き出される密かな快楽（字幕では `Plutir`）。"
+        }
+      ]
+    },
+    {
+      "id": "ch8-line-6",
+      "speaker": {
+        "name": "Host & Žižek",
+        "className": "speaker-host & Žižek"
+      },
+      "time": "00:57:32",
+      "english": "<strong>Host:</strong> Yeah, no, but just to follow up on that, like I think for Atwood's novel, for <em>The Handmaid's Tale</em>, I mean there's a kind of like she's getting off on saying how bad it is.<br>\n    <strong>Žižek:</strong> Yeah, yeah, precisely, right! That's her—I don't know, her personal enjoyment or whatever. I mean, yeah, but it's not as innocent as it may appear.",
+      "japanese": "<strong>司会：</strong>ええ、それに関連して言えば、アトウッドの『侍女の物語』の場合、「これがいかに酷いか」と語ること自体に快感を覚えている（getting off on）ようなところがありますよね。<br>\n    <strong>ジジェク：</strong>そう、まさにその通り！それが彼女の個人的な享楽（enjoyment）なのか何なのかは分かりませんが、見た目ほど無垢なものではないのです。",
+      "annotations": [
+        {
+          "id": "ch8-line-6-note-1",
+          "phrase": "get off on ~",
+          "explanation": "「〜に性的興奮を覚える、〜から密かな快感を得る」（口語・スラング）。"
+        }
+      ]
+    }
+  ]
+}

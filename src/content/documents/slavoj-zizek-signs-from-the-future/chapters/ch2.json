@@ -1,0 +1,146 @@
+{
+  "id": "ch2",
+  "title": "2. フェティッシュとしてのトランプ、リベラルの視線、ユダヤ人ジョーク",
+  "timeRange": "00:03:15 – 00:07:56",
+  "summary": "ラカン精神分析の「嫉妬深い夫」とナチスの反ユダヤ主義を例に、リベラル派がトランプに執着する本当の理由（階級闘争の回避）を暴く。",
+  "genres": [
+    "philosophy",
+    "society"
+  ],
+  "topics": [
+    {
+      "id": "psychoanalysis",
+      "name": "精神分析"
+    },
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    },
+    {
+      "id": "us-politics",
+      "name": "アメリカ政治"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch2-line-1",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:03:15",
+      "english": "At this very point, we should raise the question: where does the obsession and fascination with the figure of Trump come from? <strong class=\"key\">To cut a long history short</strong>, Trump is—I think, until now—he was elevated to the status of a <strong class=\"key\">fetish</strong>, in the psychoanalytic sense of the term. What is a fetish? Jacques Lacan wrote that even if what a jealous husband claims about his wife—that she sleeps around with other men—is all true, his jealousy is still <strong class=\"key\">pathological</strong>. The pathological element is the husband's need for jealousy as the only way to retain his dignity and identity.",
+      "japanese": "まさにこの時点で、私たちは問いを立てるべきです。トランプという人物に対するこの執着と魅了はどこから来るのか？手短に言えば、トランプは今まで、精神分析的な意味での「フェティッシュ（物神／呪物）」の地位にまで祭り上げられてきたのだと思います。フェティッシュとは何か？ジャック・ラカンはこう書いています。嫉妬深い夫が妻について「他の男たちと寝ている」と主張することがすべて事実だったとしても、彼の嫉妬は依然として病的なのだ、と。病的な要素とは、自分の尊厳とアイデンティティを保つ唯一の手段として、夫が嫉妬を必要としている点にあります。",
+      "annotations": [
+        {
+          "id": "ch2-line-1-note-1",
+          "phrase": "To cut a long history [story] short",
+          "explanation": "「手短に言うと、要するに」（慣用句）。"
+        },
+        {
+          "id": "ch2-line-1-note-2",
+          "phrase": "fetish",
+          "explanation": "精神分析では、直視できないトラウマ的な現実（欠如や対立）から目を逸らすために執着する対象のこと。"
+        },
+        {
+          "id": "ch2-line-1-note-3",
+          "phrase": "pathological",
+          "explanation": "「病的な」。"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-2",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:04:10",
+      "english": "Along the same lines, one could say that even if most of the Nazi claims about the Jews were true—they exploit Germans, they seduce German girls (which they are not doing, of course)—their anti-Semitism would still be a pathological phenomenon, because it <strong class=\"key\">represses</strong> the true reason why the Nazis needed anti-Semitism in order to sustain their ideological position. In the Nazi vision, their society is an organic whole of harmonious collaboration. So an external intruder is needed to <strong class=\"key\">account for</strong> the divisions and antagonisms. The anti-Semitic figure of the Jew is a displacement and condensation of social antagonism. It is the last thing an anti-Semite sees before he would be confronted with a naked social antagonism.",
+      "japanese": "同じ線上でこう言えます。仮にユダヤ人に関するナチスの主張の大半が真実だったとしても——ドイツ人を搾取しているとか、ドイツ人少女を誘惑しているとか（もちろんそんなことはしていないのですが）——彼らの反ユダヤ主義は依然として病的な現象なのです。なぜなら、それはナチスが自らのイデオロギー的立場を維持するために反ユダヤ主義を必要とした「本当の理由」を抑圧しているからです。ナチスのビジョンでは、自分たちの社会は調和のとれた協力からなる有機的全体です。だからこそ、分裂や敵対関係を説明するために「外部の侵入者」が必要になるのです。反ユダヤ主義における「ユダヤ人」という形象は、社会的敵対性（階級対立など）の置き換えと凝縮です。それは、反ユダヤ主義者がむき出しの社会的敵対性に直面する直前に見る「最後のもの」なのです。",
+      "annotations": [
+        {
+          "id": "ch2-line-2-note-1",
+          "phrase": "Along the same lines",
+          "explanation": "「同じ方向性で、同様に」。"
+        },
+        {
+          "id": "ch2-line-2-note-2",
+          "phrase": "repress",
+          "explanation": "「抑圧する」（精神分析の重要語）。"
+        },
+        {
+          "id": "ch2-line-2-note-3",
+          "phrase": "account for",
+          "explanation": "「〜を説明する、〜の原因となる」。"
+        },
+        {
+          "id": "ch2-line-2-note-4",
+          "phrase": "displacement and condensation",
+          "explanation": "「置き換え（転位）と凝縮」はフロイトの夢判断の基本メカニズム。"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-3",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:05:18",
+      "english": "In this sense, the image of Donald Trump is the last thing a liberal sees before confronting class struggle. That's why liberals are so fascinated and horrified by Trump—to avoid the class topic. Hegel's motto, <strong class=\"key\">\"Evil resides in the gaze which sees evil everywhere,\"</strong> fully applies here. The very liberal gaze which <strong class=\"key\">demonizes</strong> Trump is also evil, because it ignores how its own failures opened up the space for Trump's type of patriotic populism.",
+      "japanese": "この意味において、ドナルド・トランプのイメージは、リベラル派が階級闘争に直面する直前に見る「最後のもの」なのです。だからこそリベラル派は、階級という話題を避けるために、トランプにこれほど魅了され、同時に戦慄しているのです。ヘーゲルのモットー「悪は、あらゆる場所に悪を見るその眼差しそのものに宿る」がここに完全に当てはまります。トランプを悪魔化するリベラル派の眼差しそのものもまた悪なのです。なぜなら、自分たち自身の失敗こそが、トランプ型の愛国的ポピュリズムが入り込む余地を生み出したことを見過ごしているからです。",
+      "annotations": [
+        {
+          "id": "ch2-line-3-note-1",
+          "phrase": "Evil resides in the gaze which sees evil everywhere",
+          "explanation": "ジジェクが好んで引用するヘーゲルの『精神現象学』由来の言葉（reside in＝〜に宿る、存在する）。"
+        },
+        {
+          "id": "ch2-line-3-note-2",
+          "phrase": "demonize",
+          "explanation": "「悪魔化する、極悪人扱いする」。"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-4",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:06:00",
+      "english": "Alex Soros—not the billionaire, his son—told me a very sad Jewish joke from just before Hitler took power. Two Jews meet and talk about what newspapers they read. The first Jew says, \"I read a pro-Jewish liberal daily, which informs me of the dangers facing Jews today in Germany: a Jew was beaten here, he was thrown out of places, his store was boycotted, and so on.\" The other Jew replies, \"I much prefer to read Streicher's <em lang=\"de\">Der Stürmer</em>, the worst anti-Semitic Nazi newspaper.\" \"Why, are you crazy?\" asks the first Jew. \"It is full of anti-Semitic propaganda.\" The other Jew says, \"Yes, but I like to hear some good news! The pro-Jewish daily brings only bad news about how we are persecuted, beaten, harassed. But <em lang=\"de\">Der Stürmer</em> repeats again and again how we Jews really control the world, manipulate others, and exploit them.\"",
+      "japanese": "アレックス・ソロス——億万長者のジョージではなく、その息子ですが——が、ヒトラーが権力を握る直前のとても悲しいユダヤ人ジョークを教えてくれました。二人のユダヤ人が出会い、どんな新聞を読んでいるか話します。最初のユダヤ人は言います。「私は親ユダヤ派のリベラル日刊紙を読んでいるよ。今日ドイツでユダヤ人が直面している危険を知らせてくれるんだ。ここでユダヤ人が殴られた、あそこから追い出された、店がボイコットされた、といった具合にね」。もう一人のユダヤ人は答えます。「私はシュトライヒャーの『シュテュルマー』——最悪の反ユダヤ主義ナチス新聞——を読む方がずっと好きだね」。「なぜだ、気が狂ったのか？」と最初のユダヤ人が尋ねます。「反ユダヤのプロパガンダだらけじゃないか」。すると相手は言います。「ああ、でも私は良いニュースを聞きたいんだよ！親ユダヤ派の日刊紙は、私たちがどう迫害され、殴られ、嫌がらせを受けているかという悪いニュースばかりだ。でも『シュテュルマー』は、私たちユダヤ人がいかに世界を支配し、他人を操り、搾取しているかを何度も何度も繰り返してくれるからね」。",
+      "annotations": [
+        {
+          "id": "ch2-line-4-note-1",
+          "phrase": "Der Stürmer",
+          "explanation": "ナチス党のユリウス・シュトライヒャーが発行した悪名高い反ユダヤ主義の週刊新聞。字幕の `prosecuted` は文脈から"
+        },
+        {
+          "id": "ch2-line-4-note-2",
+          "phrase": "persecuted（迫害された）",
+          "explanation": "の言い間違い・聞き取り違いです。"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-5",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:07:22",
+      "english": "I hope the point I want to make is clear. Leftists were often fascinated by Trump, who repeats again and again that the main threat to America today are Marxists and communists—from Kamala Harris to Mamdani, or whatever, they are all... he uses the term \"communist.\" That should be good news for us!",
+      "japanese": "私が言いたい要点は明確だと思います。左派の人々はしばしばトランプに魅了されてきました。トランプは今日のアメリカに対する最大の脅威はマルクス主義者や共産主義者だと何度も繰り返します——カマラ・ハリスからマムダニ（ゾーラン・マムダニ）まで、誰でも彼でも「共産主義者」という言葉を使います。それは私たちにとっては「良いニュース」であるはずなのです！",
+      "annotations": [
+        {
+          "id": "ch2-line-5-note-1",
+          "phrase": "Mamdani",
+          "explanation": "ニューヨーク州議会議員で民主社会主義者（DSA）の Zohran Mamdani（ゾーラン・マムダニ）のこと（2025〜2026年のNYC市長選でも話題となった人物）。字幕では `Mandani` と表記されています。"
+        }
+      ]
+    }
+  ]
+}

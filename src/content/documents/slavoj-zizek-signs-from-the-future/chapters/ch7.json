@@ -1,0 +1,143 @@
+{
+  "id": "ch7",
+  "title": "7. 搾取の再定義、エコロジー的プロレタリアート、量子力学的未来",
+  "timeRange": "00:38:59 – 00:47:38",
+  "summary": "「私たちはみな小さな資本家だ」という新自由主義の欺瞞から、カナダのフォートマクマレーの例、イランのマフサ・アミニ抗議運動、そして「未来からの兆候」の量子力学的比喩へ。",
+  "genres": [
+    "philosophy",
+    "technology",
+    "society"
+  ],
+  "topics": [
+    {
+      "id": "ecology",
+      "name": "自然と環境"
+    },
+    {
+      "id": "quantum-physics",
+      "name": "量子力学"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch7-line-1",
+      "speaker": {
+        "name": "Žižek & Host",
+        "className": "speaker-zizek & Host"
+      },
+      "time": "00:38:50",
+      "english": "<strong>Žižek:</strong> What does it mean—I didn't lose my thread—as for the notion of exploitation? I think the notion of exploitation should be radically rethought, changed. Marx focused on this pure exploitation of a worker: \"I have a family (if I have), I work, I am exploited, the capitalist takes the <strong class=\"key\">surplus value</strong>,\" and so on. Can you tell your joke? Yeah, that good joke you retold—it's too complex, maybe some other joke, okay.<br>\n    But isn't it true that today, to be this type of pure Marxist exploited worker—at least in Europe—we experience this almost as a privileged position? You are exploited, but you have a stable job, health care, insurance, and so on. What about <strong class=\"key\">precarious workers</strong>? The greatest ideological invention, for me, is to rehabilitate precarious workers as a new form of freedom. The idea is: \"We are all capitalists!\" I earn some money, and instead of the state ordering me \"so much you will pay for taxes, so much for health care,\" I act—even if it's just $10,000—as a small capitalist: \"Should I invest it into my children's education, into health, into a holiday?\" and so on. So the first <strong class=\"key\">mystification</strong>: \"we are all small capitalists.\" And in this way, basic antagonism is ruined—but you find all this in the book.",
+      "japanese": "<strong>ジジェク：</strong>本筋を見失ってはいませんよ——搾取という概念についてですね。私は搾取の概念を根本的に考え直し、変えるべきだと思います。マルクスは労働者の純粋な搾取に焦点を当てました。「家族がいて（もしあれば）、私は働き、搾取され、資本家が剰余価値（surplus value）を奪う」といった具合です。（司会者に：君のあのジョークを話してくれる？いや、複雑すぎるからまた別の機会にしよう）。<br>\n    しかし今日、この種の純粋なマルクス主義的「搾取される労働者」であることは——少なくともヨーロッパでは——ほとんど特権的な立場のように感じられるのではないでしょうか？搾取されてはいるが、安定した仕事があり、医療保険もあり、社会保障もある。ではプレカリアート（不安定労働者）はどうでしょう？私にとって最大のイデオロギー的発明は、不安定労働者を「新しい形の自由」として復権させることです。その発想は「私たちはみな資本家だ！」というものです。少しお金を稼いだら、国から「税金にいくら、医療費にいくら払え」と命じられる代わりに、たとえ1万ドルしかなくても小さな資本家のように振る舞うのです。「子どもの教育に投資すべきか、健康にか、それとも休暇にか？」と。つまり第一の神秘化（ごまかし）は「私たちはみな小さな資本家である」という幻想です。こうして根本的な敵対関係が曖昧にされてしまうのですが——このあたりはすべて本に書いてあります。",
+      "annotations": [
+        {
+          "id": "ch7-line-1-note-1",
+          "phrase": "lose one's thread",
+          "explanation": "「話の筋を見失う、論点が飛ぶ」。"
+        },
+        {
+          "id": "ch7-line-1-note-2",
+          "phrase": "surplus value",
+          "explanation": "「剰余価値」（マルクス経済学の核心概念）。"
+        },
+        {
+          "id": "ch7-line-1-note-3",
+          "phrase": "mystification",
+          "explanation": "「神秘化、煙に巻くこと」。"
+        }
+      ]
+    },
+    {
+      "id": "ch7-line-2",
+      "speaker": {
+        "name": "Žižek & Host",
+        "className": "speaker-zizek & Host"
+      },
+      "time": "00:40:45",
+      "english": "<strong>Žižek:</strong> What I want to emphasize is that today we see more and more clearly—in Third World countries, but also in our countries—that okay, we still have the classical proletariat, workers, but for them to survive, you need—here feminism enters, not this politically correct feminism (\"I look you in the eye, oh, visual rape!\" and all that stuff)—it's feminism in the sense that for you to survive as a classical proletarian, you have to exploit your family members: a woman has to do housework, and so on. You have to exploit precarious workers, as you have it here, for example, in Southern California, where the harvest is done by illegal precarious immigrants, and so on—up to the last level, here I come to Canada: what Fredric Jameson calls <strong class=\"key\">ecological proletariat</strong>, ecological exploitation. My example—before we talked, you named the city in the middle... suicide rates in...<br>\n    <strong>Host:</strong> Fort McMurray!<br>\n    <strong>Žižek:</strong> Yeah, yeah. What happens there? People who still live in that desperate area, which is again destroyed by <strong class=\"key\">fracking</strong> and so on—they are not exploited in the traditional Marxist sense. On the contrary, they are even getting state help to survive and so on, but their natural habitat, the only place where they can live, is destroyed. So there are many forms of exploitation.",
+      "japanese": "<strong>ジジェク：</strong>私が強調したいのは、今日、第三世界の国々だけでなく私たちの国々でもますます明らかになっている事実です。確かに古典的なプロレタリアート（工場労働者など）はまだ存在しますが、彼らが生き延びるためには——ここでフェミニズムが登場します。ただし「目を合わせたら視覚的レイプだ！」などというポリティカル・コレクトネス的フェミニズムではなく——古典的プロレタリアートが生き延びるためには家族を搾取しなければならない、つまり女性が家事労働などを担わなければならないという意味でのフェミニズムです。また、たとえば南カリフォルニアで収穫作業が非正規の不安定な移民労働者によって担われているように、不安定労働者を搾取しなければなりません。そして最後の段階として——ここでカナダの話になりますが——フレドリック・ジェイムソンが「エコロジー的プロレタリアート」、エコロジー的搾取と呼ぶものに行き着きます。先ほど本番前にあなたが挙げてくれた、あの自殺率が高い街の名前は……<br>\n    <strong>司会：</strong>フォートマクマレーですね！<br>\n    <strong>ジジェク：</strong>そう、それです！あそこで何が起きているか？フラッキング（水圧破砕法）などによって破壊されたあの絶望的な地域に今も暮らす人々は、伝統的なマルクス主義の意味で搾取されているわけではありません。それどころか、生き延びるために国家の援助さえ受けているかもしれない。しかし、彼らが生きられる唯一の場である「自然の生息環境」が破壊されてしまっているのです。このように、搾取には実に多様な形態があるのです。",
+      "annotations": [
+        {
+          "id": "ch7-line-2-note-1",
+          "phrase": "Fort McMurray",
+          "explanation": "カナダ・アルバータ州のオイルサンド採掘の中心都市。"
+        },
+        {
+          "id": "ch7-line-2-note-2",
+          "phrase": "fracking",
+          "explanation": "「フラッキング（水圧破砕法）」。"
+        }
+      ]
+    },
+    {
+      "id": "ch7-line-3",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:42:39",
+      "english": "And here—that's my <strong class=\"key\">reproach</strong> to American politically correct, cancel-culture style of feminism—we should remain <strong class=\"key\">universalists</strong>. My eternal example, I use it all the time: the really important feminist explosion was, for me—you remember, by now it must be already four years ago—in Iran, the murder by the Revolutionary Guard [morality police] of that Kurdish girl, Mahsa Amini, who was beaten to death for not properly covering her hair. You know what happened then? First Kurdish women began to protest, then Muslim [Persian] women joined them, then all the poor, inclusive of men/Muslims, joined them. Isn't this something we can only dream about—that feminism becomes the central point which triggered a universal revolt in Iran? And my friends from Iran are telling me that they all automatically assumed that the regime got more involved in Middle East conflicts and really desired this war with Israel and the United States, because without this war the regime would probably be <strong class=\"key\">toppled</strong> by the people there. War is always an excuse.",
+      "japanese": "そしてここで——これがアメリカのポリコレ的・キャンセルカルチャー的なフェミニズムに対する私の批判なのですが——私たちは「普遍主義者（universalists）」であり続けるべきです。私がいつも持ち出す永遠の例を挙げましょう。私にとって本当に重要だったフェミニズムの爆発は——もう4年ほど前になりますが覚えているでしょう——イランで、髪を適切に覆っていなかったとしてクルド人少女マフサ・アミニが殺害された事件です。あのあと何が起きたか知っていますか？まずクルド人女性たちが抗議を始め、次にムスリム（ペルシャ人）女性たちが加わり、やがて貧しい人々すべてが加わりました。フェミニズムがイランにおける普遍的な反乱を引き起こす中心点となった——これこそ私たちが夢見るべき姿ではないでしょうか？そしてイランの友人たちが私に言うには、イラン政権が中東紛争に深く関与し、イスラエルやアメリカとの戦争を切実に望んだのは当然だとみな考えているそうです。なぜなら、この戦争がなければ政権はおそらく国内の人々によって転覆されていた（toppled）だろうから。戦争は常に口実（言い訳）なのです。",
+      "annotations": [
+        {
+          "id": "ch7-line-3-note-1",
+          "phrase": "reproach",
+          "explanation": "「非難、叱責」。"
+        },
+        {
+          "id": "ch7-line-3-note-2",
+          "phrase": "universalist",
+          "explanation": "「普遍主義者」（特定のアイデンティティの枠を超えた連帯を重視する立場）。"
+        },
+        {
+          "id": "ch7-line-3-note-3",
+          "phrase": "topple",
+          "explanation": "「（政権や独裁者を）打倒する、転覆させる」。"
+        }
+      ]
+    },
+    {
+      "id": "ch7-line-4",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:44:15",
+      "english": "So from all this, what I want to conclude is the following: in today's situation, you made the reference to the other famous Gramsci passage—\"in the time where the old is dying, but the new is not yet born, morbid phenomena arise.\" Where I don't agree with Gramsci is that he remains all too traditional a Marxist. He still thinks that we have the old (capitalism), we have something new (socialism), and the passage got complicated—and then Western Marxists made a career from interpreting this, like the standard version: \"the first revolution exploded at the wrong place; instead of the developed West, the primitive Asiatic Russia, that complicated things,\" and so on. I think that we should accept the premise I stated, that Marx is here way too... in what sense? Again, Marx had a basic scheme of social progress, and he goes even a step further: he thinks that there is a privileged historical agent—working class, proletariat, communists, I will not go into details now—which knows history, where history is moving, and acts in accordance with this knowledge as an instrument of historical progress.",
+      "japanese": "これらすべてから私が結論づけたいのは次のことです。今日の状況について、あなたはグラムシのもう一つの有名な一節——「古いものが死にかけ、新しいものがまだ生まれない時代に、病的な諸現象が生じる」——に言及しました。私がグラムシに同意できないのは、彼があまりにも伝統的なマルクス主義者にとどまっている点です。彼は依然として、古いもの（資本主義）と新しいもの（社会主義）があって、ただその移行（passage）が複雑になっただけだと考えている。そして西洋マルクス主義者たちはこれを解釈することでキャリアを築きました——「最初の革命が間違った場所で爆発したのだ。発展した西洋ではなく、未開のアジア的ロシアで起きたから物事が複雑になったのだ」といった定説でね。私は、先ほど述べた前提を受け入れるべきだと思います——マルクスはここで……どういう意味でか？繰り返しますが、マルクスには社会進歩の基本図式があり、さらに一歩進んで「歴史を知り、歴史がどこへ向かうかを知っていて、歴史的進歩の道具としてその知に従って行動する特権的な歴史的主体（労働者階級、プロレタリアート、共産主義者）が存在する」と考えていたのです。",
+      "annotations": [
+        {
+          "id": "ch7-line-4-note-1",
+          "phrase": "in accordance with",
+          "explanation": "「〜に従って、〜と一致して」。"
+        },
+        {
+          "id": "ch7-line-4-note-2",
+          "phrase": "privileged historical agent",
+          "explanation": "「特権的な歴史的主体（行為者）」。"
+        }
+      ]
+    },
+    {
+      "id": "ch7-line-5",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:46:02",
+      "english": "I plead here, as a materialist, to return to Hegel, who totally prohibits this. For Hegel, the future is out of our reach. So what does this mean? Why then, you will ask, \"Signs from the Future\"? Here comes—I don't have time to develop it—my reference, I'm fascinated by it, to quantum mechanics. You know this quantum idea that you have a so-called—it's a vague analogy, I develop it more in detail in some of my books—that we have a <strong class=\"key\">wave superposition</strong> of different possibilities, and then the situation <strong class=\"key\">collapses</strong> into one option. The problem today is we don't know which this option will be. All we can do—and that's my idea of \"signs from the future\"—is to pick up tendencies: like if this happens, this catastrophe may happen; if that happens, we have four, five options. It depends on us—the future, we can...",
+      "japanese": "私は唯物論者として、これを全面的に禁じているヘーゲルへ戻ることを訴えます。ヘーゲルにとって、未来は私たちの手の届かないところにあります。では、それは何を意味するのか？「それならなぜ『未来からの兆候』なのか？」とあなたは尋ねるでしょう。ここで——詳しく展開する時間はありませんが——私が魅了されている量子力学への言及が登場します。量子力学のあのアイデアをご存知ですね——曖昧な比喩ですが、いくつかの著書でより詳しく論じています——異なる可能性の「波動関数の重ね合わせ（wave superposition）」があり、そこから状況が一つの選択肢へと「収束（collapse）」するという考え方です。今日の問題は、それがどの選択肢になるか私たちには分からないという点です。私たちにできるすべて——それこそが私の言う「未来からの兆候」のアイデアですが——は、さまざまな傾向を拾い上げることです。つまり「これが起きればこの大惨事が起きるかもしれない、あれが起きれば4つか5つの選択肢がある」と。それは私たち次第なのです。未来は、私たちが……",
+      "annotations": [
+        {
+          "id": "ch7-line-5-note-1",
+          "phrase": "plead to",
+          "explanation": "「〜を訴える、嘆願する」。"
+        },
+        {
+          "id": "ch7-line-5-note-2",
+          "phrase": "superposition / collapse",
+          "explanation": "量子力学の「重ね合わせ」と「波動関数の収束（波束の収縮）」。未来は一本道ではなく、複数の可能性が重ね合わさっており、私たちの選択によって一つに収束するという比喩。"
+        }
+      ]
+    }
+  ]
+}

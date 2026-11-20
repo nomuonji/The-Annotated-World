@@ -1,0 +1,169 @@
+{
+  "id": "ch6",
+  "title": "6. 著書『Signs from the Future』とグラムシ的ヘゲモニー",
+  "timeRange": "00:28:57 – 00:38:55",
+  "summary": "司会者による新刊の構成紹介に続き、ジジェクがマルクスの目的論的限界を批判し、「今日最高のグラムシ主義者はトランプである」と挑発的に論じる。",
+  "genres": [
+    "philosophy",
+    "society"
+  ],
+  "topics": [
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    },
+    {
+      "id": "hegemony",
+      "name": "ヘゲモニー"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch6-line-1",
+      "speaker": {
+        "name": "Host",
+        "className": "speaker-host"
+      },
+      "time": "00:29:02",
+      "english": "So let's just begin with the central premise of your book, your new collection of essays, <em>Signs from the Future</em>, which is that to understand the present we have to decode these \"signs from the future.\" So what are these signs? How can they help us think about the past and the present? And you have these three parts of the book: you talked a little bit about this term from Gramsci, the \"morbid phenomena,\" the first part—or what Mark Fisher called the \"business ontology\" of today, a mood or a vibe maybe, today's obscenities, not just Trump and Epstein, to which we could add perhaps the university itself, the Cornell rape scandals, but also populism, the heat waves. And then you have a second part: instead of artificial intelligence, you talk about \"artificial stupidity,\" these confused ways that we see today of trying to navigate AI, but also then you go deep Freud in terms of the death drive or even maybe the anti-human subject. And then again you use this phrase earlier, \"between two necessities\"—maybe some signs with emancipatory potential, the kind of utopian radicality of the pandemic; you talk about Saint-Just as well. So let's begin. Here's my first question: what does it mean for you to say—or for us to say as Marxists, if we still are Marxists—that we think about capitalism not just in terms of workers today, not only those who are fighting for union jobs, but the unemployed, the <strong class=\"key\">precariat</strong>? You know, this is Fredric Jameson's argument in his book on <em>Capital</em>, and later you write, \"It's dignity, stupid.\" So who are these \"eco-proletariat,\" who is this expanded notion of the proletariat today? Can you help us think about that?",
+      "japanese": "では、あなたの新しいエッセイ集『未来からの兆候（Signs from the Future）』の中心的な前提から始めましょう。それは「現在を理解するためには、こうした『未来からの兆候』を解読しなければならない」というものです。この兆候とは何で、過去と現在を考える上でどう役立つのでしょうか？本は3部構成になっていますね。第1部は先ほど少し触れたグラムシの「病的な諸現象」、あるいはマーク・フィッシャーが「ビジネス存在論」と呼んだ今日のムードや雰囲気——トランプやエプスタインだけでなく、大学そのもの（コーネル大学のレイプ事件など）やポピュリズム、熱波といった今日の猥褻さについて。第2部では人工知能（AI）の代わりに「人工的愚鈍（artificial stupidity）」について論じ、AIを扱おうとする今日の混乱したやり方や、フロイトの死の欲動、さらには反人間的主体へと深く踏み込んでいます。そして第3部は先ほども出た「二つの必然性の間」——パンデミックのユートピア的ラディカリズムのような解放の可能性を秘めた兆候や、サン＝ジュストについても語っています。では最初の質問です。もし私たちがまだマルクス主義者だとして、今日の資本主義を労働組合のある仕事のために戦う労働者だけでなく、失業者やプレカリアート（不安定労働者層）という観点から考えるとはどういうことでしょうか？これはフレドリック・ジェイムソンの『資本論』論の主張でもあり、あなたも「問題は尊厳だよ、おバカさん（It's dignity, stupid）」と書いています。この「エコロジー的プロレタリアート」とは誰なのか、今日における拡張されたプロレタリアートの概念について考える手助けをしていただけますか？",
+      "annotations": [
+        {
+          "id": "ch6-line-1-note-1",
+          "phrase": "premise",
+          "explanation": "「前提」。"
+        },
+        {
+          "id": "ch6-line-1-note-2",
+          "phrase": "precariat",
+          "explanation": "「プレカリアート」（precarious［不安定な］＋ proletariat［労働者階級］の造語）。"
+        },
+        {
+          "id": "ch6-line-1-note-3",
+          "phrase": "It's dignity, stupid",
+          "explanation": "1992年クリントン陣営の有名なスローガン \"It's the economy, stupid.\"（問題は経済だよ、おバカさん）のもじり。"
+        },
+        {
+          "id": "ch6-line-1-note-4",
+          "phrase": "Saint-Just",
+          "explanation": "フランス革命期のジャコバン派指導者サン＝ジュスト（字幕では `sanjust`）。"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-2",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:30:55",
+      "english": "With pleasure—sadistic pleasure towards you! I'm saying this here in Canada because from my Canadian friends I learned that you have maybe the best example of ecological proletarians, namely... Okay, let me do it as short as possible, but systematically. First, my problem with Marxism is that, yes, on the one hand, Marx still, I think, provided the best dynamic of capitalist self-reproduction. And don't think just about Volume One of <em>Capital</em>—most humanities idiots, they really read what, Chapter One? Maybe <em>Life of Capital</em> [?], that's all. Now intelligent Marxists move to Volume Two. But that's not our topic today. What I want to say is: what was the problem with Marx? This is the thesis I like in my book, my favorite part: he was too much of a <strong class=\"key\">teleological thinker</strong>. He believed in gradual historical progress. Marx saw that capitalism is disintegrating, but he automatically assumed that this disintegration will at the same time open up—potentially, Marx was not a determinist—a higher level of society with more solidarity, what we call socialism, communism, whatever you want.",
+      "japanese": "喜んで——あなたに対するサディスティックな喜びをもって（笑）お答えしましょう。ここカナダでこれを言うのは、カナダの友人たちから「カナダにはエコロジー的プロレタリアートの最高の事例がある」と聞いたからです。……いや、できるだけ短く、かつ体系的に整理させてください。まず、私のマルクス主義に対する問題意識はこうです。一方では、マルクスは今でも資本主義の自己再生産のダイナミクスを最も見事に捉えていると思います。『資本論』第1巻だけを考えてはいけません——人文科学のバカどもの大半は、せいぜい第1章くらいしか読まない。いまや知的なマルクス主義者は第2巻へと進んでいます。ただ、それは今日の本題ではありません。私が言いたいのは「マルクスの何が問題だったか」です。これは私の本の中でもお気に入りのテーゼなのですが、彼はあまりにも「目的論的な（teleological）思想家」すぎたのです。彼は段階的な歴史的進歩を信じていました。マルクスは資本主義が崩壊しつつあることを見抜きましたが、同時にその崩壊が——マルクスは決定論者ではありませんでしたが潜在的に——より連帯のある高次の社会、私たちが社会主義や共産主義と呼ぶものを切り開くと自動的に前提してしまったのです。",
+      "annotations": [
+        {
+          "id": "ch6-line-2-note-1",
+          "phrase": "teleological",
+          "explanation": "「目的論的な」（歴史や物事が特定のゴールに向かって進歩・収束するという考え方。字幕では `teological`）。"
+        },
+        {
+          "id": "ch6-line-2-note-2",
+          "phrase": "determinist",
+          "explanation": "「決定論者」。"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-3",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:32:57",
+      "english": "And as some intelligent sociologists in Germany developed, what is happening today is that Marx was right: obviously, what is happening today is that capitalism itself as we know it is gradually disintegrating. But I don't see any prospect of a new, higher stage. What is gradually emerging—many people have written about it, I don't agree with all of them, and there are different names for this—I propose not a notion, just a descriptive term, <strong class=\"key\">\"liberal fascism\"</strong>; Varoufakis proposes \"cloud capitalism\" or \"cloud feudalism.\" What is clear is that something new is emerging—we don't yet have the name of it—which definitely is worse than the global capitalism as we knew it.",
+      "japanese": "そしてドイツの知的な社会学者たちが論じたように、今日起きていることは、マルクスが正しかったということです——明らかに、私たちが知る資本主義そのものが徐々に崩壊しつつあります。しかし、私はより高次の新しい段階への展望をまったく見出せません。徐々に立ち現れているものについて——多くの人が書いており、全員に同意するわけではなく、呼び方もさまざまですが——私は厳密な概念ではなく単なる記述的な用語として「リベラル・ファシズム」を提案しますし、バルファキスは「クラウド資本主義」や「クラウド封建制」を提案しています。明らかなのは、まだ名前のない何か新しいものが現れつつあり、それは間違いなく私たちが知っていたグローバル資本主義よりも悪いものだということです。",
+      "annotations": [
+        {
+          "id": "ch6-line-3-note-1",
+          "phrase": "prospect",
+          "explanation": "「見通し、展望」。"
+        },
+        {
+          "id": "ch6-line-3-note-2",
+          "phrase": "Yanis Varoufakis",
+          "explanation": "ギリシャの元財務大臣・経済学者で、『Technofeudalism』の著者（字幕では `Verufakis`, `cloud fodalis falism`）。"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-4",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:34:14",
+      "english": "So where do I see here the problem with old-style Marxists? Beginning with Gramsci—Antonio Gramsci is the crucial figure today, I think. In what sense? Now I will be really evil—you should lynch me for this! South of the border, the United States, they have the President who is the best Gramscian today. Why? What is one of Gramsci's basic notions? It's the notion of <strong class=\"key\">ideological hegemony</strong>. It's a great idea. To put it very simply: ideology is not simply one block of thought. The space of ideology is an open space in which different motifs, topics circulate, and \"struggle for hegemony\" means that each side tries to <strong class=\"key\">appropriate</strong> these free-floating elements.",
+      "japanese": "では、ここで旧来型のマルクス主義者のどこに問題があるのか？まずグラムシから始めましょう——今日、アントニオ・グラムシこそが極めて重要な人物だと私は思います。どういう意味でか？これから私は本当に邪悪なことを言いますよ——こんなことを言ったら私をリンチにすべきですね！国境の南、アメリカ合衆国には、今日「最高のグラムシ主義者（Gramscian）」である大統領がいます。なぜか？グラムシの基本概念の一つとは何か？それは「イデオロギー的ヘゲモニー（覇権）」の概念です。素晴らしいアイデアです。ごく簡単に言えば、イデオロギーとは単一の思考の塊ではありません。イデオロギーの空間とは、さまざまなモチーフやトピックが循環する開かれた空間であり、「ヘゲモニーをめぐる闘争」とは、それぞれの陣営がこれらの浮遊する要素を自陣営に取り込もう（専有しよう）とすることを意味します。",
+      "annotations": [
+        {
+          "id": "ch6-line-4-note-1",
+          "phrase": "Antonio Gramsci",
+          "explanation": "イタリアのマルクス主義思想家・政治家（字幕では `GCI`, `Gshian`, `Gshi`）。"
+        },
+        {
+          "id": "ch6-line-4-note-2",
+          "phrase": "appropriate",
+          "explanation": "（動詞）：「（他者のアイデアや要素を）自らのものとして取り込む、流用する」。"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-5",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:35:30",
+      "english": "And here, for example, I admire Mamdani. Is there a text on him also in this book? No, it will be in the next book, I don't know where. Do you remember Mamdani's speech on the 250th [25th] anniversary of the United States, where he did an ingenious thing? Instead of claiming \"American patriotism—if you use this term positively, you are a neo-Nazi fascist\" and so on—no! He did the opposite. He <strong class=\"key\">rehabilitated</strong> the term, giving to it a leftist twist. He said: \"What about the American tradition of 'all you poor, exploited from all around the world, come here, you will be given a new chance'?\" and so on. So American patriotism is too precious a notion to leave it to neo-fascists. Let's appropriate it for ourselves.",
+      "japanese": "この点で、たとえば私はマムダニを称賛します。彼についての文章もこの本に入っていたかな？いや、次の本に入る予定です。アメリカ建国記念（250周年）に関するマムダニのスピーチを覚えていますか？彼はそこで天才的なことをしました。「アメリカ的愛国心という言葉を肯定的に使ったらネオナチのファシストだ」と批判するのではなく——逆をやったのです。彼はその言葉を復権させ、左派的なひねりを加えたのです。彼は言いました。「世界中の貧しく搾取された人々よ、ここへ来れば新たなチャンスが与えられるというアメリカの伝統はどうなんだ？」と。つまり、アメリカ的愛国心はネオ・ファシストたちに独占させておくにはあまりにも貴重な概念なのです。自分たちのために取り込みましょう。",
+      "annotations": [
+        {
+          "id": "ch6-line-5-note-1",
+          "phrase": "ingenious",
+          "explanation": "「独創的な、天才的な、巧妙な」。"
+        },
+        {
+          "id": "ch6-line-5-note-2",
+          "phrase": "rehabilitate",
+          "explanation": "「（汚名を着せられた言葉や概念を）復権させる、名誉回復する」。"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-6",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:36:32",
+      "english": "And I'm ready to go here pretty far. \"Family values\"? Ah, don't dismiss them so easily! When some right-winger accuses you of neglecting family values, you should tell him: \"I'm sorry, it's in the last 30–40 years—it began with Reaganomics—this new restructuring of the economy which is really undermining local solidarity and family values.\" And I can well think of examples where, from a progressive standpoint, family links—not just narrow family, but a group of relatives and so on—can play an important role. I know from Greece, that big crisis that brought Syriza to power: people were so poor that they survived by relying on the help of their relatives in the countryside, other members, and so on. I would even say \"moral majority\"—we should occupy that notion. For me it's obscene that Trump proclaims himself to be a \"moral majority Christian.\" In the way he acts, Trump is an obscene postmodern <strong class=\"key\">historicist</strong>, obscenely changing his position all the time. If you look for true \"moral majority\" in the sense of simple decency, go to Bernie Sanders. So why is Trump the great Gramscian? Because he did something ingenious—I really admire him here. The motif of exploited workers: he triumphantly appropriated it for right-wing populism. Okay, he gave to it a racist twist—\"big companies, corporations together with foreigners (here we approach fascism) are exploiting hardworking Americans\"—you know, he appropriated this element.",
+      "japanese": "私はこの点ではかなり遠くまで踏み込む用意があります。「家族の価値観（family values）」ですか？ああ、そう簡単に切り捨てないでください！右派の誰かがあなたを「家族の価値観を軽視している」と非難したら、こう言い返すべきです。「すみませんが、この30〜40年——レーガノミクスから始まった——経済の新たな構造改革こそが、地域の連帯と家族の価値観を本当に蝕んでいるんですよ」と。それに、進歩的な立場から見ても、家族の絆——狭い核家族だけでなく親族のネットワークなど——が重要な役割を果たす例はいくらでも思いつきます。ギリシャでシリザ（Syriza）を政権に押し上げたあの大危機で私が知っていることですが、人々はあまりに貧しかったため、田舎の親戚や他の家族の助けを頼って生き延びたのです。私は「道徳的多数派（モラル・マジョリティ）」という言葉さえ乗っ取るべきだと言いたい。トランプが自分を「モラル・マジョリティのキリスト教徒」と称するのは私には猥褻に思えます。彼の振る舞いは猥褻なポストモダン歴史主義者そのもので、いつも節操なく立場を変えています。素朴な品位・良識（decency）という意味での真の「モラル・マジョリティ」を探しているなら、バーニー・サンダースのところへ行きなさい。では、なぜトランプが偉大なグラムシ主義者なのか？彼が天才的なことを成し遂げたからです——ここは本当に感心します。「搾取される労働者」というモチーフを、彼は見事に右派ポピュリズムへと取り込んだのです。もちろん、そこに人種差別的なひねり——「大企業や多国籍企業が外国人と結託して（ここでファシズムに近づく）、勤勉なアメリカ人を搾取している」——を加えましたが、彼はこの要素を見事に自分のものにしたのです。",
+      "annotations": [
+        {
+          "id": "ch6-line-6-note-1",
+          "phrase": "Syriza",
+          "explanation": "ギリシャの急進左派連合（字幕では `Siza`）。"
+        },
+        {
+          "id": "ch6-line-6-note-2",
+          "phrase": "Moral Majority",
+          "explanation": "1980年代にアメリカで台頭したキリスト教右派の政治団体名。"
+        },
+        {
+          "id": "ch6-line-6-note-3",
+          "phrase": "decency",
+          "explanation": "「品位、礼儀、良識」。"
+        }
+      ]
+    }
+  ]
+}

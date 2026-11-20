@@ -27,7 +27,7 @@ export function buildLexicon(ds:Doc[]){
  for(const d of ds){const $=load(d.data.bodyHtml,null,false);
  for(const c of d.data.chapterIndex){const section=$('section.sec').filter((_,e)=>$(e).attr('id')===c.anchor);
  section.find('.utterance').each((i,e)=>{const b=$(e),en=b.find('.en').text().trim(),ja=b.find('.ja').text().trim(),noteNode=b.find('.note').first(),note=noteNode.text().replace(/^ポイント\s*/,'').trim();
- const item:Occurrence={documentId:d.id,documentTitle:d.data.title,chapterTitle:c.title,chapterAnchor:c.anchor,anchor:c.anchor+'-line-'+(i+1),time:b.find('.speaker-line').text().match(/\b\d{1,3}:\d{2}(?::\d{2})?\b/)?.[0]||'',en,ja,note,topics:c.topics.map(t=>t.id)};
+ const item:Occurrence={documentId:d.id,documentTitle:d.data.title,chapterTitle:c.title,chapterAnchor:c.anchor,anchor:b.attr('id')||c.anchor+'-line-'+(i+1),time:b.find('.speaker-line').text().match(/\b\d{1,3}:\d{2}(?::\d{2})?\b/)?.[0]||'',en,ja,note,topics:c.topics.map(t=>t.id)};
  const terms=findTerms(en,b.find('.en strong.key').toArray().map(x=>$(x).text()),noteNode.find('strong').toArray().map(x=>$(x).text()));
  for(const label of terms){const key=fold(label);let entry=words.get(key);if(!entry){entry={id:termId(label),label,key,occurrences:[]};words.set(key,entry);}entry.occurrences.push({...item,termNote:noteFor($,noteNode,label)});}
  for(const concept of matchingConcepts(en)){let entry=entities.get(concept.id);if(!entry){entry={...concept,occurrences:[]};entities.set(concept.id,entry);}entry.occurrences.push(item);}

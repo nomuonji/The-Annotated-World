@@ -1,0 +1,125 @@
+{
+  "id": "ch11",
+  "title": "11. 欧州の抗議運動、フランスの政治、超国家的権威の必要性",
+  "timeRange": "01:19:18 – 01:26:21",
+  "summary": "パリの暴動や黄色いベスト運動の一貫性のなさを批判し、極右ル・ペンと左派メランションの奇妙な一致（反EU・定年引き下げ）を指摘。気候危機に立ち向かうための強力な超国家的権威を訴えて講演を締めくくる。",
+  "genres": [
+    "society",
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "world-order",
+      "name": "国際秩序"
+    },
+    {
+      "id": "ecology",
+      "name": "自然と環境"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch11-line-1",
+      "speaker": {
+        "name": "Host & Žižek",
+        "className": "speaker-host & Žižek"
+      },
+      "time": "01:19:18",
+      "english": "<strong>Host:</strong> Slavoj, maybe an example of that despair or hopelessness would be the rioting going on in Paris and elsewhere in Europe. Do you think the youth who are out in the streets and attacking buildings and attacking the police, that they...<br>\n    <strong>Žižek:</strong> Here you touch a very sensitive point, because I have big problems with what is happening now in Europe, these demonstrations. You know, in Europe we have this radical split: we have protest movements from '68 onwards. If you ask me one big catastrophe—the worst thing that happened in Europe after World War II—it is '68! Because the result of '68 was the new, more <strong class=\"key\">permissive capitalism</strong>. After '68, the left with a real global plan no longer exists; the left moved to cultural politics, sexual liberation, and so on. It was the end. And so from that time on, we have protests, even violent protests, but try to translate these protests into a consistent political program—I don't see this in Europe now. And I'm here a very pragmatic opportunist, if you ask me. What about Mamdani? I even had a brief contact with him; I support him totally. What I'm just saying is that it's a very traditional Leninist problem: we have a mass protest movement—how to translate it into actual social change, political activity?",
+      "japanese": "<strong>司会：</strong>スラヴォイ、その絶望や絶望感の一例と言えるのが、パリやヨーロッパ各地で起きている暴動かもしれません。街に出て建物や警察を襲撃している若者たちは……<br>\n    <strong>ジジェク：</strong>ここであなたは非常にデリケートな点に触れましたね。というのも、私は今ヨーロッパで起きているこうしたデモに大きな問題を感じているからです。ヨーロッパには1968年以降の抗議運動をめぐって根本的な分裂があります。私に戦後ヨーロッパで起きた最大の大惨事を一つ挙げろと言われたら、それは「68年（五月革命）」です！なぜなら68年の結果は、より「寛容な資本主義（permissive capitalism）」の誕生だったからです。68年以降、真のグローバルな計画を持った左派はもはや存在せず、左派は文化政治や性的解放などへと移行してしまいました。それが終わりでした。それ以来、抗議運動や暴力的な抗議さえ起きますが、その抗議を一貫した政治プログラムへと翻訳しようとしても——今のヨーロッパに私にはそれが見えません。この点では私はきわめてプラグマティックな日和見主義者です。マムダニはどうでしょう？私は彼と少し連絡を取ったこともあり、全面的に支持しています。私が言いたいのは、これは非常に伝統的なレーニン主義的問題だということです——大衆の抗議運動があるとして、それをいかにして実際の社会変革や政治活動へと翻訳するか？",
+      "annotations": [
+        {
+          "id": "ch11-line-1-note-1",
+          "phrase": "permissive capitalism",
+          "explanation": "「許容的・寛容な資本主義」（68年世代の反権威・自己表現・快楽主義の要求を、新しいマーケティングやライフスタイルとして吸収してしまった現代資本主義）。"
+        },
+        {
+          "id": "ch11-line-1-note-2",
+          "phrase": "translate A into B",
+          "explanation": "「AをBへ翻訳・転換する」。"
+        }
+      ]
+    },
+    {
+      "id": "ch11-line-2",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "01:21:18",
+      "english": "I follow closely the situation in France. These protests—already it was with Yellow Vests a couple of years ago—if you look at it closely, they are totally inconsistent: they protest against this, against that, a little bit of even racism, and so on. And today I think it's the same. For example, there are two opponents politically in France: the new right, Marine Le Pen, and the left, Mélenchon [<em lang=\"fr\">La France Insoumise</em>]. You know how in many points they paradoxically agree? First, they both share their stance against a united Europe; they want to return to full national sovereignty, which I think is a catastrophe. They want to forget about Ukraine—\"we shouldn't spend money supporting Ukraine\"—which for me is also wrong. But especially another thing: they both share the idea of lowering the retirement age. Already now France has a relatively low retirement age, 62, I think; they want to move it back to 60, maybe even 58, and so on. I think that one datum should awaken you here: my son, who studies mathematical statistics, compared European countries and discovered that the highest retirement age is in those countries precisely which are still best organized and where the welfare state functions—Norway, Sweden, and so on! The more you get to poor countries, the lower is the retirement age.",
+      "japanese": "私はフランスの状況を注視しています。数年前の「黄色いベスト運動（Yellow Vests）」のときもそうでしたが、こうした抗議運動を詳しく見るとまったく一貫性がありません。あれに反対、これに反対、さらには少しばかり人種差別まで混ざっている。今日も同じだと思います。たとえばフランスには政治的に二人の対立候補がいます——新右翼のマリーヌ・ル・ペンと、左派のメランション（「不服従のフランス」※字幕では `Melen subordinator`）です。この二人が多くの点で逆説的に一致しているのを知っていますか？第一に、二人とも統一ヨーロッパ（EU）に反対する立場を共有しており、完全な国家主権への回帰を望んでいます——これは大惨事だと私は思います。第二に、二人ともウクライナのことを忘れたい（「ウクライナ支援に金を使うべきではない」）と思っています——これも私には誤りです。そして特にもう一つ、二人とも「定年年齢を引き下げる」という考えを共有しています。すでに現在、フランスの定年は62歳と比較的低いのですが、それを60歳、あるいは58歳にまで引き戻そうとしている。ここで一つのデータ（datum）がみなさんの目を覚ますはずです。数理統計学を学んでいる私の息子がヨーロッパ諸国を比較したところ、最も定年年齢が高いのは、まさに最も組織化され福祉国家が機能している国々——ノルウェー、スウェーデンなど——だったのです！貧しい国に行けば行くほど、定年年齢は低くなるのです。",
+      "annotations": [
+        {
+          "id": "ch11-line-2-note-1",
+          "phrase": "Yellow Vests",
+          "explanation": "フランスの反増税・反マクロンデモ「黄色いベスト運動（Gilets jaunes）」。"
+        },
+        {
+          "id": "ch11-line-2-note-2",
+          "phrase": "La France Insoumise",
+          "explanation": "ジャン＝リュック・メランション率いる左派政党「不服従のフランス」（英語訳は France Unbowed。字幕の `subordinator` は `insoumise` 関連の誤認識）。"
+        },
+        {
+          "id": "ch11-line-2-note-3",
+          "phrase": "datum",
+          "explanation": "data の単数形。"
+        }
+      ]
+    },
+    {
+      "id": "ch11-line-3",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "01:23:30",
+      "english": "So to cut a long story short, what I reject is this leftist populist idea: \"Politics is alienated in the gap between movements of real people and political representation; we should trust movements of real people and abolish the distinction, distrust towards political representation.\" My stance is here almost the opposite one: there is no deeper truth in \"real people's movements.\" They have no deeper truth! It's very dark what I'm saying now: okay, they know what they want, but they have no idea how to do it, and so on. If anything, we need stronger <strong class=\"key\">transnational authority</strong>.",
+      "japanese": "要するに、私が拒絶するのは次のような左派ポピュリズムの発想です——「政治は、生身の人々の運動と政治的代表制とのギャップの中で疎外されている。私たちは生身の人々の運動を信頼し、その区別を廃止して、政治的代表制への不信を貫くべきだ」という考えです。ここで私の立場はほぼ正反対です。「生身の人々の運動」の中に、より深い真実などありません。彼らに深い真実などないのです！今私が言っていることは非常に暗い話ですが、確かに彼らは自分が何を欲しているかは知っていますが、それをどう実現するかについては見当もついていないのです。むしろ私たちに必要なのは、より強力な「超国家的権威（transnational authority）」なのです。",
+      "annotations": [
+        {
+          "id": "ch11-line-3-note-1",
+          "phrase": "alienated",
+          "explanation": "「疎外された」。"
+        },
+        {
+          "id": "ch11-line-3-note-2",
+          "phrase": "political representation",
+          "explanation": "「政治的代表制（代議制）」。"
+        },
+        {
+          "id": "ch11-line-3-note-3",
+          "phrase": "transnational authority",
+          "explanation": "「国境を越えた超国家的権威」。"
+        }
+      ]
+    },
+    {
+      "id": "ch11-line-4",
+      "speaker": {
+        "name": "Žižek & Host",
+        "className": "speaker-zizek & Host"
+      },
+      "time": "01:24:27",
+      "english": "<strong>Žižek:</strong> Just think about—my God, you had this problem here, if you are from here—do you remember, when was it, three, four summers ago, you had the <strong class=\"key\">heat wave</strong> here?<br>\n    <strong>Host:</strong> Yeah, yeah, the <strong class=\"key\">heat dome</strong>. For like two weeks your temperatures were higher than in the Emirates, Southern Iraq, and so on—it was hotter than Palestine.<br>\n    <strong>Žižek:</strong> Sorry, it was hotter than Palestine, yeah. But you know what's the shock? One cannot blame you for being bad ecologically—you are not! The problem is that the whole circulation of air around the northern globe is <strong class=\"key\">perturbed</strong>. So the only way to approach this is global cooperation. So we need—I'm very pessimistic here—we need, of course it should be controlled by people in some sense, but nonetheless we need stronger, more efficient state power. We need—I'm ready to go in a crazy direction here—we need <strong class=\"key\">more alienation</strong>. I'm a pessimist, sorry—but thank you.",
+      "japanese": "<strong>ジジェク：</strong>考えてみてください——地元の方ならご存知でしょうが——3、4年前の夏、ここ（バンクーバー）で熱波が起きましたよね？<br>\n    <strong>司会：</strong>ええ、ヒートドーム（heat dome）現象です。2週間ほど、ここの気温がアラブ首長国連邦やイラク南部よりも高くなりました——パレスチナよりも暑かったんです。<br>\n    <strong>ジジェク：</strong>そう、パレスチナより暑かった。しかし何が衝撃的か分かりますか？環境的に悪いことをしたからだとあなた方を責めることはできません——あなた方は悪くないのです！問題は、北半球全体の大気循環が乱されている（perturbed）ことです。ですからこれに対処する唯一の方法は、地球規模の協力なのです。つまり私たちは——ここで私は非常に悲観的ですが——もちろん何らかの意味で人々によってコントロールされるべきではありますが、それにもかかわらず、より強力で効率的な国家権力を必要としています。あえてクレイジーな方向へ踏み込むなら、私たちには「さらなる疎外（more alienation）」が必要なのです。悲観主義者ですみません——でも、ありがとうございました。",
+      "annotations": [
+        {
+          "id": "ch11-line-4-note-1",
+          "phrase": "heat dome",
+          "explanation": "「ヒートドーム」（高気圧が蓋のように停滞し極端な猛暑を引き起こす現象。2021年夏にBC州リットンで49.6℃を記録した災害を指す）。"
+        },
+        {
+          "id": "ch11-line-4-note-2",
+          "phrase": "perturbed",
+          "explanation": "「乱された、かき乱された」。"
+        },
+        {
+          "id": "ch11-line-4-note-3",
+          "phrase": "more alienation",
+          "explanation": "直接民主主義や「草の根の純粋さ」に頼るのではなく、市民からある程度距離を置いた（＝疎外された）強力な官僚機構や超国家的制度をあえて受け入れるべきだというジジェクならではの逆説的結論。"
+        }
+      ]
+    }
+  ]
+}

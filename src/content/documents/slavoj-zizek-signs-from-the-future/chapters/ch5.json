@@ -1,0 +1,198 @@
+{
+  "id": "ch5",
+  "title": "5. 自然の神話の解体、カント的知への衝動、ウクライナ戦争",
+  "timeRange": "00:19:20 – 00:28:57",
+  "summary": "「調和のとれた母なる自然」という幻想を挑発的に否定し、平和主義への批判、さらにオッペンハイマーやCERNを例に「破滅を招いてでも知りたがる」人間の倫理的衝動を語る。",
+  "genres": [
+    "philosophy",
+    "technology",
+    "society"
+  ],
+  "topics": [
+    {
+      "id": "ecology",
+      "name": "自然と環境"
+    },
+    {
+      "id": "ai",
+      "name": "AI"
+    },
+    {
+      "id": "world-order",
+      "name": "国際秩序"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch5-line-1",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:19:20",
+      "english": "We live—if I may just improvise to end—I think between two necessities. On the one hand, we have the world system which, if you just look at it objectively, what does it do? It pushes us towards one or another version of global catastrophe. Artificial intelligence: I'm not against it, but something new is emerging there, and we should approach artificial intelligence precisely, all of us, as philosophers. Artificial intelligence, I think, will change our very self-understanding as humans, of what makes us human.",
+      "japanese": "締めくくりに即興で付け加えるなら、私たちは「二つの必然性（necessities）」の間を生きているのだと思います。一方には、客観的に見れば私たちを何らかの地球規模の大惨事へと押しやる世界システムがあります。人工知能について言えば、私はAIに反対しているわけではありませんが、そこには何か新しいものが立ち現れており、私たちはみなまさに哲学者としてAIに向き合うべきです。AIは、人間とは何か、何が私たちを人間たらしめているのかという、私たちの自己理解そのものを変えてしまうでしょう。",
+      "annotations": [
+        {
+          "id": "ch5-line-1-note-1",
+          "phrase": "improvise",
+          "explanation": "「即興で話す／演奏する」。"
+        },
+        {
+          "id": "ch5-line-1-note-2",
+          "phrase": "between two necessities",
+          "explanation": "ジジェクの著書『Signs from the Future』のテーマの一つ。"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-2",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:20:19",
+      "english": "Our destruction of nature, of our natural habitat, will compel us to radically question not only how we are exploiting nature, but—if I may put it in this way—the <strong class=\"key\">nature of nature itself</strong>. What is nature? What is natural? I am much more of a pessimist here. I don't think nature exists in the sense of a stable, homogeneous, balanced system which we humans, through our <strong class=\"key\">hubris</strong>, destroyed. If nature is our mother, it's a dirty bitch of a mother! If you don't believe me—stop! Did you see Charlie Chaplin's <em>The Great Dictator</em>? They applaud Hitler, and then Hitler signals and the crowd stops applauding, you know? No, what I want to say is that—and you in Canada should be aware of it—even when we admit ecological catastrophe, we already <strong class=\"key\">naturalize it</strong> in the sense of balance too much.",
+      "japanese": "私たちが自然や自然の生息地を破壊していることは、私たちが自然をどう搾取しているかだけでなく——こういう言い方を許してもらえるなら——「自然そのものの本性（nature of nature itself）」を根本から問い直すことを強いるでしょう。自然とは何か？「自然的」とは何か？ここで私はずっと悲観的です。人間が傲慢（ヒュブリス）によって破壊してしまった「安定した均質でバランスの取れたシステム」という意味での自然など存在しないと思います。もし自然が私たちの母だというなら、そいつは最低のクソッタレな母親（dirty bitch of a mother）ですよ！信じないなら——（※観客の拍手を止めて）ストップ！チャップリンの『独裁者』を見ましたか？ヒトラーに拍手して、ヒトラーが合図すると群衆がピタッと拍手を止めるあのシーンですよ（笑）。いや、私が言いたいのは——カナダにいるみなさんは特に自覚すべきですが——生態系の大惨事を認めるときでさえ、私たちはそれを「バランス」という感覚で過剰に自然化（正常化）してしまっているということです。",
+      "annotations": [
+        {
+          "id": "ch5-line-2-note-1",
+          "phrase": "hubris",
+          "explanation": "「（破滅を招くような）傲慢、思い上がり」（ギリシャ悲劇由来の語）。"
+        },
+        {
+          "id": "ch5-line-2-note-2",
+          "phrase": "naturalize",
+          "explanation": "「（歴史的・危機的な事象を）自然なこと・当たり前のバランスとして受け入れてしまう」。"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-3",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:21:43",
+      "english": "We claim, \"Okay, temperatures will be a little bit higher, maybe the level of water will rise, so we will lose some cities, but there will be a new balance.\" No! I read scientists today and their main <strong class=\"key\">prognosis</strong> is that the very natural rhythm to which we are accustomed may be permanently destabilized. There will not be summer, fall, winter, spring, whatever. There will be two, three years without summer, then a new ice age, whatever. So again, true ecology begins by <strong class=\"key\">demystifying nature</strong>. Nature is already full of catastrophes. Just think about what are still our main sources of energy: oil and coal. Can you even imagine what mega-catastrophes had to happen on our Earth before the emergence of humanity so that we got these reserves of energy?",
+      "japanese": "私たちは「まあ、気温が少し上がって海面が上昇し、いくつか都市が沈むかもしれないが、やがて新しいバランスが訪れるだろう」と言います。違います！最近の科学者の論文を読むと、彼らの主な予測（prognosis）は、私たちが慣れ親しんでいる自然のリズムそのものが恒久的に不安定化しうるというものです。夏・秋・冬・春などはなくなり、2〜3年夏が来ないかと思えば、新たな氷河期が来るかもしれない。だからこそ、真のエコロジーは「自然の脱神秘化（demystifying nature）」から始まるのです。自然はもともと大惨事に満ちています。今でも私たちの主要なエネルギー源が何であるか考えてみてください——石油と石炭です。人類の誕生以前に、私たちがこのエネルギー埋蔵量を手にするために、地球上でどれほどの超大惨事が起きなければならなかったか、想像すらできますか？",
+      "annotations": [
+        {
+          "id": "ch5-line-3-note-1",
+          "phrase": "prognosis",
+          "explanation": "「予測、見通し」（もともとは医学の「予後」）。"
+        },
+        {
+          "id": "ch5-line-3-note-2",
+          "phrase": "demystify",
+          "explanation": "「〜の神秘性を剥ぎ取る、幻想を打ち砕く」。"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-4",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:23:00",
+      "english": "Not to mention, again, the danger of global war. Here again, to provoke you: I am against simple, abstract <strong class=\"key\">pacifists</strong> [\"peaceniks\"]—you know, people who want to advocate just for peace and so on. In Europe, that's what bothers me in the ongoing demonstrations: people are saying \"less expenses for war,\" which means, to cut a long story short, \"peace with Russia, forget about Ukraine,\" and so on. No! I think that by acting in this way, we are effectively strengthening the capacity of war.",
+      "japanese": "さらに、世界大戦の危険性についても言及しておきましょう。ここでまたみなさんを挑発しますが、私は単純で抽象的な「平和主義者（peaceniks）」——ただ平和さえ唱えていればいい人たち——に反対です。ヨーロッパで今起きているデモで私が気になるのは、人々が「戦費を減らせ」と言っていることです。手短に言えば、それは「ロシアと和平を結び、ウクライナのことなど忘れろ」という意味です。断じて違う！そのように行動することで、私たちは事実上、戦争を起こす力（侵略側の能力）を強めてしまっているのです。",
+      "annotations": [
+        {
+          "id": "ch5-line-4-note-1",
+          "phrase": "peacenik",
+          "explanation": "「反戦運動家、平和主義者」（やや軽蔑的・皮肉なニュアンスを含む口語。字幕では `peace nicks`）。"
+        },
+        {
+          "id": "ch5-line-4-note-2",
+          "phrase": "Not to mention",
+          "explanation": "「〜は言うまでもなく」。"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-5",
+      "speaker": {
+        "name": "Žižek & Host",
+        "className": "speaker-zizek & Host"
+      },
+      "time": "00:23:50",
+      "english": "<strong>Žižek:</strong> To conclude really with a more metaphysical, difficult point—and here I want to ask you the first question. We have a very friendly conflict, because you still want to advocate some wider notion, if I know it correctly, of humanism. Yes or no?<br>\n    <strong>Host:</strong> Uh, no, I don't think so.<br>\n    <strong>Žižek:</strong> Okay, okay, I accept it. No, because you know what is my point—but ask the question anyway. Go ahead.<br>\n    <strong>Host:</strong> Yeah, okay, and then I will not ask you a—",
+      "japanese": "<strong>ジジェク：</strong>最後に、より形而上学的で難しい論点で締めくくりたいと思います——ここで私からあなたに最初の質問をしたい。私たちにはとても友好的な対立がありますね。私の理解が正しければ、あなたは今でもより広い意味でのヒューマニズム（人間主義）を擁護したいと思っている。イエスかノーか？<br>\n    <strong>司会：</strong>うーん、いや、そうは思わないですね。<br>\n    <strong>ジジェク：</strong>オーケー、オーケー、受け入れますよ。いや、私の言いたいことは分かっているでしょう——でもとにかく質問してください。どうぞ。<br>\n    <strong>司会：</strong>ええ、じゃあ私は質問はせずに——",
+      "annotations": [
+        {
+          "id": "ch5-line-5-note-1",
+          "phrase": "",
+          "explanation": "司会者とジジェクの軽妙な掛け合い。ジジェクは一度話し始めると止まらないため、司会者がツッコミを入れています。"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-6",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:24:28",
+      "english": "I would just like to make a point that the explosion of knowledge—not just artificial intelligence, but cognitive sciences, quantum mechanics, and so on—has a self-destructive dimension in it. For example, take atomic energy: from the very beginning, scientists were aware of nuclear arms, that they may cause global catastrophe and so on, but nonetheless they were doing it. Look at Oppenheimer, the one from Nolan's movie: it doesn't matter that he had personal doubts and <strong class=\"key\">took refuge in</strong> the ancient <em lang=\"sa\">Bhagavad Gita</em> [Vedanta] and so on. Yes, he had private moral problems, but he was doing it. And it's exactly the same today with artificial intelligence: all the big corporate leaders claim it's dangerous, \"we have to contain it,\" but they are doing it.",
+      "japanese": "私が指摘したいのは、知識の爆発——AIだけでなく認知科学や量子力学なども含め——には、自己破壊的な側面が内在しているということです。たとえば原子力を見てください。最初から科学者たちは核兵器が地球規模の大惨事を引き起こしうることを自覚していましたが、それでもなお作り続けました。ノーラン監督の映画のオッペンハイマーを見てください。彼が個人的な疑念を抱き、古代のヴェーダーンタ（バガヴァッド・ギーター）に心の避難所を求めたことなど関係ないのです。確かに彼には内面の道徳的葛藤がありましたが、それでも彼は原爆を作った。今日のAIもまったく同じです。大企業のトップたちはみな「危険だ、封じ込めなければならない」と主張しながら、それでも開発を進めているのです。",
+      "annotations": [
+        {
+          "id": "ch5-line-6-note-1",
+          "phrase": "take refuge in",
+          "explanation": "「〜に逃げ場・避難所を求める」（字幕では `take refugee in a ancient vanta` ＝ ancient Vedanta / Bhagavad Gita の聞き取り誤り）。"
+        },
+        {
+          "id": "ch5-line-6-note-2",
+          "phrase": "nonetheless",
+          "explanation": "「それにもかかわらず」。"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-7",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:25:44",
+      "english": "And I think you cannot explain this in the old-fashioned Marxist sense by claiming that, \"Okay, artificial intelligence works in such a way only insofar as it is part of the capitalist order with its exploitation,\" and so on. I think that there is something—I'm not afraid to use these terms—much more basic, I would even say ethical, in the sense in which Immanuel Kant, the great German philosopher, talks about the <strong class=\"key\">categorical imperative</strong>. It is: <strong class=\"key\">pursue knowledge, go on trying to know things irrespective of pragmatic consequences</strong>, even if it will mean your self-destruction.",
+      "japanese": "そしてこれは、「AIがそういう風に機能するのは、搾取を伴う資本主義秩序の一部である限りにすぎない」と主張する古風なマルクス主義的解釈では説明できないと私は思います。そこには——この言葉を使うのを恐れずに言えば——もっと根本的なもの、あえて「倫理的」とさえ言えるものがあるのです。偉大なドイツの哲学者イマヌエル・カントが「定言命法（categorical imperative）」について語るときの意味での倫理です。すなわち、「実利的な結果がどうあれ、たとえそれが自己破壊を意味するとしても、知識を追求せよ、知り続けよ」という命法です。",
+      "annotations": [
+        {
+          "id": "ch5-line-7-note-1",
+          "phrase": "insofar as",
+          "explanation": "「〜である限りにおいて」。"
+        },
+        {
+          "id": "ch5-line-7-note-2",
+          "phrase": "categorical imperative",
+          "explanation": "「定言命法」（カント倫理学の中核。条件抜きで絶対的に従うべき道徳法則）。"
+        },
+        {
+          "id": "ch5-line-7-note-3",
+          "phrase": "irrespective of",
+          "explanation": "「〜に関係なく、〜にかかわらず」。"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-8",
+      "speaker": {
+        "name": "Žižek & Host",
+        "className": "speaker-zizek & Host"
+      },
+      "time": "00:26:44",
+      "english": "<strong>Žižek:</strong> I remember—this is for me a key moment—around 2005, no sorry, mid-1990s [2008], when they finished the construction of CERN near Geneva, the big collider. There was, it turned out, a false fear that they would trigger a process which may swallow the entire planet into a black hole. Where do I stand here? I may be crazy, I said: \"No, it doesn't matter, we have to go on.\" It's deeply significant that the conservative Pope—you remember him, the German guy, I think it was... no, Ratzinger, \"Papa Ratzi,\" they called him—Ratzinger and Habermas, the great Enlightenment thinker, wrote together (not really, they just each contributed a text) against the danger of knowing too much, claiming that if we follow this path it can mean self-destruction. And now we are approaching this moment through—<br>\n    <strong>Host:</strong> Okay, Slavoj, let's talk about your book!<br>\n    <strong>Žižek:</strong> It's so boring! I will really conclude now in a second. What I only wanted to say is that this dimension of \"we have to go to the end in knowledge, irrespective of consequences\"—this is for me a proper radical ethical attitude, which is beyond good and evil, ultimately even evil. And we have to learn to live with it. I will stop here.<br>\n    <strong>Host:</strong> Okay, no, it's good, it's good. I just thought that it would be good to break it down a bit. You kindly...<br>\n    <strong>Žižek:</strong> Yeah, yeah, for sure.",
+      "japanese": "<strong>ジジェク：</strong>私にとって決定的な瞬間を覚えています。2005年頃——いや失礼、1990年代半ば（※実際にはLHC稼働時の2008年頃）——ジュネーブ近郊のCERN（欧州原子核研究機構）の大型衝突型加速器の建設が終わったときです。結果的には誤った恐れでしたが、地球全体をブラックホールに飲み込むプロセスを引き起こすのではないかという恐怖がありました。私の立場はどうだったか？頭がおかしいと言われるかもしれませんが、私は「いや、構わない、突き進むべきだ」と言いました。非常に象徴的なことに、あの保守的な教皇——覚えていますか、ドイツ人の、えーとヨハネ・パウロ2世ではなくラッツィンガー（「パパ・ラッツィ」と呼ばれていましたね）——と、偉大な啓蒙思想家ハーバーマスが共著で（正確にはそれぞれが論考を寄せて）、「知りすぎることの危険」に反対し、この道を辿れば自己破壊になりかねないと主張したのです。そして今、私たちはまさにその瞬間に近づいている——<br>\n    <strong>司会：</strong>はいスラヴォイ、そろそろあなたの本について話しましょう！<br>\n    <strong>ジジェク：</strong>私の話は退屈だものね！（笑）あと1秒で本当に締めくくりますよ。ただ私が言いたかったのは、「結果にかかわらず知の果てまで行くべきだ」というこの次元こそが、私にとって真にラディカルな倫理的態度であり、それは善悪の彼岸にある——究極的には「悪」でさえあるということです。私たちはそれと共に生きることを学ばねばなりません。ここで止めます。<br>\n    <strong>司会：</strong>いえ、素晴らしい内容でした。ただ少し区切って対話を深めた方がよいかと思いまして。<br>\n    <strong>ジジェク：</strong>ええ、ええ、もちろん。",
+      "annotations": [
+        {
+          "id": "ch5-line-8-note-1",
+          "phrase": "Ratzinger & Habermas",
+          "explanation": "2004年に当時のヨーゼフ・ラッツィンガー枢機卿（後の教皇ベネディクト16世）と哲学者ユルゲン・ハーバーマスが行った有名な対談（『世俗化時代の理性』）。字幕の `Gratzinger Paparazzo` や `Kabmas` は固有名詞の誤認識です。"
+        }
+      ]
+    }
+  ]
+}

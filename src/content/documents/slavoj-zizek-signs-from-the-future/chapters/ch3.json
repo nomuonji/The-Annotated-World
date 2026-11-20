@@ -1,0 +1,174 @@
+{
+  "id": "ch3",
+  "title": "3. 「団結の幻想」というイデオロギーとバーニー・サンダース",
+  "timeRange": "00:07:56 – 00:14:01",
+  "summary": "バイデン大統領就任式におけるアマンダ・ゴーマンの詩を「純粋なイデオロギー」として批判し、一人座り続けたバーニー・サンダースにヘーゲル的な「世界精神」を見る。",
+  "genres": [
+    "philosophy",
+    "society"
+  ],
+  "topics": [
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    },
+    {
+      "id": "us-politics",
+      "name": "アメリカ政治"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch3-line-1",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:07:51",
+      "english": "For me, the true horror show was Joe Biden's <strong class=\"key\">inauguration</strong>, which I think reduced Trump's first four years to an <strong class=\"key\">anomaly</strong> from which we should return to liberal democratic normality. The clearest symbol of this stance was <em>The Hill We Climb</em>, the poem read by the young poet laureate Amanda Gorman at Biden's inauguration—describing herself as \"a skinny Black girl descended from slaves and raised by a single mother\" who \"can dream of becoming president only to find herself reciting for one.\" She said, listen:",
+      "japanese": "私にとって本当のホラーショーだったのは、ジョー・バイデンの大統領就任式でした。あれはトランプの最初の4年間を単なる「異常事態（例外）」へと矮小化し、そこからリベラル民主主義の「平常」へ戻るべきだという姿勢の表れだったと思います。この姿勢の最も明確な象徴が、バイデン就任式で若き桂冠詩人アマンダ・ゴーマンが朗読した詩『私たちが登る丘（The Hill We Climb）』でした。彼女は自らを「奴隷の子孫でシングルマザーに育てられた痩せっぽちの黒人少女」が「大統領になることを夢見て、今は大統領の前で詩を朗読している」と描写し、こう言ったのです。聞いてください。",
+      "annotations": [
+        {
+          "id": "ch3-line-1-note-1",
+          "phrase": "inauguration",
+          "explanation": "「（大統領などの）就任式」。"
+        },
+        {
+          "id": "ch3-line-1-note-2",
+          "phrase": "anomaly",
+          "explanation": "「異常事態、例外、変則」。"
+        },
+        {
+          "id": "ch3-line-1-note-3",
+          "phrase": "poet laureate",
+          "explanation": "「桂冠詩人」（アメリカでは議会図書館が任命する公式詩人。ゴーマンは全米初代青年桂冠詩人）。"
+        }
+      ]
+    },
+    {
+      "id": "ch3-line-2",
+      "speaker": {
+        "name": "Žižek (quoting Amanda Gorman)",
+        "className": "speaker-zizek"
+      },
+      "time": "00:08:45",
+      "english": "\"And so we lift our gazes not to what stands between us, but what stands before us. We close the divide because we know, to put our future first, we must first put our differences aside. We lay down our arms so we can reach out our arms to one another. We seek harm to none and harmony for all... We've seen a force that would shatter our nation rather than share it, would destroy our country if it meant delaying democracy. And this effort very nearly succeeded. But while democracy can be periodically delayed, it can never be permanently defeated. In this truth...\" End of quote.",
+      "japanese": "「だからこそ私たちは、私たちの間に立ちはだかるものではなく、目の前に広がるものへと視線を上げる。分断を閉じるのだ。未来を第一に置くためには、まず違いを脇に置かなければならないと知っているから。互いに腕を差し伸べられるように、私たちは武器を置く。誰にも危害を加えず、すべての人に調和を求める……私たちは、国を分かち合うくらいなら引き裂こうとする力を見てきた。民主主義を遅らせられるなら国を破壊することさえ厭わない力を。その企てはあと一歩で成功するところだった。しかし民主主義は一時的に遅らせることはできても、永遠に打ち負かすことは決してできない。この真実の中で……」——引用終わり。",
+      "annotations": [
+        {
+          "id": "ch3-line-2-note-1",
+          "phrase": "put our differences aside",
+          "explanation": "「意見の違い・相違を脇に置く（水に流す）」。"
+        },
+        {
+          "id": "ch3-line-2-note-2",
+          "phrase": "lay down our arms / reach out our arms",
+          "explanation": "arms（武器）と arms（腕）を掛けた修辞表現（wordplay）。"
+        }
+      ]
+    },
+    {
+      "id": "ch3-line-3",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:09:42",
+      "english": "If the term \"ideology\" has any meaning, this is it: the fantasy of the establishment and progressives all joined together in a <strong class=\"key\">sublime moment of unity</strong>. When we are <strong class=\"key\">immersed into</strong> this unity, it effectively appears as if Trump's reign really didn't happen. But where did Trump and his followers come from? Does his rise not signal a deep crack in the unity of the people? If we want to have any future, we must not put our differences aside, but do precisely the opposite: focus on our divisions and antagonisms which <strong class=\"key\">traverse</strong> our society—not the civil war between the liberal establishment and Trump followers, but the actual social antagonisms and all their implications: racism, sexism, ecological crisis, and so on.",
+      "japanese": "もし「イデオロギー」という言葉に何らかの意味があるとしたら、まさにこれのことです。既成勢力（エスタブリッシュメント）と進歩派が、崇高な団結の瞬間にみな一つに結ばれるという幻想です。この団結に浸っているとき、トランプの統治など最初から起きなかったかのように見えてしまいます。しかし、トランプとその支持者たちは一体どこから来たのでしょうか？彼の台頭は、人民の団結における深い亀裂を示しているのではないですか？もし私たちに未来があるとするなら、違いを脇に置くのではなく、まったく逆のことをしなければなりません。つまり、社会を貫いている分裂と敵対性に焦点を当てることです——リベラル既成勢力とトランプ支持者の間の「内戦」ではなく、人種差別、性差別、生態系危機など、現実の社会的敵対性とそのあらゆる帰結に、です。",
+      "annotations": [
+        {
+          "id": "ch3-line-3-note-1",
+          "phrase": "sublime",
+          "explanation": "「崇高な」。"
+        },
+        {
+          "id": "ch3-line-3-note-2",
+          "phrase": "be immersed into/in",
+          "explanation": "「〜に浸っている、没頭している」。"
+        },
+        {
+          "id": "ch3-line-3-note-3",
+          "phrase": "traverse",
+          "explanation": "「〜を貫く、横断する」。字幕の `univil war` は文脈上"
+        },
+        {
+          "id": "ch3-line-3-note-4",
+          "phrase": "civil war（内戦）",
+          "explanation": "の言い間違い・誤認識です。"
+        }
+      ]
+    },
+    {
+      "id": "ch3-line-4",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:10:57",
+      "english": "That is why the calls for unity and healing divisions are false. Trump, as such, stands for radical division—for \"us against them, the enemies of the people.\" And the only proper way to beat him is to demonstrate that his division is a false one, that he is really one of them, a creature of the <strong class=\"key\">establishment swamp</strong>, and to replace this division with a much more radical one: the establishment in all its faces versus the broad unity of all <strong class=\"key\">emancipatory forces</strong>.",
+      "japanese": "だからこそ、団結や分断の修復を呼びかける声は偽りなのです。トランプという存在そのものが、根本的な分断——「人民の敵である彼ら」対「私たち」——を象徴しています。彼を打ち負かす唯一の適切な方法は、彼の掲げる分断が偽物であり、彼自身もまた「連中」の一員、つまり既成勢力の沼（swamp）の生き物にすぎないことを証明し、その分断をもっと根本的な分断——あらゆる顔をした既成勢力 vs. すべての解放的勢力の幅広い団結——に置き換えることなのです。",
+      "annotations": [
+        {
+          "id": "ch3-line-4-note-1",
+          "phrase": "establishment swamp",
+          "explanation": "トランプ自身のスローガン \"Drain the swamp\"（ワシントンの腐敗した既成権力の沼を干上がらせろ）を逆手に取った皮肉。"
+        },
+        {
+          "id": "ch3-line-4-note-2",
+          "phrase": "emancipatory",
+          "explanation": "「解放的な」（名詞は emancipation）。"
+        }
+      ]
+    },
+    {
+      "id": "ch3-line-5",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:11:34",
+      "english": "Remember Haley Stevens, a Democrat who withdrew her support for the Democratic candidate who beat her in the primary contest, Abdul El-Sayed, and gave her last-minute backing to Republican Mike Rogers? The main reason was her advocacy of US support for Israel. Never forget that the mainstream Democratic Party is full of Stevenses.",
+      "japanese": "ヘイリー・スティーブンスを覚えていますか？予備選で自分を破った民主党候補アブドゥル・エル＝サイードへの支持を取り下げ、土壇場で共和党のマイク・ロジャースへの支持に回った民主党員です。主な理由は、彼女がアメリカのイスラエル支援を擁護していたからでした。主流派の民主党には、こうした「スティーブンスたち」が溢れていることを決して忘れてはいけません。",
+      "annotations": [
+        {
+          "id": "ch3-line-5-note-1",
+          "phrase": "primary contest",
+          "explanation": "「予備選挙」。"
+        },
+        {
+          "id": "ch3-line-5-note-2",
+          "phrase": "last-minute backing",
+          "explanation": "「土壇場での支援・後ろ盾」。固有名詞補足：ミシガン州の政治家 Haley Stevens, Abdul El-Sayed, Mike Rogers（字幕では `Abdul Elsad`, `becking` となっています）。"
+        }
+      ]
+    },
+    {
+      "id": "ch3-line-6",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:12:08",
+      "english": "Recall that during Joe Biden's inauguration, there was a lone figure who <strong class=\"key\">stole the show</strong> by just sitting there, <strong class=\"key\">sticking out</strong> as an element of discord, disturbing the spectacle: Bernie Sanders. The effect was not that of a person left out at a party, but rather of a person who has no interest in joining the show. Every philosopher knows how impressed Hegel was when he saw Napoleon riding a horse through the city of Jena [Vienna]. It was for him like seeing the <strong class=\"key\">World Spirit</strong>—the predominant historical tendency—riding a horse. The fact that Bernie stole the show and that the image of him just sitting there instantly became an icon means that the true World Spirit of our time was there in this lone figure, embodying skepticism about the false normalization staged by the ceremony. There is still hope for our cause. People are aware that a more radical change is needed. Lines of separation thus seemed clearly drawn: liberal establishment embodied in Biden versus democratic socialists, whose most popular representative was and is Bernie Sanders.",
+      "japanese": "思い返してみてください。ジョー・バイデンの就任式の間、ただそこに座っているだけで主役の座を奪い、スペクタクルを乱す不協和音の要素として際立っていた孤独な人物がいました——バーニー・サンダースです。その印象は、パーティーで仲間外れにされた人ではなく、そもそもそのショーに参加する気がまったくない人のそれでした。哲学者なら誰でも、ヘーゲルがナポレオンが馬に乗って街（イェナ ※ジジェクはウィーンと言い間違い）を通り過ぎるのを見てどれほど感銘を受けたか知っています。彼にとってそれは、「世界精神」——時代を支配する歴史的潮流——が馬に乗っているのを見るようなものでした。バーニーが主役を奪い、ただ座っているだけの写真が瞬時にアイコンとなった事実は、私たちの時代の真の「世界精神」が、式典が演出した偽りの正常化に対する懐疑を体現するこの孤独な人物の中に宿っていたことを意味します。私たちの大義にはまだ希望があります。人々はより抜本的な変化が必要だと気づいているのです。こうして境界線は明確に引かれたように見えました——バイデンに体現されるリベラル既成勢力 vs. 民主社会主義者たち（その最も人気のある代表が、当時も今もバーニー・サンダースです）。",
+      "annotations": [
+        {
+          "id": "ch3-line-6-note-1",
+          "phrase": "steal the show",
+          "explanation": "「（主役を食って）一番の人気・注目をさらう」。"
+        },
+        {
+          "id": "ch3-line-6-note-2",
+          "phrase": "stick out",
+          "explanation": "「目立つ、浮き出る」。"
+        },
+        {
+          "id": "ch3-line-6-note-3",
+          "phrase": "element of discord",
+          "explanation": "「不協和音の要素」。ヘーゲルが1806年にナポレオンを目撃したのはドイツのイェナ（Jena）ですが、ジジェクは口頭でウィーンと言っています。"
+        }
+      ]
+    }
+  ]
+}

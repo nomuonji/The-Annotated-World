@@ -1,0 +1,135 @@
+{
+  "id": "ch4",
+  "title": "4. マーク・カーニー、ヴァーツラフ・ハヴェル、リベラル秩序の終焉",
+  "timeRange": "00:14:01 – 00:19:20",
+  "summary": "トランプを「彗星」ではなく「溶岩の亀裂」と捉え、カナダのマーク・カーニー首相のダボス会議演説とハヴェルの「八百屋の看板」の寓話を読み解く。",
+  "genres": [
+    "society",
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "world-order",
+      "name": "国際秩序"
+    },
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch4-line-1",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:13:55",
+      "english": "It is therefore crucial to leave behind the relief and almost ecstatic hope caused by Trump's defeat. Ultimately, his defeat <strong class=\"key\">deprives us of a fetish</strong> and compels us to focus on the true struggle that lies ahead. We have no normality to return to; Trump is a symptom of this normality. Trumpian populism didn't hit the earth like a comet. As Joschka Fischer, the German ex-foreign minister, wrote about Trump's victory: Trump's rise is more like a crack in the earth, a flow of lava streaming out. It is the result of the disintegration of the liberal consensus and the inability of the left to offer a viable alternative. The first step in fighting populism is therefore to <strong class=\"key\">cast a critical glance</strong> at the weakness of the liberal project itself. Populism is a symptom of this weakness.",
+      "japanese": "したがって、トランプの敗北によって生じた安堵感や、ほとんど熱狂的とも言える希望を手放すことが極めて重要です。究極的には、彼の敗北は私たちから「フェティッシュ」を奪い取り、目の前に横たわる真の闘争に目を向けさせるのです。私たちに戻るべき「平常」などありません。トランプこそがその「平常」の症状なのです。トランプ流のポピュリズムは、彗星のように地球に衝突したわけではありません。ドイツの元外相ヨシュカ・フィッシャーがトランプの勝利について書いたように、トランプの台頭はむしろ大地の亀裂、そこから噴き出す溶岩の流れのようなものです。それはリベラルな合意の崩壊と、左派が実行可能な代替案を提示できなかったことの結果なのです。ゆえに、ポピュリズムと戦う第一歩は、リベラル・プロジェクト自体の弱さに批判的な眼差しを向けることです。ポピュリズムはその弱さの症状なのです。",
+      "annotations": [
+        {
+          "id": "ch4-line-1-note-1",
+          "phrase": "deprive A of B",
+          "explanation": "「AからBを奪う」。"
+        },
+        {
+          "id": "ch4-line-1-note-2",
+          "phrase": "disintegration",
+          "explanation": "「崩壊、解体」。"
+        },
+        {
+          "id": "ch4-line-1-note-3",
+          "phrase": "viable alternative",
+          "explanation": "「実行可能な代替案」。"
+        },
+        {
+          "id": "ch4-line-1-note-4",
+          "phrase": "cast a critical glance at",
+          "explanation": "「〜に批判的な一瞥（眼差し）を向ける」。"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-2",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:15:10",
+      "english": "What are we to do in such a situation? Many commentators hailed your Prime Minister Mark Carney's speech in Davos, where he referred to Václav Havel's essay from 1978, <em>The Power of the Powerless</em>—the essay in which Havel (now I quote Carney) asked a simple question: \"How did the communist system sustain itself? Havel's answer began with a greengrocer. Every morning, this shopkeeper places a sign in his window: 'Workers of the world, unite!' He doesn't believe in it. No one does. But he places the sign anyway to avoid trouble, to <strong class=\"key\">signal compliance</strong>, to get along. And because every shopkeeper on every street does the same, the system persists not through violence alone, but through the participation of ordinary people in rituals they privately know to be false. Havel called this 'living within a lie.' The system's power comes not from its truth, but from everyone's willingness to perform as if it were true. And its fragility comes from the same source.\" End of quote.",
+      "japanese": "このような状況で、私たちは何をすべきでしょうか？多くの論者が、あなた方の首相であるマーク・カーニーのダボス会議での演説を称賛しました。その中で彼は、1978年のヴァーツラフ・ハヴェルのエッセイ『力なき者たちの力』に言及しました。そのエッセイの中でハヴェルは（ここからはカーニーの引用ですが）単純な問いを立てました。「共産主義体制はいかにして自らを維持したのか？ハヴェルの答えは一人の八百屋から始まる。毎朝、この店主は店の窓に『万国の労働者よ、団結せよ！』という看板を掲げる。彼はそれを信じてはいない。誰も信じていない。それでもトラブルを避け、服従のシグナルを送り、うまくやっていくために看板を掲げる。そして、あらゆる通りのあらゆる店主が同じことをするため、体制は暴力のみによってではなく、人々が内心では嘘だと知っている儀式に普通の人々が参加することによって存続する。ハヴェルはこれを『嘘の中で生きること』と呼んだ。体制の力は、その真実性から来るのではなく、誰もが真実であるかのように振る舞う意欲から来る。そしてその脆さも、同じ源泉から来るのだ」——引用終わり。",
+      "annotations": [
+        {
+          "id": "ch4-line-2-note-1",
+          "phrase": "hail",
+          "explanation": "「〜を絶賛する、歓迎する」。"
+        },
+        {
+          "id": "ch4-line-2-note-2",
+          "phrase": "greengrocer",
+          "explanation": "「八百屋（英）」（字幕では `green grosser`）。"
+        },
+        {
+          "id": "ch4-line-2-note-3",
+          "phrase": "signal compliance",
+          "explanation": "「服従・コンプライアンスの合図を送る」。"
+        },
+        {
+          "id": "ch4-line-2-note-4",
+          "phrase": "fragility",
+          "explanation": "「脆さ、脆弱性」。"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-3",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:16:38",
+      "english": "But I think at this point Carney makes a weird comparison: in the same way as in Havel's story the greengrocer decides to take the sign down, we should decide to take our sign down—that is to say, to openly <strong class=\"key\">renounce</strong> the existing world order. But I think there is nonetheless a big difference between Havel's story and today's situation. Our grocery sign was not taken down by some dissident who opposed the system, but by the big powers themselves—especially the United States—which no longer find useful the system they imposed on the world decades ago. Free market competition and other international rules were okay for them as long as they guaranteed their privilege. Now they are renouncing these rules because they've become aware that in a new situation, these rules can undermine their <strong class=\"key\">hegemony</strong>.",
+      "japanese": "しかし、この点でカーニーは奇妙な比較をしていると思います。ハヴェルの物語で八百屋が看板を下ろすと決意したのと同じように、私たちも看板を下ろすと決意すべきだ——すなわち、既存の世界秩序を公然と放棄すべきだ、というわけです。しかしそれでも、ハヴェルの物語と今日の状況には大きな違いがあると私は考えます。私たちの「八百屋の看板」を下ろしたのは、体制に反対する反体制派（ディシデント）などではなく、大国自身——とりわけアメリカ合衆国——なのです。アメリカは、数十年前に世界に押し付けたシステムをもはや役に立たないと感じています。自由市場競争やその他の国際ルールは、自国の特権を保証している間は都合が良かった。今やアメリカは、新たな状況下ではそれらのルールが自国の覇権（ヘゲモニー）を損ないかねないと気づいたため、自らルールを放棄しているのです。",
+      "annotations": [
+        {
+          "id": "ch4-line-3-note-1",
+          "phrase": "renounce",
+          "explanation": "「（主張・権利・秩序などを）公式に放棄する、捨てる」。"
+        },
+        {
+          "id": "ch4-line-3-note-2",
+          "phrase": "dissident",
+          "explanation": "「反体制派、異議申し立て者」。"
+        },
+        {
+          "id": "ch4-line-3-note-3",
+          "phrase": "hegemony",
+          "explanation": "「覇権、主導権」。"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-4",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:17:58",
+      "english": "So what will follow the liberal order? Where are we today? All we see now are just <strong class=\"key\">morbid phenomena</strong>: chaotic economic war, new forms of fascism or <strong class=\"key\">techno-feudalism</strong>, returns to colonial grabbing of foreign lands, violence which reaches the level of genocide. Even more radically, the normal process of our history runs towards different forms of a final global catastrophe: a self-destruction through ecological collapse, uncontrolled reign of artificial intelligence, or global nuclear war. These endpoints of history are the true morbid phenomena. And we should never forget that to properly cope with these phenomena, we have to draw new, stronger lines of distinction. It is a new space of struggle.",
+      "japanese": "では、リベラル秩序の次には何が来るのでしょうか？私たちは今日どこにいるのでしょうか？今目にするのは「病的な諸現象（morbid phenomena）」ばかりです。無秩序な経済戦争、新たな形態のファシズムやテクノ封建制（techno-feudalism）、外国の領土を奪う植民地主義への回帰、ジェノサイドの水準に達する暴力。さらに根本的には、私たちの歴史の通常のプロセスそのものが、さまざまな形の最終的な地球規模の大惨事へと突き進んでいます——生態系の崩壊、制御不能な人工知能（AI）の支配、あるいは世界核戦争による自己破壊です。こうした歴史の終着点こそが、真の「病的な諸現象」なのです。そしてこれらの現象に適切に対処するためには、より明確で強い境界線を新たに引かなければならないことを決して忘れてはなりません。それは新たな闘争の空間なのです。",
+      "annotations": [
+        {
+          "id": "ch4-line-4-note-1",
+          "phrase": "morbid phenomena",
+          "explanation": "アントニオ・グラムシの有名な一節「古いものが死にかけ、新しいものがまだ生まれないとき、さまざまな病的な現象（morbid phenomena / symptoms）が現れる」に由来。"
+        },
+        {
+          "id": "ch4-line-4-note-2",
+          "phrase": "techno-feudalism",
+          "explanation": "ヤニス・バルファキスらが提唱する「テクノ封建制」（巨大テック企業がプラットフォームの地代を独占する体制。字幕では `technofodalism`）。"
+        }
+      ]
+    }
+  ]
+}

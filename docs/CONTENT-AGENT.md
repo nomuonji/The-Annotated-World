@@ -4,9 +4,9 @@
 The Annotated World は、知的に面白い原典を英語と日本語の対訳・注釈で読み、動画・人物・テーマ・語彙から別の原典へ回遊する独立したアーカイブ。English Notes や試験対策アプリの教材量産ではない。原典の面白さを第一に、学習上の価値と発見性を後から接続する。制作エージェントは原典・教材・メタデータを担当し、ルーター・CSS・JS・保存機能・公開設定は担当外。
 
 ## 0. 着手前（必ず実行）
-- `AGENTS.md` と本書、`src/content.config.ts` を読む。Node 22.12+、`npm install`。
+- `AGENTS.md` と本書、`src/lib/document-source.mjs` と `src/content.config.ts` を読む。Node 22.12+、`npm install`。
 - `npm run content:inspect` で全資料・既存テーマID・人物ID・概念IDを取得する。公開済みサイトの機械用索引は `/catalog.json`。生成物を直接編集しない。
-- 初回教材 `src/content/documents/slavoj-zizek-signs-from-the-future.html` を構造と紙面の参考にする。本文の引用・許諾状況は別の原典へ踏襲しない。
+- 初回教材 `src/content/documents/slavoj-zizek-signs-from-the-future/` の記事情報・章JSONを参考にする。本文の引用・許諾状況は別の原典へ踏襲しない。
 - 既存YouTube ID、原典URL、同じ作品の別表記・別言語を点検する。同一原典は原則として既存資料の改善を優先。
 - 原典を実際に確認し、掲載可能な権利・ライセンスの範囲を確認する。原典URL・話者・公開日・実収録時間・原文の入手根拠・収録範囲を記録する。視聴・取得可能であることだけでは再掲載の許諾ではない。未確認の場合は公開リポジトリに全文を入れない（初回提供資料のみ既存例外）。エージェントは許諾の有無を捏造しない。
 
@@ -30,55 +30,70 @@ The Annotated World は、知的に面白い原典を英語と日本語の対訳
 | technology | AI・科学・未来社会 |
 | internet | 海外ネット文化・ミーム |
 
-## 2. ファイル契約
+## 2. ファイル契約 — 章ごとの構造化JSON（2026-11-21確定）
+
+公開記事の正本は単一の巨大HTMLではなく、**記事情報1ファイル＋章ごとに1ファイル**。HTMLはサイトの読み込み時に自動生成する。
+
 ```text
 src/content/documents/
-  <slug>.html             必須。原文・和訳・注釈・出典
-  <slug>.meta.json        新規資料は必須。分類・来歴
-  <slug>.annotations.json 旧形式の保存データのみ。新規作成禁止、Readerでは使用しない
-src/data/concepts.json    必要な場合だけ既存IDを再利用・新規追加
+  <slug>/
+    document.json           記事の基本情報、出典、章の順序
+    chapters/
+      ch1.json              章の内容・発話・英文・和訳・注釈
+      ch2.json
+      ...
+src/data/concepts.json      サイト共通の概念・人物・作品索引
 ```
-slug は ASCII 小文字・数字・ハイフン。変更すると既存リンクが壊れるので固定する。同じ教材内では章アンカーも固定。発話アンカーは `<章id>-line-<章内の1始まりの番号>` をサイトが生成する。公開済み教材の発話挿入・並び替えは、アンカーの意味が変わるため別途移行判断を要する。テンプレートは `docs/templates/` の3点。プレースホルダーを削除し、実在の内容に置換するまで content 配下へコピーしない。
 
-### HTML
-- 完全なHTML文書に `main.page` を1つ。共通デザインを適用するので本文に独自CSS、JS、iframe、インラインイベント、埋め込み外部コードを入れない。許可される要素・属性は loader に従う。
-- `.hero` 内：`h1`（原題、必要なら " — " の後に教材説明）、`.hero-meta`（確認済み公開日・収録時間等）、`.deck`（どんな議論に出会えるか）、`.meta-strip` / `.meta-item` に dt/dd（話者、収録時間、元動画等）。
-- YouTubeの場合、dt を正確に「元動画」とし、dd に公式YouTube URL の a を置く。プレイヤーはサイト側が生成する。他の原典は来歴 sourceUrl と .sources で示す。
-- `.toc-list` のリンクを実在する章 id へ向ける。各 `section.sec` に固有id、`.sec-header h2`、`.sec-sub`（内容の要約）、動画なら `.sec-time`（開始時刻）を入れる。
-- 各 `.utterance` に `.speaker-line`、`.en`、`.ja`、`.note` を各1個。動画には発話開始時刻 HH:MM:SS を必須とし、実際の音声に合わせる。時刻は全体で非減少。話者変更を捏造しない。非動画なら時刻を作らない。
-- まとまった意味単位で発話を切る。長い段落は自然な区切りを使う。逐語と整形・補足・省略を明確に区別し、聞き取れない箇所も明示する。AIで続きを創作しない。自然な日本語訳を英文の直下に置く。否定・条件・比較・引用・皮肉・固有名詞を落とさない。
-- `strong.key` は英文内に実在する重要表現だけに使う。注釈の `strong` は対応する英語表現を正確に記載し、意味・用法・必要な背景を具体的に説明。原文にない見出し語や活用形を無理に索引へ追加しない。長い引用全体を何でも強調しない。
-- `footer.sources` に出典・必要な権利表記・範囲を明示。外部リンクはHTTPS、target=_blank の場合 rel=noopener noreferrer。原典と一致する記録のみ。
+- 新規記事は `docs/templates/document.json` と `docs/templates/chapter.json` をコピーして作る。全ての REPLACE プレースホルダーを実際に確認した情報へ置換する。
+- `document.json` の `chapterOrder` は、公開表示する章IDを記載順に並べる配列。同名の章JSONが一つずつ存在することを自動検証。章を挿入するには章JSON追加＋chapterOrder編集だけでよい。
+- **編集ステータス（draft/review/published/retired等）は作らない。** 公開物はGitHubリポジトリ内の現在の記事ディレクトリから生成する。確認途中の原典は公開データとは別の調査メモで管理し、権利不明の新しい全文を先に公開しない。
+- 既存記事・章の slug / id は既存URLに使われているため固定。発話の `id` は表示順とは独立した**固定ID**。最初に一度だけ採番し、後の文章修正や挿入・並び替えで変更しない。原典にまだ無い新規発話には未使用のIDを付与し、既存行を詰め直さない。現在の発話IDは `ch1-line-1` のような形式。
+- 概念索引は `src/data/concepts.json` で維持。別の教材でもID・名前を再利用し、根拠のないテーマ分類や登場していない人物を登録しない。サイトの `/catalog.json` はビルド成果物で、直接編集しない。
 
-### メタデータ
-`<slug>.meta.json` は `src/content.config.ts` のスキーマが正本。
-- genre：上表から主分野を1つ。format：実際の形式。difficulty：任意の推定B1/B2/C1/C2、根拠がなければ省く。englishFeatures：実際の特徴。series：実在する番組等、未確認なら省く。
-- people：話者・著者（言及人物とは区別）。{id,name,ja}。topics：資料全体のテーマ。chapterMetadata：HTMLの章idをキーに {genres,topics:[{id,name}]}。章ごとの実内容を分類し、原典が扱う具体的なテーマだけを使う。既存の同義IDがあれば再利用、既存ラベルを勝手に変更しない。
-- provenance：coverage (full/excerpt/unverified)、transcript (verified/unverified/not-applicable)、translation (verified/unverified)、rights (original/licensed/public-domain/unverified)、basis (根拠・確認資料のURLや該当範囲など)、sourceUrl (HTTPS)。verified は実際にレビューした項目だけ。full は範囲確認済みのみ。権利不明の新規全文は提出しない。内容の品質は機械検証だけで保証されない。
-- `src/data/concepts.json`：{id,name,ja,kind,aliases,topics}。kind は 概念/人物/書籍/映画/ドラマ。aliases は実際の原文表記。短すぎる曖昧な別名・無根拠な同定は避ける。索引は原文とのマッチのみで生成される。詳細事典や人物の肩書を捏造しない。
+### document.json — 記事単位
 
-### 確定仕様：文中注釈フォーマット v1（全新規教材に適用）
+必須: `title`、`heroMeta`（確認した日付と原典の状況）、`description`、`facts`（話者・収録時間・元動画リンク）、`toc`（title / description）、`sources`（出典リスト）、`chapterOrder`、`genre`、`format`、`people`、`topics`、`provenance`。
 
-- 唯一の注釈表示は **英文の該当語句の直後に常時表示する日本語の文中注釈**。英文と区別した色・背景・小さめの文字で「〔説明〕」を挿入する。注釈番号、ポップアップ、タップ開閉、末尾の「ポイント」欄、別建ての「構文を読み解く」「英文と和訳を照合」「聞き取りのヒント」は表示しない。
-- **原典の英文・英語の強調・和訳は維持**。編集上の説明は英文の間に自動挿入するが、その内容を本人の発言や原典と混同しない。日本語のlang属性を使い、原文と説明を区別する。動画固定中も文字を隠さない。
-- 制作時は「原文（.en）→和訳（.ja）→注釈データ（.note）」の構造にするが、**.noteは表示専用の別欄ではなく、文中注釈の入力データ**。各注釈は原文に実際に存在する **完全一致の英語句** を strong 要素で示し、その直後に全角コロン「：」と説明を書く。1発話に何件でも置ける。表示時には全件を英文内に移し、元の.noteは二重表示しない。注釈見出し・件数ラベルを使わない。
-- 原文と一致しない見出し、活用形の言い換え、A/B の構文テンプレート、説明だけの無見出し注釈は **新規教材で禁止**。背景・文法・語彙の説明はいずれも実際に出てくる語句に紐付ける。過去の提供原本は改変しないため、マッチできない旧注釈だけ英文末尾に同じ注釈スタイルで表示する。
-- 既存の annotations.json 補助データは旧試作の互換データとして保管してよいが、Readerには一切表示しない。新規作成は禁止。音声で実際に確認していない発音上の推測を注釈として記載しない。
+- 原典URL・話者・作品・年次・収録範囲は事実を確認する。原典は `provenance.sourceUrl` と `sources.items[].url` へ記録し、元動画リンクは `facts` にも含める。YouTube IDの不一致はエラー。
+- `provenance`: coverage (full/excerpt/unverified)、transcript (verified/unverified/not-applicable)、translation (verified/unverified)、rights (original/licensed/public-domain/unverified)、basis（根拠）、sourceUrl（HTTPS）。この値は**出典確認状況の説明**であり、編集ステータスではない。根拠なしでverifiedとしない。
+- genreは philosophy / literature / film-culture / society / technology / internet から選ぶ。difficulty (B1/B2/C1/C2)、englishFeatures、series は分かる場合のみ設定する。実在しない関連タグやシリーズは作らない。
+- 英語原文と日本語訳は記事基本情報に混ぜない。本文は必ず各章JSONへ。
 
-**新規教材の入力例：**
+### chapters/chN.json — 章・発話単位
 
-~~~html
-<p class="en">I want to <strong class="key">challenge the assumption</strong> behind this argument.</p>
-<p class="ja">私はこの議論の背後にある前提に異議を唱えたい。</p>
-<p class="note"><strong>challenge the assumption</strong>：前提そのものを疑い、異議を唱える表現。</p>
-~~~
+章の必須項目は `id`、`title`、`timeRange`、`summary`、`genres`、`topics`、`utterances`。
+各発話は次の独立項目で管理する。
 
-画面上は challenge the assumption〔前提そのものを疑い、異議を唱える表現。〕 と続けて読み、下部に別の「ポイント」欄を作らない。
+```json
+{
+  "id": "ch1-line-1",
+  "speaker": {"name": "Žižek", "className": "speaker-zizek"},
+  "time": "00:00:21",
+  "english": "I want to <strong class=\"key\">challenge the assumption</strong> behind this argument.",
+  "japanese": "私はこの議論の背後にある前提に異議を唱えたい。",
+  "annotations": [
+    {
+      "id": "ch1-line-1-note-1",
+      "phrase": "challenge the assumption",
+      "explanation": "前提そのものを疑い、異議を唱える表現。"
+    }
+  ]
+}
+```
 
-- 通常画面の元動画操作は残すが、**スマホで動画を固定するときの外付け操作は再生／一時停止・固定解除のみ**。追加の操作パネルで英文の可読領域を圧迫しない。
-- 注釈は初期設定でON。読者は記事のツールバーでOFFにもできるが、原文・和訳を削除したり本文を書き換えたりしない。設定は記事間で保持する。ダークモードは全ページ共通ヘッダーで切り替えるサイト設定とし、記事内に二重のテーマ操作を作らない。
-- 通常の全文閲覧には章末の前へ／次へ／関連章ボタンを置かない。章単位モード（`?chapter=chN`）では指定した1章のみ本文表示し、章末から同資料の前後の章と、同じテーマ・人物など根拠のある別資料の章へ遷移できる。古い`#chN`は全文閲覧のアンカーとして保存し、共有リンクを破壊しない。
-- 新規HTMLは docs/templates/document.html を基に作成する。npm run content:check が、新規教材の不正な注釈ラベル・存在しない引用句・旧番号・補助注釈ファイルを拒否する。変更時は verify:archive と verify:reader で全発話の注釈一形式化を確認する。
+- `english`・`japanese` には必要な最小限の安全なインラインHTML（strong/em/br等）を使える。ページ全体のHTML・CSS・JavaScript・iframe・インラインイベント・任意の属性は入れない。元の英語、強調、訳、発話順を維持する。
+- `speaker.name` は実際の発言者を、`time` は原動画で確認した時刻を記録する。YouTube教材では HH:MM:SS が必須で、発話時刻は単調非減少。話者変更や収録範囲を捏造しない。新規の非動画資料でも根拠のない時刻を創作しない（必要に応じてスキーマを拡張する）。
+- `annotations` は専用の配列で1件ずつ管理し、`phrase` は英文に**完全一致する実際の語句**、`explanation` は文法・用語・背景を具体的に説明する日本語。文中の該当表現の直後に `〔説明〕` として表示。注釈番号・ポップアップ・別建ての「ポイント」「構文」「聞き取りのヒント」を作らない。
+- `annotations[].id` も固定。注釈の位置が変わってもIDを書き換えない。初回移行資料だけは過去の原典注釈に文章全体のパターン説明や無見出し注釈が混在したため、既存ラベルを維持する互換例外。**新規記事には適用しない。**
+- 注釈・英文・日本語訳をまとめた無構造なHTMLに戻さない。表示側で互換の `.note` を組み立て、原文近くに挿入した注釈以外の追加欄は隠す。
+- 章だけを読む `?chapter=chN` と全文中のアンカー `#chN`、語彙索引からの `#chN-line-X` は維持する。
+
+### 入力チェック・移行上の注意
+
+- `src/lib/document-source.mjs` が読み込み・基本バリデーション・HTML生成を共通担当し、`src/content.config.ts` がAstro用メタデータを生成する。新しい正本を追加するとサイト全体の資料・章・人物・テーマ・語彙索引が自動更新される。
+- 以前の `<slug>.html`、`<slug>.meta.json`、`<slug>.annotations.json` は**公開コンテンツから廃止**。並存・二重編集をしない。最初の記事の元HTMLはGit履歴に残り、移行時に61発話・146注釈と11章の内容を照合している。移行後の品質ゲートは専用の内容指紋でも確認する。
+- 通常の全文表示には章末ボタンを置かない。章単位モードでのみ次・前・関連章に進む。注釈ON/OFFは読書ツールバーで、ダークモードはサイト全体の共通ヘッダーで管理し、どちらもユーザー設定を保持する。
 
 ## 3. 自動で生える機能（エージェントは手動作成不要）
 資料URL、ジャンル・人物・テーマページ、章検索・時間帯・形式・難易度フィルタ、YouTube埋め込み・時刻連動、語彙用例ページ、知識索引、関連章/資料リンク、カタログ、スマホ対応・読書モード。手動生成したページを大量追加しない。ユーザーの読書履歴・保存・アカウント・外部APIは追加しない。
