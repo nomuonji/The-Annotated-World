@@ -33,7 +33,8 @@
           "id": "ch7-line-1-note-1",
           "phrase": "lose one's thread",
           "explanation": "「話の筋を見失う、論点が飛ぶ」。",
-          "kind": "language"
+          "kind": "language",
+          "anchor": "didn't lose my thread"
         },
         {
           "id": "ch7-line-1-note-2",
@@ -141,7 +142,8 @@
           "id": "ch7-line-5-note-1",
           "phrase": "plead to",
           "explanation": "「〜を訴える、嘆願する」。",
-          "kind": "language"
+          "kind": "language",
+          "anchor": "plead here"
         },
         {
           "id": "ch7-line-5-note-2",

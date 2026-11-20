@@ -133,7 +133,8 @@
           "id": "ch5-line-5-note-1",
           "phrase": "",
           "explanation": "司会者とジジェクの軽妙な掛け合い。ジジェクは一度話し始めると止まらないため、司会者がツッコミを入れています。",
-          "kind": "context"
+          "kind": "context",
+          "anchor": "very friendly conflict"
         }
       ]
     },
@@ -151,7 +152,8 @@
           "id": "ch5-line-6-note-1",
           "phrase": "take refuge in",
           "explanation": "「〜に逃げ場・避難所を求める」（字幕では `take refugee in a ancient vanta` ＝ ancient Vedanta / Bhagavad Gita の聞き取り誤り）。",
-          "kind": "language"
+          "kind": "language",
+          "anchor": "took refuge in the ancient Bhagavad Gita"
         },
         {
           "id": "ch5-line-6-note-2",
@@ -205,7 +207,8 @@
           "id": "ch5-line-8-note-1",
           "phrase": "Ratzinger & Habermas",
           "explanation": "2004年に当時のヨーゼフ・ラッツィンガー枢機卿（後の教皇ベネディクト16世）と哲学者ユルゲン・ハーバーマスが行った有名な対談（『世俗化時代の理性』）。字幕の `Gratzinger Paparazzo` や `Kabmas` は固有名詞の誤認識です。",
-          "kind": "context"
+          "kind": "context",
+          "anchor": "Ratzinger and Habermas"
         }
       ]
     }

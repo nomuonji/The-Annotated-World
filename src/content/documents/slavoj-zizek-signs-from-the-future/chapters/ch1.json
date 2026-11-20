@@ -123,7 +123,8 @@
           "id": "ch1-line-4-note-2",
           "phrase": "not only A, (but) B",
           "explanation": "「AだけでなくBも」。倒置が起きている `Now, he would not only...` は口語的な語順です。",
-          "kind": "language"
+          "kind": "language",
+          "anchor": "not only lose voters"
         }
       ]
     }
