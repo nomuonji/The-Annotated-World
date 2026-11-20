@@ -17,14 +17,14 @@ let bytes,proof,captions;
 try{
   bytes=await readFile(captionPath);
   proof=JSON.parse(await readFile(evidencePath,'utf8'));
-  captions=JSON.parse(bytes.toString('utf8'));
+  captions=proof?.format==='json3'?JSON.parse(bytes.toString('utf8')):null;
 }catch(err){fail('Could not read and parse JSON3 or evidence: '+err.message);}
 if(proof?.provider!=='youtube'||proof?.transport!=='youtube-direct')fail('Only direct YouTube player caption exports are accepted');
 if(!isId(proof.videoId)||!isSha(proof.sha256))fail('Missing video ID or SHA-256 proof');
 if(!['youtube-auto-captions','youtube-captions'].includes(proof.method))fail('Unexpected caption method');
 if(!/^en(?:-[A-Za-z0-9]+)*$/.test(proof.language||''))fail('English source track required');
 if(proof.tool!=='youtube-original-captions.user.js')fail('Expected original browser exporter');
-if(proof.format!=='json3')fail('This validator expects unmodified YouTube JSON3 bytes');
+if(!['json3','vtt'].includes(proof.format))fail('Expected YouTube JSON3 or WebVTT');
 if(proof.fileName!==basename(captionPath))fail('Caption filename differs from proof');
 if(proof.bytes!==bytes.length)fail('Caption size differs from proof');
 const sha=createHash('sha256').update(bytes).digest('hex');
@@ -32,13 +32,31 @@ if(sha!==proof.sha256)fail('Caption contents differ from captured SHA-256');
 if(typeof proof.capturedAt!=='string'||!Number.isFinite(Date.parse(proof.capturedAt))||
  !/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d{3}Z$/.test(proof.capturedAt))fail('Missing actual UTC capture time');
 if(proof.sourceUrl!== 'https://www.youtube.com/watch?v='+proof.videoId)fail('Original YouTube video ID mismatch');
-if(!Array.isArray(captions.events))fail('Not a YouTube JSON3 events payload');
 const segments=[];
-for(const e of captions.events){
- if(!e||!Number.isSafeInteger(e.tStartMs)||e.tStartMs<0||!Array.isArray(e.segs))continue;
- const text=e.segs.map(s=>typeof s.utf8==='string'?s.utf8:'').join('').trim();
- if(!text||!/[A-Za-z]/.test(text))continue;
- segments.push({startMs:e.tStartMs,durationMs:Number.isFinite(e.dDurationMs)?e.dDurationMs:0});
+if(proof.format==='json3'){
+  if(!Array.isArray(captions?.events))fail('Not a YouTube JSON3 events payload');
+  for(const e of captions.events){
+    if(!e||!Number.isSafeInteger(e.tStartMs)||e.tStartMs<0||!Array.isArray(e.segs))continue;
+    const text=e.segs.map(s=>typeof s.utf8==='string'?s.utf8:'').join('').trim();
+    if(!text)continue;
+    segments.push({startMs:e.tStartMs,durationMs:Number.isFinite(e.dDurationMs)?e.dDurationMs:0});
+  }
+}else{
+  const text=bytes.toString('utf8');
+  if(!text.startsWith('WEBVTT'))fail('Not a WebVTT caption file');
+  const toMs=(timestamp)=>{
+    const values=timestamp.split(':').map(Number);
+    return values.length===3
+      ? Math.round((values[0]*3600+values[1]*60+values[2])*1000)
+      : Math.round((values[0]*60+values[1])*1000);
+  };
+  const time='((?:\\d{2}:)?\\d{2}:\\d{2}\\.\\d{3})';
+  const regexp=new RegExp('^\\\\s*'+time+'\\\\s+-->\\\\s+'+time,'gm);
+  for(const m of text.matchAll(regexp)){
+    const startMs=toMs(m[1]),endMs=toMs(m[2]);
+    if(Number.isFinite(startMs)&&Number.isFinite(endMs)&&endMs>=startMs)
+      segments.push({startMs,durationMs:endMs-startMs});
+  }
 }
 if(segments.length<10)fail('Too few timed English caption events');
 let last=-1;
