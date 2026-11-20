@@ -18,6 +18,22 @@ try{
   await page.goto(base+path);await page.waitForFunction(()=>!document.getElementById('play-pause').disabled);
   const first=page.locator('.utterance').first();const second=page.locator('.utterance').nth(1);
   assert.equal(await page.locator('.utterance').count(),61);
+  // The first utterance anchors multiple real editorial notes without altering the English text.
+  const originalEnglish='Host: How are we doing here? Good? Still alive? Still lively?';
+  assert.ok((await first.locator('.en').textContent()).startsWith(originalEnglish));
+  assert.ok(await first.locator('.en .inline-note-ref a').count()>=2,'Source phrases are missing their note references');
+  assert.ok(await first.locator('.note .inline-note-item').count()>=3,'Editorial notes were not separated into scannable items');
+  assert.equal(await first.locator('.en .inline-note-ref a').first().getAttribute('href'),'#ch1-line-1-note-1');
+  if(viewport.width<900){
+   const toggle=first.locator('.annotation-note-toggle');
+   assert.equal(await toggle.isVisible(),true);
+   assert.equal(await first.locator('.inline-note-item').first().isVisible(),false);
+   await first.locator('.en .inline-note-ref a').first().click();
+   assert.equal(await toggle.getAttribute('aria-expanded'),'true');
+   assert.equal(await first.locator('.inline-note-item').first().isVisible(),true);
+   await toggle.click();
+   assert.equal(await first.locator('.inline-note-item').first().isVisible(),false);
+  }
   await page.locator('[data-mode=english]').click();assert.equal(await first.locator('.en').isVisible(),true);assert.equal(await first.locator('.ja').isVisible(),false);
   await first.locator('[data-reveal]').click();assert.equal(await first.locator('.ja').isVisible(),true);assert.equal(await second.locator('.ja').isVisible(),false);
   await page.locator('[data-mode=listen]').click();assert.equal(await first.locator('.en').isVisible(),false);await first.locator('[data-reveal]').click();assert.equal(await first.locator('.en').isVisible(),true);
