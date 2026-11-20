@@ -4,7 +4,7 @@ import {loadStructuredDocuments} from './lib/document-source.mjs';
 import { load } from 'cheerio';
 
 const allowedTags=new Set(['a','br','dd','div','dl','dt','em','footer','h1','h2','header','li','nav','ol','p','section','span','strong','h3','h4','ul','blockquote','code','sup','sub','b','i']);
-const allowedAttrs=new Set(['aria-label','class','href','id','lang','rel','target']);
+const allowedAttrs=new Set(['aria-label','class','href','id','lang','rel','target','data-note-id']);
 const safeHref=(value:string)=>/^#[a-zA-Z0-9_-]+$/.test(value)||(/^https:\/\//i.test(value)&&!/[\s\u0000-\u001f]/.test(value));
 const slug=z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 const genreId=z.enum(['philosophy','literature','film-culture','society','technology','internet']);
