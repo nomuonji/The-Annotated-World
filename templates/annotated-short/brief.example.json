@@ -1,0 +1,123 @@
+{
+  "format": "annotated-quote-alternation/v1",
+  "status": "reference_structure_not_publication_approved",
+  "title": "ジジェク：世界を変えすぎた？",
+  "speaker": {
+    "name": "Slavoj Žižek",
+    "voiceId": "en-US-AndrewNeural",
+    "voiceDisclosure": "本人の肉声ではなく原文の合成朗読",
+    "portrait": "assets/speaker.jpg",
+    "portraitCredit": "画像原作者・年次・ライセンスを制作時に確認"
+  },
+  "editor": {
+    "name": "THE ANNOTATED WORLD",
+    "voiceId": "ja-JP-NanamiNeural",
+    "label": "編者註"
+  },
+  "source": {
+    "url": "https://www.youtube.com/watch?v=j7pEsBbGg5A",
+    "document": "src/content/documents/slavoj-zizek-signs-from-the-future.html",
+    "eventContext": "UBC（ブリティッシュコロンビア大学）の質疑応答、バンクーバー",
+    "originalAudioChecked": false,
+    "rightsReviewed": false
+  },
+  "music": {
+    "path": "assets/music.wav",
+    "credit": "権利を確認したオリジナル楽曲・ライセンスを記入",
+    "rightsReviewed": false
+  },
+  "publication": {
+    "approved": false
+  },
+  "assetCredits": [],
+  "segments": [
+    {
+      "role": "QUOTE",
+      "id": "hook",
+      "isVerbatim": true,
+      "en": "We acted too much, and the consequences were shocking.",
+      "ja": "私たちは行動しすぎた。その結果は衝撃的だった。",
+      "sourceTime": "01:07:25",
+      "audio": "audio/quote-hook.mp3",
+      "asset": "assets/speaker.jpg",
+      "cues": [
+        {
+          "en": "We acted too much, and the consequences were shocking.",
+          "ja": "私たちは行動しすぎた。その結果は衝撃的だった。",
+          "hiEN": "We acted too much",
+          "hiJA": "行動しすぎた"
+        }
+      ]
+    },
+    {
+      "role": "CONTEXT",
+      "id": "source-intro",
+      "ja": "カナダ・バンクーバーの大学での質疑応答。ジジェクが、マルクスの第十一テーゼについて答えています。",
+      "noteTitle": "この発言はどこから？",
+      "evidence": "原典00:00:21で司会者がUBCを紹介／第10章の質問01:07:02",
+      "audio": "audio/context-intro.mp3",
+      "asset": "assets/venue.jpg",
+      "cues": [
+        {
+          "ja": "カナダ・バンクーバーの大学での質疑応答。"
+        },
+        {
+          "ja": "ジジェクが、マルクスの第十一テーゼについて答えています。"
+        }
+      ]
+    },
+    {
+      "role": "QUOTE",
+      "id": "war-quote",
+      "isVerbatim": true,
+      "en": "World War I, why did it explode?",
+      "ja": "第一次世界大戦は、なぜ勃発したのか？",
+      "sourceTime": "01:07:25",
+      "audio": "audio/quote-war.mp3",
+      "asset": "assets/ww1.jpg",
+      "cues": [
+        {
+          "en": "World War I, why did it explode?",
+          "ja": "第一次世界大戦は、なぜ勃発したのか？",
+          "hiEN": "why did it explode",
+          "hiJA": "なぜ勃発した"
+        }
+      ]
+    },
+    {
+      "role": "ANNOTATION",
+      "id": "war-note",
+      "ja": "西欧で段階的な進歩が続いた時代の後に大戦が起きた。ジジェクは、この歴史の反転を哲学の問いにしています。",
+      "noteTitle": "進歩から戦争への逆転",
+      "evidence": "原典第10章01:07:25。歴史背景の独立確認は制作時に必要",
+      "audio": "audio/annotation-war.mp3",
+      "asset": "assets/ww1.jpg",
+      "cues": [
+        {
+          "ja": "西欧で段階的な進歩が続いた時代の後に大戦が起きた。"
+        },
+        {
+          "ja": "ジジェクは、この歴史の反転を哲学の問いにしています。"
+        }
+      ]
+    },
+    {
+      "role": "QUOTE",
+      "id": "conclusion",
+      "isVerbatim": true,
+      "en": "the time has come to interpret it again",
+      "ja": "今こそ再び、それを解釈する時が来た。",
+      "sourceTime": "01:08:51",
+      "audio": "audio/quote-conclusion.mp3",
+      "asset": "assets/speaker.jpg",
+      "cues": [
+        {
+          "en": "the time has come to interpret it again",
+          "ja": "今こそ再び、それを解釈する時が来た。",
+          "hiEN": "interpret it again",
+          "hiJA": "再び、それを解釈する"
+        }
+      ]
+    }
+  ]
+}
