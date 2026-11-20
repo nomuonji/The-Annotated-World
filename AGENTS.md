@@ -23,6 +23,8 @@
 
 - YouTube取得の検証・失敗記録： [直接取得プローブ](docs/research/2026-11-21-youtube-direct-capture-probe.md)。取得手順は `scripts/probe-youtube-direct.py`。GitHub Actionsでの実測はBot確認により取得不可。成功した原文・字幕ファイルが存在するかは結果コードと `CAPTURE_EVIDENCE` で判定し、診断Workflowの緑色表示では判定しない。
 
+- **2026-11-21追補（SaveTube実測）**：第三者**文字起こし**の禁止は維持する。本人が明示したSaveTubeは、YouTube元動画の映像・音声をCDN経由で中継する**メディアプロキシ**としてのみ使用できる。YouTube直結ではない。`kirinuki-generator`の720p取得コードを移して対象動画 `4YSXNotY8QU` を試し、373,095,240バイトのファイルから0・1・30・80分地点の音声復号に成功（[実測記録](docs/research/2026-11-21-savetube-media-probe.md)）。360pはストリームヘッダがあっても途中の音声がなく失敗。**自前ASRによる英語文字起こしと検証は別工程で未完了。** 新規教材では `youtubeCapture.transport='savetube-media-proxy'`、`method='youtube-audio-asr'`、`mediaSha256` と自前の原文ファイルSHA-256を記録した場合のみ許可。第三者が生成した文字起こしを使うことは引き続き厳禁。
+
 ## 派生発信コンテンツ
 思想・知識の解説動画やSNS企画を作る前に [docs/EDITORIAL-POLICY.md](docs/EDITORIAL-POLICY.md) を参照する。制作方針の検討版と試作は公開承認ではない。教材制作と派生発信を分離し、元動画の引用可否と取得・配信規約を個別確認する。
 
