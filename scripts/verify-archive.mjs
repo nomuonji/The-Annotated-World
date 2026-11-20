@@ -35,12 +35,11 @@ for(const {id,document,chapters,bodyHtml} of sources){
   const block=page('#'+u.id);
   const sourceText=source('#'+u.id+' .en').text();
   for(const note of u.annotations){
-   const gloss=block('.en .in-situ-annotation[data-editorial-gloss="'+note.id+'"]');
+   const gloss=block.find('.en .in-situ-annotation[data-editorial-gloss="'+note.id+'"]');
    assert.equal(gloss.length,1,note.id+': missing or duplicate inline annotation');
-   const targets=block('.en .annotation-source').filter((_,el)=>
+   const targets=block.find('.en .annotation-source').filter((_,el)=>
     (page(el).attr('data-note-targets')||'').split(' ').includes(note.id));
    assert.ok(targets.length,note.id+': source English is not highlighted');
-   const expectedText=note.anchor||note.phrase;
    if(note.anchor)assert.ok(sourceText.toLowerCase().includes(note.anchor.toLowerCase()),
     note.id+': explicit source anchor missing from English');
    assert.ok(!gloss.text().includes('語学')&&!gloss.text().includes('背景'),
