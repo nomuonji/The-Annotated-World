@@ -18,38 +18,915 @@
   ],
   "utterances": [
     {
-      "id": "ch4-line-1",
+      "id": "ch4-line-0420",
+      "time": "00:26:36",
+      "english": "let me go here even a step further uh and give another example from Cinema which makes this clear in the Hollywood director who was of course an immigrant from Germany Ernest luit in his film nka there is a wonderful joke mentioned",
+      "japanese": "ここでもう一歩進めて、これを明らかにする映画からの別の例を挙げましょう。もちろんドイツからの移民だったハリウッドの監督、アーネスト・ルビッチの映画『ニノチカ』には、素晴らしい冗談が登場します。",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "00:27:10",
-      "english": "coffee without cream",
-      "japanese": "クリーム抜きのコーヒー。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch4-line-1-note-1",
-          "phrase": "without cream",
-          "explanation": "物理的にはブラックコーヒーでも、何が「欠けている」と見なされるかで意味は異なる。"
+          "index": 419,
+          "start": 1596.48,
+          "end": 1601.32,
+          "text": "let me go here even a step"
+        },
+        {
+          "index": 420,
+          "start": 1601.36,
+          "end": 1608.2,
+          "text": "further uh and give another example from"
+        },
+        {
+          "index": 421,
+          "start": 1605.48,
+          "end": 1611.32,
+          "text": "Cinema which makes this clear"
+        },
+        {
+          "index": 422,
+          "start": 1608.2,
+          "end": 1614.32,
+          "text": "in the Hollywood director who was of"
+        },
+        {
+          "index": 423,
+          "start": 1611.32,
+          "end": 1618.76,
+          "text": "course an immigrant from Germany Ernest"
+        },
+        {
+          "index": 424,
+          "start": 1614.32,
+          "end": 1621.88,
+          "text": "luit in his film nka"
+        },
+        {
+          "index": 425,
+          "start": 1618.76,
+          "end": 1626.28,
+          "text": "there is a wonderful joke mentioned"
         }
       ]
     },
     {
-      "id": "ch4-line-2",
+      "id": "ch4-line-0427",
+      "time": "00:27:01",
+      "english": "there uh the hero of the film visits a a cafeteria and orders coffee but he says coffee without cream please and the waiter answers sorry I cannot give you coffee without cream because we run out of cream but we have milk so I can only",
+      "japanese": "そこで、映画の主人公がカフェテリアを訪れてコーヒーを注文するのですが、彼は「クリーム抜きのコーヒーをください」と言います。するとウェイターが答えます。「申し訳ありません、クリーム抜きのコーヒーはお出しできません。クリームが切れてしまったのです。でもミルクはありますので、ミルク抜きのコーヒーならお出しできます」と。",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "00:30:22",
-      "english": "no we are not women without milk without legal equality we want more",
-      "japanese": "いや、私たちはミルク抜き、つまり法的平等だけを欠く女性なのではない。もっと多くを望む。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch4-line-2-note-1",
-          "phrase": "without legal equality",
-          "explanation": "法的な平等と実際の社会的な権力・機会の差を、欠如の比喩で区別している。"
+          "index": 426,
+          "start": 1621.88,
+          "end": 1630.72,
+          "text": "there uh the hero of the film visits a a"
+        },
+        {
+          "index": 427,
+          "start": 1626.28,
+          "end": 1633.32,
+          "text": "cafeteria and orders coffee but he says"
+        },
+        {
+          "index": 428,
+          "start": 1630.72,
+          "end": 1637.44,
+          "text": "coffee without cream"
+        },
+        {
+          "index": 429,
+          "start": 1633.32,
+          "end": 1640.28,
+          "text": "please and the waiter answers sorry I"
+        },
+        {
+          "index": 430,
+          "start": 1637.44,
+          "end": 1642.72,
+          "text": "cannot give you coffee without cream"
+        },
+        {
+          "index": 431,
+          "start": 1640.28,
+          "end": 1647.08,
+          "text": "because we run out of"
+        },
+        {
+          "index": 432,
+          "start": 1642.72,
+          "end": 1648.76,
+          "text": "cream but we have milk so I can only"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0434",
+      "time": "00:27:27",
+      "english": "give you coffee without milk now uh you see the Paradox we have the same in any case the guest will get we have the a cup of pure black coffee but if you order just plain coffee this can be coffee plain coffee this can be",
+      "japanese": "さて、ご覧の通り、この逆説はどの場合でも同じです。客は結局、純粋なブラックコーヒーの一杯を手にすることになります。しかし、ただ普通のコーヒーを注文すれば、これはコーヒーになり得ます。普通のコーヒー、これはこうなり得ます。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 433,
+          "start": 1647.08,
+          "end": 1650.84,
+          "text": "give you coffee"
+        },
+        {
+          "index": 434,
+          "start": 1648.76,
+          "end": 1655.28,
+          "text": "without"
+        },
+        {
+          "index": 435,
+          "start": 1650.84,
+          "end": 1659.6,
+          "text": "milk now uh you see the Paradox we have"
+        },
+        {
+          "index": 436,
+          "start": 1655.28,
+          "end": 1665.68,
+          "text": "the same in any case the guest will get"
+        },
+        {
+          "index": 437,
+          "start": 1659.6,
+          "end": 1668.64,
+          "text": "we have the a cup of pure black coffee"
+        },
+        {
+          "index": 438,
+          "start": 1665.68,
+          "end": 1672.24,
+          "text": "but if you order just plain coffee this"
+        },
+        {
+          "index": 439,
+          "start": 1668.64,
+          "end": 1674.32,
+          "text": "can be coffee plain coffee this can be"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0441",
+      "time": "00:27:52",
+      "english": "coffee without cream and this can be coffee without milk it's physically the same but in its symbolic impact it's not the same how why not let me give you a political example the first step of feminism is always like my coffee is",
+      "japanese": "クリームなしのコーヒー、そしてこれはミルクなしのコーヒーになり得る、物理的には同じだが、その象徴的なインパクトにおいては同じではない、どうして、なぜそうではないのか、政治的な例を挙げよう、フェミニズムの第一歩はいつもこうだ、私のコーヒーは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 440,
+          "start": 1672.24,
+          "end": 1677.76,
+          "text": "coffee without cream and this can be"
+        },
+        {
+          "index": 441,
+          "start": 1674.32,
+          "end": 1678.96,
+          "text": "coffee without milk it&#39;s physically the"
+        },
+        {
+          "index": 442,
+          "start": 1677.76,
+          "end": 1682.28,
+          "text": "same"
+        },
+        {
+          "index": 443,
+          "start": 1678.96,
+          "end": 1687.24,
+          "text": "but in its symbolic impact it&#39;s not the"
+        },
+        {
+          "index": 444,
+          "start": 1682.28,
+          "end": 1690.56,
+          "text": "same how why not let me give you a"
+        },
+        {
+          "index": 445,
+          "start": 1687.24,
+          "end": 1695.08,
+          "text": "political example the first step of"
+        },
+        {
+          "index": 446,
+          "start": 1690.56,
+          "end": 1698.88,
+          "text": "feminism is always like my coffee is"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0448",
+      "time": "00:28:15",
+      "english": "coffee without milk in the sense of in the traditional Society a woman who is trained to identify with her tradition position in a patriarchal society a woman simply accepts her position it's natural for me to work at",
+      "japanese": "ミルクなしのコーヒー、つまり伝統的な社会において、女性は伝統的な立場に自分を同一化するよう訓練され、家父長制社会における女性は単に自分の立場を受け入れる、私にとって家で働くことは自然であり、夫に従う、などなど、良き妻であること、フェミニズムはあなたがこう言うときに始まる、私はただコーヒーでありたいわけではない、私は自分の立場をミルクなしのコーヒーとして経験している、つまり何かがあるのだ",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 447,
+          "start": 1695.08,
+          "end": 1700.56,
+          "text": "coffee without milk in the sense of in"
+        },
+        {
+          "index": 448,
+          "start": 1698.88,
+          "end": 1703.92,
+          "text": "the traditional"
+        },
+        {
+          "index": 449,
+          "start": 1700.56,
+          "end": 1707.68,
+          "text": "Society a woman who"
+        },
+        {
+          "index": 450,
+          "start": 1703.92,
+          "end": 1710.28,
+          "text": "is trained to identify with her"
+        },
+        {
+          "index": 451,
+          "start": 1707.68,
+          "end": 1713.8,
+          "text": "tradition position in a patriarchal"
+        },
+        {
+          "index": 452,
+          "start": 1710.28,
+          "end": 1717.16,
+          "text": "society a woman simply accepts her"
+        },
+        {
+          "index": 453,
+          "start": 1713.8,
+          "end": 1721.4,
+          "text": "position it&#39;s natural for me to work at"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0455",
+      "time": "00:28:37",
+      "english": "home to obey husband and so on and so on to be a good wife feminism begins when you say I don't want just to be coffee I experience my position as coffee without milk that is to say there is something which",
+      "japanese": "家で働くこと、夫に従うこと、などなど、良き妻であること、フェミニズムはあなたがこう言うときに始まる、私はただコーヒーでありたいわけではない、私は自分の立場をミルクなしのコーヒーとして経験している、つまり何かがあるのだ",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 454,
+          "start": 1717.16,
+          "end": 1724.04,
+          "text": "home to obey husband and so on and so on"
+        },
+        {
+          "index": 455,
+          "start": 1721.4,
+          "end": 1730.36,
+          "text": "to be a good"
+        },
+        {
+          "index": 456,
+          "start": 1724.04,
+          "end": 1732.84,
+          "text": "wife feminism begins when you say I"
+        },
+        {
+          "index": 457,
+          "start": 1730.36,
+          "end": 1735.84,
+          "text": "don&#39;t want just to be coffee I"
+        },
+        {
+          "index": 458,
+          "start": 1732.84,
+          "end": 1738.64,
+          "text": "experience my position as coffee without"
+        },
+        {
+          "index": 459,
+          "start": 1735.84,
+          "end": 1741.32,
+          "text": "milk"
+        },
+        {
+          "index": 460,
+          "start": 1738.64,
+          "end": 1744.4,
+          "text": "that is to say there is something which"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0462",
+      "time": "00:29:01",
+      "english": "I should have would like to have but it's not there and the difference between multiple versions of feminism is how do you define this Dimension that is missing for predominant American me to feminism",
+      "japanese": "私は持つべきだった、持ちたかったのだが、それはそこにない、そしてフェミニズムの複数のバージョン間の違いは、支配的なアメリカの私にとってのフェミニズムに欠けているこの次元をどう定義するかということだ",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 461,
+          "start": 1741.32,
+          "end": 1747.28,
+          "text": "I should have would like to have but"
+        },
+        {
+          "index": 462,
+          "start": 1744.4,
+          "end": 1751.32,
+          "text": "it&#39;s not"
+        },
+        {
+          "index": 463,
+          "start": 1747.28,
+          "end": 1754.64,
+          "text": "there and the difference between"
+        },
+        {
+          "index": 464,
+          "start": 1751.32,
+          "end": 1758.92,
+          "text": "multiple versions of feminism is how do"
+        },
+        {
+          "index": 465,
+          "start": 1754.64,
+          "end": 1764.16,
+          "text": "you define this Dimension that is"
+        },
+        {
+          "index": 466,
+          "start": 1758.92,
+          "end": 1766.2,
+          "text": "missing for predominant American me to"
+        },
+        {
+          "index": 467,
+          "start": 1764.16,
+          "end": 1769.92,
+          "text": "feminism"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0469",
+      "time": "00:29:26",
+      "english": "unfortunately what the woman is missing is identified in typically upper middle class term more manager positions uh uh less violations of women's rights and so on in Korea I noticed what women were demanding was much more deeply located in everyday life something IM",
+      "japanese": "残念ながら女性に欠けているものは、典型的にはアッパーミドルクラスの言葉で、より管理職の地位、ええと、女性の権利の侵害がより少ないことなどとして特定される。韓国では、女性たちが要求していたのは日常生活にはるかに深く位置づけられたものだったと気づいた、何か私には",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 468,
+          "start": 1766.2,
+          "end": 1773.88,
+          "text": "unfortunately what the woman is missing"
+        },
+        {
+          "index": 469,
+          "start": 1769.92,
+          "end": 1778.56,
+          "text": "is identified in typically upper middle"
+        },
+        {
+          "index": 470,
+          "start": 1773.88,
+          "end": 1781.48,
+          "text": "class term more manager positions uh uh"
+        },
+        {
+          "index": 471,
+          "start": 1778.56,
+          "end": 1785.64,
+          "text": "less violations of women&#39;s rights and so"
+        },
+        {
+          "index": 472,
+          "start": 1781.48,
+          "end": 1790.2,
+          "text": "on in Korea I noticed what women were"
+        },
+        {
+          "index": 473,
+          "start": 1785.64,
+          "end": 1793.04,
+          "text": "demanding was much more deeply located"
+        },
+        {
+          "index": 474,
+          "start": 1790.2,
+          "end": 1798.52,
+          "text": "in everyday life something IM"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0476",
+      "time": "00:29:53",
+      "english": "unimaginable in United States happened women protested for multiple forms of being abused by men there were big demonstrations about against this horrible fashion of men uh displaying on the web naked uh photos of their girlfriends and so on and so",
+      "japanese": "アメリカ合衆国では想像もつかないことが起こった。女性たちは男性による複数の形態の虐待に対して抗議した。男性がウェブ上でガールフレンドの裸の写真などを公開するというこの恐ろしい流行に反対する大規模なデモがあった、などなど",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 475,
+          "start": 1793.04,
+          "end": 1798.52,
+          "text": "unimaginable in United States happened"
+        },
+        {
+          "index": 476,
+          "start": 1799.4,
+          "end": 1805.2,
+          "text": "women protested for multiple forms of"
+        },
+        {
+          "index": 477,
+          "start": 1802.52,
+          "end": 1807.76,
+          "text": "being abused by men there were big"
+        },
+        {
+          "index": 478,
+          "start": 1805.2,
+          "end": 1811.6,
+          "text": "demonstrations about against this"
+        },
+        {
+          "index": 479,
+          "start": 1807.76,
+          "end": 1814.16,
+          "text": "horrible fashion of men uh displaying on"
+        },
+        {
+          "index": 480,
+          "start": 1811.6,
+          "end": 1817.28,
+          "text": "the web naked uh photos of their"
+        },
+        {
+          "index": 481,
+          "start": 1814.16,
+          "end": 1822.52,
+          "text": "girlfriends and so on and so"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0483",
+      "time": "00:30:17",
+      "english": "on so again more radical feminists say no we are not women without milk without legal equality we want more we are women without cream cream means actual actual Social Power responsibility better jobs and so on and so on and this is what today's feminism",
+      "japanese": "などなど。だから再び、より急進的なフェミニストたちは言う、いいえ、私たちはミルクなしの、法的平等なしの女性ではない、私たちはもっとを望む、私たちはクリームなしの女性だ、クリームとは実際の社会的権力、責任、より良い仕事などを意味する、そしてこれが今日のフェミニズムの",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 482,
+          "start": 1817.28,
+          "end": 1827,
+          "text": "on so again more radical feminists say"
+        },
+        {
+          "index": 483,
+          "start": 1822.52,
+          "end": 1831.36,
+          "text": "no we are not women without milk without"
+        },
+        {
+          "index": 484,
+          "start": 1827,
+          "end": 1835.68,
+          "text": "legal equality we want more we are women"
+        },
+        {
+          "index": 485,
+          "start": 1831.36,
+          "end": 1838.12,
+          "text": "without cream cream means actual actual"
+        },
+        {
+          "index": 486,
+          "start": 1835.68,
+          "end": 1841.76,
+          "text": "Social Power"
+        },
+        {
+          "index": 487,
+          "start": 1838.12,
+          "end": 1846.68,
+          "text": "responsibility better jobs and so on and"
+        },
+        {
+          "index": 488,
+          "start": 1841.76,
+          "end": 1852,
+          "text": "so on and this is what today&#39;s feminism"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0490",
+      "time": "00:30:46",
+      "english": "conflicts in feminism are about they are about uh the struggle of what women are without today you as a feminist again feel deprived of things but what are you deprived of it's not enough legal equality you want Social Power and so on you want much more in this sense we can",
+      "japanese": "フェミニズムにおける対立が関わることだ。それは今日、女性が何なしであるかをめぐる闘争に関わる。あなたはフェミニストとして再び、物事を奪われていると感じるが、何を奪われているのか。法的平等では十分ではない、あなたは社会的権力を望み、などなど、あなたはもっと多くを望む。この意味で私たちは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 489,
+          "start": 1846.68,
+          "end": 1857.2,
+          "text": "conflicts in feminism are about they are"
+        },
+        {
+          "index": 490,
+          "start": 1852,
+          "end": 1860.72,
+          "text": "about uh the struggle of what women are"
+        },
+        {
+          "index": 491,
+          "start": 1857.2,
+          "end": 1864.68,
+          "text": "without today you as a feminist again"
+        },
+        {
+          "index": 492,
+          "start": 1860.72,
+          "end": 1867.2,
+          "text": "feel deprived of things but what are you"
+        },
+        {
+          "index": 493,
+          "start": 1864.68,
+          "end": 1870.52,
+          "text": "deprived of it&#39;s not enough legal"
+        },
+        {
+          "index": 494,
+          "start": 1867.2,
+          "end": 1876.16,
+          "text": "equality you want Social Power and so on"
+        },
+        {
+          "index": 495,
+          "start": 1870.52,
+          "end": 1880.08,
+          "text": "you want much more in this sense we can"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0497",
+      "time": "00:31:16",
+      "english": "change the past the past Remains the Same women were exploited all that stuff but what the women were deprived of so what they demand now in this is open to interpretation the general lesson just to conclude is that uh the limit I think of uh",
+      "japanese": "過去を変えられる。過去は同じままだ。女性は搾取された、そんなことすべて。しかし女性が何を奪われていたのか、そして今彼女たちが要求しているものは解釈に開かれている。結論として一般的な教訓は、ええと、私が思う限界は、ええと",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 496,
+          "start": 1876.16,
+          "end": 1883.96,
+          "text": "change the past the past Remains the"
+        },
+        {
+          "index": 497,
+          "start": 1880.08,
+          "end": 1888.56,
+          "text": "Same women were exploited all that stuff"
+        },
+        {
+          "index": 498,
+          "start": 1883.96,
+          "end": 1894.88,
+          "text": "but what the women were deprived of so"
+        },
+        {
+          "index": 499,
+          "start": 1888.56,
+          "end": 1897.56,
+          "text": "what they demand now in this is open to"
+        },
+        {
+          "index": 500,
+          "start": 1894.88,
+          "end": 1900.64,
+          "text": "interpretation the general lesson just"
+        },
+        {
+          "index": 501,
+          "start": 1897.56,
+          "end": 1905.6,
+          "text": "to conclude is"
+        },
+        {
+          "index": 502,
+          "start": 1900.64,
+          "end": 1907.2,
+          "text": "that uh the limit I think of uh"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0504",
+      "time": "00:31:45",
+      "english": "scientific determinism is that it gets involved in what philosophers call pragmatic contradiction which means at the level of the object that you analyze you as a scientist can say we are don't have free will we are totally determined by uh",
+      "japanese": "科学的決定論は、哲学者が語用論的矛盾と呼ぶものに関わってくる。つまり、分析する対象のレベルでは、科学者としてあなたは、我々には自由意志はない、我々は完全に決定されていると言えるのだ、ええと",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 503,
+          "start": 1905.6,
+          "end": 1911.12,
+          "text": "scientific"
+        },
+        {
+          "index": 504,
+          "start": 1907.2,
+          "end": 1915.8,
+          "text": "determinism is that it gets involved in"
+        },
+        {
+          "index": 505,
+          "start": 1911.12,
+          "end": 1918.88,
+          "text": "what philosophers call pragmatic"
+        },
+        {
+          "index": 506,
+          "start": 1915.8,
+          "end": 1922.68,
+          "text": "contradiction which means at the level"
+        },
+        {
+          "index": 507,
+          "start": 1918.88,
+          "end": 1926.08,
+          "text": "of the object that you analyze you as a"
+        },
+        {
+          "index": 508,
+          "start": 1922.68,
+          "end": 1930.12,
+          "text": "scientist can say we are don&#39;t have free"
+        },
+        {
+          "index": 509,
+          "start": 1926.08,
+          "end": 1934.96,
+          "text": "will we are totally determined by uh"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0511",
+      "time": "00:32:10",
+      "english": "natural law and so on but scientists argue with Arguments for that they try to convince each other which means that although they claim there is no free will in their very scientific debate they act as if they are free beings if you are dealing with the person without",
+      "japanese": "自然法則などによって、しかし科学者たちはそのための議論で論争し、互いを説得しようとする。つまり、彼らは自らの科学論争において自由意志はないと主張しながらも、あたかも自由な存在であるかのように振る舞うのだ。もしあなたが自由のない人と",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 510,
+          "start": 1930.12,
+          "end": 1939.2,
+          "text": "natural law and so on but scientists"
+        },
+        {
+          "index": 511,
+          "start": 1934.96,
+          "end": 1943.6,
+          "text": "argue with Arguments for that they try"
+        },
+        {
+          "index": 512,
+          "start": 1939.2,
+          "end": 1946.04,
+          "text": "to convince each other which means that"
+        },
+        {
+          "index": 513,
+          "start": 1943.6,
+          "end": 1950.44,
+          "text": "although they claim there is no free"
+        },
+        {
+          "index": 514,
+          "start": 1946.04,
+          "end": 1954.6,
+          "text": "will in their very scientific debate"
+        },
+        {
+          "index": 515,
+          "start": 1950.44,
+          "end": 1957,
+          "text": "they act as if they are free beings if"
+        },
+        {
+          "index": 516,
+          "start": 1954.6,
+          "end": 1959.76,
+          "text": "you are dealing with the person without"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0518",
+      "time": "00:32:37",
+      "english": "Freedom you wouldn't argue with that person because argumentation means I think you are free to decide you listen to arguments and I will try to convince you so uh this is a good philosophical Point against Natural determinism yes you may be right at the level of",
+      "japanese": "関わっているなら、その人と議論はしないだろう。なぜなら議論とは、私はあなたが決定する自由があると思う、あなたは議論に耳を傾け、私はあなたを説得しようとする、ということだからだ。ええと、これは自然決定論に対する良い哲学的指摘だ。はい、あなたは内容のレベルでは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 517,
+          "start": 1957,
+          "end": 1963.64,
+          "text": "Freedom you wouldn&#39;t argue with that"
+        },
+        {
+          "index": 518,
+          "start": 1959.76,
+          "end": 1966.56,
+          "text": "person because argumentation means I"
+        },
+        {
+          "index": 519,
+          "start": 1963.64,
+          "end": 1969.8,
+          "text": "think you are free to decide you listen"
+        },
+        {
+          "index": 520,
+          "start": 1966.56,
+          "end": 1973.52,
+          "text": "to arguments and I will try to convince"
+        },
+        {
+          "index": 521,
+          "start": 1969.8,
+          "end": 1977.16,
+          "text": "you so uh this is a good philosophical"
+        },
+        {
+          "index": 522,
+          "start": 1973.52,
+          "end": 1980.72,
+          "text": "Point against Natural determinism yes"
+        },
+        {
+          "index": 523,
+          "start": 1977.16,
+          "end": 1984.56,
+          "text": "you may be right at the level of"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0525",
+      "time": "00:33:00",
+      "english": "content you give a correct description of our biological reality but the way we do it implies Freedom you act as a free you act as free beings here again even the hardest science displays in how it proceeds",
+      "japanese": "正しいかもしれない、あなたは我々の生物学的現実について正確な記述を与えている、しかし我々がそれを行う仕方には自由が含意されている。あなたは自由な存在として振る舞う、ここでもまた、最も厳密な科学でさえ、その進め方において示すのだ",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 524,
+          "start": 1980.72,
+          "end": 1989.68,
+          "text": "content you give a correct description"
+        },
+        {
+          "index": 525,
+          "start": 1984.56,
+          "end": 1991.08,
+          "text": "of our biological reality but the way we"
+        },
+        {
+          "index": 526,
+          "start": 1989.68,
+          "end": 1996.88,
+          "text": "do"
+        },
+        {
+          "index": 527,
+          "start": 1991.08,
+          "end": 2002,
+          "text": "it implies Freedom you act as a free you"
+        },
+        {
+          "index": 528,
+          "start": 1996.88,
+          "end": 2003.56,
+          "text": "act as free beings here again even the"
+        },
+        {
+          "index": 529,
+          "start": 2002,
+          "end": 2009.68,
+          "text": "hardest"
+        },
+        {
+          "index": 530,
+          "start": 2003.56,
+          "end": 2009.68,
+          "text": "science displays in how it proceeds"
+        }
+      ]
+    },
+    {
+      "id": "ch4-line-0532",
+      "time": "00:33:34",
+      "english": "[Music] freedom I will talk now about a crucial",
+      "japanese": "［音楽］自由を。今から私は決定的なことについて話そう",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 531,
+          "start": 2014.53,
+          "end": 2018.83,
+          "text": "[Music]"
+        },
+        {
+          "index": 532,
+          "start": 2020.76,
+          "end": 2030.16,
+          "text": "freedom I will talk now about a crucial"
         }
       ]
     }
-  ]
+  ],
+  "sourceCueCoverage": {
+    "firstIndex": 419,
+    "lastIndex": 532,
+    "count": 114
+  },
+  "translationStatus": "machine-translated-unreviewed"
 }

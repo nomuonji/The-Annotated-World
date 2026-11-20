@@ -18,38 +18,774 @@
   ],
   "utterances": [
     {
-      "id": "ch5-line-1",
+      "id": "ch5-line-0534",
+      "time": "00:33:46",
+      "english": "distinction I think politically between freedom and liberty unfortunately it works only in English in French it Liberty Liberty in German it's fright freedom but I think the distinction between freedom and liberty is very useful let me begin with another Paradox",
+      "japanese": "自由とリバティの間の、政治的な区別は、残念ながら英語でしか機能しません。フランス語ではリベルテ、リベルテ、ドイツ語ではフライハイト、自由ですが、自由とリバティの区別は非常に有用だと思います。別のパラドックスから始めましょう。",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "00:33:50",
-      "english": "freedom and liberty unfortunately it works only in English",
-      "japanese": "freedom と liberty の区別は、残念ながら英語でしかうまく機能しない。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch5-line-1-note-1",
-          "phrase": "freedom and liberty",
-          "explanation": "近い意味の二語をあえて使い分け、実質的な自由と既存秩序が許す自由との違いを論じている。"
+          "index": 533,
+          "start": 2026.08,
+          "end": 2034.28,
+          "text": "distinction I think politically between"
+        },
+        {
+          "index": 534,
+          "start": 2030.16,
+          "end": 2037.96,
+          "text": "freedom and liberty unfortunately it"
+        },
+        {
+          "index": 535,
+          "start": 2034.28,
+          "end": 2041.92,
+          "text": "works only in English in French it"
+        },
+        {
+          "index": 536,
+          "start": 2037.96,
+          "end": 2044.52,
+          "text": "Liberty Liberty in German it&#39;s fright"
+        },
+        {
+          "index": 537,
+          "start": 2041.92,
+          "end": 2049.68,
+          "text": "freedom but I think the distinction"
+        },
+        {
+          "index": 538,
+          "start": 2044.52,
+          "end": 2054.44,
+          "text": "between freedom and liberty is very"
+        },
+        {
+          "index": 539,
+          "start": 2049.68,
+          "end": 2060.6,
+          "text": "useful let me begin with another Paradox"
         }
       ]
     },
     {
-      "id": "ch5-line-2",
+      "id": "ch5-line-0541",
+      "time": "00:34:14",
+      "english": "of Freedom sometimes the awareness of Freedom the awareness that I have a free choice is precisely what what prevents me from getting R getting free of something it guarantees that I will not change the example here of course I didn't make a",
+      "japanese": "自由のパラドックスです。時に自由の意識、つまり私には自由な選択があるという意識こそが、まさに私が何かから自由になるのを妨げるものであり、私が変わらないことを保証するのです。ここでの例はもちろん、私は科学的な実験をしたのではありませんが、友人全員に確認しました。喫煙者の多くは禁煙したいと思っています。しかし、喫煙を続けるために自分を正当化する論理はご存じでしょう。自分に言い聞かせるのです、問題ない、私はいつでも自由に禁煙できると。そしてこれを、決して禁煙しないための言い訳に使うのです。",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "00:35:21",
-      "english": "have the chance to stop so you de facto never stop smoking",
-      "japanese": "やめる機会はある。だから、事実上ずっと禁煙しない。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch5-line-2-note-1",
-          "phrase": "de facto",
-          "explanation": "「事実上」。選択可能性の意識が、実際の選択を回避する口実になる逆説。"
+          "index": 540,
+          "start": 2054.44,
+          "end": 2063.52,
+          "text": "of Freedom sometimes the awareness of"
+        },
+        {
+          "index": 541,
+          "start": 2060.6,
+          "end": 2066.48,
+          "text": "Freedom the awareness that I have a free"
+        },
+        {
+          "index": 542,
+          "start": 2063.52,
+          "end": 2071.2,
+          "text": "choice is"
+        },
+        {
+          "index": 543,
+          "start": 2066.48,
+          "end": 2074.44,
+          "text": "precisely what what prevents me from"
+        },
+        {
+          "index": 544,
+          "start": 2071.2,
+          "end": 2078.68,
+          "text": "getting R getting free of something it"
+        },
+        {
+          "index": 545,
+          "start": 2074.44,
+          "end": 2081.88,
+          "text": "guarantees that I will not change the"
+        },
+        {
+          "index": 546,
+          "start": 2078.68,
+          "end": 2084.52,
+          "text": "example here of course I didn&#39;t make a"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-0548",
+      "time": "00:34:41",
+      "english": "scientific experiment but I checked with all of my friends is smoking many smokers want to stop smoking but you know which is the logic of uh excusing yourself to go on smoking you tell to yourself not a problem I'm",
+      "japanese": "科学的な実験をしたのではありませんが、友人全員に確認しました。喫煙者の多くは禁煙したいと思っています。しかし、喫煙を続けるために自分を正当化する論理はご存じでしょう。自分に言い聞かせるのです、問題ない、私は",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 547,
+          "start": 2081.88,
+          "end": 2087.68,
+          "text": "scientific experiment but I checked with"
+        },
+        {
+          "index": 548,
+          "start": 2084.52,
+          "end": 2092.32,
+          "text": "all of my friends is"
+        },
+        {
+          "index": 549,
+          "start": 2087.68,
+          "end": 2096.88,
+          "text": "smoking many smokers want to stop"
+        },
+        {
+          "index": 550,
+          "start": 2092.32,
+          "end": 2099.12,
+          "text": "smoking but you know which is the logic"
+        },
+        {
+          "index": 551,
+          "start": 2096.88,
+          "end": 2102.88,
+          "text": "of"
+        },
+        {
+          "index": 552,
+          "start": 2099.12,
+          "end": 2106.04,
+          "text": "uh excusing yourself to go on smoking"
+        },
+        {
+          "index": 553,
+          "start": 2102.88,
+          "end": 2109.68,
+          "text": "you tell to yourself not a problem I&#39;m"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-0555",
+      "time": "00:35:06",
+      "english": "free anytime I can stop smoking and you use this as an excuse never to stop smoke smoking you tell yourself okay no problem I will stop tomorrow at any point I have the chance to stop so you de facto never stop smoking and my good friend",
+      "japanese": "いつでも自由に禁煙できると。そしてこれを、決して禁煙しないための言い訳に使うのです。自分に言い聞かせるのです、大丈夫、問題ない、明日やめよう、いつでもやめる機会はあると。こうして事実上、決して禁煙しないのです。そして私の良き友人",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 554,
+          "start": 2106.04,
+          "end": 2113.24,
+          "text": "free anytime I can stop"
+        },
+        {
+          "index": 555,
+          "start": 2109.68,
+          "end": 2116.2,
+          "text": "smoking and you use this as an excuse"
+        },
+        {
+          "index": 556,
+          "start": 2113.24,
+          "end": 2118.2,
+          "text": "never to stop smoke smoking you tell"
+        },
+        {
+          "index": 557,
+          "start": 2116.2,
+          "end": 2121.04,
+          "text": "yourself okay no problem I will stop"
+        },
+        {
+          "index": 558,
+          "start": 2118.2,
+          "end": 2125,
+          "text": "tomorrow at any point I"
+        },
+        {
+          "index": 559,
+          "start": 2121.04,
+          "end": 2128.88,
+          "text": "have the chance to stop so you de facto"
+        },
+        {
+          "index": 560,
+          "start": 2125,
+          "end": 2132.8,
+          "text": "never stop smoking and my good friend"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-0562",
+      "time": "00:35:28",
+      "english": "Alena zupanic a sloven philosopher proposed here a wonderful experiment let's say you are such a smoker who said I'm a free being I can smoke at any point and I can stop at any point that I want so you use this",
+      "japanese": "アレナ・ジュパンチッチ、スロベニアの哲学者が、ここで素晴らしい実験を提案しました。あなたが、私は自由な存在だ、いつでも吸えるし、いつでも好きな時にやめられると言う喫煙者だとしましょう。そうやってこの",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 561,
+          "start": 2128.88,
+          "end": 2135.16,
+          "text": "Alena zupanic a sloven philosopher"
+        },
+        {
+          "index": 562,
+          "start": 2132.8,
+          "end": 2136.92,
+          "text": "proposed here a"
+        },
+        {
+          "index": 563,
+          "start": 2135.16,
+          "end": 2139.2,
+          "text": "wonderful"
+        },
+        {
+          "index": 564,
+          "start": 2136.92,
+          "end": 2141.6,
+          "text": "experiment let&#39;s say you are such a"
+        },
+        {
+          "index": 565,
+          "start": 2139.2,
+          "end": 2144.84,
+          "text": "smoker who said I&#39;m a free being I can"
+        },
+        {
+          "index": 566,
+          "start": 2141.6,
+          "end": 2147.48,
+          "text": "smoke at any point and I can stop at any"
+        },
+        {
+          "index": 567,
+          "start": 2144.84,
+          "end": 2150.52,
+          "text": "point that I want so you use this"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-0569",
+      "time": "00:35:47",
+      "english": "awareness of a choice never to stop smoking Alena Zan said but imagine a situation where somebody would make a choice more radical somebody on Authority would tell you yes you are free to choose between smoking and not smoking but the choice you make will",
+      "japanese": "選択の意識を、決して禁煙しないために使うのです。アレナ・ジュパンチッチは言いました、しかし、誰かがもっと根本的な選択をする状況を想像してみてください。権威ある誰かがあなたにこう言うのです、そう、あなたは吸うか吸わないかを自由に選べる、しかしあなたがする選択は",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 568,
+          "start": 2147.48,
+          "end": 2154.6,
+          "text": "awareness of a choice never to stop"
+        },
+        {
+          "index": 569,
+          "start": 2150.52,
+          "end": 2158.16,
+          "text": "smoking Alena Zan said but imagine a"
+        },
+        {
+          "index": 570,
+          "start": 2154.6,
+          "end": 2162,
+          "text": "situation where somebody would"
+        },
+        {
+          "index": 571,
+          "start": 2158.16,
+          "end": 2166,
+          "text": "make a choice more radical somebody on"
+        },
+        {
+          "index": 572,
+          "start": 2162,
+          "end": 2171.76,
+          "text": "Authority would tell you yes you are"
+        },
+        {
+          "index": 573,
+          "start": 2166,
+          "end": 2175.56,
+          "text": "free to choose between smoking and not"
+        },
+        {
+          "index": 574,
+          "start": 2171.76,
+          "end": 2178.6,
+          "text": "smoking but the choice you make will"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-0576",
+      "time": "00:36:15",
+      "english": "oblige you to the end that is to say if you choose going on smoking you will never be allowed to go back to nonsmoking sming and vice versa that would be the real Choice then you would really have to decide and I think true Freedom would be this more",
+      "japanese": "最後まであなたを拘束する、つまり、喫煙を続けることを選べば、二度と非喫煙に戻ることは許されず、その逆もまた然りだと。それこそが本当の選択でしょう。その時あなたは本当に決断しなければならないのです。そして真の自由とは、このより",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 575,
+          "start": 2175.56,
+          "end": 2182.44,
+          "text": "oblige you to the"
+        },
+        {
+          "index": 576,
+          "start": 2178.6,
+          "end": 2186,
+          "text": "end that is to say if you choose going"
+        },
+        {
+          "index": 577,
+          "start": 2182.44,
+          "end": 2189.56,
+          "text": "on smoking you will never be allowed to"
+        },
+        {
+          "index": 578,
+          "start": 2186,
+          "end": 2193.68,
+          "text": "go back to nonsmoking sming and vice"
+        },
+        {
+          "index": 579,
+          "start": 2189.56,
+          "end": 2197.6,
+          "text": "versa that would be the real Choice then"
+        },
+        {
+          "index": 580,
+          "start": 2193.68,
+          "end": 2201.52,
+          "text": "you would really have to decide and I"
+        },
+        {
+          "index": 581,
+          "start": 2197.6,
+          "end": 2204.32,
+          "text": "think true Freedom would be this more"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-0583",
+      "time": "00:36:41",
+      "english": "difficult situation where you don't have the excuse okay I will decide tomorrow you have to take the big decision now with no chance of undoing it later this is what happens in Wars for Freedom like in Ukraine today they're not just saying we are doing this today tomorrow we have",
+      "japanese": "困難な状況、つまり「大丈夫、明日決めよう」という言い訳ができない状況だと思います。あなたは今、大きな決断をしなければならず、後で取り消す機会はありません。これが自由のための戦争で起こることです。今日のウクライナのように、彼らはただ「今日これをやる、明日は別の選択がある」と言っているのではありません。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 582,
+          "start": 2201.52,
+          "end": 2207.4,
+          "text": "difficult situation where you don&#39;t have"
+        },
+        {
+          "index": 583,
+          "start": 2204.32,
+          "end": 2211.96,
+          "text": "the excuse okay I will decide tomorrow"
+        },
+        {
+          "index": 584,
+          "start": 2207.4,
+          "end": 2215.72,
+          "text": "you have to take the big decision now"
+        },
+        {
+          "index": 585,
+          "start": 2211.96,
+          "end": 2220.12,
+          "text": "with no chance of undoing it later this"
+        },
+        {
+          "index": 586,
+          "start": 2215.72,
+          "end": 2223.32,
+          "text": "is what happens in Wars for Freedom like"
+        },
+        {
+          "index": 587,
+          "start": 2220.12,
+          "end": 2225.72,
+          "text": "in Ukraine today they&#39;re not just saying"
+        },
+        {
+          "index": 588,
+          "start": 2223.32,
+          "end": 2228.36,
+          "text": "we are doing this today tomorrow we have"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-0590",
+      "time": "00:37:05",
+      "english": "another choice no their choice is now they have to decide now forever here enters the difference between Liberty and freedom this difference I think uh refers to what the German philosopher",
+      "japanese": "いいえ、彼らの選択は今なのです。彼らは今、永遠に決断しなければならないのです。ここでリバティと自由の違いが入ってきます。この違いは、ドイツの哲学者",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 589,
+          "start": 2225.72,
+          "end": 2231.32,
+          "text": "another choice no their choice is now"
+        },
+        {
+          "index": 590,
+          "start": 2228.36,
+          "end": 2233.92,
+          "text": "they have to decide now forever here"
+        },
+        {
+          "index": 591,
+          "start": 2231.32,
+          "end": 2237.2,
+          "text": "enters the difference"
+        },
+        {
+          "index": 592,
+          "start": 2233.92,
+          "end": 2240.12,
+          "text": "between Liberty and"
+        },
+        {
+          "index": 593,
+          "start": 2237.2,
+          "end": 2244.24,
+          "text": "freedom this difference I"
+        },
+        {
+          "index": 594,
+          "start": 2240.12,
+          "end": 2245.72,
+          "text": "think uh refers to what the German"
+        },
+        {
+          "index": 595,
+          "start": 2244.24,
+          "end": 2248.4,
+          "text": "philosopher"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-0597",
+      "time": "00:37:25",
+      "english": "Hegel uh defined as as the difference between abstract and concrete Freedom what we mean in our daily language as freedom is what Hegel calls concrete Freedom which means freedom whose Contours are determined by the existing space of not only explicit regulations",
+      "japanese": "ヘーゲルが抽象的自由と具体的自由の違いとして定義したものに関係すると思います。私たちが日常言語で自由と呼ぶものは、ヘーゲルが具体的自由と呼ぶものであり、それは、明示的な規制やルールだけでなく、特にさらに多くの不文律によってその輪郭が既存の空間によって定められている自由を意味します。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 596,
+          "start": 2245.72,
+          "end": 2252.44,
+          "text": "Hegel uh defined as as the difference"
+        },
+        {
+          "index": 597,
+          "start": 2248.4,
+          "end": 2256.44,
+          "text": "between abstract and concrete Freedom"
+        },
+        {
+          "index": 598,
+          "start": 2252.44,
+          "end": 2260.96,
+          "text": "what we mean in our daily language as"
+        },
+        {
+          "index": 599,
+          "start": 2256.44,
+          "end": 2264.56,
+          "text": "freedom is what Hegel calls concrete"
+        },
+        {
+          "index": 600,
+          "start": 2260.96,
+          "end": 2268.96,
+          "text": "Freedom which means freedom whose"
+        },
+        {
+          "index": 601,
+          "start": 2264.56,
+          "end": 2274.16,
+          "text": "Contours are determined by the existing"
+        },
+        {
+          "index": 602,
+          "start": 2268.96,
+          "end": 2278.72,
+          "text": "space of not only explicit regulations"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-0604",
+      "time": "00:37:54",
+      "english": "and rules but especially even more Unwritten rules for example that's why I in a position which is very problematic for some that's why I was absolutely for obligatory vaccination because of course in some",
+      "japanese": "例えば、だからこそ私は、ある人々にとって非常に問題のある立場にいるのですが、だからこそ私は義務的ワクチン接種に絶対賛成でした。なぜなら、もちろんある抽象的な意味では、国家が「ワクチンを接種しなければならない」と言えばあなたは自由ではなかったのですが、ワクチン接種の良い論拠は私にとって、ワクチンを接種しないことで他の人々の日常の自由を制限し、彼らを危険にさらすなどということなのです。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 603,
+          "start": 2274.16,
+          "end": 2280.28,
+          "text": "and rules but especially even more"
+        },
+        {
+          "index": 604,
+          "start": 2278.72,
+          "end": 2284.64,
+          "text": "Unwritten"
+        },
+        {
+          "index": 605,
+          "start": 2280.28,
+          "end": 2286.8,
+          "text": "rules for example that&#39;s why I in a"
+        },
+        {
+          "index": 606,
+          "start": 2284.64,
+          "end": 2290.48,
+          "text": "position which is very problematic for"
+        },
+        {
+          "index": 607,
+          "start": 2286.8,
+          "end": 2292.16,
+          "text": "some that&#39;s why I was absolutely for"
+        },
+        {
+          "index": 608,
+          "start": 2290.48,
+          "end": 2294.84,
+          "text": "obligatory"
+        },
+        {
+          "index": 609,
+          "start": 2292.16,
+          "end": 2297.88,
+          "text": "vaccination because of course in some"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-0611",
+      "time": "00:38:14",
+      "english": "abstract sense you were not free if the state says You must get vaccinated but a good argument for vaccination is for me that by not getting vaccinated you limit everyday freedom of other people you expose them to danger and so on and so",
+      "japanese": "抽象的な意味では、国家が「ワクチンを接種しなければならない」と言えばあなたは自由ではなかったのですが、ワクチン接種の良い論拠は私にとって、ワクチンを接種しないことで他の人々の日常の自由を制限し、彼らを危険にさらすなどということなのです。",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 610,
+          "start": 2294.84,
+          "end": 2301.76,
+          "text": "abstract sense you were not"
+        },
+        {
+          "index": 611,
+          "start": 2297.88,
+          "end": 2304.24,
+          "text": "free if the state says You must get"
+        },
+        {
+          "index": 612,
+          "start": 2301.76,
+          "end": 2308.08,
+          "text": "vaccinated but a good argument for"
+        },
+        {
+          "index": 613,
+          "start": 2304.24,
+          "end": 2313.08,
+          "text": "vaccination is for me that by not"
+        },
+        {
+          "index": 614,
+          "start": 2308.08,
+          "end": 2316.68,
+          "text": "getting vaccinated you limit everyday"
+        },
+        {
+          "index": 615,
+          "start": 2313.08,
+          "end": 2318.76,
+          "text": "freedom of other people you expose them"
+        },
+        {
+          "index": 616,
+          "start": 2316.68,
+          "end": 2324.28,
+          "text": "to danger and so on and so"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-0618",
+      "time": "00:38:38",
+      "english": "on we are only free within a certain scope of rules for example let's say I'm free at the most stupid level I'm free to go into the city to walk around to buy think whatever this",
+      "japanese": "私たちはある一定の規則の範囲内でのみ自由である、例えば最も愚かなレベルで私が自由だと言おう、私は街に行き、歩き回り、買い物をし、何かを考えることができる、これは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 617,
+          "start": 2318.76,
+          "end": 2326.52,
+          "text": "on we are only free within a certain"
+        },
+        {
+          "index": 618,
+          "start": 2324.28,
+          "end": 2328.28,
+          "text": "scope of"
+        },
+        {
+          "index": 619,
+          "start": 2326.52,
+          "end": 2331.24,
+          "text": "rules for"
+        },
+        {
+          "index": 620,
+          "start": 2328.28,
+          "end": 2334.76,
+          "text": "example let&#39;s say I&#39;m free at the most"
+        },
+        {
+          "index": 621,
+          "start": 2331.24,
+          "end": 2338.64,
+          "text": "stupid level I&#39;m free to go into the"
+        },
+        {
+          "index": 622,
+          "start": 2334.76,
+          "end": 2340.56,
+          "text": "city to walk around to buy think"
+        },
+        {
+          "index": 623,
+          "start": 2338.64,
+          "end": 2344.44,
+          "text": "whatever this"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-0625",
+      "time": "00:39:00",
+      "english": "presupposes that I can expect other people to follow certain rules of decency that they will not beat me attack me this presupposes that everybody recognizes money and I have normal space of social",
+      "japanese": "私が他の人々が一定の礼儀の規則に従うことを期待できることを前提としている、彼らが私を殴ったり攻撃したりしないことを、これは皆がお金を認識し、私が正常な社会的空間を持っていることを前提としている",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 624,
+          "start": 2340.56,
+          "end": 2347.52,
+          "text": "presupposes that I can expect other"
+        },
+        {
+          "index": 625,
+          "start": 2344.44,
+          "end": 2350.56,
+          "text": "people to follow certain rules of"
+        },
+        {
+          "index": 626,
+          "start": 2347.52,
+          "end": 2353.64,
+          "text": "decency that they will not beat me"
+        },
+        {
+          "index": 627,
+          "start": 2350.56,
+          "end": 2356.92,
+          "text": "attack me this presupposes that"
+        },
+        {
+          "index": 628,
+          "start": 2353.64,
+          "end": 2361.72,
+          "text": "everybody recognizes"
+        },
+        {
+          "index": 629,
+          "start": 2356.92,
+          "end": 2365.64,
+          "text": "money and I have normal space of social"
         }
       ]
     }
-  ]
+  ],
+  "sourceCueCoverage": {
+    "firstIndex": 533,
+    "lastIndex": 629,
+    "count": 97
+  },
+  "translationStatus": "machine-translated-unreviewed"
 }

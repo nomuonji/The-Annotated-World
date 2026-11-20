@@ -21,8 +21,8 @@ function renderDocument(document,chapters){
  '<div class="sec-header"><p class="sec-time">'+escape(c.timeRange)+'</p><h2>'+escape(c.title)+'</h2><p class="sec-sub">'+escape(c.summary)+'</p></div>'+
  c.utterances.map(u=>'<div class="utterance" id="'+escape(u.id)+'">'+
  '<p class="speaker-line"><span class="'+escape(u.speaker.className)+'">'+escape(u.speaker.name)+'</span> · '+escape(u.time)+'</p>'+
- '<p class="en">'+u.english+'</p><p class="ja">'+u.japanese+'</p>'+
- '<p class="note">'+u.annotations.map(a=>'<span class="note-entry" data-note-id="'+escape(a.id)+'">'+(a.phrase?'<strong>'+escape(a.phrase)+'</strong>：':'')+escape(a.explanation)+'</span>').join('')+'</p></div>').join('\n')+
+ '<p class="en">'+(document.provenance.coverage==='full'?escape(u.english):u.english)+'</p><p class="ja">'+(document.provenance.coverage==='full'?escape(u.japanese):u.japanese)+'</p>'+
+ (u.annotations.length?'<p class="note">'+u.annotations.map(a=>'<span class="note-entry" data-note-id="'+escape(a.id)+'">'+(a.phrase?'<strong>'+escape(a.phrase)+'</strong>：':'')+escape(a.explanation)+'</span>').join('')+'</p>':'')+'</div>').join('\n')+
  '</section>').join('\n');
  const sources=document.sources.items.map(s=>'<li>'+escape(s.before)+'<a href="'+escape(s.url)+'" target="_blank" rel="noopener noreferrer">'+escape(s.label)+'</a>'+escape(s.after)+'</li>').join('\n');
  return '<header class="hero"><p class="hero-meta">'+escape(document.heroMeta)+'</p><h1>'+escape(document.title)+'</h1><p class="deck">'+escape(document.description)+'</p><dl class="meta-strip">'+facts+'</dl></header>\n'+
@@ -50,9 +50,9 @@ function verifyDirectYoutubeCapture(id,document){
  }
  if(id===suppliedLegacy)return;
  const proof=document.youtubeCapture;
- // This is a deliberately narrow source-uncertainty mode for original
- // critical commentary with short attributed excerpts, never a full transcript.
- // The RapidAPI candidate is NOT authenticated as the direct YouTube track.
+ // RapidAPI is a timestamped caption candidate, NOT independently authenticated
+ // against the original video's own subtitle track. Full candidate coverage is
+ // allowed only when every raw cue is preserved and all translations are present.
  if(proof?.provider==='rapidapi'&&proof?.transport==='rapidapi-caption-proxy'){
   if(proof.videoId!==videoId||proof.method!=='existing-caption-candidate'
     ||proof.language!=='en'||proof.originVerified!==false
@@ -60,9 +60,14 @@ function verifyDirectYoutubeCapture(id,document){
     ||!Number.isFinite(Date.parse(proof.capturedAt))
     ||!/^[0-9a-f]{64}$/.test(proof.sha256||''))
    fail(id,'RapidAPI source must be honestly labeled as an unverified candidate with real evidence');
-  if(document.provenance.coverage!=='excerpt'||document.provenance.transcript!=='unverified'
-    ||document.provenance.rights!=='unverified')
-   fail(id,'RapidAPI candidate may only support short quotations with unverified transcript and rights');
+  if(document.provenance.transcript!=='unverified'||document.provenance.rights!=='unverified')
+   fail(id,'RapidAPI candidate origin and republication rights must remain unverified');
+  if(document.provenance.coverage==='full'){
+   if(!Number.isSafeInteger(proof.sourceCueCount)||proof.sourceCueCount<1
+     ||(videoId==='4YSXNotY8QU'&&proof.sourceCueCount!==1533)
+     ||document.provenance.translation!=='unverified')
+    fail(id,'full candidate publication requires the exact source cue count and unreviewed translation status');
+  }else if(document.provenance.coverage!=='excerpt')fail(id,'unsupported RapidAPI coverage');
   return;
  }
  if(!proof||proof.provider!=='youtube'||proof.videoId!==videoId)fail(id,'a new YouTube lesson requires documented source capture; third-party transcript mirrors are forbidden');
@@ -96,7 +101,7 @@ function verifyDocument(id,document){
  verifyDirectYoutubeCapture(id,document);
  for(const key of ['status','draft','published','retired','chapterMetadata'])if(Object.hasOwn(document,key))fail(id,'unsupported legacy field '+key);
 }
-function verifyChapter(id,chapter,seen){
+function verifyChapter(id,chapter,seen,full=false){
  const at=id+'/'+chapter?.id;
  if(!chapter||!chapterId.test(chapter.id))fail(id,'chapter id invalid');
  for(const field of ['title','timeRange','summary'])if(!text(chapter[field]))fail(at,'missing '+field);
@@ -111,7 +116,18 @@ function verifyChapter(id,chapter,seen){
   if(!timePattern.test(u.time)||seconds(u.time)<last)fail(u.id,'missing or nonmonotonic timestamp');
   last=seconds(u.time);
   if(!text(u.english)||!text(u.japanese))fail(u.id,'source English and Japanese are required');
-  if(!Array.isArray(u.annotations)||!u.annotations.length)fail(u.id,'missing notes');
+  if(!Array.isArray(u.annotations)||(!full&&!u.annotations.length))fail(u.id,'missing notes');
+  if(full){
+   if(!Array.isArray(u.sourceCues)||!u.sourceCues.length)fail(u.id,'full transcript passage must retain its original cues');
+   if(u.sourceCues.some(c=>!Number.isSafeInteger(c.index)||c.index<0||!text(c.text)||!Number.isFinite(c.start)||!Number.isFinite(c.end)||c.end<=c.start))fail(u.id,'malformed source cue');
+   const original=load('<p>'+u.sourceCues.map(c=>c.text).join(' ')+'</p>')('p').text().replace(/\s+/g,' ').trim();
+   const displayed=u.english.replace(/\s+/g,' ').trim();
+   const lex=s=>(s.toLocaleLowerCase().replace(/[’‘]/g,"'").match(/[a-z0-9]+/g)||[]).join(' ');
+   if(lex(original)!==lex(displayed))fail(u.id,'NO OMISSION: source words were removed, added or reordered by punctuation editing');
+   if(u.englishRaw&&u.englishRaw.replace(/\s+/g,' ').trim()!==original)fail(u.id,'original raw English must stay traceable');
+   if(u.japanese.length<Math.max(4,Math.floor(u.english.length*0.30)))
+    fail(u.id,'NO OMISSION: Japanese translation suspiciously short for the English source');
+  }
   const sourceEnglish=load('<p>'+u.english+'</p>')('p').text().toLocaleLowerCase();
   for(const a of u.annotations){
    if(!text(a.id)||!a.id.startsWith(u.id+'-note-')||noteIds.has(a.id)||typeof a.phrase!=='string'||!text(a.explanation))fail(u.id,'invalid note id, phrase or explanation');
@@ -141,8 +157,16 @@ export async function loadStructuredDocuments(){
    if(!chapterId.test(anchor))fail(id,'invalid chapter id '+anchor);
    const chapter=JSON.parse(await readFile(join(base,'chapters',anchor+'.json'),'utf8'));
    if(chapter.id!==anchor)fail(id,'chapter filename and id mismatch: '+anchor);
-   verifyChapter(id,chapter,seen);
+   verifyChapter(id,chapter,seen,document.provenance.coverage==='full');
    chapters.push(chapter);
+  }
+  if(document.provenance.coverage==='full'){
+   const cues=chapters.flatMap(c=>c.utterances.flatMap(u=>u.sourceCues));
+   const expected=document.youtubeCapture?.sourceCueCount;
+   if(cues.length!==expected||cues.some((cue,i)=>cue.index!==i))
+    fail(id,'NO OMISSION: every source cue 0..'+(expected-1)+' must appear exactly once and in order');
+   if(cues[0].start>10||(id==='slavoj-zizek-how-to-become-free'&&cues.at(-1).end<5710))
+    fail(id,'NO OMISSION: full candidate start/end time coverage incomplete');
   }
   const bodyHtml=renderDocument(document,chapters);
   return {id,document,chapters,bodyHtml};

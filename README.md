@@ -34,7 +34,7 @@ src/data/concepts.json
 
 `題材選定 → 元YouTube動画ID確認 → 既存字幕取得 → YouTube原本字幕との照合 → 権利確認 → 章・英日対訳・注釈のJSON追加 → 検証 → PR/公開`
 
-字幕は、`nomuonji/kirinuki-generator/transcribe_rapidapi.py` が実装する **YouTube本体の字幕API → 既存のRapidAPI字幕ダウンロードの順**で候補を探せます。対象のジジェク動画 `4YSXNotY8QU` について、RapidAPI経由で**1,533件の候補字幕**が実際に返ることを確認しました（[実測記録](docs/research/2026-11-21-youtube-existing-captions.md)）。ただし**APIが返した内容がYouTubeの字幕トラック原本そのものだという照合は未了**です。候補をYouTube本体字幕と同一だと主張しません。2026-11-21には実際のRapidAPI2候補を非公開Driveに保存し、旧記事とは独立の批評・抜粋記事を構築しました。
+字幕は、`nomuonji/kirinuki-generator/transcribe_rapidapi.py` が実装する **YouTube本体の字幕API → 既存のRapidAPI字幕ダウンロードの順**で候補を探せます。対象のジジェク動画 `4YSXNotY8QU` について、RapidAPI経由で**1,533件の候補字幕**が実際に返ることを確認しました（[実測記録](docs/research/2026-11-21-youtube-existing-captions.md)）。ただし**APIが返した内容がYouTubeの字幕トラック原本そのものだという照合は未了**です。候補をYouTube本体字幕と同一だと主張しません。2026-11-21には実際のRapidAPI2候補を非公開Driveに保存し、旧記事とは独立に、取得字幕1,533件を全件収録した12章・225段落の全文対訳へ再構築しました。
 
 **新たな音声文字起こし（ASR/Whisper等）や、第三者制作の文字起こし・AI生成原稿を使いません。** 既存YouTube字幕の原本を確認できない場合は制作と公開を停止します。SaveTubeは動画のCDN経由取得が可能ですが、字幕の取得手段ではありません。
 
@@ -65,7 +65,7 @@ npm run verify:reader                   # Playwright（Chromiumの導入が必�
 
 ローカル表示は `npm run dev`。Cloudflare Pagesなどの静的配信先に `dist/` を公開する設計で、公開サイトにサーバー・データベース・秘密鍵を要求しません。ブラウザ操作の検証はGitHub Actionsでも実行しますが、CI成功は本番デプロイ成功を保証しません。
 
-初回公開資料は元の提供原稿に基づき、原典の照合・再掲載権利が未確認である旨をメタデータに明記しています。この扱いを他の原典に拡張しないでください。過去の「How to become free」の第三者原稿は再使用禁止です。現在の抜粋版を改稿する場合、非公開Driveの原文と実測証跡を参照し、出典・未確認点を厳密に保ってください。
+初回公開資料は元の提供原稿に基づき、原典の照合・再掲載権利が未確認である旨をメタデータに明記しています。この扱いを他の原典に拡張しないでください。過去の「How to become free」の第三者原稿は再使用禁止です。現在の全文対訳を改稿する場合、非公開Driveの原文・全件収録証跡を参照し、字幕1,533件の欠落ゼロ、原文と和訳の全段落対応、出典真正性と権利の未確認区分を厳密に保ってください。
 
 ## 別系統の機能
 

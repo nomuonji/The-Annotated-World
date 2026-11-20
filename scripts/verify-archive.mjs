@@ -30,8 +30,17 @@ for(const {id,document,chapters,bodyHtml} of sources){
  assert.deepEqual(inline(page),inline(source),id+': inline emphasis lost');
  const expected=chapters.flatMap(c=>c.utterances.map(u=>u.id));
  assert.deepEqual(page('.utterance').toArray().map(e=>page(e).attr('id')),expected,id+': fixed IDs changed');
- assert.equal(page('.in-situ-annotation').length>=expected.length,true,id+': not every utterance has a note');
- assert.equal(page('.note.annotation-converted').length,expected.length,id+': visible duplicate note panel');
+ if(document.provenance.coverage!=='full'){
+  assert.equal(page('.in-situ-annotation').length>=expected.length,true,id+': not every annotated utterance has a note');
+  assert.equal(page('.note.annotation-converted').length,expected.length,id+': visible duplicate note panel');
+ }else{
+  const cues=chapters.flatMap(ch=>ch.utterances.flatMap(u=>u.sourceCues));
+  assert.equal(cues.length,document.youtubeCapture.sourceCueCount,'Full transcript source cue count differs');
+  assert.equal(cues.length,1533,'Žižek 95-minute lesson must include all 1533 cues');
+  assert.deepEqual(cues.map(cue=>cue.index),Array.from({length:1533},(_,i)=>i),'NO OMISSION: each caption exactly once');
+  assert.equal(page('.utterance').length,expected.length,'Every translated passage must be present in the reader');
+  assert.equal(page('.ja').length,expected.length,'No Japanese translation may be omitted');
+ }
  assert.equal(page('.en .inline-note-ref').length,0,id+': legacy footnote references remain');
  assert.equal(page('.editorial-annotation').length,0,id+': redundant audio hint remains');
  if(id==='slavoj-zizek-signs-from-the-future'){
@@ -79,9 +88,9 @@ console.log('Discovery routes, video source and internal links verified: '+pages
 const catalog=JSON.parse(await readFile('dist/catalog.json','utf8'));
 assert.equal(catalog.documents.length,sources.length);
 const restored=catalog.documents.find(d=>d.id==='slavoj-zizek-how-to-become-free');
-assert.ok(restored,'RapidAPI excerpt article was not built into catalog');
-assert.equal(restored.chapters.length,12,'RapidAPI source excerpt must retain 12 chapters');
-assert.equal(restored.provenance.coverage,'excerpt','Do not advertise full transcript');
+assert.ok(restored,'Full RapidAPI candidate transcript was not built into catalog');
+assert.equal(restored.chapters.length,12,'Full source transcript must retain 12 chapters');
+assert.equal(restored.provenance.coverage,'full','No omission: article must not be an excerpt');
 assert.equal(restored.provenance.transcript,'unverified','Do not fabricate original YouTube track verification');
 assert.equal(restored.provenance.rights,'unverified','Do not fabricate redistribution rights');
 assert.ok(byPath.has('/read/slavoj-zizek-how-to-become-free/'),'Rebuilt article page missing');

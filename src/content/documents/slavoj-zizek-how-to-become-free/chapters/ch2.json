@@ -18,38 +18,964 @@
   ],
   "utterances": [
     {
-      "id": "ch2-line-1",
+      "id": "ch2-line-0126",
+      "time": "00:07:51",
+      "english": "you is limited this precisely gives you the freedom to change the very Contours of what freedom is uh for [Music] you through freedom is precisely the freedom to change the rules under which you are",
+      "japanese": "あなたは限定されている、まさにこのことが、自由とは何かという輪郭そのものを変える自由をあなたに与える、ええ、［音楽］あなたにとって、自由を通じて、まさにあなたがその下で自由であるところのルールを変える自由なのだ",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "00:07:55",
-      "english": "the freedom to change the very Contours of what freedom is",
-      "japanese": "自由とは何か、その輪郭自体を変える自由。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch2-line-1-note-1",
-          "phrase": "change the very Contours",
-          "explanation": "輪郭を変えるということは、既定の選択肢を増やすだけでなく、自由の定義を組み替えること。"
+          "index": 125,
+          "start": 471,
+          "end": 479.64,
+          "text": "you is limited this precisely gives you"
+        },
+        {
+          "index": 126,
+          "start": 475.92,
+          "end": 484.88,
+          "text": "the freedom to change the very Contours"
+        },
+        {
+          "index": 127,
+          "start": 479.64,
+          "end": 484.88,
+          "text": "of what freedom is uh for"
+        },
+        {
+          "index": 128,
+          "start": 488.36,
+          "end": 492.66,
+          "text": "[Music]"
+        },
+        {
+          "index": 129,
+          "start": 494,
+          "end": 500.12,
+          "text": "you through freedom is precisely the"
+        },
+        {
+          "index": 130,
+          "start": 498.32,
+          "end": 503.92,
+          "text": "freedom to"
+        },
+        {
+          "index": 131,
+          "start": 500.12,
+          "end": 507.92,
+          "text": "change the rules under which you are"
         }
       ]
     },
     {
-      "id": "ch2-line-2",
+      "id": "ch2-line-0133",
+      "time": "00:08:23",
+      "english": "free and I think this freedom is immanent to let language human language itself this may sound complex but let me give you an example which I hope all of you know recently in the mid-march of 2022 a video was everywhere on social",
+      "japanese": "そして私はこの自由は言語に、人間の言語そのものに内在していると思う、これは複雑に聞こえるかもしれないが、皆さん全員が知っていることを願う例を挙げよう、最近、2022年3月中旬に、ある動画がソーシャルメディアの至る所にあった",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "00:11:55",
-      "english": "point when Freedom coincides with necessity",
-      "japanese": "自由が必要性と一致する時点。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch2-line-2-note-1",
-          "phrase": "Freedom coincides with necessity",
-          "explanation": "coincide with は「〜と一致する」。義務や決意が自分にとって避けられないものになる逆説を指す。"
+          "index": 132,
+          "start": 503.92,
+          "end": 511.92,
+          "text": "free and I think this freedom is"
+        },
+        {
+          "index": 133,
+          "start": 507.92,
+          "end": 514.88,
+          "text": "immanent to let language human language"
+        },
+        {
+          "index": 134,
+          "start": 511.92,
+          "end": 517.76,
+          "text": "itself this may sound complex but let me"
+        },
+        {
+          "index": 135,
+          "start": 514.88,
+          "end": 522.56,
+          "text": "give you an example which I hope all of"
+        },
+        {
+          "index": 136,
+          "start": 517.76,
+          "end": 524.72,
+          "text": "you know recently in the mid-march of"
+        },
+        {
+          "index": 137,
+          "start": 522.56,
+          "end": 528.24,
+          "text": "2022 a"
+        },
+        {
+          "index": 138,
+          "start": 524.72,
+          "end": 532.6,
+          "text": "video was everywhere on social"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0140",
+      "time": "00:08:48",
+      "english": "media a video clip showing a woman being arrested by the Russian police for holding up a small piece of paper that [Music] read two words DAV in Russian you know we all know what was behind it it's prohibited to talk about",
+      "japanese": "ある動画クリップは、ロシア警察に逮捕される女性を映していた、ロシア語で二つの単語が書かれた［音楽］小さな紙切れを掲げたことで、ええ、私たちは皆その背後に何があったか知っている、戦争について話すことは禁じられている",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 139,
+          "start": 528.24,
+          "end": 535.36,
+          "text": "media a video clip showing a woman being"
+        },
+        {
+          "index": 140,
+          "start": 532.6,
+          "end": 540.58,
+          "text": "arrested by the Russian police for"
+        },
+        {
+          "index": 141,
+          "start": 535.36,
+          "end": 542.08,
+          "text": "holding up a small piece of paper that"
+        },
+        {
+          "index": 142,
+          "start": 540.58,
+          "end": 548.56,
+          "text": "[Music]"
+        },
+        {
+          "index": 143,
+          "start": 542.08,
+          "end": 551.04,
+          "text": "read two words DAV in"
+        },
+        {
+          "index": 144,
+          "start": 548.56,
+          "end": 555.08,
+          "text": "Russian you know we all know what was"
+        },
+        {
+          "index": 145,
+          "start": 551.04,
+          "end": 559.8,
+          "text": "behind it it&#39;s prohibited to talk about"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0147",
+      "time": "00:09:15",
+      "english": "war now in Russia so the two words were in the mind of most of Russians n v no to war this was prohibited to say so the Lady this is freedom in language gave just on a paper two words literally not no to war but two words it was written two words and the irony is that the",
+      "japanese": "今ロシアでは、だからその二つの単語はほとんどのロシア人の心の中で「戦争にノー」だった、これを言うことは禁じられていた、だからその女性、これが言語における自由だ、紙にただ二つの単語を書いた、文字通り「戦争にノー」ではなく二つの単語、二つの単語が書かれていた、そして皮肉なことに",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 146,
+          "start": 555.08,
+          "end": 565.08,
+          "text": "war now in Russia so the two words were"
+        },
+        {
+          "index": 147,
+          "start": 559.8,
+          "end": 569.44,
+          "text": "in the mind of most of Russians n v no"
+        },
+        {
+          "index": 148,
+          "start": 565.08,
+          "end": 573.48,
+          "text": "to war this was prohibited to say so the"
+        },
+        {
+          "index": 149,
+          "start": 569.44,
+          "end": 578.48,
+          "text": "Lady this is freedom in language gave"
+        },
+        {
+          "index": 150,
+          "start": 573.48,
+          "end": 582.68,
+          "text": "just on a paper two words literally not"
+        },
+        {
+          "index": 151,
+          "start": 578.48,
+          "end": 585.96,
+          "text": "no to war but two words it was written"
+        },
+        {
+          "index": 152,
+          "start": 582.68,
+          "end": 589.96,
+          "text": "two words and the irony is that the"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0154",
+      "time": "00:09:45",
+      "english": "police still grabbed her and arrested her why it was just two words written there of course everybody knew that two words meant no to walk but of course in the concrete situation this meant I am for peace I am against War but I also protest the fact that I",
+      "japanese": "警察はそれでも彼女をつかまえて逮捕した、なぜならそこにはただ二つの単語が書かれていただけなのに、もちろん誰もがその二つの単語が「戦争にノー」を意味すると知っていた、しかしもちろん具体的な状況においてこれは「私は平和を支持し、戦争に反対する、しかし私はまた、これを公に言うことを禁じられているという事実に抗議する」という意味だった",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 153,
+          "start": 585.96,
+          "end": 593.68,
+          "text": "police still grabbed her and arrested"
+        },
+        {
+          "index": 154,
+          "start": 589.96,
+          "end": 596.84,
+          "text": "her why it was just two words written"
+        },
+        {
+          "index": 155,
+          "start": 593.68,
+          "end": 600.28,
+          "text": "there of course everybody knew that two"
+        },
+        {
+          "index": 156,
+          "start": 596.84,
+          "end": 603.4,
+          "text": "words meant no to walk"
+        },
+        {
+          "index": 157,
+          "start": 600.28,
+          "end": 608,
+          "text": "but of course in the concrete situation"
+        },
+        {
+          "index": 158,
+          "start": 603.4,
+          "end": 611.88,
+          "text": "this meant I am for peace I am against"
+        },
+        {
+          "index": 159,
+          "start": 608,
+          "end": 615.98,
+          "text": "War but I also protest the fact that I"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0161",
+      "time": "00:10:11",
+      "english": "am prohibited to say this [Music] publicly but you see although she supported or didn't violate censorship she did get the message through that's why she was uh arrested and let's not forget that",
+      "japanese": "［音楽］しかしご覧のとおり、彼女は検閲を支持したわけでも違反したわけでもないのに、メッセージを伝えることに成功した、だから彼女は、ええ、逮捕された、そして忘れてはならないのは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 160,
+          "start": 611.88,
+          "end": 617.44,
+          "text": "am prohibited to say this"
+        },
+        {
+          "index": 161,
+          "start": 615.98,
+          "end": 620.92,
+          "text": "[Music]"
+        },
+        {
+          "index": 162,
+          "start": 617.44,
+          "end": 625,
+          "text": "publicly but you see although she"
+        },
+        {
+          "index": 163,
+          "start": 620.92,
+          "end": 627.92,
+          "text": "supported or didn&#39;t violate censorship"
+        },
+        {
+          "index": 164,
+          "start": 625,
+          "end": 630.36,
+          "text": "she did get the message through that&#39;s"
+        },
+        {
+          "index": 165,
+          "start": 627.92,
+          "end": 635.24,
+          "text": "why she was"
+        },
+        {
+          "index": 166,
+          "start": 630.36,
+          "end": 638.48,
+          "text": "uh arrested and let&#39;s not forget that"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0168",
+      "time": "00:10:35",
+      "english": "this freedom is the freedom of true human language it's the freedom to make Works mean almost everything that we want in a brief scene from uh uh uh from a British movie from mid 80s I think uh brush off there is a wonderful s scene of a guy accompanying a girl after day",
+      "japanese": "この自由は真の人間言語の自由だということだ、それは言葉に私たちが望むほとんどすべてを意味させる自由だ、ええ、ええ、ええ、1980年代中期のイギリス映画の短い場面で、ええ、「ブラッシュ・オフ」だと思う、ええ、素晴らしい場面がある、ある男が一日の後、女の子を家まで送る",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 167,
+          "start": 635.24,
+          "end": 643.28,
+          "text": "this freedom is the freedom of true"
+        },
+        {
+          "index": 168,
+          "start": 638.48,
+          "end": 647.64,
+          "text": "human language it&#39;s the freedom to make"
+        },
+        {
+          "index": 169,
+          "start": 643.28,
+          "end": 652.52,
+          "text": "Works mean almost everything that we"
+        },
+        {
+          "index": 170,
+          "start": 647.64,
+          "end": 655.96,
+          "text": "want in a brief scene from uh uh uh from"
+        },
+        {
+          "index": 171,
+          "start": 652.52,
+          "end": 660.08,
+          "text": "a British movie from mid 80s I think uh"
+        },
+        {
+          "index": 172,
+          "start": 655.96,
+          "end": 663.08,
+          "text": "brush off there is a wonderful s scene"
+        },
+        {
+          "index": 173,
+          "start": 660.08,
+          "end": 665.44,
+          "text": "of a guy accompanying a girl after day"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0175",
+      "time": "00:11:03",
+      "english": "to their home do you want to come up for a coffee I don't drink coffee I haven't got any the erotic power of this brief exchange is wonderful she makes it clear that she",
+      "japanese": "「コーヒーを飲みに上がらない？」「私はコーヒーを飲まない」「コーヒーはないのよ」この短いやり取りのエロティックな力は素晴らしい、彼女は自分が",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 174,
+          "start": 663.08,
+          "end": 669.68,
+          "text": "to their"
+        },
+        {
+          "index": 175,
+          "start": 665.44,
+          "end": 672.24,
+          "text": "home do you want to come up for a coffee"
+        },
+        {
+          "index": 176,
+          "start": 669.68,
+          "end": 672.24,
+          "text": "I don&#39;t drink"
+        },
+        {
+          "index": 177,
+          "start": 672.48,
+          "end": 676.12,
+          "text": "coffee I haven&#39;t got"
+        },
+        {
+          "index": 178,
+          "start": 679.6,
+          "end": 685.08,
+          "text": "any the erotic power of this brief"
+        },
+        {
+          "index": 179,
+          "start": 682.84,
+          "end": 688.64,
+          "text": "exchange is"
+        },
+        {
+          "index": 180,
+          "start": 685.08,
+          "end": 690.76,
+          "text": "wonderful she makes it clear that she"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0182",
+      "time": "00:11:28",
+      "english": "didn't mean coffee at all it's an invitation to sex it's clear but what I want to say is that you see this is the incredible creative freedom of language so to conclude with two paradoxes the first one is that the highest form of Freedom",
+      "japanese": "コーヒーのことを全く意味していなかったことを明らかにする、それはセックスへの誘いだ、明らかだ、しかし私が言いたいのは、ご覧のとおり、これが言語の信じられないほどの創造的自由だということだ、結論として二つのパラドックスで締めくくろう、第一は、私たちが持つ最高の形の自由は",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 181,
+          "start": 688.64,
+          "end": 692.8,
+          "text": "didn&#39;t mean coffee at all it&#39;s an"
+        },
+        {
+          "index": 182,
+          "start": 690.76,
+          "end": 696.36,
+          "text": "invitation to"
+        },
+        {
+          "index": 183,
+          "start": 692.8,
+          "end": 698.96,
+          "text": "sex it&#39;s clear but what I want to say is"
+        },
+        {
+          "index": 184,
+          "start": 696.36,
+          "end": 703.24,
+          "text": "that you see this is the incredible"
+        },
+        {
+          "index": 185,
+          "start": 698.96,
+          "end": 706.6,
+          "text": "creative freedom of language so to"
+        },
+        {
+          "index": 186,
+          "start": 703.24,
+          "end": 711.88,
+          "text": "conclude with two paradoxes the first"
+        },
+        {
+          "index": 187,
+          "start": 706.6,
+          "end": 715.52,
+          "text": "one is that the highest form of Freedom"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0189",
+      "time": "00:11:51",
+      "english": "we have to accept this paradx is the point when Freedom coincides with necessity let's take a great artist he is free in his or her creativity but he doesn't really have a choice his inventive Spirit tells him he as it",
+      "japanese": "私たちはこのパラドックスを受け入れなければならない、自由が必要性と一致する点だ、偉大な芸術家を例に取ろう、彼または彼女はその創造性において自由だが、実際には選択の余地がない、その発明の精神が彼に告げる、彼はあたかも",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 188,
+          "start": 711.88,
+          "end": 720.32,
+          "text": "we have to accept this paradx is the"
+        },
+        {
+          "index": 189,
+          "start": 715.52,
+          "end": 724.2,
+          "text": "point when Freedom coincides with"
+        },
+        {
+          "index": 190,
+          "start": 720.32,
+          "end": 729.52,
+          "text": "necessity let&#39;s take a great"
+        },
+        {
+          "index": 191,
+          "start": 724.2,
+          "end": 732.32,
+          "text": "artist he is free in his or her"
+        },
+        {
+          "index": 192,
+          "start": 729.52,
+          "end": 734.64,
+          "text": "creativity but he doesn&#39;t really have a"
+        },
+        {
+          "index": 193,
+          "start": 732.32,
+          "end": 739.08,
+          "text": "choice"
+        },
+        {
+          "index": 194,
+          "start": 734.64,
+          "end": 743.84,
+          "text": "his inventive Spirit tells him he as it"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0196",
+      "time": "00:12:19",
+      "english": "were knows exactly what he has to do so he feels totally free but he totally follows a necessity and isn't it the same again in love love of course has to be free a free choice but did you notice another Paradox that you never",
+      "japanese": "自分が何をしなければならないかを正確に知っている、だから彼は完全に自由だと感じるが、完全に必要性に従っている、そして愛においても同じではないだろうか、愛はもちろん自由でなければならない、自由な選択だ、しかし別のパラドックスに気づいただろうか、あなたは決して",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 195,
+          "start": 739.08,
+          "end": 743.84,
+          "text": "were knows exactly what he has to"
+        },
+        {
+          "index": 196,
+          "start": 744.84,
+          "end": 752.04,
+          "text": "do so he feels totally free but he"
+        },
+        {
+          "index": 197,
+          "start": 748.76,
+          "end": 755.12,
+          "text": "totally follows a necessity and isn&#39;t it"
+        },
+        {
+          "index": 198,
+          "start": 752.04,
+          "end": 758.32,
+          "text": "the same again in"
+        },
+        {
+          "index": 199,
+          "start": 755.12,
+          "end": 762.76,
+          "text": "love love of course has to be free a"
+        },
+        {
+          "index": 200,
+          "start": 758.32,
+          "end": 765.68,
+          "text": "free choice but did you notice another"
+        },
+        {
+          "index": 201,
+          "start": 762.76,
+          "end": 770.12,
+          "text": "Paradox that you never"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0203",
+      "time": "00:12:45",
+      "english": "can give the reasons why you are in love if I tell a lady I like your legs and eyes that's why I love you it's already clear it's not love because then it's not freedom is a kind of a comparative procedures I like your eyes I like your legs I like your smile okay let's make a",
+      "japanese": "なぜ恋をしているのか理由を挙げることはできない、もし私がある女性に「あなたの脚と目が好きだ、だからあなたを愛している」と言ったら、すでに明らかだ、それは愛ではない、なぜならそれは自由ではなく一種の比較的手続きだからだ、「あなたの目が好き、あなたの脚が好き、あなたの笑顔が好き、わかった、では一つにしよう」",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 202,
+          "start": 765.68,
+          "end": 773.64,
+          "text": "can give the reasons why you are in love"
+        },
+        {
+          "index": 203,
+          "start": 770.12,
+          "end": 776.24,
+          "text": "if I tell a lady I like your legs and"
+        },
+        {
+          "index": 204,
+          "start": 773.64,
+          "end": 778.92,
+          "text": "eyes that&#39;s why I love you it&#39;s already"
+        },
+        {
+          "index": 205,
+          "start": 776.24,
+          "end": 781.48,
+          "text": "clear it&#39;s not love because then it&#39;s"
+        },
+        {
+          "index": 206,
+          "start": 778.92,
+          "end": 784.28,
+          "text": "not freedom is a kind of a comparative"
+        },
+        {
+          "index": 207,
+          "start": 781.48,
+          "end": 787.52,
+          "text": "procedures I like your eyes I like your"
+        },
+        {
+          "index": 208,
+          "start": 784.28,
+          "end": 791.64,
+          "text": "legs I like your smile okay let&#39;s make a"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0210",
+      "time": "00:13:07",
+      "english": "comparison who wins no you fall in love for reasons but these reasons become clear to you only after you already fall in love and once you are in love it's a fate it's a necessity isn't this the beauty of love that it's totally free but at the same time it's the most",
+      "japanese": "比較すると、どちらが勝つか、いや、あなたは理由があって恋に落ちるが、その理由はあなたがすでに恋に落ちた後に初めてあなたに明らかになる、そして一度恋に落ちればそれは運命であり、必然性である、これが愛の美しさではないだろうか、それが完全に自由でありながら同時に最も",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 209,
+          "start": 787.52,
+          "end": 793.76,
+          "text": "comparison who wins no you fall in love"
+        },
+        {
+          "index": 210,
+          "start": 791.64,
+          "end": 796.84,
+          "text": "for reasons but these reasons become"
+        },
+        {
+          "index": 211,
+          "start": 793.76,
+          "end": 801.08,
+          "text": "clear to you only after you already fall"
+        },
+        {
+          "index": 212,
+          "start": 796.84,
+          "end": 804.88,
+          "text": "in love and once you are in love it&#39;s a"
+        },
+        {
+          "index": 213,
+          "start": 801.08,
+          "end": 809.44,
+          "text": "fate it&#39;s a necessity isn&#39;t this the"
+        },
+        {
+          "index": 214,
+          "start": 804.88,
+          "end": 813.16,
+          "text": "beauty of love that it&#39;s totally free"
+        },
+        {
+          "index": 215,
+          "start": 809.44,
+          "end": 815.92,
+          "text": "but at the same time it&#39;s the most"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0217",
+      "time": "00:13:33",
+      "english": "radical chain that you can imagine but it's a free train my uh last point to complicate things I like to finish with bad news is that at the same time you know the notion of freedom is not",
+      "japanese": "あなたが想像できる最も急進的な鎖である、しかしそれは自由な列車だ、私のええと最後のポイントは物事を複雑にするために、私は悪い知らせで終えたいのだが、それは同時に、ご存知の通り、自由という概念はそうではないということだ",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 216,
+          "start": 813.16,
+          "end": 819.76,
+          "text": "radical chain that you can imagine but"
+        },
+        {
+          "index": 217,
+          "start": 815.92,
+          "end": 823.68,
+          "text": "it&#39;s a free train my"
+        },
+        {
+          "index": 218,
+          "start": 819.76,
+          "end": 828.32,
+          "text": "uh last point to complicate things I"
+        },
+        {
+          "index": 219,
+          "start": 823.68,
+          "end": 832,
+          "text": "like to finish with bad news is that at"
+        },
+        {
+          "index": 220,
+          "start": 828.32,
+          "end": 834,
+          "text": "the same time you know the notion of"
+        },
+        {
+          "index": 221,
+          "start": 832,
+          "end": 835.92,
+          "text": "freedom is"
+        },
+        {
+          "index": 222,
+          "start": 834,
+          "end": 840.04,
+          "text": "not"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0224",
+      "time": "00:13:55",
+      "english": "is self-contradictory if if you ask Ordinary People Do You Want to Be Free their answer would have been usually yes of course but then if you look at it closely you will see that the majority of people me included wouldn't really like to make radical choices all the",
+      "japanese": "自己矛盾している、もしもし普通の人々に尋ねたら、あなたは自由になりたいですか、彼らの答えはたいていはい、もちろん、しかしその後よく見れば、大多数の人々は私を含めて、本当に急進的な選択をしたいとは思わないことがわかるだろう、いつも",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 223,
+          "start": 835.92,
+          "end": 843.52,
+          "text": "is self-contradictory if if you ask"
+        },
+        {
+          "index": 224,
+          "start": 840.04,
+          "end": 846.6,
+          "text": "Ordinary People Do You Want to Be Free"
+        },
+        {
+          "index": 225,
+          "start": 843.52,
+          "end": 850.32,
+          "text": "their answer would have been usually yes"
+        },
+        {
+          "index": 226,
+          "start": 846.6,
+          "end": 853,
+          "text": "of course but then if you look at it"
+        },
+        {
+          "index": 227,
+          "start": 850.32,
+          "end": 856.72,
+          "text": "closely you will see that the majority"
+        },
+        {
+          "index": 228,
+          "start": 853,
+          "end": 859.64,
+          "text": "of people me included wouldn&#39;t really"
+        },
+        {
+          "index": 229,
+          "start": 856.72,
+          "end": 863.28,
+          "text": "like to make radical choices all the"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0231",
+      "time": "00:14:19",
+      "english": "time what they want to maintain is the appearance of freedom but discreetly they want to be told what choice to make they want to be told by media experts leaders whoever that's the right thing to do and then they want",
+      "japanese": "彼らが維持したいのは自由の外見だが、控えめに彼らはどの選択をすべきか教えてほしいと思っている、メディアの専門家や指導者や誰であれ、それが正しいことだと教えてほしいと思っている、そしてその後彼らは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 230,
+          "start": 859.64,
+          "end": 865.4,
+          "text": "time what they want to maintain is the"
+        },
+        {
+          "index": 231,
+          "start": 863.28,
+          "end": 869.12,
+          "text": "appearance of"
+        },
+        {
+          "index": 232,
+          "start": 865.4,
+          "end": 872.08,
+          "text": "freedom but discreetly they want to be"
+        },
+        {
+          "index": 233,
+          "start": 869.12,
+          "end": 876.36,
+          "text": "told what choice to"
+        },
+        {
+          "index": 234,
+          "start": 872.08,
+          "end": 879.6,
+          "text": "make they want to be told by media"
+        },
+        {
+          "index": 235,
+          "start": 876.36,
+          "end": 882.76,
+          "text": "experts leaders whoever that&#39;s the right"
+        },
+        {
+          "index": 236,
+          "start": 879.6,
+          "end": 889.36,
+          "text": "thing to do and then they want"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0238",
+      "time": "00:14:42",
+      "english": "to freely choose it in an appearance so you see this is the Paradox of Freedom often to be free means to maintain the appearance of freedom and to choose what you feel it's necessary this is not a bad thing this is how our freedom actually works thank",
+      "japanese": "それを外見上自由に選びたいのだ、だからわかるだろう、これが自由のパラドックスだ、しばしば自由であることは自由の外見を維持し、自分が必要だと感じるものを選ぶことを意味する、これは悪いことではない、これが私たちの自由が実際に機能する方法だ、ありがとう",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 237,
+          "start": 882.76,
+          "end": 892.92,
+          "text": "to freely choose it in an appearance so"
+        },
+        {
+          "index": 238,
+          "start": 889.36,
+          "end": 896.68,
+          "text": "you see this is the Paradox of Freedom"
+        },
+        {
+          "index": 239,
+          "start": 892.92,
+          "end": 899.72,
+          "text": "often to be free means to maintain the"
+        },
+        {
+          "index": 240,
+          "start": 896.68,
+          "end": 904.04,
+          "text": "appearance of freedom and"
+        },
+        {
+          "index": 241,
+          "start": 899.72,
+          "end": 906.84,
+          "text": "to choose what you feel it&#39;s"
+        },
+        {
+          "index": 242,
+          "start": 904.04,
+          "end": 913.32,
+          "text": "necessary this is not a bad thing this"
+        },
+        {
+          "index": 243,
+          "start": 906.84,
+          "end": 913.32,
+          "text": "is how our freedom actually works thank"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-0245",
+      "time": "00:15:17",
+      "english": "[Music]",
+      "japanese": "［音楽］",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 244,
+          "start": 917.29,
+          "end": 921.59,
+          "text": "[Music]"
         }
       ]
     }
-  ]
+  ],
+  "sourceCueCoverage": {
+    "firstIndex": 125,
+    "lastIndex": 244,
+    "count": 120
+  },
+  "translationStatus": "machine-translated-unreviewed"
 }

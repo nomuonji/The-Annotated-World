@@ -18,38 +18,994 @@
   ],
   "utterances": [
     {
-      "id": "ch1-line-1",
+      "id": "ch1-line-0001",
+      "time": "00:00:01",
+      "english": "[Music] when you are really free it's not just about free to choose I don't know strawberry case or cheese cake it means for example fighting for freedom and there you don't have the same Choice Fighting For Freedom means I have to",
+      "japanese": "［音楽］本当に自由であるということは、単に自由に選べるということではありません。例えばイチゴのケーキかチーズケーキか、そういうことではなく、例えば自由のために戦うということであり、そこでは同じ選択肢はありません。自由のために戦うということは、私はしなければならないということです",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "00:00:08",
-      "english": "when you are really free it's not just about free to choose",
-      "japanese": "本当に自由であるというのは、単に選択できるということではない。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch1-line-1-note-1",
-          "phrase": "free to choose",
-          "explanation": "選択の自由。後に「選択肢そのものを決める条件」に論点が移る。"
+          "index": 0,
+          "start": 1.43,
+          "end": 5.74,
+          "text": "[Music]"
+        },
+        {
+          "index": 1,
+          "start": 8.92,
+          "end": 13.96,
+          "text": "when you are really free it&#39;s not just"
+        },
+        {
+          "index": 2,
+          "start": 11.4,
+          "end": 17.88,
+          "text": "about free to choose I don&#39;t know"
+        },
+        {
+          "index": 3,
+          "start": 13.96,
+          "end": 21.72,
+          "text": "strawberry case or cheese cake it means"
+        },
+        {
+          "index": 4,
+          "start": 17.88,
+          "end": 24,
+          "text": "for example fighting for freedom and"
+        },
+        {
+          "index": 5,
+          "start": 21.72,
+          "end": 26.68,
+          "text": "there you don&#39;t have the same Choice"
+        },
+        {
+          "index": 6,
+          "start": 24,
+          "end": 30.72,
+          "text": "Fighting For Freedom means I have to"
         }
       ]
     },
     {
-      "id": "ch1-line-2",
+      "id": "ch1-line-0008",
+      "time": "00:00:26",
+      "english": "sacrifice maybe my love life I have to do something although I'm afraid of it but basically I have no choice I couldn't live with myself if I don't do it in politics Freedom means to act freely within the frame of existing customs and legal",
+      "japanese": "おそらく私の恋愛生活を犠牲にしなければならない、怖くても何かをしなければならない、しかし基本的に選択の余地はない、それをしなければ自分自身と共に生きていけないのです。政治において自由とは、既存の慣習と法的",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "00:02:14",
-      "english": "can be United in a struggle for Freedom",
-      "japanese": "自由を求める闘争の中で団結することはできる。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch1-line-2-note-1",
-          "phrase": "a struggle for Freedom",
-          "explanation": "同じ「自由」という言葉の下で連帯していても、実現したい社会像が同一とは限らない。"
+          "index": 7,
+          "start": 26.68,
+          "end": 34.6,
+          "text": "sacrifice maybe my love life I have to"
+        },
+        {
+          "index": 8,
+          "start": 30.72,
+          "end": 37.56,
+          "text": "do something although I&#39;m afraid of it"
+        },
+        {
+          "index": 9,
+          "start": 34.6,
+          "end": 42.36,
+          "text": "but basically I have no choice I"
+        },
+        {
+          "index": 10,
+          "start": 37.56,
+          "end": 47.92,
+          "text": "couldn&#39;t live with myself if I don&#39;t do"
+        },
+        {
+          "index": 11,
+          "start": 42.36,
+          "end": 51.84,
+          "text": "it in politics Freedom means to act"
+        },
+        {
+          "index": 12,
+          "start": 47.92,
+          "end": 56.36,
+          "text": "freely within the frame of existing"
+        },
+        {
+          "index": 13,
+          "start": 51.84,
+          "end": 56.36,
+          "text": "customs and legal"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0015",
+      "time": "00:00:58",
+      "english": "regulations but there are are times when to be truly free means you have to violate the sphere of what is legally permitted and finally while we are free to circulate in the Digital Universe does this Freedom not give birth to a non-transparent universe prone to",
+      "japanese": "規制の枠内で自由に行動することを意味します。しかし、真に自由であるためには、法的に許された領域を侵犯しなければならない時もあります。そして最後に、私たちはデジタル宇宙を自由に循環できますが、この自由は、操作されやすい不透明な宇宙を生み出しているのではないでしょうか",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 14,
+          "start": 58.36,
+          "end": 66.28,
+          "text": "regulations but there are are times when"
+        },
+        {
+          "index": 15,
+          "start": 61.64,
+          "end": 71.68,
+          "text": "to be truly free means you have to"
+        },
+        {
+          "index": 16,
+          "start": 66.28,
+          "end": 71.68,
+          "text": "violate the sphere of what is legally"
+        },
+        {
+          "index": 17,
+          "start": 72.72,
+          "end": 80.48,
+          "text": "permitted and finally while we are free"
+        },
+        {
+          "index": 18,
+          "start": 76.84,
+          "end": 86.04,
+          "text": "to circulate in the Digital Universe"
+        },
+        {
+          "index": 19,
+          "start": 80.48,
+          "end": 89.16,
+          "text": "does this Freedom not give birth to a"
+        },
+        {
+          "index": 20,
+          "start": 86.04,
+          "end": 91.92,
+          "text": "non-transparent universe prone to"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0022",
+      "time": "00:01:29",
+      "english": "manipulation you are as free as you can imagine you surf along the web you do whatever you want but the more you do it the more you experience how manipulated and controlled you are I will not try to provide clear",
+      "japanese": "想像できる限り自由であり、ウェブをサーフィンし、好きなことをします。しかし、それをすればするほど、どれほど操作され、コントロールされているかを経験するのです。私はこれらすべての問いに明確な",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 21,
+          "start": 89.16,
+          "end": 91.92,
+          "text": "manipulation"
+        },
+        {
+          "index": 22,
+          "start": 92.56,
+          "end": 98.68,
+          "text": "you are as free as you can imagine you"
+        },
+        {
+          "index": 23,
+          "start": 95.4,
+          "end": 102.56,
+          "text": "surf along the web you do whatever you"
+        },
+        {
+          "index": 24,
+          "start": 98.68,
+          "end": 105.52,
+          "text": "want but the more you do it the more you"
+        },
+        {
+          "index": 25,
+          "start": 102.56,
+          "end": 108.52,
+          "text": "experience how manipulated and"
+        },
+        {
+          "index": 26,
+          "start": 105.52,
+          "end": 112.84,
+          "text": "controlled you"
+        },
+        {
+          "index": 27,
+          "start": 108.52,
+          "end": 115.68,
+          "text": "are I will not try to provide clear"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0029",
+      "time": "00:01:52",
+      "english": "answers to all this questions I would just try to bring out the complexity of Freedom so the first empirical observation with which I want to begin is that freedom can unite us a whole nation can be United in a struggle for Freedom",
+      "japanese": "答えを提供しようとはしません。ただ自由の複雑さを引き出そうと努めるだけです。そこで、私が始めたい最初の経験的観察は、自由は私たちを団結させることができるということです。国家全体が自由のための闘争で団結することができます",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 28,
+          "start": 112.84,
+          "end": 119.96,
+          "text": "answers to all this questions I would"
+        },
+        {
+          "index": 29,
+          "start": 115.68,
+          "end": 124.48,
+          "text": "just try to bring out"
+        },
+        {
+          "index": 30,
+          "start": 119.96,
+          "end": 127.04,
+          "text": "the complexity of Freedom so the first"
+        },
+        {
+          "index": 31,
+          "start": 124.48,
+          "end": 129.96,
+          "text": "empirical observation with which I want"
+        },
+        {
+          "index": 32,
+          "start": 127.04,
+          "end": 133.96,
+          "text": "to begin is"
+        },
+        {
+          "index": 33,
+          "start": 129.96,
+          "end": 137.56,
+          "text": "that freedom can unite us a whole nation"
+        },
+        {
+          "index": 34,
+          "start": 133.96,
+          "end": 141.32,
+          "text": "can be United in a struggle for Freedom"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0036",
+      "time": "00:02:17",
+      "english": "it can unite us but at the same time each of us he has in his or her head a different concrete notion of freedom for example a country fights against the aggression for Freedom we are all United We shout Freedom we are ready to die for our",
+      "japanese": "それは私たちを団結させることができますが、同時に私たち一人ひとりは頭の中に異なる具体的な自由の概念を持っています。例えば、ある国が自由のために侵略と戦う、私たちは皆団結し、自由を叫び、私たちの自由のために死ぬ覚悟があります",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 35,
+          "start": 137.56,
+          "end": 147.32,
+          "text": "it can unite us but at the same"
+        },
+        {
+          "index": 36,
+          "start": 141.32,
+          "end": 150.04,
+          "text": "time each of us he has in his or her"
+        },
+        {
+          "index": 37,
+          "start": 147.32,
+          "end": 154.52,
+          "text": "head a different"
+        },
+        {
+          "index": 38,
+          "start": 150.04,
+          "end": 157.16,
+          "text": "concrete notion of freedom for example a"
+        },
+        {
+          "index": 39,
+          "start": 154.52,
+          "end": 160.16,
+          "text": "country fights against the aggression"
+        },
+        {
+          "index": 40,
+          "start": 157.16,
+          "end": 162.92,
+          "text": "for Freedom we are all United We shout"
+        },
+        {
+          "index": 41,
+          "start": 160.16,
+          "end": 166.24,
+          "text": "Freedom we are ready to die for our"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0043",
+      "time": "00:02:42",
+      "english": "freedom but it's easy to see upon a closer look that each of us means something different by it so uh the best example from art of this Paradox is for me the finale of The First Act of Mozart's Opera Don [Music]",
+      "japanese": "しかし、よく見れば、私たち一人ひとりがそれによって異なる何かを意味していることは容易にわかります。このパラドックスの芸術からの最良の例は、私にとってモーツァルトのオペラ『ドン・［音楽］",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 42,
+          "start": 162.92,
+          "end": 170.6,
+          "text": "freedom but it&#39;s easy to see upon a"
+        },
+        {
+          "index": 43,
+          "start": 166.24,
+          "end": 177.24,
+          "text": "closer look that each of us means"
+        },
+        {
+          "index": 44,
+          "start": 170.6,
+          "end": 181.16,
+          "text": "something different by it so uh the best"
+        },
+        {
+          "index": 45,
+          "start": 177.24,
+          "end": 185.12,
+          "text": "example from art of this Paradox is for"
+        },
+        {
+          "index": 46,
+          "start": 181.16,
+          "end": 187.88,
+          "text": "me the finale of The First Act of"
+        },
+        {
+          "index": 47,
+          "start": 185.12,
+          "end": 189.48,
+          "text": "Mozart&#39;s Opera Don"
+        },
+        {
+          "index": 48,
+          "start": 187.88,
+          "end": 194.64,
+          "text": "[Music]"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0050",
+      "time": "00:03:09",
+      "english": "joani where the hero Don joani invites his guests to a big reception and greets them with triumphant opening Viva liberta Long Live freedom and they all joined they are all from different strata poor poor peasants other nobl men and so on it's an",
+      "japanese": "ジョヴァンニ』の第一幕のフィナーレです。主人公ドン・ジョヴァンニが客人たちを大きなレセプションに招き、勝利の『Viva liberta 自由万歳』で彼らを迎えます。そして皆が加わります。彼らは皆、貧しい農民、他の貴族など、異なる階層から来ています。それは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 49,
+          "start": 189.48,
+          "end": 199.84,
+          "text": "joani where the hero Don joani invites"
+        },
+        {
+          "index": 50,
+          "start": 194.64,
+          "end": 204.04,
+          "text": "his guests to a big reception and greets"
+        },
+        {
+          "index": 51,
+          "start": 199.84,
+          "end": 209.12,
+          "text": "them with triumphant opening Viva"
+        },
+        {
+          "index": 52,
+          "start": 204.04,
+          "end": 209.12,
+          "text": "liberta Long Live freedom"
+        },
+        {
+          "index": 53,
+          "start": 210.68,
+          "end": 216.56,
+          "text": "and they all joined they are all from"
+        },
+        {
+          "index": 54,
+          "start": 212.96,
+          "end": 219.48,
+          "text": "different strata poor poor peasants"
+        },
+        {
+          "index": 55,
+          "start": 216.56,
+          "end": 222.88,
+          "text": "other nobl men and so on it&#39;s an"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0057",
+      "time": "00:03:39",
+      "english": "emphatic moment which as it were stops the development of the Opera they're all transfixed but it's clear that they don't have the same idea of freedom now my point here is not simply that this is a confusion no such moments of",
+      "japanese": "オペラの発展をいわば止める強調的な瞬間です。彼らは皆釘付けになりますが、彼らが同じ自由の考えを持っていないことは明らかです。ここでの私の要点は、単にこれが混乱であるということではなく、そのような自由への",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 56,
+          "start": 219.48,
+          "end": 225.4,
+          "text": "emphatic moment which as it were stops"
+        },
+        {
+          "index": 57,
+          "start": 222.88,
+          "end": 227.64,
+          "text": "the development of the Opera they&#39;re all"
+        },
+        {
+          "index": 58,
+          "start": 225.4,
+          "end": 232.48,
+          "text": "transfixed but it&#39;s clear that they"
+        },
+        {
+          "index": 59,
+          "start": 227.64,
+          "end": 232.48,
+          "text": "don&#39;t have the same idea of"
+        },
+        {
+          "index": 60,
+          "start": 234.64,
+          "end": 241.96,
+          "text": "freedom"
+        },
+        {
+          "index": 61,
+          "start": 236.56,
+          "end": 246.8,
+          "text": "now my point here is not simply that"
+        },
+        {
+          "index": 62,
+          "start": 241.96,
+          "end": 249.84,
+          "text": "this is a confusion no such moments of"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0064",
+      "time": "00:04:06",
+      "english": "emphatic identification with freedom have their own efficiency the such freedom is not just a an illusion it's illusion with real effects they all really fight for freedom from my own experience I remember how here in Slovenia when we were under a much more",
+      "japanese": "強調的な同一化の瞬間にはそれ自体の効率性があるということです。そのような自由は単なる幻想ではなく、現実の効果を持つ幻想なのです。彼らは皆本当に自由のために戦っています。私自身の経験から思い出すのは、ここスロベニアで、私たちが今のウクライナよりはるかに",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 63,
+          "start": 246.8,
+          "end": 254.52,
+          "text": "emphatic identification with freedom"
+        },
+        {
+          "index": 64,
+          "start": 249.84,
+          "end": 259.96,
+          "text": "have their own efficiency the such"
+        },
+        {
+          "index": 65,
+          "start": 254.52,
+          "end": 262.84,
+          "text": "freedom is not just a an illusion it&#39;s"
+        },
+        {
+          "index": 66,
+          "start": 259.96,
+          "end": 266.72,
+          "text": "illusion with real effects they all"
+        },
+        {
+          "index": 67,
+          "start": 262.84,
+          "end": 272.4,
+          "text": "really fight for freedom from my own"
+        },
+        {
+          "index": 68,
+          "start": 266.72,
+          "end": 272.4,
+          "text": "experience I remember how here in"
+        },
+        {
+          "index": 69,
+          "start": 274.76,
+          "end": 279.84,
+          "text": "Slovenia when we were under a much more"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0071",
+      "time": "00:04:37",
+      "english": "modest than now in Ukraine but nonetheless aggression from the Yugoslav Army we were also all for freedom but immediately after we achieved Independence it was clear that each group had its own idea of freedom for the church Freedom was freedom to",
+      "japanese": "控えめではあったものの、それでもユーゴスラビア軍からの侵略を受けていた時、私たちも皆自由を求めていました。しかし独立を達成した直後、各グループが独自の自由の考えを持っていたことは明らかでした。教会にとって自由とは、すべての",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 70,
+          "start": 277.92,
+          "end": 284.84,
+          "text": "modest than now in Ukraine but"
+        },
+        {
+          "index": 71,
+          "start": 279.84,
+          "end": 284.84,
+          "text": "nonetheless aggression from the Yugoslav"
+        },
+        {
+          "index": 72,
+          "start": 285.84,
+          "end": 293.16,
+          "text": "Army we were also all for"
+        },
+        {
+          "index": 73,
+          "start": 290.48,
+          "end": 296.76,
+          "text": "freedom but immediately after we"
+        },
+        {
+          "index": 74,
+          "start": 293.16,
+          "end": 300.88,
+          "text": "achieved Independence it was clear that"
+        },
+        {
+          "index": 75,
+          "start": 296.76,
+          "end": 304.6,
+          "text": "each group had its own idea of freedom"
+        },
+        {
+          "index": 76,
+          "start": 300.88,
+          "end": 308.88,
+          "text": "for the church Freedom was freedom to"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0078",
+      "time": "00:05:04",
+      "english": "get back all our uh uh possessions freedom to organize ourself as a Central Social Power for new capitalist it was again freedom from capitalist expansion for new leftist it was a different thing and so on and so on be careful how in every Epoch and Al Al",
+      "japanese": "所有物を取り戻す自由であり、中央社会権力として自らを組織する自由でした。新資本家にとっては、再び資本主義的拡大からの自由でした。新左派にとっては別のことでした。そしてそう続きます。あらゆる時代において注意してください、そしていつも",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 77,
+          "start": 304.6,
+          "end": 312.56,
+          "text": "get back all our uh uh possessions"
+        },
+        {
+          "index": 78,
+          "start": 308.88,
+          "end": 316.24,
+          "text": "freedom to organize ourself as a Central"
+        },
+        {
+          "index": 79,
+          "start": 312.56,
+          "end": 319.08,
+          "text": "Social Power for new capitalist it was"
+        },
+        {
+          "index": 80,
+          "start": 316.24,
+          "end": 322.24,
+          "text": "again freedom from capitalist expansion"
+        },
+        {
+          "index": 81,
+          "start": 319.08,
+          "end": 325.68,
+          "text": "for new leftist it was a different thing"
+        },
+        {
+          "index": 82,
+          "start": 322.24,
+          "end": 330.48,
+          "text": "and so on and so on be"
+        },
+        {
+          "index": 83,
+          "start": 325.68,
+          "end": 335.48,
+          "text": "careful how in every Epoch and Al Al"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0085",
+      "time": "00:05:30",
+      "english": "within the same Epoch with different uh strata of or States Freedom means something different as I already indicated in premodern times when people lived in a traditional way of life Freedom simply meant the freedom to live the way they",
+      "japanese": "同じ時代の中で、異なる、ええ、階層や、あるいは国家によって、自由は異なる意味を持つ。すでに示したように、前近代において人々が伝統的な生活様式を生きていたとき、自由とは単に、自分たちが慣れ親しんだように生きる自由、つまり伝統に妨げられることなく従う自由を意味していた。近代において、自由は商業の自由、抽象的な法的自由となった。ええ、社会主義者にとって自由とは、自由",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 84,
+          "start": 330.48,
+          "end": 339.28,
+          "text": "within the same Epoch with different uh"
+        },
+        {
+          "index": 85,
+          "start": 335.48,
+          "end": 343.92,
+          "text": "strata of or States Freedom means"
+        },
+        {
+          "index": 86,
+          "start": 339.28,
+          "end": 343.92,
+          "text": "something different as I already"
+        },
+        {
+          "index": 87,
+          "start": 344.08,
+          "end": 352.04,
+          "text": "indicated in premodern times when people"
+        },
+        {
+          "index": 88,
+          "start": 348.44,
+          "end": 354.24,
+          "text": "lived in a traditional way of life"
+        },
+        {
+          "index": 89,
+          "start": 352.04,
+          "end": 357.88,
+          "text": "Freedom simply"
+        },
+        {
+          "index": 90,
+          "start": 354.24,
+          "end": 360.16,
+          "text": "meant the freedom to live the way they"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0092",
+      "time": "00:05:57",
+      "english": "were used to live the freedom to follow their Traditions without disturbance in modernity Freedom became a freedom of Commerce abstract legal Freedom uh for socialists freedom is the freedom",
+      "japanese": "それは一定の社会的権利によって保証されなければならない自由である。自由は、医療によって、ええ、最低限の生活水準を保証することによって、無償の教育によって、などなどによって、再び実際に可能になるだけである。そして今日においても、今日の典型的な自由とは選択の自由であり、それは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 91,
+          "start": 357.88,
+          "end": 363.44,
+          "text": "were used to live"
+        },
+        {
+          "index": 92,
+          "start": 360.16,
+          "end": 365.8,
+          "text": "the freedom to follow their Traditions"
+        },
+        {
+          "index": 93,
+          "start": 363.44,
+          "end": 370.4,
+          "text": "without"
+        },
+        {
+          "index": 94,
+          "start": 365.8,
+          "end": 377.28,
+          "text": "disturbance in modernity Freedom became"
+        },
+        {
+          "index": 95,
+          "start": 370.4,
+          "end": 377.28,
+          "text": "a freedom of Commerce abstract legal"
+        },
+        {
+          "index": 96,
+          "start": 378.12,
+          "end": 384.88,
+          "text": "Freedom uh for socialists freedom is the"
+        },
+        {
+          "index": 97,
+          "start": 382.68,
+          "end": 388.96,
+          "text": "freedom"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0099",
+      "time": "00:06:24",
+      "english": "of that has to be guaranteed by certain social rights freedom is only actually possible again with health care with uh guaranteeing minimal standard of living free education and so on and so on and also today the typical Freedom today is the freedom of choice which is",
+      "japanese": "しばしば偽りの自由である。なぜなら、与えられる選択肢は非常に限られているからだ。そう、それは少し、そうだ、コカ・コーラとペプシコーラの間で自由に選べるというのに少し似ているが、もしもっと根本的に異なる何かを望んだらどうだろうか。しかしここでの私の要点は",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 98,
+          "start": 384.88,
+          "end": 392.72,
+          "text": "of that has to be guaranteed by certain"
+        },
+        {
+          "index": 99,
+          "start": 388.96,
+          "end": 396.32,
+          "text": "social rights freedom is only actually"
+        },
+        {
+          "index": 100,
+          "start": 392.72,
+          "end": 398.72,
+          "text": "possible again with health care with uh"
+        },
+        {
+          "index": 101,
+          "start": 396.32,
+          "end": 402.28,
+          "text": "guaranteeing minimal standard of living"
+        },
+        {
+          "index": 102,
+          "start": 398.72,
+          "end": 407.24,
+          "text": "free education and so on and so"
+        },
+        {
+          "index": 103,
+          "start": 402.28,
+          "end": 410.72,
+          "text": "on and also today the typical Freedom"
+        },
+        {
+          "index": 104,
+          "start": 407.24,
+          "end": 413.56,
+          "text": "today is the freedom of choice which is"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0106",
+      "time": "00:06:50",
+      "english": "often a false freedom because the the choices you are given are very limited like like it's a little bit like yes you have the freedom between Coca-Cola and Pepsi Cola but what if you want something more radically different but my point here is",
+      "japanese": "これが理由で、おそらく自由の最も深い要素は、自由の抽象的な概念と、自由の具体的な内容との間のまさにその隔たりであるということだ。ええ、あなたの具体的な自由の概念が普遍的なものではないことを経験するのは、あなたにとって非常に良いことだ。あなたがこれに気づくとき、つまりあなたの自由の具体的な内容、あなたにとって自由が意味するものは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 105,
+          "start": 410.72,
+          "end": 417.16,
+          "text": "often a false freedom"
+        },
+        {
+          "index": 106,
+          "start": 413.56,
+          "end": 421.04,
+          "text": "because the the choices you are given"
+        },
+        {
+          "index": 107,
+          "start": 417.16,
+          "end": 423.56,
+          "text": "are very limited like like it&#39;s a little"
+        },
+        {
+          "index": 108,
+          "start": 421.04,
+          "end": 426.6,
+          "text": "bit like yes you have the freedom"
+        },
+        {
+          "index": 109,
+          "start": 423.56,
+          "end": 428.68,
+          "text": "between Coca-Cola and Pepsi Cola but"
+        },
+        {
+          "index": 110,
+          "start": 426.6,
+          "end": 432,
+          "text": "what if you want something more"
+        },
+        {
+          "index": 111,
+          "start": 428.68,
+          "end": 434.6,
+          "text": "radically different but my point here is"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0113",
+      "time": "00:07:12",
+      "english": "that this is the reason that maybe the deepest ingredient of freedom is the very gap between abstract notion of freedom and concrete content of",
+      "japanese": "自由、ええ、あなたの具体的な自由の概念が普遍的なものではないことを経験するのは、あなたにとって非常に良いことだ。あなたがこれに気づくとき、つまりあなたの自由の具体的な内容、あなたにとって自由が意味するものは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 112,
+          "start": 432,
+          "end": 439.28,
+          "text": "that this is the"
+        },
+        {
+          "index": 113,
+          "start": 434.6,
+          "end": 441.04,
+          "text": "reason that maybe the deepest ingredient"
+        },
+        {
+          "index": 114,
+          "start": 439.28,
+          "end": 445.8,
+          "text": "of"
+        },
+        {
+          "index": 115,
+          "start": 441.04,
+          "end": 448.08,
+          "text": "freedom is the very gap between abstract"
+        },
+        {
+          "index": 116,
+          "start": 445.8,
+          "end": 450.04,
+          "text": "notion of freedom"
+        },
+        {
+          "index": 117,
+          "start": 448.08,
+          "end": 452.72,
+          "text": "and concrete"
+        },
+        {
+          "index": 118,
+          "start": 450.04,
+          "end": 457.2,
+          "text": "content of"
+        }
+      ]
+    },
+    {
+      "id": "ch1-line-0120",
+      "time": "00:07:32",
+      "english": "Freedom uh it is very good for you to experience that your concrete notion of freedom is not Universal when you become aware of this that your concrete content of Freedom what Freedom means to",
+      "japanese": "自由、ええ、あなたの具体的な自由の概念が普遍的なものではないことを経験するのは、あなたにとって非常に良いことだ。あなたがこれに気づくとき、つまりあなたの自由の具体的な内容、あなたにとって自由が意味するものは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 119,
+          "start": 452.72,
+          "end": 461.28,
+          "text": "Freedom uh it is very good for you to"
+        },
+        {
+          "index": 120,
+          "start": 457.2,
+          "end": 463.6,
+          "text": "experience that your concrete notion of"
+        },
+        {
+          "index": 121,
+          "start": 461.28,
+          "end": 466.52,
+          "text": "freedom is not"
+        },
+        {
+          "index": 122,
+          "start": 463.6,
+          "end": 469,
+          "text": "Universal when you become aware of this"
+        },
+        {
+          "index": 123,
+          "start": 466.52,
+          "end": 471,
+          "text": "that your concrete content of Freedom"
+        },
+        {
+          "index": 124,
+          "start": 469,
+          "end": 475.92,
+          "text": "what Freedom means to"
         }
       ]
     }
-  ]
+  ],
+  "sourceCueCoverage": {
+    "firstIndex": 0,
+    "lastIndex": 124,
+    "count": 125
+  },
+  "translationStatus": "machine-translated-unreviewed"
 }
