@@ -132,7 +132,7 @@ for(const c of d.chapterIndex){
    // Notes on editorial ideas rather than verbatim surface strings have a
    // clearly labeled inline trigger, not a mismatched clickable English word.
    if(!placed){
-    en.append(' ',mark('編集メモ').addClass('annotation-fallback'),gloss);
+    bar.append(mark('編集メモ').addClass('annotation-fallback'),gloss);
    }
   }
   if(annotations.length)note.addClass('annotation-converted');
