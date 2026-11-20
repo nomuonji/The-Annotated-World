@@ -3,7 +3,7 @@ import Archive from '../../layouts/Archive.astro';
 import SourceVideo from '../../components/SourceVideo.astro';
 import StudyToolbar from '../../components/StudyToolbar.astro';
 import ReaderTools from '../../components/ReaderTools.astro';
-import {termUrl,findTerms,noteFor,matchingConcepts,conceptUrl} from '../../lib/lexicon';
+import {matchingConcepts,conceptUrl} from '../../lib/lexicon';
 import DocumentCard from '../../components/DocumentCard.astro';
 import {getCollection,type CollectionEntry} from 'astro:content';
 import {load} from 'cheerio';
@@ -44,14 +44,14 @@ for(const c of d.chapterIndex){
   bar.append($('<button>').attr({'type':'button','data-reveal':'','aria-expanded':'false','hidden':''}).text('和訳・注釈を見る'));
   block.find('.speaker-line').first().after(bar);
   const en=block.find('.en').first(),ja=block.find('.ja').first(),note=block.find('.note').first();
-  const terms=findTerms(en.text(),en.find('strong.key').toArray().map(e=>$(e).text()),note.find('strong').toArray().map(e=>$(e).text()));
-  const linkWord=(term:string)=>$('<a>').addClass('word-link').attr({'href':termUrl(term),'data-word':term,'data-word-note':noteFor($,note,term)}).text(term);
-  const used=new Set<string>();
-  for(const el of en.find('strong.key').toArray()){const node=$(el),term=node.text().trim();if(!term||node.find('a').length)continue;const original=node.html()||'';node.empty().append(linkWord(term).html(original));used.add(term);}
-  const extra=$('<div>').addClass('reader-term-links');
-  for(const term of terms.filter(t=>!used.has(t)))extra.append(linkWord(term).addClass('extra-word'));
-  for(const c of matchingConcepts(en.text()))extra.append($('<a>').addClass('concept-link').attr('href',conceptUrl(c.id)).text(c.ja));
-  if(extra.children().length)block.append(extra);
+  // A highlighted English word is not necessarily an editorial annotation.
+  // Do not fabricate clickable vocabulary links without a corresponding note.
+  const concepts=matchingConcepts(en.text());
+  if(concepts.length){
+   const related=$('<div>').addClass('reader-term-links');
+   for(const concept of concepts)related.append($('<a>').addClass('concept-link').attr('href',conceptUrl(concept.id)).text(concept.ja));
+   block.append(related);
+  }
 
   // Canonical reader: exactly one visible format, permanently embedded in the English.
   // Structured annotations are rendered into a hidden compatibility .note for vocabulary indexing; only inline glosses appear.
@@ -87,8 +87,11 @@ for(const c of d.chapterIndex){
    const text=remainder.text().trim();
    if(text)annotations.push({label:'',explanation:text,id:anchor+'-note-1'});
   }
+  // One interaction model for every real editorial note:
+  // underlined source phrase -> tap to reveal its single, local explanation.
+  // Unannotated emphasized words remain ordinary text, never dead-end links.
   const sourceEnglish=en.text().toLocaleLowerCase();
-  for(const item of annotations){
+  for(const [index,item] of annotations.entries()){
    if(!item.explanation)continue;
    const label=item.label;
    const candidates=[
@@ -98,37 +101,39 @@ for(const c of d.chapterIndex){
     label.split(/\s+\/\s+/u)[0].trim(),
     label.replace(/\s+[A-Z]$/u,'').trim(),
     label.trim()
-   ];
-   // Partial idiom/pattern notes still attach to an actual phrase where possible.
+   ].flatMap(value=>[value,value.replace(/^steal the show$/i,'stole the show'),value.replace(/^stick out$/i,'sticking out')]);
    const phrase=candidates.find(value=>value.length>=4&&sourceEnglish.includes(value.toLocaleLowerCase()));
-   const gloss=$('<span>').addClass('in-situ-annotation').attr({'lang':'ja','role':'note','data-editorial-gloss':item.id});
+   const noteId=anchor+'-gloss-'+(index+1);
+   const gloss=$('<span>').addClass('in-situ-annotation').attr({
+    id:noteId,lang:'ja',role:'note','data-editorial-gloss':item.id,hidden:''
+   });
    const meaning=label.match(/（([^）]+)）$/u)?.[1];
    const content=(meaning?meaning+'：':'')+item.explanation;
    gloss.text('〔'+(phrase?content:(label?label+'：':'')+item.explanation)+'〕');
+   const mark=(value:string)=>$('<span>').addClass('annotation-term').attr({
+    role:'button',tabindex:'0','data-note-toggle':'','aria-controls':noteId,
+    'aria-expanded':'false','aria-label':value+' の注釈を表示'
+   }).text(value);
    let placed=false;
    if(phrase){
     for(const node of en.find('*').addBack().contents().toArray()){
      if(node.type!=='text'||$(node).closest('.in-situ-annotation').length)continue;
      const offset=node.data.toLocaleLowerCase().indexOf(phrase.toLocaleLowerCase());
      if(offset<0)continue;
-     const parent=$(node).parent(),emphasis=parent.closest('strong,em').first(),linked=parent.closest('a').first();
-     if(emphasis.length||linked.length){
-      const target=emphasis.length?emphasis:linked;
-      target.addClass('annotation-term');target.after(gloss);
-     }else{
-      const fragment=$('<span>').addClass('annotation-fragment');
-      fragment.append($('<span>').text(node.data.slice(0,offset)));
-      fragment.append($('<span>').addClass('annotation-term').text(node.data.slice(offset,offset+phrase.length)));
-      fragment.append(gloss);
-      fragment.append($('<span>').text(node.data.slice(offset+phrase.length)));
-      $(node).replaceWith(fragment);
-     }
+     const fragment=$('<span>').addClass('annotation-fragment');
+     fragment.append($('<span>').text(node.data.slice(0,offset)));
+     fragment.append(mark(node.data.slice(offset,offset+phrase.length)));
+     fragment.append(gloss);
+     fragment.append($('<span>').text(node.data.slice(offset+phrase.length)));
+     $(node).replaceWith(fragment);
      placed=true;break;
     }
    }
-   // Legacy source labels occasionally describe a pattern rather than quoting literal English.
-   // Keep those explanations in the same in-text style, instead of resurrecting a "ポイント" box.
-   if(!placed)en.append(' ',gloss);
+   // Notes on editorial ideas rather than verbatim surface strings have a
+   // clearly labeled inline trigger, not a mismatched clickable English word.
+   if(!placed){
+    en.append(' ',mark('編集メモ').addClass('annotation-fallback'),gloss);
+   }
   }
   if(annotations.length)note.addClass('annotation-converted');
  });
