@@ -123,7 +123,12 @@ function setup(reader:HTMLElement){
   if(!popover.contains(target)&&!activeNoteTrigger?.contains(target))closePopover();
  });
  document.addEventListener('keydown',event=>{if(event.key==='Escape')closePopover();});
- window.addEventListener('scroll',closePopover,{passive:true});
+ window.addEventListener('scroll',()=>{
+  if(popover.hidden||!activeNoteTrigger)return;
+  const rect=activeNoteTrigger.getBoundingClientRect();
+  if(rect.bottom<0||rect.top>window.innerHeight){closePopover();return;}
+  positionPopover();
+ },{passive:true});
  window.addEventListener('resize',()=>{if(!smallReader.matches)closePopover();else positionPopover();},{passive:true});
  smallReader.addEventListener('change',closePopover);
  const entries:TimedBlock[]=blocks.flatMap(element=>{const raw=element.dataset.utteranceStart;return raw!==undefined&&/^\d+$/.test(raw)?[{element,start:Number(raw),end:null}]:[];}).sort((a,b)=>a.start-b.start);
