@@ -60,6 +60,10 @@
   display:flex;justify-content:center;align-items:center;gap:8px;
   width:min(100%,280px);margin:0;
  }
+ /* The reading toolbar must not form a second row of secondary buttons. */
+ .video-pinned .study-toolbar{flex-wrap:nowrap;justify-content:center;gap:4px;padding:4px 0}
+ .video-pinned .study-toolbar .study-secondary{display:none}
+ .video-pinned .study-mode button{min-height:34px;padding:5px 9px;font-size:11px}
  .video-pinned .video-quick-controls .study-control{
   min-height:30px;padding:4px 11px;font-size:11px;
  }
