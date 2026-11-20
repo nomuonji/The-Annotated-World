@@ -45,7 +45,7 @@ for(const c of d.chapterIndex){
   block.find('.speaker-line').first().after(bar);
   const en=block.find('.en').first(),ja=block.find('.ja').first(),note=block.find('.note').first();
   const terms=findTerms(en.text(),en.find('strong.key').toArray().map(e=>$(e).text()),note.find('strong').toArray().map(e=>$(e).text()));
-  const linkWord=(term:string)=>$('<a>').addClass('word-link').attr({'href':termUrl(term),'data-word':term,'data-word-note':noteFor($,note,term)||note.text().replace(/^ポイント\s*/,'').trim()}).text(term);
+  const linkWord=(term:string)=>$('<a>').addClass('word-link').attr({'href':termUrl(term),'data-word':term,'data-word-note':noteFor($,note,term)}).text(term);
   const used=new Set<string>();
   for(const el of en.find('strong.key').toArray()){const node=$(el),term=node.text().trim();if(!term||node.find('a').length)continue;const original=node.html()||'';node.empty().append(linkWord(term).html(original));used.add(term);}
   const extra=$('<div>').addClass('reader-term-links');
