@@ -1,0 +1,45 @@
+name: Japanese English-microquote narration
+on:
+  push:
+    branches: [prototype/japanese-marx-zizek-2026]
+    paths:
+      - .github/workflows/jp-voice-v4.yml
+      - docs/prototypes/jp-marx-v4-narration.json
+permissions:
+  contents: read
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install edge-tts
+      - name: Synthesize Japanese narration and separate English original phrases
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p audio-v4
+          python - <<'PY'
+          import asyncio, json
+          from pathlib import Path
+          from edge_tts import Communicate
+          x=json.load(open('docs/prototypes/jp-marx-v4-narration.json',encoding='utf8'))
+          async def main():
+              for i,entry in enumerate(x):
+                  for part,lang,rate in [('jp_before','ja-JP-KeitaNeural','+23%'),('en','en-US-GuyNeural','+6%'),('jp_after','ja-JP-KeitaNeural','+23%')]:
+                      val=entry.get(part)
+                      if not val:continue
+                      out=Path('audio-v4')/f'{i:02d}-{part}.mp3'
+                      await Communicate(val,voice=lang,rate=rate).save(str(out))
+                      print('OK',i,part,out.stat().st_size,flush=True)
+          asyncio.run(main())
+          PY
+          cp docs/prototypes/jp-marx-v4-narration.json audio-v4/narration.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jp-marx-v4-bilingual-voice
+          path: audio-v4/
+          retention-days: 14

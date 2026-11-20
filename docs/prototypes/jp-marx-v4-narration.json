@@ -1,0 +1,91 @@
+[
+  {
+    "id": "hook",
+    "jp_before": "『世界を変えろ』。これ、マルクスの有名な言葉です。でもジジェクは真っ向から反論する。二十世紀は、むしろ変えすぎた、と。",
+    "en": null,
+    "jp_after": "",
+    "focus": "世界を変えすぎた？",
+    "shots": [
+      "marx",
+      "marx"
+    ]
+  },
+  {
+    "id": "marx",
+    "jp_before": "一八四五年の『フォイエルバッハに関するテーゼ』第十一項。",
+    "en": "The point is to change it.",
+    "jp_after": "哲学者は世界を解釈してきた。肝心なのは、世界を変えることだ。",
+    "focus": "肝心なのは、変えること",
+    "shots": [
+      "marx",
+      "marx"
+    ]
+  },
+  {
+    "id": "acted",
+    "jp_before": "ところがジジェクはこう言う。",
+    "en": "We acted too much.",
+    "jp_after": "私たちは行動しすぎた。結果は衝撃的だった。",
+    "focus": "行動しすぎた",
+    "shots": [
+      "ww1",
+      "ww1"
+    ]
+  },
+  {
+    "id": "history",
+    "jp_before": "第一次世界大戦はなぜ起きたのか。ロシア十月革命の後、どうしてスターリン体制が現れたのか。ジジェクはこう問いかける。",
+    "en": null,
+    "jp_after": "",
+    "focus": "理想の変革が、抑圧になる",
+    "shots": [
+      "ww1",
+      "lenin",
+      "stalin"
+    ]
+  },
+  {
+    "id": "hegel",
+    "jp_before": "そのとき重要になるのがヘーゲルです。フランス革命で自由を求めた運動は、恐怖政治へ反転した。解放が抑圧になる。",
+    "en": null,
+    "jp_after": "",
+    "focus": "自由 → 恐怖政治",
+    "shots": [
+      "hegel",
+      "terror"
+    ]
+  },
+  {
+    "id": "question",
+    "jp_before": "ここで彼の問いは一つです。",
+    "en": "How could things go wrong?",
+    "jp_after": "物事はどう裏目に出るのか。哲学は、失敗の経路を見つける仕事でもある。",
+    "focus": "どう裏目に出るのか",
+    "shots": [
+      "hegel",
+      "stalin"
+    ]
+  },
+  {
+    "id": "ai",
+    "jp_before": "これはＡＩにも当てはまる。ロボットが何でもしてくれるという理想。でも、その先に何が起きるのか。",
+    "en": null,
+    "jp_after": "",
+    "focus": "AIの理想、その先は？",
+    "shots": [
+      "robot",
+      "robot"
+    ]
+  },
+  {
+    "id": "ending",
+    "jp_before": "だからマルクスの言葉をひっくり返す。",
+    "en": "The time has come to interpret it again.",
+    "jp_after": "今こそ世界を、もう一度解釈し直す時だ。これがジジェクの挑発です。",
+    "focus": "再び、世界を解釈せよ",
+    "shots": [
+      "marx",
+      "hegel"
+    ]
+  }
+]
