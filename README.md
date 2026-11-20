@@ -1,29 +1,60 @@
 # The Annotated World
 
-Annotated source documents, not a generic English learning portal. The supplied initial HTML is the visual and structural reference: white paper, editorial typography, chapter table of contents, continuous text in English, Japanese translation, and language/context notes immediately below each utterance.
+知的に面白い原典を、英日対訳と文中注釈で読むアーカイブ。資料・章・人物・テーマ・語彙から関連する原典を探せます。
 
-## Add a document
+**エージェント向けの正本は [AGENTS.md](AGENTS.md) と [docs/CONTENT-AGENT.md](docs/CONTENT-AGENT.md)。** このREADMEは開発・運用の概要です。教材データの形式と検証要件は `docs/CONTENT-AGENT.md` を優先してください。
 
-Place **one complete annotated HTML file** in `src/content/documents/<lowercase-slug>.html`. Astro's content collection reads the HTML, automatically derives the title, author, duration, date, description, chapter/utterance counts and builds its own URL `/read/<slug>/`; the index updates automatically. No JSON conversion, layout or route changes are needed. The first document is `slavoj-zizek-signs-from-the-future.html`, an exact copy of the user-provided file. The public library starts with this one document.
+## コンテンツの管理（章ごとのJSON）
 
-Use `main.page`, `.hero` (h1, .hero-meta, .deck and .meta-strip), `.toc`, `section.sec`, `.sec-header h2`, and `.utterance` with `.speaker-line`, `.en`, `.ja`, `.note`, and a source footer. Include source links, mark uncertainties in transcripts, and preserve chapter order and inline typography. Optional `<meta name="aw:category" content="...">`. The reader extracts only the document body and uses the shared stylesheet derived from the original file, rather than running arbitrary imported styles or scripts. The loader rejects unexpected markup, unsafe attributes/links and missing bilingual blocks. Do not commit personal data, untrusted files or material you lack permission to publish. The initial upload was explicitly requested by the owner; transcript accuracy and redistribution rights are unverified and disclosed on its page. Do not label the text as verified without evidence.
+公開教材は **記事情報1ファイル＋章ごとのJSON** で管理します。巨大なHTML原稿や旧形式の `<slug>.meta.json`・`<slug>.annotations.json` は使用しません。
 
-## Development
+```text
+src/content/documents/
+  slavoj-zizek-signs-from-the-future/
+    document.json
+    chapters/
+      ch1.json
+      ch2.json
+      ...
+      ch11.json
+src/data/concepts.json
+```
 
-Node 22.12+, `npm install`, `npm run dev`. Run `npm run check`, `npm run build`, then `npm run verify:archive`. Deploy `dist/` to a static host (build command `npm run build`); no server, database or secrets required. Root deployment assumed. The legacy private importer remains separately accessible at `/workspace/` but is not part of the public archive navigation; its example is not a public archive entry.
+- `document.json`: タイトル・紹介・話者・原典・出典確認情報・分野・人物・テーマ・`chapterOrder`（章の表示順）。
+- `chapters/<id>.json`: 章タイトル・時間範囲・要約・分野・テーマ・発話の配列。各発話には固定ID、話者、再生時刻、英文、和訳、個別の注釈 `{id, phrase, explanation}` を持たせます。
+- 章を追加・入れ替えるときは章JSONと `document.json` の `chapterOrder` を編集します。**公開済みのslug、章ID、発話ID、注釈IDを順序変更で採番し直さないでください。** 既存の `#chN`、`#chN-line-X` を維持します。
+- **編集ステータスは持ちません。** 公開に使うデータは現在のリポジトリの教材ディレクトリから生成します。確認途中の原典は調査メモに保存し、許諾・実原文が不明な全文を新規公開しないでください。
+- [記事テンプレート](docs/templates/document.json) と [章テンプレート](docs/templates/chapter.json) を使い、プレースホルダーはすべて実在情報に置き換えてください。初回教材の古いHTMLはGit履歴から参照できますが、現行の編集対象ではありません。
 
-## Discovery metadata
+`src/lib/document-source.mjs` がJSONを検証して表示用HTMLを生成し、`src/content.config.ts` がAstroコレクションへ接続します。資料一覧・章索引・ジャンル・人物・テーマ・語彙ページ・[機械用カタログ](/catalog.json)は公開データから自動生成します。URLルーターや生成済みの `dist/` を直接編集する必要はありません。
 
-The public archive has six fixed genre routes, a full-text metadata search in /library/, topic and person indexes, and context-aware links from every document and annotated chapter. Add the optional `<slug>.meta.json` alongside the original HTML: `genre` is one of philosophy, literature, film-culture, society, technology, internet; `people` contains stable {id,name,ja}; `topics` contains {id,name}; `chapterMetadata` maps existing chapter anchors to {genres,topics}. Reuse topic/person IDs across documents and keep labels consistent. An HTML file without metadata still appears in the archive without invented classifications. Topic counts are actual document and chapter counts. A single document can be discovered via several chapter-level genres, but the genre listing distinguishes its primary genre. The original source HTML stays unchanged. YouTube video ID is parsed from the original source link; the reader embeds the privacy-enhanced player with timestamp controls and an external fallback. Other sources use the original links without a player. Related documents rank shared themes, people and genre; no fake recommendations are added.
+## 文中注釈と読書モード
 
-## Study reader
+日本語注釈は、対応する英文の表現の直後に `〔説明〕` として表示します。新規資料では `phrase` に実際の英文に含まれる**完全一致の語句**を使ってください。文末の別建てポイント欄、注釈番号、ポップアップ、一般的な音の変化に関する独立パネルは作りません。
 
-The learning toolbar adds parallel text, English-only, and listening modes with per-utterance reveal, font scaling and chapter navigation. Video documents support the official YouTube IFrame API: live playback-position highlighting, explicit follow mode, timestamp seek, available playback speeds and utterance repeat using the next source timestamp as the end. Desktop video stays alongside the transcript; mobile video can be pinned or unpinned. Original text, notes and links still render without JavaScript. On API failure the normal player and external timestamp links remain usable. Utterance-level alignment is approximate; the last repeat requires a known duration. No new persistence or bookmark feature has been added. The legacy private importer is unchanged.
+読者は記事ツールバーで注釈をON/OFFでき、サイト全体のライト／ダークモードは共通ヘッダーから切り替えられます。どちらも表示設定をページ間で保持します。通常の全文読書には章末ナビゲーションを表示せず、`?chapter=chN` の章単位モードだけで前後・関連する別記事の章へ移動できます。
 
-## Knowledge graph and reading tools
+YouTube資料では動画と発話開始時刻を発話単位で連動します。デスクトップは本文と動画を併置し、モバイルの動画固定は任意です。元動画への外部リンクと時刻リンクも残します。音声未照合の時刻や発音を、検証済みと表示しません。
 
-The Words index is built from actual `.en strong.key` spans and note labels that appear verbatim in English. Normalization is case/spacing/punctuation only; no lemmatization. Individual expression pages link to exact utterance anchors and distinguish matching term notes from general source notes. The manually curated `src/data/concepts.json` registry includes only matching references, with links to actual utterances, co-occurring concepts and topic pages. `src/content/documents/<slug>.annotations.json` stores optional syntax, pronunciation (general hints, not verified audio) and sentence alignment keyed by utterance anchor (per-document file); exact source text/translation is checked at build. Reader tools add text search, focus and dark mode, and a mobile-friendly modal that links to the source-connected expression page. No preferences or progress are persisted. Offline downloads and unverified audio alignment are not implemented.
+## 開発・検証
 
-## Content agent quick start
+Node.js 22.12以上を使用します。
 
-Read [docs/CONTENT-AGENT.md](docs/CONTENT-AGENT.md). Templates in [docs/templates](docs/templates) are documentation only and are never published. Catalog: `/catalog.json` or local `npm run content:inspect`. For exact utterance IDs and source text use `npm run content:inspect -- <slug>`. Run `npm run content:check` before type/build/link checks; it detects orphan files, duplicate sources, missing chapter metadata, invalid timestamps, missing provenance and broken optional annotation anchors. The owner's first supplied HTML is retained with unverified rights reported as a warning; new documents must record verified publication basis. The validator checks evidence fields, not the truth of evidence. Chapter completion navigation and related chapters are generated from existing anchors/topics; provenance is displayed per document. No new storage, database or deployment added.
+```sh
+npm install
+npm run content:inspect                 # 全資料・共通ID・警告を確認
+npm run content:inspect -- <slug>       # 指定資料の発話単位まで調査
+npm run content:check                   # 構造・固定ID・出典・時刻の検証
+npm run check                           # Astro/TypeScript
+npm run build                           # 静的ページ生成
+npm run verify:archive                  # 内容・アンカー・リンクの検証
+npm run verify:reader                   # Playwright（Chromiumの導入が必要）
+```
+
+ローカル表示は `npm run dev`。Cloudflare Pagesなどの静的配信先に `dist/` を公開する設計で、公開サイトにサーバー・データベース・秘密鍵を要求しません。ブラウザ操作の検証はGitHub Actionsでも実行しますが、CI成功は本番デプロイ成功を保証しません。
+
+初回公開資料は元の提供原稿に基づき、原典の照合・再掲載権利が未確認である旨をメタデータに明記しています。この扱いを他の原典に拡張しないでください。過去に作成した「How to become free」の記事はユーザー指示で削除済みで、再公開を自動的に進めないでください。
+
+## 別系統の機能
+
+`/workspace/` は個人教材をブラウザに取り込む旧機能であり、**公開コンテンツを編集するCMSではありません**。動画・ショートの制作仕様は [AGENTS.md](AGENTS.md) の派生発信コンテンツ節と `templates/annotated-short/` を参照してください。
