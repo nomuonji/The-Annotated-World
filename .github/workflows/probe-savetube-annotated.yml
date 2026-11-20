@@ -23,6 +23,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install ffprobe for media integrity checks
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
       - name: SaveTube /v2/info probe (metadata only)
         id: info
         continue-on-error: true
@@ -45,6 +47,7 @@ jobs:
           ffprobe -v error -select_streams v:0 -show_entries stream=codec_type -of csv=p=0 /tmp/youtube-capture/source.mp4 | grep -qx video
           ffprobe -v error -select_streams a:0 -show_entries stream=codec_type -of csv=p=0 /tmp/youtube-capture/source.mp4 | grep -qx audio
           ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 /tmp/youtube-capture/source.mp4
+          python3 -c 'import subprocess; duration=float(subprocess.check_output(["ffprobe","-v","error","-show_entries","format=duration","-of","default=noprint_wrappers=1:nokey=1","/tmp/youtube-capture/source.mp4"])); print("SOURCE_MEDIA_DURATION_SECONDS=",duration); assert abs(duration-5715)<120, "SaveTube returned only a partial video, not the 95-minute lecture"'
           sha256sum /tmp/youtube-capture/source.mp4 | cut -d' ' -f1 | sed 's/^/SOURCE_MEDIA_SHA256=/'
       - name: Distinguish metadata response from actual media acquisition
         if: always()
