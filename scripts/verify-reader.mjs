@@ -114,6 +114,21 @@ try{
   assert.ok((await page.locator('#word-dialog-note').textContent()).includes('未割譲'));
   assert.equal(new URL(await page.locator('#word-dialog-more').getAttribute('href'),base).pathname,destination);
   await page.locator('#word-dialog button').click();
+  // Regression: a clicked inflected word must never show neighboring notes.
+  // ch3-line-6 has three distinct notes: steal the show, stick out, element of discord.
+  const vocabularyCases=[
+   {word:'sticking out',expected:'目立つ、浮き出る',excluded:['steal the show','不協和音','ヘーゲル']},
+   {word:'stole the show',expected:'主役を食って',excluded:['stick out','不協和音','ヘーゲル']},
+   {word:'World Spirit',expected:'この語句に対応する個別注釈は登録されていません。',excluded:['steal the show','stick out','ヘーゲル']}
+  ];
+  for(const {word,expected,excluded} of vocabularyCases){
+   const tapped=page.locator('#ch3-line-6 a[data-word]').filter({hasText:word}).first();
+   await tapped.click();
+   const popup=await page.locator('#word-dialog-note').textContent()||'';
+   assert.ok(popup.includes(expected),word+' did not resolve to its own annotation: '+popup);
+   for(const unrelated of excluded)assert.ok(!popup.includes(unrelated),word+' included unrelated annotation: '+unrelated);
+   await page.locator('#word-dialog button').click();
+  }
   await page.locator('.quick-reader-tools').click();await page.locator('#reader-query').fill('unceded territories');
   await page.locator('#reader-next').click();assert.ok(await first.evaluate(e=>e.classList.contains('search-current')));
   // The chapter-only view keeps its own shareable URL and shows exactly one chapter.
