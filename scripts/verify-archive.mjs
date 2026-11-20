@@ -1,3 +1,4 @@
+import {loadStructuredDocuments} from '../src/lib/document-source.mjs';
 import assert from 'node:assert/strict';
 import { readdir, readFile } from 'node:fs/promises';
 import { load } from 'cheerio';
