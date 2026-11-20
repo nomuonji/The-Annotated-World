@@ -13,14 +13,24 @@ for(const file of entries){
  for(const selector of ['.hero h1','.hero-meta','.deck','.meta-strip','.toc-list li','section.sec h2','.speaker-line','.utterance .en','.utterance .ja','.utterance .note','.sources']){
   const extract=($)=>$(selector).toArray().map(e=>{
    const copy=$(e).clone();
-   if(selector==='.utterance .en')copy.find('.in-situ-annotation').remove();
+   if(selector==='.utterance .en')copy.find('.in-situ-annotation,.inline-note-ref').remove();
    return copy.text().trim();
   });
-  // Strip the separate visible gloss layer before checking the verbatim English source.
-  assert.deepEqual(extract(page),extract(source),file+': '+selector);
+  // The supplied source stays unchanged. Only the rendered reader copy of a legacy hero changes.
+  const sourceValues=extract(source);
+  if(selector==='.deck'){
+   for(let i=0;i<sourceValues.length;i++)sourceValues[i]=sourceValues[i]
+    .replace('英文の直下に自然な日本語訳と語彙・背景知識のポイントを配置しました。','英文中に語彙と背景知識の注釈を直接挿入し、日本語訳も併記しました。')
+    .replace('青い番号から各文中註へ移動できます。','注釈は英文の該当箇所に直接表示しています。');
+  }
+  assert.deepEqual(extract(page),sourceValues,file+': '+selector);
  }
- const inline=($)=>$('.en strong.key,.note strong,.en em').toArray().map(e=>$(e).text());
+ const inline=($)=>$('.en strong.key,.note strong,.en em').toArray().map(e=>{const copy=$(e).clone();copy.find('.in-situ-annotation,.inline-note-ref').remove();return copy.text();});
  assert.deepEqual(inline(page),inline(source),'Inline emphasis lost');
+ assert.equal(page('.in-situ-annotation').length>=page('.utterance').length,true,id+': not every utterance has an in-text annotation');
+ assert.equal(page('.note.annotation-converted').length,page('.utterance').length,id+': a duplicate note panel can remain visible');
+ assert.equal(page('.en .inline-note-ref').length,0,id+': legacy footnote links remain');
+ assert.equal(page('.editorial-annotation').length,0,id+': redundant listening/syntax disclosure remains');
  if(id==='slavoj-zizek-signs-from-the-future'){
   assert.equal(createHash('sha256').update(raw).digest('hex'),'50700dc852923e693d7104111c9c729ccdb82d51c8e5af121b4c539d80fbb701','Original file was modified');
   assert.equal(page('section.sec').length,11);
@@ -54,7 +64,7 @@ const byPath=new Map();for(const p of pages){const url='/'+p.slice(5,-'index.htm
 for(const [url,$] of byPath)for(const a of $('a[href]').toArray()){const href=$(a).attr('href');if(!href||(!href.startsWith('/')&&!href.startsWith('#'))||href.startsWith('//'))continue;const u=new URL(href,'https://archive.local'+url);const target=byPath.get(u.pathname);assert.ok(target,'Broken internal link '+url+' -> '+href);if(u.hash)assert.ok(target('[id]').toArray().some(e=>target(e).attr('id')===decodeURIComponent(u.hash.slice(1))),'Broken anchor '+url+' -> '+href);}
 const words=byPath.get('/words/');const concepts=byPath.get('/concepts/');assert.ok(words('.word-card').length>50);assert.ok(concepts('.word-card').length>=10);
 const firstLink=sample('.en strong.key a[data-word]').first().attr('href');assert.ok(firstLink&&byPath.has(firstLink));assert.ok(byPath.get(firstLink)('.occurrence a[href="/read/slavoj-zizek-signs-from-the-future/#ch1-line-1"]').length);
-assert.ok(byPath.get('/concepts/surplus-enjoyment/')('.occurrence').length);assert.equal(sample('.editorial-annotation').length,1);assert.equal(sample('.editorial-annotation summary').text(),'聞き取りのヒント（一般的な音の変化）');
+assert.ok(byPath.get('/concepts/surplus-enjoyment/')('.occurrence').length);assert.equal(sample('.editorial-annotation').length,0);assert.equal(sample('.note.annotation-converted').length,61);assert.equal(sample('.en .in-situ-annotation').length>=61,true);
 console.log('Knowledge indexes: '+words('.word-card').length+' expressions, '+concepts('.word-card').length+' concepts and references');
 console.log('Discovery routes, video source and internal links verified: '+pages.length+' static pages');
 
