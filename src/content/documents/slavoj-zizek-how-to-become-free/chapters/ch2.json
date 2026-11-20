@@ -1,0 +1,55 @@
+{
+  "id": "ch2",
+  "title": "2. 自由の輪郭を変えることと、必要性の逆説",
+  "timeRange": "00:07:50 – 00:15:50",
+  "summary": "既存の選択肢の中で動くことではなく、何を自由と呼ぶかを問い直す。自由と必要性が一致するという、一見矛盾した主張も検討する。",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "freedom",
+      "name": "自由"
+    },
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch2-line-1",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:07:55",
+      "english": "the freedom to change the very Contours of what freedom is",
+      "japanese": "自由とは何か、その輪郭自体を変える自由。",
+      "annotations": [
+        {
+          "id": "ch2-line-1-note-1",
+          "phrase": "change the very Contours",
+          "explanation": "輪郭を変えるということは、既定の選択肢を増やすだけでなく、自由の定義を組み替えること。"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-2",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:11:55",
+      "english": "point when Freedom coincides with necessity",
+      "japanese": "自由が必要性と一致する時点。",
+      "annotations": [
+        {
+          "id": "ch2-line-2-note-1",
+          "phrase": "Freedom coincides with necessity",
+          "explanation": "coincide with は「〜と一致する」。義務や決意が自分にとって避けられないものになる逆説を指す。"
+        }
+      ]
+    }
+  ]
+}
