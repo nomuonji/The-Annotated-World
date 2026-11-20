@@ -1,0 +1,73 @@
+{
+  "id": "ch3",
+  "title": "3. 自由とはルールの中で選ぶことではなく、ルールを変えること",
+  "timeRange": "00:17:09 – 00:26:51",
+  "summary": "ルールそのものを変える自由、検閲下の言語、過去の意味を変える芸術と歴史解釈。",
+  "genres": [
+    "philosophy",
+    "society"
+  ],
+  "topics": [
+    {
+      "id": "freedom",
+      "name": "自由"
+    },
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch3-line-1",
+      "speaker": {
+        "name": "Slavoj Žižek（第三者文字起こしからの短句引用・音声未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:17:09",
+      "english": "“freedom to change the rules under which you are free”",
+      "japanese": "「自分が自由であるためのルールそのものを変える自由」。",
+      "annotations": [
+        {
+          "id": "ch3-line-1-note-1",
+          "phrase": "change the rules",
+          "explanation": "既定の選択肢を選ぶ行為と、選択を規定する枠組みを変える行為を分ける。"
+        }
+      ]
+    },
+    {
+      "id": "ch3-line-2",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "00:17:09",
+      "english": "The contrast concerns a <strong class=\"key\">second-order choice</strong>. A citizen might have many permitted actions while possessing little influence over the conditions that define those permissions. The more radical question is whether people can reshape the institutions and meanings that make ordinary choices possible.",
+      "japanese": "対比されているのは二次的な選択である。市民には多くの許された行動があっても、何が許されるかを決める条件にはほとんど関与できないかもしれない。より根本的な問いは、普段の選択を可能にする制度や意味そのものを作り替えられるかという点にある。",
+      "annotations": [
+        {
+          "id": "ch3-line-2-note-1",
+          "phrase": "second-order choice",
+          "explanation": "一次的な選択肢ではなく、その選択肢を規定するルールに関わる選択を指す。"
+        }
+      ]
+    },
+    {
+      "id": "ch3-line-3",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "00:20:58",
+      "english": "A protest sign under Russian censorship illustrates the <strong class=\"key\">creative capacity of language</strong>: a seemingly harmless expression can communicate what officials forbid. Žižek then shifts to art and history. A later interpretation changes the significance of an earlier work without changing the physical events of the past.",
+      "japanese": "ロシアの検閲下で掲げられた抗議の紙は、言語の創造的な力を示す。無害に見える言葉が、禁止された意味を伝えることがある。そこからジジェクは芸術と歴史へ移る。後の解釈は過去の出来事自体を変えずに、以前の作品や出来事の意味を変える。",
+      "annotations": [
+        {
+          "id": "ch3-line-3-note-1",
+          "phrase": "creative capacity of language",
+          "explanation": "語の辞書的意味だけでなく、状況・暗示・共同理解から新たな意味が生まれる働き。"
+        }
+      ]
+    }
+  ]
+}
