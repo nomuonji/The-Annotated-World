@@ -1,0 +1,152 @@
+{
+  "genre": "philosophy",
+  "format": "原動画連動の短句引用と編集部による英日対訳・文中註",
+  "difficulty": "C1",
+  "englishFeatures": [
+    "政治哲学の抽象語彙",
+    "選択と自由を対比する英語",
+    "比喩・留保・論証の読み分け",
+    "英語の語句に結び付く文中註"
+  ],
+  "people": [
+    {
+      "id": "slavoj-zizek",
+      "name": "Slavoj Žižek",
+      "ja": "スラヴォイ・ジジェク"
+    }
+  ],
+  "topics": [
+    {
+      "id": "freedom",
+      "name": "自由"
+    },
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    },
+    {
+      "id": "hegemony",
+      "name": "ヘゲモニー"
+    }
+  ],
+  "chapterMetadata": {
+    "ch1": {
+      "genres": [
+        "philosophy",
+        "society"
+      ],
+      "topics": [
+        {
+          "id": "ideology",
+          "name": "イデオロギー"
+        },
+        {
+          "id": "freedom",
+          "name": "自由"
+        }
+      ]
+    },
+    "ch2": {
+      "genres": [
+        "philosophy",
+        "society"
+      ],
+      "topics": [
+        {
+          "id": "freedom",
+          "name": "自由"
+        },
+        {
+          "id": "ideology",
+          "name": "イデオロギー"
+        }
+      ]
+    },
+    "ch3": {
+      "genres": [
+        "philosophy",
+        "society"
+      ],
+      "topics": [
+        {
+          "id": "ideology",
+          "name": "イデオロギー"
+        },
+        {
+          "id": "film",
+          "name": "映画"
+        },
+        {
+          "id": "freedom",
+          "name": "自由"
+        }
+      ]
+    },
+    "ch4": {
+      "genres": [
+        "philosophy",
+        "society"
+      ],
+      "topics": [
+        {
+          "id": "freedom",
+          "name": "自由"
+        },
+        {
+          "id": "ideology",
+          "name": "イデオロギー"
+        }
+      ]
+    },
+    "ch5": {
+      "genres": [
+        "philosophy",
+        "technology",
+        "society"
+      ],
+      "topics": [
+        {
+          "id": "freedom",
+          "name": "自由"
+        },
+        {
+          "id": "hegemony",
+          "name": "ヘゲモニー"
+        },
+        {
+          "id": "ideology",
+          "name": "イデオロギー"
+        }
+      ]
+    },
+    "ch6": {
+      "genres": [
+        "philosophy",
+        "technology",
+        "society"
+      ],
+      "topics": [
+        {
+          "id": "freedom",
+          "name": "自由"
+        },
+        {
+          "id": "hegemony",
+          "name": "ヘゲモニー"
+        },
+        {
+          "id": "ideology",
+          "name": "イデオロギー"
+        }
+      ]
+    }
+  },
+  "provenance": {
+    "coverage": "excerpt",
+    "transcript": "unverified",
+    "translation": "unverified",
+    "rights": "original",
+    "basis": "本ページの英語解説・日本語訳・文中註は新たに独自執筆。講演本文の使用は6箇所計21語の短句引用に限定し、原動画と機械文字起こしを出典明示。講演全文転載の許諾を得たという意味ではない。録音との逐語照合・訳文の人手査読・引用範囲の最終権利判断は未実施。動画公開日と講演収録日を区別する。",
+    "sourceUrl": "https://www.youtube.com/watch?v=4YSXNotY8QU"
+  }
+}
