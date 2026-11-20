@@ -53,6 +53,7 @@ class PendingError extends Error {}
 const POLL_BUDGET_MS = Number(process.env.SAVETUBE_POLL_MINUTES || 20) * 60000;
 const POLL_INTERVAL_MS = Number(process.env.SAVETUBE_POLL_INTERVAL_SECONDS || 45) * 1000;
 const NODE_ATTEMPTS = Number(process.env.SAVETUBE_NODE_ATTEMPTS || 2);
+let sourceDurationSeconds = 0;
 
 async function jsonFetch(url, options = {}, timeoutMs = 90000) {
   let response;
@@ -113,6 +114,7 @@ async function requestDownloadUrl(cdn) {
   const info = decryptInfo(infoEnvelope.data);
   console.log('title=', info.title || '');
   console.log('duration=', info.duration || '');
+  sourceDurationSeconds = Number(info.duration) || 0;
 
   const downloadEnvelope = await jsonFetch(`https://${cdn}/download`, {
     method: 'POST',
@@ -167,6 +169,12 @@ async function attemptDownload(attempt) {
   const size = fs.statSync(output).size;
   console.log('downloaded_bytes=', size);
   if (size <= 0) throw new Error('SaveTube wrote an empty file');
+  // SaveTube's 360p CDN can return a ~2.9 MB MP4 with a *95-minute container
+  // duration and both stream headers* but no decodable audio after the intro.
+  // Prevent treating an obviously incomplete long-duration media file as success.
+  if (sourceDurationSeconds >= 1800 && size < sourceDurationSeconds * 2500) {
+    throw new Error(`SaveTube returned implausibly small long-form media (${size} bytes / ${sourceDurationSeconds}s); verify continuous audio before using it`);
+  }
 }
 
 if (process.env.SAVETUBE_INFO_ONLY === '1') {
