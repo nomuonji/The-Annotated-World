@@ -12,7 +12,8 @@ export async function getStaticPaths(){return (await getCollection('documents'))
 interface Props{document:CollectionEntry<'documents'>}
 const doc=Astro.props.document,d=doc.data;
 const g=genreById(d.genre),ts=docTopics(doc);
-const recommendations=related(await documents(),doc);
+const allDocuments=await documents();
+const recommendations=related(allDocuments,doc);
 const $=load(d.bodyHtml,null,false);
 // Legacy source files stay byte-for-byte intact; correct obsolete reader-facing copy here.
 const legacyCopy=new Map([
@@ -140,14 +141,35 @@ for(const c of d.chapterIndex){
  const section=$('section.sec').filter((_,el)=>$(el).attr('id')===c.anchor);
  const duration=chapterSeconds(doc,c);
  if(duration!==null)section.find('.sec-header').first().append($('<p>').addClass('chapter-duration').text('動画内の区間：約'+Math.ceil(duration/60)+'分'));
- const nav=$('<nav>').addClass('chapter-end-nav').attr('aria-label','章の移動');
+ const trail=$('<nav>').addClass('chapter-trail').attr('aria-label','章単位モード：章から章へ');
  const prev=d.chapterIndex[c.order-2],next=d.chapterIndex[c.order];
- if(prev)nav.append($('<a>').attr('href','#'+prev.anchor).text('← 第'+prev.order+'章'));
- if(next)nav.append($('<a>').attr('href','#'+next.anchor).addClass('chapter-next').text('次の章：'+next.title+' →'));
- const shared=new Set(c.topics.map(t=>t.id));
- const adjacent=d.chapterIndex.filter(x=>x.anchor!==c.anchor&&x.anchor!==next?.anchor&&x.anchor!==prev?.anchor).map(x=>({x,score:x.topics.filter(t=>shared.has(t.id)).length})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score||a.x.order-b.x.order).slice(0,2);
- if(adjacent.length){const more=$('<div>').addClass('chapter-related');more.append($('<span>').text('同じテーマの章'));for(const {x} of adjacent)more.append($('<a>').attr('href','#'+x.anchor).text(x.title));nav.append(more);}
- if(nav.children().length)section.append(nav);
+ const sequence=$('<div>').addClass('chapter-trail-group');
+ sequence.append($('<span>').addClass('chapter-trail-heading').text('この資料の前後の章'));
+ if(prev)sequence.append($('<a>').attr({'href':'/read/'+doc.id+'/?chapter='+encodeURIComponent(prev.anchor),'data-chapter-link':''}).append($('<small>').text('前の章'),$('<span>').text(prev.title)));
+ if(next)sequence.append($('<a>').attr({'href':'/read/'+doc.id+'/?chapter='+encodeURIComponent(next.anchor),'data-chapter-link':''}).append($('<small>').text('次の章'),$('<span>').text(next.title)));
+ if(sequence.find('a').length)trail.append(sequence);
+ const topical=new Set(c.topics.map(t=>t.id));
+ const people=new Set(d.people.map(p=>p.id));
+ const across=allDocuments.filter(other=>other.id!==doc.id).flatMap(other=>other.data.chapterIndex.map(chapter=>{
+  const shared=chapter.topics.filter(t=>topical.has(t.id));
+  const samePerson=other.data.people.some(p=>people.has(p.id));
+  const sameField=chapter.genres.some(g=>c.genres.includes(g));
+  return {other,chapter,shared,samePerson,score:shared.length*10+(samePerson?2:0)+(sameField?1:0)};
+ })).filter(item=>item.shared.length>0||item.samePerson)
+  .sort((a,b)=>b.score-a.score||a.other.id.localeCompare(b.other.id)||a.chapter.order-b.chapter.order)
+  .slice(0,3);
+ if(across.length){
+  const more=$('<div>').addClass('chapter-trail-group');
+  more.append($('<span>').addClass('chapter-trail-heading').text('ほかの資料の関連章'));
+  for(const item of across){
+   const reason=item.shared.length?'共通テーマ：'+item.shared.map(t=>t.name).join('・'):'同じ人物を扱う別の章';
+   more.append($('<a>').attr('href','/read/'+item.other.id+'/?chapter='+encodeURIComponent(item.chapter.anchor))
+    .append($('<small>').text(item.other.data.title+' · '+reason),$('<span>').text(item.chapter.title)));
+  }
+  trail.append(more);
+ }
+ if(trail.children().length)section.append(trail);
+
 }
 const body=$.root().html()||'';
 const status=d.provenance;
@@ -159,7 +181,7 @@ const labels={coverage:{full:'全文（照合済みの範囲）',excerpt:'抜粋
  <div class="reader-crosslinks"><div class="reader-person">{d.people.map(p=><a href={personUrl(p.id)}>{p.name}の資料 →</a>)}</div><div class="tag-row">{ts.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></div>
  <div class:list={["study-layout",{"has-video":!!d.videoId}]} data-study-reader>
   {d.videoId&&<aside class="study-sidebar" aria-label="動画・再生操作"><SourceVideo doc={doc}/></aside>}
-  <div class="study-text"><StudyToolbar doc={doc}/><ReaderTools/><div class="study-original"><Fragment set:html={body}/></div></div>
+  <div class="study-text"><StudyToolbar doc={doc}/><div class="chapter-mode-control" id="chapter-mode-control" hidden><button type="button" id="chapter-view-toggle" aria-pressed="false">章単位で読む</button><span class="chapter-mode-context" id="chapter-mode-context" hidden>出典：{d.title}</span></div><ReaderTools/><div class="study-original"><Fragment set:html={body}/></div></div>
  </div>
  <div class="publication-note"><h2>資料の来歴・確認状況</h2>{status?<><dl class="provenance-grid"><div><dt>収録範囲</dt><dd>{labels.coverage[status.coverage]}</dd></div><div><dt>原文・音声照合</dt><dd>{labels.transcript[status.transcript]}</dd></div><div><dt>和訳レビュー</dt><dd>{labels.translation[status.translation]}</dd></div><div><dt>掲載権利</dt><dd>{labels.rights[status.rights]}</dd></div></dl><p>{status.basis}</p><p><a href={status.sourceUrl} target="_blank" rel="noopener noreferrer">原典を開く ↗</a></p><p>確認状況は編集時の記録であり、第三者による認証ではありません。</p></>:<p>原典・和訳・掲載権利の確認状況は記録されていません。</p>}</div>
  {recommendations.length>0&&<section class="browse-section"><div class="section-heading"><h2>Read next <small>関連する資料</small></h2></div><div class="document-grid">{recommendations.map(r=><DocumentCard doc={r.d} reason={r.reason}/>)}</div></section>}
