@@ -1,0 +1,68 @@
+name: Probe SaveTube media transport for original YouTube source
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/savetube_download.mjs'
+      - '.github/workflows/probe-savetube-annotated.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  youtube-media:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      SAVETUBE_NODE_ATTEMPTS: '1'
+      SAVETUBE_POLL_MINUTES: '11'
+      SAVETUBE_POLL_INTERVAL_SECONDS: '30'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: SaveTube /v2/info probe (metadata only)
+        id: info
+        continue-on-error: true
+        env:
+          SAVETUBE_INFO_ONLY: '1'
+        run: timeout 100s node scripts/savetube_download.mjs 4YSXNotY8QU /tmp/metadata-only 360
+      - name: Download the exact original-video media through SaveTube CDN
+        id: media
+        if: steps.info.outcome == 'success'
+        continue-on-error: true
+        run: |
+          mkdir -p /tmp/youtube-capture
+          timeout 770s node scripts/savetube_download.mjs 4YSXNotY8QU /tmp/youtube-capture/source.mp4 360
+      - name: Verify media contains video and audio streams
+        id: streams
+        if: steps.media.outcome == 'success'
+        continue-on-error: true
+        run: |
+          test -s /tmp/youtube-capture/source.mp4
+          ffprobe -v error -select_streams v:0 -show_entries stream=codec_type -of csv=p=0 /tmp/youtube-capture/source.mp4 | grep -qx video
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_type -of csv=p=0 /tmp/youtube-capture/source.mp4 | grep -qx audio
+          ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 /tmp/youtube-capture/source.mp4
+          sha256sum /tmp/youtube-capture/source.mp4 | cut -d' ' -f1 | sed 's/^/SOURCE_MEDIA_SHA256=/'
+      - name: Distinguish metadata response from actual media acquisition
+        if: always()
+        env:
+          METADATA_OUTCOME: ${{ steps.info.outcome }}
+          MEDIA_OUTCOME: ${{ steps.media.outcome }}
+          STREAMS_OUTCOME: ${{ steps.streams.outcome }}
+        run: |
+          echo "SAVETUBE_METADATA_OUTCOME=$METADATA_OUTCOME"
+          echo "SAVETUBE_MEDIA_OUTCOME=$MEDIA_OUTCOME"
+          echo "SAVETUBE_STREAMS_OUTCOME=$STREAMS_OUTCOME"
+          if [ "$STREAMS_OUTCOME" = success ]; then
+            echo "SAVETUBE_SOURCE_MEDIA_VERIFIED=1"
+            echo "NOTE=Source media was acquired through a THIRD-PARTY MEDIA PROXY, not directly from YouTube and NOT a third-party transcript. No ASR transcription or republishing approved."
+          else
+            echo "SAVETUBE_SOURCE_MEDIA_VERIFIED=0"
+            echo "::warning::No verified source media acquired. Do not build or republish any article."
+          fi
+      - name: Delete original media on runner
+        if: always()
+        run: rm -rf /tmp/youtube-capture
