@@ -30,7 +30,8 @@
         {
           "id": "ch10-line-1-note-1",
           "phrase": "Marx's 11th Thesis on Feuerbach",
-          "explanation": "カール・マルクスの『フォイエルバッハに関するテーゼ』（1845年）の第11項（字幕では `firebach`）。"
+          "explanation": "カール・マルクスの『フォイエルバッハに関するテーゼ』（1845年）の第11項（字幕では `firebach`）。",
+          "kind": "context"
         }
       ]
     },
@@ -47,12 +48,14 @@
         {
           "id": "ch10-line-2-note-1",
           "phrase": "The Great War",
-          "explanation": "「第一次世界大戦」（第二次世界大戦以前は単に Great War と呼ばれた）。"
+          "explanation": "「第一次世界大戦」（第二次世界大戦以前は単に Great War と呼ばれた）。",
+          "kind": "context"
         },
         {
           "id": "ch10-line-2-note-2",
           "phrase": "October Revolution",
-          "explanation": "1917年のロシア十月革命。"
+          "explanation": "1917年のロシア十月革命。",
+          "kind": "context"
         }
       ]
     },
@@ -69,12 +72,14 @@
         {
           "id": "ch10-line-3-note-1",
           "phrase": "à propos (of)",
-          "explanation": "「〜に関して、〜について」（フランス語由来の表現）。"
+          "explanation": "「〜に関して、〜について」（フランス語由来の表現）。",
+          "kind": "language"
         },
         {
           "id": "ch10-line-3-note-2",
           "phrase": "twists of history",
-          "explanation": "「歴史のねじれ、曲折」。ジジェクはマルクスの第11テーゼを文字通り逆転させて「今こそ解釈し直す時だ」と主張しています。"
+          "explanation": "「歴史のねじれ、曲折」。ジジェクはマルクスの第11テーゼを文字通り逆転させて「今こそ解釈し直す時だ」と主張しています。",
+          "kind": "context"
         }
       ]
     },
@@ -91,17 +96,20 @@
         {
           "id": "ch10-line-4-note-1",
           "phrase": "around the corner",
-          "explanation": "「すぐそこに迫って、間近に」。"
+          "explanation": "「すぐそこに迫って、間近に」。",
+          "kind": "language"
         },
         {
           "id": "ch10-line-4-note-2",
           "phrase": "obligatory",
-          "explanation": "「義務的な、強制力のある」。"
+          "explanation": "「義務的な、強制力のある」。",
+          "kind": "language"
         },
         {
           "id": "ch10-line-4-note-3",
           "phrase": "Sabine Hossenfelder",
-          "explanation": "ドイツの理論物理学者・人気科学ライター（字幕では `Sabina Hosenfelder`）。"
+          "explanation": "ドイツの理論物理学者・人気科学ライター（字幕では `Sabina Hosenfelder`）。",
+          "kind": "context"
         }
       ]
     },
@@ -118,17 +126,20 @@
         {
           "id": "ch10-line-5-note-1",
           "phrase": "Alenka Zupančič",
-          "explanation": "スロベニアの哲学者でジジェクと同じリュブリャナ学派の盟友（字幕では `Telena Zupanchic`）。"
+          "explanation": "スロベニアの哲学者でジジェクと同じリュブリャナ学派の盟友（字幕では `Telena Zupanchic`）。",
+          "kind": "context"
         },
         {
           "id": "ch10-line-5-note-2",
           "phrase": "treatise",
-          "explanation": "「論文、学術書」（字幕では `treatment`）。"
+          "explanation": "「論文、学術書」（字幕では `treatment`）。",
+          "kind": "language"
         },
         {
           "id": "ch10-line-5-note-3",
           "phrase": "disavowal",
-          "explanation": "「否認」（「分かっているけれど、それでも……」と現実を直視しない態度）。"
+          "explanation": "「否認」（「分かっているけれど、それでも……」と現実を直視しない態度）。",
+          "kind": "context"
         }
       ]
     },
@@ -145,12 +156,14 @@
         {
           "id": "ch10-line-6-note-1",
           "phrase": "plastic",
-          "explanation": "「可塑性のある、柔軟に形を変えられる」（プラスチックの語源）。"
+          "explanation": "「可塑性のある、柔軟に形を変えられる」（プラスチックの語源）。",
+          "kind": "language"
         },
         {
           "id": "ch10-line-6-note-2",
           "phrase": "war communism",
-          "explanation": "「戦時共産主義」（ロシア内戦期のように、非常事態下で国家が資源や生産を直接統制する体制）。"
+          "explanation": "「戦時共産主義」（ロシア内戦期のように、非常事態下で国家が資源や生産を直接統制する体制）。",
+          "kind": "context"
         }
       ]
     },
@@ -167,12 +180,14 @@
         {
           "id": "ch10-line-7-note-1",
           "phrase": "be better off without ~",
-          "explanation": "「〜がない方がずっとマシだ／幸せだ」。"
+          "explanation": "「〜がない方がずっとマシだ／幸せだ」。",
+          "kind": "language"
         },
         {
           "id": "ch10-line-7-note-2",
           "phrase": "urgency",
-          "explanation": "「緊急性、切迫感」。映画『Munich: The Edge of War』（2021年公開、ジェレミー・アイアンズ主演）。"
+          "explanation": "「緊急性、切迫感」。映画『Munich: The Edge of War』（2021年公開、ジェレミー・アイアンズ主演）。",
+          "kind": "context"
         }
       ]
     }
