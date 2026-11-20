@@ -1,4 +1,4 @@
-name: The Annotated World v12 consistent female commentary
+name: The Annotated World v12 short commentary female voice
 on:
   push:
     branches: [prototype/role-split-zizek-v12]
@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.11'}
       - run: python -m pip install edge-tts
-      - name: Synthesize all commentary in one consistent voice, no voice-engine fallback
+      - name: Same woman narrator for every concise editorial annotation
         shell: bash
         run: |
           set -euo pipefail
@@ -37,13 +37,13 @@ jobs:
                       except Exception as e:
                           print('retry',i,attempt,str(e)[:120],flush=True)
                           await asyncio.sleep(min(16,2*(attempt+1)))
-                  else: raise RuntimeError('No matched female voice for '+row['key'])
-                  print('SUCCESS_FEMALE_NANAMI',row['key'],p.stat().st_size,flush=True)
+                  else: raise RuntimeError('Unable to produce identical narrator voice for '+row['key'])
+                  print('SUCCESS_NANAMI',row['key'],p.stat().st_size,flush=True)
           asyncio.run(main())
           PY
           cp docs/prototypes/v12-female-commentary.json out-commentary/commentary.json
       - uses: actions/upload-artifact@v4
         with:
-          name: v12-consistent-female-commentary
+          name: v12-six-consistent-female-commentary
           path: out-commentary/
           retention-days: 14
