@@ -52,6 +52,49 @@ for(const c of d.chapterIndex){
   for(const term of terms.filter(t=>!used.has(t)))extra.append(linkWord(term).addClass('extra-word'));
   for(const c of matchingConcepts(en.text()))extra.append($('<a>').addClass('concept-link').attr('href',conceptUrl(c.id)).text(c.ja));
   if(extra.children().length)block.append(extra);
+
+  // Join the existing editorial notes to their exact phrase in the English,
+  // without changing any source text or duplicating prose inside the paragraph.
+  if(note.length&&!note.find('.inline-note-item').length){
+   const noteNodes=note.contents().toArray();
+   let current=$('<span>'),hasCurrent=false;
+   let noteIndex=0;
+   const fullEnglish=en.text().toLocaleLowerCase();
+   for(const part of noteNodes){
+    if(part.type==='tag'&&part.name==='strong'){
+     noteIndex++;
+     const label=$(part).text().trim(),noteId=anchor+'-note-'+noteIndex;
+     const item=$('<span>').addClass('inline-note-item').attr('id',noteId);
+     $(part).before(item);item.append($(part));current=item;hasCurrent=true;
+     const candidates=[label,label.replace(/（[^）]*）/gu,'').trim(),label.replace(/\\s+\\([^)]*\\)$/u,'').trim(),label.replace(/\\s+[A-Z]$/u,'').trim()];
+     const phrase=candidates.find(value=>value.length>=4&&fullEnglish.includes(value.toLocaleLowerCase()));
+     if(!phrase)continue;
+     for(const node of en.find('*').addBack().contents().toArray()){
+      if(node.type!=='text')continue;
+      const offset=node.data.toLocaleLowerCase().indexOf(phrase.toLocaleLowerCase());
+      if(offset<0)continue;
+      const ref=$('<sup>').addClass('inline-note-ref');
+      ref.append($('<a>').attr({href:'#'+noteId,'aria-label':'注釈 '+noteIndex+'：'+label,'data-note-index':String(noteIndex)}));
+      const parent=$(node).parent(),strong=parent.closest('strong.key').first(),linked=parent.closest('a').first();
+      if(strong.length||linked.length){
+       const target=strong.length?strong:linked;
+       target.addClass('annotation-term');target.after(ref);
+      }else{
+       const fragment=$('<span>').addClass('annotation-fragment');
+       fragment.append($('<span>').text(node.data.slice(0,offset)));
+       fragment.append($('<span>').addClass('annotation-term').text(node.data.slice(offset,offset+phrase.length)));
+       fragment.append(ref);
+       fragment.append($('<span>').text(node.data.slice(offset+phrase.length)));
+       $(node).replaceWith(fragment);
+      }
+      break;
+     }
+    }else if(hasCurrent){
+     current.append($(part));
+    }
+   }
+   if(noteIndex){note.addClass('has-inline-annotations');block.addClass('has-inline-annotations');}
+  }
   for(const a of annotationsFor(doc.id,anchor,en.text(),ja.text())){
    const detail=$('<details>').addClass('editorial-annotation');
    detail.append($('<summary>').text(a.kind==='syntax'?'構文を読み解く':a.kind==='sound'?'聞き取りのヒント（一般的な音の変化）':'英文と和訳を照合'));
