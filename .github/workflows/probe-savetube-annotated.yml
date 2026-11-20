@@ -13,10 +13,10 @@ permissions:
 jobs:
   youtube-media:
     runs-on: ubuntu-latest
-    timeout-minutes: 18
+    timeout-minutes: 24
     env:
-      SAVETUBE_NODE_ATTEMPTS: '1'
-      SAVETUBE_POLL_MINUTES: '11'
+      SAVETUBE_NODE_ATTEMPTS: '2'
+      SAVETUBE_POLL_MINUTES: '7'
       SAVETUBE_POLL_INTERVAL_SECONDS: '30'
     steps:
       - uses: actions/checkout@v4
@@ -30,14 +30,14 @@ jobs:
         continue-on-error: true
         env:
           SAVETUBE_INFO_ONLY: '1'
-        run: timeout 100s node scripts/savetube_download.mjs 4YSXNotY8QU /tmp/metadata-only 360
+        run: timeout 100s node scripts/savetube_download.mjs 4YSXNotY8QU /tmp/metadata-only 720
       - name: Download the exact original-video media through SaveTube CDN
         id: media
         if: steps.info.outcome == 'success'
         continue-on-error: true
         run: |
           mkdir -p /tmp/youtube-capture
-          timeout 770s node scripts/savetube_download.mjs 4YSXNotY8QU /tmp/youtube-capture/source.mp4 360
+          timeout 950s node scripts/savetube_download.mjs 4YSXNotY8QU /tmp/youtube-capture/source.mp4 720
       - name: Decode original video sound at beginning, middle and late sections
         id: streams
         if: steps.media.outcome == 'success'
@@ -51,7 +51,7 @@ jobs:
           decoder=imageio_ffmpeg.get_ffmpeg_exe()
           p=pathlib.Path(source)
           print("SAVETUBE_MEDIA_BYTES=",p.stat().st_size)
-          for minute in (1, 30, 80):
+          for minute in (0, 1, 30, 80):
               offset=minute*60
               cmd=[decoder,"-nostdin","-v","error","-ss",str(offset),
                    "-i",source,"-t","6","-map","0:a:0",
