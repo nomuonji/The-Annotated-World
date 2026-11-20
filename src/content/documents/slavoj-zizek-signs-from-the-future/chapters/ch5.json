@@ -36,12 +36,14 @@
         {
           "id": "ch5-line-1-note-1",
           "phrase": "improvise",
-          "explanation": "「即興で話す／演奏する」。"
+          "explanation": "「即興で話す／演奏する」。",
+          "kind": "language"
         },
         {
           "id": "ch5-line-1-note-2",
           "phrase": "between two necessities",
-          "explanation": "ジジェクの著書『Signs from the Future』のテーマの一つ。"
+          "explanation": "ジジェクの著書『Signs from the Future』のテーマの一つ。",
+          "kind": "context"
         }
       ]
     },
@@ -58,12 +60,14 @@
         {
           "id": "ch5-line-2-note-1",
           "phrase": "hubris",
-          "explanation": "「（破滅を招くような）傲慢、思い上がり」（ギリシャ悲劇由来の語）。"
+          "explanation": "「（破滅を招くような）傲慢、思い上がり」（ギリシャ悲劇由来の語）。",
+          "kind": "language"
         },
         {
           "id": "ch5-line-2-note-2",
           "phrase": "naturalize",
-          "explanation": "「（歴史的・危機的な事象を）自然なこと・当たり前のバランスとして受け入れてしまう」。"
+          "explanation": "「（歴史的・危機的な事象を）自然なこと・当たり前のバランスとして受け入れてしまう」。",
+          "kind": "language"
         }
       ]
     },
@@ -80,12 +84,14 @@
         {
           "id": "ch5-line-3-note-1",
           "phrase": "prognosis",
-          "explanation": "「予測、見通し」（もともとは医学の「予後」）。"
+          "explanation": "「予測、見通し」（もともとは医学の「予後」）。",
+          "kind": "language"
         },
         {
           "id": "ch5-line-3-note-2",
           "phrase": "demystify",
-          "explanation": "「〜の神秘性を剥ぎ取る、幻想を打ち砕く」。"
+          "explanation": "「〜の神秘性を剥ぎ取る、幻想を打ち砕く」。",
+          "kind": "language"
         }
       ]
     },
@@ -102,12 +108,14 @@
         {
           "id": "ch5-line-4-note-1",
           "phrase": "peacenik",
-          "explanation": "「反戦運動家、平和主義者」（やや軽蔑的・皮肉なニュアンスを含む口語。字幕では `peace nicks`）。"
+          "explanation": "「反戦運動家、平和主義者」（やや軽蔑的・皮肉なニュアンスを含む口語。字幕では `peace nicks`）。",
+          "kind": "language"
         },
         {
           "id": "ch5-line-4-note-2",
           "phrase": "Not to mention",
-          "explanation": "「〜は言うまでもなく」。"
+          "explanation": "「〜は言うまでもなく」。",
+          "kind": "language"
         }
       ]
     },
@@ -124,7 +132,8 @@
         {
           "id": "ch5-line-5-note-1",
           "phrase": "",
-          "explanation": "司会者とジジェクの軽妙な掛け合い。ジジェクは一度話し始めると止まらないため、司会者がツッコミを入れています。"
+          "explanation": "司会者とジジェクの軽妙な掛け合い。ジジェクは一度話し始めると止まらないため、司会者がツッコミを入れています。",
+          "kind": "context"
         }
       ]
     },
@@ -141,12 +150,14 @@
         {
           "id": "ch5-line-6-note-1",
           "phrase": "take refuge in",
-          "explanation": "「〜に逃げ場・避難所を求める」（字幕では `take refugee in a ancient vanta` ＝ ancient Vedanta / Bhagavad Gita の聞き取り誤り）。"
+          "explanation": "「〜に逃げ場・避難所を求める」（字幕では `take refugee in a ancient vanta` ＝ ancient Vedanta / Bhagavad Gita の聞き取り誤り）。",
+          "kind": "language"
         },
         {
           "id": "ch5-line-6-note-2",
           "phrase": "nonetheless",
-          "explanation": "「それにもかかわらず」。"
+          "explanation": "「それにもかかわらず」。",
+          "kind": "language"
         }
       ]
     },
@@ -163,17 +174,20 @@
         {
           "id": "ch5-line-7-note-1",
           "phrase": "insofar as",
-          "explanation": "「〜である限りにおいて」。"
+          "explanation": "「〜である限りにおいて」。",
+          "kind": "language"
         },
         {
           "id": "ch5-line-7-note-2",
           "phrase": "categorical imperative",
-          "explanation": "「定言命法」（カント倫理学の中核。条件抜きで絶対的に従うべき道徳法則）。"
+          "explanation": "「定言命法」（カント倫理学の中核。条件抜きで絶対的に従うべき道徳法則）。",
+          "kind": "context"
         },
         {
           "id": "ch5-line-7-note-3",
           "phrase": "irrespective of",
-          "explanation": "「〜に関係なく、〜にかかわらず」。"
+          "explanation": "「〜に関係なく、〜にかかわらず」。",
+          "kind": "language"
         }
       ]
     },
@@ -190,7 +204,8 @@
         {
           "id": "ch5-line-8-note-1",
           "phrase": "Ratzinger & Habermas",
-          "explanation": "2004年に当時のヨーゼフ・ラッツィンガー枢機卿（後の教皇ベネディクト16世）と哲学者ユルゲン・ハーバーマスが行った有名な対談（『世俗化時代の理性』）。字幕の `Gratzinger Paparazzo` や `Kabmas` は固有名詞の誤認識です。"
+          "explanation": "2004年に当時のヨーゼフ・ラッツィンガー枢機卿（後の教皇ベネディクト16世）と哲学者ユルゲン・ハーバーマスが行った有名な対談（『世俗化時代の理性』）。字幕の `Gratzinger Paparazzo` や `Kabmas` は固有名詞の誤認識です。",
+          "kind": "context"
         }
       ]
     }
