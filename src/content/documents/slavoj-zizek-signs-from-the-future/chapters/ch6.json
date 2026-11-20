@@ -31,22 +31,26 @@
         {
           "id": "ch6-line-1-note-1",
           "phrase": "premise",
-          "explanation": "「前提」。"
+          "explanation": "「前提」。",
+          "kind": "language"
         },
         {
           "id": "ch6-line-1-note-2",
           "phrase": "precariat",
-          "explanation": "「プレカリアート」（precarious［不安定な］＋ proletariat［労働者階級］の造語）。"
+          "explanation": "「プレカリアート」（precarious［不安定な］＋ proletariat［労働者階級］の造語）。",
+          "kind": "context"
         },
         {
           "id": "ch6-line-1-note-3",
           "phrase": "It's dignity, stupid",
-          "explanation": "1992年クリントン陣営の有名なスローガン \"It's the economy, stupid.\"（問題は経済だよ、おバカさん）のもじり。"
+          "explanation": "1992年クリントン陣営の有名なスローガン \"It's the economy, stupid.\"（問題は経済だよ、おバカさん）のもじり。",
+          "kind": "context"
         },
         {
           "id": "ch6-line-1-note-4",
           "phrase": "Saint-Just",
-          "explanation": "フランス革命期のジャコバン派指導者サン＝ジュスト（字幕では `sanjust`）。"
+          "explanation": "フランス革命期のジャコバン派指導者サン＝ジュスト（字幕では `sanjust`）。",
+          "kind": "context"
         }
       ]
     },
@@ -63,12 +67,14 @@
         {
           "id": "ch6-line-2-note-1",
           "phrase": "teleological",
-          "explanation": "「目的論的な」（歴史や物事が特定のゴールに向かって進歩・収束するという考え方。字幕では `teological`）。"
+          "explanation": "「目的論的な」（歴史や物事が特定のゴールに向かって進歩・収束するという考え方。字幕では `teological`）。",
+          "kind": "context"
         },
         {
           "id": "ch6-line-2-note-2",
           "phrase": "determinist",
-          "explanation": "「決定論者」。"
+          "explanation": "「決定論者」。",
+          "kind": "language"
         }
       ]
     },
@@ -85,12 +91,14 @@
         {
           "id": "ch6-line-3-note-1",
           "phrase": "prospect",
-          "explanation": "「見通し、展望」。"
+          "explanation": "「見通し、展望」。",
+          "kind": "language"
         },
         {
           "id": "ch6-line-3-note-2",
           "phrase": "Yanis Varoufakis",
-          "explanation": "ギリシャの元財務大臣・経済学者で、『Technofeudalism』の著者（字幕では `Verufakis`, `cloud fodalis falism`）。"
+          "explanation": "ギリシャの元財務大臣・経済学者で、『Technofeudalism』の著者（字幕では `Verufakis`, `cloud fodalis falism`）。",
+          "kind": "context"
         }
       ]
     },
@@ -107,12 +115,14 @@
         {
           "id": "ch6-line-4-note-1",
           "phrase": "Antonio Gramsci",
-          "explanation": "イタリアのマルクス主義思想家・政治家（字幕では `GCI`, `Gshian`, `Gshi`）。"
+          "explanation": "イタリアのマルクス主義思想家・政治家（字幕では `GCI`, `Gshian`, `Gshi`）。",
+          "kind": "context"
         },
         {
           "id": "ch6-line-4-note-2",
           "phrase": "appropriate",
-          "explanation": "（動詞）：「（他者のアイデアや要素を）自らのものとして取り込む、流用する」。"
+          "explanation": "（動詞）：「（他者のアイデアや要素を）自らのものとして取り込む、流用する」。",
+          "kind": "language"
         }
       ]
     },
@@ -129,12 +139,14 @@
         {
           "id": "ch6-line-5-note-1",
           "phrase": "ingenious",
-          "explanation": "「独創的な、天才的な、巧妙な」。"
+          "explanation": "「独創的な、天才的な、巧妙な」。",
+          "kind": "language"
         },
         {
           "id": "ch6-line-5-note-2",
           "phrase": "rehabilitate",
-          "explanation": "「（汚名を着せられた言葉や概念を）復権させる、名誉回復する」。"
+          "explanation": "「（汚名を着せられた言葉や概念を）復権させる、名誉回復する」。",
+          "kind": "language"
         }
       ]
     },
@@ -151,17 +163,20 @@
         {
           "id": "ch6-line-6-note-1",
           "phrase": "Syriza",
-          "explanation": "ギリシャの急進左派連合（字幕では `Siza`）。"
+          "explanation": "ギリシャの急進左派連合（字幕では `Siza`）。",
+          "kind": "context"
         },
         {
           "id": "ch6-line-6-note-2",
           "phrase": "Moral Majority",
-          "explanation": "1980年代にアメリカで台頭したキリスト教右派の政治団体名。"
+          "explanation": "1980年代にアメリカで台頭したキリスト教右派の政治団体名。",
+          "kind": "context"
         },
         {
           "id": "ch6-line-6-note-3",
           "phrase": "decency",
-          "explanation": "「品位、礼儀、良識」。"
+          "explanation": "「品位、礼儀、良識」。",
+          "kind": "language"
         }
       ]
     }
