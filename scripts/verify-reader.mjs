@@ -206,8 +206,10 @@ try{
   await page.locator('#reader-annotations').click();
   assert.equal(await page.locator('[data-note-toggle]').first().getAttribute('aria-disabled'),'false');
   assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),false);
-  await page.locator('[data-note-toggle]').first().click();
-  assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),true);
+  const restoredToggle=page.locator('[data-note-toggle]').first();
+  const pairedId=await restoredToggle.getAttribute('aria-controls');
+  await restoredToggle.click();
+  assert.equal(await page.locator('[id="'+pairedId+'"]').isVisible(),true,'Restored toggle did not reveal its paired note');
   await page.locator('#site-theme-toggle').click();
   assert.equal(await page.locator('html').getAttribute('data-theme'),'light');
   console.log(viewport.width+'px: reading modes, mocked seek/rate/repeat/sync, mobile layout and chapter search passed');await page.close();
