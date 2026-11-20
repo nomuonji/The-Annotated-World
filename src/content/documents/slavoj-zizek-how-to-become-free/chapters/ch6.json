@@ -1,0 +1,55 @@
+{
+  "id": "ch6",
+  "title": "6. 書かれていないルールが自由を支える",
+  "timeRange": "00:39:45 – 00:46:20",
+  "summary": "社交場面では明文化された規則以上に、互いの期待が人の行動を決める。会計時の「払います」という申し出が本気ではないという例が登場する。",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "freedom",
+      "name": "自由"
+    },
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch6-line-1",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:39:25",
+      "english": "that to enjoy this concrete social freedom I have to obey Unwritten rules",
+      "japanese": "この具体的な社会的自由を享受するには、暗黙のルールに従わなければならない。",
+      "annotations": [
+        {
+          "id": "ch6-line-1-note-1",
+          "phrase": "Unwritten rules",
+          "explanation": "不文律、明文化されない慣習。自由の条件を法の条文だけに求めないという論点。"
+        }
+      ]
+    },
+    {
+      "id": "ch6-line-2",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:40:34",
+      "english": "it's pure politeness",
+      "japanese": "それは純粋に礼儀のためだ。",
+      "annotations": [
+        {
+          "id": "ch6-line-2-note-1",
+          "phrase": "pure politeness",
+          "explanation": "割り勘の申し出に関する一節。文字どおりの申し出と、社交的な合図とのずれを説明する。"
+        }
+      ]
+    }
+  ]
+}
