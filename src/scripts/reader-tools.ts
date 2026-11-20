@@ -11,35 +11,4 @@ function setup(reader:HTMLElement){
  input.addEventListener('input',search);input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();showHit(index+1);}});prev.addEventListener('click',()=>showHit(index<0?results.length-1:index-1));next.addEventListener('click',()=>showHit(index+1));
  // A compact search toolbar remains accessible from the sticky reading toolbar.
  const quick=document.createElement('button');quick.type='button';quick.textContent='本文検索';quick.className='study-control quick-reader-tools';quick.addEventListener('click',()=>{controls.setAttribute('open','');controls.scrollIntoView({block:'start'});input.focus({preventScroll:true});});document.querySelector('.study-secondary')?.append(quick);
- // All editorial annotations now share one interaction: tap a marked phrase
- // to reveal only its corresponding note in the English reading flow.
- function toggleNote(trigger:HTMLElement){
-  if(reader.dataset.annotations==='off')return;
-  const noteId=trigger.getAttribute('aria-controls');
-  const note=noteId?document.getElementById(noteId):null;
-  if(!note?.classList.contains('in-situ-annotation'))return;
-  const opening=note.hidden;
-  for(const mark of reader.querySelectorAll<HTMLElement>('[data-note-toggle]')){
-   const other=document.getElementById(mark.getAttribute('aria-controls')||'');
-   if(other?.classList.contains('in-situ-annotation'))other.hidden=true;
-   mark.setAttribute('aria-expanded','false');
-  }
-  if(opening){
-   note.hidden=false;
-   trigger.setAttribute('aria-expanded','true');
-  }
- }
- reader.addEventListener('click',event=>{
-  if(!(event.target instanceof Element))return;
-  const mark=event.target.closest<HTMLElement>('[data-note-toggle]');
-  if(mark)toggleNote(mark);
- });
- reader.addEventListener('keydown',event=>{
-  if(event.key!=='Enter'&&event.key!==' ')return;
-  if(!(event.target instanceof Element))return;
-  const mark=event.target.closest<HTMLElement>('[data-note-toggle]');
-  if(!mark)return;
-  event.preventDefault();
-  toggleNote(mark);
- });
 }
