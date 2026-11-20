@@ -51,7 +51,7 @@ if(proof.format==='json3'){
       : Math.round((values[0]*60+values[1])*1000);
   };
   const time='((?:\\d{2}:)?\\d{2}:\\d{2}\\.\\d{3})';
-  const regexp=new RegExp('^\\s*'+time+'\\s+-->\\s+'+time,'gm);
+  const regexp=new RegExp('^\\s*'+time+'\\s+-->\\s+'+time,'gm');
   for(const m of text.matchAll(regexp)){
     const startMs=toMs(m[1]),endMs=toMs(m[2]);
     if(Number.isFinite(startMs)&&Number.isFinite(endMs)&&endMs>=startMs)
