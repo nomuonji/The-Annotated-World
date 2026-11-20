@@ -1,0 +1,61 @@
+{
+  "title": "REPLACE: source document title",
+  "heroMeta": "REPLACE: verified publication and recording information",
+  "description": "REPLACE: what makes this source worth reading",
+  "facts": [
+    {
+      "label": "話者",
+      "value": "REPLACE: speaker"
+    },
+    {
+      "label": "収録時間",
+      "value": "REPLACE: verified duration"
+    },
+    {
+      "label": "元動画",
+      "value": "YouTubeで視聴する",
+      "url": "https://example.invalid/replace"
+    }
+  ],
+  "toc": {
+    "title": "チャプター目次",
+    "description": "REPLACE: editorial introduction"
+  },
+  "sources": {
+    "title": "出典・資料",
+    "items": [
+      {
+        "before": "元動画：",
+        "url": "https://example.invalid/replace",
+        "label": "REPLACE: precise source name",
+        "after": "REPLACE: rights and scope"
+      }
+    ]
+  },
+  "chapterOrder": [
+    "ch1"
+  ],
+  "genre": "philosophy",
+  "format": "講演・対談",
+  "people": [
+    {
+      "id": "replace-person",
+      "name": "REPLACE",
+      "ja": "REPLACE"
+    }
+  ],
+  "topics": [
+    {
+      "id": "replace-topic",
+      "name": "REPLACE"
+    }
+  ],
+  "provenance": {
+    "coverage": "unverified",
+    "transcript": "unverified",
+    "translation": "unverified",
+    "rights": "unverified",
+    "basis": "REPLACE: verified evidence, do not fabricate",
+    "sourceUrl": "https://example.invalid/replace"
+  }
+}
