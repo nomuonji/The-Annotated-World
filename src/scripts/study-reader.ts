@@ -14,6 +14,33 @@ function setup(reader:HTMLElement){
  const toolbar=byId('study-toolbar'),sidebar=reader.querySelector<HTMLElement>('.study-sidebar'),panel=byId('source-video'),iframe=byId<HTMLIFrameElement>('original-player');
  const modeButtons=Array.from(reader.querySelectorAll<HTMLButtonElement>('[data-mode]'));
  const blocks=Array.from(reader.querySelectorAll<HTMLElement>('.utterance'));
+ // Enhance the static paper notes only on small screens. Without JS, every note remains readable.
+ const annotatedNotes=Array.from(reader.querySelectorAll<HTMLElement>('.note.has-inline-annotations'));
+ const expandNote=(note:HTMLElement,open:boolean)=>{
+  note.classList.toggle('annotation-expanded',open);
+  note.querySelector<HTMLButtonElement>('.annotation-note-toggle')?.setAttribute('aria-expanded',String(open));
+ };
+ for(const note of annotatedNotes){
+  const count=note.querySelectorAll('.inline-note-item').length;
+  if(!count)continue;
+  const toggle=document.createElement('button');
+  toggle.type='button';toggle.className='annotation-note-toggle';
+  toggle.textContent='本文注釈 '+count+'件';
+  toggle.setAttribute('aria-expanded','false');
+  toggle.addEventListener('click',()=>expandNote(note,!note.classList.contains('annotation-expanded')));
+  note.prepend(toggle);
+ }
+ reader.classList.add('annotation-enhanced');
+ reader.addEventListener('click',event=>{
+  const link=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('.inline-note-ref a[href^="#"]'):null;
+  if(!link)return;
+  const target=document.getElementById(link.hash.slice(1));
+  const note=target?.closest<HTMLElement>('.note');
+  if(!note)return;
+  expandNote(note,true);
+  const utterance=note.closest<HTMLElement>('.utterance');
+  if(utterance){utterance.classList.add('revealed');updateReveal(utterance);}
+ });
  const entries:TimedBlock[]=blocks.flatMap(element=>{const raw=element.dataset.utteranceStart;return raw!==undefined&&/^\d+$/.test(raw)?[{element,start:Number(raw),end:null}]:[];}).sort((a,b)=>a.start-b.start);
  // A timestamp is usable as a repeat boundary only if the next timed block is strictly later.
  entries.forEach((entry,i)=>{const next=entries[i+1];if(next&&next.start>entry.start)entry.end=next.start;});
