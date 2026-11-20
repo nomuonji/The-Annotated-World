@@ -28,18 +28,18 @@ const documents=defineCollection({
      if(key==='href'&&!safeHref(value))throw Error(id+': unsafe link '+value);
      if(key==='target'&&value!=='_blank')throw Error(id+': unexpected link target');
     }
-    if(el.name==='a'&&el.attribs.target==='_blank'&&!/\\bnoopener\\b/.test(el.attribs.rel||''))throw Error(id+': missing noopener');
+    if(el.name==='a'&&el.attribs.target==='_blank'&&!/\bnoopener\b/.test(el.attribs.rel||''))throw Error(id+': missing noopener');
    });
    const extra=metadata.parse(document);
    const chapterIndex=chapters.map((chapter,i)=>{
-    const time=chapter.timeRange.match(/\\b\\d{1,3}:\\d{2}:\\d{2}\\b/)?.[0]||'';
-    return {anchor:chapter.id,title:chapter.title.replace(/^\\d+[.．]\\s*/,''),time,seconds:time?time.split(':').reduce((n,x)=>n*60+Number(x),0):null,description:chapter.summary,genres:chapter.genres.map(g=>genreId.parse(g)),topics:chapter.topics.map(t=>topic.parse(t)),order:i+1};
+    const time=chapter.timeRange.match(/\b\d{1,3}:\d{2}:\d{2}\b/)?.[0]||'';
+    return {anchor:chapter.id,title:chapter.title.replace(/^\d+[.．]\s*/,''),time,seconds:time?time.split(':').reduce((n,x)=>n*60+Number(x),0):null,description:chapter.summary,genres:chapter.genres.map(g=>genreId.parse(g)),topics:chapter.topics.map(t=>topic.parse(t)),order:i+1};
    });
    const facts=new Map(document.facts.map(f=>[f.label,f.value]));
    const embeddedSource=document.facts.find(f=>f.label==='元動画')?.url||'';
    const source=embeddedSource||extra.provenance?.sourceUrl||'';
    if(embeddedSource&&extra.provenance&&youtubeId(embeddedSource)!==youtubeId(extra.provenance.sourceUrl))throw Error(id+': source IDs disagree');
-   const date=document.heroMeta.match(/(\\d{4})年(\\d{1,2})月(\\d{1,2})日/);
+   const date=document.heroMeta.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
    return {
     id,title:document.title.split(' — ')[0],headline:document.title,description:document.description,
     meta:document.heroMeta,author:facts.get('話者')||'',duration:facts.get('収録時間')||'',
