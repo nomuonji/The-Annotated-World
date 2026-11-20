@@ -47,14 +47,15 @@ try{
   await page.evaluate(t=>window.mockPlayer.time=t,next);await page.waitForFunction(()=>document.querySelectorAll('.utterance')[1].classList.contains('is-playing'));
   await page.locator('#jump-current').click();await page.waitForTimeout(100);
   if(viewport.width<900){
+   await page.locator('#study-chapter-nav').selectOption('ch8');
    await page.locator('#mobile-pin-video').click();
    assert.equal(await page.locator('[data-study-reader]').evaluate(e=>e.classList.contains('video-pinned')),true);
+   assert.equal(await page.locator('.study-secondary').isVisible(),false,'Secondary reader controls crowd the fixed video');
    assert.equal(await page.locator('#play-pause').isVisible(),true,'Play button should stay available');
    assert.equal(await page.locator('#mobile-pin-video').isVisible(),true,'Unpin control should stay available');
    assert.equal(await page.locator('#follow-video').isVisible(),false,'Follow button crowds pinned video');
    assert.equal(await page.locator('#playback-speed').isVisible(),false,'Speed control crowds pinned video');
    assert.equal(await page.locator('#jump-current').isVisible(),false,'Extra video controls are still visible');
-   await page.locator('#study-chapter-nav').selectOption('ch8');
    await page.waitForTimeout(150);
    const geometry=await page.evaluate(()=>({
     panel:document.querySelector('.study-sidebar').getBoundingClientRect(),
