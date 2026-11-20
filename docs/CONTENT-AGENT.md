@@ -1,40 +1,21 @@
 # 教材制作エージェント実行仕様 v2 — 章別JSON
 
+**新規記事の追加に取りかかる前に必ず [新規コンテンツ追加手順書](NEW-CONTENT-WORKFLOW.md) を読む。** この文書はJSON、編集ルール、品質ゲートの詳細仕様。字幕取得経路の順序・ASR禁止・原本確認と公開停止条件は新規手順書を正本とする。
+
 ## 目的と責務
 The Annotated World は、知的に面白い原典を英語と日本語の対訳・注釈で読み、動画・人物・テーマ・語彙から別の原典へ回遊する独立したアーカイブ。English Notes や試験対策アプリの教材量産ではない。原典の面白さを第一に、学習上の価値と発見性を後から接続する。制作エージェントは原典・教材・メタデータを担当し、ルーター・CSS・JS・保存機能・公開設定は担当外。
 
-## YouTube動画からのスクリプト取得契約（2026-11-21・最優先）
+## YouTube原典の入手契約 — 既存字幕のみ（2026-11-21 更新）
 
-**ユーザー指示：第三者が作った文字起こし・字幕転載は一切使用禁止。YouTube配信から直接取得した字幕、または元YouTube動画の音声を検証して自分のASRで起こした原文だけを教材作成の根拠にする。元動画音声の転送にSaveTubeを用いる場合は、必ず動画ID・音声・媒体指紋を照合する。**
+1. **新規の音声文字起こしを行わない。** 動画の元音声からASR（Whisper等）を起こす案は、今回の教材追加ルートでは採用しない。発言を推測して独自の英文原稿を補うことも禁止する。
+2. **第三者が書いた転写・字幕転載ページ・AI生成原稿を原典本文として使わない。** 既存のYouTube投稿者字幕・YouTube自動字幕を探す。候補の取得手順は[新規コンテンツ追加手順書](NEW-CONTENT-WORKFLOW.md)に従う。
+3. `nomuonji/kirinuki-generator` の `transcribe_rapidapi.py` は既存の字幕収集経路。まず `youtube-transcript-api`、続いてRapidAPI字幕ダウンロード2経路。外部APIで字幕データが返ったことと、YouTube本体の元字幕トラックとの完全一致は別。**RapidAPIのレスポンスだけで原本確認済み扱いにしない。**
+4. 元のYouTube字幕トラックとの照合が通り、動画ID・字幕言語・字幕種別・時刻・本文・取得日時・SHA-256が記録できることを必須とする。元字幕トラックの直接保存には `scripts/youtube-original-captions.user.js` を利用可能（ジジェク対象動画ではまだ未実証）。**元データを確認できなければ教材本文の公開データに追加しない。**
+5. 新しいYouTube記事の `document.json.youtubeCapture` は、本当に取得した元字幕ファイルを根拠に記録。現行のJSONスキーマは `provider`, `videoId`, `method`（`youtube-captions` / `youtube-auto-captions`）, `language`, `tool`, `capturedAt`（UTC）, `sha256`, `transport='youtube-direct'`。**中継APIの未確認候補を直接取得と偽装しない。**
+6. SaveTubeのMP4ダウンロードは**字幕の取得・証跡とは別**。取得した原文が有効でも全文転載の許諾や著作権の審査は別。権利未確認なら公開用JSONに長い原文を投入しない。
+7. 削除済みの「How to become free」（`4YSXNotY8QU`）は、既存の字幕取得経路で候補**1,533件・5713.28秒まで**を取得したが、原本トラックとの照合は未完了。成功したと誇張せず、[検証記録](research/2026-11-21-youtube-existing-captions.md)を参照して再公開停止を維持する。
 
-1. 原動画の `videoId` とYouTube URLを確定。動画に付属する投稿者字幕またはYouTube自動字幕をYouTubeの配信元から直接取得する。手段の候補は `yt-dlp --write-subs --write-auto-subs --skip-download` または `youtube-transcript-api` のYouTube直接アクセス。取得サービスがYouTube経由と称していても、第三者が書き起こして独自に掲載したデータは不可。
-2. 字幕がない場合は、利用条件・取得権限を満たす場合に限り、元YouTube動画の音声を直接取得し、自分のASRで発話テキスト・時刻を生成する。音声の取得失敗・Bot判定・字幕なしを、他所のトランスクリプトで穴埋めしない。
-3. 実取得後、動画ID、方式、言語、利用ツール、取得日時（UTC）、生成ファイルのSHA-256を記録する。手作業で文字列を貼り付けただけ、検索で読んだだけ、第三者APIが作ったテキストをもらっただけでは取得完了としない。
-4. 新規YouTube教材の `document.json` に `youtubeCapture` を記録する。ビルド時に動画ID、方式、ハッシュ、取得日時を必須検証する。取得証跡がない場合は公開不可。既存のユーザー提供第一弾教材だけは移行互換例外。
-5. 原文・字幕・録音の対応を検証する。自動字幕/ASRの誤りは「YouTubeから直接取得した」ことだけでは解決しない。**逐語確認未完了はそう明記し、必要な検証が終わらなければ公開しない。** 検証の完了と著作権・転載可否も別。
-6. 完了できないときは具体的な失敗内容（HTTP 403/429、Bot検知、字幕トラックなし、音声アクセス不能など）を報告して停止。**独自の英語解説を原典の字幕の代用品にしない。** 第三者アーカイブの字数・時刻・概念索引も構成・本文・訳の根拠に使用しない。
-
-取得証跡の例（値は取得が実際に成功したときに限り記録、架空入力禁止）：
-```json
-{
-  "youtubeCapture": {
-    "provider": "youtube",
-    "videoId": "ACTUAL11ID",
-    "method": "youtube-captions",
-    "language": "en",
-    "tool": "yt-dlp",
-    "capturedAt": "2026-11-21T00:00:00Z",
-    "sha256": "64桁の実データSHA256"
-  }
-}
-```
-`method` は `youtube-captions`、`youtube-auto-captions`、`youtube-audio-asr` のいずれかのみ。
-
-- 直接取得の実行スクリプトとGitHub-hosted runnerでの失敗証跡は [2026-11-21 YouTube直接取得実験](research/2026-11-21-youtube-direct-capture-probe.md)。クラウドのIPブロックは字幕が存在しないことの証明ではない。成功したときだけ `CAPTURE_EVIDENCE` を記事へ転記する。
-
-- **SaveTubeは元動画の媒体中継に限って使用可。第三者の字幕原稿を取得する経路ではない。** `nomuonji/kirinuki-generator`と同じSaveTube CDNsで実際の動画 `4YSXNotY8QU` を720pで取得（373,095,240バイト）。0・1・30・80分の音声を実復号確認。[検証結果](research/2026-11-21-savetube-media-probe.md)。360pはメタデータがあっても途中の音声がないため不採用。元動画のIDと長さ、動画・音声の有無、離れた複数箇所の音声復号を通過してから自分のASRを実施する。取得した音声を第三者の転写済み文章で代用しない。`youtubeCapture.transport='savetube-media-proxy'`、`method='youtube-audio-asr'`、`mediaSha256`（元動画MP4）、`sha256`（自前ASRの原文データ）を記録。**直接取得できたMP4をもって、文字起こし完了・教材公開許可と見なさない。**
-
-- **この動画に対する最新条件**: 『How to become free』（`4YSXNotY8QU`）は文字起こし/自前ASRを実施しない。まず YouTube既存の英語字幕トラック（投稿者字幕・YouTube自動字幕）の原本ファイルを取得する。SaveTube /v2/info に字幕フィールドが無いこと、ActionsのYouTubeアクセスが失敗することを [実測記録](research/2026-11-21-youtube-existing-captions.md) に記載。通常のYouTubeブラウザで `scripts/youtube-original-captions.user.js` を使って原本字幕を保存する実験経路を用意したが未実証。第三者文字起こしサイトへのフォールバックは禁止、字幕取得成功前の教材制作も禁止。
+**最優先の出力は「何件の記事を追加したか」ではなく、採用する原典が確認済みで公開できること。** 字幕なし、Bot判定、権限不足、出典未確認、権利不明で公開できない場合は、原因と検証した経路を記録し、第三者の原稿で穴埋めせず停止する。
 
 ## 0. 着手前（必ず実行）
 - `AGENTS.md` と本書、`src/lib/document-source.mjs` と `src/content.config.ts` を読む。Node 22.12+、`npm install`。
@@ -78,7 +59,7 @@ src/content/documents/
 src/data/concepts.json      サイト共通の概念・人物・作品索引
 ```
 
-- 新規記事は `docs/templates/document.json` と `docs/templates/chapter.json` をコピーして作る。全ての REPLACE プレースホルダーを実際に確認した情報へ置換する。**旧HTML原稿や旧meta/annotationsサイドカーを作成しない。**
+- 新規記事は [新規コンテンツ追加手順書](NEW-CONTENT-WORKFLOW.md) で既存字幕と権利の確認を完了した後、`docs/templates/document.json` と `docs/templates/chapter.json` をコピーして作る。全ての REPLACE プレースホルダーを実際に確認した情報へ置換する。**旧HTML原稿や旧meta/annotationsサイドカーを作成しない。**
 - `document.json` の `chapterOrder` は、公開表示する章IDを記載順に並べる配列。同名の章JSONが一つずつ存在することを自動検証。章を挿入するには章JSON追加＋chapterOrder編集だけでよい。
 - **編集ステータス（draft/review/published/retired等）は作らない。** 公開物はGitHubリポジトリ内の現在の記事ディレクトリから生成する。確認途中の原典は公開データとは別の調査メモで管理し、権利不明の新しい全文を先に公開しない。
 - 既存記事・章の slug / id は既存URLに使われているため固定。発話の `id` は表示順とは独立した**固定ID**。最初に一度だけ採番し、後の文章修正や挿入・並び替えで変更しない。原典にまだ無い新規発話には未使用のIDを付与し、既存行を詰め直さない。現在の発話IDは `ch1-line-1` のような形式。
