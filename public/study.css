@@ -4,118 +4,77 @@
 @media(max-width:899px){.reader-page{padding:24px 18px 64px}.study-sidebar{margin:8px 0 16px;min-width:0}.study-video .video-frame{max-width:100%;aspect-ratio:16/9}.study-video .section-heading h2 small{display:inline;margin-left:8px}.study-video .video-note{font-size:11px}.study-mode button,.study-control,.utterance-tools button,.study-time-link{min-height:44px}.study-toolbar{padding:7px 0;justify-content:space-between}.study-text{max-width:none}.study-original .toc{padding-top:24px}.study-original .utterance{margin-bottom:28px}.study-original .en{font-size:18px;line-height:1.66}.study-original .ja{font-size:14.5px;line-height:1.85;padding-left:12px}.study-original .note{padding-left:12px}.study-layout[data-text-size="1"] .en{font-size:21px}.study-layout[data-text-size="2"] .en{font-size:24px}#mobile-pin-video{display:inline-flex}.video-pinned .study-sidebar{position:sticky;top:0;z-index:6;margin:0 -18px 12px;padding:0 12px;background:#fff;box-shadow:0 3px 12px #19294015}.video-pinned .study-video{padding:5px 0 7px}.video-pinned .study-video .section-heading,.video-pinned .video-note,.video-pinned .video-chapter-picker{display:none}.video-pinned .video-frame{margin:auto;max-width:min(100%,420px);height:clamp(200px,27dvh,250px);aspect-ratio:auto}.video-pinned .video-quick-controls{justify-content:center}.video-pinned .video-position{margin-top:3px}.video-pinned .video-state{margin-top:3px}.video-pinned .video-quick-controls .study-control,.video-pinned .video-position .study-control{min-height:36px;padding:5px 7px}.study-original .is-playing{outline-offset:4px}}
 @media(max-width:380px){.study-mode button{padding:8px 7px;font-size:11px}.study-secondary{flex-basis:100%}.study-chapter-label{max-width:none}.video-quick-controls{gap:4px}.video-quick-controls .study-control{padding:6px}.speed-label{gap:2px}.speed-label select{width:58px}.video-pinned .video-frame{height:200px}.study-toolbar{gap:4px}}
 
-/* Annotation-first editorial reader: the source line stays uninterrupted.
-   Numbered references resolve to real source-note paragraphs, not duplicated glosses. */
-.study-original .en .annotation-term{
- text-decoration-line:underline;text-decoration-style:dotted;text-decoration-color:#7396b7;
- text-decoration-thickness:1px;text-underline-offset:4px;
-}
+/* In-situ annotations are part of the printed reading text, not an interactive overlay. */
 .study-original .en .annotation-fragment{display:contents}
-.study-original .en .inline-note-ref{display:inline;font:600 .59em/1 'Plus Jakarta Sans',system-ui,sans-serif;vertical-align:super;margin:0 2px 0 1px}
-.study-original .en .inline-note-ref a{
- display:inline-flex;align-items:center;justify-content:center;
- min-width:16px;height:16px;padding:1px 3px;
- border:1px solid #c8d6e6;border-radius:99px;background:#eef3f9;
- color:#275081;text-decoration:none;vertical-align:baseline;
+.study-original .en .annotation-term{
+ text-decoration:underline dotted #96b4cc 1px;
+ text-underline-offset:4px;
 }
-.study-original .en .inline-note-ref a::after{content:attr(data-note-index)}
-.study-original .en .inline-note-ref a:is(:hover,:focus-visible){background:#d9e7f8;outline-offset:2px}
-.study-original .note.has-inline-annotations{
- display:block;min-width:0;max-width:100%;margin:14px 0 18px;padding:13px 15px 15px;
- border:1px solid #dfe6ed;border-left:2px solid #9bb3cb;border-radius:3px;
- background:#f8fafc;color:#344557;
+.study-original .en .in-situ-annotation{
+ display:inline;
+ margin:0 .17em 0 .25em;
+ padding:2px 4px;
+ border-radius:3px;
+ border-bottom:1px solid #cbd8df;
+ background:#f1f5f7;
+ color:#385466;
+ font:400 13px/1.8 'Noto Sans JP',sans-serif;
+ white-space:normal;overflow-wrap:anywhere;
+ box-decoration-break:clone;-webkit-box-decoration-break:clone;
 }
-.study-original .note.has-inline-annotations .note-label{
- display:block;margin:0 0 9px;font:700 11px/1.5 'Noto Sans JP',sans-serif;
- letter-spacing:.09em;color:#507090;
-}
-.study-original .note.has-inline-annotations .inline-note-item{
+.study-original .note.all-in-situ{display:none!important}
+.study-original .note.has-inline-annotations .inline-note-item.is-in-situ{display:none!important}
+.study-original .note.has-inline-annotations .inline-note-item:not(.is-in-situ){
  display:block;margin:0;padding:0;color:#344557;
  font:400 13px/1.8 'Noto Sans JP',sans-serif;
- overflow-wrap:break-word;scroll-margin-top:calc(var(--pinned-video-height) + var(--study-toolbar-height) + 18px);
 }
-.study-original .note.has-inline-annotations .inline-note-item strong{font-weight:700;color:#23486e}
-.study-original .note.has-inline-annotations .inline-note-item + .inline-note-item{
- margin-top:9px;padding-top:9px;border-top:1px solid #e1e7ed;
+.study-original .note.has-inline-annotations .inline-note-item:not(.is-in-situ)+.inline-note-item:not(.is-in-situ){
+ margin-top:8px;padding-top:8px;border-top:1px solid #e1e7ed;
 }
 .study-original .note.has-inline-annotations .inline-note-item:not(:last-child)::after{content:none}
-.study-original .note.has-inline-annotations .inline-note-item:target{
- outline:2px solid #b0bacc;outline-offset:4px;background:#e8f0f7;
-}
-.annotation-note-toggle{display:none}
-@media(min-width:1450px){
- .study-layout .study-text{max-width:1000px}
- .study-original .utterance.has-inline-annotations{
-  max-width:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(205px,235px);
-  column-gap:26px;align-items:start;
- }
- .study-original .utterance.has-inline-annotations>:not(.note){grid-column:1;min-width:0}
- .study-original .utterance.has-inline-annotations>.note{
-  grid-column:2;grid-row:2 / span 7;align-self:start;margin:2px 0 0;
- }
+.reader-dark .study-original .en .in-situ-annotation{
+ background:#263746;color:#deebf7;border-color:#58738b;
 }
 @media(max-width:899px){
- .study-original .note.has-inline-annotations{margin:12px 0 20px;padding:11px 13px}
- .study-layout.annotation-enhanced .note.has-inline-annotations .note-label{display:none}
- .study-layout.annotation-enhanced .note.has-inline-annotations:not(.annotation-expanded)>.inline-note-item{display:none}
- .study-original .annotation-note-toggle{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  width:100%;min-height:42px;padding:4px 0;border:0;background:transparent;
-  color:#305981;text-align:left;font:700 12px/1.5 'Noto Sans JP',sans-serif;
-  cursor:pointer;
+ .study-original .en .in-situ-annotation{
+  font-size:12.5px;line-height:1.8;padding:2px 4px;
  }
- .study-original .annotation-note-toggle::after{content:'＋';font-size:17px;font-weight:400}
- .study-original .note.annotation-expanded .annotation-note-toggle::after{content:'−'}
- .study-original .note.annotation-expanded .annotation-note-toggle{margin-bottom:9px}
-}
-
-
-/* Tap-to-read annotations: stay beside the source phrase, with no page jump. */
-.inline-annotation-popover{
- position:fixed;z-index:100;width:min(360px,calc(100vw - 24px));
- max-height:min(40dvh,240px);overflow-y:auto;overscroll-behavior:contain;
- padding:13px 15px 14px;border:1px solid #bdccdc;border-radius:9px;
- background:#fff;color:#23374e;box-shadow:0 12px 36px #1028402e;
- font:400 13px/1.7 'Noto Sans JP',system-ui,sans-serif;
-}
-.inline-annotation-popover[hidden],.inline-annotation-popover-link[hidden]{display:none!important}
-.inline-annotation-popover-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px}
-.inline-annotation-popover-head strong{min-width:0;font-size:13px;line-height:1.5;color:#193c62;overflow-wrap:anywhere}
-.inline-annotation-popover-close{flex:none;border:0;background:transparent;color:#51667c;font:500 11px/1.5 system-ui,sans-serif;min-height:28px;padding:3px 0 3px 6px;cursor:pointer}
-.inline-annotation-popover-close:focus-visible{outline:2px solid #466e9b;outline-offset:2px}
-.inline-annotation-popover-text{margin:0;overflow-wrap:anywhere}
-.inline-annotation-popover-link{display:inline-block;margin-top:9px;font-size:11px;color:#315e93;text-underline-offset:3px}
-.reader-dark .inline-annotation-popover{background:#222e3b;color:#e7edf6;border-color:#556679;box-shadow:0 12px 36px #0008}
-.reader-dark .inline-annotation-popover-head strong,.reader-dark .inline-annotation-popover-close,.reader-dark .inline-annotation-popover-link{color:#b7d5fa}
-
-/* Compact pinned video: preserve reading area even on short phone viewports. */
-@media(max-width:899px){
- .video-pinned .study-sidebar{padding:4px 12px 5px;margin-bottom:8px}
+ /* Keep the actual video usable; remove redundant playback controls while pinned. */
+ .video-pinned .study-sidebar{
+  padding:4px 12px 5px;margin:0 -18px 8px;
+ }
  .video-pinned .study-video{
-  display:grid;grid-template-columns:minmax(108px,39%) minmax(0,1fr);
-  gap:4px 9px;align-items:center;padding:2px 0 4px;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:2px 0 5px;
  }
  .video-pinned .study-video .video-frame{
-  grid-column:1;grid-row:1;min-width:0;min-height:0;
-  width:100%;height:auto;max-width:175px;margin:0;aspect-ratio:16/9;
+  display:block;
+  width:min(100%,280px);max-width:280px;
+  height:auto;min-height:0;max-height:none;
+  aspect-ratio:16/9;margin:0;
  }
- .video-pinned .study-video .video-frame iframe{display:block;width:100%;height:100%;min-height:0}
+ .video-pinned .study-video .video-frame iframe{
+  display:block;width:100%;height:100%;min-height:0;
+ }
  .video-pinned .study-video .video-quick-controls{
-  grid-column:2;grid-row:1;display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  align-content:center;justify-content:stretch;gap:4px 5px;margin:0;
+  display:flex;justify-content:center;align-items:center;gap:8px;
+  width:min(100%,280px);margin:0;
  }
  .video-pinned .video-quick-controls .study-control{
-  min-width:0;min-height:31px;padding:4px 5px;font-size:10.5px;
+  min-height:30px;padding:4px 11px;font-size:11px;
  }
- .video-pinned .video-quick-controls .speed-label{
-  display:flex;min-width:0;justify-content:flex-end;gap:3px;font-size:10px;
- }
- .video-pinned .video-quick-controls .speed-label select{
-  width:48px;min-width:0;min-height:31px;padding:3px;font-size:11px;
- }
- .video-pinned .study-video .video-position{display:none}
+ .video-pinned .video-quick-controls .speed-label,
+ .video-pinned #follow-video,
+ .video-pinned .video-position,
+ .video-pinned .video-chapter-picker,
+ .video-pinned .video-note,
+ .video-pinned .study-video .section-heading{display:none!important}
  .video-pinned .study-video .video-state{
-  grid-column:1/-1;margin:0;max-height:3.2em;overflow-y:auto;font-size:10px;line-height:1.5;
+  font-size:10px;line-height:1.3;margin:0;
+  max-width:280px;max-height:2.6em;overflow-y:auto;
  }
+}
+@media(max-width:380px){
+ .video-pinned .study-video .video-frame,
+ .video-pinned .study-video .video-quick-controls{width:min(100%,220px);max-width:220px}
 }
