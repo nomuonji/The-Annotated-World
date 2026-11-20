@@ -1,6 +1,5 @@
 import assert from 'node:assert/strict';
 import { readdir, readFile } from 'node:fs/promises';
-import { createHash } from 'node:crypto';
 import { load } from 'cheerio';
 const sources=await loadStructuredDocuments();
 const home=load(await readFile('dist/library/index.html','utf8'));
