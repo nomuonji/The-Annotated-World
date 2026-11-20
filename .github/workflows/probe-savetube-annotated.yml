@@ -49,6 +49,31 @@ jobs:
           ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 /tmp/youtube-capture/source.mp4
           python3 -c 'import subprocess; duration=float(subprocess.check_output(["ffprobe","-v","error","-show_entries","format=duration","-of","default=noprint_wrappers=1:nokey=1","/tmp/youtube-capture/source.mp4"])); print("SOURCE_MEDIA_DURATION_SECONDS=",duration); assert abs(duration-5715)<120, "SaveTube returned only a partial video, not the 95-minute lecture"'
           sha256sum /tmp/youtube-capture/source.mp4 | cut -d' ' -f1 | sed 's/^/SOURCE_MEDIA_SHA256=/'
+          ffprobe -v error -count_packets -show_entries stream=index,codec_type,codec_name,duration,bit_rate,nb_read_packets -of json /tmp/youtube-capture/source.mp4
+          python3 - <<'PY'
+          import json, subprocess
+          f="/tmp/youtube-capture/source.mp4"
+          info=json.loads(subprocess.check_output(["ffprobe","-v","error","-count_packets","-show_streams","-of","json",f]))
+          for s in info["streams"]:
+              print("STREAM_PACKET_EVIDENCE=",json.dumps({
+                  "type":s.get("codec_type"), "codec":s.get("codec_name"),
+                  "duration":s.get("duration"),"bit_rate":s.get("bit_rate"),
+                  "packets":s.get("nb_read_packets"),"sample_rate":s.get("sample_rate"),
+                  "frames":s.get("nb_frames")
+              }))
+          audio=next((s for s in info["streams"] if s.get("codec_type")=="audio"),None)
+          assert audio, "No audio stream"
+          assert int(audio.get("nb_read_packets") or 0)>500, "Audio has fewer than 500 packets over 95 minutes; likely a placeholder"
+          for minute in (1,30,80):
+              start=minute*60
+              cmd=["ffmpeg","-nostdin","-v","error","-ss",str(start),"-i",f,
+                   "-t","6","-map","0:a:0","-ac","1","-ar","16000",
+                   "-f","s16le","pipe:1"]
+              p=subprocess.run(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=25)
+              samples=len(p.stdout)//2
+              print(f"AUDIO_SAMPLE_MINUTE_{minute}_PCM_SAMPLES={samples}")
+              assert p.returncode==0 and samples>=16000*4, f"Audio did not decode continuously at minute {minute}: {p.stderr[-250:]!r}"
+          PY
       - name: Distinguish metadata response from actual media acquisition
         if: always()
         env:
