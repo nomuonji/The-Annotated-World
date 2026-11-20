@@ -1,0 +1,142 @@
+[
+  {
+    "id": 0,
+    "en": "Marx said: change the world.",
+    "ja": "マルクスは言った。「世界を変えよ」",
+    "asset": "marx",
+    "label": "Marx's famous challenge"
+  },
+  {
+    "id": 1,
+    "en": "Žižek's answer? We changed it too much.",
+    "ja": "ジジェクの答えは？「変えすぎた」",
+    "asset": "zizek",
+    "label": "SLAVOJ ŽIŽEK"
+  },
+  {
+    "id": 2,
+    "en": "In his eleventh thesis, Marx said philosophers had interpreted the world.",
+    "ja": "第11テーゼ。哲学者は世界を解釈してきた。",
+    "asset": "marx",
+    "label": "THESIS XI · 1845"
+  },
+  {
+    "id": 3,
+    "en": "The point, he said, was to change it.",
+    "ja": "肝心なのは、世界を変えることだ。",
+    "asset": "marx",
+    "label": "THE POINT IS TO CHANGE IT"
+  },
+  {
+    "id": 4,
+    "en": "But Žižek flips it: We acted too much.",
+    "ja": "ジジェクは逆転させる。「私たちは行動しすぎた」",
+    "asset": "zizek",
+    "label": "WE ACTED TOO MUCH"
+  },
+  {
+    "id": 5,
+    "en": "He asks what went wrong in the twentieth century.",
+    "ja": "20世紀の何が裏目に出たのか。",
+    "asset": "ww1",
+    "label": "20TH CENTURY"
+  },
+  {
+    "id": 6,
+    "en": "Why did World War One erupt after an age of progress?",
+    "ja": "進歩の時代に、なぜ第一次大戦が起きたのか。",
+    "asset": "ww1",
+    "label": "WORLD WAR I"
+  },
+  {
+    "id": 7,
+    "en": "Why did the October Revolution lead to Stalinism?",
+    "ja": "十月革命から、なぜスターリン体制が現れたのか。",
+    "asset": "lenin",
+    "label": "OCTOBER REVOLUTION"
+  },
+  {
+    "id": 8,
+    "en": "An emancipatory movement produced a terrifying social order.",
+    "ja": "解放運動が、恐ろしい社会秩序を生んだ。",
+    "asset": "stalin",
+    "label": "STALINISM"
+  },
+  {
+    "id": 9,
+    "en": "For Žižek, this is a Hegelian question.",
+    "ja": "ジジェクにとって、これはヘーゲル的な問いだ。",
+    "asset": "hegel",
+    "label": "G. W. F. HEGEL"
+  },
+  {
+    "id": 10,
+    "en": "The French Revolution demanded freedom. Then came revolutionary terror.",
+    "ja": "フランス革命は自由を求めた。その後に恐怖政治が来た。",
+    "asset": "terror",
+    "label": "FREEDOM → THE TERROR"
+  },
+  {
+    "id": 11,
+    "en": "The goal was not the outcome. Explain the reversal.",
+    "ja": "理想と結果が逆転した。その仕組みを考える。",
+    "asset": "hegel",
+    "label": "THE REVERSAL"
+  },
+  {
+    "id": 12,
+    "en": "So, before celebrating any grand project, ask:",
+    "ja": "壮大な計画を称賛する前に、まず問う。",
+    "asset": "zizek",
+    "label": "THE QUESTION"
+  },
+  {
+    "id": 13,
+    "en": "How could things go wrong?",
+    "ja": "物事はどう裏目に出るのか？",
+    "asset": "zizek",
+    "label": "HOW COULD THINGS GO WRONG?"
+  },
+  {
+    "id": 14,
+    "en": "That includes artificial intelligence.",
+    "ja": "人工知能にも同じ問いが向く。",
+    "asset": "robot",
+    "label": "ARTIFICIAL INTELLIGENCE"
+  },
+  {
+    "id": 15,
+    "en": "Imagine robots doing everything for us. What follows?",
+    "ja": "ロボットが何でもする。その先に何が起こる？",
+    "asset": "robot",
+    "label": "WHEN AI SUCCEEDS"
+  },
+  {
+    "id": 16,
+    "en": "How will AI redefine what it means to be human?",
+    "ja": "AIは「人間であること」をどう変えるのか。",
+    "asset": "robot",
+    "label": "WHAT COUNTS AS HUMAN?"
+  },
+  {
+    "id": 17,
+    "en": "So Žižek turns Marx's famous line upside down:",
+    "ja": "そこでマルクスの有名な言葉を逆転する。",
+    "asset": "marx",
+    "label": "MARX, REVERSED"
+  },
+  {
+    "id": 18,
+    "en": "The time has come to interpret it again.",
+    "ja": "今こそ再び、世界を解釈する時だ。",
+    "asset": "zizek",
+    "label": "INTERPRET IT AGAIN"
+  },
+  {
+    "id": 19,
+    "en": "Not just how to change the world, but what our changes might become.",
+    "ja": "世界をどう変えるかだけでなく、変えた先を考える。",
+    "asset": "zizek",
+    "label": "WHAT COMES AFTER CHANGE?"
+  }
+]

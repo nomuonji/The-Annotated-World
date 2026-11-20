@@ -1,0 +1,49 @@
+name: Source portrait and English documentary audio v5
+on:
+  push:
+    branches: [prototype/japanese-marx-zizek-2026]
+    paths:
+      - .github/workflows/jp-short-v5-assets.yml
+      - docs/prototypes/jp-short-v5-script.json
+permissions:
+  contents: read
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install edge-tts pillow requests
+      - name: Generate English voice and fetch CC BY portrait
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output/voice
+          python - <<'PY'
+          import json,asyncio
+          from pathlib import Path
+          from edge_tts import Communicate
+          script=json.load(open('docs/prototypes/jp-short-v5-script.json',encoding='utf8'))
+          async def main():
+              for i,v in enumerate(script):
+                  f=f'output/voice/{i:02d}.mp3'
+                  await Communicate(v['en'],voice='en-US-AndrewNeural',rate='+24%',pitch='-3Hz').save(f)
+                  print('Voice',i,Path(f).stat().st_size,flush=True)
+          asyncio.run(main())
+          PY
+          curl --fail --location --retry 5 --retry-delay 2 --max-time 100 --user-agent 'TheAnnotatedWorld/1.0 (CC-BY2 attribution)' 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Slavoj_%C5%BDi%C5%BEek_2011.jpg' -o output/zizek-2011.jpg
+          python - <<'PY'
+          from PIL import Image
+          im=Image.open('output/zizek-2011.jpg')
+          print('portrait',im.size,im.format)
+          assert im.width>=800
+          PY
+          cp docs/prototypes/jp-short-v5-script.json output/script.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jp-short-v5-english-voice-and-zizek-photo
+          path: output/
+          retention-days: 14
