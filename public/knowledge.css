@@ -38,3 +38,14 @@ html[data-theme="dark"] .study-original .en .in-situ-annotation{
 html[data-theme="dark"] .study-mode button[aria-pressed=true],
 html[data-theme="dark"] .study-control[aria-pressed=true],
 html[data-theme="dark"] .reader-tools button[aria-pressed=true]{background:#28476b;color:#e5eaf2}
+
+/* Components with page-scoped styles also inherit the shared theme. */
+html[data-theme="dark"] :is(.library-tabs button,.library-filter-inputs button,
+ .library-filter-inputs select,.random-chapter,.library-toolbar input,
+ #find,#filter-time,#filter-format,#filter-difficulty,#filter-feature,#filter-series){
+ background:var(--paper);color:var(--ink);border-color:var(--hair);
+}
+html[data-theme="dark"] .library-tabs button[aria-pressed=true]{
+ background:#28476b;color:#e5eaf2;border-color:#638aaf;
+}
+html[data-theme="dark"] .random-chapter:hover{background:#273546}
