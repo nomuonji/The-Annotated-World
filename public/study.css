@@ -295,7 +295,9 @@ html[data-theme="dark"] .study-mode button[aria-pressed=true],html[data-theme="d
  color:#b17d39;
  text-decoration:none;
 }
-.study-original .reader-context-notes{margin:6px 0 14px}
+/* Empty panels should not reserve space between English paragraphs. */
+.study-original .reader-context-notes{display:contents}
+.study-layout[data-mode="listen"] .utterance:not(.revealed) .reader-context-notes{display:none!important}
 .study-original .reader-context-notes .in-situ-annotation:not([hidden]){
  display:block;
  padding:10px 13px 12px;
