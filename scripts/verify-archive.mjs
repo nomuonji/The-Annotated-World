@@ -96,6 +96,7 @@ assert.ok(replacementPage('.hero a[href="https://www.zizek.org/talk/slavoj-zizek
 assert.ok(replacementPage('a[href="https://www.youtube.com/watch?v=4YSXNotY8QU"]').length,'Original video link missing');
 assert.equal(replacementPage('.chapter-end-nav').length,0,'Normal full reading should not show chapter-end buttons');
 assert.equal(replacementPage('.chapter-trail').length,12);
+assert.equal(replacementPage('.source-transcript a[href*="zizek.org/talk/slavoj-zizek-how-to-become-free?t="]').length,12,'Each chapter needs a direct original transcript jump');
 const firstDoc=catalog.documents.find(d=>d.id==='slavoj-zizek-signs-from-the-future');assert.equal(firstDoc.chapters.length,11);assert.equal(firstDoc.provenance.rights,'unverified');
 assert.equal(sample('.chapter-end-nav').length,0,'Normal article must not contain legacy chapter-end navigation');
 assert.equal(sample('.chapter-trail').length,11,'Chapter-only trails must exist for all chapters');
