@@ -55,7 +55,26 @@ try{
   await page.locator('[data-mode=english]').click();assert.equal(await first.locator('.en').isVisible(),true);assert.equal(await first.locator('.ja').isVisible(),false);
   await first.locator('[data-reveal]').click();assert.equal(await first.locator('.ja').isVisible(),true);assert.equal(await second.locator('.ja').isVisible(),false);
   await page.locator('[data-mode=listen]').click();assert.equal(await first.locator('.en').isVisible(),false);await first.locator('[data-reveal]').click();assert.equal(await first.locator('.en').isVisible(),true);
-  await page.locator('[data-mode=parallel]').click();assert.equal(await second.locator('.ja').isVisible(),true);
+  await page.locator('[data-mode=parallel]').click();
+  if(viewport.width<900){
+   await second.locator('.en').evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
+   await page.waitForFunction(()=>document.querySelector('#mobile-translation-dock')?.getAttribute('data-utterance-id')==='ch1-line-2');
+   assert.equal(await second.locator('.ja').isVisible(),false,'Mobile dock should replace the inline translation');
+   assert.equal(await page.locator('#mobile-translation-text').textContent(),await second.locator('.ja').textContent(),'Dock shows the wrong utterance translation');
+   const dock=await page.locator('#mobile-translation-dock').boundingBox();
+   assert.ok(dock&&dock.y+dock.height<=viewport.height+1,'Translation panel is outside the mobile viewport');
+   await page.locator('#mobile-translation-unpin').click();
+   assert.equal(await second.locator('.ja').isVisible(),true,'Unpin should restore inline parallel translation');
+   assert.equal(await page.locator('#mobile-translation-dock').isVisible(),false);
+   await page.locator('#mobile-translation-pin').click();
+   await page.waitForFunction(()=>document.querySelector('#mobile-translation-dock')?.getAttribute('data-utterance-id')==='ch1-line-2');
+   await page.locator('[data-mode=english]').click();
+   assert.equal(await page.locator('#mobile-translation-dock').isVisible(),false,'English-only mode should never show Japanese in a dock');
+   await page.locator('[data-mode=parallel]').click();
+  }else{
+   assert.equal(await second.locator('.ja').isVisible(),true,'Desktop should retain inline parallel translation');
+   assert.equal(await page.locator('#mobile-translation-dock').isVisible(),false);
+  }
   await first.locator('[data-utterance-play]').click();const time=Number(await first.getAttribute('data-utterance-start'));
   await page.waitForFunction(t=>window.mockPlayer.time===t,time);assert.equal(await first.evaluate(e=>e.classList.contains('is-playing')),true);
   await page.locator('#playback-speed').selectOption('0.75');assert.equal(await page.evaluate(()=>window.mockPlayer.rate),.75);
@@ -103,6 +122,12 @@ try{
   assert.equal(await page.locator('[data-study-reader]').getAttribute('data-chapter-view'),'single');
   assert.equal(await page.locator('.study-original section.sec:visible').count(),1);
   assert.equal(await page.locator('#ch2').isVisible(),true);
+  if(viewport.width<900){
+   const chapterLine=page.locator('#ch2 .utterance').first();
+   await chapterLine.locator('.en').evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
+   await page.waitForFunction(()=>document.querySelector('#mobile-translation-dock')?.getAttribute('data-utterance-id')==='ch2-line-1');
+   assert.equal(await page.locator('#mobile-translation-text').textContent(),await chapterLine.locator('.ja').textContent(),'Chapter-only mode must show its own Japanese translation');
+  }
   assert.equal(await page.locator('#ch1').isVisible(),false);
   assert.equal(await page.locator('.reader-page>.hero').isVisible(),false,'Full article hero crowds chapter-only view');
   assert.equal(await page.locator('#ch2 .chapter-trail').isVisible(),true);

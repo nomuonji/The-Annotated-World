@@ -40,6 +40,11 @@ function setup(reader:HTMLElement){
  const play=byId<HTMLButtonElement>('play-pause'),speed=byId<HTMLSelectElement>('playback-speed'),followButton=byId<HTMLButtonElement>('follow-video'),pin=byId<HTMLButtonElement>('mobile-pin-video'),jump=byId<HTMLButtonElement>('jump-current'),stop=byId<HTMLButtonElement>('stop-repeat'),clock=byId('video-clock'),status=byId('video-state'),nav=byId<HTMLSelectElement>('study-chapter-nav');
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const mobile=matchMedia('(max-width: 899px)');
+ const translationDock=byId<HTMLElement>('mobile-translation-dock'),translationText=byId<HTMLElement>('mobile-translation-text');
+ const translationUnpin=byId<HTMLButtonElement>('mobile-translation-unpin'),translationPin=byId<HTMLButtonElement>('mobile-translation-pin');
+ let wantsTranslationDock=true;
+ try{wantsTranslationDock=localStorage.getItem('aw-mobile-translation-dock')!=='off';}catch{}
+ let dockBlock:HTMLElement|null=null,dockFrame=0;
  const frameBase=panel?.dataset.video;
  const frameUrl=(seconds?:number)=>{const u=new URL(frameBase!);u.searchParams.set('playsinline','1');u.searchParams.set('enablejsapi','1');if(location.protocol==='http:'||location.protocol==='https:')u.searchParams.set('origin',location.origin);if(seconds!==undefined){u.searchParams.set('start',String(seconds));u.searchParams.set('autoplay','1');}return u.href;};
  const say=(message:string)=>{if(status){status.textContent=message;status.hidden=!message;}};
@@ -59,6 +64,7 @@ function setup(reader:HTMLElement){
    document.body.classList.remove('chapter-reading-page');
   }
   for(const item of chapters)item.classList.toggle('chapter-selected',item===chapter);
+  requestTranslationSync();
   if(viewToggle){
    viewToggle.setAttribute('aria-pressed',String(!!chapter));
    viewToggle.textContent=chapter?'全文表示へ戻る':'章単位で読む';
@@ -119,7 +125,7 @@ function setup(reader:HTMLElement){
   });
  }
  function updateReveal(b:HTMLElement){const btn=b.querySelector<HTMLButtonElement>('[data-reveal]');if(!btn)return;const open=b.classList.contains('revealed');btn.hidden=mode==='parallel';btn.setAttribute('aria-expanded',String(open));btn.textContent=open?'もう一度隠す':mode==='listen'?'英文・和訳を確認':'和訳・注釈を見る';}
- function setMode(next:Mode){mode=next;reader.dataset.mode=next;for(const b of modeButtons)b.setAttribute('aria-pressed',String(b.dataset.mode===next));for(const b of blocks){b.classList.remove('revealed');updateReveal(b);}if(next==='listen'&&panel)say(ready?'リスニング：発話を聞いてから英文を確認できます。':'リスニング：元動画を再生して聞き取ります。');else if(ready)say('');}
+ function setMode(next:Mode){mode=next;reader.dataset.mode=next;for(const b of modeButtons)b.setAttribute('aria-pressed',String(b.dataset.mode===next));for(const b of blocks){b.classList.remove('revealed');updateReveal(b);}if(next==='listen'&&panel)say(ready?'リスニング：発話を聞いてから英文を確認できます。':'リスニング：元動画を再生して聞き取ります。');else if(ready)say('');syncTranslation();}
  for(const b of modeButtons)b.addEventListener('click',()=>setMode(b.dataset.mode as Mode));
  for(const b of blocks){b.querySelector('[data-reveal]')?.addEventListener('click',()=>{b.classList.toggle('revealed');updateReveal(b);});}
  toolbar?.removeAttribute('hidden');setMode('parallel');
@@ -129,6 +135,64 @@ function setup(reader:HTMLElement){
   if(selectedChapterId&&target.matches('section.sec'))openChapter(target.id);
   else{scrollTo(target);history.replaceState(null,'','#'+encodeURIComponent(target.id));}
  }else{const toc=reader.querySelector<HTMLElement>('.toc');if(toc)scrollTo(toc);}});
+ // Mobile parallel reading: keep the full English in the page and show the
+ // matching, already-edited Japanese utterance in a bottom reading dock.
+ // Never infer translations from neighboring blocks or video timecodes.
+ function syncTranslation(){
+  if(!translationDock||!translationText)return;
+  const enabled=mobile.matches&&mode==='parallel'&&wantsTranslationDock;
+  reader.dataset.translationDock=enabled?'active':'off';
+  if(translationPin)translationPin.hidden=!mobile.matches||mode!=='parallel'||wantsTranslationDock;
+  if(!enabled){
+   translationDock.hidden=true;
+   dockBlock=null;
+   reader.style.removeProperty('--mobile-translation-space');
+   return;
+  }
+  const top=Math.max(0,toolbar?.getBoundingClientRect().bottom||0);
+  const bottom=translationDock.hidden?innerHeight:Math.min(innerHeight,translationDock.getBoundingClientRect().top);
+  const focus=top+Math.max(24,(bottom-top)*.42);
+  let selected:HTMLElement|null=null,nearest=Infinity;
+  if(bottom>top+36){
+   for(const block of blocks){
+    if(selectedChapterId&&block.closest('section.sec')?.id!==selectedChapterId)continue;
+    const rect=(block.querySelector<HTMLElement>('.en')||block).getBoundingClientRect();
+    if(rect.bottom<=top+8||rect.top>=bottom-8)continue;
+    const distance=rect.top<=focus&&rect.bottom>=focus?0:Math.min(Math.abs(rect.top-focus),Math.abs(rect.bottom-focus));
+    if(distance<nearest){nearest=distance;selected=block;if(distance===0)break;}
+   }
+  }
+  const japanese=selected?.querySelector<HTMLElement>('.ja');
+  if(!selected||!japanese?.textContent?.trim()){
+   translationDock.hidden=true;
+   dockBlock=null;
+   reader.style.removeProperty('--mobile-translation-space');
+   return;
+  }
+  if(selected!==dockBlock){
+   translationText.replaceChildren(...Array.from(japanese.childNodes).map(node=>node.cloneNode(true)));
+   translationText.scrollTop=0;
+   translationDock.dataset.utteranceId=selected.id;
+   dockBlock=selected;
+  }
+  translationDock.hidden=false;
+  reader.style.setProperty('--mobile-translation-space',translationDock.getBoundingClientRect().height+'px');
+ }
+ function requestTranslationSync(){
+  if(dockFrame)return;
+  dockFrame=requestAnimationFrame(()=>{dockFrame=0;syncTranslation();});
+ }
+ const setTranslationPreference=(on:boolean)=>{
+  wantsTranslationDock=on;
+  try{localStorage.setItem('aw-mobile-translation-dock',on?'on':'off');}catch{}
+  syncTranslation();
+ };
+ translationUnpin?.addEventListener('click',()=>setTranslationPreference(false));
+ translationPin?.addEventListener('click',()=>setTranslationPreference(true));
+ mobile.addEventListener('change',requestTranslationSync);
+ window.addEventListener('scroll',requestTranslationSync,{passive:true});
+ window.addEventListener('resize',requestTranslationSync,{passive:true});
+ requestTranslationSync();
  if(!panel||!iframe||!frameBase)return;
  const videoPanel=panel;const videoFrame=iframe;
  for(const node of panel.querySelectorAll<HTMLElement>('[data-video-enhancement]'))node.hidden=false;

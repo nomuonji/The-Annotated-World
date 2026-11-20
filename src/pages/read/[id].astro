@@ -179,6 +179,11 @@ const labels={coverage:{full:'全文（照合済みの範囲）',excerpt:'抜粋
  <div class:list={["study-layout",{"has-video":!!d.videoId}]} data-study-reader>
   {d.videoId&&<aside class="study-sidebar" aria-label="動画・再生操作"><SourceVideo doc={doc}/></aside>}
   <div class="study-text"><StudyToolbar doc={doc}/><div class="chapter-mode-control" id="chapter-mode-control" hidden><button type="button" id="chapter-view-toggle" aria-pressed="false">章単位で読む</button><span class="chapter-mode-context" id="chapter-mode-context" hidden>出典：{d.title}</span></div><ReaderTools/><div class="study-original"><Fragment set:html={body}/></div></div>
+  <aside id="mobile-translation-dock" class="mobile-translation-dock" aria-label="今読んでいる英文の日本語訳" hidden>
+   <div class="mobile-translation-dock-head"><span>日本語訳 <small>スクロールに連動</small></span><button type="button" id="mobile-translation-unpin" aria-label="日本語訳の固定を解除して本文内に戻す">固定解除</button></div>
+   <div id="mobile-translation-text" class="mobile-translation-dock-body" lang="ja"></div>
+  </aside>
+  <button type="button" id="mobile-translation-pin" class="mobile-translation-pin" hidden>和訳を下に固定</button>
  </div>
  <div class="publication-note"><h2>資料の来歴・確認状況</h2>{status?<><dl class="provenance-grid"><div><dt>収録範囲</dt><dd>{labels.coverage[status.coverage]}</dd></div><div><dt>原文・音声照合</dt><dd>{labels.transcript[status.transcript]}</dd></div><div><dt>和訳レビュー</dt><dd>{labels.translation[status.translation]}</dd></div><div><dt>掲載権利</dt><dd>{labels.rights[status.rights]}</dd></div></dl><p>{status.basis}</p><p><a href={status.sourceUrl} target="_blank" rel="noopener noreferrer">原典を開く ↗</a></p><p>確認状況は編集時の記録であり、第三者による認証ではありません。</p></>:<p>原典・和訳・掲載権利の確認状況は記録されていません。</p>}</div>
  {recommendations.length>0&&<section class="browse-section"><div class="section-heading"><h2>Read next <small>関連する資料</small></h2></div><div class="document-grid">{recommendations.map(r=><DocumentCard doc={r.d} reason={r.reason}/>)}</div></section>}
