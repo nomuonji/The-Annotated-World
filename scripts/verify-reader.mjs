@@ -18,36 +18,22 @@ try{
   await page.goto(base+path);await page.waitForFunction(()=>!document.getElementById('play-pause').disabled);
   const first=page.locator('.utterance').first();const second=page.locator('.utterance').nth(1);
   assert.equal(await page.locator('.utterance').count(),61);
-  // The first utterance anchors multiple real editorial notes without altering the English text.
-  const originalEnglish='Host: How are we doing here? Good? Still alive? Still lively?';
-  assert.ok((await first.locator('.en').textContent()).startsWith(originalEnglish));
-  assert.ok(await first.locator('.en .inline-note-ref a').count()>=2,'Source phrases are missing their note references');
-  assert.ok(await first.locator('.note .inline-note-item').count()>=3,'Editorial notes were not separated into scannable items');
-  assert.equal(await first.locator('.en .inline-note-ref a').first().getAttribute('href'),'#ch1-line-1-note-1');
+  // Notes are always in the English paragraph, after their exact source phrase.
+  const inline=first.locator('.en .in-situ-annotation');
+  assert.ok((await inline.count())>=2,'No inline explanations attached to real source phrases');
+  assert.ok((await first.locator('.en').textContent()).startsWith('Host: How are we doing here? Good? Still alive? Still lively?'));
+  assert.equal(await inline.first().getAttribute('data-editorial-gloss'),'ch1-line-1-note-1');
+  assert.ok((await inline.first().textContent()).includes('ラカン派'),'First source note is not present inside the English');
+  assert.equal(await inline.first().isVisible(),true,'Editorial note must be visible without a tap');
+  assert.equal(await first.locator('.inline-note-ref').count(),0,'Old footnote jump buttons remain');
+  assert.equal(await first.locator('.annotation-note-toggle').count(),0,'Old annotation disclosure button remains');
+  assert.equal(await page.locator('.inline-annotation-popover').count(),0,'Old annotation popup remains');
+  assert.equal(await first.locator('.note .inline-note-item').count(),3,'Original annotation nodes were lost');
   assert.equal(await first.locator('.editorial-annotation summary').filter({hasText:'構文を読み解く'}).count(),0);
   assert.equal(await second.locator('.editorial-annotation summary').filter({hasText:'英文と和訳を照合'}).count(),0);
-  if(viewport.width<900){
-   const toggle=first.locator('.annotation-note-toggle');
-   const ref=first.locator('.en .inline-note-ref a').first();
-   assert.equal(await toggle.isVisible(),true);
-   assert.equal(await first.locator('.inline-note-item').first().isVisible(),false);
-   await ref.click();
-   const popover=page.locator('.inline-annotation-popover');
-   assert.equal(await popover.isVisible(),true);
-   assert.ok((await popover.textContent()).includes('between two deaths'),'Tapped note does not show its real source explanation');
-   assert.equal(await toggle.getAttribute('aria-expanded'),'false','Annotation unexpectedly expanded the distant note');
-   assert.equal(await first.locator('.inline-note-item').first().isVisible(),false);
-   const popupPosition=await page.evaluate(()=>{
-    const popup=document.querySelector('.inline-annotation-popover').getBoundingClientRect();
-    return{top:popup.top,bottom:popup.bottom,vh:innerHeight,hash:location.hash};
-   });
-   assert.ok(popupPosition.top>=-1&&popupPosition.bottom<=popupPosition.vh+1,'Note requires a page scroll to see');
-   assert.equal(popupPosition.hash,'','Tapping a note should not navigate to a distant anchor');
-   await popover.locator('.inline-annotation-popover-close').click();
-   assert.equal(await popover.isVisible(),false);
-   await toggle.click();assert.equal(await first.locator('.inline-note-item').first().isVisible(),true);
-   await toggle.click();assert.equal(await first.locator('.inline-note-item').first().isVisible(),false);
-  }
+  const atStart=await page.evaluate(()=>window.scrollY);
+  assert.ok(await inline.first().isVisible());
+  assert.equal(await page.evaluate(()=>window.scrollY),atStart,'Inline annotations should not cause navigation');
   await page.locator('[data-mode=english]').click();assert.equal(await first.locator('.en').isVisible(),true);assert.equal(await first.locator('.ja').isVisible(),false);
   await first.locator('[data-reveal]').click();assert.equal(await first.locator('.ja').isVisible(),true);assert.equal(await second.locator('.ja').isVisible(),false);
   await page.locator('[data-mode=listen]').click();assert.equal(await first.locator('.en').isVisible(),false);await first.locator('[data-reveal]').click();assert.equal(await first.locator('.en').isVisible(),true);
@@ -60,36 +46,36 @@ try{
   await page.locator('#stop-repeat').click();assert.equal(await first.locator('[data-repeat]').getAttribute('aria-pressed'),'false');
   await page.evaluate(t=>window.mockPlayer.time=t,next);await page.waitForFunction(()=>document.querySelectorAll('.utterance')[1].classList.contains('is-playing'));
   await page.locator('#jump-current').click();await page.waitForTimeout(100);
-  if(viewport.width<900){await page.locator('#mobile-pin-video').click();assert.equal(await page.locator('[data-study-reader]').evaluate(e=>e.classList.contains('video-pinned')),true);
-   await page.locator('#study-chapter-nav').selectOption('ch8');await page.waitForTimeout(150);
-   const geometry=await page.evaluate(()=>({panel:document.querySelector('.study-sidebar').getBoundingClientRect(),toolbar:document.getElementById('study-toolbar').getBoundingClientRect(),target:document.getElementById('ch8').getBoundingClientRect(),vh:innerHeight}));
-   const videoFrame=await page.locator('.video-pinned .video-frame').boundingBox();
-   assert.ok(videoFrame&&videoFrame.height<160,'Pinned video is still too tall to read');
-   assert.ok(geometry.panel.height+geometry.toolbar.height<geometry.vh*.44,'Pinned video and toolbar consume too much of the phone');
+  if(viewport.width<900){
+   await page.locator('#mobile-pin-video').click();
+   assert.equal(await page.locator('[data-study-reader]').evaluate(e=>e.classList.contains('video-pinned')),true);
+   assert.equal(await page.locator('#play-pause').isVisible(),true,'Play button should stay available');
+   assert.equal(await page.locator('#mobile-pin-video').isVisible(),true,'Unpin control should stay available');
+   assert.equal(await page.locator('#follow-video').isVisible(),false,'Follow button crowds pinned video');
+   assert.equal(await page.locator('#playback-speed').isVisible(),false,'Speed control crowds pinned video');
+   assert.equal(await page.locator('#jump-current').isVisible(),false,'Extra video controls are still visible');
+   await page.locator('#study-chapter-nav').selectOption('ch8');
+   await page.waitForTimeout(150);
+   const geometry=await page.evaluate(()=>({
+    panel:document.querySelector('.study-sidebar').getBoundingClientRect(),
+    toolbar:document.getElementById('study-toolbar').getBoundingClientRect(),
+    vh:innerHeight
+   }));
+   const frame=await page.locator('.video-pinned .video-frame').boundingBox();
+   assert.ok(frame&&frame.height>=110&&frame.height<170,'Pinned video should remain watchable without dominating the screen');
+   assert.ok(geometry.panel.height+geometry.toolbar.height<geometry.vh*.44,'Fixed controls leave insufficient reading space');
    assert.ok(geometry.toolbar.top>=geometry.panel.bottom-2,'Pinned video and toolbar overlap');
    assert.ok(geometry.toolbar.bottom<geometry.vh,'Fixed controls leave no reading space');
-   await first.locator('.en .inline-note-ref a').first().click();
-   const pinnedPopup=await page.locator('.inline-annotation-popover').boundingBox();
-   const toolbarRect=await page.locator('#study-toolbar').boundingBox();
-   assert.ok(pinnedPopup&&toolbarRect&&pinnedPopup.y>=toolbarRect.y+toolbarRect.height-2,'Note popup overlaps fixed reading controls');
-   await page.locator('.inline-annotation-popover-close').click();
+   assert.ok(await inline.first().isVisible(),'Notes should remain visible directly in the paragraph while video is pinned');
    await page.locator('#mobile-pin-video').click();
   }
   // Exercise the new reader tools with the real generated transcript, not synthetic content.
   const word=first.locator('a[data-word]').first(), destination=await word.getAttribute('href');
   await word.click();
-  if(viewport.width<900){
-   const popover=page.locator('.inline-annotation-popover');
-   assert.equal(await popover.isVisible(),true,'Tapping an annotated word should explain it nearby');
-   assert.ok((await popover.textContent()).includes('未割譲'));
-   assert.equal(new URL(await popover.locator('.inline-annotation-popover-link').getAttribute('href'),base).pathname,destination);
-   await popover.locator('.inline-annotation-popover-close').click();
-  }else{
-   await page.locator('#word-dialog[open]').waitFor();
-   assert.ok((await page.locator('#word-dialog-note').textContent()).includes('未割譲'));
-   assert.equal(new URL(await page.locator('#word-dialog-more').getAttribute('href'),base).pathname,destination);
-   await page.locator('#word-dialog button').click();
-  }
+  await page.locator('#word-dialog[open]').waitFor();
+  assert.ok((await page.locator('#word-dialog-note').textContent()).includes('未割譲'));
+  assert.equal(new URL(await page.locator('#word-dialog-more').getAttribute('href'),base).pathname,destination);
+  await page.locator('#word-dialog button').click();
   await page.locator('.quick-reader-tools').click();await page.locator('#reader-query').fill('unceded territories');
   await page.locator('#reader-next').click();assert.ok(await first.evaluate(e=>e.classList.contains('search-current')));
   await page.locator('.quick-reader-tools').click();await page.locator('#reader-focus').click();assert.equal(await page.locator('.study-sidebar').isVisible(),false);
