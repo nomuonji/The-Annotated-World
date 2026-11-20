@@ -22,14 +22,6 @@ function setup(reader:HTMLElement){
  const showAnnotations=(on:boolean)=>{
   annotationsVisible=on;
   reader.dataset.annotations=on?'on':'off';
-  // OFF is genuine English-only text: no clickable cues and no expanded
-  // editorial notes. Restore cue accessibility when switched back on.
-  for(const mark of reader.querySelectorAll<HTMLElement>('[data-note-toggle]')){
-   mark.tabIndex=on?0:-1;
-   mark.setAttribute('aria-disabled',String(!on));
-   if(!on)mark.setAttribute('aria-expanded','false');
-  }
-  if(!on)for(const note of reader.querySelectorAll<HTMLElement>('.in-situ-annotation'))note.hidden=true;
   if(annotationsButton){
    annotationsButton.setAttribute('aria-pressed',String(on));
    annotationsButton.textContent=on?'注釈 ON':'注釈 OFF';
@@ -52,7 +44,7 @@ function setup(reader:HTMLElement){
  const translationUnpin=byId<HTMLButtonElement>('mobile-translation-unpin'),translationPin=byId<HTMLButtonElement>('mobile-translation-pin');
  let wantsTranslationDock=true;
  try{wantsTranslationDock=localStorage.getItem('aw-mobile-translation-dock')!=='off';}catch{}
- let dockBlock:HTMLElement|null=null,dockFrame=0;
+ let dockBlock:HTMLElement|null=null,dockFrame=0,chapterFrame=0,switchingDock=false;
  const frameBase=panel?.dataset.video;
  const frameUrl=(seconds?:number)=>{const u=new URL(frameBase!);u.searchParams.set('playsinline','1');u.searchParams.set('enablejsapi','1');if(location.protocol==='http:'||location.protocol==='https:')u.searchParams.set('origin',location.origin);if(seconds!==undefined){u.searchParams.set('start',String(seconds));u.searchParams.set('autoplay','1');}return u.href;};
  const say=(message:string)=>{if(status){status.textContent=message;status.hidden=!message;}};
@@ -60,6 +52,34 @@ function setup(reader:HTMLElement){
  // The full article is the default; ?chapter=chN is a shareable, one-chapter reading mode.
  let selectedChapterId:string|null=null;
  const findChapter=(id:string|null)=>id?chapters.find(chapter=>chapter.id===id)||null:null;
+
+ // The chapter picker is also a live reading-location indicator.
+ function chapterAtReadingPosition(){
+  if(selectedChapterId)return findChapter(selectedChapterId);
+  if(!chapters.length)return null;
+  const top=Math.max(0,toolbar?.getBoundingClientRect().bottom||0);
+  const bottom=translationDock&&!translationDock.hidden?
+   Math.min(innerHeight,translationDock.getBoundingClientRect().top):innerHeight;
+  const focus=top+Math.max(24,(bottom-top)*.4);
+  if(chapters[0].getBoundingClientRect().top>focus)return null;
+  return chapters.find(ch=>{
+   const rect=ch.getBoundingClientRect();
+   return rect.top<=focus&&rect.bottom>focus;
+  })||[...chapters].reverse().find(ch=>ch.getBoundingClientRect().top<=focus)||null;
+ }
+ function updateReadingChapter(){
+  if(!nav||document.activeElement===nav)return;
+  const ch=chapterAtReadingPosition();
+  if(nav.value!==(ch?.id||''))nav.value=ch?.id||'';
+  const title=ch?nav.selectedOptions[0]?.textContent?.trim()||'':'';
+  nav.title=title||'目次・章へ移動';
+  nav.setAttribute('aria-label',title?'現在地：'+title+'。別の章に移動':'目次・章へ移動');
+ }
+ function requestChapterLocation(){
+  if(chapterFrame)return;
+  chapterFrame=requestAnimationFrame(()=>{chapterFrame=0;updateReadingChapter();});
+ }
+
  function setChapterView(id:string|null,updateUrl=true){
   const chapter=findChapter(id);
   const previous=selectedChapterId;
@@ -79,6 +99,7 @@ function setup(reader:HTMLElement){
   }
   if(viewContext)viewContext.hidden=!chapter;
   if(nav)nav.value=chapter?.id||'';
+  requestChapterLocation();
   if(updateUrl){
    const url=new URL(window.location.href);
    if(chapter){url.searchParams.set('chapter',chapter.id);url.hash='';}
@@ -187,20 +208,65 @@ function setup(reader:HTMLElement){
   reader.style.setProperty('--mobile-translation-space',translationDock.getBoundingClientRect().height+'px');
  }
  function requestTranslationSync(){
-  if(dockFrame)return;
+  if(dockFrame||switchingDock)return;
   dockFrame=requestAnimationFrame(()=>{dockFrame=0;syncTranslation();});
  }
+ // A range anchored to the currently read English line survives the
+ // reflow when all preceding inline Japanese translations appear/disappear.
+ function captureReadingAnchor(){
+  const top=Math.max(0,toolbar?.getBoundingClientRect().bottom||0)+8;
+  const bottom=translationDock&&!translationDock.hidden?
+   Math.min(innerHeight,translationDock.getBoundingClientRect().top):innerHeight;
+  const focus=top+Math.max(24,(bottom-top)*.43);
+  let target:HTMLElement|null=null,nearest=Infinity;
+  for(const block of blocks){
+   if(selectedChapterId&&block.closest('section.sec')?.id!==selectedChapterId)continue;
+   const en=block.querySelector<HTMLElement>('.en');
+   if(!en)continue;
+   const rect=en.getBoundingClientRect();
+   if(rect.bottom<=top||rect.top>=bottom)continue;
+   const distance=rect.top<=focus&&rect.bottom>=focus?0:
+    Math.min(Math.abs(rect.top-focus),Math.abs(rect.bottom-focus));
+   if(distance<nearest){target=en;nearest=distance;if(distance===0)break;}
+  }
+  if(!target)return null;
+  const rect=target.getBoundingClientRect();
+  const x=Math.min(innerWidth-8,Math.max(8,rect.left+Math.min(64,rect.width*.35)));
+  const y=Math.max(rect.top+2,Math.min(rect.bottom-2,focus));
+  const candidate=document.caretRangeFromPoint?.(x,y)||null;
+  const parent=candidate?.startContainer.nodeType===Node.ELEMENT_NODE?
+   candidate.startContainer as Element:candidate?.startContainer.parentElement;
+  const range=parent?.closest('.en')===target&&!parent.closest('.annotation-group')?candidate:null;
+  return {element:target,range,top:range?.getBoundingClientRect().top??rect.top};
+ }
+ function restoreReadingAnchor(anchor:ReturnType<typeof captureReadingAnchor>){
+  if(!anchor)return;
+  const actual=anchor.range?.getBoundingClientRect().top??anchor.element.getBoundingClientRect().top;
+  const delta=actual-anchor.top;
+  if(Number.isFinite(delta)&&Math.abs(delta)>1)window.scrollTo({top:Math.max(0,scrollY+delta),behavior:'instant'});
+ }
  const setTranslationPreference=(on:boolean)=>{
+  if(wantsTranslationDock===on)return;
+  const anchor=captureReadingAnchor();
+  switchingDock=true;
   wantsTranslationDock=on;
   try{localStorage.setItem('aw-mobile-translation-dock',on?'on':'off');}catch{}
   syncTranslation();
+  restoreReadingAnchor(anchor);
+  requestAnimationFrame(()=>{
+   restoreReadingAnchor(anchor);
+   switchingDock=false;
+   requestTranslationSync();
+   requestChapterLocation();
+  });
  };
  translationUnpin?.addEventListener('click',()=>setTranslationPreference(false));
  translationPin?.addEventListener('click',()=>setTranslationPreference(true));
  mobile.addEventListener('change',requestTranslationSync);
- window.addEventListener('scroll',requestTranslationSync,{passive:true});
- window.addEventListener('resize',requestTranslationSync,{passive:true});
+ window.addEventListener('scroll',()=>{requestTranslationSync();requestChapterLocation();},{passive:true});
+ window.addEventListener('resize',()=>{requestTranslationSync();requestChapterLocation();},{passive:true});
  requestTranslationSync();
+ requestChapterLocation();
  if(!panel||!iframe||!frameBase)return;
  const videoPanel=panel;const videoFrame=iframe;
  for(const node of panel.querySelectorAll<HTMLElement>('[data-video-enhancement]'))node.hidden=false;
