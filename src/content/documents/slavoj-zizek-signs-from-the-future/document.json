@@ -1,0 +1,69 @@
+{
+  "title": "Slavoj Žižek: Signs from the Future — ノンストップ英語学習・完全対訳教材",
+  "heroMeta": "2026年11月12日公開 · Chan Centre for the Performing Arts (UBC, Vancouver) · 収録時間 1時間26分21秒",
+  "description": "スロベニアの哲学者スラヴォイ・ジジェクによるUBC講演・対談の全スクリプトを省略なしで整形し、英文中に語彙と背景知識の注釈を直接挿入し、日本語訳も併記しました。辞書を引かずに頭から最後まで読み通せる対訳構成です。",
+  "facts": [
+    {
+      "label": "話者",
+      "value": "Slavoj Žižek & Host"
+    },
+    {
+      "label": "収録時間",
+      "value": "86分21秒（全11章）"
+    },
+    {
+      "label": "学習スタイル",
+      "value": "文中注釈つき英文＋日本語訳"
+    },
+    {
+      "label": "元動画",
+      "value": "YouTubeで視聴する",
+      "url": "https://www.youtube.com/watch?v=j7pEsBbGg5A"
+    }
+  ],
+  "toc": {
+    "title": "全11章チャプター目次",
+    "description": "字幕の話し言葉（フィラーや言い直し）を整えつつ、発話内容は省略せず収録しています。音声認識の誤変換（人名・哲学用語など）は文脈に沿って補注しています。"
+  },
+  "sources": {
+    "title": "参照元・動画情報",
+    "items": [
+      {
+        "before": "元動画：",
+        "url": "https://www.youtube.com/watch?v=j7pEsBbGg5A",
+        "label": "Slavoj Žižek: Signs from the Future - How to Academy and Chan Centre Insights（Chan Centre for the Performing Arts / YouTube）",
+        "after": "（2026年11月12日公開・86分21秒）"
+      }
+    ]
+  },
+  "chapterOrder": [
+    "ch1",
+    "ch2",
+    "ch3",
+    "ch4",
+    "ch5",
+    "ch6",
+    "ch7",
+    "ch8",
+    "ch9",
+    "ch10",
+    "ch11"
+  ],
+  "genre": "philosophy",
+  "format": "講演・対談",
+  "people": [
+    {
+      "id": "slavoj-zizek",
+      "name": "Slavoj Žižek",
+      "ja": "スラヴォイ・ジジェク"
+    }
+  ],
+  "provenance": {
+    "coverage": "unverified",
+    "transcript": "unverified",
+    "translation": "unverified",
+    "rights": "unverified",
+    "basis": "ユーザー提供の対訳HTML。原動画との照合・転載許諾は未確認。",
+    "sourceUrl": "https://www.youtube.com/watch?v=j7pEsBbGg5A"
+  }
+}
