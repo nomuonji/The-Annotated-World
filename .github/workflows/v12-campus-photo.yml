@@ -1,0 +1,26 @@
+name: Fetch licensed contextual UBC photograph for v12
+on:
+  push:
+    branches: [prototype/role-split-zizek-v12]
+    paths:
+      - .github/workflows/v12-campus-photo.yml
+permissions:
+  contents: read
+jobs:
+  photo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Fetch CC BY 2.0 image and provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          curl --fail --location --retry 5 --retry-delay 3 --max-time 120 --user-agent 'AnnotatedWorldDocumentaryPrototype/1.0' 'https://upload.wikimedia.org/wikipedia/commons/4/43/UBC_campus.jpg' -o output/ubc.jpg
+          file output/ubc.jpg
+          printf '%s\n' 'Title: UBC campus' 'Author: F B / Flickr user fboudville' 'License: CC BY 2.0 https://creativecommons.org/licenses/by/2.0/' 'URL: https://commons.wikimedia.org/wiki/File:UBC_campus.jpg' 'Date: 2008-09-11' 'This is generic campus context, NOT the venue room or event footage.' > output/provenance.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v12-ubc-source-photo
+          path: output/
+          retention-days: 14
