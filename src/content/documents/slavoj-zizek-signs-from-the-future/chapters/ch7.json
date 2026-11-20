@@ -32,17 +32,20 @@
         {
           "id": "ch7-line-1-note-1",
           "phrase": "lose one's thread",
-          "explanation": "「話の筋を見失う、論点が飛ぶ」。"
+          "explanation": "「話の筋を見失う、論点が飛ぶ」。",
+          "kind": "language"
         },
         {
           "id": "ch7-line-1-note-2",
           "phrase": "surplus value",
-          "explanation": "「剰余価値」（マルクス経済学の核心概念）。"
+          "explanation": "「剰余価値」（マルクス経済学の核心概念）。",
+          "kind": "context"
         },
         {
           "id": "ch7-line-1-note-3",
           "phrase": "mystification",
-          "explanation": "「神秘化、煙に巻くこと」。"
+          "explanation": "「神秘化、煙に巻くこと」。",
+          "kind": "language"
         }
       ]
     },
@@ -59,12 +62,14 @@
         {
           "id": "ch7-line-2-note-1",
           "phrase": "Fort McMurray",
-          "explanation": "カナダ・アルバータ州のオイルサンド採掘の中心都市。"
+          "explanation": "カナダ・アルバータ州のオイルサンド採掘の中心都市。",
+          "kind": "context"
         },
         {
           "id": "ch7-line-2-note-2",
           "phrase": "fracking",
-          "explanation": "「フラッキング（水圧破砕法）」。"
+          "explanation": "「フラッキング（水圧破砕法）」。",
+          "kind": "language"
         }
       ]
     },
@@ -81,17 +86,20 @@
         {
           "id": "ch7-line-3-note-1",
           "phrase": "reproach",
-          "explanation": "「非難、叱責」。"
+          "explanation": "「非難、叱責」。",
+          "kind": "language"
         },
         {
           "id": "ch7-line-3-note-2",
           "phrase": "universalist",
-          "explanation": "「普遍主義者」（特定のアイデンティティの枠を超えた連帯を重視する立場）。"
+          "explanation": "「普遍主義者」（特定のアイデンティティの枠を超えた連帯を重視する立場）。",
+          "kind": "context"
         },
         {
           "id": "ch7-line-3-note-3",
           "phrase": "topple",
-          "explanation": "「（政権や独裁者を）打倒する、転覆させる」。"
+          "explanation": "「（政権や独裁者を）打倒する、転覆させる」。",
+          "kind": "language"
         }
       ]
     },
@@ -108,12 +116,14 @@
         {
           "id": "ch7-line-4-note-1",
           "phrase": "in accordance with",
-          "explanation": "「〜に従って、〜と一致して」。"
+          "explanation": "「〜に従って、〜と一致して」。",
+          "kind": "language"
         },
         {
           "id": "ch7-line-4-note-2",
           "phrase": "privileged historical agent",
-          "explanation": "「特権的な歴史的主体（行為者）」。"
+          "explanation": "「特権的な歴史的主体（行為者）」。",
+          "kind": "context"
         }
       ]
     },
@@ -130,12 +140,14 @@
         {
           "id": "ch7-line-5-note-1",
           "phrase": "plead to",
-          "explanation": "「〜を訴える、嘆願する」。"
+          "explanation": "「〜を訴える、嘆願する」。",
+          "kind": "language"
         },
         {
           "id": "ch7-line-5-note-2",
           "phrase": "superposition / collapse",
-          "explanation": "量子力学の「重ね合わせ」と「波動関数の収束（波束の収縮）」。未来は一本道ではなく、複数の可能性が重ね合わさっており、私たちの選択によって一つに収束するという比喩。"
+          "explanation": "量子力学の「重ね合わせ」と「波動関数の収束（波束の収縮）」。未来は一本道ではなく、複数の可能性が重ね合わさっており、私たちの選択によって一つに収束するという比喩。",
+          "kind": "context"
         }
       ]
     }
