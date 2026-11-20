@@ -2,7 +2,7 @@
 
 知的に面白い原典を、英日対訳と文中注釈で読むアーカイブ。資料・章・人物・テーマ・語彙から関連する原典を探せます。
 
-**エージェント向けの正本は [AGENTS.md](AGENTS.md) と [docs/CONTENT-AGENT.md](docs/CONTENT-AGENT.md)。** このREADMEは開発・運用の概要です。教材データの形式と検証要件は `docs/CONTENT-AGENT.md` を優先してください。
+**新規教材追加の手順は [docs/NEW-CONTENT-WORKFLOW.md](docs/NEW-CONTENT-WORKFLOW.md)。** エージェントは [AGENTS.md](AGENTS.md) と [docs/CONTENT-AGENT.md](docs/CONTENT-AGENT.md) も読みます。このREADMEは開発・運用の概要です。
 
 ## コンテンツの管理（章ごとのJSON）
 
@@ -28,19 +28,17 @@ src/data/concepts.json
 
 `src/lib/document-source.mjs` がJSONを検証して表示用HTMLを生成し、`src/content.config.ts` がAstroコレクションへ接続します。資料一覧・章索引・ジャンル・人物・テーマ・語彙ページ・[機械用カタログ](/catalog.json)は公開データから自動生成します。URLルーターや生成済みの `dist/` を直接編集する必要はありません。
 
-## 原典の直接取得と公開条件
+## 新しいYouTube教材の追加 — 既存字幕だけを使う
 
-YouTube動画を新規教材化するときは **YouTubeの字幕トラックを直接取得するか、YouTubeから取得した音声を自前の音声認識で書き起こす**。第三者の文字起こしサイト、他者のAIスクリプト、検索結果に載る断片などを教材本文や章構成の根拠にしてはいけません。取得できなければ新規公開を止め、原文を推測で補わないでください。
+**エージェント向けの一連の手順は [新規コンテンツ追加ガイド](docs/NEW-CONTENT-WORKFLOW.md) にまとめています。**
 
-新規YouTube教材の `document.json` には、動画ID・取得方法・UTC取得日時・言語・使用ツール・実際のソースファイルのSHA-256を含む `youtubeCapture` を必須とし、ビルドで不備を拒否します。ユーザーが直接提供した第一弾の記事のみ既存互換の例外です。ダウンロードの技術的成功と、原文の照合・全文転載の許可は別の条件です。
+`題材選定 → 元YouTube動画ID確認 → 既存字幕取得 → YouTube原本字幕との照合 → 権利確認 → 章・英日対訳・注釈のJSON追加 → 検証 → PR/公開`
 
-2026-11-21に再制作した「How to become free」の12章版は、禁止された第三者スクリプトを使っていたため**削除**しました。YouTubeから直接の取得を成功させるまでは再公開しません。
+字幕は、`nomuonji/kirinuki-generator/transcribe_rapidapi.py` が実装する **YouTube本体の字幕API → 既存のRapidAPI字幕ダウンロードの順**で候補を探せます。対象のジジェク動画 `4YSXNotY8QU` について、RapidAPI経由で**1,533件の候補字幕**が実際に返ることを確認しました（[実測記録](docs/research/2026-11-21-youtube-existing-captions.md)）。ただし**APIが返した内容がYouTubeの字幕トラック原本そのものだという照合は未了**です。候補だけで本物の原文だと主張したり、記事を復活させたりしません。
 
-直接取得プローブ：`scripts/probe-youtube-direct.py`（[2026-11-21実測と失敗条件](docs/research/2026-11-21-youtube-direct-capture-probe.md)）。GitHub ActionsではYouTubeのBot確認で字幕・音声とも未取得です。**診断Workflowの成功表示と原文取得の成功を混同しないでください。**
+**新たな音声文字起こし（ASR/Whisper等）や、第三者制作の文字起こし・AI生成原稿を使いません。** 既存YouTube字幕の原本を確認できない場合は制作と公開を停止します。SaveTubeは動画のCDN経由取得が可能ですが、字幕の取得手段ではありません。
 
-
-YouTube本体へ直接アクセスできない場合、切り抜きジェネレーターから移したSaveTube CDN経路を**元動画メディアの中継**として検証できます。[2026-11-21の実測](docs/research/2026-11-21-savetube-media-probe.md)では対象の95分15秒の動画を720pで373MB取得し、0・1・30・80分の音声復号に成功しました。SaveTubeはYouTubeへの直結ではなく第三者のメディアプロキシです。第三者作成の字幕・文字起こしを教材へ使うことは禁止のままです。実際の自前ASRが成功するまで該当記事の公開は保留します。
-
+原文字幕の取得成功後でも、動画ID、言語、時刻、字幕種別、原本SHA-256の証跡を `document.json.youtubeCapture` へ記録し、引用・転載権限を別に確認します。最初のユーザー提供教材は既存例外であり、今後の許諾の代わりにはなりません。2026-11-21に再制作された「How to become free」12章版は第三者スクリプトを使用していたため削除済みで、独立の原本検証が済むまで再公開しません。
 
 ## 文中注釈と読書モード
 
