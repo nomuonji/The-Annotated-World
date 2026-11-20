@@ -55,6 +55,7 @@ src/data/concepts.json      サイト共通の概念・人物・作品索引
 
 必須: `title`、`heroMeta`（確認した日付と原典の状況）、`description`、`facts`（話者・収録時間・元動画リンク）、`toc`（title / description）、`sources`（出典リスト）、`chapterOrder`、`genre`、`format`、`people`、`topics`、`provenance`。
 
+- 元スクリプトが外部で時刻付きで閲覧できる場合は、`document.json` の任意項目 `transcriptBaseUrl` に確認済みのHTTPS URLを記録できる。各章の開始時刻へ `?t=秒数` で直接リンクを生成するため、対象アーカイブでそのURL形式が使えることを確認する。これは外部原典への導線であり、全文を転載したことにも逐語照合完了にもならない。
 - 原典URL・話者・作品・年次・収録範囲は事実を確認する。原典は `provenance.sourceUrl` と `sources.items[].url` へ記録し、元動画リンクは `facts` にも含める。YouTube IDの不一致はエラー。
 - `provenance`: coverage (full/excerpt/unverified)、transcript (verified/unverified/not-applicable)、translation (verified/unverified)、rights (original/licensed/public-domain/unverified)、basis（根拠）、sourceUrl（HTTPS）。この値は**出典確認状況の説明**であり、編集ステータスではない。根拠なしでverifiedとしない。
 - genreは philosophy / literature / film-culture / society / technology / internet から選ぶ。difficulty (B1/B2/C1/C2)、englishFeatures、series は分かる場合のみ設定する。実在しない関連タグやシリーズは作らない。
