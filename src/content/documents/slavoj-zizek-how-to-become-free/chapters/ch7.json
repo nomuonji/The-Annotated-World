@@ -1,0 +1,78 @@
+{
+  "id": "ch7",
+  "title": "7. メタバースの自由は、誰の土地の上にあるのか",
+  "timeRange": "00:46:06 – 00:50:00",
+  "summary": "共同空間の私有化、巨大プラットフォームへの地代、テクノ封建制という挑発的な概念。",
+  "genres": [
+    "philosophy",
+    "technology",
+    "society"
+  ],
+  "topics": [
+    {
+      "id": "freedom",
+      "name": "自由"
+    },
+    {
+      "id": "hegemony",
+      "name": "ヘゲモニー"
+    },
+    {
+      "id": "ai",
+      "name": "AI"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch7-line-1",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "00:46:06",
+      "english": "Žižek treats the promised openness of the Metaverse as a problem of <strong class=\"key\">ownership</strong>. Users may move between identities and interact in a shared digital environment, yet the infrastructure belongs to a private company. An apparent expansion of personal freedom can coincide with greater corporate control over the conditions of interaction.",
+      "japanese": "ジジェクはメタバースが約束する開放性を、所有権の問題として捉える。利用者は仮想空間で人格を切り替え、他者と交流できても、その基盤は私企業の所有物である。個人的自由の拡大に見えるものが、交流の条件に対する企業支配の強化と同時に生じうる。",
+      "annotations": [
+        {
+          "id": "ch7-line-1-note-1",
+          "phrase": "ownership",
+          "explanation": "利用する自由と、その空間自体を所有し規則を決める権限を分けて考えるための語。"
+        }
+      ]
+    },
+    {
+      "id": "ch7-line-2",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "00:47:56",
+      "english": "The argument moves from employment to the extraction of <strong class=\"key\">economic rent</strong>. In Žižek&#39;s reading, the power of dominant software companies depends partly on their control of infrastructure that many people need for everyday collaboration. This is his interpretation of contemporary capitalism, not a claim that ordinary wage labour has disappeared.",
+      "japanese": "議論は雇用関係から経済的な地代の徴収へ移る。ジジェクの読みでは、支配的なソフトウェア企業の力は、人々が日常の協働に必要とする基盤を支配していることにも由来する。これは現代資本主義の解釈であって、賃金労働そのものが消滅したという主張ではない。",
+      "annotations": [
+        {
+          "id": "ch7-line-2-note-1",
+          "phrase": "economic rent",
+          "explanation": "基盤・資産・独占的地位を支配することで得る収益。ここでは講演内の批判的概念。"
+        }
+      ]
+    },
+    {
+      "id": "ch7-line-3",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "00:48:35",
+      "english": "The phrase <strong class=\"key\">corporate neo-feudalism</strong> is intentionally controversial. Its purpose in the lecture is to draw attention to dependency on privately governed spaces and to the resemblance between platform fees and rent. Whether the analogy accurately describes every digital business remains an open question for the reader.",
+      "japanese": "企業による新封建制という語は、意図的に論争的である。講演では、私企業の規則で統治される空間への依存や、プラットフォーム利用料と地代の類似を浮かび上がらせる。あらゆるデジタル企業を正確に説明できる比喩かどうかは、読者が検討すべき論点として残る。",
+      "annotations": [
+        {
+          "id": "ch7-line-3-note-1",
+          "phrase": "corporate neo-feudalism",
+          "explanation": "市場競争だけでなく、所有された共通基盤に対する従属や地代を強調する批判的用語。"
+        }
+      ]
+    }
+  ]
+}

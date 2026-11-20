@@ -1,0 +1,72 @@
+{
+  "id": "ch2",
+  "title": "2. 自分で選んだはずの決断が、なぜ必然に感じられるのか",
+  "timeRange": "00:11:43 – 00:17:09",
+  "summary": "創作と恋愛の必然性、選択を先延ばしにする自由の外観、自由意志の神経科学をつなぐ。",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "freedom",
+      "name": "自由"
+    },
+    {
+      "id": "necessity",
+      "name": "必然性"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch2-line-1",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "00:11:43",
+      "english": "For an artist, the most demanding work may feel less like a selection from several options than an <strong class=\"key\">inner necessity</strong>. Žižek applies the same paradox to love: a relationship may begin freely, yet its significance cannot be calculated by comparing separate advantages.",
+      "japanese": "芸術家にとって切実な創作は、複数の選択肢から選ぶというより、内側から生じる必然に感じられることがある。ジジェクは恋愛にも同じ逆説を見る。恋愛は自由に始まるが、その意味は個々の長所を比較して計算できない。",
+      "annotations": [
+        {
+          "id": "ch2-line-1-note-1",
+          "phrase": "inner necessity",
+          "explanation": "外部からの命令ではなく、主体自身にとって避けがたいものとして感じられる必然性。"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-2",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "00:11:43",
+      "english": "The argument is deliberately <strong class=\"key\">paradoxical</strong>. What seems freely chosen can also feel unavoidable, while the constant availability of alternatives may prevent anyone from committing. Freedom cannot therefore be measured only by the number of options a person can keep open.",
+      "japanese": "議論は意図的に逆説的である。自由に選んだことが同時に避けがたいものと感じられる一方、選択肢を常に残しておくことが決断を妨げる場合もある。自由を、保留できる選択肢の数だけでは測れない。",
+      "annotations": [
+        {
+          "id": "ch2-line-2-note-1",
+          "phrase": "paradoxical",
+          "explanation": "直観上は反対に見える二つの事柄を、同時に成立する関係として論じる表現。"
+        }
+      ]
+    },
+    {
+      "id": "ch2-line-3",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "00:16:54",
+      "english": "Neuroscientific accounts of decision-making raise a separate question about the <strong class=\"key\">experience of choosing</strong>. The lecture introduces Benjamin Libet&#39;s experiment and the possibility of vetoing an impulse. Žižek does not present a laboratory finding as a simple solution to the philosophical problem.",
+      "japanese": "意思決定を神経科学で説明しようとすると、選んでいるという経験そのものが問題になる。講演ではベンジャミン・リベットの実験と、衝動を差し止める可能性が紹介される。実験結果だけで自由の哲学的問題が決着すると述べているわけではない。",
+      "annotations": [
+        {
+          "id": "ch2-line-3-note-1",
+          "phrase": "experience of choosing",
+          "explanation": "行為を自分の意思で決めたと感じる主観的経験。神経活動の測定結果と区別する。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "ch11",
+  "title": "11. 『平和を維持する戦争』という言い換え",
+  "timeRange": "01:09:55 – 01:28:53",
+  "summary": "国民神話と暴力、ロシアの勢力圏構想、国際秩序をめぐる政治的な自由の意味。",
+  "genres": [
+    "philosophy",
+    "society"
+  ],
+  "topics": [
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    },
+    {
+      "id": "world-order",
+      "name": "国際秩序"
+    },
+    {
+      "id": "freedom",
+      "name": "自由"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch11-line-1",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "01:09:55",
+      "english": "The lecture challenges the comforting belief that poetry and high culture always restrain violence. National myths can become a <strong class=\"key\">moral justification</strong> for atrocities, making acts appear obligatory in the name of a collective destiny. Žižek draws on the wars in the former Yugoslavia as part of his argument.",
+      "japanese": "講演は、詩や高度な文化が必ず暴力を抑制するという安心感に異議を唱える。国家的な神話は、集団の運命の名のもとに残虐行為を義務のように見せる道徳的正当化となりうる。ジジェクは旧ユーゴスラビアの戦争も議論に用いる。",
+      "annotations": [
+        {
+          "id": "ch11-line-1-note-1",
+          "phrase": "moral justification",
+          "explanation": "行為を正しいもの、あるいは果たすべき義務として見せる論理。実際の正当性と区別する。"
+        }
+      ]
+    },
+    {
+      "id": "ch11-line-2",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "01:14:43",
+      "english": "Žižek reads Russian political ideology as a claim that liberties exist only inside a protected <strong class=\"key\">sphere of influence</strong> ruled by a great power. The interpretation rejects treating the invasion of Ukraine as a mere clash of national preferences; it concerns who may establish rules for other states.",
+      "japanese": "ジジェクはロシアの政治思想を、大国が支配する勢力圏の内部でのみ自由が認められる構想として読む。この解釈では、ウクライナ侵攻を単なる国家間の好みの衝突として扱わない。他国のルールを誰が決めることを許されるのかが問われる。",
+      "annotations": [
+        {
+          "id": "ch11-line-2-note-1",
+          "phrase": "sphere of influence",
+          "explanation": "大国が周辺地域の外交・安全保障上の決定に優越的影響力を及ぼすとみなす領域。"
+        }
+      ]
+    },
+    {
+      "id": "ch11-line-3",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "01:28:25",
+      "english": "He calls a proposed order of continuing local conflicts and stable global arrangements <strong class=\"key\">hot peace</strong>. The expression reverses the familiar Cold War formula to expose the possibility that powerful states may normalize smaller wars as instruments of international management. This is his criticism, not a neutral description of current international law.",
+      "japanese": "ジジェクは、局地的な戦争が続いても全体の秩序は安定しているという構想を、熱い平和と呼ぶ。冷戦という言い方を反転させ、小規模な戦争を大国が国際管理の手段として常態化しかねないことを示す。これはジジェク自身の批判的な表現であり、現在の国際法についての中立的な説明ではない。",
+      "annotations": [
+        {
+          "id": "ch11-line-3-note-1",
+          "phrase": "hot peace",
+          "explanation": "冷戦と対比して、局地戦争を含んだまま保たれる勢力圏秩序を批判する比喩。"
+        }
+      ]
+    }
+  ]
+}

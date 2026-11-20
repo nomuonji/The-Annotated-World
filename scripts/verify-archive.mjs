@@ -78,14 +78,30 @@ console.log('Discovery routes, video source and internal links verified: '+pages
 
 const catalog=JSON.parse(await readFile('dist/catalog.json','utf8'));
 assert.equal(catalog.documents.length,sources.length);
-assert.ok(!catalog.documents.some(d=>d.id==='slavoj-zizek-how-to-become-free'),'Withdrawn article remains in catalog');
-assert.ok(!byPath.has('/read/slavoj-zizek-how-to-become-free/'),'Withdrawn page was still built');
-assert.equal([...byPath.values()].some($=>$('a[href*="slavoj-zizek-how-to-become-free"]').length>0),false,'Other pages still link to withdrawn article');
+// The owner explicitly requested the removed article be rebuilt from the actual transcript source.
+const rebuilt=catalog.documents.find(d=>d.id==='slavoj-zizek-how-to-become-free');
+assert.ok(rebuilt,'Authorized transcript-grounded replacement missing from catalog');
+assert.equal(rebuilt.chapters.length,12,'Replacement must cover the lecture in twelve sourced sections');
+assert.equal(rebuilt.utteranceCount,36,'Replacement should retain 36 distinct bilingual reading blocks');
+assert.equal(rebuilt.videoId,'4YSXNotY8QU','The original video source was lost');
+assert.equal(rebuilt.provenance.transcript,'unverified','Do not claim verified audio/transcription');
+const replacementPage=byPath.get('/read/slavoj-zizek-how-to-become-free/');
+assert.ok(replacementPage,'Rebuilt article route missing');
+assert.equal(replacementPage('section.sec').length,12);
+assert.equal(replacementPage('.utterance').length,36);
+assert.equal(replacementPage('.in-situ-annotation').length>=36,true);
+assert.equal(replacementPage('.utterance .speaker-zizek').length,2,'Only two short direct transcript excerpts are published');
+assert.equal(replacementPage('.utterance .speaker-host').length,34,'Original editorial guidance must be separately attributed');
+assert.ok(replacementPage('.hero a[href="https://www.zizek.org/talk/slavoj-zizek-how-to-become-free"]').length,'Full source transcript link missing from article header');
+assert.ok(replacementPage('a[href="https://www.youtube.com/watch?v=4YSXNotY8QU"]').length,'Original video link missing');
+assert.equal(replacementPage('.chapter-end-nav').length,0,'Normal full reading should not show chapter-end buttons');
+assert.equal(replacementPage('.chapter-trail').length,12);
+assert.equal(replacementPage('.source-transcript a[href*="zizek.org/talk/slavoj-zizek-how-to-become-free?t="]').length,12,'Each chapter needs a direct original transcript jump');
 const firstDoc=catalog.documents.find(d=>d.id==='slavoj-zizek-signs-from-the-future');assert.equal(firstDoc.chapters.length,11);assert.equal(firstDoc.provenance.rights,'unverified');
 assert.equal(sample('.chapter-end-nav').length,0,'Normal article must not contain legacy chapter-end navigation');
 assert.equal(sample('.chapter-trail').length,11,'Chapter-only trails must exist for all chapters');
 assert.ok(sample('section#ch1 .chapter-trail a[href="/read/slavoj-zizek-signs-from-the-future/?chapter=ch2"]').length);
 assert.ok(sample('section#ch2 .chapter-trail a[href="/read/slavoj-zizek-signs-from-the-future/?chapter=ch3"]').length,
- 'Chapter mode must keep next-chapter navigation when a related article was withdrawn');
+ 'Chapter mode must keep next-chapter navigation regardless of related documents');
 assert.ok(sample('.provenance-grid').length);
 assert.ok(catalog.documents.every(d=>!('bodyHtml' in d)));

@@ -1,0 +1,73 @@
+{
+  "id": "ch5",
+  "title": "5. Freedom と Liberty――選べることが決断を妨げる",
+  "timeRange": "00:33:18 – 00:39:51",
+  "summary": "禁煙の先延ばし、自由と権利の区別、ヘーゲルとサルトルの困難な自由。",
+  "genres": [
+    "philosophy",
+    "society"
+  ],
+  "topics": [
+    {
+      "id": "freedom",
+      "name": "自由"
+    },
+    {
+      "id": "hegel",
+      "name": "ヘーゲル"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch5-line-1",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "00:33:18",
+      "english": "A smoker may repeatedly assure himself that quitting remains possible tomorrow. The <strong class=\"key\">option to postpone</strong> becomes the very excuse that preserves the habit. Žižek uses the case to show why the awareness of having a choice does not necessarily produce the action that freedom seems to promise.",
+      "japanese": "喫煙者は「やめることは明日でもできる」と繰り返し自分に言い聞かせることがある。決断を延期できるという選択肢そのものが、習慣を維持する口実になる。選べると自覚していることが、自由が約束するはずの行動につながるとは限らない。",
+      "annotations": [
+        {
+          "id": "ch5-line-1-note-1",
+          "phrase": "option to postpone",
+          "explanation": "決断を先延ばしにできる余地。ここでは可能性が行動の障害にもなる。"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-2",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "00:37:18",
+      "english": "The distinction between <strong class=\"key\">liberty and freedom</strong> is developed through Hegel and Sartre. One dimension concerns the rights and customary practices that make ordinary life possible; the other concerns the radical act of confronting or breaking an unjust order. The two dimensions can support each other, but they are not identical.",
+      "japanese": "自由をめぐる二つの次元は、ヘーゲルとサルトルを通じて展開される。一方は日常生活を可能にする権利や慣習、他方は不当な秩序に向き合い、それを破る根本的な行為である。この二つは互いを支える場合があるが、同じものではない。",
+      "annotations": [
+        {
+          "id": "ch5-line-2-note-1",
+          "phrase": "liberty and freedom",
+          "explanation": "講演内の便宜的な対比。英語一般で二語が常に厳密に分かれるという意味ではない。"
+        }
+      ]
+    },
+    {
+      "id": "ch5-line-3",
+      "speaker": {
+        "name": "編集部の英語解説（本人の逐語発言ではありません）",
+        "className": "speaker-host"
+      },
+      "time": "00:37:18",
+      "english": "Sartre&#39;s provocative account of the French Resistance under occupation shows a <strong class=\"key\">radical commitment</strong> made when ordinary liberties had been violently destroyed. Žižek invokes this example while discussing Ukraine. He does not mean that oppression is desirable; the point concerns decisions made when the usual protections no longer exist.",
+      "japanese": "占領下のフランス・レジスタンスを扱うサルトルの挑発的な議論は、日常的な自由が暴力的に奪われた状況での根本的な決断を示す。ジジェクはウクライナについて論じる際にもこの例を使う。抑圧が望ましいという意味ではなく、通常の保護が失われた場面での決断が問題なのだ。",
+      "annotations": [
+        {
+          "id": "ch5-line-3-note-1",
+          "phrase": "radical commitment",
+          "explanation": "後戻りできる単なる好みの表明ではない、結果を引き受ける決断。"
+        }
+      ]
+    }
+  ]
+}

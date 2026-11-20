@@ -129,3 +129,8 @@ html[data-theme="dark"] .study-mode button[aria-pressed=true],html[data-theme="d
  .chapter-mode-control{margin-top:6px}
  .chapter-trail a{flex-basis:100%}
 }
+
+/* Optional source-transcript jump when a timestamped external transcript exists. */
+.study-original .source-transcript{margin:14px 0 0;font:500 12px/1.6 'Noto Sans JP',sans-serif}
+.study-original .source-transcript a{display:inline-block;color:var(--accent-text);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
+.study-original .source-transcript a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
