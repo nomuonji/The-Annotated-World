@@ -22,16 +22,7 @@
  white-space:normal;overflow-wrap:anywhere;
  box-decoration-break:clone;-webkit-box-decoration-break:clone;
 }
-.study-original .note.all-in-situ{display:none!important}
-.study-original .note.has-inline-annotations .inline-note-item.is-in-situ{display:none!important}
-.study-original .note.has-inline-annotations .inline-note-item:not(.is-in-situ){
- display:block;margin:0;padding:0;color:#344557;
- font:400 13px/1.8 'Noto Sans JP',sans-serif;
-}
-.study-original .note.has-inline-annotations .inline-note-item:not(.is-in-situ)+.inline-note-item:not(.is-in-situ){
- margin-top:8px;padding-top:8px;border-top:1px solid #e1e7ed;
-}
-.study-original .note.has-inline-annotations .inline-note-item:not(:last-child)::after{content:none}
+.study-original .note.annotation-converted{display:none!important}
 .reader-dark .study-original .en .in-situ-annotation{
  background:#263746;color:#deebf7;border-color:#58738b;
 }
