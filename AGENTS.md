@@ -59,3 +59,7 @@ New source files belong in `src/content/documents/`; new supplemental annotation
 
 ## 【最新】Pilot 012／ソース発言と日本語の編者註を時間で分ける
 ユーザー直接FB「最初にフック、そのあとジジェクがどこで言ったかの女性ナレーション、男性の原文に戻る、補足は別声で挟んでまた戻る」「同時表示は目が追いつかない」「意図しないナレーターの性別変化禁止」を優先する。最新版 [docs/prototypes/zizek-v12-voice-and-commentary-alternation.md](docs/prototypes/zizek-v12-voice-and-commentary-alternation.md) を読む。**引用時は男性固定の英語原文+日本語訳だけ。編者註時は女性固定の日本語音声+短い日本語字幕だけ。どちらか一方だけを画面で読ませる。** 自動音声合成fallbackによる声変更を禁止。男性合成朗読と本人肉声を混同しない。原典の場所/場面説明はフック直後に入れる。音楽を可聴水準にし、背景情報が動画を覆わないようにする。V11以前の註釈同時表示・延々と続く一本調子ナレーションの方式へ戻さない。
+
+## ★ 新規の派生ショートは採用基準型から始める（2026-11-20の確定方針）
+ユーザーが第12版に「まあ合格ラインかな」と評価し、この型のテンプレ化を承認した。以降は [templates/annotated-short/README.md](templates/annotated-short/README.md) を**最初に**読み、 [templates/annotated-short/brief.example.json](templates/annotated-short/brief.example.json) を参考に、製作ごとの brief.json を作る。**第12版の「フック→編者による出典紹介→原典の発言→編者註→発言に戻る」**を基準として、引用中に註釈を重ねない。引用音声・編者音声を別声で固定する。必ず source と肖像・BGMのライセンス/実録と合成の区別を残す。
+制作チェックは npm run short:check -- <brief.json>、必要な媒体ファイルが揃ったら --media を付ける。構造確認、音声/BGMの主観評価、映像の読みやすさ、引用と著作物の権利審査は別ゲート。実制作は npm run short:render -- <brief.json>。承認済みなのは**型の採用基準**であり、自動投稿・個別作品の合格・使用素材の権利承認ではない。過去のPilot仕様に矛盾する「常時英日字幕+註釈同時表示」よりこの最新版を優先する。

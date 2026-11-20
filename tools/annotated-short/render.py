@@ -202,8 +202,9 @@ def main():
                           'end':end, 'audio':seg['audio'],
                           'voiceId': brief['speaker']['voiceId'] if seg['role']=='QUOTE'
                           else brief['editor']['voiceId']})
-        gap = 180 if i+1 < len(brief['segments']) and
-                  brief['segments'][i+1]['role'] != seg['role'] else 100
+        role_changes = (i+1 < len(brief['segments']) and
+                        brief['segments'][i+1]['role'] != seg['role'])
+        gap = 180 if role_changes else 100
         voice += AudioSegment.silent(duration=gap, frame_rate=SR).set_channels(2)
     if len(voice) < 2000:
         raise ValueError('Unusually short source voice sequence')

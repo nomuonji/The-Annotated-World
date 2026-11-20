@@ -112,8 +112,9 @@ if(command==='init'){
       fs.mkdirSync(dir,{recursive:true});
       const example=read(path.join(ROOT,'templates','annotated-short','brief.example.json'));
       example.title='';example.source.url='';example.source.document='';example.source.eventContext='';
+      example.speaker.portraitCredit='';example.music.credit='';
       example.speaker.name='';example.speaker.portrait='assets/speaker.jpg';
-      for(const s of example.segments){s.en='';s.ja='';s.audio='audio/'+s.id+'.mp3';s.asset='assets/'+s.id+'.jpg';s.cues=[];if(s.role==='QUOTE')s.isVerbatim=false;}
+      for(const s of example.segments){s.en='';s.ja='';s.audio='audio/'+s.id+'.mp3';s.asset='assets/'+s.id+'.jpg';s.cues=[];s.noteTitle='';s.evidence='';s.sourceTime='';if(s.role==='QUOTE')s.isVerbatim=false;}
       fs.writeFileSync(path.join(dir,'brief.json'),JSON.stringify(example,null,2)+'\n');
       for(const folder of ['assets','audio'])fs.mkdirSync(path.join(dir,folder),{recursive:true});
       console.log('Created '+path.relative(ROOT,dir)+'/brief.json (intentionally incomplete; fill real-source data).');
@@ -124,7 +125,7 @@ if(command==='init'){
   else{
     try{
       const full=path.resolve(requestedPath);const b=read(full);
-      const result=validate(b,{media:flags.includes('--media'),publish:flags.includes('--publish'),base:path.dirname(full)});
+      const result=validate(b,{media:flags.includes('--media')||flags.includes('--publish'),publish:flags.includes('--publish'),base:path.dirname(full)});
       for(const w of result.warnings)console.warn('WARN '+w);
       for(const e of result.errors)console.error('ERROR '+e);
       if(!result.ok)process.exitCode=1;

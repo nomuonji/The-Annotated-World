@@ -10,7 +10,11 @@
     "verify:archive": "node scripts/verify-archive.mjs",
     "verify:reader": "node scripts/verify-reader.mjs",
     "content:inspect": "node scripts/content-inspect.mjs",
-    "content:check": "node scripts/content-inspect.mjs --check"
+    "content:check": "node scripts/content-inspect.mjs --check",
+    "short:init": "node scripts/annotated-short.mjs init",
+    "short:check": "node scripts/annotated-short.mjs validate",
+    "short:plan": "node scripts/annotated-short.mjs plan",
+    "short:render": "python3 tools/annotated-short/render.py"
   },
   "engines": {
     "node": ">=22.12.0"
