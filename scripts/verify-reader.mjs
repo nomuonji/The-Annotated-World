@@ -2,6 +2,58 @@ import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import {spawn} from 'node:child_process';
 const port=4173,base='http://127.0.0.1:'+port;
+
+/**
+ * Browser-computed annotation audit, not a CSS selector/source-code check.
+ * This catches nested <strong class="key"> reintroducing an accent color
+ * while unbolded highlighted text keeps the normal source color.
+ */
+async function auditAnnotationAppearance(page,{enabled,theme}){
+ const audit=await page.evaluate(({enabled})=>{
+  const errors=[];
+  const sources=[...document.querySelectorAll('.study-original .en .annotation-source')];
+  const keys=[...document.querySelectorAll('.study-original .en strong.key')];
+  const notes=[...document.querySelectorAll('.study-original .en .in-situ-annotation')];
+  const transparent=color=>color==='transparent'||color==='rgba(0, 0, 0, 0)';
+  const highlightPainted=style=>style.backgroundImage!=='none'||!transparent(style.backgroundColor);
+  let insideStrong=0,outsideStrong=0;
+  const kinds=new Set();
+  for(const el of sources){
+   const strong=Boolean(el.closest('strong.key'));
+   if(strong)insideStrong++;else outsideStrong++;
+   (el.getAttribute('data-highlight-kinds')||'').split(' ').filter(Boolean).forEach(x=>kinds.add(x));
+   const style=getComputedStyle(el);
+   const base=getComputedStyle(el.closest('.en'));
+   const id=el.closest('.utterance')?.id||'unknown';
+   if(style.color!==base.color)
+    errors.push(id+': highlighted text color '+style.color+' != source '+base.color+' (in strong='+strong+')');
+   if(enabled){
+    if(!highlightPainted(style))errors.push(id+': missing source highlight background');
+    if(!style.textDecorationLine.includes('underline'))errors.push(id+': missing highlight underline');
+   }else{
+    if(highlightPainted(style))errors.push(id+': annotation OFF still has highlight background');
+    if(style.textDecorationLine.includes('underline'))errors.push(id+': annotation OFF still has underline');
+   }
+  }
+  for(const el of keys){
+   const base=getComputedStyle(el.closest('.en'));
+   if(getComputedStyle(el).color!==base.color)
+    errors.push((el.closest('.utterance')?.id||'unknown')+': legacy strong.key accent color still active');
+  }
+  if(!enabled&&notes.some(el=>getComputedStyle(el).display!=='none'))
+   errors.push('annotation OFF still shows an explanatory note');
+  if(enabled&&notes.some(el=>getComputedStyle(el).display==='none'))
+   errors.push('annotation ON hides an explanatory note');
+  return {total:sources.length,insideStrong,outsideStrong,kinds:[...kinds],errors};
+ },{enabled});
+ assert.ok(audit.total>0&&audit.insideStrong>0&&audit.outsideStrong>0,
+  theme+': audit must cover both bold and ordinary highlighted English');
+ assert.deepEqual(audit.kinds.sort(),['context','language'],
+  theme+': audit did not cover both annotation kinds');
+ assert.deepEqual(audit.errors,[],theme+' / '+(enabled?'ON':'OFF')+': annotation visual inconsistencies');
+ return audit;
+}
+
 const server=spawn(process.execPath,['node_modules/.bin/astro','preview','--host','127.0.0.1','--port',String(port)],{stdio:'inherit'});
 let browser;
 try{
@@ -30,6 +82,7 @@ try{
   assert.equal(await inline.isVisible(),true,'Background explanation must be inline without tapping');
   assert.equal(await languageNote.isVisible(),true,'Language explanation must be inline without tapping');
   assert.equal(await annotationsButton.getAttribute('aria-pressed'),'true');
+  await auditAnnotationAppearance(page,{enabled:true,theme:'light'});
 
   // Regression for the screenshot: the Hegel quotation sits inside <strong>.
   // Highlight the *whole* exact quotation, then place its context note
@@ -57,6 +110,7 @@ try{
   assert.equal(await page.locator('.chapter-trail:visible').count(),0);
   await annotationsButton.click();
   assert.equal(await first.locator('.in-situ-annotation:visible').count(),0,'OFF did not hide both annotation kinds');
+  await auditAnnotationAppearance(page,{enabled:false,theme:'light'});
   assert.ok((await first.locator('.en').textContent()).includes('unceded territories'),'OFF lost source English');
   await annotationsButton.click();
   assert.equal(await inline.isVisible(),true,'ON did not restore the background explanation');
@@ -198,8 +252,10 @@ try{
   assert.equal(await page.locator('#site-theme-toggle').getAttribute('aria-pressed'),'true');
   await page.goto(base+path);
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark','Theme did not persist back to article');
+  await auditAnnotationAppearance(page,{enabled:true,theme:'dark'});
   await page.locator('#reader-annotations').click();
   assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),false);
+  await auditAnnotationAppearance(page,{enabled:false,theme:'dark'});
   await page.goto(base+'/library/');
   assert.equal(await page.locator('[data-document]').count(),2,'Rebuilt RapidAPI article must be listed alongside the original lesson');
   await page.goto(base+path);

@@ -219,7 +219,8 @@ html[data-theme="dark"] .study-mode button[aria-pressed=true],html[data-theme="d
    words, even inside nested <strong>, are highlighted using checked ranges. */
 .study-original .en .annotation-fragment{display:contents}
 .study-original .en .annotation-source{
- color:inherit;
+ /* Annotated text must not inherit legacy strong.key accent colors. */
+ color:var(--ink);
  border-radius:2px;
  box-decoration-break:clone;
  -webkit-box-decoration-break:clone;
@@ -258,7 +259,7 @@ html[data-theme="dark"] .study-mode button[aria-pressed=true],html[data-theme="d
  background:#fff4e2;
  border:1px solid #e1c399;
 }
-.study-original .en strong.key{text-decoration:none}
+.study-original .en strong.key{color:var(--ink);text-decoration:none}
 .study-layout[data-annotations="off"] .study-original .annotation-group{display:none!important}
 .study-layout[data-annotations="off"] .study-original .annotation-source{
  background:none!important;
