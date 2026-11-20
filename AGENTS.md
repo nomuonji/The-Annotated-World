@@ -1,6 +1,6 @@
 # The Annotated World — agent entrypoint
 
-**教材制作エージェントは必ず最初に [docs/CONTENT-AGENT.md](docs/CONTENT-AGENT.md) を読み、`npm run content:inspect` で現在の資料と重複を確認する。** ユーザーが確定した読み方・出典の扱い・注釈形式・品質ゲートは同文書を正本とする。
+**新規YouTube教材の追加は必ず [docs/NEW-CONTENT-WORKFLOW.md](docs/NEW-CONTENT-WORKFLOW.md) → [docs/CONTENT-AGENT.md](docs/CONTENT-AGENT.md) の順に読み、`npm run content:inspect` で重複確認する。** ユーザーが確定した読み方・出典の扱い・注釈形式・品質ゲートは同文書を正本とする。
 
 ## Editorial contract — structured content
 
@@ -13,19 +13,15 @@
 - 動画の時刻同期は発話単位までで、音節単位の精度を偽らない。スマホの動画固定は任意で、固定中は再生／一時停止・固定解除のシンプルな操作のみ。語彙索引は実際の原文と注釈から派生させる。未要求のアカウント、外部DB、保存履歴、無関係な定期ジョブを追加しない。
 - 新規資料の前に原典、章・話者・英語全文、引用・著作権、メタデータ整合性を確認。必須ゲートは `npm run content:check`、`npm run check`、`npm run build`、`npm run verify:archive`。UI変更時は `npm run verify:reader` も通す。CI成功と本番公開を混同しない。
 
-## 絶対条件：YouTube原典の直接取得（2026-11-21、本人指示）
+## 【最優先】新規YouTube教材を追加するエージェントの実行契約（2026-11-21）
 
-- **第三者サイトによる文字起こし・字幕転載・AI要約を教材の原文取得元として使うことを禁止する。** žižek archive、pickscribe、字幕転載サイト、検索結果に載った文章、他者作成のAIスクリプトも同様。第三者の原稿で講演全体の構成・タイムスタンプ・逐語引用を作ることも禁止する。出典を注記しただけでは違反を解消しない。
-- YouTube動画を教材化する場合は、**その動画のYouTube配信から直接**①配信されている本人投稿字幕／YouTube自動字幕を取得する、または②YouTubeから取得した音声を自前のASRで文字起こしする。取得元動画ID・使用したコマンド・言語・取得時刻・生成ファイルのSHA-256を記録し、対象動画と一致することを確認する。
-- どの経路も取れなければ**未取得として制作停止**。架空の逐語原文、第三者転写に依存する対訳、「本人の言葉ではない独自英語解説」を原典教材として代用しない。元の講演を聞けたと虚偽報告しない。
-- 新規YouTube教材には `document.json` の `youtubeCapture` に直接取得証跡を必須とし、ビルド時にも検証する。既存のユーザー提供第一弾教材は移行済みの例外で、新規のYouTube取得成功を意味しない。**第三者文字起こしを根拠に作り直した「How to become free」の12章記事は削除済み。YouTubeから直接取得・確認できるまで再公開禁止。**
-- 取得経路の調査と、著作物の全文転載・公開許諾の判断は独立。取得できても新規の全文転載権限が当然に付与されるわけではない。
-
-- YouTube取得の検証・失敗記録： [直接取得プローブ](docs/research/2026-11-21-youtube-direct-capture-probe.md)。取得手順は `scripts/probe-youtube-direct.py`。GitHub Actionsでの実測はBot確認により取得不可。成功した原文・字幕ファイルが存在するかは結果コードと `CAPTURE_EVIDENCE` で判定し、診断Workflowの緑色表示では判定しない。
-
-- **2026-11-21追補（SaveTube実測）**：第三者**文字起こし**の禁止は維持する。本人が明示したSaveTubeは、YouTube元動画の映像・音声をCDN経由で中継する**メディアプロキシ**としてのみ使用できる。YouTube直結ではない。`kirinuki-generator`の720p取得コードを移して対象動画 `4YSXNotY8QU` を試し、373,095,240バイトのファイルから0・1・30・80分地点の音声復号に成功（[実測記録](docs/research/2026-11-21-savetube-media-probe.md)）。360pはストリームヘッダがあっても途中の音声がなく失敗。**自前ASRによる英語文字起こしと検証は別工程で未完了。** 新規教材では `youtubeCapture.transport='savetube-media-proxy'`、`method='youtube-audio-asr'`、`mediaSha256` と自前の原文ファイルSHA-256を記録した場合のみ許可。第三者が生成した文字起こしを使うことは引き続き厳禁。
-
-- **2026-11-21の最新指示（『How to become free』）**：自前ASRによる文字起こしも不要。YouTubeにすでに存在する投稿者字幕かYouTube自動字幕を**原本トラックから直接取得**することだけを試す。第三者文字起こし禁止は維持。SaveTubeでMP4を取れたことは字幕取得成功ではない。実測ではSaveTube `/v2/info`に字幕フィールドがなく、GitHub ActionsからYouTube本体に接続できなかった。[実地調査](docs/research/2026-11-21-youtube-existing-captions.md)。通常のYouTubeブラウザセッションで原本トラックを保存する実験用ユーザースクリプトは `scripts/youtube-original-captions.user.js`（当該動画の成功は未確認）。原本字幕が取得できるまで再公開不可。
+- **正本は [新規コンテンツ追加の手順書](docs/NEW-CONTENT-WORKFLOW.md)。** `元動画選定 → 既存YouTube字幕の取得 → 原本との照合 → 権利確認 → 章JSON・日英対訳・文中注釈 → CI → 公開確認`。手順書の取得証跡と失敗時停止条件を省略しない。
+- **新たなASR文字起こしはしない。** 第三者サイトの文字起こし・転載・他者のAI生成テキスト、検索スニペットを英語原文や章構成の根拠に使わない。YouTube既存の投稿者字幕またはYouTube自動字幕のみを採用候補とする。
+- `nomuonji/kirinuki-generator/transcribe_rapidapi.py` に既存字幕の取得実績がある。直接YouTubeを最初に試し、失敗すると既存RapidAPI字幕ダウンロードへフォールバックする。ただし**中継APIの字幕が本当にYouTubeの原本字幕であることは別途照合必須**。診断の成功や件数だけで `youtubeCapture.transport='youtube-direct'` と記録しない。原本未照合なら公開制作を停止する。
+- SaveTubeは**動画・音声の取得のみ**。字幕の取得元ではない。動画MP4を取得できても字幕の原典取得を成功扱いしない。
+- 公開用のファイルは `src/content/documents/<slug>/document.json` と `chapters/*.json` のみ。原本字幕、権利不明の長文、認証情報を公開Gitへコミットしない。新規記事の `youtubeCapture` には正しい元動画ID、字幕の取得方式・時刻・原本SHA-256を記録。権利根拠がない限り記事を公開しない。
+- 取得できない場合は原因を記録し終了。削除済みの「How to become free」を過去の第三者原稿から自動復活させない。対象動画 `4YSXNotY8QU` は、切り抜きの既存経路で1,533件の**候補字幕**を取得したが、元字幕との独立照合は未了。[検証結果](docs/research/2026-11-21-youtube-existing-captions.md)を参照し、再公開しない。
+- `npm run content:check` はJSON・証跡フィールドの**形式的検証**であり、字幕の真正性、逐語一致、著作権・転載許諾を証明するものではない。CI成功と本番反映も区別する。
 
 ## 派生発信コンテンツ
 思想・知識の解説動画やSNS企画を作る前に [docs/EDITORIAL-POLICY.md](docs/EDITORIAL-POLICY.md) を参照する。制作方針の検討版と試作は公開承認ではない。教材制作と派生発信を分離し、元動画の引用可否と取得・配信規約を個別確認する。
