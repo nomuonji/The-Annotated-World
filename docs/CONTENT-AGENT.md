@@ -5,7 +5,7 @@ The Annotated World は、知的に面白い原典を英語と日本語の対訳
 
 ## YouTube動画からのスクリプト取得契約（2026-11-21・最優先）
 
-**ユーザー指示：第三者文字起こしは一切使用禁止。YouTubeから直接取得したスクリプト以外を教材作成の根拠にしない。**
+**ユーザー指示：第三者が作った文字起こし・字幕転載は一切使用禁止。YouTube配信から直接取得した字幕、または元YouTube動画の音声を検証して自分のASRで起こした原文だけを教材作成の根拠にする。元動画音声の転送にSaveTubeを用いる場合は、必ず動画ID・音声・媒体指紋を照合する。**
 
 1. 原動画の `videoId` とYouTube URLを確定。動画に付属する投稿者字幕またはYouTube自動字幕をYouTubeの配信元から直接取得する。手段の候補は `yt-dlp --write-subs --write-auto-subs --skip-download` または `youtube-transcript-api` のYouTube直接アクセス。取得サービスがYouTube経由と称していても、第三者が書き起こして独自に掲載したデータは不可。
 2. 字幕がない場合は、利用条件・取得権限を満たす場合に限り、元YouTube動画の音声を直接取得し、自分のASRで発話テキスト・時刻を生成する。音声の取得失敗・Bot判定・字幕なしを、他所のトランスクリプトで穴埋めしない。
@@ -31,6 +31,8 @@ The Annotated World は、知的に面白い原典を英語と日本語の対訳
 `method` は `youtube-captions`、`youtube-auto-captions`、`youtube-audio-asr` のいずれかのみ。
 
 - 直接取得の実行スクリプトとGitHub-hosted runnerでの失敗証跡は [2026-11-21 YouTube直接取得実験](research/2026-11-21-youtube-direct-capture-probe.md)。クラウドのIPブロックは字幕が存在しないことの証明ではない。成功したときだけ `CAPTURE_EVIDENCE` を記事へ転記する。
+
+- **SaveTubeは元動画の媒体中継に限って使用可。第三者の字幕原稿を取得する経路ではない。** `nomuonji/kirinuki-generator`と同じSaveTube CDNsで実際の動画 `4YSXNotY8QU` を720pで取得（373,095,240バイト）。0・1・30・80分の音声を実復号確認。[検証結果](research/2026-11-21-savetube-media-probe.md)。360pはメタデータがあっても途中の音声がないため不採用。元動画のIDと長さ、動画・音声の有無、離れた複数箇所の音声復号を通過してから自分のASRを実施する。取得した音声を第三者の転写済み文章で代用しない。`youtubeCapture.transport='savetube-media-proxy'`、`method='youtube-audio-asr'`、`mediaSha256`（元動画MP4）、`sha256`（自前ASRの原文データ）を記録。**直接取得できたMP4をもって、文字起こし完了・教材公開許可と見なさない。**
 
 ## 0. 着手前（必ず実行）
 - `AGENTS.md` と本書、`src/lib/document-source.mjs` と `src/content.config.ts` を読む。Node 22.12+、`npm install`。
