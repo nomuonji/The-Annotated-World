@@ -8,6 +8,8 @@ const problems=[],warnings=[],catalog=[],topicMap=new Map(),personMap=new Map(),
 const err=(id,msg)=>problems.push(id+': '+msg),warn=(id,msg)=>warnings.push(id+': '+msg);
 const genres=new Set(['philosophy','literature','film-culture','society','technology','internet']);
 const legacy='slavoj-zizek-signs-from-the-future';
+// Imported sources are preserved verbatim; every newly authored document must use inline v1.
+const legacyNoteSources=new Set(['slavoj-zizek-signs-from-the-future','slavoj-zizek-how-to-become-free']);
 const timeOf=t=>{const m=t.match(/\b(\d{1,3}:\d{2}(?::\d{2})?)\b/);if(!m)return null;const a=m[1].split(':').map(Number);return a.slice(1).some(n=>n>=60)?NaN:a.reduce((n,x)=>n*60+x,0);};
 const sourceKey=s=>{try{const u=new URL(s),host=u.hostname.toLowerCase(),v=host==='youtu.be'?u.pathname.split('/')[1]:['www.youtube.com','youtube.com','m.youtube.com'].includes(host)?u.searchParams.get('v')||u.pathname.match(/^\/(?:shorts|live|embed)\/([^/]+)/)?.[1]:null;if(v&&/^[A-Za-z0-9_-]{11}$/.test(v))return 'youtube:'+v;u.hash='';return u.href;}catch{return '';}}
 function register(map,item,id){if(!item||typeof item.id!=='string'||!(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).test(item.id)||typeof item.name!=='string'||!item.name.trim()){err(id,'invalid topic/person: '+JSON.stringify(item));return;}const existing=map.get(item.id);if(existing&&existing!==item.name)err(id,'inconsistent label for '+item.id+': '+existing+' / '+item.name);map.set(item.id,item.name);}
@@ -15,6 +17,7 @@ for(const file of all.filter(f=>/\.(meta|annotations)\.json$/.test(f))){const id
 for(const id of ids){
  const $=load(await readFile(dir+'/'+id+'.html','utf8')),main=$('main.page'),meta=await readJson(dir+'/'+id+'.meta.json'),annotations=await readJson(dir+'/'+id+'.annotations.json')||{};
  const missing=msg=>id===legacy?warn(id,msg):err(id,msg);
+ if(!legacyNoteSources.has(id)&&Object.keys(annotations).length)err(id,'new document cannot use legacy supplemental annotations.json; use phrase-anchored .note');
  if(main.length!==1||main.find('.hero h1').length!==1)err(id,'one main.page and hero heading required');
  if(!meta)missing('metadata sidecar missing');
  if(!genres.has(meta?.genre))missing('primary genre missing/invalid');
@@ -43,6 +46,20 @@ for(const id of ids){
   for(const [i,node] of items.entries()){const b=$(node),k=anchor+'-line-'+(i+1);count++;if(idsInHtml.has(k))err(id,'reserved generated anchor '+k);const en=b.find('.en').text(),ja=b.find('.ja').text();for(const sel of ['.speaker-line','.en','.ja','.note'])if(b.find(sel).length!==1||!b.find(sel).text().trim())err(id,k+' missing '+sel);
    const time=timeOf(b.find('.speaker-line').text());if(key.startsWith('youtube:')&&(time===null||Number.isNaN(time)))err(id,k+' missing/invalid playback timestamp');
    if(time!==null&&Number.isFinite(time)){if(time<previous)err(id,k+' non-monotonic timestamp');previous=time;}
+   if(!legacyNoteSources.has(id)){
+    const rawNote=b.find('.note').first();
+    if(rawNote.find('.note-label').length)err(id,k+' legacy point/note label forbidden; only inline comments');
+    if(b.find('.en .inline-note-ref').length||rawNote.find('.inline-note-item').length)err(id,k+' legacy numbered footnote forbidden');
+    const items=rawNote.children('strong').toArray();
+    if(!items.length)err(id,k+' each inline annotation requires its exact quoted English phrase');
+    for(const element of items){
+     const phrase=$(element).text().trim();
+     let body='';
+     for(let node=element.next;node&&!(node.type==='tag'&&node.name==='strong');node=node.next)body+=$(node).text();
+     if(phrase.length<4||!en.toLocaleLowerCase().includes(phrase.toLocaleLowerCase()))err(id,k+' annotation anchor not verbatim source English: '+phrase);
+     if(!/^\s*：\s*\S/u.test(body))err(id,k+' annotation requires colon and nonempty explanation: '+phrase);
+    }
+   }
    blocks.set(k,{en,ja,time,terms:b.find('.en strong.key').toArray().map(x=>$(x).text())});
   }
   chapters.push({anchor,title,startSeconds:start,utterances:items.length});
