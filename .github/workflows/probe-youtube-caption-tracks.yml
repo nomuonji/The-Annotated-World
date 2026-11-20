@@ -1,0 +1,32 @@
+name: Probe original YouTube caption tracks (no ASR)
+on:
+  pull_request:
+    paths:
+      - 'scripts/probe-youtube-caption-tracks.mjs'
+      - 'scripts/savetube_download.mjs'
+      - '.github/workflows/probe-youtube-caption-tracks.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  caption-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check SaveTube /v2/info for caption track metadata
+        continue-on-error: true
+        env:
+          SAVETUBE_INFO_ONLY: '1'
+          SAVETUBE_CAPTION_METADATA: '1'
+        run: node scripts/savetube_download.mjs 4YSXNotY8QU /tmp/no-download 720
+      - name: Check original YouTube caption tracks (without ASR or mirrors)
+        continue-on-error: true
+        run: node scripts/probe-youtube-caption-tracks.mjs 4YSXNotY8QU
+      - name: Report
+        run: echo 'Metadata/checks do not prove caption acquisition. Only YOUTUBE_ORIGINAL_CAPTION_BYTES_ACQUIRED=1 does.'

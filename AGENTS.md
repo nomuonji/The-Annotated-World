@@ -25,6 +25,8 @@
 
 - **2026-11-21追補（SaveTube実測）**：第三者**文字起こし**の禁止は維持する。本人が明示したSaveTubeは、YouTube元動画の映像・音声をCDN経由で中継する**メディアプロキシ**としてのみ使用できる。YouTube直結ではない。`kirinuki-generator`の720p取得コードを移して対象動画 `4YSXNotY8QU` を試し、373,095,240バイトのファイルから0・1・30・80分地点の音声復号に成功（[実測記録](docs/research/2026-11-21-savetube-media-probe.md)）。360pはストリームヘッダがあっても途中の音声がなく失敗。**自前ASRによる英語文字起こしと検証は別工程で未完了。** 新規教材では `youtubeCapture.transport='savetube-media-proxy'`、`method='youtube-audio-asr'`、`mediaSha256` と自前の原文ファイルSHA-256を記録した場合のみ許可。第三者が生成した文字起こしを使うことは引き続き厳禁。
 
+- **2026-11-21の最新指示（『How to become free』）**：自前ASRによる文字起こしも不要。YouTubeにすでに存在する投稿者字幕かYouTube自動字幕を**原本トラックから直接取得**することだけを試す。第三者文字起こし禁止は維持。SaveTubeでMP4を取れたことは字幕取得成功ではない。実測ではSaveTube `/v2/info`に字幕フィールドがなく、GitHub ActionsからYouTube本体に接続できなかった。[実地調査](docs/research/2026-11-21-youtube-existing-captions.md)。通常のYouTubeブラウザセッションで原本トラックを保存する実験用ユーザースクリプトは `scripts/youtube-original-captions.user.js`（当該動画の成功は未確認）。原本字幕が取得できるまで再公開不可。
+
 ## 派生発信コンテンツ
 思想・知識の解説動画やSNS企画を作る前に [docs/EDITORIAL-POLICY.md](docs/EDITORIAL-POLICY.md) を参照する。制作方針の検討版と試作は公開承認ではない。教材制作と派生発信を分離し、元動画の引用可否と取得・配信規約を個別確認する。
 
