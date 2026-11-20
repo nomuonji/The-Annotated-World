@@ -215,24 +215,38 @@ html[data-theme="dark"] .study-mode button[aria-pressed=true],html[data-theme="d
  }
 }
 
-/* Editorial annotations are reading text, not controls. The existing
-   注釈 ON/OFF switch owns both language and contextual explanations. */
+/* Annotation text remains permanently visible with ON; the exact source
+   words, even inside nested <strong>, are highlighted using checked ranges. */
+.study-original .en .annotation-fragment{display:contents}
+.study-original .en .annotation-source{
+ color:inherit;
+ border-radius:2px;
+ box-decoration-break:clone;
+ -webkit-box-decoration-break:clone;
+ background:rgba(121,169,209,.17);
+ text-decoration:underline solid #77a6ce 1.6px;
+ text-underline-offset:4px;
+}
+.study-original .en .annotation-source[data-highlight-kinds="context"]{
+ background:rgba(199,153,80,.17);
+ text-decoration-color:#c69754;
+}
+.study-original .en .annotation-source[data-highlight-kinds="context language"]{
+ background:linear-gradient(to bottom,rgba(121,169,209,.15) 50%,rgba(199,153,80,.17) 50%);
+ text-decoration-color:#c69754;
+ text-decoration-style:double;
+}
 .study-original .en .annotation-group{display:inline;font:400 12px/1.65 'Noto Sans JP',sans-serif}
 .study-original .en .annotation-group .in-situ-annotation{
  display:inline;
  font:inherit;
- margin:0 .14em 0 .22em;
+ margin:0 .13em 0 .2em;
  padding:2px 5px;
  border-radius:3px;
  box-decoration-break:clone;
  -webkit-box-decoration-break:clone;
  white-space:normal;
  overflow-wrap:anywhere;
-}
-.study-original .en .annotation-group .annotation-kind{
- font-size:10px;
- font-weight:700;
- margin-right:.4em;
 }
 .study-original .en .annotation-group .in-situ-annotation[data-note-kind="language"]{
  color:#244b70;
@@ -244,27 +258,25 @@ html[data-theme="dark"] .study-mode button[aria-pressed=true],html[data-theme="d
  background:#fff4e2;
  border:1px solid #e1c399;
 }
-.study-original .en .annotation-group-combined{
- display:inline;
-}
 .study-original .en strong.key{text-decoration:none}
-.study-original .en .annotation-term{cursor:text;text-decoration:none}
 .study-layout[data-annotations="off"] .study-original .annotation-group{display:none!important}
-.reader-annotation-legend{
- display:flex;align-items:center;flex-wrap:wrap;gap:6px 13px;
- margin:8px 0 12px;color:var(--mute);
- font:400 11px/1.5 'Noto Sans JP',sans-serif;
+.study-layout[data-annotations="off"] .study-original .annotation-source{
+ background:none!important;
+ text-decoration:none!important;
 }
-.reader-annotation-legend span{display:inline-flex;align-items:center;gap:5px}
-.reader-annotation-legend span::before{
- content:"";display:inline-block;width:14px;height:7px;
- border-bottom:3px solid #82b4da;
-}
-.reader-annotation-legend .legend-context::before{border-bottom-color:#c8a06b}
-.reader-annotation-legend small{font-size:10px}
-.study-layout[data-annotations="off"] .reader-annotation-legend{display:none!important}
 .study-chapter-label{max-width:290px}
 .study-chapter-label select{padding-right:20px;white-space:nowrap;text-overflow:ellipsis}
+html[data-theme="dark"] .study-original .en .annotation-source{
+ background:rgba(116,170,216,.25);
+ text-decoration-color:#8ebcde;
+}
+html[data-theme="dark"] .study-original .en .annotation-source[data-highlight-kinds="context"]{
+ background:rgba(218,167,92,.23);
+ text-decoration-color:#dfb57c;
+}
+html[data-theme="dark"] .study-original .en .annotation-source[data-highlight-kinds="context language"]{
+ background:linear-gradient(to bottom,rgba(116,170,216,.22) 50%,rgba(218,167,92,.24) 50%);
+}
 html[data-theme="dark"] .study-original .en .annotation-group .in-situ-annotation[data-note-kind="language"]{
  color:#e2f1ff;background:#263746;border-color:#52738c;
 }
@@ -274,6 +286,5 @@ html[data-theme="dark"] .study-original .en .annotation-group .in-situ-annotatio
 @media(max-width:899px){
  .study-chapter-label{max-width:calc(100vw - 160px)}
  .study-original .en .annotation-group{font-size:11.5px;line-height:1.65}
- .reader-annotation-legend{margin:7px 0 9px;gap:5px 10px}
 }
 @media(max-width:380px){.study-chapter-label{max-width:none}}
