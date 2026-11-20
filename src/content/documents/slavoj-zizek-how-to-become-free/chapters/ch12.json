@@ -18,38 +18,945 @@
   ],
   "utterances": [
     {
-      "id": "ch12-line-1",
+      "id": "ch12-line-1415",
+      "time": "01:28:00",
+      "english": "influence to what the Russians call peaceful limited Military uh operation the vision of Russia is that why this is what Putin says again and again I don't get it why doesn't life go on Putin is all the time saying we still deliver oil to the West",
+      "japanese": "ロシア人が「平和的な限定軍事作戦」と呼ぶものへの影響、ロシアのビジョンはそうだ、これがプーチンが繰り返し言っていることだ、私には理解できない、なぜ生活が続かないのか、プーチンはいつも我々は依然として西側に石油を届けていると言っている",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "01:33:20",
-      "english": "patriotism and Freedom are not opposed",
-      "japanese": "愛国心と自由は対立するものではない。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch12-line-1-note-1",
-          "phrase": "are not opposed",
-          "explanation": "愛国心を無条件で称揚するのではなく、自国の誤りに抗う態度も含めた文脈で述べられる。"
+          "index": 1414,
+          "start": 5280.72,
+          "end": 5287.84,
+          "text": "influence to what the Russians call"
+        },
+        {
+          "index": 1415,
+          "start": 5283.4,
+          "end": 5291.24,
+          "text": "peaceful limited Military uh operation"
+        },
+        {
+          "index": 1416,
+          "start": 5287.84,
+          "end": 5294.68,
+          "text": "the vision of Russia is"
+        },
+        {
+          "index": 1417,
+          "start": 5291.24,
+          "end": 5297.6,
+          "text": "that why this is what Putin says again"
+        },
+        {
+          "index": 1418,
+          "start": 5294.68,
+          "end": 5300.6,
+          "text": "and again I don&#39;t get it why doesn&#39;t"
+        },
+        {
+          "index": 1419,
+          "start": 5297.6,
+          "end": 5304.36,
+          "text": "life go on Putin is all the time saying"
+        },
+        {
+          "index": 1420,
+          "start": 5300.6,
+          "end": 5308.6,
+          "text": "we still deliver oil to the West"
         }
       ]
     },
     {
-      "id": "ch12-line-2",
+      "id": "ch12-line-1422",
+      "time": "01:28:24",
+      "english": "their vision is as I call it not cold war but hot peace Global Peace where there are always local Wars here and there which maintain peace and this I think is the catastrophe that we should avoid at any point",
+      "japanese": "彼らのビジョンは、私が呼ぶところの冷戦ではなく熱い平和、グローバル・ピースであり、そこでは至る所で常に局地的な戦争があり、それが平和を維持している、そしてこれが私が思うに、我々がどの時点でも避けるべき破局である",
       "speaker": {
-        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
         "className": "speaker-zizek"
       },
-      "time": "01:34:54",
-      "english": "I want to disorient you to make you think",
-      "japanese": "あなたがたを少し混乱させ、考えさせたいのだ。",
-      "annotations": [
+      "annotations": [],
+      "sourceCues": [
         {
-          "id": "ch12-line-2-note-1",
-          "phrase": "disorient you",
-          "explanation": "disorient は「方向感覚を失わせる」。明快な最終解答を与えるより問い直すことを講演の成果とする結語。"
+          "index": 1421,
+          "start": 5304.36,
+          "end": 5313.08,
+          "text": "their vision is as I call it not cold"
+        },
+        {
+          "index": 1422,
+          "start": 5308.6,
+          "end": 5316.04,
+          "text": "war but hot peace Global Peace where"
+        },
+        {
+          "index": 1423,
+          "start": 5313.08,
+          "end": 5319.44,
+          "text": "there are always local Wars here and"
+        },
+        {
+          "index": 1424,
+          "start": 5316.04,
+          "end": 5323.32,
+          "text": "there which maintain"
+        },
+        {
+          "index": 1425,
+          "start": 5319.44,
+          "end": 5327.84,
+          "text": "peace and this I think is the"
+        },
+        {
+          "index": 1426,
+          "start": 5323.32,
+          "end": 5330.84,
+          "text": "catastrophe that we should avoid at any"
+        },
+        {
+          "index": 1427,
+          "start": 5327.84,
+          "end": 5330.84,
+          "text": "point"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1429",
+      "time": "01:28:52",
+      "english": "[Music] something like new nonalignment is needed by this I mean we should not just say we protect the European way of life in Ukraine no our struggle there when we support Ukraine is a global struggle a global struggle",
+      "japanese": "［音楽］新しい非同盟のようなものが求められている、これによって私が意味するのは、我々はただウクライナでヨーロッパ的な生き方を守ると言うべきではない、いや、我々がウクライナを支援するときのそこでの我々の闘争はグローバルな闘争であり、グローバルな闘争である",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1428,
+          "start": 5332.42,
+          "end": 5336.63,
+          "text": "[Music]"
+        },
+        {
+          "index": 1429,
+          "start": 5339,
+          "end": 5346.72,
+          "text": "something like new nonalignment is"
+        },
+        {
+          "index": 1430,
+          "start": 5342.56,
+          "end": 5350.88,
+          "text": "needed by this I mean we should not just"
+        },
+        {
+          "index": 1431,
+          "start": 5346.72,
+          "end": 5354.96,
+          "text": "say we protect the"
+        },
+        {
+          "index": 1432,
+          "start": 5350.88,
+          "end": 5357.84,
+          "text": "European way of life in Ukraine no our"
+        },
+        {
+          "index": 1433,
+          "start": 5354.96,
+          "end": 5362.72,
+          "text": "struggle there when we support Ukraine"
+        },
+        {
+          "index": 1434,
+          "start": 5357.84,
+          "end": 5364.6,
+          "text": "is a global struggle a global struggle"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1436",
+      "time": "01:29:22",
+      "english": "for a certain know of Liberty which includes again welfare state feminist human rights feminism human rights and all that is Progressive in European Legacy what Russia and China unfortunately more and more stand for including some European conservatives",
+      "japanese": "ある種の自由のために、それは再び福祉国家、フェミニスト的人権、フェミニズム、人権、そしてヨーロッパの遺産の中で進歩的なすべてを含む、ロシアと中国が残念ながらますます代表するようになっているもの、一部のヨーロッパの保守派を含めて",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1435,
+          "start": 5362.72,
+          "end": 5369.2,
+          "text": "for a certain know"
+        },
+        {
+          "index": 1436,
+          "start": 5364.6,
+          "end": 5373.04,
+          "text": "of Liberty which includes again welfare"
+        },
+        {
+          "index": 1437,
+          "start": 5369.2,
+          "end": 5376.72,
+          "text": "state feminist human rights feminism"
+        },
+        {
+          "index": 1438,
+          "start": 5373.04,
+          "end": 5381.68,
+          "text": "human rights and all that is Progressive"
+        },
+        {
+          "index": 1439,
+          "start": 5376.72,
+          "end": 5384.8,
+          "text": "in European Legacy what Russia and China"
+        },
+        {
+          "index": 1440,
+          "start": 5381.68,
+          "end": 5387.16,
+          "text": "unfortunately more and more stand for"
+        },
+        {
+          "index": 1441,
+          "start": 5384.8,
+          "end": 5389.16,
+          "text": "including some European conservatives"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1443",
+      "time": "01:29:47",
+      "english": "who join them is a type of multiculturalism which is very dangerous which is peaceful coexistence of as they say different ways of life the message of Putin repeatedly to the West is let's coexist you have countries where you do",
+      "japanese": "彼らに加わるのは、非常に危険なタイプの多文化主義であり、彼らが言うように異なる生き方の平和的共存である、プーチンが繰り返し西側に送るメッセージは、共存しようではないか、あなた方にはあなた方が",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1442,
+          "start": 5387.16,
+          "end": 5392.84,
+          "text": "who join them"
+        },
+        {
+          "index": 1443,
+          "start": 5389.16,
+          "end": 5396.56,
+          "text": "is a type of multiculturalism which is"
+        },
+        {
+          "index": 1444,
+          "start": 5392.84,
+          "end": 5399.88,
+          "text": "very dangerous which is peaceful"
+        },
+        {
+          "index": 1445,
+          "start": 5396.56,
+          "end": 5403,
+          "text": "coexistence of as they say different"
+        },
+        {
+          "index": 1446,
+          "start": 5399.88,
+          "end": 5406.56,
+          "text": "ways of life the message of Putin"
+        },
+        {
+          "index": 1447,
+          "start": 5403,
+          "end": 5409.32,
+          "text": "repeatedly to the West is let&#39;s"
+        },
+        {
+          "index": 1448,
+          "start": 5406.56,
+          "end": 5412.6,
+          "text": "coexist you have countries where you do"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1450",
+      "time": "01:30:09",
+      "english": "your own stupidities you allow gay marriages and so on all that there are other countries Arab countries where you can do cliter oomy beat women whatever why don't we all peacefully exist together so it's a version of Global Market but between countries Each of",
+      "japanese": "自分の愚かさを行う国があり、同性婚を許すなどすべてがある、アラブ諸国のように女性器切除を行い女性を殴るなど何でもできる他の国々がある、なぜ我々は皆平和的に共存しないのか、つまりこれはグローバル市場の一バージョンだが、各国の間で",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1449,
+          "start": 5409.32,
+          "end": 5416.04,
+          "text": "your own stupidities you allow gay"
+        },
+        {
+          "index": 1450,
+          "start": 5412.6,
+          "end": 5418.8,
+          "text": "marriages and so on all that there are"
+        },
+        {
+          "index": 1451,
+          "start": 5416.04,
+          "end": 5423.08,
+          "text": "other countries Arab countries where you"
+        },
+        {
+          "index": 1452,
+          "start": 5418.8,
+          "end": 5427.36,
+          "text": "can do cliter oomy beat women whatever"
+        },
+        {
+          "index": 1453,
+          "start": 5423.08,
+          "end": 5430.32,
+          "text": "why don&#39;t we all peacefully exist"
+        },
+        {
+          "index": 1454,
+          "start": 5427.36,
+          "end": 5433.56,
+          "text": "together so it&#39;s a version of Global"
+        },
+        {
+          "index": 1455,
+          "start": 5430.32,
+          "end": 5439.44,
+          "text": "Market but between countries Each of"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1457",
+      "time": "01:30:33",
+      "english": "which has its own way of life I think we the new nonalignment should mean nonalignment in the sense that we are not aligned to a specific way of life I don't like when Ukraine are saying but we belong to you we are white people like you you should",
+      "japanese": "それぞれが独自の生き方を持つ、私は我々新しい非同盟は、我々が特定の生き方に同盟しないという意味での非同盟であるべきだと思う、私はウクライナが言うのが好きではない、しかし我々はあなた方に属する、我々はあなた方のような白人だ、あなたは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1456,
+          "start": 5433.56,
+          "end": 5440.72,
+          "text": "which has its own way of life I think we"
+        },
+        {
+          "index": 1457,
+          "start": 5439.44,
+          "end": 5444.24,
+          "text": "the new"
+        },
+        {
+          "index": 1458,
+          "start": 5440.72,
+          "end": 5446.36,
+          "text": "nonalignment should mean nonalignment in"
+        },
+        {
+          "index": 1459,
+          "start": 5444.24,
+          "end": 5450.72,
+          "text": "the sense that we are not aligned to a"
+        },
+        {
+          "index": 1460,
+          "start": 5446.36,
+          "end": 5454.08,
+          "text": "specific way of life I don&#39;t like when"
+        },
+        {
+          "index": 1461,
+          "start": 5450.72,
+          "end": 5456.84,
+          "text": "Ukraine are saying but we belong to you"
+        },
+        {
+          "index": 1462,
+          "start": 5454.08,
+          "end": 5461.6,
+          "text": "we are white people like you you should"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1464",
+      "time": "01:30:56",
+      "english": "support us no I don't care about that white Europeans also can do horrible things should we forget that Nazism was done by Germans by the nation which embodies the highest European culture so uh I'm for globalism for Universal struggle but again the universalism",
+      "japanese": "我々を支援すべきだ、いや、私はそんなこと気にしない、白人のヨーロッパ人も恐ろしいことをすることができる、ナチズムがドイツ人によって、最高のヨーロッパ文化を体現する国民によって行われたことを忘れるべきか、だから私はグローバリズムに賛成だ、普遍的な闘争のために、しかし再びその普遍主義",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1463,
+          "start": 5456.84,
+          "end": 5464.64,
+          "text": "support us no I don&#39;t care about that"
+        },
+        {
+          "index": 1464,
+          "start": 5461.6,
+          "end": 5468.32,
+          "text": "white Europeans also can do horrible"
+        },
+        {
+          "index": 1465,
+          "start": 5464.64,
+          "end": 5471.4,
+          "text": "things should we forget that Nazism was"
+        },
+        {
+          "index": 1466,
+          "start": 5468.32,
+          "end": 5476.56,
+          "text": "done by Germans by the nation which"
+        },
+        {
+          "index": 1467,
+          "start": 5471.4,
+          "end": 5481.8,
+          "text": "embodies the highest European culture so"
+        },
+        {
+          "index": 1468,
+          "start": 5476.56,
+          "end": 5485.08,
+          "text": "uh I&#39;m for globalism for Universal"
+        },
+        {
+          "index": 1469,
+          "start": 5481.8,
+          "end": 5488.44,
+          "text": "struggle but again the universalism"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1471",
+      "time": "01:31:25",
+      "english": "which is universalism of a shared struggle we should not isolate Russia today we should establish all connections possible with maybe the true heroes of this war Russians who risk their lives and D to protest in all possible way against Putin's war and we",
+      "japanese": "それは共有された闘争の普遍主義である、我々は今日ロシアを孤立させるべきではない、我々は可能なすべてのつながりを、おそらくこの戦争の真の英雄たち、命を危険にさらし、あらゆる可能な方法でプーチンの戦争に抗議するロシア人たちと築くべきである、そして我々は",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1470,
+          "start": 5485.08,
+          "end": 5492.6,
+          "text": "which is universalism of a shared"
+        },
+        {
+          "index": 1471,
+          "start": 5488.44,
+          "end": 5496.2,
+          "text": "struggle we should not isolate Russia"
+        },
+        {
+          "index": 1472,
+          "start": 5492.6,
+          "end": 5499.6,
+          "text": "today we should establish all"
+        },
+        {
+          "index": 1473,
+          "start": 5496.2,
+          "end": 5503.32,
+          "text": "connections possible with maybe the true"
+        },
+        {
+          "index": 1474,
+          "start": 5499.6,
+          "end": 5507.12,
+          "text": "heroes of this war Russians who risk"
+        },
+        {
+          "index": 1475,
+          "start": 5503.32,
+          "end": 5511.84,
+          "text": "their lives and D to protest in all"
+        },
+        {
+          "index": 1476,
+          "start": 5507.12,
+          "end": 5515.24,
+          "text": "possible way against Putin&#39;s war and we"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1478",
+      "time": "01:31:51",
+      "english": "should do the same in our own countries this is the solidarity We should strive for so uh uh I think that that's crucial to say our message to Russians who protest against the war in Ukraine is not oh thanks that you are not Patriots you are",
+      "japanese": "自分たちの国でも同じことをすべきだ、これが我々が目指すべき連帯である、だから私は言うことが重要だと思う、ウクライナでの戦争に抗議するロシア人への我々のメッセージは、あああなたが愛国者でなくてありがとうではない、あなたは",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1477,
+          "start": 5511.84,
+          "end": 5520.24,
+          "text": "should do the same in our own countries"
+        },
+        {
+          "index": 1478,
+          "start": 5515.24,
+          "end": 5522.6,
+          "text": "this is the solidarity We should strive"
+        },
+        {
+          "index": 1479,
+          "start": 5520.24,
+          "end": 5528,
+          "text": "for so"
+        },
+        {
+          "index": 1480,
+          "start": 5522.6,
+          "end": 5532.4,
+          "text": "uh uh I think that that&#39;s crucial to say"
+        },
+        {
+          "index": 1481,
+          "start": 5528,
+          "end": 5537,
+          "text": "our message to Russians who protest"
+        },
+        {
+          "index": 1482,
+          "start": 5532.4,
+          "end": 5540.16,
+          "text": "against the war in Ukraine is not oh"
+        },
+        {
+          "index": 1483,
+          "start": 5537,
+          "end": 5544.8,
+          "text": "thanks that you are not Patriots you are"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1485",
+      "time": "01:32:20",
+      "english": "uh uh universalists no they are the true Patriots a true patriot that's for me the best definition I can imagine a true patriot the one who truly loves his country is a person who is ashamed of his own countries when his country is doing something wrong that's the",
+      "japanese": "普遍主義者だ、いや、彼らは真の愛国者だ、真の愛国者、それが私が想像できる最良の定義だ、真の愛国者、自分の国を真に愛する者は、自分の国が何か悪いことをしているときに自分の国を恥じる者である、それが",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1484,
+          "start": 5540.16,
+          "end": 5548.32,
+          "text": "uh uh universalists no they are the true"
+        },
+        {
+          "index": 1485,
+          "start": 5544.8,
+          "end": 5551.44,
+          "text": "Patriots a true patriot that&#39;s for me"
+        },
+        {
+          "index": 1486,
+          "start": 5548.32,
+          "end": 5554.4,
+          "text": "the best definition I can imagine a true"
+        },
+        {
+          "index": 1487,
+          "start": 5551.44,
+          "end": 5559.04,
+          "text": "patriot the one who truly loves his"
+        },
+        {
+          "index": 1488,
+          "start": 5554.4,
+          "end": 5562,
+          "text": "country is a person who is ashamed of"
+        },
+        {
+          "index": 1489,
+          "start": 5559.04,
+          "end": 5565.48,
+          "text": "his own countries when his country is"
+        },
+        {
+          "index": 1490,
+          "start": 5562,
+          "end": 5568.16,
+          "text": "doing something wrong that&#39;s the"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1492",
+      "time": "01:32:45",
+      "english": "difficult thing to doday today I think that there is no more disgusting slogan then the well-known saying my country right or wrong if you say this you are not a true patriot and now to conclude I'm coming back to",
+      "japanese": "今日行うのが難しいことだ、今日私は、よく知られた「我が国は正しいか否かに関わらず」という言葉ほど嫌悪すべきスローガンはないと思う、もしあなたがそう言うなら、あなたは真の愛国者ではない、そして結論として、私は戻ってくる",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1491,
+          "start": 5565.48,
+          "end": 5571.96,
+          "text": "difficult thing to doday today I think"
+        },
+        {
+          "index": 1492,
+          "start": 5568.16,
+          "end": 5574.4,
+          "text": "that there is no more"
+        },
+        {
+          "index": 1493,
+          "start": 5571.96,
+          "end": 5577.92,
+          "text": "disgusting slogan"
+        },
+        {
+          "index": 1494,
+          "start": 5574.4,
+          "end": 5580.96,
+          "text": "then the well-known saying my country"
+        },
+        {
+          "index": 1495,
+          "start": 5577.92,
+          "end": 5584.36,
+          "text": "right or wrong if you say this you are"
+        },
+        {
+          "index": 1496,
+          "start": 5580.96,
+          "end": 5586.76,
+          "text": "not a true patriot and now to conclude"
+        },
+        {
+          "index": 1497,
+          "start": 5584.36,
+          "end": 5590.84,
+          "text": "I&#39;m coming back to"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1499",
+      "time": "01:33:06",
+      "english": "Freedom the First Act of freedom is to be able to resist your own country when it goes wrong that's even that's why patriotism and Freedom are not opposed if patriotism is a true patriotism for example my Israeli",
+      "japanese": "自由とは、自国が間違った方向に進んだときにそれに抵抗できること、それが自由の第一の行為です。だからこそ愛国心と自由は対立しないのです。もし愛国心が真の愛国心であれば、例えば私のイスラエルの",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1498,
+          "start": 5586.76,
+          "end": 5596.36,
+          "text": "Freedom the First Act of freedom is to"
+        },
+        {
+          "index": 1499,
+          "start": 5590.84,
+          "end": 5598.72,
+          "text": "be able to resist your own country when"
+        },
+        {
+          "index": 1500,
+          "start": 5596.36,
+          "end": 5600.56,
+          "text": "it goes"
+        },
+        {
+          "index": 1501,
+          "start": 5598.72,
+          "end": 5604.36,
+          "text": "wrong that&#39;s"
+        },
+        {
+          "index": 1502,
+          "start": 5600.56,
+          "end": 5610.76,
+          "text": "even that&#39;s why patriotism and Freedom"
+        },
+        {
+          "index": 1503,
+          "start": 5604.36,
+          "end": 5610.76,
+          "text": "are not opposed if patriotism is a true"
+        },
+        {
+          "index": 1504,
+          "start": 5611.04,
+          "end": 5615.76,
+          "text": "patriotism for example my Israeli"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1506",
+      "time": "01:33:34",
+      "english": "friends who they oppose terrorism but they understand the difficult plight of Palestinians in the West Bank they are for me the true inheritors of the great Jewish Legacy that's what we should be able to do this is where true patriotism",
+      "japanese": "友人たちはテロリズムに反対しながらも、ヨルダン川西岸のパレスチナ人の困難な苦境を理解しています。彼らこそ私にとって偉大なユダヤの遺産の真の継承者です。それが私たちにできるべきことであり、ここに真の愛国心があるのです",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1505,
+          "start": 5614.2,
+          "end": 5619.44,
+          "text": "friends"
+        },
+        {
+          "index": 1506,
+          "start": 5615.76,
+          "end": 5622.04,
+          "text": "who they oppose terrorism but they"
+        },
+        {
+          "index": 1507,
+          "start": 5619.44,
+          "end": 5625.12,
+          "text": "understand the difficult plight of"
+        },
+        {
+          "index": 1508,
+          "start": 5622.04,
+          "end": 5629.4,
+          "text": "Palestinians in the West Bank they are"
+        },
+        {
+          "index": 1509,
+          "start": 5625.12,
+          "end": 5632.88,
+          "text": "for me the true inheritors of the great"
+        },
+        {
+          "index": 1510,
+          "start": 5629.4,
+          "end": 5637.4,
+          "text": "Jewish Legacy that&#39;s what we should be"
+        },
+        {
+          "index": 1511,
+          "start": 5632.88,
+          "end": 5640.84,
+          "text": "able to do this is where true patriotism"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1513",
+      "time": "01:33:57",
+      "english": "is not opposed to internationalism you can be a true patriot and an internationalist and if you are ready to be ashamed of your own country this is the first step towards Freedom today today you cannot be really free without",
+      "japanese": "それは国際主義と対立しません。真の愛国者でありながら国際主義者であることは可能です。そしてもし自分の国を恥じる用意があるなら、それが自由への第一歩です。今日、今日、本当に自由であることはできません、少なくとも",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1512,
+          "start": 5637.4,
+          "end": 5643,
+          "text": "is not opposed to"
+        },
+        {
+          "index": 1513,
+          "start": 5640.84,
+          "end": 5645.64,
+          "text": "internationalism you can be a true"
+        },
+        {
+          "index": 1514,
+          "start": 5643,
+          "end": 5648.72,
+          "text": "patriot and an"
+        },
+        {
+          "index": 1515,
+          "start": 5645.64,
+          "end": 5653.6,
+          "text": "internationalist and if you are ready to"
+        },
+        {
+          "index": 1516,
+          "start": 5648.72,
+          "end": 5658.6,
+          "text": "be ashamed of your own country this is"
+        },
+        {
+          "index": 1517,
+          "start": 5653.6,
+          "end": 5663.28,
+          "text": "the first step towards Freedom today"
+        },
+        {
+          "index": 1518,
+          "start": 5658.6,
+          "end": 5666.76,
+          "text": "today you cannot be really free without"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1520",
+      "time": "01:34:23",
+      "english": "being at least a little bit ashamed of your own country thank you very much for your patience for watching the great minds and although I have some doubts if I really among the great minds I hope at least that I perplexed you a little bit I didn't want you to bring you clear",
+      "japanese": "自分の国を少しでも恥じることなしには。皆さん、辛抱強く偉大な頭脳たちを見てくださって本当にありがとうございました。私が本当に偉大な頭脳たちの中にいるのか多少疑いもありますが、少なくとも皆さんを少し当惑させたことを願っています。私は皆さんに明確な",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1519,
+          "start": 5663.28,
+          "end": 5670.24,
+          "text": "being at least a little bit ashamed of"
+        },
+        {
+          "index": 1520,
+          "start": 5666.76,
+          "end": 5673.68,
+          "text": "your own country thank you very much for"
+        },
+        {
+          "index": 1521,
+          "start": 5670.24,
+          "end": 5677.96,
+          "text": "your patience for watching the great"
+        },
+        {
+          "index": 1522,
+          "start": 5673.68,
+          "end": 5683.24,
+          "text": "minds and although I have some doubts if"
+        },
+        {
+          "index": 1523,
+          "start": 5677.96,
+          "end": 5687.04,
+          "text": "I really among the great minds I hope at"
+        },
+        {
+          "index": 1524,
+          "start": 5683.24,
+          "end": 5690,
+          "text": "least that I perplexed you a little bit"
+        },
+        {
+          "index": 1525,
+          "start": 5687.04,
+          "end": 5692.12,
+          "text": "I didn&#39;t want you to bring you clear"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-1527",
+      "time": "01:34:50",
+      "english": "answers so that you can say okay now we know it let's go to sleep I want to disorient you to make you think if I succeeded in this even if you don't agree with me I think I achieved what I wanted so it was an honor for me thank you very much",
+      "japanese": "答えを持ってきたかったのではありません。そうすれば皆さんは「よし、これで分かった、寝よう」と言えるでしょう。私は皆さんの方向感覚を狂わせ、考えさせたかったのです。もしそれに成功したなら、たとえ皆さんが私に同意しなくても、望んだことは達成できたと思います。光栄でした、本当にありがとうございました",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・話者未照合）",
+        "className": "speaker-zizek"
+      },
+      "annotations": [],
+      "sourceCues": [
+        {
+          "index": 1526,
+          "start": 5690,
+          "end": 5694.2,
+          "text": "answers so that you can say okay now we"
+        },
+        {
+          "index": 1527,
+          "start": 5692.12,
+          "end": 5698.48,
+          "text": "know it let&#39;s go to sleep"
+        },
+        {
+          "index": 1528,
+          "start": 5694.2,
+          "end": 5703.04,
+          "text": "I want to disorient you to make you"
+        },
+        {
+          "index": 1529,
+          "start": 5698.48,
+          "end": 5706.28,
+          "text": "think if I succeeded in this even if you"
+        },
+        {
+          "index": 1530,
+          "start": 5703.04,
+          "end": 5709.68,
+          "text": "don&#39;t agree with me I think I achieved"
+        },
+        {
+          "index": 1531,
+          "start": 5706.28,
+          "end": 5713.28,
+          "text": "what I wanted so it was an honor for me"
+        },
+        {
+          "index": 1532,
+          "start": 5709.68,
+          "end": 5713.28,
+          "text": "thank you very much"
         }
       ]
     }
-  ]
+  ],
+  "sourceCueCoverage": {
+    "firstIndex": 1414,
+    "lastIndex": 1532,
+    "count": 119
+  },
+  "translationStatus": "machine-translated-unreviewed"
 }
