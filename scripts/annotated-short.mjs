@@ -18,7 +18,7 @@ const within = (v,container) => nonempty(v) && (String(container).includes(v) ||
 const read = file => JSON.parse(fs.readFileSync(file,'utf8'));
 const attr = (obj,key) => obj && obj[key];
 
-function validate(b, {media=false,publish=false,base=process.cwd()}={}) {
+function validate(b, {media=false,publish=false,sourceCheck=false,base=process.cwd()}={}) {
   const errors=[], warnings=[];
   const err=(p,m)=>errors.push(p+': '+m);
   const warn=(p,m)=>warnings.push(p+': '+m);
@@ -90,6 +90,20 @@ function validate(b, {media=false,publish=false,base=process.cwd()}={}) {
       const file=path.resolve(base,f||'');if(!fs.existsSync(file))err(p,'media file missing: '+file);
     }
   }
+  if(sourceCheck){
+    const docPath=path.resolve(ROOT,b.source?.document||'');
+    if(!fs.existsSync(docPath))err('source.document','cannot verify source transcript file: '+docPath);
+    else {
+      const html=fs.readFileSync(docPath,'utf8');
+      const paragraphs=[...html.matchAll(/<p\b[^>]*class\s*=\s*["']en["'][^>]*>([\s\S]*?)<\/p>/g)];
+      if(!paragraphs.length)err('source.document','no <p class="en"> original-language paragraphs found; source verification requires suitable HTML');
+      const toPlain=str=>str.replace(/<[^>]+>/g,'').replace(/&nbsp;|&#160;/g,' ').replace(/&amp;/g,'&').replace(/&quot;|&#34;/g,'"').replace(/&apos;|&#39;/g,"'");
+      const normalized=paragraphs.map(match=>normEN(toPlain(match[1])));
+      for(const s of seq.filter(s=>s.role==='QUOTE')){
+        if(!normalized.some(para=>para.includes(normEN(s.en))))err('segments.'+s.id+'.en','quote not found verbatim in an original-language paragraph of '+b.source.document);
+      }
+    }
+  }
   if(!b.source?.originalAudioChecked)warn('source.originalAudioChecked','original recording not verified, do not imply original voice');
   if(publish){
     if(b.source?.rightsReviewed!==true)err('source.rightsReviewed','publication requires rights assessment');
@@ -101,7 +115,7 @@ function validate(b, {media=false,publish=false,base=process.cwd()}={}) {
   return {ok:!errors.length,errors,warnings,segments:seq.length,quotes:roles.filter(x=>x==='QUOTE').length,notes:roles.filter(x=>x!=='QUOTE').length};
 }
 function usage(){
- console.log('Usage:\n  npm run short:init -- <slug>\n  npm run short:check -- <brief.json> [--media] [--publish]\n  npm run short:plan -- <brief.json> [--output <cutlist.json>]');
+ console.log('Usage:\n  npm run short:init -- <slug>\n  npm run short:check -- <brief.json> [--source] [--media] [--publish]\n  npm run short:plan -- <brief.json> [--output <cutlist.json>]');
 }
 if(command==='init'){
   if(!/^[a-z0-9][a-z0-9-]{1,65}$/.test(requestedPath||'')){fail('slug: use lower-case letters, numbers, and hyphens');}
@@ -125,7 +139,7 @@ if(command==='init'){
   else{
     try{
       const full=path.resolve(requestedPath);const b=read(full);
-      const result=validate(b,{media:flags.includes('--media')||flags.includes('--publish'),publish:flags.includes('--publish'),base:path.dirname(full)});
+      const result=validate(b,{media:flags.includes('--media')||flags.includes('--publish'),publish:flags.includes('--publish'),sourceCheck:flags.includes('--source')||flags.includes('--publish'),base:path.dirname(full)});
       for(const w of result.warnings)console.warn('WARN '+w);
       for(const e of result.errors)console.error('ERROR '+e);
       if(!result.ok)process.exitCode=1;

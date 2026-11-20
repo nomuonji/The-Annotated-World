@@ -17,16 +17,16 @@ Pilot 012の役割声は英語引用 en-US-AndrewNeural（男性）／日本語�
 - 人物・時代史料・施設写真には出典と撮影時点を残し、講演当日の写真に見せかけない。出所のない映像や装飾アニメで間を薄めない。
 - BGMは実際に聞こえる音楽にする。音声とBGMを別トラックで測定し、BGM単体と最終ミックスの試聴を確認。Sample/SoundFontを含め公開利用権を確認する。Pilot 012の音楽は第三者SoundFontの条件が未確認なので無断再配布・自動流用しない。
 - スマホ画面で冒頭・長文字幕・註への切替・締めを目視し、Shorts/TikTok/ReelsのUI被りは媒体別に確認。
-- 原文引用の正確さと元音声への照合、肖像・音源・引用の権利、公開承認は別ゲート。機械検証に通っても投稿しない。
+- 原文引用の正確さは --source で教材HTMLの英文段落との文字列一致を機械確認する。ただし元講演音声との照合、肖像・音源・引用の権利、公開承認は別ゲート。機械検証に通っても投稿しない。
 
 ## 次の企画への使い方
 1. npm run short:init -- new-subject-slug
    → productions/new-subject-slug/brief.json と空の assets/audio ディレクトリを作成。架空の原典を自動生成しない。
 2. 原典を調査し、brief.json の author/source/quote/context/annotations/cues/asset/music/audio を埋める。
-3. npm run short:check -- productions/new-subject-slug/brief.json
+3. npm run short:check -- productions/new-subject-slug/brief.json --source
 4. npm run short:plan -- productions/new-subject-slug/brief.json
 5. 元音声を使う場合はその利用権を確認。合成朗読なら source/editor の声を各1種類に固定して音声ファイルを用意する。
-6. npm run short:check -- productions/new-subject-slug/brief.json --media
+6. npm run short:check -- productions/new-subject-slug/brief.json --source --media
 7. npm run short:render -- productions/new-subject-slug/brief.json
 8. MP4・字幕・BGM単独・声込みミックスを視聴して評価。公開申請は別。
 

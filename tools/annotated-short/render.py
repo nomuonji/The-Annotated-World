@@ -178,7 +178,7 @@ def main():
         raise SystemExit('Usage: python tools/annotated-short/render.py productions/<slug>/brief.json')
     brief_path = Path(sys.argv[1]).resolve()
     shell('node', str(ROOT/'scripts/annotated-short.mjs'), 'validate',
-          str(brief_path), '--media')
+          str(brief_path), '--media', '--source')
     brief = json.loads(brief_path.read_text(encoding='utf-8'))
     root = brief_path.parent
     out = root/'output'

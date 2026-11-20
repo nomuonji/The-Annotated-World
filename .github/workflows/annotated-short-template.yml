@@ -30,7 +30,7 @@ jobs:
           python -m pip install -r tools/annotated-short/requirements.txt
       - name: Structure check and cutlist generation
         run: |
-          npm run short:check -- templates/annotated-short/brief.example.json
+          npm run short:check -- templates/annotated-short/brief.example.json --source
           npm run short:plan -- templates/annotated-short/brief.example.json --output /tmp/annotated-short-cutlist.json
           test -s /tmp/annotated-short-cutlist.json
       - name: Verify role violations are rejected
@@ -70,7 +70,7 @@ jobs:
       - name: Media structure and actual video smoke render
         shell: bash
         run: |
-          npm run short:check -- /tmp/annotated-short-fixture/brief.json --media
+          npm run short:check -- /tmp/annotated-short-fixture/brief.json --source --media
           npm run short:render -- /tmp/annotated-short-fixture/brief.json
           test -s /tmp/annotated-short-fixture/output/annotated-short.mp4
           test -s /tmp/annotated-short-fixture/output/captions.srt
