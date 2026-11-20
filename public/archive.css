@@ -247,6 +247,15 @@ h1 {
   margin-right: 6px;
 }
 
+/* Inline editorial notes: anchors stay beside the exact English phrase; notes are readable without JS. */
+.inline-note-ref{font:600 11px/1 system-ui,sans-serif;vertical-align:super;margin-left:2px}
+.inline-note-ref a{color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;border-radius:2px;padding:2px}
+.inline-note-ref a:hover,.inline-note-ref a:focus-visible{background:#eef3fc}
+.inline-note-item{scroll-margin-top:calc(3rem + var(--study-toolbar-height,0px));display:inline;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.inline-note-item:target{background:#fff4cc;outline:2px solid #cb8b18;outline-offset:3px}
+.note .inline-note-item:not(:last-child)::after{content:" · ";color:var(--mute);margin:0 .45em}
+@media(max-width:640px){.inline-note-ref a{min-width:20px;min-height:20px;display:inline-flex;align-items:center;justify-content:center}.inline-note-item{line-height:1.95}}
+
 /* Sources Footer */
 .sources {
   padding-top: 56px;
