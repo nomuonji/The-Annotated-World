@@ -13,14 +13,42 @@ export type ConceptEntry=Concept&{occurrences:Occurrence[]};
 export function containsPhrase(text:string,phrase:string){const t=fold(text),p=fold(phrase);if(!p)return false;const escaped=p.replace(/[.*+?^$${}()|[\]\\]/g,'\\$&');return new RegExp('(?:^|[^a-z0-9])'+escaped+'(?:$|[^a-z0-9])','i').test(t);}
 export function matchingConcepts(en:string){return definitions.filter(c=>c.aliases.some(a=>containsPhrase(en,a)));}
 export function findTerms(en:string,marked:string[],labels:string[]){const map=new Map<string,string>();for(const label of marked){const key=fold(label);if(key)map.set(key,label.trim());}for(const raw of labels){const label=raw.replace(/\s*[（(][^）)]*[ぁ-んァ-ヶ一-龯][^）)]*[）)]\s*$/u,'').trim();if(/[a-z]/i.test(label)&&containsPhrase(en,label)&&label.length<=120&&!map.has(fold(label)))map.set(fold(label),label);}return [...map.values()];}
-export function noteFor($:ReturnType<typeof load>,noteNode:ReturnType<ReturnType<typeof load>>,term:string){
- const normalized=fold(term);
- for(const el of noteNode.find('strong').toArray()){
-  const label=$(el).text().trim();const clean=fold(label.replace(/\s*[（(][^）)]*[ぁ-んァ-ヶ一-龯][^）)]*[）)]\s*$/u,''));
-  if(clean!==normalized)continue;
-  let text=label;for(let n=el.next;n;n=n.next){if(n.type==='tag'&&n.name==='strong')break;text+=$(n).text();}return text.trim();
+// Resolve a term to one annotation only. English display forms can differ
+// from the source note's headword (sticking out → stick out, stole → steal).
+function noteHeadword(label:string){
+ return fold(label.replace(/\s*[（(][^）)]*[ぁ-んァ-ヶ一-龯][^）)]*[）)]\s*$/u,''));
+}
+function lemmaWord(word:string){
+ const irregular:Record<string,string>={stole:'steal',stolen:'steal',went:'go',gone:'go',was:'be',were:'be',did:'do',done:'do',had:'have',has:'have',saw:'see',seen:'see',took:'take',taken:'take'};
+ if(irregular[word])return irregular[word];
+ if(/^[a-z]{5,}ing$/.test(word)){
+  const stem=word.slice(0,-3);
+  return stem.length>2&&stem.at(-1)===stem.at(-2)?stem.slice(0,-1):stem;
  }
- return '';
+ if(/^[a-z]{5,}ied$/.test(word))return word.slice(0,-3)+'y';
+ if(/^[a-z]{5,}ed$/.test(word)){
+  const stem=word.slice(0,-2);
+  return stem.length>2&&stem.at(-1)===stem.at(-2)?stem.slice(0,-1):stem;
+ }
+ if(/^[a-z]{5,}ies$/.test(word))return word.slice(0,-3)+'y';
+ if(/^[a-z]{5,}s$/.test(word)&&!word.endsWith('ss'))return word.slice(0,-1);
+ return word;
+}
+function lemmaPhrase(value:string){return value.split(/\s+/).map(lemmaWord).join(' ');}
+export function noteFor($:ReturnType<typeof load>,noteNode:ReturnType<ReturnType<typeof load>>,term:string){
+ const clicked=fold(term);
+ const notes=noteNode.find('strong').toArray().map(el=>{
+  const label=$(el).text().trim(),key=noteHeadword(label);
+  let content=label;
+  for(let n=el.next;n;n=n.next){if(n.type==='tag'&&n.name==='strong')break;content+=$(n).text();}
+  return {key,content:content.trim()};
+ });
+ const exact=notes.find(note=>note.key===clicked);
+ if(exact)return exact.content;
+ // Only complete phrase matches are accepted; never fall back to the full
+ // utterance's note text, which includes unrelated vocabulary explanations.
+ const base=lemmaPhrase(clicked);
+ return notes.find(note=>note.key&&lemmaPhrase(note.key)===base)?.content||'';
 }
 export function buildLexicon(ds:Doc[]){
  const words=new Map<string,Term>(),entities=new Map<string,ConceptEntry>();
