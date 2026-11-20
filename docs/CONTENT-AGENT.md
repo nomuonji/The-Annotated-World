@@ -16,7 +16,7 @@ The Annotated World は、知的に面白い原典を英語と日本語の対訳
 3. `nomuonji/kirinuki-generator` の `transcribe_rapidapi.py` は既存の字幕収集経路。まず `youtube-transcript-api`、続いてRapidAPI字幕ダウンロード2経路。外部APIで字幕データが返ったことと、YouTube本体の元字幕トラックとの完全一致は別。**RapidAPIのレスポンスだけで原本確認済み扱いにしない。**
 4. 元のYouTube字幕トラックとの照合が通り、動画ID・字幕言語・字幕種別・時刻・本文・取得日時・SHA-256が記録できることを必須とする。元字幕トラックの直接保存には `scripts/youtube-original-captions.user.js` を利用可能（ジジェク対象動画ではまだ未実証）。**元データを確認できなければ教材本文の公開データに追加しない。**
 5. 新しいYouTube記事の `document.json.youtubeCapture` は、本当に取得した元字幕ファイルを根拠に記録。現行のJSONスキーマは `provider`, `videoId`, `method`（`youtube-captions` / `youtube-auto-captions`）, `language`, `tool`, `capturedAt`（UTC）, `sha256`, `transport='youtube-direct'`。**中継APIの未確認候補を直接取得と偽装しない。**
-6. SaveTubeのMP4ダウンロードは**字幕の取得・証跡とは別**。取得した原文が有効でも全文転載の許諾や著作権の審査は別。権利未確認なら公開用JSONに長い原文を投入しない。
+6. SaveTubeのMP4ダウンロードは**字幕の取得・証跡とは別**。取得した原文が有効でも全文転載の許諾や著作権の審査は別。権利未確認を「許諾済み」に書き換えない。元の字幕を取得したことと再掲載権利を区別し、全文教材を作成・掲載する場合にも出典と未確認点を明示して、権利確認を独立の継続課題として扱う。
 7. 削除済みの「How to become free」（`4YSXNotY8QU`）は、既存の字幕取得経路で候補**1,533件・5713.28秒まで**を取得したが、原本トラックとの照合は未完了。成功したと誇張せず、[既存の検証記録](research/2026-11-21-youtube-existing-captions.md)に加え、[字幕原稿を非公開保存した新しい実測](research/2026-11-21-zizek-rapidapi-private-source.md)を参照。旧第三者原稿の再公開は不可。短い批評引用は非公開候補から作成し、originVerified=falseと明記する。
 
 **最優先の出力は「何件の記事を追加したか」ではなく、採用する原典が確認済みで公開できること。** 字幕なし、Bot判定、権限不足、出典未確認、権利不明で公開できない場合は、原因と検証した経路を記録し、第三者の原稿で穴埋めせず停止する。
