@@ -164,5 +164,5 @@ npm run verify:reader
 ## 実際の確認済みケースと限界
 
 - `4YSXNotY8QU` は、`kirinuki-generator` の既存 `youtube-transcript-api` がクラウドのIPブロックで失敗した一方、第一RapidAPI字幕APIから **1,533件・最後の字幕時刻5713.28秒** の候補字幕を受信した。**音声を新たに文字起こししたわけではない**。[実測ログと制約](research/2026-11-21-youtube-existing-captions.md)、[切り抜き側PR #88](https://github.com/nomuonji/kirinuki-generator/pull/88)。
-- ただし**RapidAPIが返した内容をYouTube本体の元字幕トラックと逐語一致させる検証は未完了**。先行する診断ランナーでは字幕本文を保存していなかったが、その後 [RapidAPI2の実取得と非公開Drive保存](research/2026-11-21-zizek-rapidapi-private-source.md) が成功した。旧原稿の再公開・未確認の字幕を本人の逐語録として掲載することは禁止。この数値を他の動画の実績に転用しない。
+- ただし**RapidAPIが返した内容をYouTube本体の元字幕トラックと逐語一致させる検証は未完了**。先行する診断ランナーでは本文を保存していなかったが、その後 [RapidAPI2の実取得と非公開Drive保存](research/2026-11-21-zizek-rapidapi-private-source.md) が成功した。旧原稿の再利用は禁止。新稿は取得字幕の1,533件すべてを対訳化し、字幕の逐語真正性・機械訳校閲・権利の未確認状態を明記している。この数値を他の動画の実績に転用しない。
 - SaveTubeは対象動画の720pメディア取得に成功したが、**字幕の配信元ではない**。[検証ログ](research/2026-11-21-savetube-media-probe.md)。
