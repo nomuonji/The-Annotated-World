@@ -17,9 +17,8 @@ const genreSet=new Set(['philosophy','literature','film-culture','society','tech
 function renderDocument(document,chapters){
  const facts=document.facts.map(f=>'<div class="meta-item"><dt>'+escape(f.label)+'</dt><dd>'+(f.url?'<a href="'+escape(f.url)+'" target="_blank" rel="noopener noreferrer">'+escape(f.value)+'</a>':escape(f.value))+'</dd></div>').join('\n');
  const toc=chapters.map((c,i)=>'<li><a href="#'+escape(c.id)+'"><span class="toc-time">'+escape(c.timeRange.match(/\d{1,3}:\d{2}:\d{2}/)?.[0]||'')+'</span>'+(i+1)+'. '+escape(c.title.replace(/^\d+[.．]\s*/,''))+'</a></li>').join('\n');
- const transcriptLink=c=>{if(!document.transcriptBaseUrl)return '';const url=new URL(document.transcriptBaseUrl);const start=c.timeRange.match(/\d{1,3}:\d{2}:\d{2}/)?.[0];if(start)url.searchParams.set('t',String(seconds(start)));return '<p class="source-transcript"><a href="'+escape(url.href)+'" target="_blank" rel="noopener noreferrer">この章の原文スクリプトを出典で読む</a></p>';};
  const body=chapters.map(c=>'<section class="sec" id="'+escape(c.id)+'">'+
- '<div class="sec-header"><p class="sec-time">'+escape(c.timeRange)+'</p><h2>'+escape(c.title)+'</h2><p class="sec-sub">'+escape(c.summary)+'</p>'+transcriptLink(c)+'</div>'+
+ '<div class="sec-header"><p class="sec-time">'+escape(c.timeRange)+'</p><h2>'+escape(c.title)+'</h2><p class="sec-sub">'+escape(c.summary)+'</p></div>'+
  c.utterances.map(u=>'<div class="utterance" id="'+escape(u.id)+'">'+
  '<p class="speaker-line"><span class="'+escape(u.speaker.className)+'">'+escape(u.speaker.name)+'</span> · '+escape(u.time)+'</p>'+
  '<p class="en">'+u.english+'</p><p class="ja">'+u.japanese+'</p>'+
@@ -41,7 +40,6 @@ function verifyDocument(id,document){
  if(!document.sources||!text(document.sources.title)||!Array.isArray(document.sources.items)||!document.sources.items.length)fail(id,'invalid sources');
  for(const item of document.sources.items)if(typeof item.before!=='string'||typeof item.after!=='string'||!text(item.label)||!urlOk(item.url))fail(id,'invalid source item');
  if(!genreSet.has(document.genre)||!text(document.format))fail(id,'genre and format are mandatory');
- if(document.transcriptBaseUrl!==undefined&&!urlOk(document.transcriptBaseUrl))fail(id,'invalid transcriptBaseUrl');
  if(!document.provenance||!urlOk(document.provenance.sourceUrl)||!text(document.provenance.basis))fail(id,'provenance required');
  if(!['full','excerpt','unverified'].includes(document.provenance.coverage)||
   !['verified','unverified','not-applicable'].includes(document.provenance.transcript)||
