@@ -1,0 +1,55 @@
+{
+  "id": "ch3",
+  "title": "3. 過去は変えられるのか──意味の書き換え",
+  "timeRange": "00:15:50 – 00:26:30",
+  "summary": "出来事そのものを遡って消すことはできない。それでも新しい芸術作品や歴史解釈が現れると、過去の作品や事件の意味づけは変わる、という議論。",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "freedom",
+      "name": "自由"
+    },
+    {
+      "id": "culture",
+      "name": "文化"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch3-line-1",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:15:28",
+      "english": "to change the past of course from a scientific standpoint",
+      "japanese": "過去を変えること。もちろん科学的な観点からすれば……。",
+      "annotations": [
+        {
+          "id": "ch3-line-1-note-1",
+          "phrase": "change the past",
+          "explanation": "物理的な過去の変更ではなく、後からの出来事によって過去の意味が変わるという後続の論点を導く。"
+        }
+      ]
+    },
+    {
+      "id": "ch3-line-2",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "00:20:25",
+      "english": "simultaneously to all the works of art which preceded it",
+      "japanese": "それ以前に存在したあらゆる芸術作品にも、同時に。",
+      "annotations": [
+        {
+          "id": "ch3-line-2-note-1",
+          "phrase": "all the works of art which preceded it",
+          "explanation": "precede は「先行する」。新作が現れることで、先行作品の位置づけも再編されるという引用の一部。"
+        }
+      ]
+    }
+  ]
+}
