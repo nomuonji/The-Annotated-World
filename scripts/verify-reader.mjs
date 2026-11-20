@@ -34,6 +34,17 @@ try{
   assert.equal(await page.locator('.editorial-annotation').count(),0,'Legacy listening-hint details remain');
   assert.equal(await page.locator('.note-label:visible').count(),0,'Legacy point labels remain visible');
   assert.equal(await page.locator('.en .inline-note-ref').count(),0,'Legacy jump-to-note numbers remain in English');
+  assert.equal(await page.locator('.chapter-trail:visible').count(),0,'Normal article should not show chapter-end buttons');
+  assert.equal(await page.locator('#reader-focus').count(),0,'Obsolete focus-reading control was not removed');
+  assert.equal(await page.locator('#reader-dark').count(),0,'Local reader theme control should be replaced by the global setting');
+  const annotationsButton=page.locator('#reader-annotations');
+  assert.equal(await annotationsButton.getAttribute('aria-pressed'),'true');
+  await annotationsButton.click();
+  assert.equal(await inline.first().isVisible(),false,'OFF should hide all editorial glosses');
+  assert.ok((await first.locator('.en').textContent()).includes('unceded territories'),'Switching off annotations lost source English');
+  assert.equal(await page.locator('.note:visible').count(),0,'OFF revealed legacy point boxes');
+  await annotationsButton.click();
+  assert.equal(await inline.first().isVisible(),true,'ON should restore inline explanations');
   const intro=await page.locator('.hero').innerText();
   assert.ok(!intro.includes('ポイント')&&!intro.includes('英文 → 日本語訳 →'),'Intro advertises obsolete point format');
   assert.equal(await first.locator('.editorial-annotation summary').filter({hasText:'構文を読み解く'}).count(),0);
@@ -86,10 +97,31 @@ try{
   await page.locator('#word-dialog button').click();
   await page.locator('.quick-reader-tools').click();await page.locator('#reader-query').fill('unceded territories');
   await page.locator('#reader-next').click();assert.ok(await first.evaluate(e=>e.classList.contains('search-current')));
-  await page.locator('.quick-reader-tools').click();await page.locator('#reader-focus').click();assert.equal(await page.locator('.study-sidebar').isVisible(),false);
-  await page.locator('#reader-dark').click();assert.equal(await page.locator('html').evaluate(e=>e.classList.contains('reader-dark')),true);
-  await page.locator('#reader-dark').click();await page.locator('#reader-focus').click();
-  assert.equal(await page.locator('.study-sidebar').isVisible(),true);
+  // The chapter-only view keeps its own shareable URL and shows exactly one chapter.
+  await page.goto(base+path+'?chapter=ch2');
+  await page.locator('#chapter-view-toggle').waitFor({state:'visible'});
+  assert.equal(await page.locator('[data-study-reader]').getAttribute('data-chapter-view'),'single');
+  assert.equal(await page.locator('.study-original section.sec:visible').count(),1);
+  assert.equal(await page.locator('#ch2').isVisible(),true);
+  assert.equal(await page.locator('#ch1').isVisible(),false);
+  assert.equal(await page.locator('.reader-page>.hero').isVisible(),false,'Full article hero crowds chapter-only view');
+  assert.equal(await page.locator('#ch2 .chapter-trail').isVisible(),true);
+  await page.locator('#study-chapter-nav').selectOption('ch3');
+  assert.equal(await page.locator('#ch3').isVisible(),true);
+  assert.ok(page.url().includes('chapter=ch3'));
+  await page.goBack();
+  assert.equal(await page.locator('#ch2').isVisible(),true,'Browser back did not restore selected chapter');
+  const cross=page.locator('#ch2 .chapter-trail a[href*="/read/slavoj-zizek-how-to-become-free/"]').first();
+  assert.ok(await cross.count()>0,'Chapter trail has no cross-article recommendation');
+  const crossHref=await cross.getAttribute('href');
+  assert.ok(crossHref.includes('?chapter='));
+  await cross.click();
+  await page.waitForURL('**/read/slavoj-zizek-how-to-become-free/?chapter=*');
+  assert.equal(await page.locator('.study-original section.sec:visible').count(),1);
+  assert.equal(await page.locator('#chapter-view-toggle').getAttribute('aria-pressed'),'true');
+  await page.locator('#chapter-view-toggle').click();
+  assert.equal(await page.locator('.study-original section.sec:visible').count(),6,'Returning to full view did not restore document sections');
+  assert.equal(await page.locator('.chapter-trail:visible').count(),0,'Chapter trails leak into normal article mode');
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Reader causes horizontal overflow');
   // The second published document originally used numbered source notes.
   // Ensure all 18 are still readable, but in the same permanent inline format.
@@ -104,6 +136,28 @@ try{
   assert.ok(!(await page.locator('.hero').innerText()).includes('青い番号'),'Second article still advertises removed numbered note controls');
   await page.goto(base+'/library/');await page.locator('[data-scope=chapters]').click();await page.locator('#find').fill('映画');assert.ok(await page.locator('[data-chapter-result]:visible').count()>0);
   await page.locator('#find').fill('');await page.locator('.library-filter-details summary').click();await page.locator('#filter-time').selectOption('15');assert.ok(await page.locator('[data-chapter-result]:visible').count()>0);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Library causes horizontal overflow');
+  const card=page.locator('[data-chapter-result] h3 a').first();
+  assert.ok((await card.getAttribute('href')).includes('?chapter='),'Library chapters should launch chapter-only reading');
+  // Global theme and annotation visibility survive navigation to unrelated pages.
+  const headerTheme=page.locator('#site-theme-toggle');
+  if((await page.locator('html').getAttribute('data-theme'))!=='dark')await headerTheme.click();
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
+  const bg=await page.evaluate(()=>getComputedStyle(document.body).backgroundColor);
+  assert.notEqual(bg,'rgb(255, 255, 255)','Dark palette was not applied to library page');
+  await page.goto(base+'/topics/psychoanalysis/');
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'dark','Theme did not persist to a topic page');
+  assert.equal(await page.locator('#site-theme-toggle').getAttribute('aria-pressed'),'true');
+  await page.goto(base+path);
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'dark','Theme did not persist back to article');
+  await page.locator('#reader-annotations').click();
+  assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),false);
+  await page.goto(base+'/read/slavoj-zizek-how-to-become-free/');
+  assert.equal(await page.locator('#reader-annotations').getAttribute('aria-pressed'),'false','Annotation OFF did not persist between articles');
+  assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),false);
+  await page.locator('#reader-annotations').click();
+  assert.equal(await page.locator('.in-situ-annotation').first().isVisible(),true);
+  await page.locator('#site-theme-toggle').click();
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'light');
   console.log(viewport.width+'px: reading modes, mocked seek/rate/repeat/sync, mobile layout and chapter search passed');await page.close();
  }
 }finally{await browser?.close();server.kill();}

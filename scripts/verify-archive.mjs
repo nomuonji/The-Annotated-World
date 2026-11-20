@@ -56,9 +56,9 @@ assert.equal(sample('section.sec#ch1 [data-video-seek]').attr('data-video-seek')
 assert.ok(sample('a[href="/topics/psychoanalysis/"]').length);
 assert.ok(sample('a[href="/people/slavoj-zizek/"]').length);
 const genre=load(await readFile('dist/genres/film-culture/index.html','utf8'));
-assert.ok(genre('a[href="/read/slavoj-zizek-signs-from-the-future/#ch8"]').length);
+assert.ok(genre('a[href="/read/slavoj-zizek-signs-from-the-future/?chapter=ch8"]').length);
 const topic=load(await readFile('dist/topics/psychoanalysis/index.html','utf8'));
-assert.ok(topic('a[href="/read/slavoj-zizek-signs-from-the-future/#ch2"]').length);
+assert.ok(topic('a[href="/read/slavoj-zizek-signs-from-the-future/?chapter=ch2"]').length);
 const person=load(await readFile('dist/people/slavoj-zizek/index.html','utf8'));
 assert.ok(person('a[href="/read/slavoj-zizek-signs-from-the-future/"]').length);
 // Validate all local generated navigation targets and fragments. Skip the legacy importer.
@@ -75,6 +75,10 @@ console.log('Discovery routes, video source and internal links verified: '+pages
 const catalog=JSON.parse(await readFile('dist/catalog.json','utf8'));
 assert.equal(catalog.documents.length,entries.length);
 const firstDoc=catalog.documents.find(d=>d.id==='slavoj-zizek-signs-from-the-future');assert.equal(firstDoc.chapters.length,11);assert.equal(firstDoc.provenance.rights,'unverified');
-assert.ok(sample('section#ch1 .chapter-end-nav a[href="#ch2"]').length);
+assert.equal(sample('.chapter-end-nav').length,0,'Normal article must not contain legacy chapter-end navigation');
+assert.equal(sample('.chapter-trail').length,11,'Chapter-only trails must exist for all chapters');
+assert.ok(sample('section#ch1 .chapter-trail a[href="/read/slavoj-zizek-signs-from-the-future/?chapter=ch2"]').length);
+assert.ok(sample('section#ch2 .chapter-trail a[href^="/read/slavoj-zizek-how-to-become-free/?chapter="]').length,
+ 'Related chapter navigation should cross document boundaries');
 assert.ok(sample('.provenance-grid').length);
 assert.ok(catalog.documents.every(d=>!('bodyHtml' in d)));
