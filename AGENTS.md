@@ -40,3 +40,6 @@ New source files belong in `src/content/documents/`; new supplemental annotation
 
 ## Pilot 008の見づらさ：最新の見た目・構成研究
 本人の追加フィードバック「何か見づらい。構成も見た目ももっと研究して」を受け、再レンダー前に**[docs/research/2026-11-20-v8-composition-visual-audit.md](docs/research/2026-11-20-v8-composition-visual-audit.md)** を読む。直近版の写真＋英日8行＋固定ブランド＋大見出し＋85%不透明黒カードの同時表示はやめ、主情報・本文字幕・補足ラベルの優先順位を決める。英日字幕は原稿を削らず意味句へ分割する。英語先導と日本語理解先導の2案を比較する。実際の学習効果・視聴維持が検証済みだと書かない。新しい動画を作る前にスマホサイズで最長字幕と初回3秒を評価する。
+
+## 最新の短編編集ルール：Pilot 009
+ユーザー「見づらい。構成も見た目ももっと研究して」「改善して」を受けた最新版は [docs/prototypes/zizek-marx-v9-semantic-visual-hierarchy.md](docs/prototypes/zizek-marx-v9-semantic-visual-hierarchy.md)。最初に[第8版の監査](docs/research/2026-11-20-v8-composition-visual-audit.md)と併読する。前版の常設タイトル・全画面の巨大字幕枠・英5行＋日3行の一括表示へ戻さない。字幕は短い意味句へ分割し、**全文を維持したまま同時表示を最大4行程度**とする。人物・史料・比較でレイアウトを使い分け、日英連動強調を維持する。本人の評価・実機UI検証がない状態を完成版の採用と取り違えない。
