@@ -1,0 +1,180 @@
+{
+  "id": "ch10",
+  "title": "10. マルクス「フォイエルバッハに関する11のテーゼ」と絶望の倫理",
+  "timeRange": "01:07:02 – 01:19:18",
+  "summary": "観客からのQ&Aに応え、20世紀は「世界を変えようとしすぎた」のであり今こそ「世界を解釈し直す」時だと述べ、「希望より絶望（今すぐ行動すべき緊急性）を」と語る。",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "marx",
+      "name": "マルクス"
+    },
+    {
+      "id": "ethics",
+      "name": "倫理"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch10-line-1",
+      "speaker": {
+        "name": "Host",
+        "className": "speaker-host"
+      },
+      "time": "01:07:02",
+      "english": "There were a couple questions that came through on the QR code, and I want to leave with one of them. It's basically asking about your take on Marx's 11th Thesis—you know, \"Philosophers have only interpreted the world; the point is to change it.\" You've had various versions of this over the years; you talk about this in your latest book. Do you want to talk about how we should rethink Marx's 11th Thesis on Feuerbach?",
+      "japanese": "QRコード経由でいくつか質問が来ているので、その中の一つで締めくくりたいと思います。基本的には、マルクスの「第11テーゼ」——ご存知の「哲学者たちはこれまで世界をさまざまに解釈してきたにすぎない。肝心なのはそれを変えることである」——についてのあなたの見解を尋ねるものです。あなたは長年この言葉のいろいろなバリエーションを語ってきましたし、最新の本でも触れています。マルクスの『フォイエルバッハに関する第11テーゼ』をどう再考すべきか、お話しいただけますか？",
+      "annotations": [
+        {
+          "id": "ch10-line-1-note-1",
+          "phrase": "Marx's 11th Thesis on Feuerbach",
+          "explanation": "カール・マルクスの『フォイエルバッハに関するテーゼ』（1845年）の第11項（字幕では `firebach`）。"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-2",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "01:07:25",
+      "english": "Yeah, my proposal is a very simple one. Today, at all levels, it is clear that what characterized—it's a very problematic reading—the 20th century was not that we just talked or philosophized, that we didn't act. We acted too much, and the consequences were shocking. That's why I think Hegel would have enjoyed a permanent intellectual orgasm analyzing the 20th century! Like already the mystery of the so-called Great War, First World War, where, you know, okay, there were wars, horrible things, but out of Western Europe, the United States and Western Europe, a period of small, short, gradual progress and so on—then World War I, why did it explode? That would have been an ideal topic for Hegel. Or communism: you get the October Revolution, which nonetheless was for me an authentic thing at the beginning, then you wait for 10 years, you get Stalin, and so on.",
+      "japanese": "ええ、私の提案はとてもシンプルなものです。今日、あらゆるレベルで明らかなのは、20世紀を特徴づけていたのは——これは非常に問題含みな読み方ですが——私たちがただお喋りや哲学ばかりして行動しなかったことではない、ということです。私たちは「行動しすぎた」のであり、その結果は衝撃的なものでした。だからこそ、もしヘーゲルが20世紀を分析していたら、絶え間ない知的なオルガスムを味わっていたことでしょう！たとえばいわゆる「大戦（第一次世界大戦）」の謎です。それ以前も戦争や恐ろしいことはありましたが、アメリカと西ヨーロッパでは短期間ながら段階的な進歩の時代が続いていた——それなのになぜ第一次世界大戦が爆発したのか？ヘーゲルにとって理想的なテーマだったはずです。あるいは共産主義もそうです。十月革命が起き——それでも私にとって当初は真正な出来事でしたが——10年待てばスターリン体制に行き着くのです。",
+      "annotations": [
+        {
+          "id": "ch10-line-2-note-1",
+          "phrase": "The Great War",
+          "explanation": "「第一次世界大戦」（第二次世界大戦以前は単に Great War と呼ばれた）。"
+        },
+        {
+          "id": "ch10-line-2-note-2",
+          "phrase": "October Revolution",
+          "explanation": "1917年のロシア十月革命。"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-3",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "01:08:51",
+      "english": "So my reading is that today we have to act more like Hegelians, and wherever there is a big new project—artificial intelligence, social change, and so on—we should, in a very Hegelian way (Hegel was doing this constantly, for example <em lang=\"fr\">à propos</em> the French Revolution; I don't agree with him there, but his point is: okay, you want freedom, revolution, you end up in revolutionary terror—it gets reversed)—we have to learn to focus on: <strong class=\"key\">how could things go wrong?</strong> And for this we need more philosophy. This is the topic of philosophy: you get a project of liberation—ah, the first question to ask is how it could go wrong. For example, artificial intelligence: you have the idealists who claim it will be wonderful, robots will be doing everything for us and so on, but what will be the actual consequences? So in this sense, I think that today we should say: politicians in the 20th century were trying just to change the world; <strong class=\"key\">the time has come to interpret it again</strong>. We have to focus more on understanding all these twists of history. Again, with fascism it's relatively easy—conservative modernization, blah blah—but it's still a shock for me: how could something like Stalinism arise out of a big emancipatory movement? You get an unimaginably terrifying social order. How could things go wrong? And at all levels, again: how will artificial intelligence compel us to redefine us as humans?",
+      "japanese": "ですから私の解釈は、今日私たちはもっとヘーゲル主義者のように振る舞うべきだということです。AIであれ社会変革であれ、大きな新しいプロジェクトがあるところではどこでも、きわめてヘーゲル的なやり方で——ヘーゲルはこれを常にやっていました。たとえばフランス革命に関して（私はそこでは彼に同意しませんが、彼の要点は「自由と革命を求めた結果、革命的恐怖政治に行き着き、反転してしまう」というものです）——私たちは「物事がどう裏目に出るか（how could things go wrong?）」に焦点を当てることを学ばねばなりません。そしてこのためにこそ、もっと哲学が必要なのです。これこそ哲学のテーマです。解放のプロジェクトを手に入れたら、真っ先に問うべきは「それがどう失敗しうるか」です。たとえばAIについて、「素晴らしいものになる、ロボットが何でもやってくれる」と主張する理想主義者たちがいますが、実際の帰結はどうなるのか？この意味で、今日私たちはこう言うべきだと思います。「20世紀の政治家たちはただ世界を変えようとしてきた。今や、再び世界を解釈する時が来たのだ」と。私たちはこうした歴史のねじれ（twists）を理解することにもっと注力しなければなりません。ファシズムの場合は比較的簡単です——保守的近代化云々。しかし私にとっていまだに衝撃的なのは、巨大な解放運動からいかにしてスターリニズムのようなものが生まれ得たのか、ということです。想像を絶するほど恐ろしい社会秩序が生まれてしまった。なぜ物事は間違った方向へ行ったのか？そしてあらゆるレベルで、AIはいかにして私たちに人間としての自己再定義を強いるのか？",
+      "annotations": [
+        {
+          "id": "ch10-line-3-note-1",
+          "phrase": "à propos (of)",
+          "explanation": "「〜に関して、〜について」（フランス語由来の表現）。"
+        },
+        {
+          "id": "ch10-line-3-note-2",
+          "phrase": "twists of history",
+          "explanation": "「歴史のねじれ、曲折」。ジジェクはマルクスの第11テーゼを文字通り逆転させて「今こそ解釈し直す時だ」と主張しています。"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-4",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "01:11:11",
+      "english": "You know what's my problem here—that's the source of my, why not, pessimism. On the one hand, we have the necessity as fate: if we go on the way we go on, we are approaching a general emergency state. It's clear: self-destruction is around the corner. But—and we know, it's nothing revolutionary—that the only way to really counteract this is what I call... that's why I paradoxically like to describe myself as a <strong class=\"key\">\"moderately conservative communist.\"</strong> No, forget about 20th-century communism; it was mostly a nightmare. But by \"communism\" I simply mean all the problems we are confronting today—ecology, artificial intelligence, war—they can only be solved by moving beyond the nation-state to some form of much more obligatory global coordination. Everybody agrees with this. But you know who drew my attention to it? A German—she's even more conservative privately, but she's not stupid—quantum science popularizer Sabine Hossenfelder. She wrote a short text where she said: \"We all know this, but we absolutely have no mechanisms to enact this.\" So here comes my pessimism.",
+      "japanese": "ここでの私の問題——それが私の悲観主義の源泉なのですが——は何だと思いますか？一方では、運命としての必然性があります。このまま進み続ければ、私たちは全面的な非常事態に近づいています。自己破壊はすぐそこまで来ているのが明らかです。しかし他方では——私たちは知っていますし、何も革命的なことではありませんが——これに本当に対抗する唯一の方法は、私が逆説的に自らを「穏健に保守的な共産主義者（moderately conservative communist）」と呼ぶ理由でもあるのですが……いや、20世紀の共産主義は忘れてください、あれは大半が悪夢でした。私が「共産主義」と言うとき、それは単に今日私たちが直面しているすべての問題——エコロジー、AI、戦争——は、国民国家を超えてはるかに強制力のある何らかの地球規模の協調（global coordination）へと移行することによってのみ解決できる、という意味です。誰もがこれに同意しています。しかし誰が私の注意をこの点に向けさせたか知っていますか？ドイツ人の——私的にはさらに保守的ですが、馬鹿ではない——量子科学の普及家ザビーネ・ホッセンフェルダーです。彼女は短い文章の中でこう書きました。「私たちはみなこのことを知っているが、それを実行するメカニズムをまったく持っていない」と。ここから私の悲観主義が来るのです。",
+      "annotations": [
+        {
+          "id": "ch10-line-4-note-1",
+          "phrase": "around the corner",
+          "explanation": "「すぐそこに迫って、間近に」。"
+        },
+        {
+          "id": "ch10-line-4-note-2",
+          "phrase": "obligatory",
+          "explanation": "「義務的な、強制力のある」。"
+        },
+        {
+          "id": "ch10-line-4-note-3",
+          "phrase": "Sabine Hossenfelder",
+          "explanation": "ドイツの理論物理学者・人気科学ライター（字幕では `Sabina Hosenfelder`）。"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-5",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "01:12:54",
+      "english": "To conclude—I mean, this variation—where do I see some hope? First, I don't like the term \"hope\"; I prefer <strong class=\"key\">despair</strong>. I think we are not desperate enough. In what sense? Even people—you know, my good friend Alenka Zupančič wrote a wonderful book, you should buy it, a thin treatise called <em>Disavowal</em>. Yeah, yeah, yeah. Her idea is that today, ideology does not deny bad news; it just—you read everywhere about, \"Oh, nature is falling apart,\" \"Oh, we may all die in nuclear war,\" and so on, but life goes on. We don't really subjectively assume it; we don't take it in a subjective sense seriously. So how to do this? Here I'm a pessimist. When I met the last time—otherwise we are still friendly—Yanis Varoufakis, I asked him: \"But what you are all the time saying, okay, what is your goal? Are you still the old-fashioned leftist who thinks if we repeat the truth long enough, at some point people will awaken and we will win a majority in whatever way?\" No, I think I'm much more of a pessimist.",
+      "japanese": "この論点を締めくくるにあたって、私がどこに希望を見ているか？まず、私は「希望（hope）」という言葉が好きではありません。「絶望（despair）」の方が好きです。私たちはまだ十分に絶望していないと思います。どういう意味か？私の親しい友人アレンカ・ズパンチッチが素晴らしい本を書きました——みなさんも買うべきですよ、『否認（Disavowal）』という薄い論文集です。彼女のアイデアはこうです。今日、イデオロギーは悪いニュースを否定したりはしません。あちこちで「自然が崩壊しつつある」「核戦争で全員死ぬかもしれない」と読んでも、日常はそのまま続いていく。私たちはそれを本当の意味で主体的に引き受けて（subjectively assume）いない、主観的な意味で真剣に受け止めていないのです。ではどうすればいいのか？ここで私は悲観主義者です。この前——今でも仲は良いのですが——ヤニス・バルファキスに会ったとき、彼にこう尋ねました。「君がいつも言っていることだが、君のゴールは何なんだ？十分な時間、真実を繰り返しさえすれば、いつか人々が目覚めて何らかの形で多数派を獲得できると考えている古風な左派なのか？」と。いや、私ははるかに悲観的です。",
+      "annotations": [
+        {
+          "id": "ch10-line-5-note-1",
+          "phrase": "Alenka Zupančič",
+          "explanation": "スロベニアの哲学者でジジェクと同じリュブリャナ学派の盟友（字幕では `Telena Zupanchic`）。"
+        },
+        {
+          "id": "ch10-line-5-note-2",
+          "phrase": "treatise",
+          "explanation": "「論文、学術書」（字幕では `treatment`）。"
+        },
+        {
+          "id": "ch10-line-5-note-3",
+          "phrase": "disavowal",
+          "explanation": "「否認」（「分かっているけれど、それでも……」と現実を直視しない態度）。"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-6",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "01:14:31",
+      "english": "I return here to—you mentioned it—for me it's very brutal what I will say: the nicest time that I remember in the last decades was the COVID time. It was a paradise for me! I am an old guy, I hate people, I was able to be alone at home, to stay home working, watching good old movies, reading, writing—it was a paradise. But it was also important politically. You remember neoliberals were saying just before: \"We cannot raise the taxes, not a little bit, because then markets will explode.\" No! Even right-wing politicians like Boris Johnson in England, Trump here in his first term, they did things which totally violated market principles! Wasn't it that under Trump every family got a check for $2,000? Okay, corporations got even more, and so on—but it's proven that capitalism is much more <strong class=\"key\">plastic</strong>, if I may put it in this way. You can change things radically; it's not catastrophic necessarily to change things. So my only credible scenario that I can imagine is a new catastrophe like COVID, slightly stronger—I say this not in the sense that more people should die, but in the sense that it will make us really afraid. Because now—I don't know how it is here, but we talk about the danger of world war and so on, but you know, even in Western Europe, with the exception of those countries close to Russia, Baltic states, Ukraine and so on, we don't take it seriously still. The only solution I see is a catastrophe which will really make us afraid and compel us to realize that we are approaching an emergency state, and maybe again through science-fiction scenarios to think how to survive possible new forms of catastrophe. That's why cynically I like to add: there will be communism, but <strong class=\"key\">war communism</strong>—not this naive idea of welfare and so on. We are approaching an emergency state; it's time that we begin to think in these terms.",
+      "japanese": "ここで先ほどあなたが触れた話に戻りますが、私がこれから言うことは非常に残酷に聞こえるでしょう。ここ数十年で私が覚えている最も素敵な時間は、コロナ禍（COVID）の時期でした。私にとってはパラダイスでした！私は年寄りで人間嫌いですから、家で一人になり、家にこもって仕事をし、古き良き映画を観て、本を読み、文章を書けた——天国でした。しかし、それは政治的にも重要でした。その直前まで新自由主義者たちが「ほんの少しでも増税はできない、やったら市場が爆発する」と言っていたのを覚えていますか？嘘でした！イギリスのボリス・ジョンソンや第1期目のトランプのような右派政治家でさえ、市場原理に完全に反することをやったのです！トランプ政権下で全世帯に2,000ドルの小切手が配られたではありませんか？もちろん大企業はもっと多くを受け取りましたが、ともかく資本主義ははるかに「可塑性がある（plastic＝柔軟に変えられる）」ことが証明されたのです。物事を抜本的に変えることは可能であり、変えたからといって必ずしも大惨事になるわけではないのです。ですから私が想像できる唯一の現実的なシナリオは、コロナのような新しい大惨事——もう少し強いもの——です。もちろんもっと多くの人が死ぬべきだという意味ではなく、私たちが「本当に恐怖を感じる」ような出来事という意味です。今は世界大戦の危険などを語っていても、ロシアに近いバルト諸国やウクライナなどを除けば、西ヨーロッパでさえまだ真剣に受け止めていないからです。私に見える唯一の解決策は、私たちを心底怖がらせ、非常事態に近づいていると悟らせ、SF的なシナリオを通して新たな形態の大惨事をどう生き延びるか考えさせるような大惨事です。だからこそ私は皮肉を込めてこう付け加えるのが好きです——「共産主義は訪れる、ただし戦時共産主義（war communism）としてだ」。福祉がどうこうという素朴な理想ではなくね。私たちは非常事態に近づいているのです。そうした観点から考え始めるべき時が来ています。",
+      "annotations": [
+        {
+          "id": "ch10-line-6-note-1",
+          "phrase": "plastic",
+          "explanation": "「可塑性のある、柔軟に形を変えられる」（プラスチックの語源）。"
+        },
+        {
+          "id": "ch10-line-6-note-2",
+          "phrase": "war communism",
+          "explanation": "「戦時共産主義」（ロシア内戦期のように、非常事態下で国家が資源や生産を直接統制する体制）。"
+        }
+      ]
+    },
+    {
+      "id": "ch10-line-7",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "01:17:38",
+      "english": "And why am I against hope? I repeated in this book—it's my favorite case—I saw a modest movie, <em>Munich: The Edge of War</em>. It's a modest BBC/Netflix movie, takes place in Munich '38, Chamberlain's peace with Hitler, where an English guy meets his old German friend who is anti-Nazi. The English guy says, \"Okay, you see, we achieved something with negotiations; okay, Hitler will violate them, we will negotiate again—there is always hope.\" And the German guy, more radically anti-Nazi, says: <strong class=\"key\">\"No, hope is a way to leave to the others to do in the future what you should do now.\"</strong> We would have been much better off without hope. That's why I propose this slogan: despair is not predominantly this \"you just sit and secretly enjoy it.\" Basically, despair means you know you have to act now—and it's not necessarily unhappiness, pessimism, or whatever; it means just this absolute <strong class=\"key\">urgency</strong> to act now.",
+      "japanese": "そしてなぜ私は「希望」に反対するのか？この本でも繰り返しましたが、私のお気に入りの事例があります。『ミュンヘン：戦火の街（Munich: The Edge of War）』という控えめな映画を観ました。1938年のミュンヘン、チェンバレンとヒトラーの和平交渉を舞台にした映画で、あるイギリス人が反ナチスの古いドイツ人の友人と再会します。イギリス人は言います。「いいかい、交渉で何かを勝ち取ったんだ。まあヒトラーがそれを破るだろうが、そしたらまた交渉すればいい——希望は常にある」。すると、より徹底した反ナチスであるドイツ人の友人はこう言うのです。「違う、希望とは、今すぐ自分がやるべきことを未来の他人に押し付けるための言い訳だ」。希望などない方がずっとマシだったのです。だからこそ私はこのスローガンを提案します——絶望とは、ただ座り込んで密かにそれを楽しむことではありません。基本的に絶望とは「今すぐ行動しなければならないと知っていること」であり、必ずしも不幸や悲観主義を意味するのではなく、まさに今すぐ行動すべきだという絶対的な「緊急性（urgency）」を意味するのです。",
+      "annotations": [
+        {
+          "id": "ch10-line-7-note-1",
+          "phrase": "be better off without ~",
+          "explanation": "「〜がない方がずっとマシだ／幸せだ」。"
+        },
+        {
+          "id": "ch10-line-7-note-2",
+          "phrase": "urgency",
+          "explanation": "「緊急性、切迫感」。映画『Munich: The Edge of War』（2021年公開、ジェレミー・アイアンズ主演）。"
+        }
+      ]
+    }
+  ]
+}
