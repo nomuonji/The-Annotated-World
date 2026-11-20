@@ -31,3 +31,6 @@ New source files belong in `src/content/documents/`; new supplemental annotation
 - 日英字幕は両方全文の意味を伝え、各発話中の重要表現について `hi_en`・`hi_ja` の正確な部分文字列ペアを持たせる。同一発話の表示中に英語句・日本語句を同色で強調し、位置を結ぶ小さな視覚線を表示する。単語のバラバラな強調、英語と日本語で別の意味を示す着色、単純なハイライト語数ノルマは禁止。学習の主役は思想内容であり、対応語の発見は自然な副産物。
 - 写真と議論の対応を優先。ジジェク本人の写真は利用権・年次を表示したうえで使用可能。別の時期の写真・音声を2026年講演の記録と誤認させない。
 - [Pilot 006 の実装・評価用記録](docs/prototypes/zizek-marx-v6-linked-bilingual.md)、[既存研究](docs/research/2026-11-20-japanese-short-form.md)。MP4と再編集スクリプトはチャットのソースZIPとして配布し、コードを使用する場合はそのローカルパッケージを参照。
+
+## ショート Pilot 007: クロスプラットフォームUIと音
+第7版のフィードバック「字幕をもっと上へ」「視聴者をもっと引きつける」「音関連も」に対応した制作契約は [docs/prototypes/zizek-marx-v7-audio-safezone.md](docs/prototypes/zizek-marx-v7-audio-safezone.md) を参照。英語発話のペースを不必要に上げず、論証の逆転と音響の変化で視聴を支える。字幕は下端や右側のSNS操作UIと重ねず、英語句と日本語句の同時ハイライトを守る。適法に利用可能な写真・史料とナレーションを分けて出所を残す。
