@@ -57,6 +57,13 @@ for(const c of d.chapterIndex){
   // Structured annotations are rendered into a hidden compatibility .note for vocabulary indexing; only inline glosses appear.
   en.find('.inline-note-ref').remove();
   const annotations:Array<{label:string;explanation:string;id:string}>=[];
+  const records=note.find('.note-entry[data-note-id]').toArray();
+  if(records.length){
+   for(const entry of records){
+    const raw=$(entry),label=raw.find('strong').first().text().trim(),full=raw.text().trim();
+    annotations.push({label,explanation:full.slice(label.length).replace(/^\s*[：:]\s*/u,'').trim(),id:raw.attr('data-note-id')||''});
+   }
+  }else{
   const sourceItems=note.find('.inline-note-item').toArray();
   if(sourceItems.length){
    for(const [i,item] of sourceItems.entries()){
@@ -73,6 +80,7 @@ for(const c of d.chapterIndex){
     }else if(current)current.parts.push($(part).text());
     if(current)annotations[annotations.length-1].explanation=current.parts.join('').replace(/^\s*[：:]\s*/u,'').trim();
    }
+  }
   }
   if(!annotations.length&&note.length){
    const remainder=note.clone();remainder.find('.note-label').remove();
