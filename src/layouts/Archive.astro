@@ -6,6 +6,14 @@ const {title='The Annotated World',description='原文・日本語訳・注釈�
 <html lang="ja">
 <head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script is:inline>
+(()=>{
+ let choice;
+ try{choice=localStorage.getItem('aw-theme');}catch{}
+ const dark=choice==='dark'||(choice!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);
+ document.documentElement.dataset.theme=dark?'dark':'light';
+})();
+</script>
 <meta name="description" content={description}/><link rel="alternate" type="application/json" title="Content catalog" href="/catalog.json"/><title>{title}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Sans+JP:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -13,8 +21,32 @@ const {title='The Annotated World',description='原文・日本語訳・注釈�
 </head>
 <body>
 <a class="skip-link" href="#main">本文へ</a>
-<header class="platform-header"><div class="platform-header-inner"><a class="site-title" href="/">The Annotated World</a><nav aria-label="サイト内探索"><a href="/">発見</a><a href="/library/">全資料</a><a href="/topics/">テーマ</a><a href="/people/">人物</a><a href="/words/">語彙</a><a href="/concepts/">知識索引</a></nav></div></header>
+<header class="platform-header"><div class="platform-header-inner"><a class="site-title" href="/">The Annotated World</a><nav aria-label="サイト内探索"><a href="/">発見</a><a href="/library/">全資料</a><a href="/topics/">テーマ</a><a href="/people/">人物</a><a href="/words/">語彙</a><a href="/concepts/">知識索引</a></nav><button type="button" id="site-theme-toggle" class="site-theme-toggle" aria-pressed="false" aria-label="サイト全体の配色を切り替える">ダーク</button></div></header>
 <main class:list={["page",{"platform-page":wide,"reader-page":reader}]} id="main"><slot/></main>
 <footer class="platform-footer"><a href="/">The Annotated World</a><span>原文・対訳・注釈を通じて世界を読む</span><a href="/library/">資料一覧</a></footer>
+<script is:inline>
+(()=>{
+ const button=document.getElementById('site-theme-toggle');
+ if(!button)return;
+ const sync=()=>{
+  const dark=document.documentElement.dataset.theme==='dark';
+  button.setAttribute('aria-pressed',String(dark));
+  button.textContent=dark?'ライト':'ダーク';
+  button.setAttribute('aria-label',dark?'サイト全体をライトモードにする':'サイト全体をダークモードにする');
+ };
+ button.addEventListener('click',()=>{
+  const dark=document.documentElement.dataset.theme!=='dark';
+  document.documentElement.dataset.theme=dark?'dark':'light';
+  try{localStorage.setItem('aw-theme',dark?'dark':'light');}catch{}
+  sync();
+ });
+ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',event=>{
+  try{if(localStorage.getItem('aw-theme')!==null)return;}catch{return;}
+  document.documentElement.dataset.theme=event.matches?'dark':'light';
+  sync();
+ });
+ sync();
+})();
+</script>
 </body>
 </html>
