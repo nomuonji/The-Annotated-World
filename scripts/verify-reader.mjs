@@ -23,7 +23,7 @@ try{
   const inline=first.locator('[data-editorial-gloss="ch1-line-1-note-1"]');
   const languageNote=first.locator('[data-editorial-gloss="ch1-line-1-note-3"]');
   const firstMark=first.locator('[data-note-toggle]').first();
-  assert.ok((await inline.count())>=2,'No real source annotations were rendered');
+  assert.equal(await first.locator('.in-situ-annotation').count(),3,'Source annotations were not all rendered');
   assert.ok((await first.locator('.en').textContent()).startsWith('Host: How are we doing here? Good? Still alive? Still lively?'));
   assert.equal(await inline.first().getAttribute('data-editorial-gloss'),'ch1-line-1-note-1');
   assert.ok((await inline.first().textContent()).includes('ラカン派'));
