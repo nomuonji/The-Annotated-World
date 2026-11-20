@@ -1,0 +1,164 @@
+{
+  "id": "ch9",
+  "title": "9. ドラマ『Pluribus』、ヒステリー主体、抑圧的脱昇華",
+  "timeRange": "00:58:10 – 01:07:02",
+  "summary": "集合精神（ハイヴマインド）を描いたドラマ『Pluribus』とイーロン・マスクのニューラリンク、1968年五月革命に対するラカンの警告、ガザのSNS動画とマルクーゼの「抑圧的脱昇華」を論じる。",
+  "genres": [
+    "film-culture",
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "television",
+      "name": "ドラマ"
+    },
+    {
+      "id": "psychoanalysis",
+      "name": "精神分析"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch9-line-1",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:57:55",
+      "english": "So you see, this would be my \"messages from the future\": that the past is a mess. The past is always retroactively reconstructed and so on; we have different versions of the past. I think that instead of learning from the past, we should learn from the future—its potential, imagined future. It's like in quantum mechanics: you see different wave options. Our resource today should be to see different possible futures, and especially to go to your example, which I also like: <em>Pluribus</em>—although I must secretly confess, I don't know if you saw the series, sometimes I put it on fast-forward, you know, sometimes it drags too much! But what I like—I don't know if you noticed this, what truly interests me—I presume you all know the series, vaguely: some foreign intelligence takes over most of humanity except 12 people, and they try to communicate with each other and blah blah, because you must consent to be taken.",
+      "japanese": "というわけで、これが私の「未来からのメッセージ」の意味です。過去というのはめちゃくちゃなもので、常に遡及的に（あとから）再構成され、いくつもの異なる過去が存在します。私は「過去から学ぶ」代わりに、「未来から学ぶ」べきだと思います——潜在的で想像された未来からです。量子力学のように、さまざまな波の選択肢を見るのです。今日の私たちの資源は、可能なさまざまな未来を見ることであるべきです。そして特にあなたの挙げた例、私も好きな『Pluribus』に行きましょう——もっともこっそり告白すると、みなさんも観たか分かりませんが、たまに展開が間延びするので早送りして観ていましたが（笑）。しかし私が好きな点、みなさんが気づいたか分からないけれど私が本当に興味深いと思う点は——みなさんこのシリーズを漠然とは知っていると思いますが、ある未知の知性体が人類のほとんど（12人を除いて）を乗っ取り、乗っ取るには同意が必要なので互いにコミュニケーションを取ろうとする話です。",
+      "annotations": [
+        {
+          "id": "ch9-line-1-note-1",
+          "phrase": "retroactively",
+          "explanation": "「遡及的に、後からさかのぼって」。"
+        },
+        {
+          "id": "ch9-line-1-note-2",
+          "phrase": "drag",
+          "explanation": "「（映画や話が）ダラダラ長引く、間延びする」。"
+        },
+        {
+          "id": "ch9-line-1-note-3",
+          "phrase": "Pluribus",
+          "explanation": "ヴィンス・ギリガン手掛けるSFドラマシリーズ。"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-2",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "00:59:20",
+      "english": "But what's important is this: instead of focusing just on the people who are not yet taken over by foreign intelligence, it focuses also on how these people who are now sharing one mind—how they live. And you see they're deeply unhappy; it's not clear even to them what is happening and so on. I find this very ingenious. The force that is occupying you is not this usual \"one big mind\"—these are people who themselves feel utterly helpless and they live a very poor life. For me, what I see there is Elon Musk in power. By Elon Musk I mean—I've written a book about it—the so-called <strong class=\"key\">Neuralink</strong>: we share one mind. And here comes the philosophical aspect, ask yourself this: the majority of people who are possessed by this virus, whatever, foreign intelligence, they probably don't have any sex—even flirting, sex, all this disappears! They simply... and this can tell us a lot negatively about being human.",
+      "japanese": "しかし重要なのはここです。まだ未知の知性体に乗っ取られていない人々だけに焦点を当てるのではなく、今や「一つの心（精神）」を共有している人々がどう生きているかにも焦点を当てているのです。そして彼らが深く不幸であり、何が起きているのか自分たち自身にさえ分かっていないことが描かれます。これは非常に独創的だと思います。あなたを占有している力は、よくある「一つの巨大な知性」ではなく、彼ら自身も完全に無力感を抱え、非常に貧しい生を送っている人々なのです。私にはそこに、権力を握ったイーロン・マスクが見えます。イーロン・マスクというのは——これについても本を書きましたが——いわゆる「ニューラリンク（Neuralink）」、つまり私たちが一つの心を共有することです。そしてここに哲学的側面が現れます。こう自問してみてください——このウイルスというか未知の知性体に取り憑かれた大多数の人々は、おそらくセックスを一切しないし、イチャつくこと（flirting）さえすべて消え失せる！これは「人間であること」について、ネガティブな側面から多くを物語っています。",
+      "annotations": [
+        {
+          "id": "ch9-line-2-note-1",
+          "phrase": "Neuralink",
+          "explanation": "イーロン・マスクが設立した脳・コンピュータ・インターフェース企業（字幕では `narrow link`）。"
+        },
+        {
+          "id": "ch9-line-2-note-2",
+          "phrase": "flirt",
+          "explanation": "「（恋愛的に）イチャつく、気のある素振りを見せる」。"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-3",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "01:00:59",
+      "english": "I think that—I forgot her name, the lady who is the main hero—she is a woman, a <strong class=\"key\">hysterical subject</strong>. Before you explode against me, let me be more precise: for Freud already, and Lacan, being \"hysterical\" is not a stupid hysterical woman. She doesn't know what she wants. Lacan emphasizes that the explosion of new knowledge, the discovering of something new—that is to say, science as practice, real invention—is hysterical. It's questioning! It's the <em>Che vuoi?</em> moment—\"You tell me!\"—while once it becomes established as a dogma, it's the \"discourse of the university.\"",
+      "japanese": "主人公の女性——名前を忘れましたが——彼女は「ヒステリー的主体（hysterical subject）」だと思います。みなさんが私に激怒する前に、もっと正確に説明させてください。すでにフロイトにとってもラカンにとっても、「ヒステリー的」であるとは、頭の悪いヒステリックな女という意味ではありません。彼女は「自分が何を望んでいるのか分からない」のです。ラカンが強調するのは、新しい知の爆発、何か新しいものの発見——すなわち実践としての科学、真の発明——は「ヒステリー的」だということです。それは問いかけることです！つまり「チェ・ヴオイ（Che vuoi?＝お前は何を望んでいるのか）？」という瞬間であり——「教えてよ！」と問い続ける主体です。一方で、ひとたびそれがドグマとして確立されると、それは「大学の言説（discourse of the university）」になるのです。",
+      "annotations": [
+        {
+          "id": "ch9-line-3-note-1",
+          "phrase": "hysterical subject（ヒステリー的主体）",
+          "explanation": "ラカン精神分析の「4つの言説」の一つ。権威（主人）に対して「それは本当か？私が欲しいものは何なのか？」と絶えず問いを突きつける科学・探求の原動力。"
+        },
+        {
+          "id": "ch9-line-3-note-2",
+          "phrase": "Che vuoi?",
+          "explanation": "イタリア語で「君は何を望むのか？」（字幕では `cave moment` となっています）。"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-4",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "01:01:56",
+      "english": "And here comes my point which may surprise you: I think that we should resist the temptation to <strong class=\"key\">rehabilitate perversion</strong>. I remember—I'm old enough, in '68 I was 18, 19, I was in Paris, I saw it all—and all my admiration goes to Jacques Lacan, who saw what was happening and provided an ingenious warning to students. He told them: \"You don't have enough shame\"—which means you act like perverts, you talk dirty, you provoke politicians, you don't have any decency. And Lacan's message is—that's how I read it—\"Be careful! If you follow this path, you will get a new master which will be even more perverted than you can imagine today.\" It's Donald Trump, or whoever you mean, where perversion is enacted. So I like this idea: do not celebrate perversion, where you simply enact all your dirty dreams, whatever. You know what already Freud says: perversion is something where the unconscious is totally out of reach. Nowhere is the unconscious more repressed than in perversion. Which is why—and this is very important today—shame is not just a force of oppression, like \"I have some dirty desires and I'm ashamed of them.\" No! Sexuality in itself implies a form of shame in the sense that it's not totally transparent—you don't know what you see, and so on.",
+      "japanese": "そしてここで、みなさんを驚かせるかもしれない私の論点に移ります。私たちは「倒錯（perversion）を復権させたいという誘惑」に抵抗すべきだと思います。覚えています——私は十分年を取っているので、1968年には18、19歳でパリにいて一部始終を見ていました——そして私の称賛はすべてジャック・ラカンに向かいます。彼は何が起きているかを見抜き、学生たちに天才的な警告を与えたのです。彼は学生たちに言いました。「君たちには羞恥心（shame）が足りない」と——つまり、倒錯者のように振る舞い、汚い言葉を吐き、政治家を挑発し、品位のかけらもない、と。そしてラカンのメッセージは——私の解釈では——こうです。「気をつけろ！この道を進めば、今日君たちが想像するよりもはるかに倒錯した新しい『主人（マスター）』を手に入れることになるぞ」。それがドナルド・トランプや、倒錯がそのまま実行に移される連中です。ですから私は「倒錯を賛美するな」というこの考え方が好きです。すでにフロイトが言っているように、倒錯とは無意識が完全に手の届かないところへ追いやられた状態なのです。倒錯ほど無意識が抑圧されている場所はありません。だからこそ——これは今日非常に重要なのですが——「羞恥心（shame）」とは単なる抑圧の力（「自分には汚らわしい欲望があって恥ずかしい」といったもの）ではないのです。違います！セクシュアリティそのものが、ある種の羞恥心を含意しているのです——つまり、それが完全に透明ではないという意味において、自分が何を見ているのか自分でも分からないという意味において、です。",
+      "annotations": [
+        {
+          "id": "ch9-line-4-note-1",
+          "phrase": "perversion",
+          "explanation": "「倒錯」（精神分析では、自分が「大他者（システム）の享楽の道具」になりきってしまい、罪悪感や迷いなく欲望を直接遂行する構造を指す）。"
+        },
+        {
+          "id": "ch9-line-4-note-2",
+          "phrase": "enact",
+          "explanation": "「（法律や衝動を）実行に移す、演じる」。"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-5",
+      "speaker": {
+        "name": "Host & Žižek",
+        "className": "speaker-host & Žižek"
+      },
+      "time": "01:04:00",
+      "english": "<strong>Host:</strong> Well, you gave a version of this—we were talking about this a couple years ago—about how, you said very provocatively, at least at Abu Ghraib they tried to cover it up. At Abu Ghraib, the Americans tried to cover up the atrocities that they knew, whereas now in the genocide in Gaza, there's no shame: out in the open, posting on TikTok.<br>\n    <strong>Žižek:</strong> Friends are sending me from Israel clips from public TV where they openly talk about how to torture Palestinians, how to—you know, like the latest thing, Israel denied it, now it's considered proven in Israel—that they developed a special cream: if I put it on your ass, then I have specially trained big dogs who, when they smell that, will rape you in your ass and so on. And they openly debate this and so on. We are really approaching a shameless world.",
+      "japanese": "<strong>司会：</strong>ええ、数年前にもこれと同じような話をしましたよね。あなたは非常に挑発的に「少なくともアブグレイブ（刑務所の拷問事件）では、アメリカ人は自分たちが知っている残虐行為を隠そうとした。それに対して今のガザでのジェノサイドには羞恥心がまったくなく、公然とTikTokに投稿されている」と言いました。<br>\n    <strong>ジジェク：</strong>イスラエルの友人たちが公共テレビの映像を送ってきますが、そこではパレスチナ人をどう拷問するかを公然と議論しているのです。たとえば最新の話では——イスラエルは否定していましたが今ではイスラエル国内でも事実と認められていますが——特別なクリームを開発して、それを囚人のお尻に塗ると、特別な訓練を受けた大型犬がその匂いを嗅いで肛門をレイプする、といったことです。彼らはそれを公然と討論しているのです。私たちは本当に「恥知らずな世界（shameless world）」に近づいています。",
+      "annotations": [
+        {
+          "id": "ch9-line-5-note-1",
+          "phrase": "Abu Ghraib",
+          "explanation": "2003〜2004年に発覚したイラク・アブグレイブ刑務所での米軍による捕虜虐待事件（字幕では `Abu Grae`）。"
+        },
+        {
+          "id": "ch9-line-5-note-2",
+          "phrase": "atrocities",
+          "explanation": "「残虐行為」。"
+        },
+        {
+          "id": "ch9-line-5-note-3",
+          "phrase": "cover up",
+          "explanation": "「隠蔽する」。"
+        }
+      ]
+    },
+    {
+      "id": "ch9-line-6",
+      "speaker": {
+        "name": "Žižek",
+        "className": "speaker-zizek"
+      },
+      "time": "01:05:06",
+      "english": "And to really finish—I don't know if there is a chapter already in this book or in the next one, I write too many of them—there is an old concept by Herbert Marcuse, the great Frankfurt School guy, called <strong class=\"key\">repressive desublimation</strong>. I think this is our reality now. Desublimation—I will not even read it in the strict Lacanian sense, but in common sense: sublimation means instead of doing it in a refined way through metaphors, language, a civilized way, I directly, brutally enact my desires. \"Repressive\"—what does this mean? Marcuse was quite intelligent to learn this: that when you desublimate—and today we live in a desublimated society, you can openly say things, practice what would have been called weird ways of life and so on—yes, we do this, but the outcome is not liberation. It's not \"oh, too much freedom.\" No, in this desublimated society you are even more oppressed: the <strong class=\"key\">superego</strong>, as Lacan put it, the <strong class=\"key\">injunction to enjoy</strong>, rules totally. So this, I think, would have been a good description of where we are today: repressive desublimation. We have to rehabilitate sublimation. You go on.",
+      "japanese": "そして本当に締めくくると——この本にもう章が入っているか次の本になるか分かりませんが、なにしろ本を書きすぎているので——偉大なフランクフルト学派の思想家ヘルベルト・マルクーゼによる「抑圧的脱昇華（repressive desublimation）」という古い概念があります。これこそが今の私たちの現実だと思います。脱昇華とは——厳密なラカン的意味ではなく常識的な意味で言いますが——「昇華」が比喩や言語、文明的なやり方といった洗練された方法を通して行うことであるのに対し、自分の欲望を直接的かつ野蛮にそのまま実行に移すことです。ではなぜ「抑圧的」なのか？マルクーゼはこれを見抜くほど賢明でした。つまり、脱昇華を行うと——そして今日私たちは、何でも公然と言え、かつては奇妙な生き方と呼ばれたものを実践できる脱昇華された社会に生きていますが——その結果は「解放」ではないのです。「ああ、自由すぎる」ということにはなりません。そうではなく、この脱昇華された社会では、あなたはかえってさらに抑圧されているのです。ラカンが表現したように、「楽しめ！（享楽せよ！）」という超自我（superego）の命令がすべてを支配しているのです。ですから、これこそが今日の私たちの立ち位置をうまく言い表していると思います——抑圧的脱昇華です。私たちは「昇華（sublimation）」を復権させなければなりません。どうぞ続けてください。",
+      "annotations": [
+        {
+          "id": "ch9-line-6-note-1",
+          "phrase": "Herbert Marcuse",
+          "explanation": "フランクフルト学派の哲学者ヘルベルト・マルクーゼ（字幕では `Sherbet Marcus`）。1964年の『一次元的人間』で「抑圧的脱昇華」を提唱。"
+        },
+        {
+          "id": "ch9-line-6-note-2",
+          "phrase": "injunction to enjoy",
+          "explanation": "「楽しめという（超自我の）命令」。義務としての快楽が人をかえって息苦しくさせるというジジェクの核心的テーマ。"
+        }
+      ]
+    }
+  ]
+}
