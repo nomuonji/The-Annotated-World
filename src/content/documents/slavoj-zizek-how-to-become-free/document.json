@@ -1,0 +1,105 @@
+{
+  "title": "Slavoj Žižek: How to become free — 自由を選ぶことと、自由の条件を変えること",
+  "heroMeta": "約95分の講演から論点別に12章・24箇所を引用 · 2026年11月21日編集 · 取得字幕は原動画未照合",
+  "description": "ジジェクは、デザートを選ぶ自由、過去の意味を変える自由、コーヒーに欠けているもの、自由を口実に先送りする喫煙、仕事の柔軟性とプラットフォーム支配、ウクライナと普遍性へと話を展開する。既存RapidAPIの字幕候補から選んだ短い発話を日英対訳で読み、英語表現と思想の結びつきを原文に沿った日本語の文中註で確認する。全文転載ではなく、24箇所の選択的引用と独自の批評・解説である。APIの原文はYouTube字幕トラックや動画音声との独立照合を完了していない。",
+  "facts": [
+    {
+      "label": "話者",
+      "value": "Slavoj Žižek（字幕候補に基づく話者表示・各発話の音声未照合）"
+    },
+    {
+      "label": "収録時間",
+      "value": "元動画約95分15秒／本資料は12章・24短文の抜粋"
+    },
+    {
+      "label": "本文の性格",
+      "value": "発言の短い引用＋和訳＋文中註。完全スクリプトではありません"
+    },
+    {
+      "label": "原文確認",
+      "value": "RapidAPI2字幕候補1,533件を取得。YouTube本体字幕との逐語照合は未完了"
+    },
+    {
+      "label": "元動画",
+      "value": "YouTubeで元動画を確認する",
+      "url": "https://www.youtube.com/watch?v=4YSXNotY8QU"
+    }
+  ],
+  "toc": {
+    "title": "講演を12の論点でたどる",
+    "description": "自由の定義から歴史・日常の規則・デジタル経済・戦争を経て結語へ。各章の時刻は字幕候補の該当行から採った開始位置であり、音声と字幕の逐語一致は未確認。見出し・批評は編集部によるもので、ジジェクの実際の章立てではない。"
+  },
+  "sources": {
+    "title": "原典と取得根拠",
+    "items": [
+      {
+        "before": "原動画：",
+        "url": "https://www.youtube.com/watch?v=4YSXNotY8QU",
+        "label": "Slavoj Žižek: How to become free（fediak 22 / YouTube）",
+        "after": "動画長約95分15秒。話者・字幕は個別引用部の原音声との照合が必要。"
+      },
+      {
+        "before": "取得経路の実装：",
+        "url": "https://github.com/nomuonji/kirinuki-generator/blob/main/scripts/annotated_world_caption_export.py",
+        "label": "kirinuki-generator / RapidAPI既存字幕候補の非公開取得",
+        "after": "字幕本文・APIキーは非公開Driveに保管。"
+      }
+    ]
+  },
+  "chapterOrder": [
+    "ch1",
+    "ch2",
+    "ch3",
+    "ch4",
+    "ch5",
+    "ch6",
+    "ch7",
+    "ch8",
+    "ch9",
+    "ch10",
+    "ch11",
+    "ch12"
+  ],
+  "genre": "philosophy",
+  "format": "講演・対訳抜粋",
+  "people": [
+    {
+      "id": "slavoj-zizek",
+      "name": "Slavoj Žižek",
+      "ja": "スラヴォイ・ジジェク"
+    }
+  ],
+  "topics": [
+    {
+      "id": "freedom",
+      "name": "自由"
+    },
+    {
+      "id": "ideology",
+      "name": "イデオロギー"
+    },
+    {
+      "id": "war",
+      "name": "戦争"
+    }
+  ],
+  "provenance": {
+    "coverage": "excerpt",
+    "transcript": "unverified",
+    "translation": "unverified",
+    "rights": "unverified",
+    "basis": "動画ID 4YSXNotY8QU に対する既存 kirinuki-generator の RapidAPI2 字幕候補を2026-11-20に取得。全1533セグメント、最終字幕時刻5713.28秒、候補JSONのSHA256 2b58fa1f3745340166f26b8e67480ac6ad695121ec706b787127f7097fa58487。原YouTube字幕トラック・録音との逐語照合、字幕生成経路、権利・許諾については未確認。24箇所の短い引用を中心に編集部の原創的な日本語批評と読解註を付け、長文・全文転記はしない。",
+    "sourceUrl": "https://www.youtube.com/watch?v=4YSXNotY8QU"
+  },
+  "youtubeCapture": {
+    "provider": "rapidapi",
+    "videoId": "4YSXNotY8QU",
+    "method": "existing-caption-candidate",
+    "language": "en",
+    "tool": "kirinuki-generator/transcribe_rapidapi.py + annotated_world_caption_export.py",
+    "capturedAt": "2026-11-20T20:38:48.736796Z",
+    "sha256": "2b58fa1f3745340166f26b8e67480ac6ad695121ec706b787127f7097fa58487",
+    "transport": "rapidapi-caption-proxy",
+    "originVerified": false
+  }
+}
