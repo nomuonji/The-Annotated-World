@@ -30,6 +30,26 @@ try{
   assert.equal(await inline.isVisible(),true,'Background explanation must be inline without tapping');
   assert.equal(await languageNote.isVisible(),true,'Language explanation must be inline without tapping');
   assert.equal(await annotationsButton.getAttribute('aria-pressed'),'true');
+
+  // Regression for the screenshot: the Hegel quotation sits inside <strong>.
+  // Highlight the *whole* exact quotation, then place its context note
+  // directly after "everywhere", never in the middle of "Evil".
+  const hegel=page.locator('#ch2-line-3');
+  const quoted=hegel.locator('.annotation-source[data-note-targets~="ch2-line-3-note-1"]');
+  assert.equal((await quoted.allTextContents()).join(''),
+   'Evil resides in the gaze which sees evil everywhere');
+  const explanation=hegel.locator('[data-editorial-gloss="ch2-line-3-note-1"]');
+  const adjacent=await explanation.evaluate(node=>{
+   const previous=node.parentElement?.previousElementSibling;
+   return previous?.classList.contains('annotation-source')&&
+    previous.textContent?.endsWith('everywhere')&&
+    (previous.getAttribute('data-note-targets')||'').includes('ch2-line-3-note-1');
+  });
+  assert.equal(adjacent,true,'Historical note is not immediately after its highlighted quotation');
+  assert.ok(await explanation.isVisible(),'Historical note is not visible with annotation ON');
+  assert.equal(await page.locator('.annotation-kind,.reader-annotation-legend').count(),0,
+   'Redundant language/background labels remain visible');
+
   assert.equal(await page.locator('[data-note-toggle],#word-dialog').count(),0,'Unused tap-based annotation controls remain');
   assert.equal(await page.locator('.reader-annotation-legend span').count(),2);
   assert.equal(await first.locator('.note').isVisible(),false);
