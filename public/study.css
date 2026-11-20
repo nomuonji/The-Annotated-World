@@ -214,3 +214,54 @@ html[data-theme="dark"] .study-mode button[aria-pressed=true],html[data-theme="d
   max-height:min(24dvh, 160px);
  }
 }
+
+/* A single, explicit annotation affordance: tap an underlined phrase to
+   reveal its own note in place. Merely emphasized vocabulary is not a link. */
+.study-original .en strong.key{text-decoration:none}
+.study-original .en .in-situ-annotation[hidden]{display:none!important}
+.study-original .en .annotation-term[data-note-toggle]{
+ cursor:pointer;
+ touch-action:manipulation;
+ border-radius:2px;
+ text-decoration:underline dotted #7d9eb9 1.5px;
+ text-underline-offset:4px;
+}
+.study-original .en .annotation-term[data-note-toggle]:focus-visible{
+ outline:2px solid var(--accent);
+ outline-offset:3px;
+}
+.study-original .en .annotation-term[aria-expanded="true"]{
+ background:color-mix(in srgb,var(--accent) 13%,transparent);
+ text-decoration-style:solid;
+}
+.study-original .en .annotation-fallback{
+ font:500 .67em/1.4 'Noto Sans JP',sans-serif;
+ color:var(--accent-text);
+ white-space:nowrap;
+}
+.study-layout[data-annotations="off"] .study-original .annotation-term[data-note-toggle]{
+ cursor:text;text-decoration:none;background:none;
+}
+.study-layout[data-annotations="off"] .study-original .annotation-fallback{
+ display:none!important;
+}
+/* Editorial notes without a verbatim phrase stay outside the source English
+   so caption-provenance and full-text checks remain byte-for-byte stable. */
+.study-original .in-situ-annotation[hidden]{display:none!important}
+.study-original .utterance-tools .annotation-fallback{
+ font:500 12px/1.4 'Noto Sans JP',sans-serif;
+ padding:6px 8px;
+ border:1px dotted var(--hair);
+ color:var(--accent-text);
+ background:var(--paper);
+ cursor:pointer;
+}
+.study-original .utterance-tools .in-situ-annotation:not([hidden]){
+ flex:1 1 100%;
+ padding:7px 9px;
+ background:color-mix(in srgb,var(--accent) 7%,var(--paper));
+ border-left:2px solid var(--accent);
+ font:400 13px/1.7 'Noto Sans JP',sans-serif;
+ color:var(--ink2);
+ overflow-wrap:anywhere;
+}

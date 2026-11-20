@@ -31,7 +31,7 @@ for(const {id,document,chapters,bodyHtml} of sources){
  const expected=chapters.flatMap(c=>c.utterances.map(u=>u.id));
  assert.deepEqual(page('.utterance').toArray().map(e=>page(e).attr('id')),expected,id+': fixed IDs changed');
  if(document.provenance.coverage!=='full'){
-  assert.equal(page('.in-situ-annotation').length>=expected.length,true,id+': not every annotated utterance has a note');
+  assert.equal(page('.utterance .in-situ-annotation').length>=expected.length,true,id+': not every annotated utterance has a note');
   assert.equal(page('.note.annotation-converted').length,expected.length,id+': visible duplicate note panel');
  }else{
   const cues=chapters.flatMap(ch=>ch.utterances.flatMap(u=>u.sourceCues));
@@ -80,8 +80,13 @@ const pages=(await walk('dist')).filter(p=>p.endsWith('/index.html')&&!p.include
 const byPath=new Map();for(const p of pages){const url='/'+p.slice(5,-'index.html'.length);byPath.set(url,load(await readFile(p,'utf8')));}
 for(const [url,$] of byPath)for(const a of $('a[href]').toArray()){const href=$(a).attr('href');if(!href||(!href.startsWith('/')&&!href.startsWith('#'))||href.startsWith('//'))continue;const u=new URL(href,'https://archive.local'+url);const target=byPath.get(u.pathname);assert.ok(target,'Broken internal link '+url+' -> '+href);if(u.hash)assert.ok(target('[id]').toArray().some(e=>target(e).attr('id')===decodeURIComponent(u.hash.slice(1))),'Broken anchor '+url+' -> '+href);}
 const words=byPath.get('/words/');const concepts=byPath.get('/concepts/');assert.ok(words('.word-card').length>50);assert.ok(concepts('.word-card').length>=10);
-const firstLink=sample('.en strong.key a[data-word]').first().attr('href');assert.ok(firstLink&&byPath.has(firstLink));assert.ok(byPath.get(firstLink)('.occurrence a[href="/read/slavoj-zizek-signs-from-the-future/#ch1-line-1"]').length);
-assert.ok(byPath.get('/concepts/surplus-enjoyment/')('.occurrence').length);assert.equal(sample('.editorial-annotation').length,0);assert.equal(sample('.note.annotation-converted').length,61);assert.equal(sample('.en .in-situ-annotation').length>=61,true);
+// The independent word index remains navigable even though unannotated
+// bold terms are no longer dead-end clickable elements in the reader.
+const firstLink=words('a.word-card').filter((_,e)=>words(e).find('strong').text().trim()==='unceded territories').first().attr('href');
+assert.ok(firstLink&&byPath.has(firstLink));
+assert.ok(byPath.get(firstLink)('.occurrence a[href="/read/slavoj-zizek-signs-from-the-future/#ch1-line-1"]').length);
+assert.equal(sample('.en strong.key a[data-word]').length,0,'Dead-end vocabulary links remain in reader');
+assert.ok(byPath.get('/concepts/surplus-enjoyment/')('.occurrence').length);assert.equal(sample('.editorial-annotation').length,0);assert.equal(sample('.note.annotation-converted').length,61);assert.equal(sample('.utterance .in-situ-annotation').length>=61,true);
 console.log('Knowledge indexes: '+words('.word-card').length+' expressions, '+concepts('.word-card').length+' concepts and references');
 console.log('Discovery routes, video source and internal links verified: '+pages.length+' static pages');
 

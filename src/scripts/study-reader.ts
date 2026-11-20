@@ -22,6 +22,14 @@ function setup(reader:HTMLElement){
  const showAnnotations=(on:boolean)=>{
   annotationsVisible=on;
   reader.dataset.annotations=on?'on':'off';
+  // OFF is genuine English-only text: no clickable cues and no expanded
+  // editorial notes. Restore cue accessibility when switched back on.
+  for(const mark of reader.querySelectorAll<HTMLElement>('[data-note-toggle]')){
+   mark.tabIndex=on?0:-1;
+   mark.setAttribute('aria-disabled',String(!on));
+   if(!on)mark.setAttribute('aria-expanded','false');
+  }
+  if(!on)for(const note of reader.querySelectorAll<HTMLElement>('.in-situ-annotation'))note.hidden=true;
   if(annotationsButton){
    annotationsButton.setAttribute('aria-pressed',String(on));
    annotationsButton.textContent=on?'注釈 ON':'注釈 OFF';
