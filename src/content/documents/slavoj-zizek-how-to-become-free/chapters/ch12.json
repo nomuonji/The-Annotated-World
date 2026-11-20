@@ -1,0 +1,55 @@
+{
+  "id": "ch12",
+  "title": "12. 結語──答えではなく、考えるための混乱を",
+  "timeRange": "01:28:00 – 01:35:15",
+  "summary": "愛国心と自由を単純な敵対項にせず、聴衆に決着のついた答えではなく問いを残す。講演の終点は、受け身の納得ではない。",
+  "genres": [
+    "philosophy"
+  ],
+  "topics": [
+    {
+      "id": "freedom",
+      "name": "自由"
+    },
+    {
+      "id": "war",
+      "name": "戦争"
+    }
+  ],
+  "utterances": [
+    {
+      "id": "ch12-line-1",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "01:33:20",
+      "english": "patriotism and Freedom are not opposed",
+      "japanese": "愛国心と自由は対立するものではない。",
+      "annotations": [
+        {
+          "id": "ch12-line-1-note-1",
+          "phrase": "are not opposed",
+          "explanation": "愛国心を無条件で称揚するのではなく、自国の誤りに抗う態度も含めた文脈で述べられる。"
+        }
+      ]
+    },
+    {
+      "id": "ch12-line-2",
+      "speaker": {
+        "name": "Slavoj Žižek（字幕候補・未照合）",
+        "className": "speaker-zizek"
+      },
+      "time": "01:34:54",
+      "english": "I want to disorient you to make you think",
+      "japanese": "あなたがたを少し混乱させ、考えさせたいのだ。",
+      "annotations": [
+        {
+          "id": "ch12-line-2-note-1",
+          "phrase": "disorient you",
+          "explanation": "disorient は「方向感覚を失わせる」。明快な最終解答を与えるより問い直すことを講演の成果とする結語。"
+        }
+      ]
+    }
+  ]
+}
