@@ -31,17 +31,20 @@
         {
           "id": "ch9-line-1-note-1",
           "phrase": "retroactively",
-          "explanation": "「遡及的に、後からさかのぼって」。"
+          "explanation": "「遡及的に、後からさかのぼって」。",
+          "kind": "language"
         },
         {
           "id": "ch9-line-1-note-2",
           "phrase": "drag",
-          "explanation": "「（映画や話が）ダラダラ長引く、間延びする」。"
+          "explanation": "「（映画や話が）ダラダラ長引く、間延びする」。",
+          "kind": "language"
         },
         {
           "id": "ch9-line-1-note-3",
           "phrase": "Pluribus",
-          "explanation": "ヴィンス・ギリガン手掛けるSFドラマシリーズ。"
+          "explanation": "ヴィンス・ギリガン手掛けるSFドラマシリーズ。",
+          "kind": "context"
         }
       ]
     },
@@ -58,12 +61,14 @@
         {
           "id": "ch9-line-2-note-1",
           "phrase": "Neuralink",
-          "explanation": "イーロン・マスクが設立した脳・コンピュータ・インターフェース企業（字幕では `narrow link`）。"
+          "explanation": "イーロン・マスクが設立した脳・コンピュータ・インターフェース企業（字幕では `narrow link`）。",
+          "kind": "context"
         },
         {
           "id": "ch9-line-2-note-2",
           "phrase": "flirt",
-          "explanation": "「（恋愛的に）イチャつく、気のある素振りを見せる」。"
+          "explanation": "「（恋愛的に）イチャつく、気のある素振りを見せる」。",
+          "kind": "language"
         }
       ]
     },
@@ -80,12 +85,14 @@
         {
           "id": "ch9-line-3-note-1",
           "phrase": "hysterical subject（ヒステリー的主体）",
-          "explanation": "ラカン精神分析の「4つの言説」の一つ。権威（主人）に対して「それは本当か？私が欲しいものは何なのか？」と絶えず問いを突きつける科学・探求の原動力。"
+          "explanation": "ラカン精神分析の「4つの言説」の一つ。権威（主人）に対して「それは本当か？私が欲しいものは何なのか？」と絶えず問いを突きつける科学・探求の原動力。",
+          "kind": "context"
         },
         {
           "id": "ch9-line-3-note-2",
           "phrase": "Che vuoi?",
-          "explanation": "イタリア語で「君は何を望むのか？」（字幕では `cave moment` となっています）。"
+          "explanation": "イタリア語で「君は何を望むのか？」（字幕では `cave moment` となっています）。",
+          "kind": "language"
         }
       ]
     },
@@ -102,12 +109,14 @@
         {
           "id": "ch9-line-4-note-1",
           "phrase": "perversion",
-          "explanation": "「倒錯」（精神分析では、自分が「大他者（システム）の享楽の道具」になりきってしまい、罪悪感や迷いなく欲望を直接遂行する構造を指す）。"
+          "explanation": "「倒錯」（精神分析では、自分が「大他者（システム）の享楽の道具」になりきってしまい、罪悪感や迷いなく欲望を直接遂行する構造を指す）。",
+          "kind": "context"
         },
         {
           "id": "ch9-line-4-note-2",
           "phrase": "enact",
-          "explanation": "「（法律や衝動を）実行に移す、演じる」。"
+          "explanation": "「（法律や衝動を）実行に移す、演じる」。",
+          "kind": "language"
         }
       ]
     },
@@ -124,17 +133,20 @@
         {
           "id": "ch9-line-5-note-1",
           "phrase": "Abu Ghraib",
-          "explanation": "2003〜2004年に発覚したイラク・アブグレイブ刑務所での米軍による捕虜虐待事件（字幕では `Abu Grae`）。"
+          "explanation": "2003〜2004年に発覚したイラク・アブグレイブ刑務所での米軍による捕虜虐待事件（字幕では `Abu Grae`）。",
+          "kind": "context"
         },
         {
           "id": "ch9-line-5-note-2",
           "phrase": "atrocities",
-          "explanation": "「残虐行為」。"
+          "explanation": "「残虐行為」。",
+          "kind": "language"
         },
         {
           "id": "ch9-line-5-note-3",
           "phrase": "cover up",
-          "explanation": "「隠蔽する」。"
+          "explanation": "「隠蔽する」。",
+          "kind": "language"
         }
       ]
     },
@@ -151,12 +163,14 @@
         {
           "id": "ch9-line-6-note-1",
           "phrase": "Herbert Marcuse",
-          "explanation": "フランクフルト学派の哲学者ヘルベルト・マルクーゼ（字幕では `Sherbet Marcus`）。1964年の『一次元的人間』で「抑圧的脱昇華」を提唱。"
+          "explanation": "フランクフルト学派の哲学者ヘルベルト・マルクーゼ（字幕では `Sherbet Marcus`）。1964年の『一次元的人間』で「抑圧的脱昇華」を提唱。",
+          "kind": "context"
         },
         {
           "id": "ch9-line-6-note-2",
           "phrase": "injunction to enjoy",
-          "explanation": "「楽しめという（超自我の）命令」。義務としての快楽が人をかえって息苦しくさせるというジジェクの核心的テーマ。"
+          "explanation": "「楽しめという（超自我の）命令」。義務としての快楽が人をかえって息苦しくさせるというジジェクの核心的テーマ。",
+          "kind": "context"
         }
       ]
     }
