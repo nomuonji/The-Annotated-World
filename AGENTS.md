@@ -2,6 +2,10 @@
 
 **新規YouTube教材の追加は必ず [docs/NEW-CONTENT-WORKFLOW.md](docs/NEW-CONTENT-WORKFLOW.md) → [docs/CONTENT-AGENT.md](docs/CONTENT-AGENT.md) の順に読み、`npm run content:inspect` で重複確認する。** ユーザーが確定した読み方・出典の扱い・注釈形式・品質ゲートは同文書を正本とする。
 
+## 最新の実測：RapidAPIから直接字幕候補を取得済み（2026-11-21）
+
+`4YSXNotY8QU` の字幕1,533件・終端5713.28秒を `nomuonji/kirinuki-generator` の既存RapidAPI経路で取得し、**非公開Google Drive** の `the-annotated-world-private-sources` に保存済み（[取得証跡](docs/research/2026-11-21-zizek-rapidapi-private-source.md)）。次回はこれを使用し、ユーザーへブラウザ手動取得を要求しない。API再実行も必要時のみ。取得は成功したがYouTube本体字幕との逐語同一性、API2が独自ASRを使った可能性、公開権利は未確認。既存の偽装防止ゲートは維持。
+
 ## Editorial contract — structured content
 
 - **唯一の公開コンテンツ正本**: `src/content/documents/<slug>/document.json` と `src/content/documents/<slug>/chapters/<chapter-id>.json`。原稿のHTMLファイルや古い `.meta.json`・`.annotations.json` を追加しない。JSON内に編集ステータス（draft/review/published/retired）は作らない。新規資料は [記事テンプレート](docs/templates/document.json)・[章テンプレート](docs/templates/chapter.json) に従う。
