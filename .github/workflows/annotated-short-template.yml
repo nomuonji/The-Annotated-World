@@ -1,0 +1,79 @@
+name: Annotated Short template integrity
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'templates/annotated-short/**'
+      - 'scripts/annotated-short.mjs'
+      - 'tools/annotated-short/**'
+      - '.github/workflows/annotated-short-template.yml'
+      - 'package.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  structural-and-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Dependencies (synthetic test footage only)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+          python -m pip install -r tools/annotated-short/requirements.txt
+      - name: Structure check and cutlist generation
+        run: |
+          npm run short:check -- templates/annotated-short/brief.example.json
+          npm run short:plan -- templates/annotated-short/brief.example.json --output /tmp/annotated-short-cutlist.json
+          test -s /tmp/annotated-short-cutlist.json
+      - name: Verify role violations are rejected
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          a=json.load(open('templates/annotated-short/brief.example.json'))
+          a['segments'][3]['role']='QUOTE'
+          a['segments'][3]['voiceId']=a['editor']['voiceId']
+          json.dump(a,open('/tmp/invalid-role-short.json','w'))
+          PY
+          if node scripts/annotated-short.mjs validate /tmp/invalid-role-short.json; then
+            echo 'ERROR: role-confused annotations were accepted'
+            exit 1
+          fi
+          echo 'PASS: voice/caption role confusion rejected'
+      - name: Generate artificial local-only audio and photograph fixtures
+        shell: bash
+        run: |
+          mkdir -p /tmp/annotated-short-fixture/audio /tmp/annotated-short-fixture/assets
+          cp templates/annotated-short/brief.example.json /tmp/annotated-short-fixture/brief.json
+          python - <<'PY'
+          from PIL import Image,ImageDraw
+          from pathlib import Path
+          p=Path('/tmp/annotated-short-fixture/assets')
+          for i,name in enumerate(['speaker','venue','ww1']):
+              im=Image.new('RGB',(600,1000),(29+i*25,40+i*20,60+i*14))
+              d=ImageDraw.Draw(im)
+              d.text((40,400),'SYNTHETIC TEST FIXTURE - NOT REAL MEDIA',fill='white')
+              im.save(p/f'{name}.jpg')
+          PY
+          for file in quote-hook context-intro quote-war annotation-war quote-conclusion; do
+            ffmpeg -y -v error -f lavfi -i "sine=frequency=330:sample_rate=48000" -t 3.4 -c:a libmp3lame -q:a 5 "/tmp/annotated-short-fixture/audio/$file.mp3"
+          done
+          ffmpeg -y -v error -f lavfi -i "sine=frequency=176:sample_rate=48000" -t 35 "/tmp/annotated-short-fixture/assets/music.wav"
+      - name: Media structure and actual video smoke render
+        shell: bash
+        run: |
+          npm run short:check -- /tmp/annotated-short-fixture/brief.json --media
+          npm run short:render -- /tmp/annotated-short-fixture/brief.json
+          test -s /tmp/annotated-short-fixture/output/annotated-short.mp4
+          test -s /tmp/annotated-short-fixture/output/captions.srt
+          test -s /tmp/annotated-short-fixture/output/contact-sheet.jpg
+          ffprobe -v error -show_entries format=duration -of default=nw=1 /tmp/annotated-short-fixture/output/annotated-short.mp4
+          ffmpeg -v error -i /tmp/annotated-short-fixture/output/annotated-short.mp4 -f null -
