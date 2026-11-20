@@ -121,7 +121,12 @@ function verifyChapter(id,chapter,seen,full=false){
    if(!Array.isArray(u.sourceCues)||!u.sourceCues.length)fail(u.id,'full transcript passage must retain its original cues');
    if(u.sourceCues.some(c=>!Number.isSafeInteger(c.index)||c.index<0||!text(c.text)||!Number.isFinite(c.start)||!Number.isFinite(c.end)||c.end<=c.start))fail(u.id,'malformed source cue');
    const original=load('<p>'+u.sourceCues.map(c=>c.text).join(' ')+'</p>')('p').text().replace(/\s+/g,' ').trim();
-   if(original!==u.english.replace(/\s+/g,' ').trim())fail(u.id,'source English was omitted, edited or reordered');
+   const displayed=u.english.replace(/\s+/g,' ').trim();
+   const lex=s=>(s.toLocaleLowerCase().replace(/[’‘]/g,"'").match(/[a-z0-9]+/g)||[]).join(' ');
+   if(lex(original)!==lex(displayed))fail(u.id,'NO OMISSION: source words were removed, added or reordered by punctuation editing');
+   if(u.englishRaw&&u.englishRaw.replace(/\s+/g,' ').trim()!==original)fail(u.id,'original raw English must stay traceable');
+   if(u.japanese.length<Math.max(4,Math.floor(u.english.length*0.30)))
+    fail(u.id,'NO OMISSION: Japanese translation suspiciously short for the English source');
   }
   const sourceEnglish=load('<p>'+u.english+'</p>')('p').text().toLocaleLowerCase();
   for(const a of u.annotations){
