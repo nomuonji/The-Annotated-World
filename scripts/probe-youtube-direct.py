@@ -3,24 +3,30 @@
 
 Example:
   python -m pip install -U "yt-dlp[default]" youtube-transcript-api
-  python scripts/probe-youtube-direct.py 4YSXNotY8QU
+  python scripts/probe-youtube-direct.py 4YSXNotY8QU --output-dir ./private-source
 
 All media/subtitles are temporary. Log only source evidence, hashes and failure summaries.
 An audio sample proves access but DOES NOT count as a completed transcript.
 """
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
 from datetime import datetime, timezone
 
-VIDEO_ID = sys.argv[1] if len(sys.argv) == 2 else "4YSXNotY8QU"
+cli = argparse.ArgumentParser(description="Attempt ONLY direct source YouTube captions or audio")
+cli.add_argument("video_id", nargs="?", default="4YSXNotY8QU")
+cli.add_argument("--output-dir", type=Path, help="Optional LOCAL folder to retain acquired subtitle files outside the public repository")
+options = cli.parse_args()
+VIDEO_ID = options.video_id
 if not re.fullmatch(r"[A-Za-z0-9_-]{11}", VIDEO_ID):
     raise SystemExit("Expected an exact eleven-character YouTube video ID")
 
@@ -55,6 +61,11 @@ def evidence(method: str, language: str, filename: Path, count: int = 0) -> None
     }
     # A verified source proof; raw copyrighted captions are deliberately never in job logs.
     print("CAPTURE_EVIDENCE=" + json.dumps(proof, ensure_ascii=False), flush=True)
+    if options.output_dir:
+        options.output_dir.mkdir(parents=True, exist_ok=True)
+        saved = options.output_dir / f"{VIDEO_ID}_{filename.name}"
+        shutil.copy2(filename, saved)
+        print("SOURCE_FILE_SAVED=" + str(saved), flush=True)
 
 
 def api_captions(workdir: Path) -> bool:
