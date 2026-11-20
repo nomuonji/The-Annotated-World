@@ -30,6 +30,32 @@ function renderDocument(document,chapters){
  body+'\n<footer class="sources"><h2>'+escape(document.sources.title)+'</h2><ol>'+sources+'</ol></footer>';
 }
 
+// New YouTube lessons may only originate from video-specific directly acquired YouTube streams.
+// Existing first document was supplied by the user before this contract and is not proof of extraction.
+const suppliedLegacy='slavoj-zizek-signs-from-the-future';
+function sourceYouTubeId(raw){
+ try{
+  const u=new URL(raw),host=u.hostname.toLowerCase();
+  let value=null;
+  if(host==='youtu.be')value=u.pathname.split('/')[1];
+  else if(['youtube.com','www.youtube.com','m.youtube.com'].includes(host))value=u.searchParams.get('v')||u.pathname.match(/^\/(?:shorts|live|embed)\/([^/]+)/)?.[1];
+  return value&&/^[A-Za-z0-9_-]{11}$/.test(value)?value:null;
+ }catch{return null;}
+}
+function verifyDirectYoutubeCapture(id,document){
+ const videoId=sourceYouTubeId(document.provenance?.sourceUrl||'');
+ if(!videoId){
+  if(document.youtubeCapture)fail(id,'youtubeCapture present without a valid YouTube source URL');
+  return;
+ }
+ if(id===suppliedLegacy)return;
+ const proof=document.youtubeCapture;
+ if(!proof||proof.provider!=='youtube'||proof.videoId!==videoId)fail(id,'a new YouTube lesson requires direct YouTube capture evidence matching the video ID; third-party transcript mirrors are forbidden');
+ if(!['youtube-captions','youtube-auto-captions','youtube-audio-asr'].includes(proof.method))fail(id,'capture method must be direct YouTube captions or audio-derived ASR');
+ if(!text(proof.language)||!text(proof.tool)||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(proof.capturedAt||'')||!Number.isFinite(Date.parse(proof.capturedAt)))fail(id,'capture language, tool and UTC timestamp required');
+ if(!/^[0-9a-f]{64}$/.test(proof.sha256||''))fail(id,'capture must have actual SHA-256 digest of the YouTube-derived source file');
+}
+
 function verifyDocument(id,document){
  if(!document||typeof document!=='object')fail(id,'document.json is not an object');
  for(const k of ['title','heroMeta','description'])if(!text(document[k]))fail(id,'missing '+k);
@@ -47,6 +73,7 @@ function verifyDocument(id,document){
   !['original','licensed','public-domain','unverified'].includes(document.provenance.rights))fail(id,'invalid provenance status');
  if(!Array.isArray(document.people)||!Array.isArray(document.topics))fail(id,'people and topics must be arrays');
  // Content publication is controlled by presence in the repository, never an editorial status flag.
+ verifyDirectYoutubeCapture(id,document);
  for(const key of ['status','draft','published','retired','chapterMetadata'])if(Object.hasOwn(document,key))fail(id,'unsupported legacy field '+key);
 }
 function verifyChapter(id,chapter,seen){
