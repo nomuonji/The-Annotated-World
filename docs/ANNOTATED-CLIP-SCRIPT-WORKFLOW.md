@@ -63,3 +63,16 @@ export は同じJSONからフック比較、共通本編の発話・和訳・画
 
 ## 教材先行・派生動画（2026-11-24 本人指示）
 サイトコンテンツ制作→既存教材の原文・対訳・内容/語学注釈を参照→クリップ制作→投稿が正規の順序。クリップ担当は既存教材の chapterId/utteranceId/time と原文・前後文脈を確認して使う。合成朗読では原動画/字幕の再取得・原録音の再照合を要求しない。教材の取得・出典照合は上流のサイト制作責務。教材の来歴（未確認を含む）を変更せず引き継ぐ。brief.source.articleReview に basis=site-content、documentBlob、使用章の chapterBlobs（Git blob SHA）、transcriptProvenance、rightsProvenance、note を保存する。引用照合・固定版の検査はStudioで行う。教材更新で版が変われば再読・ピン更新。originalAudioChecked は原録音を実際に使う場合だけ必須。動画自体の引用範囲・素材利用権、合成音声の利用条件、完成映像の審査、投稿承認は従来どおり別。教材に未確認の来歴があっても原典照合済みとは偽らない。既存記事を勝手に原典確認済みに更新しない。
+
+## 動画完成からYouTube公開まで（第2話以降の共通フロー）
+
+第1話で発生した版ずれ・審査放置・YouTube公開反映遅延・手動配信の重複を防ぐ。**エピソードごとの使い捨てスクリプトや別個の投稿用PRを作らず**、配信リポジトリ `nomuonji/error-english` の [ANNOTATED-WORLD-CHANNEL.md](https://github.com/nomuonji/error-english/blob/main/docs/ANNOTATED-WORLD-CHANNEL.md) と `.github/workflows/annotated-world-delivery.yml` の `release-reviewed` を標準入口にする。
+
+1. 既存教材を唯一の動画原文正本にし、合成朗読のたびに元動画を再取得しない。章のblob SHA・原稿の来歴・原録音未照合の事実はそのまま引き継ぐ。実音声を採用する場合だけその音声の照合と権利確認が必要。
+2. 制作で生成した **実際の使用音声・選定フック・最終台本**を `brief.json` に反映してから完成MP4を固定。レンダリング結果を `status.json.render.sha256`, `render.artifactUrl`, `script.renderMatchesBrief`, `render.renderMatchesBrief` に保存。音声・映像・SRT・contact sheet・reportなどの審査用成果物がActionsに存在することを確認。スクリーンショットだけで全編実聴済みと記録しない。
+3. 配信リポジトリIssue #31の `/aw-audit <clip-id>`（またはActions `Annotated World local speech QA`）で、APIキー不要のWhisperを使った英日音声と字幕の照合結果を記録する。そのうえで引用の必要性・区別・範囲・出所、写真・楽曲・TTS利用条件、実MP4の音声/字幕/演出の審査を**別々の根拠**で記録。承認後は `render.mediaReview: {approved:true,mediaSha256,evidence,...}` と `brief.deliveryReview: {approved:true,mediaSha256,reviewer,evidence}` を同じMP4のSHA256で固定する。AI-ASR/音量チェックと人間の聴取審査を混同しない。原典の来歴不明を「原典照合済み」に改竄しない。
+4. ユーザーが対象エピソードの投稿を指示したときは、同じ公開許可を聞き直さず、`status.ownerAuthorization` に対象IDを含むscopeと `publicReleaseAuthorized:true` を保存する。**第1話の許可を他の動画へ流用しない。** 権利・最終映像審査未実施のまま承認フィールドを立てない。
+5. `stage: reviewed`・blockersなし・各gate confirmedを確認後、owner GitHub IDから配信リポジトリのIssue #31へ `/aw-release <clip-id>` を投稿、またはActions `release-reviewed` を実行する。配信側は一度保存されたMP4をSHA照合して非公開アップロードし、**その同一動画ID**を公開に切り替え、YouTube APIの `privacy:public` 読戻しまで実行する。途中で失敗してもprivateレシートを保存し、再アップロードを先に行わない。
+6. 実YouTube ID、privacy、チャンネル、投稿確認時刻、媒体SHA、制作版、Actionsレシートが揃ったら `status.stage: published` を更新し、制作台帳CIで確認。単なる動画生成成功やHTTP投稿応答は公開成功と呼ばない。公開後はIDを固定して24h/72h/7dの実測を行う。
+
+公開用GitHub Actionsの権限は配信リポジトリ内に限られ、制作リポジトリへの台帳反映は実行エージェントがGitHub PRで行う。不要な定期監視タスクを作らない。実障害が出た場合だけ当該CI・配信レシート・YouTubeの既存IDを調べ、重複投稿・権利審査飛ばしで回避しない。
