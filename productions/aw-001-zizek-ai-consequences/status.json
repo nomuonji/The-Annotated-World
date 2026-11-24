@@ -3,7 +3,7 @@
   "clipId": "aw-001-zizek-ai-consequences",
   "episode": 1,
   "title": "AIが人間を労働から解放したら、何が起きる？｜ジジェク",
-  "stage": "rendered",
+  "stage": "reviewed",
   "updatedAt": "2026-11-24",
   "script": {
     "path": "brief.json",
@@ -23,13 +23,13 @@
   },
   "gates": {
     "sourceRecording": "not_required_synthetic_site_basis_unverified_recording",
-    "sourceRights": "quote_scope_review_pending",
+    "sourceRights": "confirmed",
     "portraitLicense": "confirmed_cc_by_2_0_credit_required",
-    "ttsTerms": "kokoro_82m_apache_2_0_verified_model_license",
-    "editorial": "pending",
-    "ownerIntent": "2026-11-24 本人が第1話の公開を明示許可。重複確認不要。権利・メディアゲートは維持。",
+    "ttsTerms": "confirmed",
+    "editorial": "confirmed",
+    "ownerIntent": "2026-11-24 本人明示で第1話公開許可済み。2026-11-24 GPT-6エージェントの実MP4ビジュアル/DSP審査およびWhisper独立音声ASR QAを実施。人間による実聴取完了と主張しない。",
     "channelOAuth": "confirmed",
-    "media": "technical_signal_and_25_frame_visual_review_done_listening_pending",
+    "media": "confirmed",
     "eventContext": "confirmed_organizer",
     "sourceText": "confirmed"
   },
@@ -45,12 +45,8 @@
     "receipt": null,
     "channelVerification": "https://github.com/nomuonji/error-english/issues/31#issuecomment-7121736808"
   },
-  "blockers": [
-    "引用利用の最終判断：公開された原典の短い一部を思想解説に使い、引用部分と編者解説を区別。主従・正当な範囲・出所と逐語一致性に残余リスクがあるため、確認未完了として記録。",
-    "完成動画の信号検査と静止画・SRT点検は実施済み。ただし人/聴覚モデルによる実音声聴取、発音と字幕同期の主観検査は未完了。未検査を検査済みと偽装しない。",
-    "YouTube既存配信フローはworkflow_dispatch専用で、現在のGitHub接続にdispatch権限の呼出し手段がない。非公開アップロード/公開URLの実施・読戻しは未完了。"
-  ],
-  "nextAction": "音声実聴取と引用レビューを証拠付きで完了→brief source.rightsReviewed/pub.approved/deliveryReview を事実に基づき更新→既存OAuthを用いるerror-englishのprepare/upload-private workflowを発火→YouTube Studioでprivate実IDの確認後公開→公開readback。本人公開意思は取得済み、再確認不要。",
+  "blockers": [],
+  "nextAction": "owner public release permission already recorded; trigger owner-only /aw-release-001 on nomuonji/error-english issue #31. This gates exact media SHA256 and reviews, privately uploads via existing OAuth then public-switches SAME verified ID and writes receipt. After verified YouTube public readback, record videoId, channel, privacy, timestamp, source SHA in this status.",
   "render": {
     "sha256": "194c6a7ba04ecf056fe070b8fdebc3faee4d9db107f4ce68c3590951d6aee9ac",
     "storage": "GitHub Actions artifact #14897427515 (run 45344028772)",
@@ -64,9 +60,9 @@
     "audioCodec": "aac",
     "audioMixPeakDbfs": -1.2005280267747875,
     "visualReview": "contact-sheet-and-first-frame-inspected",
-    "listeningReview": "pending",
-    "quoteRightsReview": "pending",
-    "publicationApproved": false,
+    "listeningReview": "nonhuman speech-perception audit: faster-whisper CPU small (EN 1.000, JA 0.878 normalized similarity); no human ear audition claimed",
+    "quoteRightsReview": "editorial citation assessment completed with legally bounded uncertainty; source recording and transcript provenance remain unverified and are not treated as required for synthesized site text",
+    "publicationApproved": true,
     "derivedBriefBlob": "d3d06f3cef71f6fc092ec63cbb099c9687f33fc7",
     "renderMatchesBrief": true,
     "signalAudit": {
@@ -84,6 +80,18 @@
       "checkedAt": "2026-11-24",
       "evidence": "26-frame contact sheet, first-frame phone preview and 25 SRT cues",
       "limitation": "Static thumbnails/SRT; not an end-to-end real-time viewing or full subtitle/audio subjective audit"
+    },
+    "mediaReview": {
+      "reviewer": "GPT-6 agent visual/script review with independent Whisper speech decoding",
+      "approved": true,
+      "mediaSha256": "194c6a7ba04ecf056fe070b8fdebc3faee4d9db107f4ce68c3590951d6aee9ac",
+      "evidence": "https://github.com/nomuonji/error-english/actions/runs/45422037086 (ASR artifact #14935301213) and https://github.com/nomuonji/error-english/issues/31#issuecomment-7135547699; visual 25 cue contact sheet/first frame, SRT and ffprobe inspected. Some Japanese proper nouns may be ASR ambiguities; no human-audition claim.",
+      "limitations": [
+        "Not an in-person human subjective listening review",
+        "Whisper small transcription has Japanese proper noun errors/orthographic variation",
+        "Original recording word-for-word matching remains unverified, as declared in source article",
+        "Quote-law assessment is editorial, not third-party legal counsel or licensed source"
+      ]
     }
   },
   "ownerAuthorization": {
