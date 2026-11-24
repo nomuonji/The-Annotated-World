@@ -91,3 +91,6 @@
 
 ## 教材からクリップ台本を作る専用エージェント（2026-11-24）
 「クリップの台本」「教材からショート」依頼では [教材→クリップ台本ワークフロー](docs/ANNOTATED-CLIP-SCRIPT-WORKFLOW.md) を先に実行する。論点比較・文脈・編者註の根拠・別フック・画面と音声設計・独立編集審査を行い、Studio v2のbrief.jsonと生成したscript.mdを成果物にする。台本依頼はレンダリング・投稿なし。エージェントSkillは `.agents/skills/annotated-clip-script/SKILL.md`。旧v1よりStudio v2を優先。
+
+## 最新の編集フィードバック：Pilot 014
+[Studio v2の尺・可読性・図解契約](docs/ANNOTATED-SHORT-STUDIO.md#pilot-014への本人フィードバック尺可読性図解2026-11-24)を適用。短尺化優先禁止、同時に読む文字を減らし、図解を視覚的補足として使う。Cは相対的評価のみ、Pilot 015は未評価。
