@@ -1,0 +1,25 @@
+name: Annotated original source probe
+on:
+  pull_request:
+    paths:
+      - 'tools/annotated-short/probe-source.py'
+      - '.github/workflows/annotated-original-probe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install 'youtube-transcript-api==1.2.3'
+      - run: python tools/annotated-short/probe-source.py productions/aw-001-zizek-ai-consequences/brief.json --report /tmp/source-probe.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-probe-metadata
+          path: /tmp/source-probe.json
+          retention-days: 7
