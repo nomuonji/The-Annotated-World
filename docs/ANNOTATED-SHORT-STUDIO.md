@@ -18,3 +18,6 @@
 - 字幕は最大英2行・日2行、編者のみ日最大4行。禁止行頭句読点を回避。720×1280の安全域は暫定（実アプリで確認）。
 - 独自のコード生成音楽2種、効果音3種。音量測定、過大ピーク防止。端末試聴は必須。
 - 同じ原典でもフック以外は同条件で比較。人間の評価なしに自動採用しない。
+
+## YouTube公開先（2026-11-24）
+本人承認により旧ドパ英語チャンネルを The Annotated World に転換する。投稿・認証・日次Analyticsの正本は [nomuonji/error-english のチャンネル移行契約](https://github.com/nomuonji/error-english/blob/main/docs/ANNOTATED-WORLD-CHANNEL.md)。旧クイズ投稿・補充は停止。台本は本repoの専用エージェントワークフローで作り、Pilot 013以上の編集品質を個別審査する。権利と明示公開承認後、実動画審査の証跡を deliveryReview に記録し、error-english の Annotated World delivery で非公開アップロード。Studioで最終確認・公開。権利未確認素材を公開repoに置かない。過去の今日の頑張りチャンネルは変更しない。公開後は新旧動画を分けて同一窓で実測を分析し、配信不足と視聴維持の問題を区別。実測なしにチャンネル評価回復を断定しない。
