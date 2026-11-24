@@ -94,3 +94,6 @@
 
 ## 最新の編集フィードバック：Pilot 014
 [Studio v2の尺・可読性・図解契約](docs/ANNOTATED-SHORT-STUDIO.md#pilot-014への本人フィードバック尺可読性図解2026-11-24)を適用。短尺化優先禁止、同時に読む文字を減らし、図解を視覚的補足として使う。Cは相対的評価のみ、Pilot 015は未評価。
+
+## 理解設計・離脱防止（2026-11-24）
+新規クリップ台本・編集・公開前審査は [理解設計レビュー](docs/ANNOTATED-COMPREHENSION-REVIEW.md) を必ず参照し、productions/<clip-id>/comprehension-review.md に場面ごとの理解・前提・誤読リスク・修正を残す。初見理解と視聴維持を別々に検証する。旧作品に遡及必須ではない。
