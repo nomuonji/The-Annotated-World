@@ -62,6 +62,32 @@
         "ANNOTATION"
       ],
       "description": "論証・語句・概念を短い見出しと補助行で可視化。"
+    },
+    "language": {
+      "roles": [
+        "ANNOTATION"
+      ],
+      "description": "専門概念・原語のニュアンス。原典語句と短い意味を主役にする。"
+    },
+    "branch": {
+      "roles": [
+        "ANNOTATION",
+        "CONTEXT"
+      ],
+      "description": "共通の出発点と異なる帰結を段階開示する。必然的因果を意味しない。"
+    },
+    "sequence": {
+      "roles": [
+        "ANNOTATION",
+        "CONTEXT"
+      ],
+      "description": "3段階の時間軸・論証・変化を意味句に同期して開示する。"
+    },
+    "closing": {
+      "roles": [
+        "ANNOTATION"
+      ],
+      "description": "題材固有の短い編者の結語。最後の余韻で字幕を消す。"
     }
   },
   "hooks": {

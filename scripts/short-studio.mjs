@@ -70,6 +70,17 @@ function check(b,dir,media=false,publish=false){
    requireThat(!s.en&&s.cues.every(c=>!c.en),s.id+' editor must not impersonate source');
   }
   const v=s.visual;
+  requireThat(s.holdMs==null||(Number.isInteger(s.holdMs)&&s.holdMs>=0&&s.holdMs<=3000),s.id+' invalid comprehension hold');
+  if(v.revealAtCue!=null){
+   requireThat(['contrast','timeline','branch','sequence'].includes(v.pattern)&&Array.isArray(v.revealAtCue)&&v.revealAtCue.length===v.items?.length&&v.revealAtCue[0]===0&&v.revealAtCue.every((n,i)=>Number.isInteger(n)&&n>=0&&n<s.cues.length&&(i===0||n>=v.revealAtCue[i-1])),s.id+' invalid cue reveal schedule');
+  }
+  if(['branch','sequence'].includes(v.pattern))requireThat(Array.isArray(v.items)&&v.items.length===3&&v.items.every(i=>nonempty(i.label)&&nonempty(i.text)),s.id+' three grounded visual items required');
+  if(v.pattern==='language'){
+   const u=lookup.get(v.termRef?.chapterId+'/'+v.termRef?.utteranceId);
+   requireThat(u&&nonempty(v.term)&&plain(u.english).toLowerCase().includes(plain(v.term).toLowerCase())&&nonempty(v.meaning)&&nonempty(v.value)&&nonempty(v.detail),s.id+' language term needs exact source, meaning, interpretive value and concise detail');
+   requireThat([...b.hooks,...b.body].some(q=>q.role==='QUOTE'&&q.sourceRef?.chapterId===v.termRef.chapterId&&q.sourceRef?.utteranceId===v.termRef.utteranceId&&plain(q.en).toLowerCase().includes(plain(v.term).toLowerCase())),s.id+' term must appear in a selected quote');
+  }
+  if(v.pattern==='closing')requireThat(s===b.body.at(-1)&&nonempty(v.headline)&&(s.holdMs??0)>=500,s.id+' closing must be final with a deliberate hold');
   if(['portrait','archive'].includes(v.pattern)){file(v.asset,s.id+' visual');requireThat(nonempty(v.credit)&&nonempty(v.dateLabel),s.id+' visual provenance required')}
   if(q&&v.pattern==='archive'){file(b.speaker.portrait,'speaker portrait');requireThat(nonempty(b.speaker.portraitCredit), 'speaker portrait credit')}
   if(['contrast','timeline'].includes(v.pattern))requireThat(Array.isArray(v.items)&&v.items.length===2&&v.items.every(i=>nonempty(i.label)&&nonempty(i.text)),s.id+' two grounded visual items required');
