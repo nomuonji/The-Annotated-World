@@ -66,12 +66,12 @@ def timeline(b,root,hook):
             for c in units:
                 voice+=normalize(audio(root/c['audio']));cuts.append(len(voice)-start)
         role_change=i+1<len(segments) and segments[i+1]['role']!=s['role']
-        gap=180 if role_change else (700 if i==len(segments)-1 else 80)
+        gap=(180 if role_change else (700 if i==len(segments)-1 else 80))+s.get('holdMs',0)
         voice+=silence(gap)
         for j,c in enumerate(units):
             lo,hi=cuts[j:j+2]
             if hi-lo<80: raise ValueError('cue too short: '+s['id'])
-            cues.append({**c,'segmentId':s['id'],'role':s['role'],'segmentIndex':i,'start':(start+lo)/1000,'speechEnd':(start+hi)/1000,'end':(start+hi+(gap if j==len(units)-1 else 0))/1000,'timingMode':tim['mode'],'timingEvidence':tim.get('evidence','separate cue recording')})
+            cues.append({**c,'segmentId':s['id'],'role':s['role'],'segmentIndex':i,'cueIndex':j,'start':(start+lo)/1000,'speechEnd':(start+hi)/1000,'end':(start+hi+(gap if j==len(units)-1 else 0))/1000,'timingMode':tim['mode'],'timingEvidence':tim.get('evidence','separate cue recording')})
     return voice,cues,segments
 def soundtrack(voice,cues,segments,motif):
     n=len(voice.get_array_of_samples())//2;music=np.zeros(n,np.float32);sfx=np.zeros(n,np.float32)
@@ -86,6 +86,10 @@ def soundtrack(voice,cues,segments,motif):
         if k%2==0:tone(music,at,ch[0]/2,.7,.27,.32)
         if k%8==0:
             for f in ch[1:]:tone(music,at,f,1.3,.065,.49)
+    if segments[-1]['visual']['pattern']=='closing':
+        at=cues[-1]['speechEnd'];start=max(0,round(at*SR))
+        music[start:]*=0.28
+        for f in chords[0][1:]:tone(music,at,f,1.8,.09,.6)
     music*=np.minimum(1,np.arange(n)/(SR*.15))*np.minimum(1,(n-np.arange(n))/(SR*.55))
     music*=10**(-25/20)/max(1e-8,np.sqrt(np.mean(music**2)))
     gain=np.ones(n,np.float32)
@@ -138,17 +142,16 @@ class Visual:
             y=block(d,self.b['speaker']['name'].upper(),48,58,570,'b',32,21,PAPER,maxrows=1)
             block(d,self.b['speaker']['disclosure'],48,104,570,'j',17,13,GRAY,jp=True,maxrows=1)
             block(d,self.v['dateLabel'],48,612,570,'j',16,12,GRAY,jp=True,maxrows=1)
-            text(d,48,665,self.s['sourceRef']['time']+'  /  SOURCE EXCERPT','b',17,GOLD)
-            y=block(d,c['en'],48,710,570,'b',45,27,PAPER,c.get('hiEN',''),maxrows=2)
+            y=block(d,c['en'],48,685,570,'b',45,27,PAPER,c.get('hiEN',''),maxrows=2)
             rule(d,y+13,'#536066');y=block(d,c['ja'],48,y+30,570,'j',33,26,PAPER,c.get('hiJA',''),jp=True,maxrows=2,lead=1.34)
             if y>1080:raise ValueError('caption outside safe area')
         else:
-            text(d,48,30,'THE ANNOTATED WORLD','b',18,TEAL);text(d,48,66,'出典紹介' if self.s['role']=='CONTEXT' else '編者註','jb',37,INK);rule(d,132,TEAL)
-            rule(d,742,TEAL);text(d,48,771,'編者ナレーション','jb',19,TEAL)
-            y=block(d,c['ja'],48,824,570,'jb',38,29,INK,jp=True,maxrows=4,lead=1.38)
+            text(d,48,30,'THE ANNOTATED WORLD','b',18,TEAL);text(d,48,66,'出典紹介' if self.s['role']=='CONTEXT' else ('原語を読む' if self.v['pattern']=='language' else '編者註'),'jb',32,INK);rule(d,132,TEAL)
+            rule(d,742,TEAL)
+            y=block(d,c['ja'],48,790,570,'jb',38,29,INK,jp=True,maxrows=4,lead=1.38)
             if y>1090:raise ValueError('note caption outside safe area')
         return im
-    def frame(self,c,fg,progress):
+    def frame(self,c,fg,progress,sec):
         q=self.s['role']=='QUOTE';v=self.v;pattern=v['pattern']
         if q:
             base=Image.new('RGB',(W,H),BG);base.paste(self.picture(progress,(720,510)),(0,132));base.paste(fg,(0,0),fg)
@@ -159,6 +162,30 @@ class Visual:
         if pattern=='archive':
             base.paste(self.picture(progress,(720,530)),(0,152));d=ImageDraw.Draw(base)
             block(d,v['dateLabel'],48,692,570,'j',19,13,TEAL,jp=True,maxrows=1)
+        elif pattern=='closing':
+            if sec>=c['speechEnd']:
+                base=Image.new('RGB',(W,H),BG);d=ImageDraw.Draw(base)
+                d.line((295,390,425,390),fill=GOLD,width=3)
+                block(d,v['headline'],64,470,550,'js',64,34,PAPER,jp=True,maxrows=3,lead=1.4)
+                text(d,64,990,'THE ANNOTATED WORLD','b',20,GOLD)
+            else:
+                block(d,v['headline'],48,300,570,'js',65,34,INK,jp=True,maxrows=3,lead=1.4)
+        elif pattern=='language':
+            block(d,v['term'],48,220,570,'b',72,35,TEAL,maxrows=2)
+            rule(d,390,TEAL)
+            block(d,v['meaning'],48,425,570,'js',53,30,INK,jp=True,maxrows=2)
+            block(d,v['detail'],48,610,570,'j',27,20,TEAL,jp=True,maxrows=2)
+        elif pattern in ('branch','sequence'):
+            items=v['items'];schedule=v.get('revealAtCue',[0,0,0])
+            count=sum(n<=c['cueIndex'] for n in schedule)
+            positions=[(48,200,570),(48,390,270),(348,390,270)] if pattern=='branch' else [(48,190,570),(48,355,570),(48,520,570)]
+            for i,(x,y,w) in enumerate(positions):
+                if i>=count:continue
+                if i and pattern=='sequence':d.line((72,y-24,72,y-5),fill=TEAL,width=3)
+                if i and pattern=='branch':d.line((330,320,x+w//2,380),fill=TEAL,width=3)
+                d.rounded_rectangle((x,y,x+w,y+128),radius=10,outline=TEAL,width=2)
+                block(d,items[i]['label'],x+14,y+9,w-28,'j',22,16,TEAL,jp=True,maxrows=1)
+                block(d,items[i]['text'],x+14,y+43,w-28,'jb',37,24,INK,jp=True,maxrows=2)
         elif pattern in ('title','concept'):
             block(d,v.get('kicker','CONTEXT'),48,200,570,'b',40,22,TEAL,maxrows=1)
             jp=any(ord(ch)>255 for ch in v['headline'])
@@ -168,11 +195,13 @@ class Visual:
             a,b=v['items']
             text(d,48,184,a['label'],'b',27,TEAL)
             block(d,a['text'],48,235,570,'js',55,32,INK,jp=True,maxrows=2)
+            schedule=v.get('revealAtCue')
+            if schedule and c['cueIndex']<schedule[1]:return base
             if pattern=='timeline':
                 d.line((72,385,72,505),fill=TEAL,width=4);d.polygon([(60,500),(84,500),(72,518)],fill=TEAL)
             else:rule(d,378,TEAL)
             text(d,48,430 if pattern=='contrast' else 530,b['label'],'jb',25,TEAL)
-            block(d,b['text'],48,480 if pattern=='contrast' else 570,570,'js',48,30,INK if progress>=.44 else '#89928D',jp=True,maxrows=2)
+            block(d,b['text'],48,480 if pattern=='contrast' else 570,570,'js',48,30,INK if schedule or progress>=.44 else '#89928D',jp=True,maxrows=2)
             block(d,v.get('detail',''),48,680,570,'j',23,17,TEAL,jp=True,maxrows=1)
         return base
 def ts(t):
@@ -195,10 +224,10 @@ def render(b,root,hook):
             while i+1<len(cues) and sec>=cues[i]['end']:i+=1
             c=cues[i];k=c['segmentIndex'];v=visuals[k];changed=i!=last
             if changed:fg=v.caption(c);last=i
-            progress=(sec-starts[k])/max(.08,ends[k]-starts[k]);base=v.frame(c,fg,progress)
+            progress=(sec-starts[k])/max(.08,ends[k]-starts[k]);base=v.frame(c,fg,progress,sec)
             d=ImageDraw.Draw(base);q=c['role']=='QUOTE';color=GOLD if q else TEAL
             d.line((48,1095,620,1095),fill='#536066' if q else '#CBC9BC',width=2);d.line((48,1095,48+round(572*sec/total),1095),fill=color,width=3)
-            if changed:thumbs.append(base.resize((180,320)))
+            if changed or (v.v['pattern']=='closing' and sec>=c['speechEnd'] and sec-1/FPS<c['speechEnd']):thumbs.append(base.resize((180,320)))
             proc.stdin.write(base.tobytes())
         proc.stdin.close()
         if proc.wait()!=0:raise RuntimeError('ffmpeg failed')

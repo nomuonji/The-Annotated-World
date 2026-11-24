@@ -70,7 +70,7 @@ function estimate(s){
  return s.role==='QUOTE'?plain(s.en).split(/\s+/).length/2.35:plain(s.ja).length/5;
 }
 function visual(v){
- return [v.pattern,v.headline,v.kicker,v.items?.map(x=>x.label+': '+x.text).join(' → '),v.detail,v.asset,v.dateLabel,v.credit].filter(Boolean).join(' / ');
+ return [v.pattern,v.headline,v.term,v.meaning,v.value,v.revealAtCue?.join(','),v.kicker,v.items?.map(x=>x.label+': '+x.text).join(' → '),v.detail,v.asset,v.dateLabel,v.credit].filter(Boolean).join(' / ');
 }
 function exportScript(file){
  const full=path.resolve(file),b=read(full),r=studio('check',full),ed=review(b);
@@ -87,7 +87,7 @@ function exportScript(file){
   const rows=['### '+s.id+' / '+s.role,''];
   if(s.role==='QUOTE')rows.push('- 教材参照: '+s.sourceRef.chapterId+'/'+s.sourceRef.utteranceId+' @ '+s.sourceRef.time+'（発話開始の記録、切出し境界ではない）','- 英語音声: '+s.en,'- 和訳: '+s.ja);
   else rows.push('- 日本語編者音声: '+s.ja,'- 根拠: '+s.evidence);
-  rows.push('- 映像: '+visual(s.visual),'- 音響: '+(s.effect||'none'),'- 概算発話尺: 約'+Math.round(estimate(s))+'秒（実測ではない）','- 字幕の意味句:');
+  rows.push('- 映像: '+visual(s.visual),'- 音響: '+(s.effect||'none'),'- 理解の間: '+(s.holdMs||0)+'ms（追加）','- 概算発話尺: 約'+Math.round(estimate(s))+'秒（実測ではない）','- 字幕の意味句:');
   for(const c of s.cues)rows.push('  - '+(c.en?c.en+' / ':'')+c.ja+(c.hiEN?' ｜強調: '+c.hiEN+' ⇔ '+c.hiJA:''));
   return rows.concat('');
  };

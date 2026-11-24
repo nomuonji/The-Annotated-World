@@ -100,3 +100,6 @@
 
 ## 理解設計・離脱防止（2026-11-24）
 新規クリップ台本・編集・公開前審査は [理解設計レビュー](docs/ANNOTATED-COMPREHENSION-REVIEW.md) を必ず参照し、productions/<clip-id>/comprehension-review.md に場面ごとの理解・前提・誤読リスク・修正を残す。初見理解と視聴維持を別々に検証する。旧作品に遡及必須ではない。
+
+## 動画制作Packとの接続
+解説・教育型動画は My Portal の video-production 実行入口から comprehension-design を選択参照し、既存 short-video-direction 道場に一般化可能な仮説・実物評価・反例を還元する。別道場は増設しない。個別制作の方針・権利・編集正本は本repo。新規制作は最新Studio機能と理解設計レビューを使う。本人評価・市場実績・技術検査を混同しない。
