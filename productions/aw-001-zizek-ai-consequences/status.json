@@ -25,11 +25,11 @@
     "sourceRecording": "not_required_synthetic_site_basis_unverified_recording",
     "sourceRights": "pending_quote_scope_review",
     "portraitLicense": "confirmed_cc_by_2_0_credit_required",
-    "ttsTerms": "kokoro_license_path_ready_episode_audio_pending",
+    "ttsTerms": "kokoro_82m_apache_2_0_generated_review_pending",
     "editorial": "pending",
-    "ownerIntent": "2026-11-24 本人が第1話投稿まで実施を依頼。特定MP4の最終公開審査とは区別。",
+    "ownerIntent": "2026-11-24 本人が第1話の公開を明示許可。重複確認不要。権利・メディアゲートは維持。",
     "channelOAuth": "confirmed",
-    "media": "production revision not rendered",
+    "media": "rendered_96_2s_contact_sheet_inspected_audio_listening_pending",
     "eventContext": "confirmed_organizer",
     "sourceText": "confirmed"
   },
@@ -46,9 +46,32 @@
     "channelVerification": "https://github.com/nomuonji/error-english/issues/31#issuecomment-7121736808"
   },
   "blockers": [
-    "公開時の引用範囲・利用根拠の確認。教材の原典来歴は未照合として継承し、原動画再取得をクリップ工程のブロッカーにしない。",
-    "Kokoro-82Mによる第1話の音声生成・レンダリング・完成審査が必要。",
-    "投稿先OAuth確認済み。実アップロードは未実施。"
+    "既存サイト教材を原文正本として継承。原録音は未照合の履歴を維持し、合成朗読の元動画再取得は不要。引用範囲・出所と利用根拠の最終審査が未完了。",
+    "完成MP4 194c6a7ba04ecf056fe070b8fdebc3faee4d9db107f4ce68c3590951d6aee9ac の視覚的抜粋・技術検証は済み。音声の実聴取・字幕全編・最終品質審査は未完了。",
+    "公開許可は本人から明示取得済み。権利・完成品審査後に同一ダイジェストを配信経路で非公開アップロードし、YouTube Studioの公開状態を実IDで再確認する。"
   ],
-  "nextAction": "サイト教材に基づく公開引用範囲審査→Kokoro音声生成→Studioレンダリング・完成審査→既存投稿経路→公開と実ID記録"
+  "nextAction": "引用範囲・素材条件と完成MP4の音声・字幕全編を審査→Kokoro派生briefをソース正本に整合→Approved media SHAを固定→error-englishのprepare/upload-privateを実行→YouTube Studio公開とvideoId/privacyを実測。本人への公開許可の再確認は不要。",
+  "render": {
+    "sha256": "194c6a7ba04ecf056fe070b8fdebc3faee4d9db107f4ce68c3590951d6aee9ac",
+    "storage": "GitHub Actions artifact #14897427515 (run 45344028772)",
+    "artifactUrl": "https://github.com/nomuonji/The-Annotated-World/actions/runs/45344028772/artifacts/14897427515",
+    "sourceRevision": "8499e885ac5c868f5d359d40321dbb8029257ac9",
+    "derivedBrief": "Kokoro-generated brief.json in voice artifact #14896793621",
+    "durationSec": 96.2,
+    "width": 720,
+    "height": 1280,
+    "videoCodec": "h264",
+    "audioCodec": "aac",
+    "audioMixPeakDbfs": -1.2005280267747875,
+    "visualReview": "contact-sheet-and-first-frame-inspected",
+    "listeningReview": "pending",
+    "quoteRightsReview": "pending",
+    "publicationApproved": false
+  },
+  "ownerAuthorization": {
+    "publicReleaseAuthorized": true,
+    "scope": "第1話 aw-001-zizek-ai-consequences の公開を許可。許可の再確認を求めない。特定メディアの権利・音声・品質レビュー完了を意味しない。",
+    "recordedAt": "2026-11-24",
+    "recordedFrom": "owner explicit chat instruction"
+  }
 }
