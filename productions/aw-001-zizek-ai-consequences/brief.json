@@ -19,7 +19,7 @@
     "url": "https://www.youtube.com/watch?v=j7pEsBbGg5A",
     "eventContext": "2026年11月4日、カナダ・バンクーバー Chan Centre（UBC）の対談・質疑応答。主催者の開催告知と照合済み。発話時刻は教材記録で、録音切出し境界は未照合。",
     "originalAudioChecked": false,
-    "rightsReviewed": false,
+    "rightsReviewed": true,
     "articleReview": {
       "basis": "site-content",
       "documentBlob": "2823b64f9622dfe6f45cd900dbc95ec2346e656e",
@@ -28,7 +28,7 @@
       },
       "transcriptProvenance": "unverified",
       "rightsProvenance": "unverified",
-      "note": "2026-11-24 本人指示：サイトコンテンツ制作を先に行い、既存対訳教材をクリップの原文正本にする。第10章の前後発言、話者、原文、対訳・注釈を参照。元録音の逐語同一性は教材の来歴どおり未確認。合成朗読のみ。"
+      "note": "2026-11-24 本人指示：サイトコンテンツ制作を先に行い、既存対訳教材をクリップの原文正本にする。第10章の前後発言、話者、原文、対訳・注釈を参照。元録音の逐語同一性は教材の来歴どおり未確認。合成朗読のみ。 引用の必要性・範囲・区別・出所については rights.md の2026-11-24公開用引用レビューに審査根拠と残余リスクを記録。逐語同一性や原録音照合は引き続き未確認。"
     }
   },
   "editorial": {
