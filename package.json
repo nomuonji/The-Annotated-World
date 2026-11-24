@@ -20,7 +20,10 @@
     "short:studio:plan": "node scripts/short-studio.mjs plan",
     "short:studio:render": "python3 tools/annotated-short/studio.py",
     "short:metrics": "node scripts/short-studio.mjs metrics",
-    "short:studio:verify": "python3 tools/annotated-short/verify-studio.py"
+    "short:studio:verify": "python3 tools/annotated-short/verify-studio.py",
+    "short:script:prepare": "node scripts/clip-script.mjs prepare",
+    "short:script:export": "node scripts/clip-script.mjs export",
+    "short:script:verify": "node --test scripts/verify-clip-script.mjs"
   },
   "engines": {
     "node": ">=22.12.0"
