@@ -53,32 +53,32 @@
       "annotations": [
         {
           "id": "hegel-language",
-          "addedKnowledge": "ここでいうヘーゲル的とは、理念が実現された結果、その理念自体が反転することに注目する見方です。",
+          "addedKnowledge": "ヘーゲルの論点は、自由への革命が恐怖政治に反転すること。ただしジジェクは全面同意していません。",
           "basis": "教材ch10-line-3のフランス革命の具体例。ヘーゲル哲学全体の定義ではなく、当該発言での用法。",
-          "limitations": "発言者の主張と編者解釈を区別。録音照合・独立資料確認・権利審査は未完。"
+          "limitations": "編者の解釈と発言者の主張を区別。原録音照合と権利審査未完。"
         },
         {
           "id": "method",
           "addedKnowledge": "ここでの哲学は、理想がどこで裏目に出るかを、計画の段階から問う仕事です。",
           "basis": "教材ch10-line-3。歴史的例の論点を図示する。必然的因果ではない。",
-          "limitations": "発言者の主張と編者解釈を区別。録音照合・独立資料確認・権利審査は未完。"
+          "limitations": "編者の解釈と発言者の主張を区別。原録音照合と権利審査未完。"
         },
         {
           "id": "ai-note",
           "addedKnowledge": "AIも同じ。便利になるかだけでなく、成功した先で人間の意味がどう変わるかを問います。",
           "basis": "教材ch10-line-3。AIの未来は予測ではなく哲学的問い。",
-          "limitations": "発言者の主張と編者解釈を区別。録音照合・独立資料確認・権利審査は未完。"
+          "limitations": "編者の解釈と発言者の主張を区別。原録音照合と権利審査未完。"
         },
         {
           "id": "closing",
           "addedKnowledge": "マルクスは、世界を解釈するだけでなく変えよと書いた。ジジェクは逆に、その帰結を問います。",
           "basis": "マルクス『フォイエルバッハに関するテーゼ』第11と教材ch10-line-3の対比。結語は編者の言葉。",
-          "limitations": "発言者の主張と編者解釈を区別。録音照合・独立資料確認・権利審査は未完。"
+          "limitations": "編者の解釈と発言者の主張を区別。原録音照合と権利審査未完。"
         }
       ],
       "unresolved": [
         "原講演の録音照合、引用の量と主従関係、TTS利用条件を未確認。",
-        "本briefはPilot 016から改訂した版。追加された専門語学註・図解は未レンダリング。Pilot 016と同一ファイルではない。",
+        "実在する既存のTTS素材に合わせた制作brief。波形の無音区間による切替点の確認のみ、逐語の実聴は未実施。Pilot 016と同一ファイルではない。",
         "実耳と実機の最終審査、投稿先認証を要確認。"
       ]
     }
@@ -111,24 +111,29 @@
         "rightsReviewed": true
       },
       "timing": {
-        "mode": "cue-audio"
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.1,
+        "end": 2.86,
+        "cuts": [
+          1.57
+        ]
       },
       "cues": [
         {
           "en": "we have to learn to focus on:",
-          "ja": "私たちが目を向けるべきは、",
-          "audio": "audio/question-0.mp3"
+          "ja": "私たちが目を向けるべきは、"
         },
         {
           "en": "how could things go wrong?",
           "ja": "どう裏目に出るか、ということ。",
-          "audio": "audio/question-1.mp3",
           "hiEN": "go wrong",
           "hiJA": "裏目に出る"
         }
       ],
       "mechanism": "question",
-      "promise": "AIの成功が生む予想外の帰結を考える"
+      "promise": "AIの成功が生む予想外の帰結を考える",
+      "audio": "audio/en-07.mp3"
     },
     {
       "id": "paradox",
@@ -151,17 +156,21 @@
         "rightsReviewed": true
       },
       "timing": {
-        "mode": "cue-audio"
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.1,
+        "end": 3,
+        "cuts": []
       },
       "cues": [
         {
           "en": "We acted too much, and the consequences were shocking.",
           "ja": "私たちは行動しすぎた。その結果は衝撃的だった。",
           "hiEN": "acted too much",
-          "hiJA": "行動しすぎた",
-          "audio": "audio/paradox.wav"
+          "hiJA": "行動しすぎた"
         }
-      ]
+      ],
+      "audio": "audio/en-00.mp3"
     }
   ],
   "body": [
@@ -178,18 +187,23 @@
         "detail": "2026年11月4日・対談"
       },
       "timing": {
-        "mode": "cue-audio"
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.15,
+        "end": 8,
+        "cuts": [
+          3.67
+        ]
       },
       "cues": [
         {
-          "ja": "カナダ・バンクーバーの大学での質疑応答。",
-          "audio": "audio/context-0.mp3"
+          "ja": "カナダ・バンクーバーの大学での質疑応答。"
         },
         {
-          "ja": "ジジェクが、マルクスの第十一テーゼについて答えています。",
-          "audio": "audio/context-1.mp3"
+          "ja": "ジジェクが、マルクスの第十一テーゼについて答えています。"
         }
-      ]
+      ],
+      "audio": "audio/00-intro.mp3"
     },
     {
       "id": "hegel-intro",
@@ -210,23 +224,27 @@
         "rightsReviewed": true
       },
       "timing": {
-        "mode": "cue-audio"
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.1,
+        "end": 3.7,
+        "cuts": []
       },
       "cues": [
         {
           "en": "So my reading is that today we have to act more like Hegelians",
           "ja": "だから今日、私たちはもっとヘーゲル的に行動すべきだと考えます。",
-          "audio": "audio/hegel-intro-0.mp3",
           "hiEN": "Hegelians",
           "hiJA": "ヘーゲル的"
         }
-      ]
+      ],
+      "audio": "audio/en-05.mp3"
     },
     {
       "id": "hegel-language",
       "role": "ANNOTATION",
       "voiceId": "ja-JP-NanamiNeural",
-      "ja": "ここでいうヘーゲル的とは、理念が実現された結果、その理念自体が反転することに注目する見方です。",
+      "ja": "ヘーゲルの論点は、自由への革命が恐怖政治に反転すること。ただしジジェクは全面同意していません。",
       "evidence": "教材ch10-line-3のフランス革命の具体例。ヘーゲル哲学全体の定義ではなく、当該発言での用法。",
       "visual": {
         "pattern": "language",
@@ -238,22 +256,27 @@
         },
         "meaning": "ヘーゲル的な思考",
         "detail": "理念とその帰結のずれ",
-        "value": "この発言での用法を限定し、革命とAIへの論旨を接続する。"
+        "value": "当該発言でのヘーゲル的思考の例。思想全体の定義ではない。"
       },
       "timing": {
-        "mode": "cue-audio"
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.16,
+        "end": 8.25,
+        "cuts": [
+          5.32
+        ]
       },
       "cues": [
         {
-          "ja": "ここでいうヘーゲル的とは、",
-          "audio": "audio/hegel-language-0.mp3"
+          "ja": "ヘーゲルの論点は、自由への革命が恐怖政治に反転すること。"
         },
         {
-          "ja": "理念が実現された結果、その理念自体が反転することに注目する見方です。",
-          "audio": "audio/hegel-language-1.mp3"
+          "ja": "ただしジジェクは全面同意していません。"
         }
       ],
-      "holdMs": 650
+      "holdMs": 650,
+      "audio": "audio/03-hegel.mp3"
     },
     {
       "id": "hegel-reversal",
@@ -274,27 +297,32 @@
         "rightsReviewed": true
       },
       "timing": {
-        "mode": "cue-audio"
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.1,
+        "end": 8.39,
+        "cuts": [
+          2.45,
+          5.33
+        ]
       },
       "cues": [
         {
           "en": "I don't agree with him there, but his point is:",
-          "ja": "その点では彼に同意しませんが、論点はこうです。",
-          "audio": "audio/hegel-reversal-0.mp3"
+          "ja": "その点では彼に同意しませんが、論点はこうです。"
         },
         {
           "en": "okay, you want freedom, revolution,",
-          "ja": "自由を求め、革命を起こす。",
-          "audio": "audio/hegel-reversal-1.mp3"
+          "ja": "自由を求め、革命を起こす。"
         },
         {
           "en": "you end up in revolutionary terror—it gets reversed",
           "ja": "結局、恐怖政治に至り、反転するのです。",
-          "audio": "audio/hegel-reversal-2.mp3",
           "hiEN": "revolutionary terror",
           "hiJA": "恐怖政治"
         }
-      ]
+      ],
+      "audio": "audio/en-06.mp3"
     },
     {
       "id": "method",
@@ -325,23 +353,28 @@
         ]
       },
       "timing": {
-        "mode": "cue-audio"
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.13,
+        "end": 5.98,
+        "cuts": [
+          1.51,
+          3.67
+        ]
       },
       "cues": [
         {
-          "ja": "ここでの哲学は、",
-          "audio": "audio/method-0.mp3"
+          "ja": "ここでの哲学は、"
         },
         {
-          "ja": "理想がどこで裏目に出るかを、",
-          "audio": "audio/method-1.mp3"
+          "ja": "理想がどこで裏目に出るかを、"
         },
         {
-          "ja": "計画の段階から問う仕事です。",
-          "audio": "audio/method-2.mp3"
+          "ja": "計画の段階から問う仕事です。"
         }
       ],
-      "holdMs": 850
+      "holdMs": 850,
+      "audio": "audio/04-wrong.mp3"
     },
     {
       "id": "philosophy",
@@ -362,17 +395,21 @@
         "rightsReviewed": true
       },
       "timing": {
-        "mode": "cue-audio"
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.1,
+        "end": 1.76,
+        "cuts": []
       },
       "cues": [
         {
           "en": "And for this we need more philosophy.",
           "ja": "そのためにこそ、もっと哲学が必要なのです。",
-          "audio": "audio/philosophy-0.mp3",
           "hiEN": "philosophy",
           "hiJA": "哲学"
         }
-      ]
+      ],
+      "audio": "audio/en-08.mp3"
     },
     {
       "id": "ai",
@@ -393,32 +430,37 @@
         "rightsReviewed": true
       },
       "timing": {
-        "mode": "cue-audio"
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.12,
+        "end": 10.43,
+        "cuts": [
+          2.4,
+          5.24,
+          8.3
+        ]
       },
       "cues": [
         {
           "en": "For example, artificial intelligence:",
-          "ja": "例えば、人工知能。",
-          "audio": "audio/ai-0.mp3"
+          "ja": "例えば、人工知能。"
         },
         {
           "en": "you have the idealists who claim it will be wonderful,",
-          "ja": "AIの未来は素晴らしいと語る理想主義者がいる。",
-          "audio": "audio/ai-1.mp3"
+          "ja": "AIの未来は素晴らしいと語る理想主義者がいる。"
         },
         {
           "en": "robots will be doing everything for us and so on,",
-          "ja": "ロボットが何もかもやってくれる、といった具合に。",
-          "audio": "audio/ai-2.mp3"
+          "ja": "ロボットが何もかもやってくれる、といった具合に。"
         },
         {
           "en": "but what will be the actual consequences?",
           "ja": "しかし実際、どんな帰結が待っているのか？",
-          "audio": "audio/ai-3.mp3",
           "hiEN": "actual consequences",
           "hiJA": "帰結"
         }
-      ]
+      ],
+      "audio": "audio/en-10.mp3"
     },
     {
       "id": "ai-note",
@@ -449,23 +491,28 @@
         ]
       },
       "timing": {
-        "mode": "cue-audio"
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.14,
+        "end": 7.28,
+        "cuts": [
+          1.65,
+          3.68
+        ]
       },
       "cues": [
         {
-          "ja": "AIも同じ。",
-          "audio": "audio/ai-note-0.mp3"
+          "ja": "AIも同じ。"
         },
         {
-          "ja": "便利になるかだけでなく、",
-          "audio": "audio/ai-note-1.mp3"
+          "ja": "便利になるかだけでなく、"
         },
         {
-          "ja": "成功した先で人間の意味がどう変わるかを問います。",
-          "audio": "audio/ai-note-2.mp3"
+          "ja": "成功した先で人間の意味がどう変わるかを問います。"
         }
       ],
-      "holdMs": 700
+      "holdMs": 700,
+      "audio": "audio/05-ai.mp3"
     },
     {
       "id": "human",
@@ -486,22 +533,27 @@
         "rightsReviewed": true
       },
       "timing": {
-        "mode": "cue-audio"
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.09,
+        "end": 5.9,
+        "cuts": [
+          1.86
+        ]
       },
       "cues": [
         {
           "en": "And at all levels, again:",
-          "ja": "あらゆる次元で、繰り返しますが、",
-          "audio": "audio/human-0.mp3"
+          "ja": "あらゆる次元で、繰り返しますが、"
         },
         {
           "en": "how will artificial intelligence compel us to redefine us as humans?",
           "ja": "人工知能はどう私たちに、人間とは何かを定義し直すよう迫るのか？",
-          "audio": "audio/human-1.mp3",
           "hiEN": "redefine",
           "hiJA": "定義し直す"
         }
-      ]
+      ],
+      "audio": "audio/en-11.mp3"
     },
     {
       "id": "closing",
@@ -511,23 +563,28 @@
       "evidence": "マルクス『フォイエルバッハに関するテーゼ』第11と教材ch10-line-3の対比。結語は編者の言葉。",
       "visual": {
         "pattern": "closing",
-        "headline": "世界を変える。\nその先まで考える。"
+        "headline": "世界を変える。その先まで考える。"
       },
       "timing": {
-        "mode": "cue-audio"
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.15,
+        "end": 7.45,
+        "cuts": [
+          4.3
+        ]
       },
       "cues": [
         {
-          "ja": "マルクスは、世界を解釈するだけでなく変えよと書いた。",
-          "audio": "audio/closing-0.mp3"
+          "ja": "マルクスは、世界を解釈するだけでなく変えよと書いた。"
         },
         {
-          "ja": "ジジェクは逆に、その帰結を問います。",
-          "audio": "audio/closing-1.mp3"
+          "ja": "ジジェクは逆に、その帰結を問います。"
         }
       ],
       "holdMs": 1800,
-      "effect": "resolution"
+      "effect": "resolution",
+      "audio": "audio/01-marx.mp3"
     }
   ],
   "deliveryReview": {

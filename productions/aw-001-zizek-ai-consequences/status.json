@@ -9,7 +9,7 @@
     "path": "brief.json",
     "revision": 1,
     "kind": "production-revision",
-    "status": "draft",
+    "status": "structured",
     "basedOn": "Pilot 016",
     "renderMatchesBrief": false
   },
@@ -44,8 +44,8 @@
   "blockers": [
     "原講演の録音を独立照合できていない（教材provenanceも未確認）。",
     "原文の引用範囲・主従関係およびTTS利用条件の確認が必要。",
-    "改訂briefの音声素材・実レンダリングと完成品審査が必要。",
+    "既存音声素材の対応と波形境界を確定。改訂briefからのレンダリングと実耳・実機審査が必要。",
     "現チャットのGitHub接続にworkflow_dispatch機能がなく、投稿先OAuthと実アップロード未実施。"
   ],
-  "nextAction": "原録音照合・権利確認→音声素材調達→Studioレンダリング→完成品審査→既存delivery verify/prepare/upload-private→Studioで公開・実ID記録"
+  "nextAction": "既存素材を取得してStudioレンダリング・原録音照合・権利確認→完成品審査→delivery verify/prepare/upload-private→Studioで公開・実ID記録"
 }
