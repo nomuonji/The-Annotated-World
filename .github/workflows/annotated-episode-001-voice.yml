@@ -8,10 +8,11 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 jobs:
   narration:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -28,6 +29,26 @@ jobs:
             --brief productions/aw-001-zizek-ai-consequences/brief.json \
             --out /tmp/episode-001
           node scripts/short-studio.mjs check /tmp/episode-001/brief.json
+      - name: Install studio renderer and inspect licensed portrait artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sudo apt-get install -y ffmpeg fonts-noto-cjk fonts-dejavu-core
+          pip install pillow pydub
+          mkdir -p /tmp/episode-001/assets
+          gh api repos/nomuonji/The-Annotated-World/actions/artifacts/14589195544/zip > /tmp/aw001-portrait.zip
+          unzip -p /tmp/aw001-portrait.zip zizek-2011.jpg > /tmp/episode-001/assets/speaker.jpg
+          test -s /tmp/episode-001/assets/speaker.jpg
+      - name: Render actual episode 001 video and contact sheet for editorial review
+        run: |
+          python tools/annotated-short/studio.py /tmp/episode-001/brief.json
+          ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1 /tmp/episode-001/output/question/annotated-short.mp4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aw-001-rendered-video-review
+          path: /tmp/episode-001/output/question/
+          retention-days: 14
+          if-no-files-found: error
       - uses: actions/upload-artifact@v4
         with:
           name: aw-001-kokoro-voice-review
