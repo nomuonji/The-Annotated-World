@@ -96,8 +96,8 @@ function check(b,dir,media=false,publish=false){
  for(const h of b.hooks){requireThat(h.role==='QUOTE'&&catalog.hooks[h.mechanism]&&!mechanisms.has(h.mechanism)&&nonempty(h.promise), 'distinct quote hook mechanism and promise required');mechanisms.add(h.mechanism);segment(h)}
  requireThat(b.hooks.some(h=>h.id===b.selectedHook),'select a hook');
  const roles=b.body?.map(s=>s.role)||[];
- requireThat(roles.length>=4&&roles[0]==='CONTEXT'&&roles[1]==='QUOTE'&&roles.at(-1)==='QUOTE'&&roles.filter(r=>r==='CONTEXT').length===1&&roles.includes('ANNOTATION'),'body must introduce source, alternate and end in quote');
- for(let i=0;i<roles.length;i++){if(roles[i]==='ANNOTATION')requireThat(roles[i-1]==='QUOTE'&&roles[i+1]==='QUOTE','note must sit between quotes');segment(b.body[i])}
+ requireThat(roles.length>=4&&roles[0]==='CONTEXT'&&roles[1]==='QUOTE'&&['QUOTE','ANNOTATION'].includes(roles.at(-1))&&roles.filter(r=>r==='CONTEXT').length===1&&roles.includes('ANNOTATION'),'body must introduce source, alternate and end in quote or closing annotation');
+ for(let i=0;i<roles.length;i++){if(roles[i]==='ANNOTATION')requireThat(roles[i-1]==='QUOTE'&&(i===roles.length-1||roles[i+1]==='QUOTE'),'note must follow a quote and either precede a quote or close the body');segment(b.body[i])}
  requireThat(catalog.audio.motifs[b.music?.motif],'choose original motif');
  requireThat(nonempty(b.editorial?.payoff)&&nonempty(b.editorial?.target)&&nonempty(b.editorial?.articleUrl),'editorial payoff/target/article link required');
  if(publish){
