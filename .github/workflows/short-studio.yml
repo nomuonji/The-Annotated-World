@@ -1,0 +1,22 @@
+name: Annotated Shorts Studio
+on:
+  pull_request:
+    paths:
+      - 'tools/annotated-short/**'
+      - 'scripts/short-studio.mjs'
+      - 'templates/annotated-short/**'
+      - '.github/workflows/short-studio.yml'
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-noto-cjk fonts-dejavu-core
+      - run: pip install pillow numpy pydub
+      - run: npm run short:studio:verify
