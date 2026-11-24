@@ -239,7 +239,7 @@ def render(b,root,hook):
     sheet.save(out/'contact-sheet.jpg',quality=91);thumbs[0].save(out/'first-frame-phone.png')
     (out/'timeline.json').write_text(json.dumps(cues,ensure_ascii=False,indent=2))
     (out/'captions.srt').write_text('\n'.join(f'{i+1}\n{ts(c["start"])} --> {ts(c["speechEnd"])}\n'+(c['en']+'\n' if c.get('en') else '')+c['ja']+'\n' for i,c in enumerate(cues)))
-    report={'hook':hook['id'],'durationSec':total,'cueCount':len(cues),'voiceRms':voice.dBFS,'musicRms':music.dBFS,'mixPeak':mix.max_dBFS,'finalGain':gain,'sourceChecked':b['source']['originalAudioChecked'],'publicationApproved':False,'review':'Technical checks only; listen and verify all frames, timing, rights and editorial quality.'}
+    report={'hook':hook['id'],'durationSec':total,'cueCount':len(cues),'voiceRms':voice.dBFS,'musicRms':music.dBFS,'mixPeak':mix.max_dBFS,'finalGain':float(gain),'sourceChecked':b['source']['originalAudioChecked'],'publicationApproved':False,'review':'Technical checks only; listen and verify all frames, timing, rights and editorial quality.'}
     (out/'report.json').write_text(json.dumps(report,indent=2))
     run('ffmpeg','-v','error','-i',str(out/'annotated-short.mp4'),'-f','null','-')
     print(json.dumps(report))
