@@ -1,0 +1,20 @@
+name: Annotated Production Ledger
+on:
+  pull_request:
+    paths:
+      - 'productions/**'
+      - 'scripts/production-status.mjs'
+      - 'scripts/clip-script.mjs'
+      - 'scripts/short-studio.mjs'
+      - '.github/workflows/annotated-production-ledger.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm run short:productions

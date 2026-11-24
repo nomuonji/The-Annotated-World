@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "source": "Existing Pilot 015/016 review assets; not authorized for public distribution by this manifest",
+  "artifacts": [
+    {
+      "id": 14589195544,
+      "files": {
+        "zizek-2011.jpg": "assets/speaker.jpg"
+      }
+    },
+    {
+      "id": 14594982772,
+      "files": {
+        "voice/00.mp3": "audio/en-00.mp3",
+        "voice/05.mp3": "audio/en-05.mp3",
+        "voice/06.mp3": "audio/en-06.mp3",
+        "voice/07.mp3": "audio/en-07.mp3",
+        "voice/08.mp3": "audio/en-08.mp3",
+        "voice/10.mp3": "audio/en-10.mp3",
+        "voice/11.mp3": "audio/en-11.mp3"
+      }
+    },
+    {
+      "id": 14597394378,
+      "files": {
+        "00-intro.mp3": "audio/00-intro.mp3",
+        "01-marx.mp3": "audio/01-marx.mp3",
+        "03-hegel.mp3": "audio/03-hegel.mp3",
+        "04-wrong.mp3": "audio/04-wrong.mp3",
+        "05-ai.mp3": "audio/05-ai.mp3"
+      }
+    }
+  ],
+  "rightsPending": true
+}

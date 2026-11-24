@@ -1,0 +1,595 @@
+{
+  "format": "annotated-short-studio/v2",
+  "title": "AIが人間を労働から解放したら、何が起きる？｜ジジェク",
+  "speaker": {
+    "name": "Slavoj Žižek",
+    "sourceName": "Žižek",
+    "voiceId": "en-US-AndrewNeural",
+    "audioKind": "synthetic",
+    "disclosure": "原文の合成朗読・本人の肉声ではない",
+    "portrait": "assets/speaker.jpg",
+    "portraitCredit": "Michael Bruns / photo credit Gisbert H. Drignat; Slavoj Žižek 2011.jpg, cropped; CC BY 2.0 https://creativecommons.org/licenses/by/2.0/ ; https://commons.wikimedia.org/wiki/File:Slavoj_%C5%BDi%C5%BEk_2011.jpg",
+    "portraitRightsReviewed": true
+  },
+  "editor": {
+    "voiceId": "ja-JP-NanamiNeural"
+  },
+  "source": {
+    "slug": "slavoj-zizek-signs-from-the-future",
+    "url": "https://www.youtube.com/watch?v=j7pEsBbGg5A",
+    "eventContext": "2026年11月4日、カナダ・バンクーバー Chan Centre（UBC）の対談・質疑応答。発話時刻は教材記録で、録音切出し境界は未照合。",
+    "originalAudioChecked": false,
+    "rightsReviewed": false
+  },
+  "editorial": {
+    "target": "海外の思想・文化を原語で理解したい、知的好奇心の強い日本語話者。英語初学者向け授業ではない。",
+    "payoff": "AIの理想を実現した先に、意図せざる帰結や人間の概念の変化がありうる。ヘーゲル的な問い方をマルクスとの対比から理解する。",
+    "articleUrl": "https://the-annotated-world.pages.dev/read/slavoj-zizek-signs-from-the-future/#ch10",
+    "scriptReview": {
+      "selection": "Pilot 015/016への本人FBをもとに、AIの帰結という具体的な現代の問いを軸にする。Hegelianの意味を論旨に即して補足。完成候補016とは別の改訂制作brief。",
+      "rejectedAngles": [
+        {
+          "angle": "十月革命を中心にする",
+          "reason": "単純な歴史的因果に誤読される恐れ。AIの問題への接続を優先。"
+        },
+        {
+          "angle": "AIが仕事を奪う予測",
+          "reason": "原典は予測の断言でなく人間の定義を問う。"
+        }
+      ],
+      "contextRisk": "フランス革命に関するヘーゲルへの非同意を保持。AIの未来を断言しない。原録音の独立照合と引用適法性確認は未完了。",
+      "hooks": [
+        {
+          "id": "question",
+          "promiseCheck": "最終のAI・人間の再定義の問いまで回収。",
+          "tradeoff": "抽象的な語句なので冒頭見出し・出典で題材を示す。"
+        },
+        {
+          "id": "paradox",
+          "promiseCheck": "自由の理想が反転する例とAIの帰結に接続。",
+          "tradeoff": "20世紀の文脈を欠くため採用しない。"
+        }
+      ],
+      "annotations": [
+        {
+          "id": "hegel-language",
+          "addedKnowledge": "ヘーゲルの論点は、自由への革命が恐怖政治に反転すること。ただしジジェクは全面同意していません。",
+          "basis": "教材ch10-line-3のフランス革命の具体例。ヘーゲル哲学全体の定義ではなく、当該発言での用法。",
+          "limitations": "編者の解釈と発言者の主張を区別。原録音照合と権利審査未完。"
+        },
+        {
+          "id": "method",
+          "addedKnowledge": "ここでの哲学は、理想がどこで裏目に出るかを、計画の段階から問う仕事です。",
+          "basis": "教材ch10-line-3。歴史的例の論点を図示する。必然的因果ではない。",
+          "limitations": "編者の解釈と発言者の主張を区別。原録音照合と権利審査未完。"
+        },
+        {
+          "id": "ai-note",
+          "addedKnowledge": "AIも同じ。便利になるかだけでなく、成功した先で人間の意味がどう変わるかを問います。",
+          "basis": "教材ch10-line-3。AIの未来は予測ではなく哲学的問い。",
+          "limitations": "編者の解釈と発言者の主張を区別。原録音照合と権利審査未完。"
+        },
+        {
+          "id": "closing",
+          "addedKnowledge": "マルクスは、世界を解釈するだけでなく変えよと書いた。ジジェクは逆に、その帰結を問います。",
+          "basis": "マルクス『フォイエルバッハに関するテーゼ』第11と教材ch10-line-3の対比。結語は編者の言葉。",
+          "limitations": "編者の解釈と発言者の主張を区別。原録音照合と権利審査未完。"
+        }
+      ],
+      "unresolved": [
+        "原講演の録音照合、引用の量と主従関係、TTS利用条件を未確認。",
+        "実在する既存のTTS素材に合わせた制作brief。波形の無音区間による切替点の確認のみ、逐語の実聴は未実施。Pilot 016と同一ファイルではない。",
+        "実耳と実機の最終審査、投稿先認証を要確認。"
+      ]
+    }
+  },
+  "music": {
+    "motif": "editorial",
+    "rightsReviewed": true
+  },
+  "publication": {
+    "approved": false
+  },
+  "selectedHook": "question",
+  "hooks": [
+    {
+      "id": "question",
+      "role": "QUOTE",
+      "voiceId": "en-US-AndrewNeural",
+      "sourceRef": {
+        "chapterId": "ch10",
+        "utteranceId": "ch10-line-3",
+        "time": "01:08:51"
+      },
+      "en": "we have to learn to focus on: how could things go wrong?",
+      "ja": "私たちが目を向けるべきは、どう裏目に出るか、ということ。",
+      "visual": {
+        "pattern": "portrait",
+        "asset": "assets/speaker.jpg",
+        "credit": "Michael Bruns / photo credit Gisbert H. Drignat; Slavoj Žižek 2011.jpg, cropped; CC BY 2.0 https://creativecommons.org/licenses/by/2.0/ ; https://commons.wikimedia.org/wiki/File:Slavoj_%C5%BDi%C5%BEk_2011.jpg",
+        "dateLabel": "2011年資料写真・講演当日の映像ではない",
+        "rightsReviewed": true
+      },
+      "timing": {
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.1,
+        "end": 2.86,
+        "cuts": [
+          1.57
+        ]
+      },
+      "cues": [
+        {
+          "en": "we have to learn to focus on:",
+          "ja": "私たちが目を向けるべきは、"
+        },
+        {
+          "en": "how could things go wrong?",
+          "ja": "どう裏目に出るか、ということ。",
+          "hiEN": "go wrong",
+          "hiJA": "裏目に出る"
+        }
+      ],
+      "mechanism": "question",
+      "promise": "AIの成功が生む予想外の帰結を考える",
+      "audio": "audio/en-07.mp3"
+    },
+    {
+      "id": "paradox",
+      "role": "QUOTE",
+      "mechanism": "paradox",
+      "promise": "行動の量ではなく帰結を問う哲学",
+      "voiceId": "en-US-AndrewNeural",
+      "sourceRef": {
+        "chapterId": "ch10",
+        "utteranceId": "ch10-line-2",
+        "time": "01:07:25"
+      },
+      "en": "We acted too much, and the consequences were shocking.",
+      "ja": "私たちは行動しすぎた。その結果は衝撃的だった。",
+      "visual": {
+        "pattern": "portrait",
+        "asset": "assets/speaker.jpg",
+        "credit": "Michael Bruns / photo credit Gisbert H. Drignat; Slavoj Žižek 2011.jpg, cropped; CC BY 2.0 https://creativecommons.org/licenses/by/2.0/ ; https://commons.wikimedia.org/wiki/File:Slavoj_%C5%BDi%C5%BEk_2011.jpg",
+        "dateLabel": "2011年の資料写真・講演当日の映像ではない",
+        "rightsReviewed": true
+      },
+      "timing": {
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.1,
+        "end": 3,
+        "cuts": []
+      },
+      "cues": [
+        {
+          "en": "We acted too much, and the consequences were shocking.",
+          "ja": "私たちは行動しすぎた。その結果は衝撃的だった。",
+          "hiEN": "acted too much",
+          "hiJA": "行動しすぎた"
+        }
+      ],
+      "audio": "audio/en-00.mp3"
+    }
+  ],
+  "body": [
+    {
+      "id": "context",
+      "role": "CONTEXT",
+      "voiceId": "ja-JP-NanamiNeural",
+      "ja": "カナダ・バンクーバーの大学での質疑応答。ジジェクが、マルクスの第十一テーゼについて答えています。",
+      "evidence": "教材ch10、イベント告知 https://chancentre.com/events/slavoj-zizek-signs-from-the-future/",
+      "visual": {
+        "pattern": "title",
+        "headline": "UBC",
+        "kicker": "VANCOUVER",
+        "detail": "2026年11月4日・対談"
+      },
+      "timing": {
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.15,
+        "end": 8,
+        "cuts": [
+          3.67
+        ]
+      },
+      "cues": [
+        {
+          "ja": "カナダ・バンクーバーの大学での質疑応答。"
+        },
+        {
+          "ja": "ジジェクが、マルクスの第十一テーゼについて答えています。"
+        }
+      ],
+      "audio": "audio/00-intro.mp3"
+    },
+    {
+      "id": "hegel-intro",
+      "role": "QUOTE",
+      "voiceId": "en-US-AndrewNeural",
+      "sourceRef": {
+        "chapterId": "ch10",
+        "utteranceId": "ch10-line-3",
+        "time": "01:08:51"
+      },
+      "en": "So my reading is that today we have to act more like Hegelians",
+      "ja": "だから今日、私たちはもっとヘーゲル的に行動すべきだと考えます。",
+      "visual": {
+        "pattern": "portrait",
+        "asset": "assets/speaker.jpg",
+        "credit": "Michael Bruns / photo credit Gisbert H. Drignat; Slavoj Žižek 2011.jpg, cropped; CC BY 2.0 https://creativecommons.org/licenses/by/2.0/ ; https://commons.wikimedia.org/wiki/File:Slavoj_%C5%BDi%C5%BEk_2011.jpg",
+        "dateLabel": "2011年資料写真・講演当日の映像ではない",
+        "rightsReviewed": true
+      },
+      "timing": {
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.1,
+        "end": 3.7,
+        "cuts": []
+      },
+      "cues": [
+        {
+          "en": "So my reading is that today we have to act more like Hegelians",
+          "ja": "だから今日、私たちはもっとヘーゲル的に行動すべきだと考えます。",
+          "hiEN": "Hegelians",
+          "hiJA": "ヘーゲル的"
+        }
+      ],
+      "audio": "audio/en-05.mp3"
+    },
+    {
+      "id": "hegel-language",
+      "role": "ANNOTATION",
+      "voiceId": "ja-JP-NanamiNeural",
+      "ja": "ヘーゲルの論点は、自由への革命が恐怖政治に反転すること。ただしジジェクは全面同意していません。",
+      "evidence": "教材ch10-line-3のフランス革命の具体例。ヘーゲル哲学全体の定義ではなく、当該発言での用法。",
+      "visual": {
+        "pattern": "language",
+        "term": "Hegelians",
+        "termRef": {
+          "chapterId": "ch10",
+          "utteranceId": "ch10-line-3",
+          "time": "01:08:51"
+        },
+        "meaning": "ヘーゲル的な思考",
+        "detail": "理念とその帰結のずれ",
+        "value": "当該発言でのヘーゲル的思考の例。思想全体の定義ではない。"
+      },
+      "timing": {
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.16,
+        "end": 8.25,
+        "cuts": [
+          5.32
+        ]
+      },
+      "cues": [
+        {
+          "ja": "ヘーゲルの論点は、自由への革命が恐怖政治に反転すること。"
+        },
+        {
+          "ja": "ただしジジェクは全面同意していません。"
+        }
+      ],
+      "holdMs": 650,
+      "audio": "audio/03-hegel.mp3"
+    },
+    {
+      "id": "hegel-reversal",
+      "role": "QUOTE",
+      "voiceId": "en-US-AndrewNeural",
+      "sourceRef": {
+        "chapterId": "ch10",
+        "utteranceId": "ch10-line-3",
+        "time": "01:08:51"
+      },
+      "en": "I don't agree with him there, but his point is: okay, you want freedom, revolution, you end up in revolutionary terror—it gets reversed",
+      "ja": "その点では彼に同意しませんが、論点はこうです。自由を求め、革命を起こす。結局、恐怖政治に至り、反転するのです。",
+      "visual": {
+        "pattern": "portrait",
+        "asset": "assets/speaker.jpg",
+        "credit": "Michael Bruns / photo credit Gisbert H. Drignat; Slavoj Žižek 2011.jpg, cropped; CC BY 2.0 https://creativecommons.org/licenses/by/2.0/ ; https://commons.wikimedia.org/wiki/File:Slavoj_%C5%BDi%C5%BEk_2011.jpg",
+        "dateLabel": "2011年資料写真・講演当日の映像ではない",
+        "rightsReviewed": true
+      },
+      "timing": {
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.1,
+        "end": 8.39,
+        "cuts": [
+          2.45,
+          5.33
+        ]
+      },
+      "cues": [
+        {
+          "en": "I don't agree with him there, but his point is:",
+          "ja": "その点では彼に同意しませんが、論点はこうです。"
+        },
+        {
+          "en": "okay, you want freedom, revolution,",
+          "ja": "自由を求め、革命を起こす。"
+        },
+        {
+          "en": "you end up in revolutionary terror—it gets reversed",
+          "ja": "結局、恐怖政治に至り、反転するのです。",
+          "hiEN": "revolutionary terror",
+          "hiJA": "恐怖政治"
+        }
+      ],
+      "audio": "audio/en-06.mp3"
+    },
+    {
+      "id": "method",
+      "role": "ANNOTATION",
+      "voiceId": "ja-JP-NanamiNeural",
+      "ja": "ここでの哲学は、理想がどこで裏目に出るかを、計画の段階から問う仕事です。",
+      "evidence": "教材ch10-line-3。歴史的例の論点を図示する。必然的因果ではない。",
+      "visual": {
+        "pattern": "branch",
+        "items": [
+          {
+            "label": "出発点",
+            "text": "理想"
+          },
+          {
+            "label": "期待",
+            "text": "自由"
+          },
+          {
+            "label": "別の帰結",
+            "text": "恐怖政治"
+          }
+        ],
+        "revealAtCue": [
+          0,
+          1,
+          2
+        ]
+      },
+      "timing": {
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.13,
+        "end": 5.98,
+        "cuts": [
+          1.51,
+          3.67
+        ]
+      },
+      "cues": [
+        {
+          "ja": "ここでの哲学は、"
+        },
+        {
+          "ja": "理想がどこで裏目に出るかを、"
+        },
+        {
+          "ja": "計画の段階から問う仕事です。"
+        }
+      ],
+      "holdMs": 850,
+      "audio": "audio/04-wrong.mp3"
+    },
+    {
+      "id": "philosophy",
+      "role": "QUOTE",
+      "voiceId": "en-US-AndrewNeural",
+      "sourceRef": {
+        "chapterId": "ch10",
+        "utteranceId": "ch10-line-3",
+        "time": "01:08:51"
+      },
+      "en": "And for this we need more philosophy.",
+      "ja": "そのためにこそ、もっと哲学が必要なのです。",
+      "visual": {
+        "pattern": "portrait",
+        "asset": "assets/speaker.jpg",
+        "credit": "Michael Bruns / photo credit Gisbert H. Drignat; Slavoj Žižek 2011.jpg, cropped; CC BY 2.0 https://creativecommons.org/licenses/by/2.0/ ; https://commons.wikimedia.org/wiki/File:Slavoj_%C5%BDi%C5%BEk_2011.jpg",
+        "dateLabel": "2011年資料写真・講演当日の映像ではない",
+        "rightsReviewed": true
+      },
+      "timing": {
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.1,
+        "end": 1.76,
+        "cuts": []
+      },
+      "cues": [
+        {
+          "en": "And for this we need more philosophy.",
+          "ja": "そのためにこそ、もっと哲学が必要なのです。",
+          "hiEN": "philosophy",
+          "hiJA": "哲学"
+        }
+      ],
+      "audio": "audio/en-08.mp3"
+    },
+    {
+      "id": "ai",
+      "role": "QUOTE",
+      "voiceId": "en-US-AndrewNeural",
+      "sourceRef": {
+        "chapterId": "ch10",
+        "utteranceId": "ch10-line-3",
+        "time": "01:08:51"
+      },
+      "en": "For example, artificial intelligence: you have the idealists who claim it will be wonderful, robots will be doing everything for us and so on, but what will be the actual consequences?",
+      "ja": "例えば、人工知能。AIの未来は素晴らしいと語る理想主義者がいる。ロボットが何もかもやってくれる、といった具合に。しかし実際、どんな帰結が待っているのか？",
+      "visual": {
+        "pattern": "portrait",
+        "asset": "assets/speaker.jpg",
+        "credit": "Michael Bruns / photo credit Gisbert H. Drignat; Slavoj Žižek 2011.jpg, cropped; CC BY 2.0 https://creativecommons.org/licenses/by/2.0/ ; https://commons.wikimedia.org/wiki/File:Slavoj_%C5%BDi%C5%BEk_2011.jpg",
+        "dateLabel": "2011年資料写真・講演当日の映像ではない",
+        "rightsReviewed": true
+      },
+      "timing": {
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.12,
+        "end": 10.43,
+        "cuts": [
+          2.4,
+          5.24,
+          8.3
+        ]
+      },
+      "cues": [
+        {
+          "en": "For example, artificial intelligence:",
+          "ja": "例えば、人工知能。"
+        },
+        {
+          "en": "you have the idealists who claim it will be wonderful,",
+          "ja": "AIの未来は素晴らしいと語る理想主義者がいる。"
+        },
+        {
+          "en": "robots will be doing everything for us and so on,",
+          "ja": "ロボットが何もかもやってくれる、といった具合に。"
+        },
+        {
+          "en": "but what will be the actual consequences?",
+          "ja": "しかし実際、どんな帰結が待っているのか？",
+          "hiEN": "actual consequences",
+          "hiJA": "帰結"
+        }
+      ],
+      "audio": "audio/en-10.mp3"
+    },
+    {
+      "id": "ai-note",
+      "role": "ANNOTATION",
+      "voiceId": "ja-JP-NanamiNeural",
+      "ja": "AIも同じ。便利になるかだけでなく、成功した先で人間の意味がどう変わるかを問います。",
+      "evidence": "教材ch10-line-3。AIの未来は予測ではなく哲学的問い。",
+      "visual": {
+        "pattern": "sequence",
+        "items": [
+          {
+            "label": "技術",
+            "text": "AI"
+          },
+          {
+            "label": "期待",
+            "text": "労働からの解放"
+          },
+          {
+            "label": "問い",
+            "text": "人間とは？"
+          }
+        ],
+        "revealAtCue": [
+          0,
+          1,
+          2
+        ]
+      },
+      "timing": {
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.14,
+        "end": 7.28,
+        "cuts": [
+          1.65,
+          3.68
+        ]
+      },
+      "cues": [
+        {
+          "ja": "AIも同じ。"
+        },
+        {
+          "ja": "便利になるかだけでなく、"
+        },
+        {
+          "ja": "成功した先で人間の意味がどう変わるかを問います。"
+        }
+      ],
+      "holdMs": 700,
+      "audio": "audio/05-ai.mp3"
+    },
+    {
+      "id": "human",
+      "role": "QUOTE",
+      "voiceId": "en-US-AndrewNeural",
+      "sourceRef": {
+        "chapterId": "ch10",
+        "utteranceId": "ch10-line-3",
+        "time": "01:08:51"
+      },
+      "en": "And at all levels, again: how will artificial intelligence compel us to redefine us as humans?",
+      "ja": "あらゆる次元で、繰り返しますが、人工知能はどう私たちに、人間とは何かを定義し直すよう迫るのか？",
+      "visual": {
+        "pattern": "portrait",
+        "asset": "assets/speaker.jpg",
+        "credit": "Michael Bruns / photo credit Gisbert H. Drignat; Slavoj Žižek 2011.jpg, cropped; CC BY 2.0 https://creativecommons.org/licenses/by/2.0/ ; https://commons.wikimedia.org/wiki/File:Slavoj_%C5%BDi%C5%BEk_2011.jpg",
+        "dateLabel": "2011年資料写真・講演当日の映像ではない",
+        "rightsReviewed": true
+      },
+      "timing": {
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.09,
+        "end": 5.9,
+        "cuts": [
+          1.86
+        ]
+      },
+      "cues": [
+        {
+          "en": "And at all levels, again:",
+          "ja": "あらゆる次元で、繰り返しますが、"
+        },
+        {
+          "en": "how will artificial intelligence compel us to redefine us as humans?",
+          "ja": "人工知能はどう私たちに、人間とは何かを定義し直すよう迫るのか？",
+          "hiEN": "redefine",
+          "hiJA": "定義し直す"
+        }
+      ],
+      "audio": "audio/en-11.mp3"
+    },
+    {
+      "id": "closing",
+      "role": "ANNOTATION",
+      "voiceId": "ja-JP-NanamiNeural",
+      "ja": "マルクスは、世界を解釈するだけでなく変えよと書いた。ジジェクは逆に、その帰結を問います。",
+      "evidence": "マルクス『フォイエルバッハに関するテーゼ』第11と教材ch10-line-3の対比。結語は編者の言葉。",
+      "visual": {
+        "pattern": "closing",
+        "headline": "世界を変える。その先まで考える。"
+      },
+      "timing": {
+        "mode": "measured",
+        "evidence": "waveform-reviewed",
+        "start": 0.15,
+        "end": 7.45,
+        "cuts": [
+          4.3
+        ]
+      },
+      "cues": [
+        {
+          "ja": "マルクスは、世界を解釈するだけでなく変えよと書いた。"
+        },
+        {
+          "ja": "ジジェクは逆に、その帰結を問います。"
+        }
+      ],
+      "holdMs": 1800,
+      "effect": "resolution",
+      "audio": "audio/01-marx.mp3"
+    }
+  ],
+  "deliveryReview": {
+    "approved": false,
+    "reviewer": null,
+    "evidence": null
+  }
+}

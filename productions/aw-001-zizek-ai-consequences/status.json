@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "clipId": "aw-001-zizek-ai-consequences",
+  "episode": 1,
+  "title": "AIが人間を労働から解放したら、何が起きる？｜ジジェク",
+  "stage": "pilot_rendered",
+  "updatedAt": "2026-11-24",
+  "script": {
+    "path": "brief.json",
+    "revision": 1,
+    "kind": "production-revision",
+    "status": "structured",
+    "basedOn": "Pilot 016",
+    "renderMatchesBrief": false
+  },
+  "preview": {
+    "name": "the-annotated-world-pilot-016.mp4",
+    "durationSec": 78.336,
+    "sha256": "7f0b72bcd0b2adc2c2e59302136ebe4d55554e553fdca152cf614442ecd9336c",
+    "storage": "chat-local artifact; not checked into Git",
+    "review": "Pilot 015 positive feedback; Pilot 016 final review pending"
+  },
+  "gates": {
+    "sourceRecording": "pending",
+    "sourceRights": "pending",
+    "portraitLicense": "confirmed_cc_by_2_0_credit_required",
+    "ttsTerms": "pending",
+    "editorial": "pending",
+    "ownerIntent": "2026-11-24 本人が第1話投稿まで実施を依頼。特定MP4の最終公開審査とは区別。",
+    "channelOAuth": "unverified",
+    "media": "production revision not rendered"
+  },
+  "delivery": {
+    "repository": "nomuonji/error-english",
+    "workflow": "annotated-world-delivery.yml",
+    "privacy": null,
+    "videoId": null,
+    "channelId": null,
+    "sourceSha": null,
+    "approvedMediaSha256": null,
+    "publishedAt": null,
+    "receipt": null
+  },
+  "blockers": [
+    "原講演の録音を独立照合できていない（教材provenanceも未確認）。",
+    "原文の引用範囲・主従関係およびTTS利用条件の確認が必要。",
+    "既存音声素材の対応と波形境界を確定。改訂briefからのレンダリングと実耳・実機審査が必要。",
+    "現チャットのGitHub接続にworkflow_dispatch機能がなく、投稿先OAuthと実アップロード未実施。"
+  ],
+  "nextAction": "既存素材を取得してStudioレンダリング・原録音照合・権利確認→完成品審査→delivery verify/prepare/upload-private→Studioで公開・実ID記録"
+}
