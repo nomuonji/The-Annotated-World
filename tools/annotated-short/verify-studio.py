@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+"""Integration smoke: real source JSON, synthetic technical fixtures, both variants, invalid source/timing."""
+import json, subprocess, tempfile, sys
+from pathlib import Path
+from PIL import Image
+from pydub.generators import Sine
+ROOT=Path(__file__).resolve().parents[2]
+CLI=ROOT/'scripts/short-studio.mjs'
+def call(*args,ok=True):
+    r=subprocess.run(args,capture_output=True,text=True)
+    if (r.returncode==0)!=ok:raise AssertionError(r.stdout+r.stderr)
+    return r.stdout
+with tempfile.TemporaryDirectory() as tmp:
+    root=Path(tmp);p=root/'brief.json';b=json.loads((ROOT/'templates/annotated-short/studio-brief.example.json').read_text())
+    p.write_text(json.dumps(b))
+    result=json.loads(call('node',str(CLI),'discover',b['source']['slug']))
+    assert result['candidates'] and all(x['utteranceId'] for x in result['candidates'])
+    call('node',str(CLI),'check',str(p))
+    call('node',str(CLI),'check',str(p),'--publish',ok=False)
+    original=b['hooks'][0]['en'];b['hooks'][0]['en']='Invented quotation.';p.write_text(json.dumps(b));call('node',str(CLI),'check',str(p),ok=False);b['hooks'][0]['en']=original
+    # Exercise actual trim/cuts and rejection of unordered timing; no human speech is simulated as genuine.
+    s=b['hooks'][0];s['audio']='audio/measured.wav';s['timing']={'mode':'measured','evidence':'manual-listening','start':0,'end':0.8,'cuts':[0.2]}
+    p.write_text(json.dumps(b));call('node',str(CLI),'check',str(p),ok=False);s['timing']['cuts']=[]
+    for seg in b['hooks']+b['body']:
+        if seg['visual']['pattern'] in ['portrait','archive']:
+            f=root/seg['visual']['asset'];f.parent.mkdir(parents=True,exist_ok=True);Image.new('RGB',(720,720),'#596963').save(f)
+        files=[seg['audio']] if seg['timing']['mode']=='measured' else [c['audio'] for c in seg['cues']]
+        for name in files:
+            f=root/name;f.parent.mkdir(parents=True,exist_ok=True);Sine(440).to_audio_segment(duration=900 if seg['timing']['mode']=='measured' else 320).apply_gain(-14).export(f,format='wav')
+    p.write_text(json.dumps(b))
+    call(sys.executable,str(ROOT/'tools/annotated-short/studio.py'),str(p),'--all')
+    for h in b['hooks']:
+        out=root/'output'/h['id'];c=json.loads((out/'timeline.json').read_text());r=json.loads((out/'report.json').read_text())
+        assert all(y['start']>=x['end']-0.0001 for x,y in zip(c,c[1:]))
+        assert c[0]['role']=='QUOTE' and c[-1]['role']=='QUOTE' and r['mixPeak']<=-1.1
+        assert (out/'annotated-short.mp4').stat().st_size>1000 and (out/'contact-sheet.jpg').stat().st_size>1000
+        assert (out/'first-frame-phone.png').exists()
+    print('Studio integration: source, invalid cases, two real media renders, timeline and mix PASS')

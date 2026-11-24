@@ -1,0 +1,17 @@
+[
+  {
+    "productionId": "replace-with-real-production",
+    "hookId": "replace-with-real-hook",
+    "platform": "YouTube Shorts",
+    "publishedAt": "replace-with-ISO-date",
+    "window": "24h",
+    "bodyRevision": "replace-with-commit-or-hash",
+    "shown": null,
+    "views": null,
+    "engagedViews": null,
+    "stayedPct": null,
+    "averageViewedPct": null,
+    "completionPct": null,
+    "dropoffs": []
+  }
+]

@@ -14,7 +14,13 @@
     "short:init": "node scripts/annotated-short.mjs init",
     "short:check": "node scripts/annotated-short.mjs validate",
     "short:plan": "node scripts/annotated-short.mjs plan",
-    "short:render": "python3 tools/annotated-short/render.py"
+    "short:render": "python3 tools/annotated-short/render.py",
+    "short:discover": "node scripts/short-studio.mjs discover",
+    "short:studio:check": "node scripts/short-studio.mjs check",
+    "short:studio:plan": "node scripts/short-studio.mjs plan",
+    "short:studio:render": "python3 tools/annotated-short/studio.py",
+    "short:metrics": "node scripts/short-studio.mjs metrics",
+    "short:studio:verify": "python3 tools/annotated-short/verify-studio.py"
   },
   "engines": {
     "node": ">=22.12.0"
