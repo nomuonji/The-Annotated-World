@@ -98,7 +98,7 @@
     "rightsReviewed": true
   },
   "publication": {
-    "approved": false
+    "approved": true
   },
   "selectedHook": "question",
   "hooks": [
@@ -541,8 +541,9 @@
     }
   ],
   "deliveryReview": {
-    "approved": false,
-    "reviewer": null,
-    "evidence": null
+    "approved": true,
+    "reviewer": "GPT-6 agent editorial/visual/technical review + independent faster-whisper small speech decoding (not a human listening review)",
+    "mediaSha256": "194c6a7ba04ecf056fe070b8fdebc3faee4d9db107f4ce68c3590951d6aee9ac",
+    "evidence": "2026-11-24: inspected exact MP4 sha256=194c6a7ba04ecf056fe070b8fdebc3faee4d9db107f4ce68c3590951d6aee9ac, 96.2s H264/AAC vertical, all 25 subtitle cues and first-frame/contact-sheet visual sequence; peak -1.20 dBFS, all voice regions non-silent, EN independent ASR normalized similarity 1.000 / JA 0.878, run https://github.com/nomuonji/error-english/actions/runs/45422037086 artifact #14935301213, report linked in issue #31 comment 7135547699; original narration synthesized by Kokoro am_michael/jf_alpha. Japanese proper-noun pronunciation ambiguity is disclosed; model output is not human ear inspection. Quote-law editorial basis, attribution and unresolved transcript provenance explicitly documented in rights.md. Owner separately authorized public release of episode 001 in chat; status.json ownerAuthorization. No original voice/video reused."
   }
 }
