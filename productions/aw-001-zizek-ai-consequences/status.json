@@ -18,17 +18,19 @@
     "durationSec": 78.336,
     "sha256": "7f0b72bcd0b2adc2c2e59302136ebe4d55554e553fdca152cf614442ecd9336c",
     "storage": "chat-local artifact; not checked into Git",
-    "review": "Pilot 015 positive feedback; Pilot 016 final review pending"
+    "review": "Pilot 015 positive feedback; Pilot 016 final review pending",
+    "verification": "2026-11-24 local SHA256 and ffprobe: exact match, 78.336s"
   },
   "gates": {
-    "sourceRecording": "pending",
-    "sourceRights": "pending",
+    "sourceRecording": "blocked_original_video_unavailable",
+    "sourceRights": "pending_quote_scope_review",
     "portraitLicense": "confirmed_cc_by_2_0_credit_required",
-    "ttsTerms": "pending",
+    "ttsTerms": "blocked_edge_commercial_rights_not_established",
     "editorial": "pending",
     "ownerIntent": "2026-11-24 本人が第1話投稿まで実施を依頼。特定MP4の最終公開審査とは区別。",
     "channelOAuth": "unverified",
-    "media": "production revision not rendered"
+    "media": "production revision not rendered",
+    "eventContext": "confirmed_organizer"
   },
   "delivery": {
     "repository": "nomuonji/error-english",
@@ -42,10 +44,10 @@
     "receipt": null
   },
   "blockers": [
-    "原講演の録音を独立照合できていない（教材provenanceも未確認）。",
-    "原文の引用範囲・主従関係およびTTS利用条件の確認が必要。",
-    "既存音声素材の対応と波形境界を確定。改訂briefからのレンダリングと実耳・実機審査が必要。",
-    "現チャットのGitHub接続にworkflow_dispatch機能がなく、投稿先OAuthと実アップロード未実施。"
+    "原動画の取得・実聴照合不可。主催者開催記録と別記録の論旨は確認したが逐語差あり。",
+    "引用範囲の審査と、商用利用権の明確な音声への差替えが必要。Edge Read Aloud由来の既存音声は公開利用を承認しない。",
+    "改訂briefのレンダリング・実耳／実機審査が必要。",
+    "GitHub接続のworkflow_dispatch非対応。投稿先OAuth未検証、投稿なし。"
   ],
-  "nextAction": "既存素材を取得してStudioレンダリング・原録音照合・権利確認→完成品審査→delivery verify/prepare/upload-private→Studioで公開・実ID記録"
+  "nextAction": "原動画から逐語照合・引用審査→公開利用可能な音声を調達→Studioレンダリングと審査→delivery verify/prepare/upload-private→Studio公開・実ID記録"
 }

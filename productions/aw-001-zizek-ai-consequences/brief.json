@@ -17,7 +17,7 @@
   "source": {
     "slug": "slavoj-zizek-signs-from-the-future",
     "url": "https://www.youtube.com/watch?v=j7pEsBbGg5A",
-    "eventContext": "2026年11月4日、カナダ・バンクーバー Chan Centre（UBC）の対談・質疑応答。発話時刻は教材記録で、録音切出し境界は未照合。",
+    "eventContext": "2026年11月4日、カナダ・バンクーバー Chan Centre（UBC）の対談・質疑応答。主催者の開催告知と照合済み。発話時刻は教材記録で、録音切出し境界は未照合。",
     "originalAudioChecked": false,
     "rightsReviewed": false
   },
@@ -37,7 +37,7 @@
           "reason": "原典は予測の断言でなく人間の定義を問う。"
         }
       ],
-      "contextRisk": "フランス革命に関するヘーゲルへの非同意を保持。AIの未来を断言しない。原録音の独立照合と引用適法性確認は未完了。",
+      "contextRisk": "フランス革命に関するヘーゲルへの非同意を保持。AIの未来を断言しない。原録音の独立照合と引用適法性確認は未完了。 主催者 https://chancentre.com/events/slavoj-zizek-signs-from-the-future/ を確認。二次記録に革命の反転・AIの帰結・人間の再定義の論旨はあるが逐語差あり。",
       "hooks": [
         {
           "id": "question",
@@ -77,7 +77,7 @@
         }
       ],
       "unresolved": [
-        "原講演の録音照合、引用の量と主従関係、TTS利用条件を未確認。",
+        "主催者公式2026-11-04開催確認。別の講演記録と論旨一致、逐語表記には相違あり。原動画取得・録音照合は未達。別記録を原典字幕に置換しない。Edge Read Aloud音声の商用再配布権未確認。",
         "実在する既存のTTS素材に合わせた制作brief。波形の無音区間による切替点の確認のみ、逐語の実聴は未実施。Pilot 016と同一ファイルではない。",
         "実耳と実機の最終審査、投稿先認証を要確認。"
       ]
