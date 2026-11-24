@@ -42,3 +42,17 @@ test('export fails with missing annotation review or invented quotation',()=>{
  assert.notEqual(run('export',p).status,0);
  }finally{fs.rmSync(dir,{recursive:true,force:true})}
 });
+
+test('closing editorial annotation is accepted, consecutive annotations are not',()=>{
+ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'clip-ending-'));
+ try{
+ const p=path.join(dir,'brief.json');const b=JSON.parse(fs.readFileSync(example));
+ const n=structuredClone(b.body.find(x=>x.role==='ANNOTATION'));
+ const review=structuredClone(b.editorial.scriptReview.annotations.find(x=>x.id===n.id));
+ n.id='editorial-close';review.id=n.id;
+ b.body.push(n);b.editorial.scriptReview.annotations.push(review);
+ fs.writeFileSync(p,JSON.stringify(b));const r=run('export',p);assert.equal(r.status,0,r.stderr);assert.ok(r.stdout.includes('editorial-close'));
+ const bad=structuredClone(n);bad.id='extra-close';b.body.push(bad);b.editorial.scriptReview.annotations.push({...review,id:bad.id});
+ fs.writeFileSync(p,JSON.stringify(b));assert.notEqual(run('export',p).status,0);
+ }finally{fs.rmSync(dir,{recursive:true,force:true})}
+});
