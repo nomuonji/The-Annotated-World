@@ -24,7 +24,47 @@
   "editorial": {
     "target": "英語で思想を学びたい日本語話者",
     "payoff": "行動の理想だけでなく実際の帰結を問う、という第11テーゼの逆転",
-    "articleUrl": "https://the-annotated-world.pages.dev/read/slavoj-zizek-signs-from-the-future/#ch10"
+    "articleUrl": "https://the-annotated-world.pages.dev/read/slavoj-zizek-signs-from-the-future/#ch10",
+    "scriptReview": {
+      "selection": "教材第10章の原文における、行動の理想とその帰結の対立を一つの論点にする。Pilot 013の構成参考例。",
+      "rejectedAngles": [
+        {
+          "angle": "第一次世界大戦の謎",
+          "reason": "この例では革命の帰結と第十一テーゼの反転に論点を絞る。別クリップの候補。"
+        }
+      ],
+      "contextRisk": "十月革命の出発点への肯定と、後の体制への批判を両方保持。歴史の因果を単純化しない。原講演との独立照合は未確認。",
+      "hooks": [
+        {
+          "id": "paradox",
+          "promiseCheck": "行動の帰結を問う本文と解釈し直す結末につながる。",
+          "tradeoff": "主張が明確だが20世紀の話であることを早く示す必要。"
+        },
+        {
+          "id": "question",
+          "promiseCheck": "革命の反転を例に問いを具体化し、哲学の必要性に戻る。",
+          "tradeoff": "問いだけでは抽象的になりやすく、出典紹介が重要。"
+        }
+      ],
+      "annotations": [
+        {
+          "id": "note",
+          "addedKnowledge": "革命の出発点と後の体制を時間軸で分離する解説。",
+          "basis": "教材第10章 ch10-line-2",
+          "limitations": "独立した歴史資料確認は制作前に必要。"
+        },
+        {
+          "id": "marx",
+          "addedKnowledge": "第十一テーゼとの反転関係を提示する。",
+          "basis": "教材第10章 ch10-line-3、同章の注釈",
+          "limitations": "マルクス原典と講演録音との照合が必要。"
+        }
+      ],
+      "unresolved": [
+        "設計参考例。独立編集審査・史料の確認は未実施。",
+        "元録音と権利、映像、音源の調達・同期は未確認。"
+      ]
+    }
   },
   "music": {
     "motif": "editorial",

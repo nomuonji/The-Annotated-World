@@ -88,3 +88,6 @@
 
 ## Pilot 013 / Studio v2（2026-11-24 本人「めっちゃいいね」）
 新規ショート制作は [Studio v2](docs/ANNOTATED-SHORT-STUDIO.md) を最初に読む。Pilot 012の役割交互構造を維持し、Pilot 013のデザインを採用基準とする。旧v1 CLIは互換用。章JSONから発言を発掘し、フック2〜3案の共通本編比較、意味に即した画面パターン、実測字幕タイミング、音響、公開後の実測比較を行う。投稿・権利・本人評価は別ゲート。
+
+## 教材からクリップ台本を作る専用エージェント（2026-11-24）
+「クリップの台本」「教材からショート」依頼では [教材→クリップ台本ワークフロー](docs/ANNOTATED-CLIP-SCRIPT-WORKFLOW.md) を先に実行する。論点比較・文脈・編者註の根拠・別フック・画面と音声設計・独立編集審査を行い、Studio v2のbrief.jsonと生成したscript.mdを成果物にする。台本依頼はレンダリング・投稿なし。エージェントSkillは `.agents/skills/annotated-clip-script/SKILL.md`。旧v1よりStudio v2を優先。

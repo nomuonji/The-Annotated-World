@@ -4,6 +4,8 @@ on:
     paths:
       - 'tools/annotated-short/**'
       - 'scripts/short-studio.mjs'
+      - 'scripts/clip-script.mjs'
+      - 'scripts/verify-clip-script.mjs'
       - 'templates/annotated-short/**'
       - '.github/workflows/short-studio.yml'
 jobs:
@@ -19,4 +21,5 @@ jobs:
           python-version: '3.11'
       - run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-noto-cjk fonts-dejavu-core
       - run: pip install pillow numpy pydub
+      - run: npm run short:script:verify
       - run: npm run short:studio:verify
