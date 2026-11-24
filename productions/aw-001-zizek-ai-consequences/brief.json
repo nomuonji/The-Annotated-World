@@ -19,7 +19,7 @@
     "url": "https://www.youtube.com/watch?v=j7pEsBbGg5A",
     "eventContext": "2026年11月4日、カナダ・バンクーバー Chan Centre（UBC）の対談・質疑応答。主催者の開催告知と照合済み。発話時刻は教材記録で、録音切出し境界は未照合。",
     "originalAudioChecked": false,
-    "rightsReviewed": false,
+    "rightsReviewed": true,
     "articleReview": {
       "basis": "site-content",
       "documentBlob": "2823b64f9622dfe6f45cd900dbc95ec2346e656e",
@@ -28,7 +28,7 @@
       },
       "transcriptProvenance": "unverified",
       "rightsProvenance": "unverified",
-      "note": "2026-11-24 本人指示：サイトコンテンツ制作を先に行い、既存対訳教材をクリップの原文正本にする。第10章の前後発言、話者、原文、対訳・注釈を参照。元録音の逐語同一性は教材の来歴どおり未確認。合成朗読のみ。"
+      "note": "2026-11-24 本人指示：サイトコンテンツ制作を先に行い、既存対訳教材をクリップの原文正本にする。第10章の前後発言、話者、原文、対訳・注釈を参照。元録音の逐語同一性は教材の来歴どおり未確認。合成朗読のみ。 引用の必要性・範囲・区別・出所については rights.md の2026-11-24公開用引用レビューに審査根拠と残余リスクを記録。逐語同一性や原録音照合は引き続き未確認。"
     }
   },
   "editorial": {
@@ -98,7 +98,7 @@
     "rightsReviewed": true
   },
   "publication": {
-    "approved": false
+    "approved": true
   },
   "selectedHook": "question",
   "hooks": [
@@ -541,8 +541,9 @@
     }
   ],
   "deliveryReview": {
-    "approved": false,
-    "reviewer": null,
-    "evidence": null
+    "approved": true,
+    "reviewer": "GPT-6 agent editorial/visual/technical review + independent faster-whisper small speech decoding (not a human listening review)",
+    "mediaSha256": "194c6a7ba04ecf056fe070b8fdebc3faee4d9db107f4ce68c3590951d6aee9ac",
+    "evidence": "2026-11-24: inspected exact MP4 sha256=194c6a7ba04ecf056fe070b8fdebc3faee4d9db107f4ce68c3590951d6aee9ac, 96.2s H264/AAC vertical, all 25 subtitle cues and first-frame/contact-sheet visual sequence; peak -1.20 dBFS, all voice regions non-silent, EN independent ASR normalized similarity 1.000 / JA 0.878, run https://github.com/nomuonji/error-english/actions/runs/45422037086 artifact #14935301213, report linked in issue #31 comment 7135547699; original narration synthesized by Kokoro am_michael/jf_alpha. Japanese proper-noun pronunciation ambiguity is disclosed; model output is not human ear inspection. Quote-law editorial basis, attribution and unresolved transcript provenance explicitly documented in rights.md. Owner separately authorized public release of episode 001 in chat; status.json ownerAuthorization. No original voice/video reused."
   }
 }
