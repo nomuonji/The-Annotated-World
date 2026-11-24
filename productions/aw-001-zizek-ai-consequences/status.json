@@ -3,15 +3,15 @@
   "clipId": "aw-001-zizek-ai-consequences",
   "episode": 1,
   "title": "AIが人間を労働から解放したら、何が起きる？｜ジジェク",
-  "stage": "pilot_rendered",
+  "stage": "rendered",
   "updatedAt": "2026-11-24",
   "script": {
     "path": "brief.json",
-    "revision": 1,
+    "revision": 2,
     "kind": "production-revision",
-    "status": "structured",
+    "status": "rendered-source-pinned-to-kokoro-derived-brief",
     "basedOn": "Pilot 016",
-    "renderMatchesBrief": false
+    "renderMatchesBrief": true
   },
   "preview": {
     "name": "the-annotated-world-pilot-016.mp4",
@@ -23,13 +23,13 @@
   },
   "gates": {
     "sourceRecording": "not_required_synthetic_site_basis_unverified_recording",
-    "sourceRights": "pending_quote_scope_review",
+    "sourceRights": "quote_scope_review_pending",
     "portraitLicense": "confirmed_cc_by_2_0_credit_required",
-    "ttsTerms": "kokoro_82m_apache_2_0_generated_review_pending",
+    "ttsTerms": "kokoro_82m_apache_2_0_verified_model_license",
     "editorial": "pending",
     "ownerIntent": "2026-11-24 本人が第1話の公開を明示許可。重複確認不要。権利・メディアゲートは維持。",
     "channelOAuth": "confirmed",
-    "media": "rendered_96_2s_contact_sheet_inspected_audio_listening_pending",
+    "media": "technical_signal_and_25_frame_visual_review_done_listening_pending",
     "eventContext": "confirmed_organizer",
     "sourceText": "confirmed"
   },
@@ -46,17 +46,17 @@
     "channelVerification": "https://github.com/nomuonji/error-english/issues/31#issuecomment-7121736808"
   },
   "blockers": [
-    "既存サイト教材を原文正本として継承。原録音は未照合の履歴を維持し、合成朗読の元動画再取得は不要。引用範囲・出所と利用根拠の最終審査が未完了。",
-    "完成MP4 194c6a7ba04ecf056fe070b8fdebc3faee4d9db107f4ce68c3590951d6aee9ac の視覚的抜粋・技術検証は済み。音声の実聴取・字幕全編・最終品質審査は未完了。",
-    "公開許可は本人から明示取得済み。権利・完成品審査後に同一ダイジェストを配信経路で非公開アップロードし、YouTube Studioの公開状態を実IDで再確認する。"
+    "引用利用の最終判断：公開された原典の短い一部を思想解説に使い、引用部分と編者解説を区別。主従・正当な範囲・出所と逐語一致性に残余リスクがあるため、確認未完了として記録。",
+    "完成動画の信号検査と静止画・SRT点検は実施済み。ただし人/聴覚モデルによる実音声聴取、発音と字幕同期の主観検査は未完了。未検査を検査済みと偽装しない。",
+    "YouTube既存配信フローはworkflow_dispatch専用で、現在のGitHub接続にdispatch権限の呼出し手段がない。非公開アップロード/公開URLの実施・読戻しは未完了。"
   ],
-  "nextAction": "引用範囲・素材条件と完成MP4の音声・字幕全編を審査→Kokoro派生briefをソース正本に整合→Approved media SHAを固定→error-englishのprepare/upload-privateを実行→YouTube Studio公開とvideoId/privacyを実測。本人への公開許可の再確認は不要。",
+  "nextAction": "音声実聴取と引用レビューを証拠付きで完了→brief source.rightsReviewed/pub.approved/deliveryReview を事実に基づき更新→既存OAuthを用いるerror-englishのprepare/upload-private workflowを発火→YouTube Studioでprivate実IDの確認後公開→公開readback。本人公開意思は取得済み、再確認不要。",
   "render": {
     "sha256": "194c6a7ba04ecf056fe070b8fdebc3faee4d9db107f4ce68c3590951d6aee9ac",
     "storage": "GitHub Actions artifact #14897427515 (run 45344028772)",
     "artifactUrl": "https://github.com/nomuonji/The-Annotated-World/actions/runs/45344028772/artifacts/14897427515",
     "sourceRevision": "8499e885ac5c868f5d359d40321dbb8029257ac9",
-    "derivedBrief": "Kokoro-generated brief.json in voice artifact #14896793621",
+    "derivedBrief": "productions/aw-001-zizek-ai-consequences/brief.json",
     "durationSec": 96.2,
     "width": 720,
     "height": 1280,
@@ -66,7 +66,25 @@
     "visualReview": "contact-sheet-and-first-frame-inspected",
     "listeningReview": "pending",
     "quoteRightsReview": "pending",
-    "publicationApproved": false
+    "publicationApproved": false,
+    "derivedBriefBlob": "d3d06f3cef71f6fc092ec63cbb099c9687f33fc7",
+    "renderMatchesBrief": true,
+    "signalAudit": {
+      "checkedAt": "2026-11-24",
+      "narratedCues": 25,
+      "quoteCues": 11,
+      "editorCues": 14,
+      "silentCueCount": 0,
+      "peakDbfs": -1.2005280267747875,
+      "voiceRmsDbfs": -18.713467170961614,
+      "musicRmsDbfs": -28.442282873523506,
+      "limitation": "DSP/signal-level check only; not a listening audit of pronunciation, intelligibility or timing in context"
+    },
+    "visualAudit": {
+      "checkedAt": "2026-11-24",
+      "evidence": "26-frame contact sheet, first-frame phone preview and 25 SRT cues",
+      "limitation": "Static thumbnails/SRT; not an end-to-end real-time viewing or full subtitle/audio subjective audit"
+    }
   },
   "ownerAuthorization": {
     "publicReleaseAuthorized": true,
