@@ -9,7 +9,8 @@ for(const entry of fs.readdirSync(folder,{withFileTypes:true}).filter(x=>x.isDir
  if(i>=1){must(fs.existsSync(path.join(p,'brief.json')),'Missing brief: '+entry.name);execFileSync(process.execPath,[path.join(root,'scripts/clip-script.mjs'),'export',path.join(p,'brief.json')],{stdio:['ignore','ignore','inherit']})}
  if(i>=2)must(hex(s.preview?.sha256,64)||hex(s.render?.sha256,64),'Missing media digest: '+entry.name);
  if(i>=3)must(s.script?.renderMatchesBrief===true&&hex(s.render?.sha256,64)&&s.render?.storage,'Rendered media must match brief');
- if(i>=4)must(s.blockers.length===0&&['sourceRecording','sourceRights','ttsTerms','editorial','media'].every(k=>s.gates?.[k]==='confirmed'),'Review gates remain open');
+ if(i>=4){const b=JSON.parse(fs.readFileSync(path.join(p,'brief.json'),'utf8'));must(!!b.source.articleReview&&(b.speaker.audioKind!=='original'||s.gates?.sourceRecording==='confirmed'),'Missing article review or original audio verification');}
+ if(i>=4)must(s.blockers.length===0&&['sourceText','sourceRights','ttsTerms','editorial','media'].every(k=>s.gates?.[k]==='confirmed'),'Review gates remain open');
  if(i>=5)must(d.videoId&&d.channelId&&hex(d.sourceSha,40)&&d.approvedMediaSha256===s.render.sha256&&d.receipt,'Missing delivery readback');
  if(i===6)must(d.privacy==='public'&&d.publishedAt,'Missing public readback');
  rows.push({episode:s.episode,id:s.clipId,title:s.title,stage:s.stage,blockers:s.blockers,videoId:d.videoId??null,nextAction:s.nextAction});

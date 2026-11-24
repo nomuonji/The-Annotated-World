@@ -56,3 +56,6 @@
 説明: AIの理想を実現した先に、意図せざる帰結や人間の概念の変化がありうる。ヘーゲル的な問い方をマルクスとの対比から理解する。\n原典: https://www.youtube.com/watch?v=j7pEsBbGg5A\n対訳・注釈: https://the-annotated-world.pages.dev/read/slavoj-zizek-signs-from-the-future/#ch10\n原文の合成朗読（本人音声ではない）\n肖像: Michael Bruns / photo credit Gisbert H. Drignat; Slavoj Žižek 2011.jpg, cropped; CC BY 2.0 https://creativecommons.org/licenses/by/2.0/ ; https://commons.wikimedia.org/wiki/File:Slavoj_%C5%BDi%C5%BEk_2011.jpg\n音楽: 独自生成音楽\n#TheAnnotatedWorld #哲学 #英語
 
 公開判定は[status.json](status.json)に従う。
+
+## 制作原本（最新）
+2026-11-24 本人指定により、[既存教材第10章](https://the-annotated-world.pages.dev/read/slavoj-zizek-signs-from-the-future/#ch10) を合成朗読の正本とする。原動画の再取得は不要。原録音との逐語同一性が未確認であるという教材来歴を保持。使用引用はbriefの章・発話・時刻・原文に対応。Kokoro音声への差替え、引用範囲・完成審査と投稿は未完了。

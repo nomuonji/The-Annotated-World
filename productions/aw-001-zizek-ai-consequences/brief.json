@@ -6,7 +6,7 @@
     "sourceName": "Žižek",
     "voiceId": "en-US-AndrewNeural",
     "audioKind": "synthetic",
-    "disclosure": "原文の合成朗読・本人の肉声ではない",
+    "disclosure": "教材原文の合成朗読（本人の肉声ではない）",
     "portrait": "assets/speaker.jpg",
     "portraitCredit": "Michael Bruns / photo credit Gisbert H. Drignat; Slavoj Žižek 2011.jpg, cropped; CC BY 2.0 https://creativecommons.org/licenses/by/2.0/ ; https://commons.wikimedia.org/wiki/File:Slavoj_%C5%BDi%C5%BEk_2011.jpg",
     "portraitRightsReviewed": true
@@ -19,7 +19,17 @@
     "url": "https://www.youtube.com/watch?v=j7pEsBbGg5A",
     "eventContext": "2026年11月4日、カナダ・バンクーバー Chan Centre（UBC）の対談・質疑応答。主催者の開催告知と照合済み。発話時刻は教材記録で、録音切出し境界は未照合。",
     "originalAudioChecked": false,
-    "rightsReviewed": false
+    "rightsReviewed": false,
+    "articleReview": {
+      "basis": "site-content",
+      "documentBlob": "2823b64f9622dfe6f45cd900dbc95ec2346e656e",
+      "chapterBlobs": {
+        "ch10": "555c777bfb18b5e22e07426da7cbd9f82ab7bfca"
+      },
+      "transcriptProvenance": "unverified",
+      "rightsProvenance": "unverified",
+      "note": "2026-11-24 本人指示：サイトコンテンツ制作を先に行い、既存対訳教材をクリップの原文正本にする。第10章の前後発言、話者、原文、対訳・注釈を参照。元録音の逐語同一性は教材の来歴どおり未確認。合成朗読のみ。"
+    }
   },
   "editorial": {
     "target": "海外の思想・文化を原語で理解したい、知的好奇心の強い日本語話者。英語初学者向け授業ではない。",
@@ -37,7 +47,7 @@
           "reason": "原典は予測の断言でなく人間の定義を問う。"
         }
       ],
-      "contextRisk": "フランス革命に関するヘーゲルへの非同意を保持。AIの未来を断言しない。原録音の独立照合と引用適法性確認は未完了。 主催者 https://chancentre.com/events/slavoj-zizek-signs-from-the-future/ を確認。二次記録に革命の反転・AIの帰結・人間の再定義の論旨はあるが逐語差あり。",
+      "contextRisk": "第10章の前後の発言を参照し、フランス革命に関するヘーゲルへの非同意を保持。AIの未来を断言しない。原典来歴は教材の記載に従う。主催者開催記録確認済み。",
       "hooks": [
         {
           "id": "question",
@@ -55,31 +65,31 @@
           "id": "hegel-language",
           "addedKnowledge": "ヘーゲルの論点は、自由への革命が恐怖政治に反転すること。ただしジジェクは全面同意していません。",
           "basis": "教材ch10-line-3のフランス革命の具体例。ヘーゲル哲学全体の定義ではなく、当該発言での用法。",
-          "limitations": "編者の解釈と発言者の主張を区別。原録音照合と権利審査未完。"
+          "limitations": "発言者の主張と編者解釈を区別する。教材の原典来歴を引き継ぎ、公開用の引用範囲審査は別。"
         },
         {
           "id": "method",
           "addedKnowledge": "ここでの哲学は、理想がどこで裏目に出るかを、計画の段階から問う仕事です。",
           "basis": "教材ch10-line-3。歴史的例の論点を図示する。必然的因果ではない。",
-          "limitations": "編者の解釈と発言者の主張を区別。原録音照合と権利審査未完。"
+          "limitations": "発言者の主張と編者解釈を区別する。教材の原典来歴を引き継ぎ、公開用の引用範囲審査は別。"
         },
         {
           "id": "ai-note",
           "addedKnowledge": "AIも同じ。便利になるかだけでなく、成功した先で人間の意味がどう変わるかを問います。",
           "basis": "教材ch10-line-3。AIの未来は予測ではなく哲学的問い。",
-          "limitations": "編者の解釈と発言者の主張を区別。原録音照合と権利審査未完。"
+          "limitations": "発言者の主張と編者解釈を区別する。教材の原典来歴を引き継ぎ、公開用の引用範囲審査は別。"
         },
         {
           "id": "closing",
           "addedKnowledge": "マルクスは、世界を解釈するだけでなく変えよと書いた。ジジェクは逆に、その帰結を問います。",
           "basis": "マルクス『フォイエルバッハに関するテーゼ』第11と教材ch10-line-3の対比。結語は編者の言葉。",
-          "limitations": "編者の解釈と発言者の主張を区別。原録音照合と権利審査未完。"
+          "limitations": "発言者の主張と編者解釈を区別する。教材の原典来歴を引き継ぎ、公開用の引用範囲審査は別。"
         }
       ],
       "unresolved": [
-        "主催者公式2026-11-04開催確認。別の講演記録と論旨一致、逐語表記には相違あり。原動画取得・録音照合は未達。別記録を原典字幕に置換しない。Edge Read Aloud音声の商用再配布権未確認。",
-        "実在する既存のTTS素材に合わせた制作brief。波形の無音区間による切替点の確認のみ、逐語の実聴は未実施。Pilot 016と同一ファイルではない。",
-        "実耳と実機の最終審査、投稿先認証を要確認。"
+        "教材の原典録音との逐語同一性は未確認（教材来歴の継承）。サイトコンテンツを正本にするため合成朗読制作時に動画の再取得は不要。引用範囲の審査は別。",
+        "Edge由来の試作音声をKokoro-82Mの英日音声に差し替える。改訂briefの実レンダリング・実耳審査未完。",
+        "投稿先OAuthは旧ドパ英語のチャンネルUCBy9F1fD4SQTyjTK8yfZGhAと照合成功。動画未投稿。"
       ]
     }
   },

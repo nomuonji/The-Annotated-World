@@ -60,3 +60,6 @@ export は同じJSONからフック比較、共通本編の発話・和訳・画
 
 ## 知的好奇心と理解設計
 台本は最初の問い→部分的理解→次の問い→最終回収の連鎖を設計し、comprehension-review.md に場面別の前提・新情報・誤読リスクと演出を記録する。問いを機械的に連発しない。専門語の解説は原語を知ると論点の読み方がどう変わるかで選ぶ。My Portal の動画制作Pack実行入口と comprehension-design を参照。Studioの新規 branch / sequence / language / closing / holdMs / revealAtCue を必要な場面で指定。技術的に生成できることと視聴者理解は別。公開後は同じ版のタイムラインと離脱・再視聴を照合し、本人採否とは区別して既存動画制作道場に返す。道場の実行版・評価・仮説のゲートを維持する。
+
+## 教材先行・派生動画（2026-11-24 本人指示）
+サイトコンテンツ制作→既存教材の原文・対訳・内容/語学注釈を参照→クリップ制作→投稿が正規の順序。クリップ担当は既存教材の chapterId/utteranceId/time と原文・前後文脈を確認して使う。合成朗読では原動画/字幕の再取得・原録音の再照合を要求しない。教材の取得・出典照合は上流のサイト制作責務。教材の来歴（未確認を含む）を変更せず引き継ぐ。brief.source.articleReview に basis=site-content、documentBlob、使用章の chapterBlobs（Git blob SHA）、transcriptProvenance、rightsProvenance、note を保存する。引用照合・固定版の検査はStudioで行う。教材更新で版が変われば再読・ピン更新。originalAudioChecked は原録音を実際に使う場合だけ必須。動画自体の引用範囲・素材利用権、合成音声の利用条件、完成映像の審査、投稿承認は従来どおり別。教材に未確認の来歴があっても原典照合済みとは偽らない。既存記事を勝手に原典確認済みに更新しない。

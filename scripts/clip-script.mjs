@@ -79,7 +79,8 @@ function exportScript(file){
  const lines=['# '+b.title,'','**台本・制作指示（非公開の編集用）** — 構造・教材原文の検査 PASS。事実・録音・権利・映像の審査は別。','',
   '- 原典: '+source.title+' / '+b.source.url,'- 発言者: '+b.speaker.name+' / '+b.speaker.disclosure,
   '- 場面: '+b.source.eventContext,'- 対象: '+b.editorial.target,'- 視聴後の理解: '+b.editorial.payoff,'- 教材: '+b.editorial.articleUrl,
-  '- 原典録音照合: '+(b.source.originalAudioChecked?'briefで確認済と申告（証跡は別途）':'未確認'),
+  '- 教材参照審査: '+(r.articleReviewVerified?'対象教材・章の固定版、引用・話者・時刻・来歴の構造確認済':'未審査')+' / 教材の原典転写来歴: '+r.transcriptProvenance,
+  '- 原典録音照合: '+(b.source.originalAudioChecked?'briefで確認済と申告（証跡は別途）':b.speaker.audioKind==='synthetic'?'未照合。教材を合成朗読するため再取得不要':'未確認・実録利用不可'),
   '- 原典権利審査: '+(b.source.rightsReviewed?'briefで審査済と申告':'未確認'),
   '- 公開承認: '+(b.publication.approved?'briefで承認済と申告（公開操作なし）':'未承認'),
   '- BGM: '+b.music.motif,'','## フック比較（本編共通）',''];
@@ -113,7 +114,7 @@ function exportScript(file){
  for(const [f,m] of media)lines.push('- ['+(fs.existsSync(path.resolve(folder,f))?'x':' ')+'] '+m.kind+' '+f+' — '+m.details);
  lines.push('','各フックの概算合計発話尺（無音・間・画面演出を含まない）:');
  for(const h of b.hooks)lines.push('- '+h.id+': 約'+Math.round([h,...b.body].reduce((n,s)=>n+estimate(s),0))+'秒');
- lines.push('','次工程: 原典録音・素材と利用権を確認し、発話境界を実測。Studio v2 の --media / render を使用。投稿は別承認。');
+ lines.push('','次工程: 教材参照審査と素材・引用・音声の利用権を確認し、発話境界を実測。原典録音は実録音声使用時のみ別途照合。Studio v2 の --media / render を使用。投稿は別承認。');
  must(r.ok,'invalid brief');return lines.join('\n')+'\n';
 }
 try{

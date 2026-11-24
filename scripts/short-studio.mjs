@@ -2,6 +2,7 @@
 // Source-first editorial planning. No publishing or synthetic transcript creation.
 import fs from 'node:fs';
 import path from 'node:path';
+import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
@@ -47,7 +48,7 @@ function check(b,dir,media=false,publish=false){
  requireThat(b.speaker.voiceId!==b.editor.voiceId,'distinct role voices required');
  requireThat(['synthetic','original'].includes(b.speaker.audioKind),'explicit audio kind required');
  requireThat(b.speaker.audioKind!=='original'||b.source.originalAudioChecked===true,'original voice requires verified recording');
- const {chapters}=document(b.source.slug);
+ const {doc,chapters}=document(b.source.slug);
  const lookup=new Map(chapters.flatMap(ch=>ch.utterances.map(u=>[ch.id+'/'+u.id,u])));
  const ids=new Set();
  const file=(f,label)=>{requireThat(nonempty(f)&&!path.isAbsolute(f)&&!f.split(/[\\/]/).includes('..'),label+' invalid path');if(media)requireThat(fs.existsSync(path.join(dir,f))&&fs.statSync(path.join(dir,f)).isFile(),label+' missing '+f)};
@@ -111,12 +112,28 @@ function check(b,dir,media=false,publish=false){
  for(let i=0;i<roles.length;i++){if(roles[i]==='ANNOTATION')requireThat(roles[i-1]==='QUOTE'&&(i===roles.length-1||roles[i+1]==='QUOTE'),'note must follow a quote and either precede a quote or close the body');segment(b.body[i])}
  requireThat(catalog.audio.motifs[b.music?.motif],'choose original motif');
  requireThat(nonempty(b.editorial?.payoff)&&nonempty(b.editorial?.target)&&nonempty(b.editorial?.articleUrl),'editorial payoff/target/article link required');
+ // The site owns the transcript and its provenance. Pin the exact reviewed article files;
+ // independent recording verification is required for original sound, not synthetic reading.
+ const review=b.source.articleReview;
+ if(review){
+  const articleRoot=path.join(ROOT,'src/content/documents',b.source.slug);
+  const blob=p=>{const bytes=fs.readFileSync(p);return createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex')};
+  const used=[...new Set([...b.hooks,...b.body].flatMap(s=>[s.sourceRef?.chapterId,s.visual?.termRef?.chapterId]).filter(Boolean))];
+  requireThat(review.basis==='site-content'&&nonempty(review.note)&&review.documentBlob===blob(path.join(articleRoot,'document.json')),'article review missing or stale document; re-review current site content');
+  requireThat(used.every(id=>safeId(id)&&review.chapterBlobs?.[id]===blob(path.join(articleRoot,'chapters',id+'.json'))),'article review missing or stale chapter; re-review current site content');
+  requireThat(doc.provenance?.sourceUrl===b.source.url,'source URL differs from reviewed article');
+  requireThat(review.transcriptProvenance===doc.provenance?.transcript&&review.rightsProvenance===doc.provenance?.rights,'article provenance changed; re-review');
+  const article=new URL(b.editorial.articleUrl);
+  requireThat(article.protocol==='https:'&&article.hostname==='the-annotated-world.pages.dev'&&article.pathname.replace(/\/$/,'')==='/read/'+b.source.slug,'article link must identify reviewed site content');
+ }
  if(publish){
-  requireThat(b.publication?.approved===true&&b.source.originalAudioChecked===true&&b.source.rightsReviewed===true&&b.music.rightsReviewed===true,'publication gates not cleared');
+  requireThat(b.publication?.approved===true&&b.source.rightsReviewed===true&&b.music.rightsReviewed===true,'publication/rights gates not cleared');
+  requireThat(!!review,'review the site content before publishing');
+  requireThat(b.speaker.audioKind!=='original'||b.source.originalAudioChecked===true,'original voice requires verified recording');
   requireThat([...b.hooks,...b.body].every(s=>!['portrait','archive'].includes(s.visual.pattern)||s.visual.rightsReviewed===true),'visual rights not cleared');
   if([...b.hooks,...b.body].some(s=>s.role==='QUOTE'&&s.visual.pattern==='archive'))requireThat(b.speaker.portraitRightsReviewed===true,'portrait rights not cleared');
  }
- return {ok:true,hooks:b.hooks.map(h=>h.id),segments:b.body.length+1,publicationApproved:b.publication?.approved===true,warning:'Structural/source-text validation only; recording, translations, rights, first frames, audio and audience quality require separate review.'};
+ return {ok:true,hooks:b.hooks.map(h=>h.id),segments:b.body.length+1,articleReviewVerified:!!review,transcriptProvenance:doc.provenance?.transcript??'unknown',originalAudioChecked:b.source.originalAudioChecked===true,publicationApproved:b.publication?.approved===true,warning:'Structural/source-text validation only; recording, translations, rights, first frames, audio and audience quality require separate review.'};
 }
 function metrics(data){
  requireThat(Array.isArray(data)&&data.length>0,'metrics array required');

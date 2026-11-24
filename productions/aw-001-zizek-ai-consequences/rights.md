@@ -10,3 +10,6 @@
 - 比較用（原典の代用は禁止） https://zizek.org/talk/slavoj-zizek-signs-from-the-future-chan-centre-with-clint-burnham ：マルクスの第11テーゼ、革命の逆転、AIの帰結、人間の再定義という論旨は一致するが、革命の反転の言い回し、繰返し語、文法整理に差がある。原動画取得に失敗。逐語確認済みにしない。
 - Edge Read Aloud由来の音声は商用・再配布の明確な許諾を確認できない。Microsoft Q&A https://learn.microsoft.com/en-us/answers/questions/6073502/commercial-licensing-clarification-edge-read-aloud 、Azureの正式条件 https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS を確認。後者は有料TTSサービスの音声出力利用権を規定するが、今回のEdge素材には適用できない。公開版は別の許諾済み音声に差し替える。無断の有料サービス契約はしない。
 - Pilot 016 のSHA256・尺はローカル再確認済み。技術的存在の確認であり、公開審査完了ではない。
+
+## 2026-11-24 本人訂正：教材先行の制作契約
+サイト教材の原文・対訳・内容注釈・語学注釈を派生動画の原文正本とする。サイト制作時の来歴をそのまま継承し、合成朗読で原動画を毎回取得・照合し直す必要はない。原録音未確認という履歴は消さない。第1話はch10の引用・話者・時刻を照合し、document.jsonとch10.jsonのGit blobをbrief.source.articleReviewに固定した。原典の録音を使う場合のみ実録照合を必須とする。引用の必要性・範囲、利用権・素材許諾と完成品の審査は別。

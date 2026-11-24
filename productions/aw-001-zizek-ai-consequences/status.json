@@ -22,32 +22,33 @@
     "verification": "2026-11-24 local SHA256 and ffprobe: exact match, 78.336s"
   },
   "gates": {
-    "sourceRecording": "blocked_original_video_unavailable",
+    "sourceRecording": "not_required_synthetic_site_basis_unverified_recording",
     "sourceRights": "pending_quote_scope_review",
     "portraitLicense": "confirmed_cc_by_2_0_credit_required",
-    "ttsTerms": "blocked_edge_commercial_rights_not_established",
+    "ttsTerms": "kokoro_license_path_ready_episode_audio_pending",
     "editorial": "pending",
     "ownerIntent": "2026-11-24 本人が第1話投稿まで実施を依頼。特定MP4の最終公開審査とは区別。",
-    "channelOAuth": "unverified",
+    "channelOAuth": "confirmed",
     "media": "production revision not rendered",
-    "eventContext": "confirmed_organizer"
+    "eventContext": "confirmed_organizer",
+    "sourceText": "confirmed"
   },
   "delivery": {
     "repository": "nomuonji/error-english",
     "workflow": "annotated-world-delivery.yml",
     "privacy": null,
     "videoId": null,
-    "channelId": null,
+    "channelId": "UCBy9F1fD4SQTyjTK8yfZGhA",
     "sourceSha": null,
     "approvedMediaSha256": null,
     "publishedAt": null,
-    "receipt": null
+    "receipt": null,
+    "channelVerification": "https://github.com/nomuonji/error-english/issues/31#issuecomment-7121736808"
   },
   "blockers": [
-    "原動画の取得・実聴照合不可。主催者開催記録と別記録の論旨は確認したが逐語差あり。",
-    "引用範囲の審査と、商用利用権の明確な音声への差替えが必要。Edge Read Aloud由来の既存音声は公開利用を承認しない。",
-    "改訂briefのレンダリング・実耳／実機審査が必要。",
-    "GitHub接続のworkflow_dispatch非対応。投稿先OAuth未検証、投稿なし。"
+    "公開時の引用範囲・利用根拠の確認。教材の原典来歴は未照合として継承し、原動画再取得をクリップ工程のブロッカーにしない。",
+    "Kokoro-82Mによる第1話の音声生成・レンダリング・完成審査が必要。",
+    "投稿先OAuth確認済み。実アップロードは未実施。"
   ],
-  "nextAction": "原動画から逐語照合・引用審査→公開利用可能な音声を調達→Studioレンダリングと審査→delivery verify/prepare/upload-private→Studio公開・実ID記録"
+  "nextAction": "サイト教材に基づく公開引用範囲審査→Kokoro音声生成→Studioレンダリング・完成審査→既存投稿経路→公開と実ID記録"
 }
