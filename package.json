@@ -23,7 +23,8 @@
     "short:studio:verify": "python3 tools/annotated-short/verify-studio.py",
     "short:script:prepare": "node scripts/clip-script.mjs prepare",
     "short:script:export": "node scripts/clip-script.mjs export",
-    "short:script:verify": "node --test scripts/verify-clip-script.mjs"
+    "short:script:verify": "node --test scripts/verify-clip-script.mjs",
+    "short:productions": "node scripts/production-status.mjs"
   },
   "engines": {
     "node": ">=22.12.0"

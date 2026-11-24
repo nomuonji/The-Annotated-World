@@ -103,3 +103,6 @@
 
 ## 動画制作Packとの接続
 解説・教育型動画は My Portal の video-production 実行入口から comprehension-design を選択参照し、既存 short-video-direction 道場に一般化可能な仮説・実物評価・反例を還元する。別道場は増設しない。個別制作の方針・権利・編集正本は本repo。新規制作は最新Studio機能と理解設計レビューを使う。本人評価・市場実績・技術検査を混同しない。
+
+## 制作・投稿ステータス
+[制作台帳](docs/ANNOTATED-PRODUCTION-LEDGER.md)に従い、各話のbrief、理解設計、権利、statusを更新。`npm run short:productions`で一覧・整合検査。実際のYouTube受領記録なしに投稿済みにしない。
