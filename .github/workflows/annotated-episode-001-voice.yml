@@ -1,0 +1,36 @@
+name: Annotated episode 001 licensed voice assets
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/annotated-episode-001-voice.yml'
+      - 'tools/annotated-short/synthesize-kokoro.py'
+      - 'productions/aw-001-zizek-ai-consequences/brief.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  narration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y espeak-ng libsndfile1
+      - run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install 'kokoro==0.9.4' 'misaki[ja]==0.9.4' soundfile
+          python -m unidic download
+      - name: Synthesize every episode 001 cue from the fixed site-content brief
+        run: |
+          python tools/annotated-short/synthesize-kokoro.py \
+            --brief productions/aw-001-zizek-ai-consequences/brief.json \
+            --out /tmp/episode-001
+          node scripts/short-studio.mjs check /tmp/episode-001/brief.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aw-001-kokoro-voice-review
+          path: /tmp/episode-001/
+          retention-days: 14
+          if-no-files-found: error

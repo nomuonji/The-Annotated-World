@@ -3,12 +3,14 @@ on:
   pull_request:
     paths:
       - 'tools/annotated-short/synthesize-kokoro.py'
+      - 'productions/aw-001-zizek-ai-consequences/brief.json'
+      - '.github/workflows/annotated-episode-001-voice.yml'
       - '.github/workflows/annotated-narration.yml'
 permissions:
   contents: read
 jobs:
   voice:
-    timeout-minutes: 15
+    timeout-minutes: 40
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,6 +23,16 @@ jobs:
           pip install 'kokoro==0.9.4' 'misaki[ja]==0.9.4' soundfile
           python -m unidic download
       - run: python tools/annotated-short/synthesize-kokoro.py --smoke --out /tmp/aw-narration
+      - name: Generate full episode 001 review voices
+        run: |
+          python tools/annotated-short/synthesize-kokoro.py --brief productions/aw-001-zizek-ai-consequences/brief.json --out /tmp/aw-episode-001
+          node scripts/short-studio.mjs check /tmp/aw-episode-001/brief.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aw-001-licensed-voice-review
+          path: /tmp/aw-episode-001/
+          retention-days: 14
+          if-no-files-found: error
       - uses: actions/upload-artifact@v4
         with:
           name: licensed-narration-smoke
