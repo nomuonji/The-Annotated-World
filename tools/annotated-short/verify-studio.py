@@ -44,6 +44,23 @@ with tempfile.TemporaryDirectory() as tmp:
         files=[seg['audio']] if seg['timing']['mode']=='measured' else [c['audio'] for c in seg['cues']]
         for name in files:
             f=root/name;f.parent.mkdir(parents=True,exist_ok=True);Sine(440).to_audio_segment(duration=900 if seg['timing']['mode']=='measured' else 320).apply_gain(-14).export(f,format='wav')
+    # A synthetic reading may use the reviewed site text without downloading the recording.
+    # Test real media fixtures, stale text pin, rights and original-audio gates independently.
+    import hashlib
+    docroot=ROOT/'src/content/documents'/b['source']['slug']
+    def git_blob(p):
+        data=p.read_bytes();return hashlib.sha1(b'blob '+str(len(data)).encode()+b'\x00'+data).hexdigest()
+    doc=json.loads((docroot/'document.json').read_text())
+    review={'basis':'site-content','note':'Synthetic fixture review of site text; no publication intended','documentBlob':git_blob(docroot/'document.json'),'chapterBlobs':{ch:git_blob(docroot/'chapters'/f'{ch}.json') for ch in {s['sourceRef']['chapterId'] for s in b['hooks']+b['body'] if s['role']=='QUOTE'}},'transcriptProvenance':doc['provenance']['transcript'],'rightsProvenance':doc['provenance']['rights']}
+    b['source']['articleReview']=review
+    b['source']['rightsReviewed']=True;b['music']['rightsReviewed']=True;b['publication']['approved']=True;b['source']['originalAudioChecked']=False
+    for s in b['hooks']+b['body']:
+        if s['visual']['pattern'] in ['portrait','archive']:s['visual']['rightsReviewed']=True
+    p.write_text(json.dumps(b));call('node',str(CLI),'check',str(p),'--publish')
+    b['source']['rightsReviewed']=False;p.write_text(json.dumps(b));call('node',str(CLI),'check',str(p),'--publish',ok=False);b['source']['rightsReviewed']=True
+    saved=review['documentBlob'];review['documentBlob']='0'*40;p.write_text(json.dumps(b));call('node',str(CLI),'check',str(p),'--publish',ok=False);review['documentBlob']=saved
+    b['speaker']['audioKind']='original';p.write_text(json.dumps(b));call('node',str(CLI),'check',str(p),'--publish',ok=False);b['speaker']['audioKind']='synthetic'
+    b['publication']['approved']=False;b['source']['rightsReviewed']=False
     p.write_text(json.dumps(b))
     call(sys.executable,str(ROOT/'tools/annotated-short/studio.py'),str(p),'--all')
     for h in b['hooks']:

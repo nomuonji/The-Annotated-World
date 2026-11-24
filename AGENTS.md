@@ -106,3 +106,6 @@
 
 ## 制作・投稿ステータス
 [制作台帳](docs/ANNOTATED-PRODUCTION-LEDGER.md)に従い、各話のbrief、理解設計、権利、statusを更新。`npm run short:productions`で一覧・整合検査。実際のYouTube受領記録なしに投稿済みにしない。
+
+## 教材先行・派生動画（2026-11-24 本人指示）
+サイトコンテンツ制作→既存教材の原文・対訳・内容/語学注釈を参照→クリップ制作→投稿が正規の順序。クリップ担当は既存教材の chapterId/utteranceId/time と原文・前後文脈を確認して使う。合成朗読では原動画/字幕の再取得・原録音の再照合を要求しない。教材の取得・出典照合は上流のサイト制作責務。教材の来歴（未確認を含む）を変更せず引き継ぐ。brief.source.articleReview に basis=site-content、documentBlob、使用章の chapterBlobs（Git blob SHA）、transcriptProvenance、rightsProvenance、note を保存する。引用照合・固定版の検査はStudioで行う。教材更新で版が変われば再読・ピン更新。originalAudioChecked は原録音を実際に使う場合だけ必須。動画自体の引用範囲・素材利用権、合成音声の利用条件、完成映像の審査、投稿承認は従来どおり別。教材に未確認の来歴があっても原典照合済みとは偽らない。既存記事を勝手に原典確認済みに更新しない。
