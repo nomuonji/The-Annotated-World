@@ -1,0 +1,142 @@
+{
+  "version": 2,
+  "baseline": "Pilot 013 / user: めっちゃいいね / 2026-11-24",
+  "canvas": {
+    "width": 720,
+    "height": 1280,
+    "fps": 24,
+    "content": {
+      "left": 48,
+      "right": 620,
+      "top": 30,
+      "bottom": 1090
+    }
+  },
+  "palette": {
+    "ink": "#19272B",
+    "dark": "#121C22",
+    "paper": "#F3EDE1",
+    "gold": "#F5CA78",
+    "teal": "#34655B",
+    "muted": "#C1C8C6"
+  },
+  "patterns": {
+    "portrait": {
+      "roles": [
+        "QUOTE"
+      ],
+      "description": "本人肖像または権利確認済み原映像を主役にする。肖像は緩いズーム、原映像は連続。"
+    },
+    "archive": {
+      "roles": [
+        "QUOTE",
+        "CONTEXT",
+        "ANNOTATION"
+      ],
+      "description": "一次史料・写真・著書の画像。creditと撮影時点。"
+    },
+    "title": {
+      "roles": [
+        "CONTEXT",
+        "ANNOTATION"
+      ],
+      "description": "固有名詞・場所・書名を紙面のタイポグラフィで示す。"
+    },
+    "contrast": {
+      "roles": [
+        "CONTEXT",
+        "ANNOTATION"
+      ],
+      "description": "二つの主張を段階的に対比する。"
+    },
+    "timeline": {
+      "roles": [
+        "CONTEXT",
+        "ANNOTATION"
+      ],
+      "description": "時間的転換・史実。因果を推測で断定しない。"
+    },
+    "concept": {
+      "roles": [
+        "CONTEXT",
+        "ANNOTATION"
+      ],
+      "description": "論証・語句・概念を短い見出しと補助行で可視化。"
+    }
+  },
+  "hooks": {
+    "paradox": "常識と逆の具体的主張",
+    "question": "原典自身が投げかける意外な問い",
+    "consequence": "具体的な帰結から始める",
+    "definition": "言葉の定義を覆す発言"
+  },
+  "audio": {
+    "motifs": {
+      "editorial": {
+        "beat": 0.49,
+        "chords": [
+          [
+            146.83,
+            220,
+            261.63,
+            349.23
+          ],
+          [
+            130.81,
+            196,
+            246.94,
+            329.63
+          ],
+          [
+            110,
+            164.81,
+            220,
+            261.63
+          ],
+          [
+            116.54,
+            174.61,
+            233.08,
+            293.66
+          ]
+        ]
+      },
+      "reflection": {
+        "beat": 0.66,
+        "chords": [
+          [
+            130.81,
+            196,
+            261.63,
+            329.63
+          ],
+          [
+            110,
+            164.81,
+            220,
+            261.63
+          ],
+          [
+            87.31,
+            130.81,
+            174.61,
+            220
+          ],
+          [
+            98,
+            146.83,
+            196,
+            246.94
+          ]
+        ]
+      }
+    },
+    "effects": [
+      "none",
+      "note-entry",
+      "reversal",
+      "resolution"
+    ],
+    "policy": "original procedural synthesis; no third-party samples; no voice masking"
+  }
+}

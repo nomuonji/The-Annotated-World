@@ -85,3 +85,6 @@
 ## ★ 新規の派生ショートは採用基準型から始める（2026-11-20の確定方針）
 ユーザーが第12版に「まあ合格ラインかな」と評価し、この型のテンプレ化を承認した。以降は [templates/annotated-short/README.md](templates/annotated-short/README.md) を**最初に**読み、 [templates/annotated-short/brief.example.json](templates/annotated-short/brief.example.json) を参考に、製作ごとの brief.json を作る。**第12版の「フック→編者による出典紹介→原典の発言→編者註→発言に戻る」**を基準として、引用中に註釈を重ねない。引用音声・編者音声を別声で固定する。必ず source と肖像・BGMのライセンス/実録と合成の区別を残す。
 制作チェックは npm run short:check -- <brief.json>、必要な媒体ファイルが揃ったら --media を付ける。構造確認、音声/BGMの主観評価、映像の読みやすさ、引用と著作物の権利審査は別ゲート。実制作は npm run short:render -- <brief.json>。承認済みなのは**型の採用基準**であり、自動投稿・個別作品の合格・使用素材の権利承認ではない。過去のPilot仕様に矛盾する「常時英日字幕+註釈同時表示」よりこの最新版を優先する。
+
+## Pilot 013 / Studio v2（2026-11-24 本人「めっちゃいいね」）
+新規ショート制作は [Studio v2](docs/ANNOTATED-SHORT-STUDIO.md) を最初に読む。Pilot 012の役割交互構造を維持し、Pilot 013のデザインを採用基準とする。旧v1 CLIは互換用。章JSONから発言を発掘し、フック2〜3案の共通本編比較、意味に即した画面パターン、実測字幕タイミング、音響、公開後の実測比較を行う。投稿・権利・本人評価は別ゲート。

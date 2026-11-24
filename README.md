@@ -70,3 +70,6 @@ npm run verify:reader                   # Playwright（Chromiumの導入が必�
 ## 別系統の機能
 
 `/workspace/` は個人教材をブラウザに取り込む旧機能であり、**公開コンテンツを編集するCMSではありません**。動画・ショートの制作仕様は [AGENTS.md](AGENTS.md) の派生発信コンテンツ節と `templates/annotated-short/` を参照してください。
+
+## ショート制作 Studio v2
+本人好評価の Pilot 013 を基準にした制作フローは [Annotated Shorts Studio](docs/ANNOTATED-SHORT-STUDIO.md)。旧v1は互換用。新規は v2 を使用する。
