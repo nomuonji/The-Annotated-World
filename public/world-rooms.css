@@ -171,3 +171,8 @@ html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-
 .reader-page .study-original .speaker-line{font-variant-numeric:tabular-nums}
 .reader-page .study-original .en{overflow-wrap:anywhere}
 @media(prefers-reduced-motion:no-preference){:is(.genre-tile,.word-card,.person-item,.topic-index-link,.aw-map-link){transition:background-color .15s ease,border-color .15s ease}}
+
+/* Long source URLs and metadata must wrap within the full reader. */
+.reader-page :is(.hero,.meta-strip,.meta-item,.sources,.publication-note,.reader-crosslinks,.study-original,.study-text){min-width:0;overflow-wrap:anywhere}
+.reader-page .meta-strip{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.reader-page :is(.sources a,.meta-item a,.publication-note a){overflow-wrap:anywhere;word-break:normal}

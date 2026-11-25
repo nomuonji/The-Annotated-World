@@ -190,6 +190,11 @@ try{
    assert.ok(geometry.toolbar.top>=geometry.panel.bottom-2,'Pinned video and toolbar overlap');
    assert.ok(geometry.toolbar.bottom<geometry.vh,'Fixed controls leave no reading space');
    assert.ok(await inline.isVisible(),'Inline notes should remain readable with pinned video');
+   // Seek a real English passage into the free reading area after pinning.
+   // A hidden translation dock cannot count as a simultaneous measurement.
+   const passage=page.locator('#ch8-line-3 .en');
+   await passage.evaluate(el=>{const top=document.getElementById('study-toolbar').getBoundingClientRect().bottom;window.scrollBy(0,el.getBoundingClientRect().top-top-24);});
+   await page.locator('#mobile-translation-dock').waitFor({state:'visible'});
    const room=await page.evaluate(()=>{
     const toolbar=document.getElementById('study-toolbar').getBoundingClientRect();
     const dock=document.getElementById('mobile-translation-dock');
@@ -198,7 +203,7 @@ try{
     const top=Math.max(0,toolbar.bottom),bottom=active?dr.top:innerHeight;
     return {viewport:innerWidth+'x'+innerHeight,dockVisible:active,top,bottom,readingPx:Math.max(0,bottom-top),readingRatio:Math.max(0,bottom-top)/innerHeight};
    });
-   assert.ok(room.readingPx>0,'Pinned controls and translation leave no reading space');
+   assert.ok(room.dockVisible&&room.readingPx>0,'Pinned video, toolbar and translation must coexist with positive reading space');
    readingSpace.push(room);console.log('Mobile reading space:',JSON.stringify(room));
    await page.locator('#mobile-pin-video').click();
   }

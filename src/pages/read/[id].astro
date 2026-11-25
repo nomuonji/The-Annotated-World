@@ -218,12 +218,25 @@ const status=d.provenance;
 const labels={coverage:{full:'全文（照合済みの範囲）',excerpt:'抜粋',unverified:'収録範囲未確認'},transcript:{verified:'照合済み',unverified:'未確認','not-applicable':'音声なし'},translation:{verified:'確認済み',unverified:'未確認'},rights:{original:'オリジナル',licensed:'許諾・ライセンス確認済み','public-domain':'パブリックドメイン確認済み',unverified:'未確認'}};
 ---
 <Archive title={d.title+' — The Annotated World'} description={d.description} reader>
+ <script define:vars={{chapterIds:d.chapterIndex.map(c=>c.anchor)}}>
+  // Apply the validated initial chapter before parsing the article; the
+  // interactive reader takes ownership when its module initializes.
+  const chapter=new URLSearchParams(location.search).get('chapter');
+  if(chapter&&chapterIds.includes(chapter)){
+   document.body.classList.add('chapter-reading-page');
+   const style=document.createElement('style');
+   style.id='aw-initial-chapter';
+   const id=CSS.escape(chapter);
+   style.textContent='.study-original section.sec:not(#'+id+'),.study-original .toc,.study-original .sources{display:none!important}';
+   document.head.append(style);
+  }
+ </script>
  <div class="reader-breadcrumbs"><a href="/">発見</a><span>/</span>{g&&<><a href={genreUrl(g.id)}>{g.name}</a><span>/</span></>}<span>対訳資料</span></div>
  <Fragment set:html={hero}/>
  <div class="reader-crosslinks"><div class="reader-person">{d.people.map(p=><a href={personUrl(p.id)}>{p.name}の資料 →</a>)}</div><div class="tag-row">{ts.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></div>
  <div class:list={["study-layout",{"has-video":!!d.videoId}]} data-study-reader>
   {d.videoId&&<aside class="study-sidebar" aria-label="動画・再生操作"><SourceVideo doc={doc}/></aside>}
-  <div class="study-text"><StudyToolbar doc={doc}/><div class="chapter-mode-control" id="chapter-mode-control" hidden><button type="button" id="chapter-view-toggle" aria-pressed="false">章単位で読む</button><span class="chapter-mode-context" id="chapter-mode-context" hidden>出典：{d.title}</span></div><ReaderTools/><div class="study-original"><Fragment set:html={body}/></div></div>
+  <div class="study-text"><StudyToolbar doc={doc}/><div class="chapter-mode-control" id="chapter-mode-control" hidden><button type="button" id="chapter-view-toggle" aria-pressed="false">章単位で読む</button><span class="chapter-mode-context" id="chapter-mode-context" hidden>出典：{d.title}</span><h1 id="chapter-accessible-title" class="sr-only" hidden>{d.title}</h1></div><ReaderTools/><div class="study-original"><Fragment set:html={body}/></div></div>
   <aside id="mobile-translation-dock" class="mobile-translation-dock" aria-label="今読んでいる英文の日本語訳" hidden>
    <div class="mobile-translation-dock-head"><span>日本語訳 <small>スクロールに連動</small></span><button type="button" id="mobile-translation-unpin" aria-label="日本語訳の固定を解除して本文内に戻す">固定解除</button></div>
    <div id="mobile-translation-text" class="mobile-translation-dock-body" lang="ja"></div>

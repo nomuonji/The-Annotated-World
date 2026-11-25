@@ -15,8 +15,8 @@ try{
  for(const path of routes){
   const res=await page.goto(base+path,{waitUntil:'domcontentloaded',timeout:30000});
   assert.ok(res?.ok(),path+' response '+res?.status());
-  const details=await page.evaluate(()=>({title:document.title,scrollWidth:document.documentElement.scrollWidth,width:innerWidth}));
-  assert.ok(details.scrollWidth<=details.width+1,path+' overflow');
+  await page.evaluate(async()=>{await document.fonts.ready;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});
+  const details=await page.evaluate(()=>({title:document.title,scrollWidth:document.documentElement.scrollWidth,width:innerWidth,overflow:[...document.querySelectorAll('body *')].filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.right>innerWidth+1}).slice(0,12).map(e=>({tag:e.tagName,cls:String(e.className),right:e.getBoundingClientRect().right}))}));
   report.pages.push({path,status:res.status(),...details});
   if(path.startsWith('/read/')){
    const result={path,source:await page.locator('#source-video a').first().getAttribute('href'),iframe:await page.locator('#original-player').getAttribute('src'),actualPlayback:'unverified'};
@@ -33,6 +33,7 @@ try{
   }
  }
  assert.ok(report.video.every(v=>v.source&&v.iframe),'Source video fallback missing');
+ assert.ok(report.pages.every(p=>p.scrollWidth<=p.width+1),'Production overflow: '+JSON.stringify(report.pages.filter(p=>p.scrollWidth>p.width+1)));
  console.log(JSON.stringify(report,null,2));
-} catch(e){report.error=String(e);throw e;}
+} catch(e){report.error=String(e);console.error(JSON.stringify(report,null,2));throw e;}
 finally{await mkdir('world-audit',{recursive:true});await writeFile('world-audit/production.json',JSON.stringify(report,null,2));await browser?.close();}
