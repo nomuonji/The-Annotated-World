@@ -37,6 +37,13 @@ try{
     const audit=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,theme:document.documentElement.dataset.theme,broken:[...document.images].filter(i=>(i.currentSrc.includes('/brand/')||i.src.includes('/brand/'))&&!i.naturalWidth).map(i=>i.src),h1:document.querySelector('h1')?.textContent?.trim()}));
     if(audit.scroll>width+1){console.error('Overflow nodes:',await page.evaluate(()=>[...document.querySelectorAll('body *')].filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.right>innerWidth+1}).slice(0,12).map(e=>({tag:e.tagName,cls:e.className,rect:e.getBoundingClientRect().toJSON()}))));}
     assert.ok(audit.scroll<=width+1,path+' '+width+' '+theme+' horizontal overflow '+audit.scroll);
+    if(path==='/'){
+     const violations=await page.evaluate(()=>[...document.querySelectorAll('.aw-atlas-center-art .aw-atlas-annotator,.aw-atlas-object img')].filter(img=>{const r=img.getBoundingClientRect(),p=img.parentElement.getBoundingClientRect();return r.left<p.left-1||r.right>p.right+1||r.top<p.top-1||r.bottom>p.bottom+1}).map(img=>img.src));
+     assert.deepEqual(violations,[],width+' atlas artwork spills beyond its layer');
+     const cinema=page.locator('.aw-atlas-cinema');await cinema.scrollIntoViewIfNeeded();
+     assert.ok(await cinema.evaluate(a=>{const r=a.getBoundingClientRect(),e=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return a.contains(e)}),'Cinema link obscured at '+width);
+     await page.evaluate(()=>window.scrollTo(0,0));
+    }
     assert.deepEqual(audit.broken,[],path+' broken local art');assert.equal(audit.theme,theme,path+' theme');
     const accessibility=await page.evaluate(()=>{
      const visible=e=>e.getClientRects().length>0&&getComputedStyle(e).visibility!=='hidden';
@@ -71,6 +78,8 @@ try{
  const expected=['/library/','/topics/','/concepts/','/words/','/people/','/workspace/'];
  assert.deepEqual((await atlas.locator('[data-room-link]').evaluateAll(a=>a.map(e=>e.getAttribute('href')))).sort(),expected.sort());
  assert.equal(await atlas.locator('.aw-atlas-cinema').getAttribute('href'),'#video-shelf');
+ await atlas.locator('.aw-atlas-cinema').focus();assert.ok(await atlas.locator('.aw-atlas-cinema').evaluate(e=>document.activeElement===e));
+ await p.keyboard.press('Tab');assert.ok(await atlas.locator('[data-room-link=library]').evaluate(e=>document.activeElement===e),'Atlas native keyboard order');
  const mapBounds=await atlas.locator('a').evaluateAll(a=>a.map(e=>{const b=e.getBoundingClientRect();return {x:b.x,y:b.y,w:b.width,h:b.height};}));
  assert.ok(mapBounds.every(b=>b.w>=44&&b.h>=44),'Atlas targets too small');
  for(let i=0;i<mapBounds.length;i++)for(let j=i+1;j<mapBounds.length;j++){const a=mapBounds[i],b=mapBounds[j];assert.ok(a.x+a.w<=b.x+1||b.x+b.w<=a.x+1||a.y+a.h<=b.y+1||b.y+b.h<=a.y+1,'Atlas links overlap');}

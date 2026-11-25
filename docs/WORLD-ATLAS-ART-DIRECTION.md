@@ -10,3 +10,13 @@ marginalia.json に安定ID・教材ID・章・表情・創作日記・うさぎ
 PCの左右三室と中央人物、スマホの二列配置で全リンクが使える。背景を読み込まなくても文字が読める。reduced-motionでは移動効果なし。元動画棚は探索より前、通常ナビ維持。新規有料サービス・ログイン・強制演出なし。美的承認は別途。
 ## 今後の発注
 季節ごとの部屋の差分、編集記録専用の表情、紙の注釈素材、映像で共通使用する2D演出素材。採用済みの絵と顔・線・配色を合わせ、実寸の配置を先に決める。
+
+## 第1弾アセット使用台帳
+| 素材 | 使用箇所・意味 |
+|---|---|
+| /brand/archive-seal.svg | 自作の蔵書印。探索見出しとRoomHeader。120×120 viewBox、拡大縮小可。文字なし。 |
+| /brand/catalog-{desktop,mobile}.webp | 探索図の背景。25%不透明度、既存生成画像。 |
+| /brand/sprites/annotator-standing.webp / rabbit-reading.webp | 中央人物、相棒。独立レイヤーで領域内に収める。 |
+| book-stack / armillary / marginalia-cards / open-notebook / tied-cards / desk-lamp.webp | 左右の6部屋の実リンクに対応する既存透過素材。 |
+| annotator-question / annotator-reading.webp | 編集記録・表情。 |
+SVG軌道はArchiveAtlas内のコード描画。新規画像生成はなし。デスクトップの初回目視で人物が映写室リンクを覆う不具合が発見され、画像を絶対配置した描画領域に収め、全画面幅で包含とヒットテストを検証する修正を実装。
