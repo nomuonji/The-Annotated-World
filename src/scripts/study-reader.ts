@@ -92,6 +92,8 @@ function setup(reader:HTMLElement){
    document.body.classList.remove('chapter-reading-page');
   }
   for(const item of chapters)item.classList.toggle('chapter-selected',item===chapter);
+  byId('aw-initial-chapter')?.remove();
+  const chapterTitle=byId('chapter-accessible-title');if(chapterTitle){chapterTitle.hidden=!chapter;if(chapter)chapterTitle.textContent=chapter.querySelector('h2')?.textContent?.trim()||chapterTitle.textContent; }
   requestTranslationSync();
   if(viewToggle){
    viewToggle.setAttribute('aria-pressed',String(!!chapter));
