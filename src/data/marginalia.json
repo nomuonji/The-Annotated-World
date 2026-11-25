@@ -1,0 +1,22 @@
+[
+  {
+    "id": "choice",
+    "document": "slavoj-zizek-how-to-become-free",
+    "chapter": "ch1",
+    "expression": "annotator-question",
+    "title": "選べることと、自由であること。",
+    "voice": "自由について読んでいたのに、夜食の選択肢を増やすことばかり考えている。",
+    "rabbit": "そもそも寝るという選択肢は？",
+    "question": "選択肢の数と、その選択肢を決められることは同じなのだろうか。"
+  },
+  {
+    "id": "relief",
+    "document": "slavoj-zizek-signs-from-the-future",
+    "chapter": "ch1",
+    "expression": "annotator-reading",
+    "title": "安心したいときほど、疑いたくない。",
+    "voice": "気持ちのいい結論だけノートに写していた。反論のあるページには、まだしおりが挟まっている。",
+    "rabbit": "そこから読んだら？",
+    "question": "自分が安心できる説明を、正しい説明と取り違えていないだろうか。"
+  }
+]

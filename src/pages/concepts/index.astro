@@ -1,9 +1,11 @@
 ---
+import IndexSearch from '../../components/IndexSearch.astro';
+import RoomHeader from '../../components/RoomHeader.astro';
 import Archive from '../../layouts/Archive.astro';
 import {documents} from '../../lib/discovery';
 import {buildLexicon,conceptUrl,documentCount} from '../../lib/lexicon';
 const {concepts}=buildLexicon(await documents());
 ---
-<Archive title="知識索引 — The Annotated World" wide><header class="browse-header"><p class="eyebrow"><a href="/">発見</a> / CONCEPTS</p><h1>Concepts &amp; references</h1><p>教材に登場する人物、作品、概念から、元の文脈に直接移動する。{concepts.length}項目。</p></header>
-{['概念','人物','書籍','映画','ドラマ'].map(kind=>{const list=concepts.filter(c=>c.kind===kind);return list.length>0&&<section class="browse-section"><div class="section-heading"><h2>{kind}</h2></div><div class="word-grid">{list.map(c=><a class="word-card" href={conceptUrl(c.id)}><strong>{c.name}</strong><span>{c.ja}</span><small>{documentCount(c.occurrences)}資料 · {c.occurrences.length}発話</small></a>)}</div></section>;})}
+<Archive title="知識索引 — The Annotated World" wide><RoomHeader room="concepts"><p class="eyebrow"><a href="/">発見</a> / CONCEPTS</p><h1>Concepts &amp; references</h1><p>教材に登場する人物、作品、概念から、元の文脈に直接移動する。{concepts.length}項目。</p></RoomHeader><IndexSearch label="概念・人物・作品を検索" count={concepts.length} unit="項目" placeholder="例：ラカン、enjoyment"/>
+{['概念','人物','書籍','映画','ドラマ'].map(kind=>{const list=concepts.filter(c=>c.kind===kind);return list.length>0&&<section class="browse-section" data-index-section><div class="section-heading"><h2>{kind}</h2></div><div class="word-grid">{list.map(c=><a class="word-card" href={conceptUrl(c.id)} data-index-search={[c.name,c.ja,c.kind,...c.aliases].join(" ")}><strong>{c.name}</strong><span>{c.ja}</span><small>{documentCount(c.occurrences)}資料 · {c.occurrences.length}発話</small></a>)}</div></section>;})}
 </Archive>

@@ -1,4 +1,5 @@
 ---
+import RoomHeader from '../../components/RoomHeader.astro';
 import Archive from '../../layouts/Archive.astro';
 import {buildLexicon,conceptUrl} from '../../lib/lexicon';
 import ChapterList from '../../components/ChapterList.astro';
@@ -12,7 +13,7 @@ const chapters=matching.flatMap(d=>d.data.chapterIndex.filter(c=>c.topics.some(x
 const lexicon=buildLexicon(matching);const matchingWords=lexicon.terms.filter(w=>w.occurrences.some(o=>o.topics.includes(t.id)));const matchingConcepts=lexicon.concepts.filter(c=>c.occurrences.some(o=>o.topics.includes(t.id)));
 const adjacent=[...new Map(chapters.flatMap(({c})=>c.topics).filter(x=>x.id!==t.id).map(x=>[x.id,x])).values()];
 ---
-<Archive title={t.name+' — The Annotated World'} wide><header class="browse-header"><p class="eyebrow"><a href="/topics/">テーマ</a> / TOPIC</p><h1>#{t.name}</h1><p>{matching.length}資料 · {chapters.length}関連章</p></header>
+<Archive title={t.name+' — The Annotated World'} wide><RoomHeader room="observatory" compact><p class="eyebrow"><a href="/topics/">テーマ</a> / TOPIC</p><h1>#{t.name}</h1><p>{matching.length}資料 · {chapters.length}関連章</p></RoomHeader>
  {chapters.length>0&&<section class="browse-section"><div class="section-heading"><h2>Chapters <small>このテーマが登場する章</small></h2></div><ChapterList items={chapters}/></section>}
  <section class="browse-section"><div class="section-heading"><h2>Documents <small>関連する資料全文</small></h2></div><div class="document-grid">{matching.map(d=><DocumentCard doc={d}/>)}</div></section>
  {adjacent.length>0&&<section class="browse-section"><div class="section-heading"><h2>Related topics <small>同じ章で扱われているテーマ</small></h2></div><div class="tag-row">{adjacent.map(x=><a class="topic-tag" href={topicUrl(x.id)}>#{x.name}</a>)}</div></section>}

@@ -1,0 +1,23 @@
+---
+interface Props { label:string; count:number; unit:string; placeholder:string }
+const {label,count,unit,placeholder}=Astro.props;
+---
+<div class="library-toolbar" data-index-controls hidden><label for="index-query">{label}<input type="search" id="index-query" placeholder={placeholder}/></label><span aria-live="polite" id="index-count" data-unit={unit}>{count}{unit}</span></div>
+<p id="index-empty" hidden>該当する項目がありません。別の言葉を試してください。</p>
+<script>
+const toolbar=document.querySelector<HTMLElement>('[data-index-controls]');
+const input=document.querySelector<HTMLInputElement>('#index-query');
+const count=document.querySelector<HTMLElement>('#index-count');
+const empty=document.querySelector<HTMLElement>('#index-empty');
+if(toolbar&&input&&count&&empty){
+ const items=[...document.querySelectorAll<HTMLElement>('[data-index-search]')];
+ const sections=[...document.querySelectorAll<HTMLElement>('[data-index-section]')];
+ const filter=()=>{const q=input.value.normalize('NFKC').toLowerCase().trim().split(/\s+/).filter(Boolean);let n=0;
+  for(const item of items){item.hidden=!q.every(word=>item.dataset.indexSearch?.normalize('NFKC').toLowerCase().includes(word));if(!item.hidden)n++;}
+  for(const section of sections)section.hidden=!section.querySelector('[data-index-search]:not([hidden])');
+  count.textContent=n+(count.dataset.unit||'');empty.hidden=n!==0;
+ };
+ input.value=new URLSearchParams(location.search).get('q')||'';
+ toolbar.hidden=false;input.addEventListener('input',filter);filter();
+}
+</script>

@@ -98,9 +98,9 @@ const topic=load(await readFile('dist/topics/psychoanalysis/index.html','utf8'))
 assert.ok(topic('a[href="/read/slavoj-zizek-signs-from-the-future/?chapter=ch2"]').length);
 const person=load(await readFile('dist/people/slavoj-zizek/index.html','utf8'));
 assert.ok(person('a[href="/read/slavoj-zizek-signs-from-the-future/"]').length);
-// Validate all local generated navigation targets and fragments. Skip the legacy importer.
+// Validate all local generated navigation targets and fragments. Include the workspace destination; dynamic imported links are tested in the browser.
 async function walk(dir){const fs=await readdir(dir,{withFileTypes:true});return (await Promise.all(fs.map(f=>f.isDirectory()?walk(dir+'/'+f.name):[dir+'/'+f.name]))).flat();}
-const pages=(await walk('dist')).filter(p=>p.endsWith('/index.html')&&!p.includes('/workspace/'));
+const pages=(await walk('dist')).filter(p=>p.endsWith('/index.html'));
 const byPath=new Map();for(const p of pages){const url='/'+p.slice(5,-'index.html'.length);byPath.set(url,load(await readFile(p,'utf8')));}
 for(const [url,$] of byPath)for(const a of $('a[href]').toArray()){const href=$(a).attr('href');if(!href||(!href.startsWith('/')&&!href.startsWith('#'))||href.startsWith('//'))continue;const u=new URL(href,'https://archive.local'+url);const target=byPath.get(u.pathname);assert.ok(target,'Broken internal link '+url+' -> '+href);if(u.hash)assert.ok(target('[id]').toArray().some(e=>target(e).attr('id')===decodeURIComponent(u.hash.slice(1))),'Broken anchor '+url+' -> '+href);}
 const words=byPath.get('/words/');const concepts=byPath.get('/concepts/');assert.ok(words('.word-card').length>50);assert.ok(concepts('.word-card').length>=10);

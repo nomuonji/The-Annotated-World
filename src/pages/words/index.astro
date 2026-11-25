@@ -1,11 +1,12 @@
 ---
+import RoomHeader from '../../components/RoomHeader.astro';
 import Archive from '../../layouts/Archive.astro';
 import {documents} from '../../lib/discovery';
 import {buildLexicon,documentCount} from '../../lib/lexicon';
 const {terms}=buildLexicon(await documents());
 ---
 <Archive title="語彙・表現 — The Annotated World" wide>
-<header class="browse-header"><p class="eyebrow"><a href="/">発見</a> / WORDS</p><h1>Words &amp; phrases</h1><p>教材で実際に使われた表現を、意味・文脈・元の発話からたどる。{terms.length}表現。</p></header>
+<RoomHeader room="lexicon"><p class="eyebrow"><a href="/">発見</a> / WORDS</p><h1>Words &amp; phrases</h1><p>教材で実際に使われた表現を、意味・文脈・元の発話からたどる。{terms.length}表現。</p></RoomHeader>
 <div class="library-toolbar"><label>語彙を検索<input id="word-search" type="search" placeholder="英語・日本語の注釈"/></label><span id="word-count" aria-live="polite">{terms.length}表現</span></div>
 <div class="word-grid" id="word-grid">{terms.map(t=><a class="word-card" href={'/words/'+t.id+'/'} data-word-search={[t.label,...t.occurrences.map(o=>o.termNote||o.note)].join(' ').toLowerCase()}><strong lang="en">{t.label}</strong><small>{documentCount(t.occurrences)}資料 · {t.occurrences.length}発話</small>{t.occurrences.find(o=>o.termNote)&&<span>{t.occurrences.find(o=>o.termNote)?.termNote}</span>}</a>)}</div><p id="word-empty" hidden>該当する表現がありません。</p>
 </Archive>

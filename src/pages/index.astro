@@ -1,4 +1,5 @@
 ---
+import Marginalia from '../components/Marginalia.astro';
 import Archive from '../layouts/Archive.astro';
 import RandomChapter from '../components/RandomChapter.astro';
 import DocumentCard from '../components/DocumentCard.astro';
@@ -16,12 +17,34 @@ const chapters=ds.flatMap(d=>d.data.chapterIndex.map(c=>({d,c})));
 const picks=chapters.filter(({c})=>c.topics.length>0).sort((a,b)=>b.c.topics.length-a.c.topics.length||a.c.order-b.c.order).slice(0,6);
 ---
 <Archive wide>
- <header class="discovery-intro"><div><p class="eyebrow">THE ANNOTATED LIBRARY</p><h1>世界を、原文で読む。</h1><p>講演・対談・思想・文化。気になるテーマから、英語と日本語の対訳へ。</p></div><div class="discovery-actions"><a class="library-search-link" href="/library/">⌕ 資料・人物・テーマを探す <span>→</span></a><RandomChapter docs={ds}/></div></header>
+ <div class="aw-notebook">
+<header class="aw-world-opening" aria-labelledby="aw-home-title">
+ <picture class="aw-world-backdrop"><source media="(max-width: 640px)" srcset="/brand/midnight-mobile.webp"/><img src="/brand/midnight-desktop.webp" width="1536" height="864" fetchpriority="high" alt="月明かりの書斎でコーラを飲みながら本を読む注釈者"/></picture>
+ <div class="aw-world-copy"><p class="aw-world-serial"><span>01</span> / THE MIDNIGHT ARCHIVE</p><h1 id="aw-home-title" lang="en">The Annotated<br/><em>World.</em></h1><p class="aw-world-jp">世界には注釈を。<br/><span>自分には、まだ。</span></p><p class="aw-world-desc">英語・思想・文化の原文を、対訳と注釈で読む。<br/>ここは、世界の読み方を疑うための資料室。</p><div class="aw-world-actions"><a href="/library/" class="aw-world-enter">教材を探す <span aria-hidden="true">↗</span></a><a class="aw-world-explore-link" href="#archive-index">世界を探索する ↓</a><RandomChapter docs={ds}/></div></div>
+ <div class="aw-world-opening-foot"><span>READ / ANNOTATE / DOUBT</span><a href="#video-shelf">01 — 02 <span aria-hidden="true">↓</span></a></div>
+</header>
+<section class="aw-home-video-shelf" id="video-shelf" aria-labelledby="video-shelf-heading"><div class="aw-chapter-head"><div><small>02 / WATCH &amp; READ</small><h2 id="video-shelf-heading">動画から読む。</h2></div><p>{ds.length}資料 · {chapters.length}章</p></div>
+ {featured&&<section aria-labelledby="feature-heading" class="browse-section featured-section"><div class="section-heading"><h2 id="feature-heading">Featured <small>注目の資料</small></h2><a href="/library/">全{ds.length}資料 →</a></div><DocumentCard doc={featured} featured presentation="video"/></section>}
+ {ds.length>1&&<section class="browse-section"><div class="section-heading"><h2>Latest <small>新着資料</small></h2><a href="/library/">もっと見る →</a></div><div class="document-grid">{ds.slice(1,13).map(d=><DocumentCard doc={d} presentation="video"/>)}</div></section>}
+</section>
+<section class="aw-world-explore" id="archive-index" aria-labelledby="aw-explore-title">
+ <div class="aw-world-section-head"><div><p>03 / THE CATALOG ROOM</p><h2 id="aw-explore-title">夜の資料室。</h2></div><p>気になる場所を選んで、読みたい世界へ。</p></div>
+ <div class="aw-world-map"><picture><source media="(max-width: 640px)" srcset="/brand/catalog-mobile.webp"/><img src="/brand/catalog-desktop.webp" width="1536" height="864" loading="lazy" alt="夜の資料室。左に注釈者、右に地球儀とマスコットがいる"/></picture>
+ <nav class="aw-map-links" aria-label="資料室の探索先">
+  <a class="aw-map-link aw-map-topics" href="/topics/"><img src="/brand/ui/icon-globe.webp" width="70" height="70" alt="" loading="lazy"/><span><small>01 / CONNECTIONS</small><strong>思想の回路</strong><span>テーマから読む</span></span><b aria-hidden="true">↗</b></a>
+  <a class="aw-map-link aw-map-words" href="/words/"><img src="/brand/ui/icon-book.webp" width="70" height="70" alt="" loading="lazy"/><span><small>02 / LEXICON</small><strong>言葉の標本</strong><span>原文から語彙を探す</span></span><b aria-hidden="true">↗</b></a>
+  <a class="aw-map-link aw-map-concepts" href="/concepts/"><img src="/brand/ui/icon-notes.webp" width="70" height="70" alt="" loading="lazy"/><span><small>03 / CONCEPTS</small><strong>概念の索引</strong><span>思想・人物・作品</span></span><b aria-hidden="true">↗</b></a>
+  <a class="aw-map-link aw-map-library" href="/library/"><img src="/brand/ui/icon-books.webp" width="70" height="70" alt="" loading="lazy"/><span><small>04 / ARCHIVE</small><strong>資料の書庫</strong><span>すべての講演・対談</span></span><b aria-hidden="true">↗</b></a>
+ </nav></div><div class="aw-room-extra"><a href="/people/">人物資料室 ↗</a><a href="/workspace/">自分の読書室 ↗</a><a href="/concepts/surplus-enjoyment/">コーラから余剰享楽を考える ↗</a></div>
+</section>
+<Marginalia docs={ds}/>
+<div class="aw-reading-room" id="reading-room"><div class="aw-chapter-head"><div><small>04 / READING ROOM</small><h2>The reading room</h2></div><p>本日の読書室 · {ds.length}資料 / {chapters.length}章</p></div>
+
+
  <section aria-labelledby="genre-heading" class="browse-section"><div class="section-heading"><h2 id="genre-heading">Browse by genre <small>ジャンルから探す</small></h2></div><GenreNav docs={ds}/></section>
- {featured&&<section aria-labelledby="feature-heading" class="browse-section featured-section"><div class="section-heading"><h2 id="feature-heading">Featured <small>注目の資料</small></h2><a href="/library/">全{ds.length}資料 →</a></div><DocumentCard doc={featured} featured/></section>}
  {picks.length>0&&<section aria-labelledby="chapter-heading" class="browse-section"><div class="section-heading"><h2 id="chapter-heading">Follow your curiosity <small>気になる話題から読む</small></h2><a href="/topics/">テーマ一覧 →</a></div><p class="section-description">長い講演も、関心のある章から読み始められます。</p><ChapterList items={picks}/></section>}
  {ts.length>0&&<section class="browse-section"><div class="section-heading"><h2>Topics <small>テーマで横断する</small></h2><a href="/topics/">すべてのテーマ →</a></div><TopicLinks items={ts.slice(0,18)}/></section>}
- {ds.length>1&&<section class="browse-section"><div class="section-heading"><h2>Latest <small>新着資料</small></h2><a href="/library/">もっと見る →</a></div><div class="document-grid">{ds.slice(1,13).map(d=><DocumentCard doc={d}/>)}</div></section>}
+
  {ps.length>0&&<section class="browse-section"><div class="section-heading"><h2>People <small>話者・著者</small></h2><a href="/people/">人物一覧 →</a></div><PeopleLinks items={ps.slice(0,12)}/></section>}
 <section class="browse-section"><div class="section-heading"><h2>Words &amp; phrases <small>教材から語彙を発見</small></h2><a href="/words/">全{terms.length}表現 →</a></div><div class="word-grid">{[...terms].sort((a,b)=>b.occurrences.length-a.occurrences.length||a.label.localeCompare(b.label)).slice(0,8).map(t=><a class="word-card" href={'/words/'+t.id+'/'}><strong lang="en">{t.label}</strong><small>{t.occurrences.length}発話</small></a>)}</div></section>
-<section class="browse-section"><div class="section-heading"><h2>Knowledge index <small>人物・作品・概念</small></h2><a href="/concepts/">全{concepts.length}項目 →</a></div><div class="word-grid">{concepts.slice(0,8).map(c=><a class="word-card" href={conceptUrl(c.id)}><strong>{c.name}</strong><span>{c.ja}</span><small>{c.kind} · {documentCount(c.occurrences)}資料</small></a>)}</div></section></Archive>
+<section class="browse-section"><div class="section-heading"><h2>Knowledge index <small>人物・作品・概念</small></h2><a href="/concepts/">全{concepts.length}項目 →</a></div><div class="word-grid">{concepts.slice(0,8).map(c=><a class="word-card" href={conceptUrl(c.id)}><strong>{c.name}</strong><span>{c.ja}</span><small>{c.kind} · {documentCount(c.occurrences)}資料</small></a>)}</div></section></div></div></Archive>

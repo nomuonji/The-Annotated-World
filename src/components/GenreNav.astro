@@ -3,4 +3,4 @@ import {genres,genreDocs,genreChapters,genreUrl,type Doc} from '../lib/discovery
 interface Props{docs:Doc[];active?:string}
 const {docs,active}=Astro.props;
 ---
-<div class="genre-grid">{genres.map(g=>{const n=genreDocs(docs,g.id).length;const c=genreChapters(docs,g.id).length;return <a href={genreUrl(g.id)} aria-current={active===g.id?'page':undefined} class="genre-tile" style={'--genre-color:'+g.color}><span class="genre-number">{g.number}</span><strong>{g.name}</strong><span>{g.ja}</span><small>{n}資料 · {c}関連章</small></a>;})}</div>
+<div class="genre-grid">{genres.map(g=>{const n=genreDocs(docs,g.id).length;const c=genreChapters(docs,g.id).length;return <a href={genreUrl(g.id)} aria-current={active===g.id?'page':undefined} class="genre-tile" style={'--genre-color:'+g.color}><span class="aw-genre-index"><span class="genre-number">{g.number}</span><img src={'/brand/genres/'+g.id+'-emblem.svg'} alt="" width="60" height="48" loading="lazy" decoding="async"/></span><strong>{g.name}</strong><span>{g.ja}</span><small>{n}資料 · {c}関連章</small></a>;})}</div>
