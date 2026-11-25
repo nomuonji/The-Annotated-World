@@ -27,3 +27,6 @@ The fictional annotator is intellectually curious and self-contradictory: she re
 - `/brand/cola.webp` — marginalia cola.
 
 The self-contained browser prototype was checked at 320, 390, 768, 1024 and 1440px. Production build and reader checks are separate. Do not add illustration assets without a specific layout and functional role.
+
+## Regenerated scene artwork
+Both scenes were redrawn for the actual page composition: entrance subject on the right with a dark left-side copy area; catalog subject on the left and globe/mascot on the right, with central clear area for a 2×2 navigation grid. At widths ≤1150px the navigation moves below the image. Existing isolated sprite assets remain in use. New desktop WebP 1536×864 and mobile 768×432. Browser prototype checked at 320/390/768/1024/1151/1440px for image loading, horizontal overflow and link size. Aesthetic review remains subjective.
