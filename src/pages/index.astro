@@ -16,7 +16,23 @@ const chapters=ds.flatMap(d=>d.data.chapterIndex.map(c=>({d,c})));
 const picks=chapters.filter(({c})=>c.topics.length>0).sort((a,b)=>b.c.topics.length-a.c.topics.length||a.c.order-b.c.order).slice(0,6);
 ---
 <Archive wide>
- <header class="discovery-intro"><div><p class="eyebrow">THE ANNOTATED LIBRARY</p><h1>世界を、原文で読む。</h1><p>講演・対談・思想・文化。気になるテーマから、英語と日本語の対訳へ。</p></div><div class="discovery-actions"><a class="library-search-link" href="/library/">⌕ 資料・人物・テーマを探す <span>→</span></a><RandomChapter docs={ds}/></div></header>
+ <header class="aw-editorial-hero" aria-labelledby="aw-home-title">
+  <div class="aw-hero-main">
+    <p class="aw-issue"><span>THE ANNOTATED WORLD</span><span>言葉 / 思想 / 文化</span></p>
+    <h1 id="aw-home-title" lang="en">Read the world.<br/><em>Question the reading.</em></h1>
+    <p class="aw-hero-lead">世界を、原文で読む。<br/>そして、世界を読む自分自身を疑う。</p>
+    <p class="aw-hero-description">哲学、文学、映画、社会。原文・対訳・注釈を行き来しながら、言葉の背後にある思想を読み解く。</p>
+    <div class="discovery-actions aw-hero-actions"><a class="library-search-link" href="/library/">資料・人物・テーマを探す <span aria-hidden="true">↗</span></a><RandomChapter docs={ds}/></div>
+    <div class="aw-hero-index" aria-label="アーカイブの収録数"><span><strong>{ds.length}</strong> 資料</span><span><strong>{chapters.length}</strong> 章</span><span><strong>{terms.length}</strong> 表現</span><span><strong>{concepts.length}</strong> 概念</span></div>
+  </div>
+  <aside class="aw-editor-desk" aria-label="注釈者の余白">
+    <div class="aw-desk-label"><span>IN THE MARGINS</span><span>余白 01</span></div>
+    <div class="aw-editor-portrait"><img src="/brand/annotator.webp" width="128" height="128" alt="眼鏡をかけ、コーラを飲むピンク髪の注釈者"/><div><span class="aw-editor-name">THE ANNOTATOR</span><span class="aw-editor-status">読書中。たぶん。</span></div></div>
+    <p class="aw-editor-voice">資本主義の欲望について読んでいた。<br/>気づいたら、コーラが二本目だった。</p>
+    <div class="aw-margin-note"><span>［1］</span><div><strong lang="en">Surplus enjoyment</strong><span>剰余享楽</span><p>満足するための欲望が、いつしか欲望を続けること自体の楽しみになる。</p><a href="/concepts/surplus-enjoyment/">概念を読む →</a></div></div>
+    <p class="aw-editor-signature">世界には注釈を。自分には、まだ。</p>
+  </aside>
+ </header>
  <section aria-labelledby="genre-heading" class="browse-section"><div class="section-heading"><h2 id="genre-heading">Browse by genre <small>ジャンルから探す</small></h2></div><GenreNav docs={ds}/></section>
  {featured&&<section aria-labelledby="feature-heading" class="browse-section featured-section"><div class="section-heading"><h2 id="feature-heading">Featured <small>注目の資料</small></h2><a href="/library/">全{ds.length}資料 →</a></div><DocumentCard doc={featured} featured/></section>}
  {picks.length>0&&<section aria-labelledby="chapter-heading" class="browse-section"><div class="section-heading"><h2 id="chapter-heading">Follow your curiosity <small>気になる話題から読む</small></h2><a href="/topics/">テーマ一覧 →</a></div><p class="section-description">長い講演も、関心のある章から読み始められます。</p><ChapterList items={picks}/></section>}
