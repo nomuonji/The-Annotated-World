@@ -1,0 +1,10 @@
+---
+import Archive from '../../layouts/Archive.astro';
+import Marginalia from '../../components/Marginalia.astro';
+import {documents} from '../../lib/discovery';
+const ds=await documents();
+---
+<Archive wide title="閉館後の編集記録 — The Annotated World" description="架空の注釈者の日記。読んだこと、できなかったこと、原文への入り口。">
+ <header class="aw-log-cover"><div><p class="aw-atlas-eyebrow">AFTER HOURS / FIELD JOURNAL</p><h1>閉館後の編集記録</h1><p>言葉は集められる。自分のことは、なかなか分からない。</p><a href="/#archive-index">資料室の案内図へ戻る →</a></div><img src="/brand/sprites/annotator-reading.webp" width="289" height="343" alt="本を抱えた注釈者" decoding="async"/></header>
+ <Marginalia docs={ds} archive/>
+</Archive>
