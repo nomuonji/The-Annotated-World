@@ -11,4 +11,4 @@ The fictional annotator is intellectually curious and self-contradictory: she re
 - Editorial hero and margin-note cards; mobile stacks in reading order.
 - Character use stays concentrated in the discovery experience; long-form reading remains content-first.
 - No layout changes to video pinning, Japanese translation dock, inline annotations, transcript IDs, or reader scripts.
-- Current `public/brand/annotator.webp` is a 128px crop of the approved illustration for the portrait card. Replace with a higher-resolution crop at the same path when available; do not upscale a tiny image for a full-page hero.
+- The home stage uses the approved cola illustration as a framed character-led key visual, art-book typography, marginalia stickers and four navigable archive entry points. A 420×355 compressed AVIF is the temporary hero asset; replace it with an original-resolution WebP or AVIF for final production. The 128px portrait remains a compatibility fallback.
