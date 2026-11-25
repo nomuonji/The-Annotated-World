@@ -97,3 +97,5 @@ html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-
  .aw-library-genres{margin-top:8px}
 }
 @media(min-width:1101px){.platform-header nav{flex-wrap:wrap}}
+
+.aw-illustrated-cover{background:linear-gradient(145deg,#241b32,#55405d)!important}.aw-illustrated-cover .aw-cover-overlay{min-height:100%;color:#fff4ed}.aw-illustrated-cover .aw-cover-illustration[hidden]{display:none!important}.aw-room-picture img{image-rendering:auto}
