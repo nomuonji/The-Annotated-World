@@ -16,16 +16,36 @@ try{
   await context.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
   const page=await context.newPage();
   {
-   await page.addInitScript(t=>localStorage.setItem('aw-theme',t),theme);
+   await page.addInitScript(t=>{
+ localStorage.setItem('aw-theme',t);
+ window.__awMetrics={lcp:null,cls:0};
+ try{new PerformanceObserver(list=>{const last=list.getEntries().at(-1);if(last)window.__awMetrics.lcp=last.startTime}).observe({type:'largest-contentful-paint',buffered:true});}catch{}
+ try{new PerformanceObserver(list=>{for(const e of list.getEntries())if(!e.hadRecentInput)window.__awMetrics.cls+=e.value}).observe({type:'layout-shift',buffered:true});}catch{}
+ },theme);
    for(const path of routes){
     const response=await page.goto(base+path,{waitUntil:'domcontentloaded'});assert.ok(response&&(response.ok()||path==='/404.html'&&response.status()===404),path+' response');
+    await page.waitForLoadState('load');
+    await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+    const initialMetrics=await page.evaluate(()=>{
+     const nav=performance.getEntriesByType('navigation')[0];
+     const local=performance.getEntriesByType('resource').filter(e=>e.name.startsWith(location.origin+'/'));
+     return {lcpMs:window.__awMetrics.lcp,cls:window.__awMetrics.cls,domContentLoadedMs:nav?.domContentLoadedEventEnd,loadMs:nav?.loadEventEnd,localTransferBytes:local.reduce((n,e)=>n+e.transferSize,0),localImageBytes:local.filter(e=>e.initiatorType==='img').reduce((n,e)=>n+e.transferSize,0)};
+    });
     await page.evaluate(()=>{for(const img of document.images)img.loading='eager'});
     await page.waitForFunction(()=>[...document.images].filter(i=>i.currentSrc.includes('/brand/')||i.src.includes('/brand/')).every(i=>i.complete),{},{timeout:10000});
     await page.evaluate(async()=>{await Promise.all([...document.images].filter(i=>i.currentSrc.includes('/brand/')||i.src.includes('/brand/')).map(i=>i.decode()));await document.fonts.ready;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});
     const audit=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,theme:document.documentElement.dataset.theme,broken:[...document.images].filter(i=>(i.currentSrc.includes('/brand/')||i.src.includes('/brand/'))&&!i.naturalWidth).map(i=>i.src),h1:document.querySelector('h1')?.textContent?.trim()}));
     assert.ok(audit.scroll<=width+1,path+' '+width+' '+theme+' horizontal overflow '+audit.scroll);
     assert.deepEqual(audit.broken,[],path+' broken local art');assert.equal(audit.theme,theme,path+' theme');
-    results.push({path,width,theme,...audit});
+    const accessibility=await page.evaluate(()=>{
+     const visible=e=>e.getClientRects().length>0&&getComputedStyle(e).visibility!=='hidden';
+     const noAlt=[...document.images].filter(e=>!e.hasAttribute('alt')).map(e=>e.src);
+     const unnamed=[...document.querySelectorAll('a[href],button')].filter(e=>visible(e)&&!e.textContent.trim()&&!e.getAttribute('aria-label')&&!e.getAttribute('aria-labelledby')&&!e.getAttribute('title')&&!e.querySelector('img[alt]:not([alt=""])')).map(e=>e.outerHTML.slice(0,240));
+     const h1=[...document.querySelectorAll('h1')].filter(visible).length;
+     return {noAlt,unnamed,h1,mainCount:document.querySelectorAll('main').length};
+    });
+    assert.deepEqual(accessibility.noAlt,[],path+' image alt attributes');
+    results.push({path,width,theme,...audit,initialMetrics,accessibility});
     if(width===390||width===1440)await page.screenshot({path:out+'/'+theme+'-'+width+'-'+(path.replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'')||'home')+'.png',animations:'disabled'});
     if((width===390||width===1440)&&path==='/'){await page.locator('#archive-index').scrollIntoViewIfNeeded();await page.screenshot({path:out+'/'+theme+'-'+width+'-home-explore.png',animations:'disabled'});await page.locator('.aw-marginalia-section').scrollIntoViewIfNeeded();await page.screenshot({path:out+'/'+theme+'-'+width+'-home-marginalia.png',animations:'disabled'});}
    }
@@ -34,6 +54,11 @@ try{
  }
  const p=await browser.newPage({viewport:{width:390,height:844}});
  await p.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
+ await p.goto(base+'/library/');
+ await p.keyboard.press('Tab');
+ assert.ok(await p.evaluate(()=>document.activeElement?.matches('a.skip-link')),'First keyboard focus should be the skip link');
+ await p.keyboard.press('Enter');
+ assert.equal(await p.evaluate(()=>document.activeElement?.id),'main','Skip link must focus main');
  await p.goto(base+'/library/?scope=chapters&q=映画&time=15');assert.equal(await p.locator('#find').inputValue(),'映画');assert.equal(await p.locator('#filter-time').inputValue(),'15');assert.equal(await p.locator('[data-scope=chapters]').getAttribute('aria-pressed'),'true');
  await p.locator('#find').fill('zzzz-no-result-000');assert.equal(await p.locator('#no-documents').isVisible(),true);
  await p.reload();assert.equal(await p.locator('#find').inputValue(),'zzzz-no-result-000');
