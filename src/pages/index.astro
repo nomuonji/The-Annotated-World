@@ -16,36 +16,16 @@ const chapters=ds.flatMap(d=>d.data.chapterIndex.map(c=>({d,c})));
 const picks=chapters.filter(({c})=>c.topics.length>0).sort((a,b)=>b.c.topics.length-a.c.topics.length||a.c.order-b.c.order).slice(0,6);
 ---
 <Archive wide>
- <div class="aw-world">
- <header class="aw-world-stage" aria-labelledby="aw-home-title">
-  <div class="aw-stage-rail"><span>AW / INDEPENDENT ARCHIVE</span><span class="aw-stage-signal"><i></i> READING IN PROGRESS</span><span>FILE № 001</span></div>
-  <div class="aw-stage-grid">
-    <div class="aw-world-copy">
-      <p class="aw-stage-kicker"><span>01</span> <span>LANGUAGE × THOUGHT × CULTURE</span></p>
-      <h1 id="aw-home-title" lang="en"><span>THE</span><br/><span>ANNOTATED</span><br/><em>WORLD<span class="aw-title-stop">.</span></em></h1>
-      <p class="aw-world-tagline">世界には注釈を。<br/><span>自分には、まだ。</span></p>
-      <p class="aw-world-description">哲学、文学、映画、社会。<br/>原文と対訳から、世界の読み方を疑う。</p>
-      <div class="aw-world-cta"><a href="/library/" class="aw-enter"><span>ENTER THE ARCHIVE <small>資料室へ入る</small></span><b aria-hidden="true">↗</b></a><RandomChapter docs={ds}/></div>
-    </div>
-    <div class="aw-world-art">
-      <div class="aw-art-frame">
-        <div class="aw-art-top"><span>FIG. 01 — THE ANNOTATOR</span><span>✳</span></div>
-        <picture><source srcset="/brand/annotator-desk.avif" type="image/avif"/><img src="/brand/annotator.webp" width="420" height="355" alt="深夜の書斎でコーラを飲みながら思索する、ピンク髪の注釈者" fetchpriority="high"/></picture>
-        <div class="aw-art-caption"><span>SUBJECT / 001</span><span>思索中、あるいは現実逃避中。</span></div>
-      </div>
-      <div class="aw-art-orbit" aria-hidden="true"></div>
-      <div class="aw-art-sticker" aria-hidden="true"><span>欲望は</span><b>未解決</b><span>UNRESOLVED!</span></div>
-      <div class="aw-annotation-slip"><span class="aw-slip-index">[ 01 ]　MARGINALIA / 余白</span><p>資本主義の欲望について<br/>読んでいた。コーラが二本目。</p><a href="/concepts/surplus-enjoyment/">剰余享楽を読む <span aria-hidden="true">↗</span></a></div>
-    </div>
-  </div>
-  <div class="aw-stage-bottom"><span>NOT JUST READING. <em>QUESTION THE READING.</em></span><div class="aw-stage-counts"><span>{ds.length} <small>資料</small></span><span>{chapters.length} <small>章</small></span><span>{terms.length} <small>表現</small></span><span>{concepts.length} <small>概念</small></span></div></div>
- </header>
- <nav class="aw-world-ports" aria-label="世界を探索する"><a href="/library/"><span>01 / ARCHIVE</span><strong>資料室</strong><b aria-hidden="true">↗</b></a><a href="/topics/"><span>02 / CONNECTIONS</span><strong>思想の回路</strong><b aria-hidden="true">↗</b></a><a href="/words/"><span>03 / LEXICON</span><strong>言葉の標本</strong><b aria-hidden="true">↗</b></a><a href="/concepts/"><span>04 / INDEX</span><strong>概念の索引</strong><b aria-hidden="true">↗</b></a></nav>
- <section aria-labelledby="genre-heading" class="browse-section"><div class="section-heading"><h2 id="genre-heading">Browse by genre <small>ジャンルから探す</small></h2></div><GenreNav docs={ds}/></section>
+ <div class="aw-notebook">
+<header class="aw-cover" aria-labelledby="aw-home-title"><div class="aw-cover-art"><img src="/brand/annotator-cover.webp" width="669" height="565" fetchpriority="high" alt="深夜の書斎でコーラを飲む注釈者"></div><div class="aw-cover-top"><span>THE ANNOTATED WORLD / <b>AW.</b></span><span>独立読解資料室 ・ INDEPENDENT ARCHIVE</span><span>VOL. 01 / MARGINALIA</span></div><div class="aw-cover-main"><p class="aw-volume">ENGLISH / PHILOSOPHY / CULTURE</p><h1 id="aw-home-title">READ THE<span>world.</span></h1><p class="aw-cover-jp">世界には注釈を。<br><em>自分には、まだ。</em></p><p class="aw-cover-description">原文・対訳・注釈を行き来しながら、世界の読み方を疑う。哲学、文学、映画、社会。</p><div class="aw-cover-actions"><a class="aw-open-book" href="#reading-room"><span>OPEN THE ARCHIVE<small>資料室へ入る</small></span><b>↗</b></a><RandomChapter docs={ds}/></div></div><aside class="aw-character-note"><span>余白 01 / THE ANNOTATOR</span><p>欲望の構造について読んでいた。<br>コーラが二本目だった。</p><a href="/concepts/surplus-enjoyment/">剰余享楽について ↗</a></aside><div class="aw-cover-bottom"><a href="#archive-index">↓ SCROLL TO INDEX</a><span>READ. ANNOTATE. DOUBT.</span></div></header>
+<section class="aw-index-desk" id="archive-index"><div class="aw-chapter-head"><div><small>01 / INDEX</small><h2>Table of contents</h2></div><p>気になる言葉から、世界に入る。</p></div><nav class="aw-index-links" aria-label="資料室の目次"><a href="/library/"><span>01 / ARCHIVE</span><strong>資料室</strong><small>講演・対談・原文</small><b>↗</b></a><a href="/topics/"><span>02 / CONNECTIONS</span><strong>思想の回路</strong><small>テーマを横断する</small><b>↗</b></a><a href="/words/"><span>03 / LEXICON</span><strong>言葉の標本</strong><small>文脈で語彙を知る</small><b>↗</b></a><a href="/concepts/"><span>04 / CONCEPTS</span><strong>概念の索引</strong><small>思想・人物・作品</small><b>↗</b></a></nav></section>
+<div class="aw-reading-room" id="reading-room"><div class="aw-chapter-head"><div><small>02 / READING ROOM</small><h2>The reading room</h2></div><p>本日の読書室 · {ds.length}資料 / {chapters.length}章</p></div>
+
  {featured&&<section aria-labelledby="feature-heading" class="browse-section featured-section"><div class="section-heading"><h2 id="feature-heading">Featured <small>注目の資料</small></h2><a href="/library/">全{ds.length}資料 →</a></div><DocumentCard doc={featured} featured/></section>}
+ <section aria-labelledby="genre-heading" class="browse-section"><div class="section-heading"><h2 id="genre-heading">Browse by genre <small>ジャンルから探す</small></h2></div><GenreNav docs={ds}/></section>
  {picks.length>0&&<section aria-labelledby="chapter-heading" class="browse-section"><div class="section-heading"><h2 id="chapter-heading">Follow your curiosity <small>気になる話題から読む</small></h2><a href="/topics/">テーマ一覧 →</a></div><p class="section-description">長い講演も、関心のある章から読み始められます。</p><ChapterList items={picks}/></section>}
  {ts.length>0&&<section class="browse-section"><div class="section-heading"><h2>Topics <small>テーマで横断する</small></h2><a href="/topics/">すべてのテーマ →</a></div><TopicLinks items={ts.slice(0,18)}/></section>}
  {ds.length>1&&<section class="browse-section"><div class="section-heading"><h2>Latest <small>新着資料</small></h2><a href="/library/">もっと見る →</a></div><div class="document-grid">{ds.slice(1,13).map(d=><DocumentCard doc={d}/>)}</div></section>}
  {ps.length>0&&<section class="browse-section"><div class="section-heading"><h2>People <small>話者・著者</small></h2><a href="/people/">人物一覧 →</a></div><PeopleLinks items={ps.slice(0,12)}/></section>}
 <section class="browse-section"><div class="section-heading"><h2>Words &amp; phrases <small>教材から語彙を発見</small></h2><a href="/words/">全{terms.length}表現 →</a></div><div class="word-grid">{[...terms].sort((a,b)=>b.occurrences.length-a.occurrences.length||a.label.localeCompare(b.label)).slice(0,8).map(t=><a class="word-card" href={'/words/'+t.id+'/'}><strong lang="en">{t.label}</strong><small>{t.occurrences.length}発話</small></a>)}</div></section>
-<section class="browse-section"><div class="section-heading"><h2>Knowledge index <small>人物・作品・概念</small></h2><a href="/concepts/">全{concepts.length}項目 →</a></div><div class="word-grid">{concepts.slice(0,8).map(c=><a class="word-card" href={conceptUrl(c.id)}><strong>{c.name}</strong><span>{c.ja}</span><small>{c.kind} · {documentCount(c.occurrences)}資料</small></a>)}</div></section></div></Archive>
+<section class="browse-section"><div class="section-heading"><h2>Knowledge index <small>人物・作品・概念</small></h2><a href="/concepts/">全{concepts.length}項目 →</a></div><div class="word-grid">{concepts.slice(0,8).map(c=><a class="word-card" href={conceptUrl(c.id)}><strong>{c.name}</strong><span>{c.ja}</span><small>{c.kind} · {documentCount(c.occurrences)}資料</small></a>)}</div></section></div></div></Archive>

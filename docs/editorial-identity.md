@@ -11,4 +11,4 @@ The fictional annotator is intellectually curious and self-contradictory: she re
 - Editorial hero and margin-note cards; mobile stacks in reading order.
 - Character use stays concentrated in the discovery experience; long-form reading remains content-first.
 - No layout changes to video pinning, Japanese translation dock, inline annotations, transcript IDs, or reader scripts.
-- The home stage uses the approved cola illustration as a framed character-led key visual, art-book typography, marginalia stickers and four navigable archive entry points. A 420×355 compressed AVIF is the temporary hero asset; replace it with an original-resolution WebP or AVIF for final production. The 128px portrait remains a compatibility fallback.
+- Home is a full-bleed field notebook cover, followed by a real table of contents and reading room. The original 669×565 WebP is stored locally in the repository; preserve the character's detail and avoid embedding generated textual UI as authoritative explanation. See world-led-design-research.md.
