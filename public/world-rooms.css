@@ -56,3 +56,5 @@ html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-
 html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-note-kind="context"]{background:var(--aw-context-bg);color:var(--aw-context-ink);border-color:var(--aw-context-rule)}
 .reader-page .study-original .sec-header{border-top:2px solid var(--accent);padding-top:12px}.reader-page .study-original .speaker-line{color:var(--mute)}.reader-page .study-video:not(.video-pinned *){border-color:var(--hair)}
 @media(prefers-reduced-motion:reduce){.aw-margin-entry,.aw-world-explore-link{transition:none}}
+
+.aw-cover-overlay{justify-content:flex-start;background:linear-gradient(180deg,#1c1426e6 0%,#1c14267a 32%,transparent 65%);padding:10px}.aw-cover-overlay>span{margin-top:2px}@media(max-width:640px){.aw-cover-overlay{padding:6px}}

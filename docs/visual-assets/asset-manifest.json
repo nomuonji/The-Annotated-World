@@ -827,20 +827,20 @@
     {
       "id": "slavoj-zizek-how-to-become-free",
       "path": "/brand/covers/slavoj-zizek-how-to-become-free.webp",
-      "width": 480,
-      "height": 640,
-      "bytes": 51294,
+      "width": 720,
+      "height": 960,
+      "bytes": 102304,
       "alpha": false,
-      "status": "provisional",
-      "source": "今回の部屋背景の一部を仮表紙に再構成",
+      "status": "ready",
+      "source": "専用の新規生成原画：開いた扉と拘束の構造",
       "usage": "自由：窓・階段と外へ続く空間",
       "routes": [
         "/library/",
         "/read/slavoj-zizek-how-to-become-free/"
       ],
-      "placement": "3:4。タイトル・話者・情報はHTMLで別置き。専用生成原画へ後日差替",
-      "sha256": "99384b57a4c708e4116d23868413814d20b3f85ac14b1ced76be22077182a5c5",
-      "git_blob_sha": "7b8f9ec2d4874ca6a36891175093a3313b0f017a"
+      "placement": "3:4。上部暗い余白にHTMLタイトルを配置。文字なし原画。",
+      "sha256": "7a579fc5a46878cb11e58a2b1a724becc156c3e684c9a9938edcd51c29dc3fdf",
+      "git_blob_sha": "3bbedfe4d6137df3beab0e5c74eccdafd7468bb6"
     },
     {
       "id": "slavoj-zizek-signs-from-the-future",
