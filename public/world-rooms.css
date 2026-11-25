@@ -99,3 +99,6 @@ html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-
 @media(min-width:1101px){.platform-header nav{flex-wrap:wrap}}
 
 .aw-illustrated-cover{background:linear-gradient(145deg,#241b32,#55405d)!important}.aw-illustrated-cover .aw-cover-overlay{min-height:100%;color:#fff4ed}.aw-illustrated-cover .aw-cover-illustration[hidden]{display:none!important}.aw-room-picture img{image-rendering:auto}
+
+/* The two new cover originals reserve their top third for type. */
+.aw-cover-overlay{justify-content:flex-start;padding:clamp(8px,1.2vw,18px);background:linear-gradient(180deg,#191324d9 0%,#1913249e 24%,transparent 50%)}

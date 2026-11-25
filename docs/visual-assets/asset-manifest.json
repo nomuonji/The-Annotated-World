@@ -845,20 +845,20 @@
     {
       "id": "slavoj-zizek-signs-from-the-future",
       "path": "/brand/covers/slavoj-zizek-signs-from-the-future.webp",
-      "width": 480,
-      "height": 640,
-      "bytes": 27976,
+      "width": 720,
+      "height": 960,
+      "bytes": 119718,
       "alpha": false,
-      "status": "provisional",
-      "source": "今回の部屋背景の一部を仮表紙に再構成",
-      "usage": "未来：夜空と遠い都市",
+      "status": "ready",
+      "source": "専用の新規生成原画：未来都市と過去の廃墟をつなぐ砂時計",
+      "usage": "未来：時間・歴史的可能性の象徴",
       "routes": [
         "/library/",
         "/read/slavoj-zizek-signs-from-the-future/"
       ],
-      "placement": "3:4。タイトル・話者・情報はHTMLで別置き。専用生成原画へ後日差替",
-      "sha256": "59a9c353a6ee033b1af7858f15b8fdb705816facc85607f7eb81a4462e28ea8b",
-      "git_blob_sha": "968e8d652036e3bbb59332d673a0c0b48b7c8f59"
+      "placement": "3:4。上部の暗い余白にHTMLタイトルを配置。文字なし原画。",
+      "sha256": "b256d59f87c25627b787dc07fd6f7ae95ef3d4a2c1b7947c8a4b32978837940b",
+      "git_blob_sha": "12483fc328caacc4033a8db1f305c32fec7f1436"
     }
   ],
   "rights_note": "本プロジェクト向けのAI生成画・既存の生成素材およびそれらの切り出し。権利の独立検証は未実施。第三者ロゴや生成ボード内の文字・肖像を完成アセットとして採用しない。既存cola素材のブランド表記は本番前に確認する。",
