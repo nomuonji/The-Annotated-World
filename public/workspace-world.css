@@ -7,3 +7,5 @@ button:hover,.action:hover{background:#f1e6ed}button[aria-pressed=true]:hover,.a
 @media(max-width:720px){.intro{padding:.5rem 0 1rem}.intro h1{font-size:2.5rem}.editorial-note img{display:none}.editorial-note p{font-size:.95rem}.editorial-note{padding:10px}}
 
 html[data-theme=dark]{color-scheme:dark;--paper:#1c1925;--ink:#f2e8ed;--muted:#bfb0c5;--line:#483c51;--accent:#f0b1ce;--white:#252131}html[data-theme=dark] :is(.editorial-note,#status,.en mark){background:#352b42;color:var(--ink)}html[data-theme=dark] :is(button[aria-pressed=true],.action,#chapters button[aria-current=true]){background:#713c5e;color:#fff4ed}html[data-theme=dark] button:hover:not([aria-pressed=true]){background:#352b42}html[data-theme=dark] input{color:var(--ink)}.wordmark img{vertical-align:middle}.masthead nav button,.masthead nav a{min-height:40px;display:inline-flex;align-items:center}
+
+@media(max-width:720px){.editorial-note img{display:block;width:100%;max-width:320px;max-height:96px;object-fit:cover;margin:0 0 8px}.masthead nav{row-gap:4px}.masthead nav button,.masthead nav a{min-height:44px}}

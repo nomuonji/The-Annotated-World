@@ -38,13 +38,15 @@ try{
  await p.locator('#find').fill('zzzz-no-result-000');assert.equal(await p.locator('#no-documents').isVisible(),true);
  await p.reload();assert.equal(await p.locator('#find').inputValue(),'zzzz-no-result-000');
  await p.goto(base+'/concepts/');await p.locator('#index-query').fill('Lacan');assert.ok(await p.locator('[data-index-search]:visible').count()>0);await p.locator('#index-query').fill('zzzz-no-result-000');assert.equal(await p.locator('#index-empty').isVisible(),true);
- await p.goto(base+'/topics/');await p.locator('#index-query').fill('自由');assert.ok(await p.locator('[data-index-search]:visible').count()>0);
+ await p.goto(base+'/people/');await p.locator('#index-query').fill('ジジェク');assert.ok(await p.locator('[data-index-search]:visible').count()>0);await p.goto(base+'/topics/');await p.locator('#index-query').fill('自由');assert.ok(await p.locator('[data-index-search]:visible').count()>0);
  await p.goto(base+'/');assert.equal(await p.locator('.aw-margin-entry').count(),2);const href=await p.locator('.aw-margin-entry a').first().getAttribute('href');assert.ok(href?.includes('chapter='));
  await p.goto(base+'/workspace/');
  const lesson={id:'world-audit-private',title:'Private audit lesson',author:'Test',chapters:[{title:'One',blocks:[{en:'Read the world.',ja:'世界を読む。',note:'test'}]}]};
  await p.locator('#importFile').setInputFiles({name:'audit.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(lesson))});
  const card=p.locator('.lesson-card').filter({hasText:lesson.title});await card.getByRole('button',{name:'読む',exact:true}).click();
  await p.getByRole('button',{name:'発話を保存',exact:true}).click();await p.reload();await p.locator('#savedNav').click();assert.ok(await p.locator('#savedList').getByText('Read the world.').isVisible());
+ await p.locator('#libraryNav').click();const html='<h1>Private HTML audit</h1><section class="sec"><header class="sec-header"><h2>One</h2></header><div class="utterance"><p class="en">A private passage.</p><p class="ja">個人の文章。</p></div></section>';
+ await p.locator('#importFile').setInputFiles({name:'audit.html',mimeType:'text/html',buffer:Buffer.from(html)});await p.locator('.lesson-card').filter({hasText:'Private HTML audit'}).getByRole('button',{name:'読む',exact:true}).click();assert.ok(await p.locator('#chapter').getByText('A private passage.').isVisible());await p.reload();assert.ok(await p.locator('.lesson-card').filter({hasText:'Private HTML audit'}).isVisible());
  await p.locator('#workspace-theme').click();const theme=await p.locator('html').getAttribute('data-theme');await p.goto(base+'/library/');assert.equal(await p.locator('html').getAttribute('data-theme'),theme);
  await p.close();
  console.log('World audit: '+results.length+' page/viewport/theme combinations; search, source links, workspace import and saved data passed.');
