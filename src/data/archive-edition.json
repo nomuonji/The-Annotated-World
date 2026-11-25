@@ -1,0 +1,18 @@
+{
+  "id": "2026-11-late-autumn",
+  "label": "晩秋号",
+  "english": "LATE AUTUMN / 2026",
+  "season": "late-autumn",
+  "caption": "冷え込む夜。机の灯りだけが、まだ消えない。",
+  "logIds": [
+    "rules",
+    "relief"
+  ],
+  "style": {
+    "night": "#211a2b",
+    "rose": "#f2acc9",
+    "brass": "#c6a47e",
+    "paper": "#fff1eb",
+    "lavender": "#b6a1cf"
+  }
+}
