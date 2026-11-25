@@ -132,3 +132,21 @@ html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-
 }
 
 .person-item[hidden]{display:none!important}
+
+/* Home prioritizes source recognition; the archive uses collectible reading editions. */
+.aw-home-video-shelf{max-width:1530px;margin:0 auto;padding:clamp(24px,4vw,56px) clamp(18px,5vw,80px);scroll-margin-top:18px}
+.aw-home-video-shelf .aw-chapter-head small{color:var(--accent-text)}
+.aw-home-video-shelf .browse-section{padding:18px 0}
+.aw-home-video-shelf .document-entry.aw-video-document{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(14px,3vw,34px);align-items:start;background:var(--aw-surface);box-shadow:none}
+.aw-home-video-shelf .document-entry.aw-video-document .document-cover{aspect-ratio:16/9;max-width:none;width:100%;box-shadow:none}
+.aw-home-video-shelf .aw-video-document .source-thumbnail{object-fit:cover}
+.aw-home-video-shelf .aw-video-document .cover-fallback strong{font-size:clamp(17px,2vw,30px)}
+.aw-home-video-shelf .aw-video-document.featured-document h3{font-size:clamp(24px,3vw,40px)}
+.aw-home-video-shelf .document-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))}
+@media(max-width:640px){
+ .aw-home-video-shelf{padding:22px 14px}
+ .aw-home-video-shelf .aw-chapter-head h2{font-size:30px}
+ .aw-home-video-shelf .document-entry.aw-video-document{display:grid;grid-template-columns:1fr;padding:10px;gap:12px}
+ .aw-home-video-shelf .aw-video-document.featured-document h3{font-size:23px}
+ .aw-home-video-shelf .browse-section{padding:12px 0}
+}

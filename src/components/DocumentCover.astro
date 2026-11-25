@@ -1,12 +1,12 @@
 ---
 import {documentUrl,type Doc} from '../lib/discovery';
-interface Props{doc:Doc;featured?:boolean;genreColor?:string;genreName?:string}
-const {doc:d,featured=false,genreColor='#344f68',genreName='DOCUMENT'}=Astro.props;
-const illustrated=['slavoj-zizek-how-to-become-free','slavoj-zizek-signs-from-the-future'].includes(d.id);
+interface Props{doc:Doc;featured?:boolean;genreColor?:string;genreName?:string;presentation?:'edition'|'video'}
+const {doc:d,featured=false,genreColor='#344f68',genreName='DOCUMENT',presentation='edition'}=Astro.props;
+const illustrated=(presentation==='edition'||!d.data.videoId)&&['slavoj-zizek-how-to-become-free','slavoj-zizek-signs-from-the-future'].includes(d.id);
 ---
-<a href={documentUrl(d)} class:list={['document-cover',{'aw-illustrated-cover':illustrated}]} aria-label={d.data.title} style={'--genre-color:'+genreColor}>
+<a href={documentUrl(d)} class:list={['document-cover',{'aw-illustrated-cover':illustrated,'aw-source-cover':!illustrated&&Boolean(d.data.videoId)}]} aria-label={d.data.title} style={'--genre-color:'+genreColor}>
  {!illustrated&&<div class="cover-fallback"><span>THE ANNOTATED WORLD / {genreName}</span><strong>{d.data.title}</strong><small>{d.data.duration||d.data.chapterCount+'章'}</small></div>}
- {illustrated?<img src={'/brand/covers/'+d.id+'.webp'} alt="" width={d.id.endsWith("how-to-become-free")?720:480} height={d.id.endsWith("how-to-become-free")?960:640} loading={featured?'eager':'lazy'} decoding="auto" class="aw-cover-illustration"/>:d.data.videoId&&<img src={'https://i.ytimg.com/vi/'+d.data.videoId+'/hqdefault.jpg'} alt="" width="480" height="360" loading={featured?'eager':'lazy'} decoding="async" class="source-thumbnail"/>}
+ {illustrated?<img src={'/brand/covers/'+d.id+'.webp'} alt="" width="720" height="960" loading={featured?'eager':'lazy'} decoding="auto" class="aw-cover-illustration"/>:d.data.videoId&&<img src={'https://i.ytimg.com/vi/'+d.data.videoId+'/hqdefault.jpg'} alt="" width="480" height="360" loading={featured?'eager':'lazy'} decoding="async" class="source-thumbnail"/>}
  {illustrated?<span class="aw-cover-overlay" aria-hidden="true"><small>AW / READING EDITION</small><strong>{d.id.endsWith('how-to-become-free')?'How to Become Free':'Signs from the Future'}</strong><span>Slavoj Žižek</span></span>:d.data.videoId&&<span class="video-marker" aria-hidden="true">▶</span>}
 </a>
 <script>for(const img of document.querySelectorAll<HTMLImageElement>('.document-cover img')){const fallback=()=>img.hidden=true;img.addEventListener('error',fallback,{once:true});if(img.complete&&img.naturalWidth===0)fallback();}</script>

@@ -10,7 +10,7 @@
 
 | 対象 | 画像・配置 | 機能・制約 |
 |---|---|---|
-| `/` | `midnight-desktop/mobile.webp`、`catalog-desktop/mobile.webp` | 既存主役と安全領域を維持。入口左にHTML、探索中央に操作。スマホは画像外にCTA。再訪者はヘッダーから直接検索・読解へ。 |
+| `/` | `midnight-desktop/mobile.webp`、`catalog-desktop/mobile.webp` | 既存主役と安全領域を維持。入口左にHTML、探索中央に操作。スマホは画像外にCTA。再訪者はヘッダーから直接検索・読解へ。入口直後の動画棚は元動画の16:9サムネイルを使う（本人指定）。書庫・関連資料では専用表紙を使い、元動画の視認性を損なわない。 |
 | `/library/` | `rooms/library-desktop.webp`、`rooms/library-mobile.webp`、`sprites/book-stack.webp` | 短い部屋ヘッダー＋直後に検索・資料/章切替。教材カードの表紙は `covers/{documentId}.webp`。既存サムネイルは元動画情報として別扱い。 |
 | `/genres/:id/` | 書庫背景を共用、`genres/{id}-thumbnail.webp` | 仮サムネイルは48×39 CSS px以下。各ジャンルの情報を優先し、空ジャンルは架空教材を生成しない。 |
 | `/topics/`, `/topics/:id/` | `rooms/observatory-desktop/mobile.webp`、`sprites/armillary.webp` | 意味のある関係はHTML/SVGで描画。根拠のない線を作らない。詳細は短い見出しに縮小。 |

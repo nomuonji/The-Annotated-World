@@ -39,7 +39,15 @@ try{
  await p.reload();assert.equal(await p.locator('#find').inputValue(),'zzzz-no-result-000');
  await p.goto(base+'/concepts/');await p.locator('#index-query').fill('Lacan');assert.ok(await p.locator('[data-index-search]:visible').count()>0);await p.locator('#index-query').fill('zzzz-no-result-000');assert.equal(await p.locator('#index-empty').isVisible(),true);
  await p.goto(base+'/people/');await p.locator('#index-query').fill('ジジェク');assert.ok(await p.locator('[data-index-search]:visible').count()>0);await p.goto(base+'/topics/');await p.locator('#index-query').fill('自由');assert.ok(await p.locator('[data-index-search]:visible').count()>0);
- await p.goto(base+'/');assert.equal(await p.locator('.aw-margin-entry').count(),2);const href=await p.locator('.aw-margin-entry a').first().getAttribute('href');assert.ok(href?.includes('chapter='));
+ await p.goto(base+'/');assert.equal(await p.locator('.aw-margin-entry').count(),2);
+ const homeVideos=p.locator('#video-shelf .document-entry .source-thumbnail');
+ assert.equal(await homeVideos.count(),2,'Home should use original video thumbnails for both current videos');
+ assert.equal(await p.locator('#video-shelf .aw-cover-illustration').count(),0,'Home video shelf must not replace source thumbnails with edition art');
+ const ratio=await homeVideos.first().evaluate(el=>{const b=el.closest('.document-cover').getBoundingClientRect();return b.width/b.height;});
+ assert.ok(Math.abs(ratio-16/9)<.03,'Home source thumbnail must be landscape');
+ assert.ok(await p.locator('#video-shelf').evaluate(el=>Boolean(el.compareDocumentPosition(document.querySelector('#archive-index'))&Node.DOCUMENT_POSITION_FOLLOWING)),'Videos should precede the exploration scene');
+ await p.goto(base+'/library/');assert.equal(await p.locator('.aw-cover-illustration').count(),2,'Library keeps both original edition covers');
+ await p.goto(base+'/');const href=await p.locator('.aw-margin-entry a').first().getAttribute('href');assert.ok(href?.includes('chapter='));
  await p.goto(base+'/workspace/');
  const lesson={id:'world-audit-private',title:'Private audit lesson',author:'Test',chapters:[{title:'One',blocks:[{en:'Read the world.',ja:'世界を読む。',note:'test'}]}]};
  await p.locator('#importFile').setInputFiles({name:'audit.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(lesson))});
