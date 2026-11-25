@@ -26,6 +26,10 @@ jobs:
       - name: Install Japanese fonts for screenshot audit
         run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
       - run: node scripts/verify-world.mjs
+      - name: Live production smoke (external network)
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
+        run: node scripts/verify-production.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

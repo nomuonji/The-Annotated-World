@@ -14,6 +14,7 @@ const lexicon=buildLexicon(matching);const matchingWords=lexicon.terms.filter(w=
 const adjacent=[...new Map(chapters.flatMap(({c})=>c.topics).filter(x=>x.id!==t.id).map(x=>[x.id,x])).values()];
 ---
 <Archive title={t.name+' — The Annotated World'} wide><RoomHeader room="observatory" compact><p class="eyebrow"><a href="/topics/">テーマ</a> / TOPIC</p><h1>#{t.name}</h1><p>{matching.length}資料 · {chapters.length}関連章</p></RoomHeader>
+{chapters.length>0&&<section class="aw-editorial-sheet"><p class="aw-section-kicker">READING ROUTE / 読み方の補助線</p><h2>「{t.name}」を、どの角度から読むか。</h2><p>この索引は教材の章に登録されたテーマに基づきます。気になる論点から原文へ進んでください。</p><ul class="aw-source-list">{chapters.slice(0,3).map(({d,c})=><li><a href={'/read/'+d.id+'/?chapter='+encodeURIComponent(c.anchor)}>{c.title}</a>{c.description&&<p>{c.description}</p>}<small>{d.data.title} · {c.time}</small></li>)}</ul>{adjacent.length>0&&<p><small>同じ章のテーマは思想的な同一性を示すものではありません。</small></p>}</section>}
  {chapters.length>0&&<section class="browse-section"><div class="section-heading"><h2>Chapters <small>このテーマが登場する章</small></h2></div><ChapterList items={chapters}/></section>}
  <section class="browse-section"><div class="section-heading"><h2>Documents <small>関連する資料全文</small></h2></div><div class="document-grid">{matching.map(d=><DocumentCard doc={d}/>)}</div></section>
  {adjacent.length>0&&<section class="browse-section"><div class="section-heading"><h2>Related topics <small>同じ章で扱われているテーマ</small></h2></div><div class="tag-row">{adjacent.map(x=><a class="topic-tag" href={topicUrl(x.id)}>#{x.name}</a>)}</div></section>}

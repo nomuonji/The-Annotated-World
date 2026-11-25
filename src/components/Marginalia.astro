@@ -1,11 +1,11 @@
 ---
 import notes from '../data/marginalia.json';
-import {documentUrl,chapterReadingUrl,type Doc} from '../lib/discovery';
+import {chapterReadingUrl,type Doc} from '../lib/discovery';
 interface Props { docs:Doc[] }
 const entries=notes.flatMap(n=>{
  const d=Astro.props.docs.find(x=>x.id===n.document);
  const c=d?.data.chapterIndex.find(x=>x.anchor===n.chapter);
  return d&&c?[{...n,href:chapterReadingUrl(d,c)}]:[];
-});
+}).slice(0,4);
 ---
-{entries.length>0&&<section class="aw-marginalia-section" aria-labelledby="aw-margin-title"><div class="aw-section-kicker">MARGINALIA / 注釈者の余白</div><h2 id="aw-margin-title">考える人も、矛盾する。</h2><div class="aw-margin-grid">{entries.map((n,i)=><article class="aw-margin-entry"><div class="aw-margin-portrait"><img src={'/brand/sprites/'+n.expression+'.webp'} alt="" width="120" height="120" loading="lazy"/></div><div><small>NOTE {String(i+1).padStart(2,'0')} · 創作キャラクターの感想</small><h3>{n.title}</h3><p>{n.voice}</p><p class="aw-rabbit-reply"><img src="/brand/sprites/rabbit-reading.webp" alt="" width="34" height="34" loading="lazy"/><span>{n.rabbit}</span></p><p class="aw-reading-question">{n.question}</p><a href={n.href}>考えるきっかけになった章を読む →</a></div></article>)}</div><p class="aw-editorial-disclaimer">注釈者とうさぎの台詞は創作です。講演者の発言や事実の解説ではありません。</p></section>}
+{entries.length>0&&<section class="aw-marginalia-section" aria-labelledby="aw-margin-title"><div class="aw-section-kicker">MARGINALIA / 注釈者の余白</div><h2 id="aw-margin-title">考える人も、矛盾する。</h2><div class="aw-margin-grid">{entries.map((n,i)=><article class="aw-margin-entry"><div class="aw-margin-portrait"><img src={'/brand/sprites/'+n.expression+'.webp'} alt="" width="120" height="120" loading="lazy" decoding="async"/></div><div><small>NOTE {String(i+1).padStart(2,'0')} · 創作キャラクターの感想</small><h3>{n.title}</h3><p>{n.voice}</p><p class="aw-rabbit-reply"><img src="/brand/sprites/rabbit-reading.webp" alt="" width="34" height="34" loading="lazy" decoding="async"/><span>{n.rabbit}</span></p><p class="aw-reading-question">{n.question}</p><a href={n.href}>考えるきっかけになった章を読む →</a></div></article>)}</div><p class="aw-editorial-disclaimer">注釈者とうさぎの台詞は創作です。講演者の発言や事実の解説ではありません。</p></section>}

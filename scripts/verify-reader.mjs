@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import {spawn} from 'node:child_process';
+import {mkdir,writeFile} from 'node:fs/promises';
+const readingSpace=[];
 const port=4173,base='http://127.0.0.1:'+port;
 
 /**
@@ -188,6 +190,16 @@ try{
    assert.ok(geometry.toolbar.top>=geometry.panel.bottom-2,'Pinned video and toolbar overlap');
    assert.ok(geometry.toolbar.bottom<geometry.vh,'Fixed controls leave no reading space');
    assert.ok(await inline.isVisible(),'Inline notes should remain readable with pinned video');
+   const room=await page.evaluate(()=>{
+    const toolbar=document.getElementById('study-toolbar').getBoundingClientRect();
+    const dock=document.getElementById('mobile-translation-dock');
+    const dr=dock.getBoundingClientRect();
+    const active=!dock.hidden&&getComputedStyle(dock).display!=='none'&&dr.height>0;
+    const top=Math.max(0,toolbar.bottom),bottom=active?dr.top:innerHeight;
+    return {viewport:innerWidth+'x'+innerHeight,dockVisible:active,top,bottom,readingPx:Math.max(0,bottom-top),readingRatio:Math.max(0,bottom-top)/innerHeight};
+   });
+   assert.ok(room.readingPx>0,'Pinned controls and translation leave no reading space');
+   readingSpace.push(room);console.log('Mobile reading space:',JSON.stringify(room));
    await page.locator('#mobile-pin-video').click();
   }
   // Every note is printed adjacent to its English source. A combined
@@ -267,4 +279,5 @@ try{
   assert.equal(await page.locator('html').getAttribute('data-theme'),'light');
   console.log(viewport.width+'px: reading modes, mocked seek/rate/repeat/sync, mobile layout and chapter search passed');await page.close();
  }
-}finally{await browser?.close();server.kill();}
+}finally{
+ await mkdir('world-audit',{recursive:true});await writeFile('world-audit/reader-space.json',JSON.stringify(readingSpace,null,2));await browser?.close();server.kill();}
