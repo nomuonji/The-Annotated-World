@@ -11,4 +11,19 @@ The fictional annotator is intellectually curious and self-contradictory: she re
 - Editorial hero and margin-note cards; mobile stacks in reading order.
 - Character use stays concentrated in the discovery experience; long-form reading remains content-first.
 - No layout changes to video pinning, Japanese translation dock, inline annotations, transcript IDs, or reader scripts.
-- Home is a full-bleed field notebook cover, followed by a real table of contents and reading room. The original 669×565 WebP is stored locally in the repository; preserve the character's detail and avoid embedding generated textual UI as authoritative explanation. See world-led-design-research.md.
+- Home has two purpose-built illustrated locations: midnight reading desk and catalog room. Desktop/mobile artwork is art-directed separately. Four isolated object sprites represent real navigation routes; chibi and cola sprites illustrate a fictional marginal note linked to surplus enjoyment. All controls and copy are HTML, not baked into images.
+
+
+## Asset contract
+- `/brand/midnight-mobile.webp` — mobile entrance crop.
+- `/brand/midnight-desktop.webp` — desktop entrance scene.
+- `/brand/catalog-mobile.webp` — mobile catalog crop.
+- `/brand/catalog-desktop.webp` — desktop catalog scene.
+- `/brand/icon-globe.webp` — topics route.
+- `/brand/icon-book.webp` — words route.
+- `/brand/icon-notes.webp` — concepts route.
+- `/brand/icon-books.webp` — library route.
+- `/brand/chibi-annotator.webp` — marginalia character.
+- `/brand/cola.webp` — marginalia cola.
+
+The self-contained browser prototype was checked at 320, 390, 768, 1024 and 1440px. Production build and reader checks are separate. Do not add illustration assets without a specific layout and functional role.
