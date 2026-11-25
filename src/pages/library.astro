@@ -36,18 +36,28 @@ const cards=[...document.querySelectorAll<HTMLElement>('[data-document]')],chapt
 const filters=['time','format','difficulty','feature','series'].map(id=>[id,document.querySelector<HTMLSelectElement>('#filter-'+id)] as const);
 const scopeButtons=[...document.querySelectorAll<HTMLButtonElement>('[data-scope]')];
 let scope=params.get('scope')==='chapters'?'chapters':'docs';
+for(const [id,select] of filters){if(select){const value=params.get(id)||'';if([...select.options].some(o=>o.value===value))select.value=value;}}
+function storeQuery(){
+ const url=new URL(location.href);
+ const put=(key:string,value:string)=>{if(value)url.searchParams.set(key,value);else url.searchParams.delete(key);};
+ put('q',input.value.trim());put('scope',scope==='chapters'?'chapters':'');
+ for(const [id,select] of filters)put(id,select?.value||'');
+ history.replaceState(history.state,'',url);
+}
+
 function filter(){
  const q=input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);let n=0;
  for(const button of scopeButtons)button.setAttribute('aria-pressed',String(button.dataset.scope===scope));
  document.getElementById('result-grid')!.hidden=scope!=='docs';document.getElementById('chapter-results')!.hidden=scope!=='chapters';
  for(const card of scope==='docs'?cards:chapters){const matches=q.every(t=>card.dataset.search?.includes(t))&&filters.every(([id,select])=>{const value=select?.value;if(!value)return true;if(id==='feature')return (JSON.parse(card.dataset.features||'[]') as string[]).includes(value);if(id==='time'&&value!=='unknown'&&value!=='long'){const allowed=['5','15','30'];return allowed.indexOf(card.dataset.time||'')>=0&&allowed.indexOf(card.dataset.time||'')<=allowed.indexOf(value);}return card.dataset[id]===value;});card.hidden=!matches;if(matches)n++;}
  document.getElementById('result-count')!.textContent=n+(scope==='docs'?'資料':'章');document.getElementById('no-documents')!.hidden=n!==0;
+ storeQuery();
 }
 for(const b of scopeButtons)b.addEventListener('click',()=>{scope=b.dataset.scope==='chapters'?'chapters':'docs';filter();});
 for(const [,select] of filters)select?.addEventListener('change',filter);
-document.getElementById('reset-filters')?.addEventListener('click',()=>{for(const [,select] of filters)if(select)select.value='';filter();});
+document.getElementById('reset-filters')?.addEventListener('click',()=>{for(const [,select] of filters)if(select)select.value='';input.value='';filter();});
 controls.hidden=false;input.addEventListener('input',filter);filter();
 </script>
 <style>
-.library-filters{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;margin:0 0 22px}.library-tabs{display:flex;gap:4px}.library-tabs button,.library-filter-inputs button{font:inherit;font-size:13px;border:1px solid var(--hair);padding:10px 15px;min-height:44px;background:#fff;color:var(--ink);cursor:pointer}.library-tabs button[aria-pressed=true]{background:var(--accent-text);border-color:var(--accent-text);color:white}.library-filter-details{flex:1;min-width:160px}.library-filter-details summary{font-size:13px;cursor:pointer;padding:11px 0;color:var(--accent-text)}.library-filter-inputs{display:flex;flex-wrap:wrap;gap:8px;align-items:end}.library-filter-inputs label{display:flex;flex-direction:column;font-size:11px;color:var(--mute);flex:1;min-width:125px}.library-filter-inputs select{font:inherit;font-size:14px;padding:8px;min-height:44px;border:1px solid var(--hair);border-radius:0;background:#fff;color:var(--ink);max-width:100%}.discovery-actions{display:flex;flex-flow:column;gap:8px;margin-bottom:12px;align-items:flex-start}
+.library-filters{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;margin:0 0 22px}.library-tabs{display:flex;gap:4px}.library-tabs button,.library-filter-inputs button{font:inherit;font-size:13px;border:1px solid var(--hair);padding:10px 15px;min-height:44px;background:var(--aw-surface);color:var(--ink);cursor:pointer}.library-tabs button[aria-pressed=true]{background:#713c5e;border-color:#713c5e;color:white}.library-filter-details{flex:1;min-width:160px}.library-filter-details summary{font-size:13px;cursor:pointer;padding:11px 0;color:var(--accent-text)}.library-filter-inputs{display:flex;flex-wrap:wrap;gap:8px;align-items:end}.library-filter-inputs label{display:flex;flex-direction:column;font-size:11px;color:var(--mute);flex:1;min-width:125px}.library-filter-inputs select{font:inherit;font-size:14px;padding:8px;min-height:44px;border:1px solid var(--hair);border-radius:0;background:var(--aw-surface);color:var(--ink);max-width:100%}.discovery-actions{display:flex;flex-flow:column;gap:8px;margin-bottom:12px;align-items:flex-start}
 </style>

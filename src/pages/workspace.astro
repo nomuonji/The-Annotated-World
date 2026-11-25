@@ -7,12 +7,13 @@ const demo=importedDemo;
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="知りたいことを知るために、英語を読む。日英対訳・注釈付きの読書ライブラリ。">
+<script is:inline>(()=>{let t;try{t=localStorage.getItem("aw-theme")}catch{}document.documentElement.dataset.theme=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light"})();</script><link rel="icon" href="/brand/mark.svg" type="image/svg+xml"/>
 <title>個人教材 — The Annotated World</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/workspace-world.css">
 <script define:vars={{ demo }}>window.AW_DEMO=demo;</script><script is:inline defer src="/legacy/app.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">本文へ</a>
-<header class="masthead"><button id="home" class="wordmark">The Annotated World<span>READ THE WORLD, NOT JUST ENGLISH.</span></button><nav aria-label="メイン"><a href="/">公開ライブラリ</a><button id="libraryNav">ライブラリ</button><button id="savedNav">保存した発話</button><label class="action" for="importFile">＋ 個人教材を追加</label><input type="file" id="importFile" accept=".html,.htm,.json,text/html,application/json" class="visually-hidden"></nav></header>
+<header class="masthead"><button id="home" class="wordmark"><img src="/brand/mark.svg" alt="" width="26" height="26"/> The Annotated World<span>READ THE WORLD, NOT JUST ENGLISH.</span></button><nav aria-label="メイン"><a href="/">公開ライブラリ</a><button type="button" id="workspace-theme" aria-pressed="false">ダーク</button><button id="libraryNav">ライブラリ</button><button id="savedNav">保存した発話</button><label class="action" for="importFile">＋ 個人教材を追加</label><input type="file" id="importFile" accept=".html,.htm,.json,text/html,application/json" class="visually-hidden"></nav></header>
 <p id="status" role="status" aria-live="polite" hidden></p>
 <main id="main" tabindex="-1">
 <section id="library"><div class="intro"><div><p class="eyebrow">PRIVATE STUDY / 注釈者の私室</p><h1>My reading<br>room<span>.</span></h1><p class="lead">知りたいことを知るために、英語を読む。<br>原文、和訳、言葉の解説をひとつのページに。</p></div><div class="editorial-note"><img src="/brand/rooms/private-room-vignette.webp" alt="" width="320" height="124" decoding="async"><span>THE READING ROOM</span><p>英語は目的ではなく、世界を知るための入口。</p><small>Philosophy / Literature / Society / Culture</small></div></div>
@@ -22,4 +23,4 @@ const demo=importedDemo;
 </main>
 <footer><strong>The Annotated World</strong><span>原典を尊重し、言葉と世界を読む。</span></footer>
 <noscript>このリーダーにはJavaScriptが必要です。</noscript>
-</body></html>
+<script is:inline>(()=>{const b=document.getElementById("workspace-theme");const sync=()=>{const d=document.documentElement.dataset.theme==="dark";b.textContent=d?"ライト":"ダーク";b.setAttribute("aria-pressed",String(d))};b.addEventListener("click",()=>{const t=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=t;try{localStorage.setItem("aw-theme",t)}catch{}sync()});sync()})();</script></body></html>

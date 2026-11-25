@@ -6,8 +6,10 @@ import {documents,topicUrl,topics} from '../../lib/discovery';
 import {buildLexicon,documentCount,conceptUrl,containsPhrase,type Term,type ConceptEntry} from '../../lib/lexicon';
 export async function getStaticPaths(){const ds=await documents(),{terms,concepts}=buildLexicon(ds),ts=topics(ds);return terms.map(t=>({params:{id:t.id},props:{term:t,concepts:concepts.filter(c=>c.aliases.some(a=>containsPhrase(t.label,a))),topics:ts.filter(x=>t.occurrences.some(o=>o.topics.includes(x.id)))}}));}
 const {term:t,concepts,topics:ts}=Astro.props;
+const notes=[...new Set(t.occurrences.map(o=>o.termNote).filter((v):v is string=>Boolean(v)))];
 ---
 <Archive title={t.label+' — 語彙・表現'} wide><RoomHeader room="lexicon" compact><p class="eyebrow"><a href="/words/">語彙・表現</a> / EXPRESSION</p><h1 lang="en">{t.label}</h1><p>{documentCount(t.occurrences)}資料 · {t.occurrences.length}発話（完全一致・表記の正規化。同義語や活用形は自動統合していません）</p></RoomHeader>
+{notes.length>0&&<section class="aw-editorial-sheet"><p class="aw-section-kicker">LEXICON / 文脈上の注釈</p><h2>この教材での意味・用法</h2>{notes.map(n=><p>{n}</p>)}<small>元教材に収録された注釈です。一般的な辞書の全語義を示すものではありません。</small></section>}
 <section class="browse-section"><div class="section-heading"><h2>In context <small>元教材の使用例</small></h2></div><OccurrenceList items={t.occurrences} needle={t.label}/></section>
 {concepts.length>0&&<section class="browse-section"><div class="section-heading"><h2>Concepts <small>知的概念をたどる</small></h2></div><div class="tag-row">{concepts.map((c:ConceptEntry)=><a class="topic-tag" href={conceptUrl(c.id)}>{c.ja}</a>)}</div></section>}
 {ts.length>0&&<section class="browse-section"><div class="section-heading"><h2>Topics <small>出現する章のテーマ</small></h2></div><div class="tag-row">{ts.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></section>}
