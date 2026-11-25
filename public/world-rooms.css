@@ -25,7 +25,7 @@
 .document-entry .document-cover{aspect-ratio:3/4;border:1px solid var(--hair);width:100%;max-width:210px;align-self:start;box-shadow:4px 4px 0 #241d2b22}
 .document-entry .cover-fallback{padding:10px;gap:6px;justify-content:space-between}.document-entry .cover-fallback strong{font-size:clamp(13px,1.7vw,23px)}
 .document-entry .document-cover img{object-fit:cover}
-.aw-cover-stamp{position:absolute;bottom:0;left:0;right:0;background:#251b30e8;color:#f5d5e3;font:700 8px/1.5 'Plus Jakarta Sans',sans-serif;letter-spacing:.08em;padding:7px 6px;text-align:center}
+
 .document-entry h3{font-size:clamp(20px,2vw,30px);line-height:1.2}.document-entry .document-deck{-webkit-line-clamp:3}
 .document-entry.featured-document{grid-template-columns:minmax(110px,25%) minmax(0,1fr);align-items:center;gap:clamp(18px,4vw,42px);padding:clamp(16px,3vw,35px)}
 .document-entry.featured-document .document-cover{max-width:260px}.document-entry.featured-document h3{font-size:clamp(24px,3.2vw,42px)}.document-entry.featured-document .document-deck{-webkit-line-clamp:4}
@@ -33,7 +33,7 @@
 .reader-page>.hero{border-bottom-color:var(--accent)}.reader-page .publication-note{border-left:3px solid var(--accent);background:var(--aw-surface)}
 .reader-page .study-original .sec-header{border-bottom-color:var(--hair)}.reader-page .study-original .sec-header h2{letter-spacing:-.025em}
 @media(max-width:1000px){.document-grid,.page:not(.platform-page) .document-grid{grid-template-columns:1fr}}
-@media(max-width:640px){.document-entry.discovery-card,.document-entry.featured-document{grid-template-columns:minmax(78px,28%) minmax(0,1fr);padding:10px;gap:12px;align-items:start}.document-entry h3,.document-entry.featured-document h3{font-size:19px}.document-entry .document-deck{-webkit-line-clamp:2;font-size:12px}.document-entry .document-facts{font-size:11px}.document-entry .tag-row{gap:4px}.document-entry .topic-tag{font-size:10px;padding:3px 5px}.aw-cover-stamp{font-size:7px;padding:4px}.aw-genre-index{min-height:30px}.aw-genre-index img{width:38px;height:30px}}
+@media(max-width:640px){.document-entry.discovery-card,.document-entry.featured-document{grid-template-columns:minmax(78px,28%) minmax(0,1fr);padding:10px;gap:12px;align-items:start}.document-entry h3,.document-entry.featured-document h3{font-size:19px}.document-entry .document-deck{-webkit-line-clamp:2;font-size:12px}.document-entry .document-facts{font-size:11px}.document-entry .tag-row{gap:4px}.document-entry .topic-tag{font-size:10px;padding:3px 5px}.aw-genre-index{min-height:30px}.aw-genre-index img{width:38px;height:30px}}
 
 /* The editorial layer uses art only where it has a job. */
 .aw-wordmark-symbol{flex:none;object-fit:contain}
@@ -157,3 +157,17 @@ html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-
 .aw-cinema-heading{background:linear-gradient(90deg,var(--aw-surface) 45%,transparent),url('/brand/rooms/cinema-vignette.webp') right center/auto 100% no-repeat;padding:8px 10px;border-bottom:1px solid var(--hair)}
 .video-pinned .aw-cinema-heading{background:none;padding:0;border:0}
 @media(max-width:640px){.aw-room-vignette .aw-room-small-art{width:100%;max-height:120px;aspect-ratio:38/15}.aw-genre-index img{width:48px;height:39px}.aw-reading-room .genre-tile{grid-template-columns:70px minmax(0,1fr) auto}.aw-cinema-heading{background:none;padding:0;border:0}}
+
+/* Final editorial polish; sticky reader geometry stays unchanged. */
+.aw-footer-brand{display:inline-flex;align-items:center;gap:8px}
+.aw-source-list{padding:0;list-style:none;margin:16px 0 0}
+.aw-source-list>li{padding:12px 0;border-top:1px solid var(--hair)}
+.aw-source-list>li>p{margin:6px 0;font-size:14px}
+.aw-source-list summary{cursor:pointer;font-weight:600;line-height:1.6}
+.aw-source-list small{display:block;margin-top:5px;line-height:1.7}
+.aw-source-list a{overflow-wrap:anywhere}
+.aw-room-small-art{aspect-ratio:760/300}
+.reader-page .study-original .sec-header h2{font-weight:600;line-height:1.4}
+.reader-page .study-original .speaker-line{font-variant-numeric:tabular-nums}
+.reader-page .study-original .en{overflow-wrap:anywhere}
+@media(prefers-reduced-motion:no-preference){:is(.genre-tile,.word-card,.person-item,.topic-index-link,.aw-map-link){transition:background-color .15s ease,border-color .15s ease}}

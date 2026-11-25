@@ -166,3 +166,9 @@ npm run verify:reader
 - `4YSXNotY8QU` は、`kirinuki-generator` の既存 `youtube-transcript-api` がクラウドのIPブロックで失敗した一方、第一RapidAPI字幕APIから **1,533件・最後の字幕時刻5713.28秒** の候補字幕を受信した。**音声を新たに文字起こししたわけではない**。[実測ログと制約](research/2026-11-21-youtube-existing-captions.md)、[切り抜き側PR #88](https://github.com/nomuonji/kirinuki-generator/pull/88)。
 - ただし**RapidAPIが返した内容をYouTube本体の元字幕トラックと逐語一致させる検証は未完了**。先行する診断ランナーでは本文を保存していなかったが、その後 [RapidAPI2の実取得と非公開Drive保存](research/2026-11-21-zizek-rapidapi-private-source.md) が成功した。旧原稿の再利用は禁止。新稿は取得字幕の1,533件すべてを対訳化し、字幕の逐語真正性・機械訳校閲・権利の未確認状態を明記している。この数値を他の動画の実績に転用しない。
 - SaveTubeは対象動画の720pメディア取得に成功したが、**字幕の配信元ではない**。[検証ログ](research/2026-11-21-savetube-media-probe.md)。
+
+## 7. ブランドと編集の受入
+- [配置仕様](visual-assets/PLACEMENT.md)・[人格設定](CHARACTER-EDITORIAL-GUIDE.md)を参照。必要に応じ文字なし表紙を用意し、トップは元動画サムネイルを維持する。原画がない場合は既存フォールバックを使用。
+- 教材に基づく創作コメントは marginalia.json に章IDと表情を登録し、創作と明示。ホームは編集した最大4件を表示。原文照合・出典・権利の条件は緩めない。
+- 概念やテーマの解説には原典・発話IDを紐付け、共起を思想的関係とみなさない。
+- UI変更時は reader/world-audit とPC・スマホの両テーマの画像を確認する。
