@@ -7,7 +7,7 @@ const demo=importedDemo;
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="知りたいことを知るために、英語を読む。日英対訳・注釈付きの読書ライブラリ。">
-<title>個人教材 — The Annotated World</title><link rel="stylesheet" href="/styles.css">
+<title>個人教材 — The Annotated World</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/workspace-world.css">
 <script define:vars={{ demo }}>window.AW_DEMO=demo;</script><script is:inline defer src="/legacy/app.js"></script>
 </head>
 <body>
@@ -15,7 +15,7 @@ const demo=importedDemo;
 <header class="masthead"><button id="home" class="wordmark">The Annotated World<span>READ THE WORLD, NOT JUST ENGLISH.</span></button><nav aria-label="メイン"><a href="/">公開ライブラリ</a><button id="libraryNav">ライブラリ</button><button id="savedNav">保存した発話</button><label class="action" for="importFile">＋ 個人教材を追加</label><input type="file" id="importFile" accept=".html,.htm,.json,text/html,application/json" class="visually-hidden"></nav></header>
 <p id="status" role="status" aria-live="polite" hidden></p>
 <main id="main" tabindex="-1">
-<section id="library"><div class="intro"><div><p class="eyebrow">A LIBRARY BETWEEN LANGUAGES · 01</p><h1>Read something<br>worth reading<span>.</span></h1><p class="lead">知りたいことを知るために、英語を読む。<br>原文、和訳、言葉の解説をひとつのページに。</p></div><div class="editorial-note"><span>THE READING ROOM</span><p>英語は目的ではなく、世界を知るための入口。</p><small>Philosophy / Literature / Society / Culture</small></div></div>
+<section id="library"><div class="intro"><div><p class="eyebrow">PRIVATE STUDY / 注釈者の私室</p><h1>My reading<br>room<span>.</span></h1><p class="lead">知りたいことを知るために、英語を読む。<br>原文、和訳、言葉の解説をひとつのページに。</p></div><div class="editorial-note"><img src="/brand/rooms/private-room-vignette.webp" alt="" width="320" height="124" decoding="async"><span>THE READING ROOM</span><p>英語は目的ではなく、世界を知るための入口。</p><small>Philosophy / Literature / Society / Culture</small></div></div>
 <div class="shelf-heading"><h2>Library <span>個人教材・サンプル</span></h2><label>検索 <input type="search" id="search" placeholder="タイトル・著者・テーマ"></label></div><div id="shelf"></div><div class="import-hint"><h3>自分の読みたいものを持ち込む。</h3><p>対訳HTMLまたはJSON教材を追加できます。ファイルはブラウザ内で処理されます。</p><label for="importFile" class="action">教材ファイルを選択</label></div></section>
 <section id="reader" hidden><header id="readerHeader"></header><div class="reader-layout"><aside><details id="chapterDetails" open><summary>チャプター</summary><nav id="chapters" aria-label="チャプター"></nav></details></aside><div class="reading"><div class="toolbar"><span id="position"></span><div><button id="translation" aria-pressed="true">和訳</button><button id="notes" aria-pressed="true">注釈</button><button id="highlights" aria-pressed="true">重要語句</button></div></div><article id="chapter" aria-labelledby="chapterTitle"></article><div class="pager"><button id="prev">← 前の章</button><button id="next">次の章 →</button></div></div></div></section>
 <section id="saved" hidden><p class="eyebrow">YOUR COMMONPLACE BOOK</p><h1 class="small-title">保存した発話</h1><div id="savedList"></div></section>
