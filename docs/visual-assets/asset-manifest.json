@@ -1,0 +1,864 @@
+{
+  "version": "1.0",
+  "base": "PR #47 f03c6ec",
+  "status_definition": {
+    "ready": "実装用として技術利用可能。美的承認は未取得",
+    "existing": "既存PRまたは素材の再利用",
+    "provisional": "小さな挿絵または仮表紙。最終用原画ではない"
+  },
+  "assets": [
+    {
+      "id": "midnight-desktop",
+      "path": "/brand/midnight-desktop.webp",
+      "width": 1536,
+      "height": 864,
+      "bytes": 168134,
+      "alpha": false,
+      "status": "existing",
+      "source": "既存PR #47 のWeb専用構図",
+      "usage": "入口PC",
+      "routes": [
+        "/"
+      ],
+      "placement": "入口は左テキスト／人物右、探索は中央リンク、スマホは画像下にUI",
+      "sha256": "5a1a5975e9a55ea5598ec423a3aa6cc9ece6de089e161fa0fd9bb2a4fa5590ca",
+      "git_blob_sha": "33745593c225059bcd0692df457786d35b8f7e07"
+    },
+    {
+      "id": "midnight-mobile",
+      "path": "/brand/midnight-mobile.webp",
+      "width": 768,
+      "height": 432,
+      "bytes": 62490,
+      "alpha": false,
+      "status": "existing",
+      "source": "既存PR #47 のWeb専用構図",
+      "usage": "入口スマホ",
+      "routes": [
+        "/"
+      ],
+      "placement": "入口は左テキスト／人物右、探索は中央リンク、スマホは画像下にUI",
+      "sha256": "babef6c078b366554133a6b20f116eb7fe4d2aad36c084c321d47041bb08baf7",
+      "git_blob_sha": "6f30e9d1298dc498c87522c54b3ae1d18c8d3717"
+    },
+    {
+      "id": "catalog-desktop",
+      "path": "/brand/catalog-desktop.webp",
+      "width": 1536,
+      "height": 864,
+      "bytes": 220506,
+      "alpha": false,
+      "status": "existing",
+      "source": "既存PR #47 のWeb専用構図",
+      "usage": "探索PC",
+      "routes": [
+        "/"
+      ],
+      "placement": "入口は左テキスト／人物右、探索は中央リンク、スマホは画像下にUI",
+      "sha256": "588100e96dbf43e63a44bd4b0c3b1ce43e576f3c9f5f1d990f1e317f387d9bc1",
+      "git_blob_sha": "ceb6646f5259baefa7593f2b1b5411c265d12841"
+    },
+    {
+      "id": "catalog-mobile",
+      "path": "/brand/catalog-mobile.webp",
+      "width": 768,
+      "height": 432,
+      "bytes": 78138,
+      "alpha": false,
+      "status": "existing",
+      "source": "既存PR #47 のWeb専用構図",
+      "usage": "探索スマホ",
+      "routes": [
+        "/"
+      ],
+      "placement": "入口は左テキスト／人物右、探索は中央リンク、スマホは画像下にUI",
+      "sha256": "5723dde52d1915003cbb60417a463c689fe21a503a78706b55ec78cc952fb9c7",
+      "git_blob_sha": "944353bbcf1d4d8b7e437823af392bd92ea353d4"
+    },
+    {
+      "id": "icon-globe",
+      "path": "/brand/icon-globe.webp",
+      "width": 261,
+      "height": 294,
+      "bytes": 96670,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存透過シートから連結成分で再分離・既存パス互換",
+      "usage": "思想の回路",
+      "routes": [
+        "/topics/"
+      ],
+      "placement": "透過、object-fit:contain、装飾はalt空",
+      "sha256": "f4a0285a21f13ebd9279368f417d140d5f15d3fc0f4acc2ab320dec2c60a3dd5",
+      "git_blob_sha": "5535b43e08bbe3e5b5072879bcef37555c4f710e"
+    },
+    {
+      "id": "icon-book",
+      "path": "/brand/icon-book.webp",
+      "width": 639,
+      "height": 367,
+      "bytes": 282202,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存透過シートから連結成分で再分離・既存パス互換",
+      "usage": "言葉の標本",
+      "routes": [
+        "/words/"
+      ],
+      "placement": "透過、object-fit:contain、装飾はalt空",
+      "sha256": "ea4bdb38294a27acff013fe80207257741b9c27bab874c5d8bd2f0c210794fd8",
+      "git_blob_sha": "d357d92bd59c1be7197dd61618971f543b04a208"
+    },
+    {
+      "id": "icon-notes",
+      "path": "/brand/icon-notes.webp",
+      "width": 331,
+      "height": 228,
+      "bytes": 83978,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存透過シートから連結成分で再分離・既存パス互換",
+      "usage": "概念の索引",
+      "routes": [
+        "/concepts/"
+      ],
+      "placement": "透過、object-fit:contain、装飾はalt空",
+      "sha256": "480edb5eef0b92777c5f2f986c7dd4cf30c62ae0bca93b108714e38f86f146a8",
+      "git_blob_sha": "3d02e03b239ef3f32305855d7dfa399e8e142606"
+    },
+    {
+      "id": "icon-books",
+      "path": "/brand/icon-books.webp",
+      "width": 435,
+      "height": 265,
+      "bytes": 145752,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存透過シートから連結成分で再分離・既存パス互換",
+      "usage": "書庫",
+      "routes": [
+        "/library/"
+      ],
+      "placement": "透過、object-fit:contain、装飾はalt空",
+      "sha256": "34a5c0cbc1ac31c229de88e76a1360f6432f3536e2d6af3ba24320d778d0e9a5",
+      "git_blob_sha": "dd142e4d01704ff315d94304ee2b270b4df91333"
+    },
+    {
+      "id": "chibi-annotator",
+      "path": "/brand/chibi-annotator.webp",
+      "width": 289,
+      "height": 343,
+      "bytes": 126204,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存透過シートから連結成分で再分離・既存パス互換",
+      "usage": "余白のキャラクター",
+      "routes": [
+        "/"
+      ],
+      "placement": "透過、object-fit:contain、装飾はalt空",
+      "sha256": "dfe61c20ebc1b9b9aecd487ae4fbc1eab283912c7af542bab05306f7ab328729",
+      "git_blob_sha": "73c9db91aa0cd9760aa86061e3f5c18cad7983ef"
+    },
+    {
+      "id": "cola",
+      "path": "/brand/cola.webp",
+      "width": 153,
+      "height": 271,
+      "bytes": 56772,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存透過シートから連結成分で再分離・既存パス互換",
+      "usage": "余白の小道具",
+      "routes": [
+        "/"
+      ],
+      "placement": "透過、object-fit:contain、装飾はalt空",
+      "sha256": "211780f027caadbaa5a176f2976e5d13256aac2f73b42e1d99f9cc7ecc256272",
+      "git_blob_sha": "f39980ed4f0b785453222a03f40c9397b2048310"
+    },
+    {
+      "id": "library-desktop",
+      "path": "/brand/rooms/library-desktop.webp",
+      "width": 1536,
+      "height": 864,
+      "bytes": 221808,
+      "alpha": false,
+      "status": "ready",
+      "source": "今回の単独生成原画",
+      "usage": "書庫背景",
+      "routes": [
+        "/library/",
+        "/genres/:id/"
+      ],
+      "placement": "PC 左6–40%にHTML、右の主題を残す。高さ180–260pxならobject-position:50% 50%、必要に応じ右側クロップ",
+      "sha256": "a4235155bdeaeb0b43ee34d3b0c287e9515ba8d4dc9f28689ba6a8dc35b88ff1",
+      "git_blob_sha": "7a9b34ed322e541ae1550091949ee67c4b7b8980"
+    },
+    {
+      "id": "library-mobile",
+      "path": "/brand/rooms/library-mobile.webp",
+      "width": 768,
+      "height": 432,
+      "bytes": 98104,
+      "alpha": false,
+      "status": "ready",
+      "source": "同原画を主題側へトリミング",
+      "usage": "書庫モバイル背景",
+      "routes": [
+        "/library/",
+        "/genres/:id/"
+      ],
+      "placement": "モバイルは画像とHTMLを分離。画像高さ100–144px目安",
+      "sha256": "a8c3f1e57f50959bb83518a27019aad0a152aec7c35763582aa020b339e0da9a",
+      "git_blob_sha": "0cea258389fdfc7f4d683e8d1423bd63b07e156b"
+    },
+    {
+      "id": "observatory-desktop",
+      "path": "/brand/rooms/observatory-desktop.webp",
+      "width": 1536,
+      "height": 864,
+      "bytes": 248352,
+      "alpha": false,
+      "status": "ready",
+      "source": "今回の単独生成原画",
+      "usage": "思想観測室背景",
+      "routes": [
+        "/topics/",
+        "/topics/:id/"
+      ],
+      "placement": "PC 左6–40%にHTML、右の主題を残す。高さ180–260pxならobject-position:50% 50%、必要に応じ右側クロップ",
+      "sha256": "bde4fe97e1573b14e0b6e65cee66215ba21affc3a9240ce78ee2facfadc8db75",
+      "git_blob_sha": "6675d2a5bba859963ab5697c786fa5be3e84d10b"
+    },
+    {
+      "id": "observatory-mobile",
+      "path": "/brand/rooms/observatory-mobile.webp",
+      "width": 768,
+      "height": 432,
+      "bytes": 93588,
+      "alpha": false,
+      "status": "ready",
+      "source": "同原画を主題側へトリミング",
+      "usage": "思想観測室モバイル背景",
+      "routes": [
+        "/topics/",
+        "/topics/:id/"
+      ],
+      "placement": "モバイルは画像とHTMLを分離。画像高さ100–144px目安",
+      "sha256": "8e7b6383717b24dea4a3d7738cc34e06b094623bcfd2d49586df8085e093617b",
+      "git_blob_sha": "68db37ebf4974017b3e7cb9bc240a8982d39b687"
+    },
+    {
+      "id": "lexicon-banner",
+      "path": "/brand/rooms/lexicon-banner.webp",
+      "width": 1672,
+      "height": 310,
+      "bytes": 71364,
+      "alpha": false,
+      "status": "ready",
+      "source": "今回の3段背景シートの第3段",
+      "usage": "語彙標本室の細長いヘッダー",
+      "routes": [
+        "/words/",
+        "/words/:id/"
+      ],
+      "placement": "PC 1536×280相当の帯、左45%見出し。拡大して全画面背景にしない",
+      "sha256": "e9be9a1320688a8ef5c2a7ac088d129321b451f764a6a56d174684ad34bee280",
+      "git_blob_sha": "9ee3fa79f9c04e824af04570d1522b2713a95cea"
+    },
+    {
+      "id": "lexicon-mobile",
+      "path": "/brand/rooms/lexicon-mobile.webp",
+      "width": 640,
+      "height": 240,
+      "bytes": 43830,
+      "alpha": false,
+      "status": "ready",
+      "source": "同シート第3段の右側切り出し",
+      "usage": "語彙標本室モバイル",
+      "routes": [
+        "/words/",
+        "/words/:id/"
+      ],
+      "placement": "テキストは画像下。高さ96–120px",
+      "sha256": "879afbac3f016199f6659b93023453b8b8476994768e71f8d8ce5cb0c8bb8092",
+      "git_blob_sha": "60d12a4b3ce0f1f01b34b8ab2d86106002023fbc"
+    },
+    {
+      "id": "cinema-vignette",
+      "path": "/brand/rooms/cinema-vignette.webp",
+      "width": 373,
+      "height": 140,
+      "bytes": 14342,
+      "alpha": false,
+      "status": "provisional",
+      "source": "今回の設計ボードから文字を含まない部分だけ切り出し",
+      "usage": "映写室の小さな挿絵",
+      "routes": [
+        "/read/:id/",
+        "/genres/film-culture/"
+      ],
+      "placement": "右側の小挿絵、CSS幅180–320px。フルブリード禁止。将来単独生成で差替",
+      "sha256": "f472510c0be04c45a2fd6de298c9e9276776d9c3695e29a0e6b2b234718333ee",
+      "git_blob_sha": "d76a1fea7b56d24d8380e739e70da96fdba812a2"
+    },
+    {
+      "id": "private-room-vignette",
+      "path": "/brand/rooms/private-room-vignette.webp",
+      "width": 362,
+      "height": 140,
+      "bytes": 20558,
+      "alpha": false,
+      "status": "provisional",
+      "source": "今回の設計ボードから文字を含まない部分だけ切り出し",
+      "usage": "個人の私室の小さな挿絵",
+      "routes": [
+        "/workspace/"
+      ],
+      "placement": "右側の小挿絵、CSS幅180–320px。フルブリード禁止。将来単独生成で差替",
+      "sha256": "20f1bd988cefad67361918fe8eb923cfb4c5e26ebd12ecaa924b65e486b60f23",
+      "git_blob_sha": "6a66abcdb3ef14c27732b6b5e157a0b1772859de"
+    },
+    {
+      "id": "people-vignette",
+      "path": "/brand/rooms/people-vignette.webp",
+      "width": 370,
+      "height": 120,
+      "bytes": 14472,
+      "alpha": false,
+      "status": "provisional",
+      "source": "今回の設計ボードから文字を含まない部分だけ切り出し",
+      "usage": "人物資料室の小さな挿絵",
+      "routes": [
+        "/people/",
+        "/people/:id/"
+      ],
+      "placement": "右側の小挿絵、CSS幅180–320px。フルブリード禁止。将来単独生成で差替",
+      "sha256": "20ba0c2dc052a853575e628ec60b327a830d15a45fcb4c3867d9532d4958e321",
+      "git_blob_sha": "c516f1a60400e244427c302558a437939f406dfb"
+    },
+    {
+      "id": "concepts-vignette",
+      "path": "/brand/rooms/concepts-vignette.webp",
+      "width": 362,
+      "height": 120,
+      "bytes": 16982,
+      "alpha": false,
+      "status": "provisional",
+      "source": "今回の設計ボードから文字を含まない部分だけ切り出し",
+      "usage": "概念のカード保管庫の小さな挿絵",
+      "routes": [
+        "/concepts/",
+        "/concepts/:id/"
+      ],
+      "placement": "右側の小挿絵、CSS幅180–320px。フルブリード禁止。将来単独生成で差替",
+      "sha256": "6f7d7fabe2647aa48c33e1ca61aafd196d20c5ac2ff1d822bfa9c92ef4b74233",
+      "git_blob_sha": "5accf769c7a534a3daefca552e963de010916007"
+    },
+    {
+      "id": "annotator-cola",
+      "path": "/brand/sprites/annotator-cola.webp",
+      "width": 331,
+      "height": 304,
+      "bytes": 128600,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "コーラを飲む・倦怠",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "b7bebcbeb74f16e21577ce47b31d6238ddfb2cbf0d8ad6a2421781111dfbdfe0",
+      "git_blob_sha": "9a5e140661bce6038a33161c6661f4fd6f6af7e4"
+    },
+    {
+      "id": "annotator-delighted",
+      "path": "/brand/sprites/annotator-delighted.webp",
+      "width": 311,
+      "height": 308,
+      "bytes": 127246,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "笑う・発見",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "4026d02338cecd9f1b9d7fc106434d0bb433cb9ee13d78e6cc3b3fccb1e1d6c1",
+      "git_blob_sha": "5cbc96a68f314c9dd342a89455813ae9ccf0277a"
+    },
+    {
+      "id": "annotator-question",
+      "path": "/brand/sprites/annotator-question.webp",
+      "width": 310,
+      "height": 310,
+      "bytes": 122958,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "疑問・考え込む",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "c339b8db5e5611abf8f42ae8ae90a2c2ce727f772fd96db485dd46f17513af19",
+      "git_blob_sha": "b536cdd680b998a5ac14a8487e6312a6f58836c6"
+    },
+    {
+      "id": "annotator-reading",
+      "path": "/brand/sprites/annotator-reading.webp",
+      "width": 289,
+      "height": 343,
+      "bytes": 126204,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "ちび読書",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "dfe61c20ebc1b9b9aecd487ae4fbc1eab283912c7af542bab05306f7ab328729",
+      "git_blob_sha": "73c9db91aa0cd9760aa86061e3f5c18cad7983ef"
+    },
+    {
+      "id": "soda-can",
+      "path": "/brand/sprites/soda-can.webp",
+      "width": 153,
+      "height": 271,
+      "bytes": 56772,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "コーラ缶",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "211780f027caadbaa5a176f2976e5d13256aac2f73b42e1d99f9cc7ecc256272",
+      "git_blob_sha": "f39980ed4f0b785453222a03f40c9397b2048310"
+    },
+    {
+      "id": "open-notebook",
+      "path": "/brand/sprites/open-notebook.webp",
+      "width": 639,
+      "height": 367,
+      "bytes": 282202,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "注釈付きの開いた本",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "ea4bdb38294a27acff013fe80207257741b9c27bab874c5d8bd2f0c210794fd8",
+      "git_blob_sha": "d357d92bd59c1be7197dd61618971f543b04a208"
+    },
+    {
+      "id": "book-stack",
+      "path": "/brand/sprites/book-stack.webp",
+      "width": 435,
+      "height": 265,
+      "bytes": 145752,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "積み重ねた古書",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "34a5c0cbc1ac31c229de88e76a1360f6432f3536e2d6af3ba24320d778d0e9a5",
+      "git_blob_sha": "dd142e4d01704ff315d94304ee2b270b4df91333"
+    },
+    {
+      "id": "desk-lamp",
+      "path": "/brand/sprites/desk-lamp.webp",
+      "width": 367,
+      "height": 364,
+      "bytes": 108520,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "真鍮の読書灯",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "5ff0ae60ca14faad3f1d3f9706d03929fea98ec82f1fc19483b163cd5cb2bbda",
+      "git_blob_sha": "12ef5f4a2b1316d6f76cf8a5410efe0e286b5135"
+    },
+    {
+      "id": "fountain-pen",
+      "path": "/brand/sprites/fountain-pen.webp",
+      "width": 164,
+      "height": 238,
+      "bytes": 22438,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "万年筆",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "6278110eb4088d4b5f65d7bb05fcf7d3b5513028645f691a631195aff9d4be90",
+      "git_blob_sha": "9f3f65eb44b039368f0905b3c1d5fc4a72526edc"
+    },
+    {
+      "id": "ink-bottle",
+      "path": "/brand/sprites/ink-bottle.webp",
+      "width": 172,
+      "height": 214,
+      "bytes": 44082,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "インク瓶",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "06e398d9ba575edd447706ec28611978893f0437952e47456ec1cd0db9b0c949",
+      "git_blob_sha": "659d27d11b50ccf7e2d0556b797de959dc9ccb49"
+    },
+    {
+      "id": "tied-cards",
+      "path": "/brand/sprites/tied-cards.webp",
+      "width": 331,
+      "height": 228,
+      "bytes": 83978,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "リボンで束ねたカード",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "480edb5eef0b92777c5f2f986c7dd4cf30c62ae0bca93b108714e38f86f146a8",
+      "git_blob_sha": "3d02e03b239ef3f32305855d7dfa399e8e142606"
+    },
+    {
+      "id": "bookmark",
+      "path": "/brand/sprites/bookmark.webp",
+      "width": 126,
+      "height": 202,
+      "bytes": 25102,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "しおり",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "dd9128e5c7d2f35e5bfe531a4018c4e66e4167fca399b98952e2bb9413ec01ed",
+      "git_blob_sha": "467ca7b5314c6a3e9b97979a5cc4b7a491bac611"
+    },
+    {
+      "id": "marginalia-cards",
+      "path": "/brand/sprites/marginalia-cards.webp",
+      "width": 413,
+      "height": 216,
+      "bytes": 92706,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "注釈カード群",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "cad85297d80b51ec43b932e04f3551d57cc3be6b7f0fa34b12dcd1e36cae3aed",
+      "git_blob_sha": "f539e093ea176ebbbe973d698699df3ffae04c16"
+    },
+    {
+      "id": "pocket-watch",
+      "path": "/brand/sprites/pocket-watch.webp",
+      "width": 326,
+      "height": 327,
+      "bytes": 128894,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "懐中時計",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "05bc5d03c694f65bd690e70607cc0cb973906727d3551edc578ae32105aea582",
+      "git_blob_sha": "d7ab443a1685a2ad7dcf5aba12cba8798eaf7c2b"
+    },
+    {
+      "id": "rabbit-reading",
+      "path": "/brand/sprites/rabbit-reading.webp",
+      "width": 357,
+      "height": 317,
+      "bytes": 101848,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "うさぎマスコット読書",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "4ab04b0dc3d274597ecdb18f9802aed76d75d3810b7eb45be8e9c6385eec607e",
+      "git_blob_sha": "2c98cfd8b56778f8481fdc66f270570287a80dbd"
+    },
+    {
+      "id": "violet-flowers",
+      "path": "/brand/sprites/violet-flowers.webp",
+      "width": 184,
+      "height": 303,
+      "bytes": 51012,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "スミレ",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "b56e735e6b639df93aac3c662bc5fdd3cf65defc8c97518509e2851c62378c66",
+      "git_blob_sha": "9159eec35df628060f10c7a6b56154d533d0cf3c"
+    },
+    {
+      "id": "armillary",
+      "path": "/brand/sprites/armillary.webp",
+      "width": 261,
+      "height": 294,
+      "bytes": 96670,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "天球儀",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "f4a0285a21f13ebd9279368f417d140d5f15d3fc0f4acc2ab320dec2c60a3dd5",
+      "git_blob_sha": "5535b43e08bbe3e5b5072879bcef37555c4f710e"
+    },
+    {
+      "id": "city-orb",
+      "path": "/brand/sprites/city-orb.webp",
+      "width": 261,
+      "height": 292,
+      "bytes": 103918,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "都市のガラス球",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "64fea33441b128f8beb8ac978c9acadcd9c328f67791f7fec3687c69eba226af",
+      "git_blob_sha": "af921a5b4e99ee988dbd2702e7f87e69e85c60cb"
+    },
+    {
+      "id": "crystal",
+      "path": "/brand/sprites/crystal.webp",
+      "width": 179,
+      "height": 187,
+      "bytes": 29606,
+      "alpha": true,
+      "status": "ready",
+      "source": "既存承認系の透過シートから個別分離",
+      "usage": "結晶",
+      "routes": [
+        "共通",
+        "余白・各室の見出し"
+      ],
+      "placement": "object-fit:contain。原寸を超えない。キャラ差分は同じスロットで切替",
+      "sha256": "70c0d10aa1a3d591185119e2afe7019e7065a2fe5d5087a157b637093e80e427",
+      "git_blob_sha": "3617f14fd44cb6747dcce18d4415b74a57f490de"
+    },
+    {
+      "id": "annotator-standing",
+      "path": "/brand/sprites/annotator-standing.webp",
+      "width": 370,
+      "height": 1019,
+      "bytes": 117346,
+      "alpha": true,
+      "status": "existing",
+      "source": "既存立ち絵",
+      "usage": "立ち絵",
+      "routes": [
+        "/",
+        "/workspace/"
+      ],
+      "placement": "縦型、横幅160–280px。モバイルでは省略可能",
+      "sha256": "10bc2d902d41405fdadeef6f37c7edc5bf6195a736d15cbf4c515c60035ec82b",
+      "git_blob_sha": "9c3c22d826579d0fd4324df1aef321eb6aa3a0c4"
+    },
+    {
+      "id": "philosophy-thumbnail",
+      "path": "/brand/genres/philosophy-thumbnail.webp",
+      "width": 95,
+      "height": 77,
+      "bytes": 2614,
+      "alpha": false,
+      "status": "provisional",
+      "source": "今回のボードの文字なし絵部分",
+      "usage": "哲学の小アイコン",
+      "routes": [
+        "/genres/philosophy/",
+        "/library/"
+      ],
+      "placement": "最大表示48×39 CSS px。バナー・表紙への拡大禁止。別途原画生成",
+      "sha256": "d8ca131d8bad83f5dcd4cce73c589861e810ed5cf5720b3c1c1d2bfb19986cff",
+      "git_blob_sha": "cfdbf6560d34c442668b66bb858c841dae74b8b6"
+    },
+    {
+      "id": "literature-thumbnail",
+      "path": "/brand/genres/literature-thumbnail.webp",
+      "width": 95,
+      "height": 77,
+      "bytes": 3092,
+      "alpha": false,
+      "status": "provisional",
+      "source": "今回のボードの文字なし絵部分",
+      "usage": "文学の小アイコン",
+      "routes": [
+        "/genres/literature/",
+        "/library/"
+      ],
+      "placement": "最大表示48×39 CSS px。バナー・表紙への拡大禁止。別途原画生成",
+      "sha256": "49e1c3dcac1c5292403c0a2257cd0c28cfa191f34fc7c864dae85d57016e2969",
+      "git_blob_sha": "2b050ebdf0543bb6786bfc87be751a52409d4186"
+    },
+    {
+      "id": "film-culture-thumbnail",
+      "path": "/brand/genres/film-culture-thumbnail.webp",
+      "width": 95,
+      "height": 77,
+      "bytes": 3240,
+      "alpha": false,
+      "status": "provisional",
+      "source": "今回のボードの文字なし絵部分",
+      "usage": "映画・文化の小アイコン",
+      "routes": [
+        "/genres/film-culture/",
+        "/library/"
+      ],
+      "placement": "最大表示48×39 CSS px。バナー・表紙への拡大禁止。別途原画生成",
+      "sha256": "128a28b4fbfddd52f7a7571c867e38d6d3a01d59ff40fa7f566bef8947219531",
+      "git_blob_sha": "8f7c0a663c6dc99e43ad32508d23b4010a93a1b6"
+    },
+    {
+      "id": "society-thumbnail",
+      "path": "/brand/genres/society-thumbnail.webp",
+      "width": 95,
+      "height": 77,
+      "bytes": 3086,
+      "alpha": false,
+      "status": "provisional",
+      "source": "今回のボードの文字なし絵部分",
+      "usage": "社会の小アイコン",
+      "routes": [
+        "/genres/society/",
+        "/library/"
+      ],
+      "placement": "最大表示48×39 CSS px。バナー・表紙への拡大禁止。別途原画生成",
+      "sha256": "da55a72276c6b18ae0070db76914b3d29251fb8139bdbec78aa088d3ad4ff10d",
+      "git_blob_sha": "25e55ab775256fe9d67f75d4a675ad09489987a1"
+    },
+    {
+      "id": "technology-thumbnail",
+      "path": "/brand/genres/technology-thumbnail.webp",
+      "width": 95,
+      "height": 77,
+      "bytes": 3540,
+      "alpha": false,
+      "status": "provisional",
+      "source": "今回のボードの文字なし絵部分",
+      "usage": "技術の小アイコン",
+      "routes": [
+        "/genres/technology/",
+        "/library/"
+      ],
+      "placement": "最大表示48×39 CSS px。バナー・表紙への拡大禁止。別途原画生成",
+      "sha256": "beca08ecf70932e0f2f14ae2876ebdf97e091fac0b34ab9c69b2054d0e9fe648",
+      "git_blob_sha": "74ada21c9965cedcfbb69ff28387b5306f4f8bbc"
+    },
+    {
+      "id": "internet-thumbnail",
+      "path": "/brand/genres/internet-thumbnail.webp",
+      "width": 95,
+      "height": 77,
+      "bytes": 2820,
+      "alpha": false,
+      "status": "provisional",
+      "source": "今回のボードの文字なし絵部分",
+      "usage": "インターネットの小アイコン",
+      "routes": [
+        "/genres/internet/",
+        "/library/"
+      ],
+      "placement": "最大表示48×39 CSS px。バナー・表紙への拡大禁止。別途原画生成",
+      "sha256": "8064529e46ae4daf37d7592bd62b80dbf675f7bc7c9211116b59cb5c47c61d25",
+      "git_blob_sha": "d9975b4a05ea2743842da127007d6f41bd519083"
+    },
+    {
+      "id": "slavoj-zizek-how-to-become-free",
+      "path": "/brand/covers/slavoj-zizek-how-to-become-free.webp",
+      "width": 480,
+      "height": 640,
+      "bytes": 51294,
+      "alpha": false,
+      "status": "provisional",
+      "source": "今回の部屋背景の一部を仮表紙に再構成",
+      "usage": "自由：窓・階段と外へ続く空間",
+      "routes": [
+        "/library/",
+        "/read/slavoj-zizek-how-to-become-free/"
+      ],
+      "placement": "3:4。タイトル・話者・情報はHTMLで別置き。専用生成原画へ後日差替",
+      "sha256": "99384b57a4c708e4116d23868413814d20b3f85ac14b1ced76be22077182a5c5",
+      "git_blob_sha": "7b8f9ec2d4874ca6a36891175093a3313b0f017a"
+    },
+    {
+      "id": "slavoj-zizek-signs-from-the-future",
+      "path": "/brand/covers/slavoj-zizek-signs-from-the-future.webp",
+      "width": 480,
+      "height": 640,
+      "bytes": 27976,
+      "alpha": false,
+      "status": "provisional",
+      "source": "今回の部屋背景の一部を仮表紙に再構成",
+      "usage": "未来：夜空と遠い都市",
+      "routes": [
+        "/library/",
+        "/read/slavoj-zizek-signs-from-the-future/"
+      ],
+      "placement": "3:4。タイトル・話者・情報はHTMLで別置き。専用生成原画へ後日差替",
+      "sha256": "59a9c353a6ee033b1af7858f15b8fdb705816facc85607f7eb81a4462e28ea8b",
+      "git_blob_sha": "968e8d652036e3bbb59332d673a0c0b48b7c8f59"
+    }
+  ]
+}
