@@ -88,3 +88,11 @@ html[data-theme=dark]{--aw-brass:#e2bd8b;--aw-brass-line:#a48264}
 .aw-motion-footer{position:absolute;inset:auto 7% 4%;border-top:1px solid #c6a47e80;padding-top:2cqw;text-align:center;display:grid;gap:1.2cqw;color:var(--motion-brass)}.aw-motion-footer span{font-size:2.4cqw;line-height:1.5;color:#e5d0dd}.aw-motion-footer strong{font:700 2.3cqw/1.5 monospace;letter-spacing:.05em}.aw-motion-progress{height:3px;background:#4b3a50}.aw-motion-progress i{display:block;height:100%;width:calc(var(--motion-progress)*100%);background:var(--motion-rose)}
 @media(max-width:760px){.aw-motion-layout{grid-template-columns:1fr}.aw-motion-stage{width:min(100%,440px);margin:auto}.aw-motion-copy{padding:0}.aw-motion-copy h1{font-size:30px}}
 @media(prefers-reduced-motion:reduce){.aw-motion-lines,.aw-motion-art img{transform:none!important}}
+
+/* A brief ambient light response when entering a room with the pointer or keyboard.
+   No continuous ambient loop, no delayed navigation. */
+@media(prefers-reduced-motion:no-preference){
+ .aw-atlas:has(.aw-atlas-room:is(:hover,:focus-visible)) .aw-atlas-season-glow{animation:aw-room-lantern .85s ease-out both}
+ @keyframes aw-room-lantern{0%{opacity:.5}45%{opacity:1}100%{opacity:.75}}
+}
+@media(prefers-reduced-motion:reduce){.aw-atlas-season-glow{animation:none!important}}

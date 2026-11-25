@@ -73,6 +73,8 @@ try{
  await p.goto(base+'/concepts/');await p.locator('#index-query').fill('Lacan');assert.ok(await p.locator('[data-index-search]:visible').count()>0);await p.locator('#index-query').fill('zzzz-no-result-000');assert.equal(await p.locator('#index-empty').isVisible(),true);
  await p.goto(base+'/people/');await p.locator('#index-query').fill('ジジェク');assert.ok(await p.locator('[data-index-search]:visible').count()>0);await p.goto(base+'/topics/');await p.locator('#index-query').fill('自由');assert.ok(await p.locator('[data-index-search]:visible').count()>0);
  await p.goto(base+'/');assert.equal(await p.locator('.aw-margin-entry').count(),2);
+ assert.deepEqual(await p.locator('.aw-margin-entry').evaluateAll(items=>items.map(e=>e.id)),['note-rules','note-relief'],'Active edition must select the two home journal entries');
+ assert.equal(await p.locator('.aw-atlas-section').getAttribute('data-edition'),'late-autumn');
  const atlas=p.locator('.aw-atlas-nav');
  assert.equal(await atlas.locator('[data-room-link]').count(),6);
  const expected=['/library/','/topics/','/concepts/','/words/','/people/','/workspace/'];
