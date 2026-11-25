@@ -1,0 +1,23 @@
+---
+type Room = 'library' | 'observatory' | 'lexicon' | 'concepts' | 'people';
+interface Props { room:Room; compact?:boolean; person?:boolean }
+const {room,compact=false,person=false}=Astro.props;
+const locations={
+ library:{number:'02',name:'THE LIBRARY',ja:'資料の書庫',desktop:'library-desktop.webp',mobile:'library-mobile.webp',icon:'book-stack.webp',wide:true},
+ observatory:{number:'03',name:'OBSERVATORY',ja:'思想観測室',desktop:'observatory-desktop.webp',mobile:'observatory-mobile.webp',icon:'armillary.webp',wide:true},
+ lexicon:{number:'04',name:'LEXICON LAB',ja:'言葉の標本室',desktop:'lexicon-banner.webp',mobile:'lexicon-mobile.webp',icon:'open-notebook.webp',wide:true},
+ concepts:{number:'05',name:'CATALOG OF IDEAS',ja:'概念の索引',desktop:'concepts-vignette.webp',mobile:null,icon:'marginalia-cards.webp',wide:false},
+ people:{number:'06',name:'PERSONAL ARCHIVE',ja:'人物資料室',desktop:'people-vignette.webp',mobile:null,icon:'tied-cards.webp',wide:false}
+} as const;
+const location=locations[room];
+const full=!compact&&location.wide;
+---
+<header class:list={['browse-header','aw-room-head',{'aw-room-full':full,'aw-room-compact':compact,'aw-room-vignette':!full&&!compact}]} data-room={room}>
+ {full&&<picture class="aw-room-picture" aria-hidden="true">{location.mobile&&<source media="(max-width:640px)" srcset={'/brand/rooms/'+location.mobile}/>}<img src={'/brand/rooms/'+location.desktop} alt="" decoding="async" width={room==='lexicon'?1672:1536} height={room==='lexicon'?310:864}/></picture>}
+ <div class="aw-room-content">
+  <div class="aw-room-marker"><span>{location.number} / {location.name}</span><span>{location.ja}</span></div>
+  <div class:list={['aw-room-title',{'person-header':person}]}><slot/></div>
+ </div>
+ {!full&&!compact&&<img class="aw-room-small-art" src={'/brand/rooms/'+location.desktop} alt="" width="320" height="120" decoding="async"/>}
+ {compact&&<img class="aw-room-small-icon" src={'/brand/sprites/'+location.icon} alt="" width="68" height="68" decoding="async"/>}
+</header>

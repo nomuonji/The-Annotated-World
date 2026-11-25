@@ -1,4 +1,5 @@
 ---
+import RoomHeader from '../components/RoomHeader.astro';
 import Archive from '../layouts/Archive.astro';
 import DocumentCard from '../components/DocumentCard.astro';
 import GenreNav from '../components/GenreNav.astro';
@@ -10,7 +11,7 @@ const distinct=(items:string[])=>[...new Set(items.filter(Boolean))].sort();
 const formats=distinct(ds.map(d=>d.data.category)),levels=distinct(ds.map(d=>d.data.difficulty||'')),features=distinct(ds.flatMap(d=>d.data.englishFeatures)),series=distinct(ds.map(d=>d.data.series||''));
 ---
 <Archive title="全資料 — The Annotated World" wide>
- <header class="browse-header"><p class="eyebrow">LIBRARY</p><h1>すべての資料</h1><p>タイトル、話者、テーマから、読みたい資料や章を見つける。</p></header>
+ <RoomHeader room="library"><p class="eyebrow">LIBRARY</p><h1>すべての資料</h1><p>タイトル、話者、テーマから、読みたい資料や章を見つける。</p></RoomHeader>
  <div class="discovery-actions"><RandomChapter docs={ds}/></div>
  <div class="library-toolbar"><label for="find">検索<input type="search" id="find" placeholder="例：ジジェク、映画、AI"/></label><span id="result-count" aria-live="polite">{ds.length}資料</span></div>
  <div class="library-filters" data-library-controls hidden>

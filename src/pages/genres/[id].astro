@@ -1,4 +1,5 @@
 ---
+import RoomHeader from '../../components/RoomHeader.astro';
 import Archive from '../../layouts/Archive.astro';
 import GenreNav from '../../components/GenreNav.astro';
 import DocumentCard from '../../components/DocumentCard.astro';
@@ -12,7 +13,7 @@ const adjacent=matching.filter(d=>d.data.genre!==g.id);
 const tags=[...new Map(chapters.flatMap(({c})=>c.topics).map(t=>[t.id,t])).values()];
 ---
 <Archive title={g.name+' — The Annotated World'} wide>
- <header class="browse-header"><p class="eyebrow"><a href="/">発見</a> / GENRES / {g.number}</p><h1>{g.name}</h1><p>{g.ja} · {matching.length}資料 · {chapters.length}関連章</p></header>
+ <RoomHeader room="library" compact><p class="eyebrow"><a href="/">発見</a> / GENRES / {g.number}</p><h1>{g.name}</h1><p>{g.ja} · {matching.length}資料 · {chapters.length}関連章</p></RoomHeader>
  <GenreNav docs={ds} active={g.id}/>
  {primary.length>0&&<section class="browse-section"><div class="section-heading"><h2>Documents <small>この分野の資料</small></h2></div><div class="document-grid">{primary.map(d=><DocumentCard doc={d}/>)}</div></section>}
  {chapters.length>0&&<section class="browse-section"><div class="section-heading"><h2>Chapters <small>この分野について語る章</small></h2></div><ChapterList items={chapters}/></section>}
