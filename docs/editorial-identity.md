@@ -30,3 +30,6 @@ The self-contained browser prototype was checked at 320, 390, 768, 1024 and 1440
 
 ## Regenerated scene artwork
 Both scenes were redrawn for the actual page composition: entrance subject on the right with a dark left-side copy area; catalog subject on the left and globe/mascot on the right, with central clear area for a 2×2 navigation grid. At widths ≤1150px the navigation moves below the image. Existing isolated sprite assets remain in use. New desktop WebP 1536×864 and mobile 768×432. Browser prototype checked at 320/390/768/1024/1151/1440px for image loading, horizontal overflow and link size. Aesthetic review remains subjective.
+
+## Production asset decisions
+Four purpose-built rooms have been replaced with independent illustrations (concepts, people, cinema, private study). Six genre emblems are authored SVGs, not generated artwork. The home video shelf uses the source-video thumbnail for recognition; the library uses original illustrated reading editions. Aesthetic acceptance is separate from release safety.

@@ -288,73 +288,73 @@
     {
       "id": "cinema-vignette",
       "path": "/brand/rooms/cinema-vignette.webp",
-      "width": 373,
-      "height": 140,
-      "bytes": 14342,
+      "width": 760,
+      "height": 300,
+      "bytes": 34310,
       "alpha": false,
-      "status": "provisional",
-      "source": "今回の設計ボードから文字を含まない部分だけ切り出し",
+      "status": "ready",
+      "source": "新規AI生成の文字なし室内原画、独立区画から760×300にクロップ",
       "usage": "映写室の小さな挿絵",
       "routes": [
         "/read/:id/",
         "/genres/film-culture/"
       ],
-      "placement": "右側の小挿絵、CSS幅180–320px。フルブリード禁止。将来単独生成で差替",
-      "sha256": "f472510c0be04c45a2fd6de298c9e9276776d9c3695e29a0e6b2b234718333ee",
-      "git_blob_sha": "d76a1fea7b56d24d8380e739e70da96fdba812a2"
+      "placement": "装飾用、最大380 CSS px幅を基本とし、モバイルは帯として表示。文字はHTML。",
+      "sha256": "cb6a928b729493f6cc2add902102edf2646f5e1100f61001d5f83d2bf4c6977c",
+      "git_blob_sha": "8d1d5dbe0a9364961fd005cc006cddf8bcebba6f"
     },
     {
       "id": "private-room-vignette",
       "path": "/brand/rooms/private-room-vignette.webp",
-      "width": 362,
-      "height": 140,
-      "bytes": 20558,
+      "width": 760,
+      "height": 300,
+      "bytes": 50600,
       "alpha": false,
-      "status": "provisional",
-      "source": "今回の設計ボードから文字を含まない部分だけ切り出し",
+      "status": "ready",
+      "source": "新規AI生成の文字なし室内原画、独立区画から760×300にクロップ",
       "usage": "個人の私室の小さな挿絵",
       "routes": [
         "/workspace/"
       ],
-      "placement": "右側の小挿絵、CSS幅180–320px。フルブリード禁止。将来単独生成で差替",
-      "sha256": "20f1bd988cefad67361918fe8eb923cfb4c5e26ebd12ecaa924b65e486b60f23",
-      "git_blob_sha": "6a66abcdb3ef14c27732b6b5e157a0b1772859de"
+      "placement": "装飾用、最大380 CSS px幅を基本とし、モバイルは帯として表示。文字はHTML。",
+      "sha256": "e76e5c8522598f71764797fcfb959489266582d4476a1a10e8315c56c0abc37c",
+      "git_blob_sha": "e7800ebb539389b1e002ec80036fdd6939591d88"
     },
     {
       "id": "people-vignette",
       "path": "/brand/rooms/people-vignette.webp",
-      "width": 370,
-      "height": 120,
-      "bytes": 14472,
+      "width": 760,
+      "height": 300,
+      "bytes": 43276,
       "alpha": false,
-      "status": "provisional",
-      "source": "今回の設計ボードから文字を含まない部分だけ切り出し",
+      "status": "ready",
+      "source": "新規AI生成の文字なし室内原画、独立区画から760×300にクロップ",
       "usage": "人物資料室の小さな挿絵",
       "routes": [
         "/people/",
         "/people/:id/"
       ],
-      "placement": "右側の小挿絵、CSS幅180–320px。フルブリード禁止。将来単独生成で差替",
-      "sha256": "20ba0c2dc052a853575e628ec60b327a830d15a45fcb4c3867d9532d4958e321",
-      "git_blob_sha": "c516f1a60400e244427c302558a437939f406dfb"
+      "placement": "装飾用、最大380 CSS px幅を基本とし、モバイルは帯として表示。文字はHTML。",
+      "sha256": "31f8ca4a5cfd1ac91a1f573fa670d307ee9d33d0e321b4295aaacec5960e2daf",
+      "git_blob_sha": "9b804ec9422393b5d55be41627083276c1dc0e9c"
     },
     {
       "id": "concepts-vignette",
       "path": "/brand/rooms/concepts-vignette.webp",
-      "width": 362,
-      "height": 120,
-      "bytes": 16982,
+      "width": 760,
+      "height": 300,
+      "bytes": 47714,
       "alpha": false,
-      "status": "provisional",
-      "source": "今回の設計ボードから文字を含まない部分だけ切り出し",
+      "status": "ready",
+      "source": "新規AI生成の文字なし室内原画、独立区画から760×300にクロップ",
       "usage": "概念のカード保管庫の小さな挿絵",
       "routes": [
         "/concepts/",
         "/concepts/:id/"
       ],
-      "placement": "右側の小挿絵、CSS幅180–320px。フルブリード禁止。将来単独生成で差替",
-      "sha256": "6f7d7fabe2647aa48c33e1ca61aafd196d20c5ac2ff1d822bfa9c92ef4b74233",
-      "git_blob_sha": "5accf769c7a534a3daefca552e963de010916007"
+      "placement": "装飾用、最大380 CSS px幅を基本とし、モバイルは帯として表示。文字はHTML。",
+      "sha256": "3c8c4ebdd060fd50297ef47cd4fca7e0de0e11f4ea8aab65956ae3e04a968753",
+      "git_blob_sha": "7ce75f9d0700f48346aea6e8a5a4524481d6fba7"
     },
     {
       "id": "annotator-cola",
@@ -718,111 +718,105 @@
     },
     {
       "id": "philosophy-thumbnail",
-      "path": "/brand/genres/philosophy-thumbnail.webp",
-      "width": 95,
-      "height": 77,
-      "bytes": 2614,
+      "path": "/brand/genres/philosophy-emblem.svg",
+      "width": 120,
+      "height": 96,
+      "bytes": 924,
       "alpha": false,
-      "status": "provisional",
-      "source": "今回のボードの文字なし絵部分",
+      "status": "ready",
+      "source": "独自コード描画SVG、装飾用ジャンル紋章。AI生成原画ではない。",
       "usage": "哲学の小アイコン",
       "routes": [
         "/genres/philosophy/",
         "/library/"
       ],
-      "placement": "最大表示48×39 CSS px。バナー・表紙への拡大禁止。別途原画生成",
-      "sha256": "d8ca131d8bad83f5dcd4cce73c589861e810ed5cf5720b3c1c1d2bfb19986cff",
-      "git_blob_sha": "cfdbf6560d34c442668b66bb858c841dae74b8b6"
+      "placement": "48–64 CSS pxのアイコン。ラベルはHTML。",
+      "git_blob_sha": "dc7eebbfd79b07caf1f11614df552059eb7d6fa9"
     },
     {
       "id": "literature-thumbnail",
-      "path": "/brand/genres/literature-thumbnail.webp",
-      "width": 95,
-      "height": 77,
-      "bytes": 3092,
+      "path": "/brand/genres/literature-emblem.svg",
+      "width": 120,
+      "height": 96,
+      "bytes": 953,
       "alpha": false,
-      "status": "provisional",
-      "source": "今回のボードの文字なし絵部分",
+      "status": "ready",
+      "source": "独自コード描画SVG、装飾用ジャンル紋章。AI生成原画ではない。",
       "usage": "文学の小アイコン",
       "routes": [
         "/genres/literature/",
         "/library/"
       ],
-      "placement": "最大表示48×39 CSS px。バナー・表紙への拡大禁止。別途原画生成",
-      "sha256": "49e1c3dcac1c5292403c0a2257cd0c28cfa191f34fc7c864dae85d57016e2969",
-      "git_blob_sha": "2b050ebdf0543bb6786bfc87be751a52409d4186"
+      "placement": "48–64 CSS pxのアイコン。ラベルはHTML。",
+      "git_blob_sha": "4a7bf476d7ae12c091afe63603704dc87d60d6e0"
     },
     {
       "id": "film-culture-thumbnail",
-      "path": "/brand/genres/film-culture-thumbnail.webp",
-      "width": 95,
-      "height": 77,
-      "bytes": 3240,
+      "path": "/brand/genres/film-culture-emblem.svg",
+      "width": 120,
+      "height": 96,
+      "bytes": 973,
       "alpha": false,
-      "status": "provisional",
-      "source": "今回のボードの文字なし絵部分",
+      "status": "ready",
+      "source": "独自コード描画SVG、装飾用ジャンル紋章。AI生成原画ではない。",
       "usage": "映画・文化の小アイコン",
       "routes": [
         "/genres/film-culture/",
         "/library/"
       ],
-      "placement": "最大表示48×39 CSS px。バナー・表紙への拡大禁止。別途原画生成",
-      "sha256": "128a28b4fbfddd52f7a7571c867e38d6d3a01d59ff40fa7f566bef8947219531",
-      "git_blob_sha": "8f7c0a663c6dc99e43ad32508d23b4010a93a1b6"
+      "placement": "48–64 CSS pxのアイコン。ラベルはHTML。",
+      "git_blob_sha": "056c2e95e9f177ee2fb99054d14bd169dd05333d"
     },
     {
       "id": "society-thumbnail",
-      "path": "/brand/genres/society-thumbnail.webp",
-      "width": 95,
-      "height": 77,
-      "bytes": 3086,
+      "path": "/brand/genres/society-emblem.svg",
+      "width": 120,
+      "height": 96,
+      "bytes": 947,
       "alpha": false,
-      "status": "provisional",
-      "source": "今回のボードの文字なし絵部分",
+      "status": "ready",
+      "source": "独自コード描画SVG、装飾用ジャンル紋章。AI生成原画ではない。",
       "usage": "社会の小アイコン",
       "routes": [
         "/genres/society/",
         "/library/"
       ],
-      "placement": "最大表示48×39 CSS px。バナー・表紙への拡大禁止。別途原画生成",
-      "sha256": "da55a72276c6b18ae0070db76914b3d29251fb8139bdbec78aa088d3ad4ff10d",
-      "git_blob_sha": "25e55ab775256fe9d67f75d4a675ad09489987a1"
+      "placement": "48–64 CSS pxのアイコン。ラベルはHTML。",
+      "git_blob_sha": "99ad789db86f245b12c8184aea7c1e8f7d1a640e"
     },
     {
       "id": "technology-thumbnail",
-      "path": "/brand/genres/technology-thumbnail.webp",
-      "width": 95,
-      "height": 77,
-      "bytes": 3540,
+      "path": "/brand/genres/technology-emblem.svg",
+      "width": 120,
+      "height": 96,
+      "bytes": 936,
       "alpha": false,
-      "status": "provisional",
-      "source": "今回のボードの文字なし絵部分",
+      "status": "ready",
+      "source": "独自コード描画SVG、装飾用ジャンル紋章。AI生成原画ではない。",
       "usage": "技術の小アイコン",
       "routes": [
         "/genres/technology/",
         "/library/"
       ],
-      "placement": "最大表示48×39 CSS px。バナー・表紙への拡大禁止。別途原画生成",
-      "sha256": "beca08ecf70932e0f2f14ae2876ebdf97e091fac0b34ab9c69b2054d0e9fe648",
-      "git_blob_sha": "74ada21c9965cedcfbb69ff28387b5306f4f8bbc"
+      "placement": "48–64 CSS pxのアイコン。ラベルはHTML。",
+      "git_blob_sha": "b2c268e8cdffc4f1327398bad63202118f9a6a1f"
     },
     {
       "id": "internet-thumbnail",
-      "path": "/brand/genres/internet-thumbnail.webp",
-      "width": 95,
-      "height": 77,
-      "bytes": 2820,
+      "path": "/brand/genres/internet-emblem.svg",
+      "width": 120,
+      "height": 96,
+      "bytes": 1019,
       "alpha": false,
-      "status": "provisional",
-      "source": "今回のボードの文字なし絵部分",
+      "status": "ready",
+      "source": "独自コード描画SVG、装飾用ジャンル紋章。AI生成原画ではない。",
       "usage": "インターネットの小アイコン",
       "routes": [
         "/genres/internet/",
         "/library/"
       ],
-      "placement": "最大表示48×39 CSS px。バナー・表紙への拡大禁止。別途原画生成",
-      "sha256": "8064529e46ae4daf37d7592bd62b80dbf675f7bc7c9211116b59cb5c47c61d25",
-      "git_blob_sha": "d9975b4a05ea2743842da127007d6f41bd519083"
+      "placement": "48–64 CSS pxのアイコン。ラベルはHTML。",
+      "git_blob_sha": "bb4ab65567437e63e73d35bda7ef794859f26f02"
     },
     {
       "id": "slavoj-zizek-how-to-become-free",
@@ -863,6 +857,6 @@
   ],
   "rights_note": "本プロジェクト向けのAI生成画・既存の生成素材およびそれらの切り出し。権利の独立検証は未実施。第三者ロゴや生成ボード内の文字・肖像を完成アセットとして採用しない。既存cola素材のブランド表記は本番前に確認する。",
   "runtime_variants": {
-    "home": "public/brand/ui/ の既存最適化版6点をトップで使用。台帳の48点は元の配布パックと同一のバイト列を維持。"
+    "home": "入口の最適化画像と /brand/ui/ を使用。動画棚は元YouTubeサムネイル。2026-11-26に専用部屋画4点、コード描画紋章6点で仮素材を置換。"
   }
 }

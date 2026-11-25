@@ -150,3 +150,10 @@ html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-
  .aw-home-video-shelf .aw-video-document.featured-document h3{font-size:23px}
  .aw-home-video-shelf .browse-section{padding:12px 0}
 }
+
+/* Small art-directed room vignettes and legible genre emblems. Never enlarge the pinned player. */
+.aw-room-vignette .aw-room-small-art{width:min(40%,380px);aspect-ratio:38/15;object-fit:cover}
+.aw-genre-index img{width:60px;height:48px;border:0;object-fit:contain}.aw-reading-room .genre-tile{grid-template-columns:84px minmax(0,1fr) auto}
+.aw-cinema-heading{background:linear-gradient(90deg,var(--aw-surface) 45%,transparent),url('/brand/rooms/cinema-vignette.webp') right center/auto 100% no-repeat;padding:8px 10px;border-bottom:1px solid var(--hair)}
+.video-pinned .aw-cinema-heading{background:none;padding:0;border:0}
+@media(max-width:640px){.aw-room-vignette .aw-room-small-art{width:100%;max-height:120px;aspect-ratio:38/15}.aw-genre-index img{width:48px;height:39px}.aw-reading-room .genre-tile{grid-template-columns:70px minmax(0,1fr) auto}.aw-cinema-heading{background:none;padding:0;border:0}}

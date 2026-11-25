@@ -18,6 +18,6 @@ const full=!compact&&location.wide;
   <div class="aw-room-marker"><span>{location.number} / {location.name}</span><span>{location.ja}</span></div>
   <div class:list={['aw-room-title',{'person-header':person}]}><slot/></div>
  </div>
- {!full&&!compact&&<img class="aw-room-small-art" src={'/brand/rooms/'+location.desktop} alt="" width="320" height="120" decoding="async"/>}
+ {!full&&!compact&&<img class="aw-room-small-art" src={'/brand/rooms/'+location.desktop} alt="" width="760" height="300" decoding="async"/>}
  {compact&&<img class="aw-room-small-icon" src={'/brand/sprites/'+location.icon} alt="" width="68" height="68" decoding="async"/>}
 </header>
