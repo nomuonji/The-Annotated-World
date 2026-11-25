@@ -58,3 +58,42 @@ html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-
 @media(prefers-reduced-motion:reduce){.aw-margin-entry,.aw-world-explore-link{transition:none}}
 
 .aw-cover-overlay{justify-content:flex-start;background:linear-gradient(180deg,#1c1426e6 0%,#1c14267a 32%,transparent 65%);padding:10px}.aw-cover-overlay>span{margin-top:2px}@media(max-width:640px){.aw-cover-overlay{padding:6px}}
+
+/* Compact navigation and result-first discovery. The nav itself can scroll;
+   the document cannot. All links remain reachable with keyboard and touch. */
+.platform-header-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px 20px;padding-block:12px}
+.platform-header nav{justify-content:flex-end;gap:clamp(10px,1.2vw,20px);min-width:0;font-size:13px}
+.platform-header nav a{white-space:nowrap;min-height:36px;display:inline-flex;align-items:center}
+.platform-header .site-theme-toggle{white-space:nowrap;min-height:40px}
+.aw-library-genres{margin:18px 0 0}.aw-library-genres summary{font-size:14px;color:var(--accent-text);cursor:pointer;padding:12px 0;min-height:44px}.aw-library-genres .genre-grid{margin:8px 0 0}
+.aw-library-results{padding-top:8px!important}
+.aw-library-results .document-grid,.aw-library-results .chapter-discovery{min-width:0}
+.aw-library-results .document-entry{min-height:0}
+.aw-room-marker span:first-child{border-bottom:1px solid currentColor;padding-bottom:3px}
+.aw-room-title .eyebrow a:focus-visible{outline-color:currentColor}
+.aw-room-title .eyebrow a{color:inherit}
+.aw-room-head[data-room=concepts],.aw-room-head[data-room=people]{border-top:2px solid var(--accent)}
+@media(max-width:1100px){
+ .platform-header-inner{grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;padding:10px clamp(12px,3vw,32px)}
+ .platform-header nav{grid-row:2;grid-column:1/-1;margin:0;justify-content:flex-start;flex-wrap:wrap;gap:4px 16px}
+ .platform-header .site-theme-toggle{grid-column:2;grid-row:1}
+}
+@media(max-width:640px){
+ .platform-header-inner{padding:7px 12px 5px}
+ .platform-header .site-title{font-size:clamp(15px,4.3vw,19px);gap:7px;min-width:0}
+ .platform-header .aw-wordmark-symbol{width:25px;height:25px}
+ .platform-header .site-theme-toggle{font-size:11px;padding:6px 8px;min-height:36px}
+ .platform-header nav{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;gap:15px;font-size:12px;scrollbar-width:thin;padding:2px 1px 5px}
+ .platform-header nav a{flex:none;min-height:36px;white-space:nowrap}
+ .platform-page:has(.aw-room-head){padding-top:12px}
+ .aw-room-full .aw-room-picture{height:90px}
+ .aw-room-full .aw-room-content{padding:12px 14px}
+ .aw-room-title h1{font-size:26px;line-height:1.2;margin:3px 0 6px}
+ .aw-room-head{margin-bottom:12px}
+ .aw-room-marker{margin-bottom:4px}
+ .aw-world-actions .aw-world-explore-link{order:3;flex-basis:100%;padding:4px 0 0}
+ .aw-world-backdrop{aspect-ratio:16/8}
+ .aw-world-copy{padding-top:16px;padding-bottom:16px}
+ .aw-library-genres{margin-top:8px}
+}
+@media(min-width:1101px){.platform-header nav{flex-wrap:wrap}}
