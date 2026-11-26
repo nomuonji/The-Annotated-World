@@ -1,10 +1,10 @@
 ---
 import TopicLinks from '../../components/TopicLinks.astro';
 import IndexSearch from '../../components/IndexSearch.astro';
-import RoomHeader from '../../components/RoomHeader.astro';
+import EditorialTitle from '../../components/EditorialTitle.astro';
 import Archive from '../../layouts/Archive.astro';
 
 import {documents,topics} from '../../lib/discovery';
 const ts=topics(await documents());
 ---
-<Archive wide title="テーマ — The Annotated World"><RoomHeader room="observatory"><p class="eyebrow"><a href="/">発見</a> / TOPICS</p><h1>Topics</h1><p>分野を越えて、同じテーマを語る資料と章へ。{ts.length}テーマ。</p></RoomHeader><IndexSearch label="テーマを検索" count={ts.length} unit="テーマ" placeholder="例：自由、精神分析"/>{[{label:'複数の資料を横断する',items:ts.filter(t=>t.count>1)},{label:'一つの資料から深掘りする',items:ts.filter(t=>t.count===1)}].map(group=>group.items.length>0&&<section class="browse-section" data-index-section><div class="section-heading"><h2>{group.label}</h2></div><TopicLinks items={group.items} searchable/></section>)}</Archive>
+<Archive wide title="テーマ — The Annotated World"><EditorialTitle section="topics" label="テーマ" count={ts.length+'テーマ'} art="armillary"><h1 lang="en">Threads of thought<span class="ed-period">.</span></h1><p>同じ問いを語る資料と章をたどる。</p></EditorialTitle><IndexSearch label="テーマを検索" count={ts.length} unit="テーマ" placeholder="例：自由、精神分析"/>{[{label:'複数の資料を横断する',items:ts.filter(t=>t.count>1)},{label:'一つの資料から深掘りする',items:ts.filter(t=>t.count===1)}].map(group=>group.items.length>0&&<section class="browse-section" data-index-section><div class="section-heading"><h2>{group.label}</h2></div><TopicLinks items={group.items} searchable/></section>)}</Archive>

@@ -3,7 +3,7 @@ import type {Doc} from '../lib/discovery';
 interface Props{doc:Doc}
 const {doc:d}=Astro.props;
 ---
-<div class="study-toolbar" id="study-toolbar" data-study-toolbar hidden>
+<div class="study-toolbar ed-reader-tools" id="study-toolbar" data-study-toolbar hidden>
  <div class="study-mode" role="group" aria-label="学習モード">
  <button type="button" data-mode="parallel" aria-pressed="true">対訳</button>
  <button type="button" data-mode="english" aria-pressed="false">英文のみ</button>

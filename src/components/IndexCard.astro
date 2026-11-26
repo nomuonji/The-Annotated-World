@@ -1,5 +1,5 @@
 ---
-interface Props { href:string; title:string; detail?:string; meta:string; search?:string; english?:boolean; kind?:string; serial?:number }
-const {href,title,detail,meta,search,english=false,kind,serial}=Astro.props;
+interface Props { href:string; title:string; detail?:string; meta:string; search?:string; english?:boolean; kind?:string; serial?:number; evidence?:string; evidenceSource?:string }
+const {href,title,detail,meta,search,english=false,kind,serial,evidence,evidenceSource}=Astro.props;
 ---
-<a class:list={["word-card","aw-index-record",english?"aw-word-specimen":"aw-concept-file"]} href={href} data-index-search={search} data-kind={kind}><span class="aw-index-tab" aria-hidden="true">{serial!==undefined?String(serial).padStart(3,"0"):"·"}{kind&&<span>{kind}</span>}</span><strong lang={english?'en':undefined}>{title}</strong>{detail&&<span>{detail}</span>}<small>{meta}</small></a>
+<a class:list={["word-card","aw-index-record",english?"aw-word-specimen":"aw-concept-file"]} href={href} data-index-search={search} data-kind={kind}>{!evidence&&<span class="aw-index-tab" aria-hidden="true">{serial!==undefined?String(serial).padStart(3,"0"):"·"}{kind&&<span>{kind}</span>}</span>}<strong lang={english?'en':undefined}>{title}</strong>{detail&&<span class="ed-term-note">{detail}</span>}{evidence&&<span class="ed-evidence" lang="en"><span>{evidence}</span>{evidenceSource&&<small>{evidenceSource}</small>}</span>}<small>{meta}</small></a>

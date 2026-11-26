@@ -1,0 +1,8 @@
+---
+interface Props {section:string;label:string;count:string;art?:string}
+const {section,label,count,art}=Astro.props;
+---
+<header class="ed-masthead" data-editorial-section={section}>
+ <div class="ed-masthead-copy"><div class="ed-breadcrumb"><a href="/#archive-index">The Archive</a><span aria-hidden="true">/</span><span>{label}</span></div><slot/></div>
+ <div class="ed-masthead-margin">{art&&<img src={'/brand/sprites/'+art+'.webp'} alt="" width="200" height="150" decoding="async"/>}<span class="ed-count">{count}</span></div>
+</header>
