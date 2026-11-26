@@ -2,22 +2,25 @@ import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import {mkdir,writeFile} from 'node:fs/promises';
 const base='https://the-annotated-world.pages.dev';
-const routes=['/','/library/','/topics/','/people/','/words/','/concepts/surplus-enjoyment/','/read/slavoj-zizek-how-to-become-free/','/read/slavoj-zizek-signs-from-the-future/','/workspace/'];
-const report={base,checkedAt:new Date().toISOString(),pages:[],video:[]};let browser;
+const routes=['/','/library/','/topics/','/people/','/words/','/concepts/surplus-enjoyment/','/read/slavoj-zizek-how-to-become-free/','/read/slavoj-zizek-signs-from-the-future/','/workspace/','/marginalia/','/marginalia/motion/'];
+const expectedSha=process.env.GITHUB_SHA||'';
+const report={base,expectedSha,checkedAt:new Date().toISOString(),pages:[],video:[]};let browser;
 try{
  browser=await chromium.launch({headless:true});
  const page=await browser.newPage({viewport:{width:390,height:844}});
  // Cloudflare builds independently of GitHub CI. Verify that the intended
  // deployment is actually visible, not merely that an older page responds.
  let deployed=false;
- for(let i=0;i<12;i++){try{const res=await page.goto(base+'/library/',{waitUntil:'domcontentloaded',timeout:20000});deployed=!!res?.ok()&&await page.locator('link[rel=canonical]').count()>0;if(deployed)break;}catch{}await new Promise(r=>setTimeout(r,5000));}
- assert.ok(deployed,'Production could not be reached or new canonical marker not yet visible');
+ for(let i=0;i<12;i++){try{const res=await page.goto(base+'/library/',{waitUntil:'domcontentloaded',timeout:20000});const actual=await page.locator('meta[name=aw-build-sha]').getAttribute('content',{timeout:2000}).catch(()=>null);report.deployedSha=actual;deployed=!!res?.ok()&&(!expectedSha||actual===expectedSha);if(deployed)break;}catch{}await new Promise(r=>setTimeout(r,5000));}
+ assert.ok(deployed,'Production could not be reached or expected commit marker not yet visible');
  for(const path of routes){
   const res=await page.goto(base+path,{waitUntil:'domcontentloaded',timeout:30000});
   assert.ok(res?.ok(),path+' response '+res?.status());
   await page.evaluate(async()=>{await document.fonts.ready;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});
   const details=await page.evaluate(()=>({title:document.title,scrollWidth:document.documentElement.scrollWidth,width:innerWidth,overflow:[...document.querySelectorAll('body *')].filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.right>innerWidth+1}).slice(0,12).map(e=>({tag:e.tagName,cls:String(e.className),right:e.getBoundingClientRect().right}))}));
   report.pages.push({path,status:res.status(),...details});
+  await mkdir('world-audit/live',{recursive:true});
+  await page.screenshot({path:'world-audit/live/'+(path.replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'')||'home')+'.png',animations:'disabled',timeout:15000}).catch(e=>{report.pages.at(-1).screenshotError=String(e).slice(0,200)});
   if(path.startsWith('/read/')){
    const result={path,source:await page.locator('#source-video a').first().getAttribute('href'),iframe:await page.locator('#original-player').getAttribute('src'),actualPlayback:'unverified'};
    try{

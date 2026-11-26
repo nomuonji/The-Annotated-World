@@ -18,6 +18,11 @@ jobs:
       - run: node --test scripts/verify-youtube-caption-capture.test.mjs
       - run: npm run content:check
       - run: npm run check
+      - name: Ensure retired image paths have no runtime references
+        run: |
+          if git grep -I -n -F -e '/brand/annotator-cover.webp' -e '/brand/annotator-desk.avif' -e '/brand/annotator.webp' -- src public scripts tools templates; then
+            echo 'Retired asset referenced'; exit 1
+          fi
       - run: npm run build
       - run: npm run verify:archive
       - run: test -s dist/workspace/index.html
