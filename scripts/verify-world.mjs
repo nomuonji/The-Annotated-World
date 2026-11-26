@@ -59,6 +59,8 @@ try{
     results.push({path,width,theme,...audit,initialMetrics,accessibility});
     if(!publicAudit||width===390||width===1440)await page.screenshot({path:out+'/'+theme+'-'+width+'-'+(path.replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'')||'home')+'.png',animations:'disabled'});
     if((width===390||width===1440)&&path==='/'){await page.locator('#archive-index').scrollIntoViewIfNeeded();await page.screenshot({path:out+'/'+theme+'-'+width+'-home-explore.png',animations:'disabled'});}
+    if((width===390||width===1440)&&path==='/library/'){await page.locator('.ed-catalogue-tools').screenshot({path:out+'/'+theme+'-'+width+'-imprint-search.png',animations:'disabled'});await page.locator('.ed-read-link').first().screenshot({path:out+'/'+theme+'-'+width+'-imprint-action.png',animations:'disabled'});}
+    if((width===390||width===1440)&&path.includes('?chapter=ch1')){await page.locator('#study-toolbar').screenshot({path:out+'/'+theme+'-'+width+'-imprint-reader.png',animations:'disabled'});}
    }
   }
   await context.close();
@@ -72,7 +74,7 @@ try{
  await p.keyboard.press('Enter');
  assert.equal(await p.evaluate(()=>document.activeElement?.id),'main','Skip link must focus main');
  await p.goto(base+'/library/?scope=chapters&q=映画&time=15');assert.equal(await p.locator('#find').inputValue(),'映画');assert.equal(await p.locator('#filter-time').inputValue(),'15');assert.equal(await p.locator('[data-scope=chapters]').getAttribute('aria-pressed'),'true');
- await p.locator('#find').fill('zzzz-no-result-000');assert.equal(await p.locator('#no-documents').isVisible(),true);
+ assert.equal(await p.locator('#imp-filter-count').textContent(),'1件');await p.locator('summary[data-imprint-icon=filter]').click();assert.equal(await p.locator('#imp-filter-count').isVisible(),true);await p.locator('#reset-filters').click();assert.equal(await p.locator('#imp-filter-count').isVisible(),false);await p.locator('#filter-time').selectOption('15');await p.locator('#find').fill('zzzz-no-result-000');assert.equal(await p.locator('#no-documents').isVisible(),true);
  await p.reload();assert.equal(await p.locator('#find').inputValue(),'zzzz-no-result-000');
  await p.goto(base+'/words/');await p.locator('#word-search').fill('unceded');assert.ok(await p.locator('[data-index-search]:visible').count()>0);await p.locator('#word-search').fill('zzzz-no-result-000');assert.equal(await p.locator('#word-empty').isVisible(),true);
  await p.goto(base+'/concepts/');await p.locator('#index-query').fill('Lacan');assert.ok(await p.locator('[data-index-search]:visible').count()>0);await p.locator('#index-query').fill('zzzz-no-result-000');assert.equal(await p.locator('#index-empty').isVisible(),true);

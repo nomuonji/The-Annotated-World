@@ -12,8 +12,8 @@ const chapters=d.data.chapterIndex.filter(c=>c.seconds!==null);
 <div class="video-quick-controls" data-video-enhancement hidden>
  <button type="button" id="play-pause" class="study-control" disabled aria-label="再生 — 動画を再生">▶ 再生</button>
  <label class="speed-label">速度 <select id="playback-speed" disabled aria-label="再生速度"><option value="1">1×</option></select></label>
- <button type="button" id="follow-video" aria-pressed="false" class="study-control" disabled>自動追従</button>
- <button type="button" id="mobile-pin-video" aria-pressed="false" class="study-control">動画固定</button>
+ <button type="button" id="follow-video" data-imprint-icon="follow" aria-pressed="false" class="study-control" disabled>自動追従</button>
+ <button type="button" id="mobile-pin-video" data-imprint-icon="pin" aria-pressed="false" class="study-control">動画固定</button>
 </div>
 <p class="video-state" id="video-state" role="status" aria-live="polite" hidden>動画連携を準備中…</p>
 <div class="video-position" data-video-enhancement hidden><span id="video-clock">00:00</span><button id="jump-current" type="button" disabled class="study-control">再生中の発話へ ↓</button><button id="stop-repeat" type="button" hidden class="study-control">リピート解除</button></div>

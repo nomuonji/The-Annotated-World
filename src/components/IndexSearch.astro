@@ -4,7 +4,7 @@ interface Props { label:string; count:number; unit:string; placeholder:string; p
 const {label,count,unit,placeholder,prefix='index'}=Astro.props;
 const inputId=prefix==='word'?'word-search':prefix+'-query';
 ---
-<div class="library-toolbar" data-index-controls hidden><label for={inputId}>{label}<input type="search" id={inputId} placeholder={placeholder}/></label><span aria-live="polite" id={prefix+"-count"} data-index-count data-unit={unit}>{count}{unit}</span></div>
+<div class="library-toolbar" data-index-controls hidden><label for={inputId}>{label}<span class="imp-search-wrap"><input type="search" id={inputId} placeholder={placeholder}/></span></label><span aria-live="polite" id={prefix+"-count"} data-index-count data-unit={unit}>{count}{unit}</span></div>
 <EmptyState id={prefix+"-empty"} message="該当する項目がありません。別の言葉を試してください。"/>
 <script>
 const toolbar=document.querySelector<HTMLElement>('[data-index-controls]');

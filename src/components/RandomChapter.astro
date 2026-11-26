@@ -4,7 +4,7 @@ interface Props{docs:Doc[]}
 const {docs}=Astro.props;
 const paths=docs.flatMap(d=>d.data.chapterIndex.map(c=>chapterReadingUrl(d,c)));
 ---
-{paths.length>0&&<button class="random-chapter" type="button" data-random={JSON.stringify(paths)} hidden>↗ ランダムな章へ</button>}
+{paths.length>0&&<button class="random-chapter" type="button" data-imprint-icon="shuffle" data-random={JSON.stringify(paths)} hidden>ランダムな章へ</button>}
 <script>
 for(const button of document.querySelectorAll<HTMLButtonElement>('[data-random]')){
  const paths:string[]=JSON.parse(button.dataset.random||'[]');
