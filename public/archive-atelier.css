@@ -1,0 +1,157 @@
+/* Whole archive art direction. Original images, titles, room identities and
+   native functionality are the baseline. Art at entrances; quiet reading.
+   The gallery painting is a separate decorative asset from the existing
+   main-derived gallery study, not a reference screenshot. */
+:root{--hall-join:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%2026%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M0%2015H43Q48%2015%2053%209L60%202%2067%209Q72%2015%2077%2015H120M0%2019H44Q50%2019%2055%2013L60%208%2065%2013Q70%2019%2076%2019H120%22%20stroke%3D%22%23c59a7a%22%20stroke-width%3D%221.2%22%2F%3E%3Cpath%20d%3D%22M60%2012l5%206-5%206-5-6z%22%20fill%3D%22%23d5ac85%22%2F%3E%3Cpath%20d%3D%22M42%2015Q30%204%2023%2012M78%2015Q90%204%2097%2012%22%20stroke%3D%22%23b98d79%22%20stroke-width%3D%22.8%22%2F%3E%3C%2Fsvg%3E");--hall-corner:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2090%2090%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M3%2086V3H86M7%2057V7H57M3%2024Q32%2027%2024%203M7%2035Q39%2035%2035%207M15%203Q12%2025%2035%2024M3%2015Q25%2012%2024%2035%22%20stroke%3D%22%23d3a57d%22%20stroke-width%3D%221.2%22%2F%3E%3Cpath%20d%3D%22M7%207l12%2012-12%205%205-12zM3%2075l4%205-4%205M75%203l5%204%205-4%22%20fill%3D%22%23c99a79%22%2F%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%223%22%20stroke%3D%22%23d3a57d%22%2F%3E%3C%2Fsvg%3E");--hall-medallion:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M60%202C77%205%2083%2017%2095%2023L112%2029V87L99%2098%2078%20103%2060%20118%2042%20103%2021%2098%208%2087V29L25%2023C37%2017%2043%205%2060%202Z%22%20fill%3D%22%233b283e%22%20stroke%3D%22%23e1b58e%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M60%209C75%2012%2082%2022%2094%2028L105%2033V84L95%2092%2075%2098%2060%20110%2045%2098%2025%2092%2015%2084V33L26%2028C38%2022%2045%2012%2060%209Z%22%20stroke%3D%22%23b48b79%22%2F%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2252%22%20r%3D%2233%22%20stroke%3D%22%23c9a485%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M60%2013l3%205-3%205-3-5zM60%2099l3%205-3%205-3-5z%22%20fill%3D%22%23f1cc9b%22%2F%3E%3C%2Fsvg%3E");--hall-brass:#b38a69;--hall-gilt:#d6ad88;--hall-paper:#fbefe1;--hall-shadow:#24182b;--hall-soft:#f1e1d4;--hall-seam:#c3a18b}
+html[data-theme=dark]{--hall-paper:#302439;--hall-soft:#261e30;--hall-seam:#987b88;--hall-shadow:#140e1c}
+body:has(.aw-notebook){background:var(--hall-soft)}
+/* Header: a single architectural beam, with each real sprite set into a
+   small nameplate; the current room is a luminous hanging bookmark. */
+html[data-theme] .platform-header{background:var(--hall-paper)!important;border-bottom:3px double var(--hall-brass)}
+.platform-header-inner{min-width:0;position:relative;padding-block:10px;gap:clamp(8px,1.8vw,26px)}
+.platform-header-inner::before{inset:4px 6px;border-width:12px;opacity:.72}
+.platform-header .site-title{font-size:clamp(19px,1.9vw,28px);padding:6px 10px 6px 6px;gap:9px}
+.platform-header .site-title::after{opacity:.19}
+.platform-header .aw-wordmark-symbol{width:34px;height:34px}
+.platform-header nav{gap:3px}
+.platform-header nav a{min-height:54px;gap:3px;padding:4px clamp(7px,.9vw,13px);font-size:12px}
+.platform-header nav a::before{border-radius:50% 50% 5px 5px/20px 20px 5px 5px;opacity:.7}
+.platform-header nav a[aria-current]::before{background:radial-gradient(ellipse at 50% 24%,#fff3df 5%,#e8caba 70%,#cda5aa);border-color:#b1877c}
+.platform-header .aw-nav-art{width:27px;height:26px;object-fit:contain}
+.platform-header nav a[aria-current] .aw-nav-art{filter:drop-shadow(0 1px 2px #6d41543b)}
+.platform-header nav a[aria-current]::after{bottom:-6px}
+.platform-header .site-theme-toggle{padding-inline:7px;min-height:44px}
+@media(max-width:640px){.platform-header-inner{padding:6px 12px 9px;gap:4px 6px}.platform-header .site-title{font-size:19px;padding:1px 3px}.platform-header .aw-wordmark-symbol{width:26px;height:26px}.platform-header nav{gap:1px 0}.platform-header nav a{min-height:39px;font-size:11px;padding:3px 1px;gap:4px}.platform-header .aw-nav-art{width:18px;height:18px}.platform-header .site-theme-toggle{min-height:36px}}
+@media(max-width:350px){.platform-header .site-title{font-size:16px}.platform-header nav a{font-size:10px}.platform-header .aw-nav-art{width:15px;height:15px}}
+/* Home: one illustrated opening and a material transition into an actual
+   screening shelf. Preserve the native hero and video's original thumbnails. */
+.aw-notebook .aw-world-opening{border:0}
+.aw-notebook .aw-world-copy{isolation:isolate}
+.aw-notebook .aw-world-copy::after{content:"";position:absolute;z-index:-1;inset:-18px -12px -16px -24px;background:radial-gradient(ellipse at 20% 50%,#201626a8,transparent 75%);pointer-events:none}
+.aw-notebook .aw-world-opening h1{text-shadow:0 2px 22px #130e20a0}
+.aw-notebook .aw-world-serial{display:inline-flex;align-items:center;gap:8px;padding:4px 13px 4px 0;border-bottom:1px solid #d8b49699}
+.aw-notebook .aw-world-opening-foot{border-color:#d8b496a8}
+.aw-notebook .aw-world-opening::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(#e2bf98 0 20%,#80576a 20% 50%,#d7ac83 50% 65%,#2a1e32 65%);pointer-events:none}
+.aw-notebook .aw-home-video-shelf{position:relative;isolation:isolate;padding-top:clamp(26px,4vw,53px);background:var(--hall-soft);border-bottom:3px double var(--hall-brass)}
+.aw-notebook .aw-home-video-shelf::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,var(--hall-soft) 0%,transparent 18%,transparent 82%,var(--hall-soft)),url('/brand/atlas-gallery.webp') center 88%/cover no-repeat;opacity:.16;pointer-events:none}
+.aw-notebook .aw-home-video-shelf .aw-chapter-head,.aw-notebook .aw-reading-room .aw-chapter-head{border-bottom:1px solid var(--hall-seam);position:relative;padding-bottom:15px}
+.aw-notebook .aw-chapter-head::after{content:"";position:absolute;left:0;bottom:-5px;width:120px;height:26px;background:var(--hall-join) center/contain no-repeat;pointer-events:none;transform:translateY(50%)}
+.aw-screening-grid{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(0,1fr);align-items:start;gap:clamp(18px,3vw,42px)}
+.aw-screening-grid>.browse-section{min-width:0;padding-top:18px;border:0}
+.aw-screening-grid .document-grid{grid-template-columns:1fr;gap:14px}
+html[data-theme] .aw-screening-grid .document-entry.aw-video-document{display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:clamp(13px,1.8vw,23px);min-width:0}
+.aw-screening-grid .document-entry .document-cover{width:100%;max-width:none;aspect-ratio:16/9;border:1px solid var(--hall-brass);border-radius:8px 8px 2px 2px;box-shadow:0 4px 9px #24182b55}
+.aw-screening-grid .document-entry .document-info{min-width:0}
+.aw-screening-grid .document-entry h3{font:500 clamp(22px,2.4vw,36px)/1.2 'Newsreader','Noto Sans JP',serif;overflow-wrap:anywhere}
+.aw-screening-grid .document-entry .document-facts{padding-top:6px;border-top:1px solid var(--hall-seam)}
+.aw-screening-grid .document-entry .document-cover::after{content:"";position:absolute;inset:auto 0 0;height:4px;background:linear-gradient(90deg,#80576a,#d3aa82,#80576a);z-index:3;pointer-events:none}
+.aw-screening-grid .section-heading{min-height:40px}
+.aw-screening-grid .section-heading h2{font-family:'Newsreader','Noto Sans JP',serif;line-height:1.2}
+@media(max-width:850px){.aw-screening-grid{grid-template-columns:1fr;gap:6px}.aw-screening-grid>.browse-section{padding-top:12px}.aw-screening-grid .document-entry h3{font-size:25px}}
+@media(max-width:640px){.aw-notebook .aw-world-copy::after{display:none}.aw-screening-grid .document-entry h3{font-size:22px}.aw-screening-grid .document-entry .document-deck{line-height:1.65}.aw-screening-grid .section-heading{min-height:32px}}
+/* The existing gallery painting becomes an inhabited building, not a
+   translucent wallpaper. The room's own artwork forms the wide threshold,
+   with its existing object overlapping the sill. Text sits on the sill. */
+.aw-notebook .aw-atlas-section{padding-top:clamp(27px,4vw,52px)}
+.aw-notebook .aw-architectural-atlas{border:1px solid #ad826c;box-shadow:0 9px 28px #130d1e55}
+.aw-notebook .aw-atlas-room{--room-curve:48% 48% 4px 4px/30% 30% 4px 4px}
+.aw-notebook .aw-atlas-concepts{--room-curve:12px 12px 2px 2px}
+.aw-notebook .aw-atlas-observatory{--room-curve:50% 50% 4px 4px/48% 48% 4px 4px}
+.aw-notebook .aw-atlas-people{--room-curve:28px 28px 2px 2px}
+.aw-notebook .aw-architectural-atlas .aw-atlas-portal{border-radius:var(--room-curve);border:2px solid #bd967a;box-shadow:0 0 0 2px #2d2035,0 4px 10px #130d1d99}
+.aw-notebook .aw-architectural-atlas .aw-atlas-portal img{filter:saturate(1.06) brightness(1.08)}
+.aw-notebook .aw-architectural-atlas .aw-atlas-object{filter:drop-shadow(0 2px 4px #160f20)}
+.aw-notebook .aw-architectural-atlas .aw-atlas-room-label{border-bottom:1px solid #ac866f77;padding-bottom:7px}
+.aw-notebook .aw-atlas-center .aw-atlas-central-caption{background:linear-gradient(90deg,#24182b,#513448,#24182b)}
+.aw-notebook .aw-atlas-cinema{background:url('/brand/rooms/cinema-vignette.webp') right center/90px auto no-repeat,#2c2037;padding-right:96px;max-width:100%;box-sizing:border-box}
+@media(max-width:1000px){.aw-notebook .aw-atlas-cinema{padding-right:70px;background-size:65px auto}}
+@media(max-width:640px){.aw-notebook .aw-atlas-cinema{padding-right:55px;background-size:50px auto}}
+/* Genre medallions are objects suspended on the reading-room wall. Six real
+   categories remain individually linked; there is no invented editorial data. */
+.aw-notebook .aw-reading-room{position:relative;isolation:isolate}
+.aw-notebook .aw-reading-room::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(0deg,var(--hall-soft),transparent 80%),url('/brand/rooms/private-room-vignette.webp') center top/100% auto no-repeat;opacity:.10;pointer-events:none}
+.aw-notebook .aw-reading-room .genre-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 22px}
+.aw-notebook .aw-reading-room .genre-tile{grid-template-columns:82px minmax(0,1fr);grid-template-rows:auto auto auto;position:relative;padding:14px 5px 14px 0;gap:3px 12px;align-content:center}
+.aw-notebook .aw-reading-room .aw-genre-index{grid-column:1;grid-row:1/4;display:grid;place-items:center;position:relative;width:82px;height:82px;isolation:isolate;background:var(--hall-medallion) center/contain no-repeat}
+.aw-notebook .aw-reading-room .aw-genre-index img{width:47px;height:45px;object-fit:contain;border:0;filter:drop-shadow(0 1px 2px #0e0918)}
+.aw-notebook .aw-reading-room .genre-number{position:absolute;bottom:6px;font-size:9px;color:#f6dbba}
+.aw-notebook .aw-reading-room .genre-tile strong{grid-column:2;grid-row:1;font-size:clamp(18px,2vw,27px)}
+.aw-notebook .aw-reading-room .genre-tile>span:not(.aw-genre-index){grid-row:2}
+.aw-notebook .aw-reading-room .genre-tile small{grid-column:2;grid-row:3;white-space:normal}
+.aw-notebook .aw-reading-room .genre-tile:hover .aw-genre-index{filter:brightness(1.15)}
+@media(max-width:950px){.aw-notebook .aw-reading-room .genre-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.aw-notebook .aw-reading-room .genre-grid{gap:4px 12px}.aw-notebook .aw-reading-room .genre-tile{grid-template-columns:1fr;grid-template-rows:auto auto auto auto;justify-items:center;gap:4px;padding:10px 2px;text-align:center}.aw-notebook .aw-reading-room .aw-genre-index{grid-column:1;grid-row:1;width:76px;height:76px}.aw-notebook .aw-reading-room .genre-tile strong{grid-column:1;grid-row:2;font-size:18px}.aw-notebook .aw-reading-room .genre-tile>span:not(.aw-genre-index){grid-column:1;grid-row:3}.aw-notebook .aw-reading-room .genre-tile small{grid-column:1;grid-row:4;font-size:10px}}
+/* Room entrances: original room art defines the actual page header.
+   Large decorative corners and original foreground objects are placed in
+   safe areas outside the title measure, not layered over live text. */
+.aw-room-head{border:1px solid var(--hall-brass);border-bottom:4px double var(--hall-brass);border-radius:4px 18px 4px 4px}
+.aw-room-head::before{inset:0;border:0;background:var(--hall-corner) left top/58px 58px no-repeat;pointer-events:none}
+.aw-room-head::after{pointer-events:none}
+.aw-room-head .aw-room-content{z-index:1}
+.aw-room-head .aw-room-marker{align-items:center}
+.aw-room-head .aw-room-title h1{font-family:'Newsreader','Noto Sans JP',serif;line-height:1.16}
+.aw-room-full .aw-room-picture img{object-position:70% center}
+.aw-room-full .aw-room-content{max-width:60%}
+.aw-room-full::after{background:linear-gradient(90deg,#1b1525f5 0%,#1b1525e8 32%,#1b1525b0 49%,#1b152520 72%,transparent)}
+.aw-room-vignette .aw-room-small-art{border:1px solid var(--hall-brass);border-radius:45% 45% 3px 3px/24% 24% 3px 3px;box-shadow:0 0 0 3px var(--hall-paper),0 0 0 4px var(--hall-brass)}
+.aw-room-vignette .aw-room-content{padding-block:clamp(22px,3vw,42px)}
+.aw-room-head[data-room=library]{--room-ink:#bd946f}
+.aw-room-head[data-room=observatory]{--room-ink:#aa8ac1}
+.aw-room-head[data-room=lexicon]{--room-ink:#c0a178}
+.aw-room-head[data-room=concepts]{--room-ink:#b28caf}
+.aw-room-head[data-room=people]{--room-ink:#be9a94}
+.aw-room-head:not(.aw-room-full) .aw-room-marker{border-color:var(--room-ink)}
+.aw-room-head:not(.aw-room-full) .aw-room-content{background:linear-gradient(90deg,color-mix(in srgb,var(--room-ink) 12%,transparent),transparent 64%)}
+.aw-room-compact .aw-room-small-icon{filter:drop-shadow(0 3px 3px #1b132433)}
+@media(max-width:640px){.aw-room-head::before{background-size:32px 32px}.aw-room-full .aw-room-content{max-width:none;background:#211a2b}.aw-room-full .aw-room-picture{height:clamp(125px,40vw,210px)}.aw-room-full::after{display:none}.aw-room-vignette{display:flex;flex-direction:column;align-items:stretch}.aw-room-vignette .aw-room-small-art{display:block;width:calc(100% - 32px);max-width:none;max-height:130px;object-fit:cover;object-position:center;margin:0 16px 16px;border-radius:5px}.aw-room-vignette .aw-room-content{padding:16px}}
+/* Edition: a real bound object, ornamental frame kept, spine and caption
+   meet at an engraved joint. Never obscure the video or title. */
+html[data-theme] .document-entry.discovery-card:not(.aw-video-document){gap:clamp(12px,2vw,25px)}
+.document-entry:not(.aw-video-document) .document-cover.aw-illustrated-cover{border-left:4px double var(--hall-brass);box-shadow:3px 3px 0 color-mix(in srgb,var(--hall-brass) 45%,transparent)!important}
+.document-entry .document-info .card-kicker{border-bottom:1px solid var(--hall-seam);padding-bottom:6px}
+.document-entry .document-info h3{line-height:1.24;overflow-wrap:anywhere}
+.document-entry .document-info .document-facts{font-variant-numeric:tabular-nums}
+.document-entry .read-link .aw-reading-label{gap:2px}
+.document-entry .read-link:hover .aw-reading-label{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:640px){.document-entry .document-info .card-kicker{padding-bottom:4px}.document-entry .document-info h3{line-height:1.28}}
+/* The two index rooms use different catalogue objects; the original specimen
+   and heraldic person designs are retained. Concept tab is a tied folio. */
+html[data-theme] .aw-concept-file .aw-index-tab{position:relative;isolation:isolate;align-self:start;min-height:65px;border:0;padding:8px 3px 24px;text-align:center;align-items:center;color:var(--aw-component-ink)!important;font-size:10px!important}
+.aw-concept-file .aw-index-tab::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--atelier-book) center/100% 100% no-repeat;pointer-events:none}
+.aw-concept-file .aw-index-tab::after{content:"";position:absolute;inset:auto 7px 8px;height:22px;z-index:-1;background:url('/brand/sprites/marginalia-cards.webp') center/contain no-repeat;pointer-events:none}
+html[data-theme] .aw-topic-register .topic-index-link{align-items:center;min-height:64px}
+.aw-topic-coordinate{min-width:29px;align-self:stretch;display:grid;place-items:center;border:0;background:var(--hall-medallion) center/28px 42px no-repeat;color:#f4dfc3;font-size:9px;line-height:1.2}
+.aw-topic-pips i{border-radius:50% 50% 0 0/45% 45% 0 0}
+.aw-person-register .person-item strong{line-height:1.25}
+.aw-person-register .person-monogram{letter-spacing:.025em}
+.aw-chapter-head h2,.section-heading h2{font-feature-settings:"palt"}
+.chapter-discovery .chapter-time{position:relative;align-self:start;isolation:isolate;color:var(--aw-component-accent);font-variant-numeric:tabular-nums}
+.chapter-discovery .chapter-time::before{content:"";display:block;width:26px;height:3px;margin:0 auto 6px;background:var(--hall-brass);clip-path:polygon(0 50%,12% 0,88% 0,100% 50%,88% 100%,12% 100%)}
+.chapter-discovery .chapter-item h3{line-height:1.45}
+/* Reader: quiet, with the actual controls mounted in a narrow instrument
+   rail. Keep existing annotation geometry, source highlighting, sticky
+   sizing and all player/translation state code. */
+.reader-page>.hero{position:relative;isolation:isolate;border-bottom:3px double var(--hall-brass);padding-bottom:20px}
+.reader-page>.hero::after{content:"";position:absolute;bottom:0;right:0;width:100px;height:28px;background:var(--hall-join) center/contain no-repeat;pointer-events:none}
+.reader-page .aw-cinema-heading{border-bottom:1px solid var(--hall-brass);border-radius:6px 6px 0 0;padding:8px 10px}
+.reader-page .video-frame{border:1px solid var(--hall-brass);box-shadow:0 3px 8px #170f2250}
+.reader-page .study-toolbar{border-block-color:var(--hall-seam)}
+.reader-page .study-secondary .study-chapter-label select{border-radius:9px 3px 3px 9px;padding-left:9px}
+.reader-page .study-secondary :is(#study-size,#quick-reader-tools,#reader-annotations){border-radius:6px 2px 6px 2px}
+.reader-page .study-secondary #study-size{font-family:'Newsreader',Georgia,serif;font-size:15px}
+.reader-page .study-original .sec-header{position:relative;border-top:3px double var(--hall-brass);padding-top:15px}
+.reader-page .study-original .sec-header::before{content:"";position:absolute;top:-2px;right:0;width:58px;height:16px;background:var(--hall-join) center/contain no-repeat;pointer-events:none}
+.reader-page .study-original .toc-list a::before{background:linear-gradient(90deg,#9e6282,var(--aw-marker))}
+@media(max-width:899px){.reader-page>.hero::after{width:58px;height:16px}.reader-page .study-toolbar{border-block-width:1px}.video-pinned .study-video .video-frame{box-shadow:none}.reader-page .study-original .sec-header::before{width:40px}}
+/* Private collection: the existing personal-room painting extends the
+   introductory scene, not the reading canvas. Existing local actions remain. */
+body:has(.aw-private-mark) .intro{position:relative;isolation:isolate;gap:clamp(15px,3vw,36px);border-block-end:3px double var(--hall-brass);padding:clamp(18px,4vw,46px) clamp(12px,3vw,35px);background:var(--hall-paper);border-radius:8px 8px 0 0;overflow:hidden}
+body:has(.aw-private-mark) .intro::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--hall-paper) 20%,transparent 100%),url('/brand/rooms/private-room-vignette.webp') right center/cover no-repeat;opacity:.24;pointer-events:none}
+body:has(.aw-private-mark) .intro .editorial-note{background:var(--hall-paper);border:1px solid var(--hall-brass)}
+body:has(.aw-private-mark) .intro .editorial-note img{border-radius:32% 32% 2px 2px/20% 20% 2px 2px}
+body:has(.aw-private-mark) .shelf-heading{border-color:var(--hall-brass)}
+body:has(.aw-private-mark) .import-hint{position:relative;padding-left:clamp(14px,3vw,35px);border-left:3px double var(--hall-brass)}
+@media(max-width:720px){body:has(.aw-private-mark) .intro{padding:15px 12px;gap:12px}body:has(.aw-private-mark) .intro .editorial-note img{max-height:100px}}
+.platform-footer{border-top:3px double var(--hall-brass)}
+:where(.aw-screening-grid a,.aw-room-head a,.aw-notebook .genre-tile,.aw-concept-file,.aw-topic-register a):focus-visible{outline:2px solid var(--aw-component-focus);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.aw-notebook *{scroll-behavior:auto}}
