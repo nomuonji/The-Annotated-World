@@ -10,6 +10,7 @@ try{
  const page=await browser.newPage({viewport:{width:390,height:844}});
  // Cloudflare builds independently of GitHub CI. Verify that the intended
  // deployment is actually visible, not merely that an older page responds.
+ await page.addInitScript(()=>{window.__awLive={cls:0,lcp:null};try{new PerformanceObserver(l=>{for(const e of l.getEntries())if(!e.hadRecentInput)window.__awLive.cls+=e.value}).observe({type:'layout-shift',buffered:true});new PerformanceObserver(l=>{const e=l.getEntries().at(-1);if(e)window.__awLive.lcp=e.startTime}).observe({type:'largest-contentful-paint',buffered:true});}catch{}});
  let deployed=false;
  for(let i=0;i<12;i++){try{const res=await page.goto(base+'/library/',{waitUntil:'domcontentloaded',timeout:20000});const actual=await page.locator('meta[name=aw-build-sha]').getAttribute('content',{timeout:2000}).catch(()=>null);report.deployedSha=actual;deployed=!!res?.ok()&&(!expectedSha||actual===expectedSha);if(deployed)break;}catch{}await new Promise(r=>setTimeout(r,5000));}
  assert.ok(deployed,'Production could not be reached or expected commit marker not yet visible');
@@ -18,7 +19,8 @@ try{
   assert.ok(res?.ok(),path+' response '+res?.status());
   await page.evaluate(async()=>{await document.fonts.ready;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});
   const details=await page.evaluate(()=>({title:document.title,scrollWidth:document.documentElement.scrollWidth,width:innerWidth,overflow:[...document.querySelectorAll('body *')].filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.right>innerWidth+1}).slice(0,12).map(e=>({tag:e.tagName,cls:String(e.className),right:e.getBoundingClientRect().right}))}));
-  report.pages.push({path,status:res.status(),...details});
+  const metrics=await page.evaluate(()=>({lcpMs:window.__awLive.lcp,cls:window.__awLive.cls,resources:performance.getEntriesByType('resource').length,localTransferBytes:performance.getEntriesByType('resource').filter(e=>e.name.startsWith(location.origin)).reduce((n,e)=>n+e.transferSize,0)}));
+  report.pages.push({path,status:res.status(),...details,metrics});
   await mkdir('world-audit/live',{recursive:true});
   await page.screenshot({path:'world-audit/live/'+(path.replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'')||'home')+'.png',animations:'disabled',timeout:15000}).catch(e=>{report.pages.at(-1).screenshotError=String(e).slice(0,200)});
   if(path.startsWith('/read/')){
