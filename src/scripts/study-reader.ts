@@ -294,7 +294,7 @@ function setup(reader:HTMLElement){
  window.addEventListener('wheel',()=>{if(follow)setFollow(false);},{passive:true});
  window.addEventListener('touchmove',()=>{if(follow)setFollow(false);},{passive:true});
  function refreshRates(){if(!player||!speed)return;const rates=player.getAvailablePlaybackRates();if(!rates.length)return;speed.replaceChildren(...rates.map(rate=>{const option=document.createElement('option');option.value=String(rate);option.textContent=rate+'×';return option;}));speed.value=String(player.getPlaybackRate());speed.disabled=rates.length<=1;}
- function updatePlay(){const playing=player?.getPlayerState()===1;if(play){play.textContent=playing?'Ⅱ 停止':'▶ 再生';play.setAttribute('aria-label',playing?'停止 — 動画を一時停止':'再生 — 動画を再生');}}
+ function updatePlay(){const playing=player?.getPlayerState()===1;if(play){play.dataset.playing=String(playing);const label=play.querySelector('.aw-play-label');if(label)label.textContent=playing?'停止':'再生';play.setAttribute('aria-label',playing?'停止 — 動画を一時停止':'再生 — 動画を再生');}}
  function unavailable(message:string){if(ready)return;failed=true;videoPanel.dataset.syncState='unavailable';say(message);if(queued){const s=queued.seconds;queued=null;fallbackSeek(s);}}
  const timer=window.setTimeout(()=>unavailable('動画同期に接続できません。時刻リンクと通常の動画操作は利用できます。'),15000);
  function connect(){if(failed||!window.YT?.Player)return;try{player=new window.YT.Player('original-player',{events:{
