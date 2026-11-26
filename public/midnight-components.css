@@ -41,10 +41,10 @@ html[data-theme] :is(.library-toolbar,.reader-tools,.shelf-heading) .aw-lens-fie
 /* Hanging catalogue tickets. No change to the underlying pressed state. */
 .library-filters .library-tabs{position:relative;gap:0;padding-top:6px;margin-top:4px}
 .library-filters .library-tabs::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(#e6c6a0,#9a735b);pointer-events:none}
-.library-filters .library-tabs button{position:relative;isolation:isolate;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#f3e4da!important;min-height:44px;padding:8px 18px!important}
-.library-filters .library-tabs button::before{content:"";position:absolute;inset:0;z-index:-1;border:14px solid transparent;border-image:var(--aw-ticket-night) 25 fill stretch;pointer-events:none}
-.library-filters .library-tabs button[aria-pressed=true]{color:#783455!important;font-weight:700}
-.library-filters .library-tabs button[aria-pressed=true]::before{border-image-source:var(--aw-ticket-paper)}
+.library-filters .library-tabs button{position:relative;isolation:isolate;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:var(--aw-component-ink)!important;min-height:44px;padding:8px 18px!important;background:var(--aw-component-stock)!important}
+.library-filters .library-tabs button::before{content:"";position:absolute;inset:0;z-index:-1;border:14px solid transparent;border-image:var(--aw-ticket) 25 stretch;pointer-events:none}
+.library-filters .library-tabs button[aria-pressed=true]{color:var(--aw-selected-ink)!important;background:var(--aw-selected-stock)!important;font-weight:700}
+.library-filters .library-tabs button[aria-pressed=true]::before{border-image-source:none;border:0;border-bottom:2px solid var(--aw-marker)}
 .library-filters .library-tabs button::after{content:"";position:absolute;top:-5px;left:14px;width:3px;height:7px;border:1px solid #bf9878;border-radius:2px;pointer-events:none}
 .library-filter-inputs select{border-radius:0!important;border-color:var(--aw-component-rule)!important}
 /* Keep original book covers and source-video thumbnails. The frame surrounds
@@ -58,31 +58,59 @@ html[data-theme] .document-entry.discovery-card::before{content:"";position:abso
 html[data-theme] .document-entry .read-link{display:inline-flex;align-items:center;gap:4px;position:relative;isolation:isolate;max-width:100%;min-height:42px;padding:7px 12px!important;color:var(--aw-component-accent)!important;background:transparent!important;text-decoration:none!important;border:0!important;font-size:12px;white-space:normal;overflow-wrap:anywhere}
 .document-entry .read-link::before{content:"";position:absolute;inset:0;z-index:-1;border:13px solid transparent;border-image:var(--aw-ticket) 25 fill stretch;pointer-events:none}
 .document-entry .read-link:hover{text-decoration:underline!important}
-html[data-theme] .topic-tag{position:relative;isolation:isolate;background:transparent!important;border:0!important;color:var(--aw-component-accent)!important;border-radius:0!important;padding:5px 9px!important}
-.topic-tag::before{content:"";position:absolute;inset:0;z-index:-1;border:10px solid transparent;border-image:var(--aw-ticket) 25 fill stretch;pointer-events:none}
-.topic-tag:hover{text-decoration:underline!important}
+html[data-theme] .topic-tag{position:relative;display:inline-flex;align-items:center;gap:4px;isolation:isolate;background:transparent!important;border:0!important;border-bottom:1px solid var(--aw-reader-seam)!important;color:var(--aw-component-accent)!important;border-radius:0!important;padding:3px 3px 3px 1px!important;font-size:12px;line-height:1.5}
+.topic-tag::before{content:"";width:6px;height:9px;flex:none;background:var(--aw-marker);border-radius:80% 0 80% 0;transform:rotate(-10deg);pointer-events:none}
+.topic-tag:hover{text-decoration:underline!important;text-underline-offset:3px}
 /* Reading is intentionally quieter. Use the same palette and cut corner
    semantics on inline annotations, without changing source flow or note toggle. */
 html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=language]{color:#703750;background:#f3e4e9;border:1px solid #b27c9c;border-left:2px solid #a25c84;border-radius:6px 0 6px 0;padding:1px 4px}
 html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=context]{color:#65452e;background:#f8ecd9;border:1px solid #c49b71;border-left:2px solid #ad8359;border-radius:0 7px 0 7px;padding:1px 4px}
 html[data-theme=dark] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=language]{color:#f0d7e5;background-color:#422d43;border-color:#b27c9c}
 html[data-theme=dark] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=context]{color:#f4dfc4;background-color:#40322e;border-color:#c49b71}
-/* Compact reading instruments: retain the existing sticky geometry and native
-   mode/annotation/video state logic. No demo progress or pretend seek control. */
-.study-mode,.video-quick-controls,.chapter-mode-control{position:relative;isolation:isolate}
-.study-mode::before,.video-quick-controls::before,.chapter-mode-control::before{content:"";position:absolute;inset:0;z-index:-2;border:14px solid transparent;border-image:var(--aw-rail-night) 25 fill stretch;pointer-events:none}
-html[data-theme] :is(.study-mode button,.video-quick-controls .study-control,.chapter-mode-control button){position:relative;isolation:isolate;color:#f3e4da!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important}
-html[data-theme] :is(.study-mode button,.video-quick-controls .study-control,.chapter-mode-control button)[aria-pressed=true]{color:#783455!important;font-weight:700}
-:is(.study-mode button,.video-quick-controls .study-control,.chapter-mode-control button)[aria-pressed=true]::before{content:"";position:absolute;inset:0;z-index:-1;border:12px solid transparent;border-image:var(--aw-ticket-paper) 25 fill stretch;pointer-events:none}
-html[data-theme] :is(.study-secondary .study-control,.video-position .study-control,.utterance-tools button){color:var(--aw-component-accent);background:var(--aw-component-stock);border:1px solid var(--aw-component-rule);border-radius:0}
-html[data-theme] :is(.study-secondary .study-control,.utterance-tools button)[aria-pressed=true]{background:#f2d9e5;color:#673450;border-color:#a86c8b}
-html[data-theme] :is(.study-chapter-label select,.speed-label select){border:1px solid var(--aw-component-rule);border-radius:0;color:var(--aw-component-ink);background:var(--aw-component-stock)}
-html[data-theme] .video-quick-controls .speed-label{color:#e4c7d6}
-html[data-theme] #play-pause:not(:disabled){color:#ffe7c5!important;background:radial-gradient(ellipse,#8c507c,#392641 75%)!important;border:1px solid #d4ab8b!important;border-radius:50% 45% 50% 45%!important}
-html[data-theme] #video-clock{color:var(--aw-component-accent);font:600 16px/1.3 'Newsreader',Georgia,serif;font-variant-numeric:tabular-nums}
-.study-original .toc-list li{position:relative;isolation:isolate}
-.study-original .toc-list li::before{content:"";position:absolute;inset:0;z-index:-1;border:13px solid transparent;border-image:var(--aw-ticket) 25 fill stretch;pointer-events:none}
-.study-original .toc-list a{color:var(--aw-component-ink)}
+/* The reader is a working reading instrument, not an ornamental card deck.
+   Three distinct structures: binding tabs, a page marker, and a film deck. */
+:root{--aw-reader-rail:#e9d9cb;--aw-reader-seam:#b39782;--aw-selected-stock:#6f3655;--aw-selected-ink:#fff6ee;--aw-marker:#935a79;--aw-deck:#eee3d5}
+html[data-theme=dark]{--aw-reader-rail:#292333;--aw-reader-seam:#786477;--aw-selected-stock:#e7c1d2;--aw-selected-ink:#3b2539;--aw-marker:#d8a2be;--aw-deck:#282230}
+.study-mode{display:flex;align-items:stretch;gap:0;padding:0 3px 3px;background:var(--aw-reader-rail);border-bottom:1px solid var(--aw-reader-seam);border-radius:10px 10px 2px 2px}
+html[data-theme] .study-mode button{position:relative;isolation:isolate;min-width:0;border:0!important;border-radius:9px 9px 1px 1px!important;background:var(--aw-reader-rail)!important;color:var(--aw-component-ink)!important;box-shadow:none!important;padding:7px 12px;font-weight:500}
+html[data-theme] .study-mode button+button{border-left:1px solid var(--aw-reader-seam)!important}
+html[data-theme] .study-mode button[aria-pressed=true]{background:var(--aw-selected-stock)!important;color:var(--aw-selected-ink)!important;font-weight:700}
+.study-mode button[aria-pressed=true]::after{content:"";position:absolute;left:50%;bottom:-5px;width:10px;height:7px;transform:translateX(-50%);background:var(--aw-marker);clip-path:polygon(0 0,100% 0,100% 100%,50% 65%,0 100%);pointer-events:none}
+html[data-theme] .study-mode button:not([aria-pressed=true]):hover{box-shadow:inset 0 -2px var(--aw-marker)!important}
+html[data-theme] :is(.study-secondary .study-control,.video-position .study-control,.utterance-tools button){color:var(--aw-component-accent);background:var(--aw-component-stock);border:1px solid var(--aw-reader-seam);border-radius:3px 3px 0 0}
+html[data-theme] :is(.study-secondary .study-control,.utterance-tools button)[aria-pressed=true]{background:var(--aw-selected-stock);color:var(--aw-selected-ink);border-color:var(--aw-selected-stock);box-shadow:none}
+html[data-theme] :is(.study-chapter-label select,.speed-label select){border:1px solid var(--aw-reader-seam);border-radius:3px;color:var(--aw-component-ink);background:var(--aw-component-stock)}
+.study-secondary .study-chapter-label{max-width:300px}
+html[data-theme] .chapter-mode-control{position:relative;gap:8px 14px;padding:3px 0 7px;margin:8px 0;border:0;background:none}
+html[data-theme] .chapter-mode-control button{display:inline-flex;align-items:center;gap:8px;min-height:39px;padding:7px 12px 7px 10px;background:var(--aw-component-stock)!important;color:var(--aw-component-ink)!important;border:1px solid var(--aw-reader-seam)!important;border-radius:2px 8px 8px 2px!important;box-shadow:none!important}
+.chapter-mode-control button::before{content:"";width:15px;height:20px;flex:none;background:linear-gradient(90deg,var(--aw-marker) 0 4px,transparent 4px),linear-gradient(var(--aw-reader-seam),var(--aw-reader-seam)) center 6px/7px 1px no-repeat,linear-gradient(var(--aw-reader-seam),var(--aw-reader-seam)) center 10px/7px 1px no-repeat;clip-path:polygon(0 0,100% 0,100% 100%,50% 78%,0 100%);border:1px solid var(--aw-reader-seam)}
+html[data-theme] .chapter-mode-control button[aria-pressed=true]{background:var(--aw-selected-stock)!important;color:var(--aw-selected-ink)!important;border-color:var(--aw-selected-stock)!important}
+.chapter-mode-control button[aria-pressed=true]::before{background:currentColor;opacity:.9}
+html[data-theme] .reader-tools{border:0;border-bottom:1px solid var(--aw-reader-seam);background:none}
+.reader-tools summary{padding:8px 0;color:var(--aw-component-accent)}
+/* Cinema deck: circular play actuator integrated with a perforated rail,
+   speed/follow/pin are legible native controls with their own states. */
+html[data-theme] .video-quick-controls{position:relative;isolation:isolate;align-items:center;gap:4px;padding:7px 8px 7px 5px;background:var(--aw-deck);border-block:1px solid var(--aw-reader-seam);border-radius:20px 4px 4px 20px}
+.video-quick-controls::after{content:"";position:absolute;right:4px;top:4px;bottom:4px;width:3px;background:repeating-linear-gradient(to bottom,var(--aw-reader-seam) 0 3px,transparent 3px 7px);pointer-events:none;opacity:.7}
+html[data-theme] .video-quick-controls .study-control{color:var(--aw-component-ink)!important;background:var(--aw-deck)!important;border:0!important;border-bottom:1px solid var(--aw-reader-seam)!important;border-radius:0!important;box-shadow:none!important;min-width:0;font-weight:500}
+html[data-theme] .video-quick-controls .study-control[aria-pressed=true]{background:var(--aw-selected-stock)!important;color:var(--aw-selected-ink)!important;border-radius:4px!important}
+html[data-theme] .video-quick-controls .study-control:disabled{opacity:.68}
+html[data-theme] .video-quick-controls #play-pause{border:1px solid var(--aw-reader-seam)!important;border-radius:22px 9px 9px 22px!important;padding:6px 10px;min-height:40px;background:var(--aw-selected-stock)!important;color:var(--aw-selected-ink)!important}
+html[data-theme] .video-quick-controls .speed-label{color:var(--aw-component-ink)}
+html[data-theme] #video-clock{color:var(--aw-component-accent);font:600 17px/1.3 'Newsreader',Georgia,serif;font-variant-numeric:tabular-nums}
+/* Chapter index is a bound register, not 11 identical tiny picture frames.
+   Timestamp and original title have independent measures and shared spine. */
+.study-original .toc-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 22px}
+html[data-theme] .study-original .toc-list li{position:relative;isolation:auto;background:none;border:0;border-bottom:1px solid var(--aw-reader-seam);padding:0;min-width:0}
+.study-original .toc-list li::before{content:none}
+.study-original .toc-list a{position:relative;display:grid;grid-template-columns:68px minmax(0,1fr);gap:10px;align-items:start;min-height:64px;padding:12px 8px 12px 13px;color:var(--aw-component-ink);font:500 14px/1.65 'Noto Sans JP',sans-serif;overflow-wrap:anywhere;text-decoration:none}
+.study-original .toc-list a::before{content:"";position:absolute;left:0;top:12px;width:5px;height:22px;background:var(--aw-marker);clip-path:polygon(0 0,100% 0,100% 100%,50% 75%,0 100%);pointer-events:none}
+.study-original .toc-list .toc-time{font:600 13px/1.65 'Newsreader',Georgia,serif;font-variant-numeric:tabular-nums;letter-spacing:.02em;color:var(--aw-component-accent);margin:0;white-space:nowrap}
+.study-original .toc-list .aw-toc-title{min-width:0;overflow-wrap:anywhere}
+.study-original .toc-list a:hover,.study-original .toc-list a:focus-visible{background:var(--aw-component-stock);color:var(--aw-component-accent);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1150px){.study-original .toc-list{grid-template-columns:1fr}}
+@media(max-width:899px){.study-original .toc-list a{min-height:50px;padding:10px 6px 10px 12px;grid-template-columns:64px minmax(0,1fr);gap:8px;font-size:13px}.study-mode{padding:0 2px 2px}.video-pinned .study-mode button{padding:5px 8px}.video-pinned .video-quick-controls #play-pause{min-height:34px;padding:5px 7px}.video-pinned .video-quick-controls{border-radius:14px 3px 3px 14px}}
+@media(max-width:380px){html[data-theme] .study-mode button{padding:6px 8px;font-size:11px}}
 /* Fixed translation is a cloud-framed reading strip. Keep bottom/height/scroll
    calculations in study.css and the existing observer; do not overlay text. */
 @media(max-width:899px){
@@ -102,7 +130,7 @@ html[data-theme] :is(.masthead nav .action,.import-hint .action,.lesson-card>but
 html[data-theme] :is(.toolbar button,#chapters button)[aria-pressed=true],html[data-theme] #chapters button[aria-current=true]{background:var(--aw-component-stock);color:var(--aw-component-accent);border-color:var(--aw-component-rule)}
 :where(.aw-world-enter,.read-link,.topic-tag,.platform-header nav a,.library-tabs button,.study-mode button,.study-control,.aw-lens-field input):focus-visible{outline:2px solid var(--aw-component-focus)!important;outline-offset:3px}
 @media(max-width:1100px){.platform-header-inner{flex-wrap:wrap;justify-content:space-between;gap:7px 12px}.platform-header nav{order:3;flex:1 1 100%;justify-content:center;flex-wrap:wrap;row-gap:8px}.platform-header nav a{flex:1 1 auto}}
-@media(max-width:640px){.platform-header-inner{display:flex;padding:10px 13px 14px}.platform-header .site-title{font-size:18px;flex:1 1 0}.platform-header nav{width:100%;max-width:100%;margin:0;gap:6px 0;justify-content:center}.platform-header nav a{flex:0 0 25%;min-height:45px;padding:3px 2px;font-size:11px}.aw-nav-art{width:21px;height:21px}.platform-header nav a[aria-current]::after{width:10px;height:11px;bottom:-5px;left:calc(50% - 5px)}.aw-world-actions .aw-world-enter{margin-left:0;padding-left:73px!important;min-height:52px;font-size:12px;gap:9px}.aw-world-actions .aw-world-enter::after{background-size:72px auto,100% 100%}.aw-lens-field{padding-left:48px;min-height:52px}.aw-lens-field::after{width:57px;height:52px}.library-toolbar .aw-lens-field input{font-size:13px}.library-filters .library-tabs button{padding-inline:12px!important}.document-entry .read-link{padding:7px 9px!important;font-size:11px}.document-entry.discovery-card::after{opacity:.13}.study-mode::before,.video-quick-controls::before{border-width:9px}.video-pinned .study-mode::before,.video-pinned .video-quick-controls::before{border-width:8px}.video-pinned #play-pause:not(:disabled){border-radius:3px!important}}
+@media(max-width:640px){.platform-header-inner{display:flex;padding:10px 13px 14px}.platform-header .site-title{font-size:18px;flex:1 1 0}.platform-header nav{width:100%;max-width:100%;margin:0;gap:6px 0;justify-content:center}.platform-header nav a{flex:0 0 25%;min-height:45px;padding:3px 2px;font-size:11px}.aw-nav-art{width:21px;height:21px}.platform-header nav a[aria-current]::after{width:10px;height:11px;bottom:-5px;left:calc(50% - 5px)}.aw-world-actions .aw-world-enter{margin-left:0;padding-left:73px!important;min-height:52px;font-size:12px;gap:9px}.aw-world-actions .aw-world-enter::after{background-size:72px auto,100% 100%}.aw-lens-field{padding-left:48px;min-height:52px}.aw-lens-field::after{width:57px;height:52px}.library-toolbar .aw-lens-field input{font-size:13px}.library-filters .library-tabs button{padding-inline:12px!important}.document-entry .read-link{padding:7px 9px!important;font-size:11px}.document-entry.discovery-card::after{opacity:.13}}
 @media(max-width:350px){.platform-header nav a{font-size:10px}.platform-header .site-title{font-size:16px}.aw-lens-field{padding-left:43px;padding-right:8px}.aw-lens-field::after{width:50px}.library-toolbar{gap:7px}.document-entry .read-link{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.aw-world-actions .aw-world-enter{transition:none!important;transform:none!important}}
 
@@ -118,7 +146,6 @@ html[data-theme] .document-entry.discovery-card{color:var(--aw-component-ink)}
 .document-entry .document-cover{margin:0}
 html[data-theme] .document-entry .read-link{font-size:13px;min-height:44px}
 html[data-theme] .topic-tag{font-size:12px;line-height:1.5;padding:4px 9px!important}
-.topic-tag::before{border-width:8px}
 .library-toolbar label{min-width:0}
 .library-toolbar>[aria-live]{flex-shrink:0;font-size:12px;white-space:nowrap}
 .aw-lens-field{box-sizing:border-box}
@@ -127,12 +154,9 @@ html[data-theme] :is(.library-toolbar,.reader-tools,.shelf-heading) .aw-lens-fie
 html[data-theme] .study-original .en .annotation-group .in-situ-annotation{box-decoration-break:slice;-webkit-box-decoration-break:slice;overflow-wrap:anywhere;word-break:normal;margin-inline:.12em;padding-inline:4px}
 .study-original .en .annotation-group{line-height:1.6;overflow-wrap:anywhere}
 html[data-theme] .study-layout[data-annotations=off] .study-original .annotation-source{background:none!important;text-decoration:none!important}
-.study-original .toc-list li::before{border-width:10px}
-html[data-theme] .study-original .toc-list li{background:transparent;border:0}
-html[data-theme] .video-quick-controls{padding:3px 5px}
+html[data-theme] .video-quick-controls{padding:5px 8px 5px 5px}
 html[data-theme] .video-quick-controls .study-control{font-weight:600}
 html[data-theme] .video-quick-controls .study-control:disabled{opacity:.65}
-html[data-theme] #play-pause:not(:disabled){border-radius:18px 5px 18px 5px!important}
 @media(max-width:899px){
  .mobile-translation-dock::after{opacity:.10;width:80px;height:32px}
  html[data-theme] .mobile-translation-dock-head{padding:5px 12px;gap:6px}
