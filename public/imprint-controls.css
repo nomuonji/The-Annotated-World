@@ -34,8 +34,8 @@ html[data-theme=dark]{--imp-stock:#312b37;--imp-ink:#f0e4d7;--imp-on-ink:#2c2331
  content:"";position:absolute;inset:4px 5px;z-index:-1;border-top:1px solid #aa927a;border-bottom:1px solid #aa927a;pointer-events:none
 }
 .platform-page .document-entry .ed-read-link,.aw-world-copy .aw-world-enter,.imp-action{--imp-ink:#3c2c35}
-.platform-page .document-entry .ed-read-link>span,.aw-world-copy .aw-world-enter>span,.imp-action>.imp-terminal{display:grid;place-items:center;align-self:stretch;min-width:27px;padding-left:9px;border-left:1px solid #b5a18c;color:#79415b;font-size:0}
-.platform-page .document-entry .ed-read-link>span:before,.aw-world-copy .aw-world-enter>span:before,.imp-action>.imp-terminal:before{content:"";width:18px;height:18px;background:currentColor;mask:url("/brand/ink/arrow.svg") center/contain no-repeat;transform:rotate(-45deg)}
+.platform-page .document-entry .ed-read-link>.imp-arrow,.aw-world-copy .aw-world-enter>span,.imp-action>.imp-terminal{display:grid;place-items:center;align-self:stretch;min-width:27px;padding-left:9px;border-left:1px solid #b5a18c;color:#79415b;font-size:0}
+.platform-page .document-entry .ed-read-link>.imp-arrow:before,.aw-world-copy .aw-world-enter>span:before,.imp-action>.imp-terminal:before{content:"";width:18px;height:18px;background:currentColor;mask:url("/brand/ink/arrow.svg") center/contain no-repeat;transform:rotate(-45deg)}
 .platform-page .document-entry .ed-read-link:hover::before,.aw-world-copy .aw-world-enter:hover::before,.imp-action:hover::before{filter:brightness(1.07)}
 .platform-page .document-entry .ed-read-link:active::before,.aw-world-copy .aw-world-enter:active::before,.imp-action:active::before{filter:brightness(.92)}
 button.random-chapter{display:inline-flex;align-items:center;gap:7px;border:0!important;background:transparent!important;box-shadow:none!important;color:var(--imp-key)!important;min-height:44px;font:500 12px/1.5 var(--imp-ui);text-decoration:none;text-underline-offset:4px}
@@ -101,7 +101,7 @@ button.random-chapter:hover{text-decoration:underline}
 :where(.imp-action,.ed-read-link,.random-chapter,.ed-navigation a,.library-tabs button,.study-mode button,.study-control,.imp-search-wrap input,.library-filter-details summary):focus-visible{outline:2px solid var(--imp-key)!important;outline-offset:3px}
 @media(max-width:1100px){.platform-header .ed-navigation{gap:4px 7px}}
 @media(max-width:899px){.ed-reader-tools .study-mode button:before,.ed-reader-tools .study-control[data-imprint-icon]:before,.video-quick-controls .study-control[data-imprint-icon]:before{display:none}.ed-reader-tools .study-mode button,.ed-reader-tools .study-control,.video-quick-controls .study-control{gap:0}}
-@media(max-width:640px){.platform-header .ed-navigation{gap:3px 4px;padding:0}.platform-header .ed-navigation a{padding:5px 6px!important;font-size:11px;min-height:36px}.ed-catalogue .library-tabs button{min-width:65px;padding:9px 8px!important;font-size:13px}.ed-catalogue .library-tabs button:before{width:15px;height:15px;flex-basis:15px}.platform-page .document-entry .ed-read-link{font-size:12px;gap:9px;padding-inline:11px!important}.platform-page .document-entry .ed-read-link>span{min-width:23px;padding-left:6px}.imp-search-wrap:before{width:30px;flex-basis:30px}.topic-tag{font-size:11px}.imp-filter-count{font-size:10px}}
+@media(max-width:640px){.platform-header .ed-navigation{gap:3px 4px;padding:0}.platform-header .ed-navigation a{padding:5px 6px!important;font-size:11px;min-height:36px}.ed-catalogue .library-tabs button{min-width:65px;padding:9px 8px!important;font-size:13px}.ed-catalogue .library-tabs button:before{width:15px;height:15px;flex-basis:15px}.platform-page .document-entry .ed-read-link{font-size:12px;gap:9px;padding-inline:11px!important}.platform-page .document-entry .ed-read-link>.imp-arrow{min-width:23px;padding-left:6px}.imp-search-wrap:before{width:30px;flex-basis:30px}.topic-tag{font-size:11px}.imp-filter-count{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.imp-action::before,.ed-read-link::before,.aw-world-enter::before{transition:none!important}}
 
 /* Bilingual signage: desktop reads as a library's room register; at mobile
@@ -114,3 +114,8 @@ button.random-chapter:hover{text-decoration:underline}
  .platform-header .ed-navigation .ed-nav-ja{font:500 10px/1.4 var(--imp-ui);letter-spacing:.06em}
  .platform-header .ed-navigation a[aria-current] .ed-nav-ja{font-weight:700}
 }
+
+.platform-page .document-entry .ed-read-link{padding-block:5px!important;min-height:44px}
+.ed-read-link>.imp-copy{display:flex;flex-direction:column;align-items:flex-start;gap:1px;line-height:1.35;font-family:var(--imp-print);font-size:14px;font-weight:600;white-space:nowrap}
+.ed-read-link>.imp-copy small{font:500 9px/1.15 var(--imp-ui);letter-spacing:.11em;text-transform:uppercase;color:#725649}
+@media(max-width:640px){.ed-read-link>.imp-copy{font-size:12px}.ed-read-link>.imp-copy small{font-size:8px}}
