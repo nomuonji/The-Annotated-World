@@ -103,8 +103,8 @@ try{
  const expected=['/library/','/topics/','/concepts/','/words/','/people/','/workspace/'];
  assert.deepEqual((await atlas.locator('[data-room-link]').evaluateAll(a=>a.map(e=>e.getAttribute('href')))).sort(),expected.sort());
  assert.equal(await atlas.locator('.aw-atlas-cinema').getAttribute('href'),'#video-shelf');
- await atlas.locator('.aw-atlas-cinema').focus();assert.ok(await atlas.locator('.aw-atlas-cinema').evaluate(e=>document.activeElement===e));
- await p.keyboard.press('Tab');assert.ok(await atlas.locator('[data-room-link=library]').evaluate(e=>document.activeElement===e),'Atlas native keyboard order');
+ await atlas.locator('[data-room-link=library]').focus();assert.ok(await atlas.locator('[data-room-link=library]').evaluate(e=>document.activeElement===e));
+ await p.keyboard.press('Tab');assert.ok(await atlas.locator('[data-room-link=observatory]').evaluate(e=>document.activeElement===e),'Scene atlas native keyboard order');
  const mapBounds=await atlas.locator('a').evaluateAll(a=>a.map(e=>{const b=e.getBoundingClientRect();return {x:b.x,y:b.y,w:b.width,h:b.height};}));
  assert.ok(mapBounds.every(b=>b.w>=44&&b.h>=44),'Atlas targets too small');
  for(let i=0;i<mapBounds.length;i++)for(let j=i+1;j<mapBounds.length;j++){const a=mapBounds[i],b=mapBounds[j];assert.ok(a.x+a.w<=b.x+1||b.x+b.w<=a.x+1||a.y+a.h<=b.y+1||b.y+b.h<=a.y+1,'Atlas links overlap');}
@@ -114,7 +114,8 @@ try{
  assert.equal(await p.locator('#video-shelf .aw-cover-illustration').count(),0,'Home video shelf must not replace source thumbnails with edition art');
  const ratio=await homeVideos.first().evaluate(el=>{const b=el.closest('.document-cover').getBoundingClientRect();return b.width/b.height;});
  assert.ok(Math.abs(ratio-16/9)<.03,'Home source thumbnail must be landscape');
- assert.ok(await p.locator('#video-shelf').evaluate(el=>Boolean(el.compareDocumentPosition(document.querySelector('#archive-index'))&Node.DOCUMENT_POSITION_FOLLOWING)),'Videos should precede the exploration scene');
+ assert.ok(await p.locator('#video-shelf').evaluate(el=>Boolean(document.querySelector('#archive-index').compareDocumentPosition(el)&Node.DOCUMENT_POSITION_FOLLOWING)),'Scene atlas should precede the video shelf in the new stage composition');
+ await p.locator('#query').fill('ジジェク');await Promise.all([p.waitForURL(u=>u.pathname==='/library/'&&u.searchParams.get('q')==='ジジェク'),p.locator('#search-form button').click()]);await p.locator('#find').waitFor();assert.equal(await p.locator('#find').inputValue(),'ジジェク','Home search uses the live library query');assert.ok(await p.locator('[data-document]:visible').count()>0,'Home search should find existing source documents');
  await p.goto(base+'/library/');assert.equal(await p.locator('.aw-cover-illustration').count(),2,'Library keeps both original edition covers');
  await p.goto(base+'/workspace/');
  const lesson={id:'world-audit-private',title:'Private audit lesson',author:'Test',chapters:[{title:'One',blocks:[{en:'Read the world.',ja:'世界を読む。',note:'test'}]}]};
