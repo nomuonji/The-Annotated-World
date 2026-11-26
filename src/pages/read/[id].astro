@@ -17,8 +17,9 @@ const recommendations=related(allDocuments,doc);
 const $=load(d.bodyHtml,null,false);
 const heroNode=$('.hero').first();
 const heroTitle=heroNode.find('h1').first();
-const visibleTitle=displayDocumentTitle(heroTitle.text());
-if(visibleTitle!==heroTitle.text())heroTitle.text(visibleTitle);
+const fullTitle=heroTitle.text();
+const visibleTitle=displayDocumentTitle(fullTitle);
+if(visibleTitle!==fullTitle)heroTitle.text(visibleTitle).append($('<span>').addClass('aw-title-subtitle').text(fullTitle.slice(visibleTitle.length)));
 const hero=heroNode.toString();heroNode.remove();
 for(const c of d.chapterIndex){
  const head=$('section.sec').filter((_,el)=>$(el).attr('id')===c.anchor).find('.sec-header').first();
