@@ -31,6 +31,10 @@ jobs:
       - name: Install Japanese fonts for screenshot audit
         run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
       - run: node scripts/verify-world.mjs
+      - name: Audit WCAG checks and resource fallbacks
+        run: |
+          npm install --no-save --package-lock=false --no-audit --no-fund axe-core@4.14.1
+          node scripts/verify-accessibility.mjs
       - name: Export world motion prototype
         run: |
           if ! command -v ffmpeg >/dev/null; then sudo apt-get update && sudo apt-get install -y ffmpeg; fi
@@ -39,6 +43,12 @@ jobs:
         if: github.ref == 'refs/heads/main'
         continue-on-error: true
         run: node scripts/verify-production.mjs
+      - name: Capture deployed public page types
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
+        env:
+          AW_AUDIT_BASE: https://the-annotated-world.pages.dev
+        run: node scripts/verify-world.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

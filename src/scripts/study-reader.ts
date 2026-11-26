@@ -25,7 +25,7 @@ function setup(reader:HTMLElement){
   if(annotationsButton){
    annotationsButton.setAttribute('aria-pressed',String(on));
    annotationsButton.textContent=on?'注釈 ON':'注釈 OFF';
-   annotationsButton.setAttribute('aria-label',on?'文中注釈を非表示にする':'文中注釈を表示する');
+   annotationsButton.setAttribute('aria-label',on?'注釈 ON — 文中注釈を非表示にする':'注釈 OFF — 文中注釈を表示する');
   }
  };
  showAnnotations(annotationsVisible);
@@ -161,7 +161,7 @@ function setup(reader:HTMLElement){
  for(const b of blocks){b.querySelector('[data-reveal]')?.addEventListener('click',()=>{b.classList.toggle('revealed');updateReveal(b);});}
  toolbar?.removeAttribute('hidden');setMode('parallel');
  if(toolbar){const update=()=>reader.style.setProperty('--study-toolbar-height',toolbar.getBoundingClientRect().height+'px');new ResizeObserver(update).observe(toolbar);update();}
- byId('study-size')?.addEventListener('click',()=>{size=(size+1)%3;reader.dataset.textSize=String(size);const btn=byId('study-size');if(btn){btn.textContent=['A↗','A+','A++'][size];btn.setAttribute('aria-label','文字サイズ '+['標準','大','特大'][size]+'。クリックして変更');}});
+ byId('study-size')?.addEventListener('click',()=>{size=(size+1)%3;reader.dataset.textSize=String(size);const btn=byId('study-size');if(btn){btn.textContent=['A↗','A+','A++'][size];btn.setAttribute('aria-label',btn.textContent+' — 文字サイズ '+['標準','大','特大'][size]+'。クリックして変更');}});
  nav?.addEventListener('change',()=>{const target=byId(nav.value);if(target){
   if(selectedChapterId&&target.matches('section.sec'))openChapter(target.id);
   else{scrollTo(target);history.replaceState(null,'','#'+encodeURIComponent(target.id));}
@@ -269,7 +269,7 @@ function setup(reader:HTMLElement){
  window.addEventListener('resize',()=>{requestTranslationSync();requestChapterLocation();},{passive:true});
  requestTranslationSync();
  requestChapterLocation();
- if(!panel||!iframe||!frameBase)return;
+ if(!panel||!iframe||!frameBase){reader.dataset.layoutReady='true';return;}
  const videoPanel=panel;const videoFrame=iframe;
  for(const node of panel.querySelectorAll<HTMLElement>('[data-video-enhancement]'))node.hidden=false;
  if(sidebar){const updateHeight=()=>reader.style.setProperty('--pinned-video-height',reader.classList.contains('video-pinned')&&mobile.matches?sidebar.getBoundingClientRect().height+'px':'0px');const observer=new ResizeObserver(updateHeight);observer.observe(sidebar);mobile.addEventListener('change',updateHeight);pin?.addEventListener('click',()=>{const on=reader.classList.toggle('video-pinned');pin.setAttribute('aria-pressed',String(on));pin.textContent=on?'固定解除':'動画固定';updateHeight();});}
@@ -294,18 +294,19 @@ function setup(reader:HTMLElement){
  window.addEventListener('wheel',()=>{if(follow)setFollow(false);},{passive:true});
  window.addEventListener('touchmove',()=>{if(follow)setFollow(false);},{passive:true});
  function refreshRates(){if(!player||!speed)return;const rates=player.getAvailablePlaybackRates();if(!rates.length)return;speed.replaceChildren(...rates.map(rate=>{const option=document.createElement('option');option.value=String(rate);option.textContent=rate+'×';return option;}));speed.value=String(player.getPlaybackRate());speed.disabled=rates.length<=1;}
- function updatePlay(){const playing=player?.getPlayerState()===1;if(play){play.textContent=playing?'Ⅱ 停止':'▶ 再生';play.setAttribute('aria-label',playing?'動画を一時停止':'動画を再生');}}
+ function updatePlay(){const playing=player?.getPlayerState()===1;if(play){play.textContent=playing?'Ⅱ 停止':'▶ 再生';play.setAttribute('aria-label',playing?'停止 — 動画を一時停止':'再生 — 動画を再生');}}
  function unavailable(message:string){if(ready)return;failed=true;say(message);if(queued){const s=queued.seconds;queued=null;fallbackSeek(s);}}
  const timer=window.setTimeout(()=>unavailable('動画同期に接続できません。時刻リンクと通常の動画操作は利用できます。'),15000);
  function connect(){if(failed||!window.YT?.Player)return;try{player=new window.YT.Player('original-player',{events:{
  onReady(e){if(failed)return;player=e.target;ready=true;clearTimeout(timer);say('');if(play)play.disabled=false;if(followButton)followButton.disabled=!entries.length;refreshRates();updatePlay();updateRepeatButtons();if(queued){const s=queued.seconds;queued=null;performSeek(s);}sync();},
  onStateChange(e){if(!ready)return;updatePlay();refreshRates();updateRepeatButtons();sync();if(e.data===0&&!loop)setFollow(false);},
  onPlaybackRateChange(e){if(speed)speed.value=String(e.data);},
- onError(){ready=false;clearTimeout(timer);failed=true;clearLoop();setFollow(false);if(play)play.disabled=true;if(speed)speed.disabled=true;if(followButton)followButton.disabled=true;updateRepeatButtons();say('動画を埋め込み再生できません。YouTubeで開いてください。');},
+ onError(e){videoPanel.dataset.youtubeError=String(e.data);ready=false;clearTimeout(timer);failed=true;clearLoop();setFollow(false);if(play)play.disabled=true;if(speed)speed.disabled=true;if(followButton)followButton.disabled=true;updateRepeatButtons();say('動画を埋め込み再生できません。YouTubeで開いてください。');},
  onAutoplayBlocked(){say('自動再生が制限されています。プレイヤーの再生ボタンを押してください。');}
  }});}catch{unavailable('動画同期を開始できません。');}}
  videoFrame.src=frameUrl();
  say('動画連携を準備中…');
+ reader.dataset.layoutReady='true';
  if(window.YT?.Player)connect();else{const previous=window.onYouTubeIframeAPIReady;window.onYouTubeIframeAPIReady=()=>{previous?.();connect();};const script=document.createElement('script');script.src='https://www.youtube.com/iframe_api';script.async=true;script.addEventListener('error',()=>{clearTimeout(timer);unavailable('動画同期に接続できません。');});document.head.append(script);}
  const interval=window.setInterval(()=>{if(!document.hidden)sync();},300);
  window.addEventListener('pagehide',()=>{clearInterval(interval);clearTimeout(timer);},{once:true});

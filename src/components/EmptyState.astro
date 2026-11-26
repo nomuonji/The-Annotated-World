@@ -1,0 +1,5 @@
+---
+interface Props { id:string; message:string; hidden?:boolean }
+const {id,message,hidden=true}=Astro.props;
+---
+<div id={id} hidden={hidden} class="aw-empty-state" role="status"><img src="/brand/archive-seal.svg" alt="" width="48" height="48"/><p>{message}</p></div>

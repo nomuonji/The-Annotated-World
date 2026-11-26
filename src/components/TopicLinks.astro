@@ -1,6 +1,6 @@
 ---
 import {topicUrl} from '../lib/discovery';
-interface Props{items:{id:string;name:string;count:number;chapters:number}[]}
-const {items}=Astro.props;
+interface Props{items:{id:string;name:string;count:number;chapters:number}[]; searchable?:boolean}
+const {items,searchable=false}=Astro.props;
 ---
-<div class="topic-index">{items.map(t=><a href={topicUrl(t.id)} class="topic-index-link"><span>#{t.name}</span><small>{t.chapters?t.chapters+'章':t.count+'資料'}</small></a>)}</div>
+<div class="topic-index">{items.map(t=><a href={topicUrl(t.id)} class="topic-index-link" data-index-search={searchable?t.name+" "+t.id:undefined}><span>#{t.name}</span><small>{searchable?t.count+'資料 · '+t.chapters+'章':t.chapters?t.chapters+'章':t.count+'資料'}</small></a>)}</div>

@@ -16,6 +16,7 @@ const {title='The Annotated World',description='原文・日本語訳・注釈�
  try{choice=localStorage.getItem('aw-theme');}catch{}
  const dark=choice==='dark'||(choice!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);
  document.documentElement.dataset.theme=dark?'dark':'light';
+ document.documentElement.classList.add('aw-js');
 })();
 </script>
 <meta name="description" content={description}/>{buildSha&&<meta name="aw-build-sha" content={buildSha}/>}{activePath!=="/404.html"&&<link rel="canonical" href={canonical}/>}<meta property="og:url" content={canonical}/><link rel="icon" href="/brand/mark.svg" type="image/svg+xml"/><meta property="og:type" content="website"/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:image" content="https://the-annotated-world.pages.dev/brand/midnight-desktop.webp"/><meta name="twitter:card" content="summary_large_image"/><link rel="alternate" type="application/json" title="Content catalog" href="/catalog.json"/><title>{title}</title>
@@ -25,7 +26,7 @@ const {title='The Annotated World',description='原文・日本語訳・注釈�
 </head>
 <body>
 <a class="skip-link" href="#main">本文へ</a>
-<header class="platform-header"><div class="platform-header-inner"><a class="site-title" href="/"><img class="aw-wordmark-symbol" src="/brand/mark.svg" alt="" width="30" height="30"/><span>The Annotated World</span></a><nav aria-label="サイト内探索">{navItems.map(([href,label])=><a href={href} aria-current={activePath===href?'page':href!=='/'&&activePath.startsWith(href)?'location':undefined}>{label}</a>)}</nav><button type="button" id="site-theme-toggle" class="site-theme-toggle" aria-pressed="false" aria-label="サイト全体の配色を切り替える">ダーク</button></div></header>
+<header class="platform-header"><div class="platform-header-inner"><a class="site-title" href="/"><img class="aw-wordmark-symbol" src="/brand/mark.svg" alt="" width="30" height="30"/><span>The Annotated World</span></a><nav aria-label="サイト内探索">{navItems.map(([href,label])=><a href={href} aria-current={activePath===href?'page':href!=='/'&&activePath.startsWith(href)?'location':undefined}>{label}</a>)}</nav><button type="button" id="site-theme-toggle" class="site-theme-toggle" aria-pressed="false" title="サイト全体の配色を切り替える">ダーク</button></div></header>
 <main class:list={["page",{"platform-page":wide,"reader-page":reader}]} id="main" tabindex="-1"><slot/></main>
 <footer class="platform-footer"><a href="/" class="aw-footer-brand"><img src="/brand/mark.svg" width="24" height="24" alt=""/>The Annotated World</a><span>世界を読む。自分の読み方を疑う。</span><a href="/marginalia/">編集記録</a><a href="/library/">資料一覧</a></footer>
 <script is:inline>
@@ -36,7 +37,7 @@ const {title='The Annotated World',description='原文・日本語訳・注釈�
   const dark=document.documentElement.dataset.theme==='dark';
   button.setAttribute('aria-pressed',String(dark));
   button.textContent=dark?'ライト':'ダーク';
-  button.setAttribute('aria-label',dark?'サイト全体をライトモードにする':'サイト全体をダークモードにする');
+  button.title=dark?'サイト全体をライトモードにする':'サイト全体をダークモードにする';
  };
  button.addEventListener('click',()=>{
   const dark=document.documentElement.dataset.theme!=='dark';

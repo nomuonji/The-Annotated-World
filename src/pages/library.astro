@@ -1,4 +1,5 @@
 ---
+import EmptyState from '../components/EmptyState.astro';
 import RoomHeader from '../components/RoomHeader.astro';
 import Archive from '../layouts/Archive.astro';
 import DocumentCard from '../components/DocumentCard.astro';
@@ -12,7 +13,7 @@ const formats=distinct(ds.map(d=>d.data.category)),levels=distinct(ds.map(d=>d.d
 ---
 <Archive title="全資料 — The Annotated World" wide>
  <RoomHeader room="library"><p class="eyebrow">LIBRARY</p><h1>すべての資料</h1><p>タイトル、話者、テーマから、読みたい資料や章を見つける。</p></RoomHeader>
- <div class="discovery-actions"><RandomChapter docs={ds}/></div>
+ <div class="aw-library-desk"><div><p class="aw-section-kicker">ACCESSION REGISTER / 収蔵台帳</p><h2>読みたい一冊を見つける。</h2><p>{ds.length}資料 · {chapters.length}章を収蔵</p></div><RandomChapter docs={ds}/></div>
  <div class="library-toolbar"><label for="find">検索<input type="search" id="find" placeholder="例：ジジェク、映画、AI"/></label><span id="result-count" aria-live="polite">{ds.length}資料</span></div>
  <div class="library-filters" data-library-controls hidden>
  <div class="library-tabs" role="group" aria-label="検索対象"><button type="button" data-scope="docs" aria-pressed="true">資料</button><button type="button" data-scope="chapters" aria-pressed="false">章</button></div>
@@ -23,9 +24,9 @@ const formats=distinct(ds.map(d=>d.data.category)),levels=distinct(ds.map(d=>d.d
  {features.length>0&&<label>英語の特徴<select id="filter-feature"><option value="">すべて</option>{features.map(x=><option>{x}</option>)}</select></label>}
  {series.length>0&&<label>シリーズ<select id="filter-series"><option value="">すべて</option>{series.map(x=><option>{x}</option>)}</select></label>}
  <button type="button" id="reset-filters">解除</button></div></details></div>
- <section class="browse-section aw-library-results"><div class="document-grid" id="result-grid">{ds.map(d=><DocumentCard doc={d}/>)}</div>
+ <section class="browse-section aw-library-results" aria-label="収蔵資料・章"><div class="aw-shelf-label"><span>EX LIBRIS / CATALOGUE</span><span id="aw-shelf-scope">資料</span></div><div class="document-grid" id="result-grid">{ds.map(d=><DocumentCard doc={d}/>)}</div>
  <div class="chapter-discovery" id="chapter-results" hidden>{chapters.map(({d,c,seconds})=><article class="chapter-item" data-chapter-result data-search={chapterSearchText(d,c)} data-time={timeBand(seconds)} data-format={d.data.category} data-difficulty={d.data.difficulty||''} data-features={JSON.stringify(d.data.englishFeatures)} data-series={d.data.series||''}><div class="chapter-time">{String(c.order).padStart(2,'0')}<small>{c.time}</small></div><div><h3><a href={chapterReadingUrl(d,c)}>{c.title}</a></h3><a class="chapter-source" href={documentUrl(d)}>{d.data.title}</a>{seconds!==null&&<p>約{Math.ceil(seconds/60)}分（動画内の区間）</p>}{c.description&&<p>{c.description}</p>}<div class="tag-row">{c.topics.map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div></div></article>)}</div>
- <p id="no-documents" hidden>該当する資料・章がありません。条件を変更してください。</p></section>
+ <EmptyState id="no-documents" message="該当する資料・章がありません。条件を変更してください。"/></section>
  <details class="aw-library-genres"><summary>分野別の書庫を探索する</summary><GenreNav docs={ds}/></details>
 </Archive>
 <script>
@@ -50,6 +51,7 @@ function filter(){
  for(const button of scopeButtons)button.setAttribute('aria-pressed',String(button.dataset.scope===scope));
  document.getElementById('result-grid')!.hidden=scope!=='docs';document.getElementById('chapter-results')!.hidden=scope!=='chapters';
  for(const card of scope==='docs'?cards:chapters){const matches=q.every(t=>card.dataset.search?.includes(t))&&filters.every(([id,select])=>{const value=select?.value;if(!value)return true;if(id==='feature')return (JSON.parse(card.dataset.features||'[]') as string[]).includes(value);if(id==='time'&&value!=='unknown'&&value!=='long'){const allowed=['5','15','30'];return allowed.indexOf(card.dataset.time||'')>=0&&allowed.indexOf(card.dataset.time||'')<=allowed.indexOf(value);}return card.dataset[id]===value;});card.hidden=!matches;if(matches)n++;}
+ document.getElementById('aw-shelf-scope')!.textContent=scope==='docs'?'資料':'章';
  document.getElementById('result-count')!.textContent=n+(scope==='docs'?'資料':'章');document.getElementById('no-documents')!.hidden=n!==0;
  storeQuery();
 }

@@ -1,14 +1,16 @@
 ---
-interface Props { label:string; count:number; unit:string; placeholder:string }
-const {label,count,unit,placeholder}=Astro.props;
+import EmptyState from './EmptyState.astro';
+interface Props { label:string; count:number; unit:string; placeholder:string; prefix?:string }
+const {label,count,unit,placeholder,prefix='index'}=Astro.props;
+const inputId=prefix==='word'?'word-search':prefix+'-query';
 ---
-<div class="library-toolbar" data-index-controls hidden><label for="index-query">{label}<input type="search" id="index-query" placeholder={placeholder}/></label><span aria-live="polite" id="index-count" data-unit={unit}>{count}{unit}</span></div>
-<p id="index-empty" hidden>該当する項目がありません。別の言葉を試してください。</p>
+<div class="library-toolbar" data-index-controls hidden><label for={inputId}>{label}<input type="search" id={inputId} placeholder={placeholder}/></label><span aria-live="polite" id={prefix+"-count"} data-index-count data-unit={unit}>{count}{unit}</span></div>
+<EmptyState id={prefix+"-empty"} message="該当する項目がありません。別の言葉を試してください。"/>
 <script>
 const toolbar=document.querySelector<HTMLElement>('[data-index-controls]');
-const input=document.querySelector<HTMLInputElement>('#index-query');
-const count=document.querySelector<HTMLElement>('#index-count');
-const empty=document.querySelector<HTMLElement>('#index-empty');
+const input=toolbar?.querySelector<HTMLInputElement>('input');
+const count=toolbar?.querySelector<HTMLElement>('[data-index-count]');
+const empty=document.getElementById((count?.id||'index-count').replace(/-count$/,'-empty'));
 if(toolbar&&input&&count&&empty){
  const items=[...document.querySelectorAll<HTMLElement>('[data-index-search]')];
  const sections=[...document.querySelectorAll<HTMLElement>('[data-index-section]')];

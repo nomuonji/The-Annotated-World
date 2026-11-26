@@ -2,12 +2,13 @@ import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import {spawn} from 'node:child_process';
 import {mkdir,writeFile} from 'node:fs/promises';
-const port=4174,base='http://127.0.0.1:'+port;
-const server=spawn(process.execPath,['node_modules/.bin/astro','preview','--host','127.0.0.1','--port',String(port)],{stdio:'inherit'});
-const out='world-audit';await mkdir(out,{recursive:true});
+const port=4174,base=process.env.AW_AUDIT_BASE||'http://127.0.0.1:'+port;
+const publicAudit=Boolean(process.env.AW_AUDIT_BASE);
+const server=publicAudit?null:spawn(process.execPath,['node_modules/.bin/astro','preview','--host','127.0.0.1','--port',String(port)],{stdio:'inherit'});
+const out=publicAudit?'world-audit/public':'world-audit';await mkdir(out,{recursive:true});
 let browser;const results=[];
 try{
- let ready=false;for(let i=0;i<60;i++){try{if((await fetch(base)).ok){ready=true;break;}}catch{}if(server.exitCode!==null)break;await new Promise(r=>setTimeout(r,500));}assert.ok(ready,'Preview did not start');
+ let ready=false;for(let i=0;i<60;i++){try{if((await fetch(base)).ok){ready=true;break;}}catch{}if(server&&server.exitCode!==null)break;await new Promise(r=>setTimeout(r,500));}assert.ok(ready,'Preview did not start');
  browser=await chromium.launch({headless:true});
  const routes=['/','/library/','/genres/philosophy/','/genres/literature/','/topics/','/topics/psychoanalysis/','/people/','/people/slavoj-zizek/','/words/','/words/unceded-territories-3c7dd2479078/','/concepts/','/concepts/surplus-enjoyment/','/read/slavoj-zizek-signs-from-the-future/','/read/slavoj-zizek-how-to-become-free/','/read/slavoj-zizek-how-to-become-free/?chapter=ch1','/workspace/','/marginalia/','/marginalia/motion/','/404.html'];
  for(const width of [320,390,768,1440])for(const theme of ['light','dark']){
@@ -18,9 +19,9 @@ try{
   {
    await page.addInitScript(t=>{
  localStorage.setItem('aw-theme',t);
- window.__awMetrics={lcp:null,cls:0};
+ window.__awMetrics={lcp:null,cls:0,shifts:[]};
  try{new PerformanceObserver(list=>{const last=list.getEntries().at(-1);if(last)window.__awMetrics.lcp=last.startTime}).observe({type:'largest-contentful-paint',buffered:true});}catch{}
- try{new PerformanceObserver(list=>{for(const e of list.getEntries())if(!e.hadRecentInput)window.__awMetrics.cls+=e.value}).observe({type:'layout-shift',buffered:true});}catch{}
+ try{new PerformanceObserver(list=>{for(const e of list.getEntries())if(!e.hadRecentInput){window.__awMetrics.cls+=e.value;window.__awMetrics.shifts.push({value:e.value,at:e.startTime,nodes:e.sources.map(s=>s.node?.nodeName+':'+(s.node?.className||''))});}}).observe({type:'layout-shift',buffered:true});}catch{}
  },theme);
    for(const path of routes){
     const response=await page.goto(base+path,{waitUntil:'domcontentloaded'});assert.ok(response&&(response.ok()||path==='/404.html'&&response.status()===404),path+' response');
@@ -29,7 +30,7 @@ try{
     const initialMetrics=await page.evaluate(()=>{
      const nav=performance.getEntriesByType('navigation')[0];
      const local=performance.getEntriesByType('resource').filter(e=>e.name.startsWith(location.origin+'/'));
-     return {lcpMs:window.__awMetrics.lcp,cls:window.__awMetrics.cls,domContentLoadedMs:nav?.domContentLoadedEventEnd,loadMs:nav?.loadEventEnd,localTransferBytes:local.reduce((n,e)=>n+e.transferSize,0),localImageBytes:local.filter(e=>e.initiatorType==='img').reduce((n,e)=>n+e.transferSize,0)};
+     return {lcpMs:window.__awMetrics.lcp,cls:window.__awMetrics.cls,shifts:window.__awMetrics.shifts,domContentLoadedMs:nav?.domContentLoadedEventEnd,loadMs:nav?.loadEventEnd,localTransferBytes:local.reduce((n,e)=>n+e.transferSize,0),localImageBytes:local.filter(e=>e.initiatorType==='img').reduce((n,e)=>n+e.transferSize,0)};
     });
     await page.evaluate(()=>{for(const img of document.images)img.loading='eager'});
     await page.waitForFunction(()=>[...document.images].filter(i=>i.currentSrc.includes('/brand/')||i.src.includes('/brand/')).every(i=>i.complete),{},{timeout:10000});
@@ -54,12 +55,13 @@ try{
     });
     assert.deepEqual(accessibility.noAlt,[],path+' image alt attributes');
     results.push({path,width,theme,...audit,initialMetrics,accessibility});
-    if(width===390||width===1440)await page.screenshot({path:out+'/'+theme+'-'+width+'-'+(path.replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'')||'home')+'.png',animations:'disabled'});
+    if(!publicAudit||width===390||width===1440)await page.screenshot({path:out+'/'+theme+'-'+width+'-'+(path.replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'')||'home')+'.png',animations:'disabled'});
     if((width===390||width===1440)&&path==='/'){await page.locator('#archive-index').scrollIntoViewIfNeeded();await page.screenshot({path:out+'/'+theme+'-'+width+'-home-explore.png',animations:'disabled'});await page.locator('.aw-marginalia-section').scrollIntoViewIfNeeded();await page.screenshot({path:out+'/'+theme+'-'+width+'-home-marginalia.png',animations:'disabled'});}
    }
   }
   await context.close();
  }
+ if(publicAudit){console.log('Public screenshot audit: '+results.length+' combinations');}else{
  const p=await browser.newPage({viewport:{width:390,height:844}});
  await p.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
  await p.goto(base+'/library/');
@@ -70,6 +72,7 @@ try{
  await p.goto(base+'/library/?scope=chapters&q=映画&time=15');assert.equal(await p.locator('#find').inputValue(),'映画');assert.equal(await p.locator('#filter-time').inputValue(),'15');assert.equal(await p.locator('[data-scope=chapters]').getAttribute('aria-pressed'),'true');
  await p.locator('#find').fill('zzzz-no-result-000');assert.equal(await p.locator('#no-documents').isVisible(),true);
  await p.reload();assert.equal(await p.locator('#find').inputValue(),'zzzz-no-result-000');
+ await p.goto(base+'/words/');await p.locator('#word-search').fill('unceded');assert.ok(await p.locator('[data-index-search]:visible').count()>0);await p.locator('#word-search').fill('zzzz-no-result-000');assert.equal(await p.locator('#word-empty').isVisible(),true);
  await p.goto(base+'/concepts/');await p.locator('#index-query').fill('Lacan');assert.ok(await p.locator('[data-index-search]:visible').count()>0);await p.locator('#index-query').fill('zzzz-no-result-000');assert.equal(await p.locator('#index-empty').isVisible(),true);
  await p.goto(base+'/people/');await p.locator('#index-query').fill('ジジェク');assert.ok(await p.locator('[data-index-search]:visible').count()>0);await p.goto(base+'/topics/');await p.locator('#index-query').fill('自由');assert.ok(await p.locator('[data-index-search]:visible').count()>0);
  await p.goto(base+'/');assert.equal(await p.locator('.aw-margin-entry').count(),2);
@@ -114,5 +117,6 @@ try{
  await p.locator('#importFile').setInputFiles({name:'audit.html',mimeType:'text/html',buffer:Buffer.from(html)});await p.locator('.lesson-card').filter({hasText:'Private HTML audit'}).getByRole('button',{name:'読む',exact:true}).click();assert.ok(await p.locator('#chapter').getByText('A private passage.').isVisible());await p.reload();assert.ok(await p.locator('.lesson-card').filter({hasText:'Private HTML audit'}).isVisible());
  await p.locator('#workspace-theme').click();const theme=await p.locator('html').getAttribute('data-theme');await p.goto(base+'/library/');assert.equal(await p.locator('html').getAttribute('data-theme'),theme);
  await p.close();
+ }
  console.log('World audit: '+results.length+' page/viewport/theme combinations; search, source links, workspace import and saved data passed.');
-}finally{await writeFile(out+'/results.json',JSON.stringify(results,null,2));await browser?.close();server.kill();}
+}finally{await writeFile(out+'/results.json',JSON.stringify(results,null,2));await browser?.close();server?.kill();}
