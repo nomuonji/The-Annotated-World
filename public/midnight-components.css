@@ -225,3 +225,85 @@ html[data-theme] .document-entry .read-link{position:relative;isolation:isolate;
  html[data-theme] .document-entry .read-link{padding-left:34px!important;padding-right:9px!important;font-size:11px;gap:3px}
  .document-entry .read-link::after{width:33px;height:34px;left:1px}
 }
+
+/* Atelier: individual illustrated objects, not a shared decoration pasted over
+   all controls. The original room artwork and book frames stay in place. */
+:root{--atelier-lens:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%2080%22%3E%3Cpath%20d%3D%22M40%202H106Q111%202%20118%2012V68Q111%2078%20106%2078H40C16%2078%202%2062%202%2040S16%202%2040%202Z%22%20fill%3D%22%23f7e9d9%22%20stroke%3D%22%23925d77%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M40%206H105L114%2015V65L105%2074H40C20%2074%206%2059%206%2040S20%206%2040%206Z%22%20fill%3D%22none%22%20stroke%3D%22%23b68f77%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M106%2034l5%206-5%206-4-6Z%22%20fill%3D%22%23925d77%22%2F%3E%3Cpath%20d%3D%22M32%202l4%205-4%205M32%2068l4%205-4%205%22%20fill%3D%22none%22%20stroke%3D%22%23b68f77%22%2F%3E%3C%2Fsvg%3E");--atelier-specimen:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2056%2092%22%3E%3Cpath%20d%3D%22M28%202C37%202%2043%207%2048%2015L53%2039%2047%2076%2028%2090%209%2076%203%2039%208%2015C13%207%2019%202%2028%202Z%22%20fill%3D%22%23f7e9d9%22%20stroke%3D%22%23925d77%22%20stroke-width%3D%221.2%22%2F%3E%3Cpath%20d%3D%22M28%206Q38%206%2044%2017L49%2039%2043%2073%2028%2085%2013%2073%207%2039%2012%2017Q18%206%2028%206Z%22%20fill%3D%22none%22%20stroke%3D%22%23b68f77%22%20stroke-width%3D%22.65%22%2F%3E%3Cpath%20d%3D%22M28%2012v8m-4-4h8M12%2040h6M38%2040h6M28%2076l3%203-3%204-3-4z%22%20stroke%3D%22%23925d77%22%20stroke-width%3D%22.7%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");--atelier-dossier:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2090%20102%22%3E%3Cpath%20d%3D%22M45%202Q55%2010%2066%209L85%2025V79L67%20100H23L5%2079V25L24%209Q35%2010%2045%202Z%22%20fill%3D%22%23ead1c9%22%20stroke%3D%22%23925d77%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M45%208Q56%2015%2065%2015L79%2029V76L64%2094H26L11%2076V29L25%2015Q34%2015%2045%208Z%22%20fill%3D%22%23f7e9d9%22%20stroke%3D%22%23b68f77%22%20stroke-width%3D%22.9%22%2F%3E%3Cellipse%20cx%3D%2245%22%20cy%3D%2248%22%20rx%3D%2225%22%20ry%3D%2229%22%20fill%3D%22none%22%20stroke%3D%22%23925d77%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M45%2011l3%205-3%205-3-5zM45%2083l3%205-3%205-3-5z%22%20fill%3D%22%23925d77%22%2F%3E%3C%2Fsvg%3E");--atelier-book:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2096%20122%22%3E%3Cpath%20d%3D%22M10%208L25%203H82L94%2014V111L82%20120H10L2%20113V17Z%22%20fill%3D%22%23ead1c9%22%20stroke%3D%22%23925d77%22%20stroke-width%3D%221.4%22%2F%3E%3Cpath%20d%3D%22M10%208H80L87%2016V106L80%20113H10Z%22%20fill%3D%22%23f7e9d9%22%20stroke%3D%22%23b68f77%22%20stroke-width%3D%22.9%22%2F%3E%3Cpath%20d%3D%22M10%208V113M16%2011V110M82%20120V113M5%2024h10m-10%2072h10%22%20fill%3D%22none%22%20stroke%3D%22%23925d77%22%2F%3E%3Cpath%20d%3D%22M70%204h11v31l-5.5-5-5.5%205z%22%20fill%3D%22%23925d77%22%2F%3E%3C%2Fsvg%3E");}
+html[data-theme=dark]{--atelier-lens:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%2080%22%3E%3Cpath%20d%3D%22M40%202H106Q111%202%20118%2012V68Q111%2078%20106%2078H40C16%2078%202%2062%202%2040S16%202%2040%202Z%22%20fill%3D%22%2333263e%22%20stroke%3D%22%23d2a88e%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M40%206H105L114%2015V65L105%2074H40C20%2074%206%2059%206%2040S20%206%2040%206Z%22%20fill%3D%22none%22%20stroke%3D%22%23e8c8a4%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M106%2034l5%206-5%206-4-6Z%22%20fill%3D%22%23d2a88e%22%2F%3E%3Cpath%20d%3D%22M32%202l4%205-4%205M32%2068l4%205-4%205%22%20fill%3D%22none%22%20stroke%3D%22%23e8c8a4%22%2F%3E%3C%2Fsvg%3E");--atelier-specimen:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2056%2092%22%3E%3Cpath%20d%3D%22M28%202C37%202%2043%207%2048%2015L53%2039%2047%2076%2028%2090%209%2076%203%2039%208%2015C13%207%2019%202%2028%202Z%22%20fill%3D%22%2333263e%22%20stroke%3D%22%23d2a88e%22%20stroke-width%3D%221.2%22%2F%3E%3Cpath%20d%3D%22M28%206Q38%206%2044%2017L49%2039%2043%2073%2028%2085%2013%2073%207%2039%2012%2017Q18%206%2028%206Z%22%20fill%3D%22none%22%20stroke%3D%22%23e8c8a4%22%20stroke-width%3D%22.65%22%2F%3E%3Cpath%20d%3D%22M28%2012v8m-4-4h8M12%2040h6M38%2040h6M28%2076l3%203-3%204-3-4z%22%20stroke%3D%22%23d2a88e%22%20stroke-width%3D%22.7%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");--atelier-dossier:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2090%20102%22%3E%3Cpath%20d%3D%22M45%202Q55%2010%2066%209L85%2025V79L67%20100H23L5%2079V25L24%209Q35%2010%2045%202Z%22%20fill%3D%22%2349314a%22%20stroke%3D%22%23d2a88e%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M45%208Q56%2015%2065%2015L79%2029V76L64%2094H26L11%2076V29L25%2015Q34%2015%2045%208Z%22%20fill%3D%22%2333263e%22%20stroke%3D%22%23e8c8a4%22%20stroke-width%3D%22.9%22%2F%3E%3Cellipse%20cx%3D%2245%22%20cy%3D%2248%22%20rx%3D%2225%22%20ry%3D%2229%22%20fill%3D%22none%22%20stroke%3D%22%23d2a88e%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M45%2011l3%205-3%205-3-5zM45%2083l3%205-3%205-3-5z%22%20fill%3D%22%23d2a88e%22%2F%3E%3C%2Fsvg%3E");--atelier-book:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2096%20122%22%3E%3Cpath%20d%3D%22M10%208L25%203H82L94%2014V111L82%20120H10L2%20113V17Z%22%20fill%3D%22%2349314a%22%20stroke%3D%22%23d2a88e%22%20stroke-width%3D%221.4%22%2F%3E%3Cpath%20d%3D%22M10%208H80L87%2016V106L80%20113H10Z%22%20fill%3D%22%2333263e%22%20stroke%3D%22%23e8c8a4%22%20stroke-width%3D%22.9%22%2F%3E%3Cpath%20d%3D%22M10%208V113M16%2011V110M82%20120V113M5%2024h10m-10%2072h10%22%20fill%3D%22none%22%20stroke%3D%22%23d2a88e%22%2F%3E%3Cpath%20d%3D%22M70%204h11v31l-5.5-5-5.5%205z%22%20fill%3D%22%23d2a88e%22%2F%3E%3C%2Fsvg%3E");}
+
+/* Search instrument: the lens is seated inside a circular endpiece. The 9-slice
+   keeps the large circular joint and small engraved terminal intact. */
+.aw-lens-field::before{border:16px solid transparent;border-width:16px 19px 16px 39px;border-image:var(--atelier-lens) 17 19 17 41 fill stretch}
+.aw-lens-field::after{background-position:center;left:-1px}
+.library-toolbar:has(.aw-lens-field){justify-content:flex-start;gap:14px}
+.library-toolbar:has(.aw-lens-field)>label{flex:0 1 640px;min-width:0;max-width:100%}
+.library-toolbar:has(.aw-lens-field)>[aria-live]{flex:none;align-self:flex-end;margin:0 0 12px;font-variant-numeric:tabular-nums}
+/* Word cabinet: number becomes a small engraved botanical specimen tab.
+   The source phrase, definition and occurrence metadata remain live text.
+   Ornament occupies the fixed index column, never the variable text column. */
+html[data-theme] .platform-page .aw-specimen-drawer .aw-word-specimen{grid-template-columns:44px minmax(0,1fr);column-gap:12px;row-gap:5px;padding:15px 10px 15px 5px;border-bottom:1px solid var(--aw-component-rule);border-left:0}
+html[data-theme] .aw-word-specimen .aw-index-tab{position:relative;isolation:isolate;align-self:start;min-height:67px;display:flex!important;align-items:center;justify-content:center;padding:7px 1px 21px;border:0;color:var(--aw-component-ink)!important;font:600 11px/1.2 'Plus Jakarta Sans',sans-serif!important;font-variant-numeric:tabular-nums;overflow:visible}
+.aw-word-specimen .aw-index-tab::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--atelier-specimen) center/100% 100% no-repeat;pointer-events:none}
+.aw-word-specimen .aw-index-tab::after{content:"";position:absolute;left:7px;right:7px;bottom:7px;height:23px;z-index:-1;background:var(--aw-art-leaves) center/contain no-repeat;pointer-events:none}
+html[data-theme] .aw-word-specimen>strong{font:500 clamp(20px,1.95vw,27px)/1.26 'Newsreader','Noto Sans JP',serif;color:var(--aw-component-ink);overflow-wrap:anywhere}
+.aw-word-specimen>span:not(.aw-index-tab){line-height:1.65}
+.aw-word-specimen>small{font-variant-numeric:tabular-nums}
+html[data-theme] .aw-word-specimen:hover{background:var(--aw-component-stock);box-shadow:inset 0 -2px var(--aw-marker)}
+/* Personal archive: an original heraldic nameplate rather than an arbitrary
+   portrait. Initials are still explicitly decorative, real names remain text. */
+html[data-theme] .platform-page .aw-person-register .person-item{position:relative;isolation:isolate;gap:18px;min-height:112px;padding:15px 23px 15px 17px;border:0!important;background:transparent!important}
+.aw-person-register .person-item::before{content:"";position:absolute;inset:0;z-index:-2;border:19px solid transparent;border-image:var(--aw-folio) 25 fill stretch;pointer-events:none}
+html[data-theme] .aw-person-register .person-monogram{position:relative;isolation:isolate;flex:none;width:68px;height:83px;display:grid;place-items:center;background:none;border:0!important;box-shadow:none;color:var(--aw-component-ink);font:500 24px/1 'Newsreader',Georgia,serif}
+.aw-person-register .person-monogram::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--atelier-dossier) center/100% 100% no-repeat;pointer-events:none}
+.aw-person-register .person-monogram::after{content:"";position:absolute;inset:auto 8px 5px;width:calc(100% - 16px);height:23px;background:var(--aw-art-leaves) right bottom/contain no-repeat;pointer-events:none;z-index:-1}
+.aw-person-register .person-item>div{min-width:0}
+.aw-person-register .person-item strong{font:500 26px/1.2 'Newsreader','Noto Sans JP',serif;overflow-wrap:anywhere}
+.aw-person-register .person-item small{font-size:12px;line-height:1.6}
+.aw-person-register .person-item>span:last-child{display:grid;place-items:center;flex:none;width:31px;height:31px;border:1px solid var(--aw-component-rule);border-radius:50% 50% 4px 50%;color:var(--aw-component-accent)}
+.aw-person-register .person-item:hover>span:last-child{background:var(--aw-selected-stock);color:var(--aw-selected-ink)}
+/* Private editions: a book-shaped cover with sewn edge and ribbon, rather
+   than the legacy flat category square. Preserve imported title and content. */
+html[data-theme] .lesson-card .cover{position:relative;isolation:isolate;border:0;background:transparent;color:var(--aw-component-ink);min-height:122px;font:600 29px/1 'Newsreader',Georgia,serif;padding:10px 9px 16px 15px}
+.lesson-card .cover::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--atelier-book) center/100% 100% no-repeat;pointer-events:none}
+.lesson-card .cover::after{content:"";position:absolute;inset:auto 14px 10px 23px;height:30px;z-index:-1;background:var(--aw-art-leaves) right center/contain no-repeat;pointer-events:none}
+html[data-theme] .lesson-card{gap:clamp(12px,2vw,24px);padding-block:18px}
+html[data-theme] .lesson-card>button{position:relative;min-width:64px}
+html[data-theme] .lesson-card>button:hover{filter:brightness(1.09)}
+/* Different edge grammars for each inline-note kind, without a decorative
+   margin that might force a phrase outside its line box. Keep both backgrounds
+   and all source highlight selectors from the canonical reader. */
+html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=language]{border-top-color:transparent;border-right-style:dotted;border-bottom-color:#b27c9c;border-radius:7px 0 5px 0}
+html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=context]{border-top-style:dotted;border-left-width:1px;border-bottom-width:2px;border-radius:0 6px 0 6px}
+html[data-theme] .study-original .en .annotation-group .in-situ-annotation{padding-block:1px;line-height:1.65}
+/* The active room retains its moonlit arch. Each aperture has a different
+   crown, keyed to the artwork already used for that specific room. */
+@media(min-width:641px){
+ .platform-header nav a[href="/"]::before{border-radius:50% 50% 3px 3px/24px 24px 3px 3px}
+ .platform-header nav a[href="/library/"]::before{border-radius:8px 8px 1px 1px}
+ .platform-header nav a[href="/topics/"]::before{border-radius:50% 50% 3px 3px/28px 28px 3px 3px}
+ .platform-header nav a[href="/people/"]::before{border-radius:26px 26px 8px 8px/16px 16px 8px 8px}
+ .platform-header nav a[href="/words/"]::before{border-radius:9px 50% 2px 2px/10px 18px 2px 2px}
+ .platform-header nav a[href="/concepts/"]::before{border-radius:18px 18px 2px 2px/9px 9px 2px 2px}
+ .platform-header nav a[href="/workspace/"]::before{border-radius:6px 24px 2px 2px/6px 20px 2px 2px}
+}
+@media(max-width:640px){
+ .aw-lens-field::before{border-width:12px 15px 12px 29px}
+ .library-toolbar:has(.aw-lens-field){gap:6px}
+ .library-toolbar:has(.aw-lens-field)>label{max-width:none}
+ .library-toolbar:has(.aw-lens-field)>[aria-live]{margin-bottom:8px}
+ html[data-theme] .platform-page .aw-specimen-drawer .aw-word-specimen{grid-template-columns:38px minmax(0,1fr);column-gap:10px;padding:12px 5px}
+ html[data-theme] .aw-word-specimen .aw-index-tab{min-height:60px;font-size:10px!important}
+ .aw-word-specimen .aw-index-tab::after{height:18px}
+ html[data-theme] .platform-page .aw-person-register .person-item{gap:11px;min-height:88px;padding:12px}
+ html[data-theme] .aw-person-register .person-monogram{width:51px;height:64px;font-size:20px}
+ .aw-person-register .person-monogram::after{height:17px}
+ .aw-person-register .person-item strong{font-size:21px}
+ .aw-person-register .person-item small{font-size:11px}
+ .aw-person-register .person-item>span:last-child{width:26px;height:26px}
+ html[data-theme] .lesson-card .cover{min-height:90px;font-size:23px}
+ html[data-theme] .lesson-card{gap:12px;padding-block:14px}
+ .lesson-card .cover::after{height:21px;inset:auto 10px 7px 16px}
+}
+@media(max-width:350px){.library-toolbar:has(.aw-lens-field)>[aria-live]{margin:0;justify-self:end}.aw-lens-field::before{border-left-width:25px}}
+@media(prefers-reduced-motion:no-preference){.aw-word-specimen,.aw-person-register .person-item>span:last-child,.lesson-card>button{transition:background-color .15s,color .15s,filter .15s}}
+:where(.aw-word-specimen,.aw-person-register .person-item,.lesson-card>button):focus-visible{outline:2px solid var(--aw-component-focus);outline-offset:3px}
