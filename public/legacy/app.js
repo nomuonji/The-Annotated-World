@@ -47,7 +47,8 @@ function lessons(){return [window.AW_DEMO,...state.imports];}
 function el(tag,cls,text){const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node;}
 function button(label,fn){const b=el("button","",label);b.type="button";b.addEventListener("click",fn);return b;}
 function link(label,url){const a=el("a","",label);a.href=url;a.target="_blank";a.rel="noopener noreferrer";return a;}
-function show(id){for(const x of ["library","reader","saved"])$(x).hidden=x!==id;window.scrollTo(0,0);$("main").focus({preventScroll:true});}
+function syncWorkspaceNav(id){for(const [key,active] of [["libraryNav",id!=="saved"],["savedNav",id==="saved"]]){if(active)$(key).setAttribute("aria-current","page");else $(key).removeAttribute("aria-current");}}
+function show(id){for(const x of ["library","reader","saved"])$(x).hidden=x!==id;syncWorkspaceNav(id);window.scrollTo(0,0);$("main").focus({preventScroll:true});}
 function library(){
  current=null;show("library");renderShelf();
 }
@@ -117,4 +118,4 @@ $("importFile").addEventListener("change",async event=>{
 });
 for(const k of ["translation","notes","highlights"])$(k).addEventListener("click",()=>{state.prefs[k]=!state.prefs[k];renderChapter();});
 $("home").addEventListener("click",library);$("libraryNav").addEventListener("click",library);$("savedNav").addEventListener("click",savedView);$("search").addEventListener("input",renderShelf);$("prev").addEventListener("click",()=>goChapter(chapterIndex-1));$("next").addEventListener("click",()=>goChapter(chapterIndex+1));
-load();renderShelf();renderPrefs();
+load();renderShelf();renderPrefs();syncWorkspaceNav("library");
