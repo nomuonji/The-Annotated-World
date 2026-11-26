@@ -1,4 +1,6 @@
 ---
+import ArchiveSearch from '../components/ArchiveSearch.astro';
+import ArchiveGlyph from '../components/ArchiveGlyph.astro';
 import EmptyState from '../components/EmptyState.astro';
 import RoomHeader from '../components/RoomHeader.astro';
 import Archive from '../layouts/Archive.astro';
@@ -14,10 +16,10 @@ const formats=distinct(ds.map(d=>d.data.category)),levels=distinct(ds.map(d=>d.d
 <Archive title="全資料 — The Annotated World" wide>
  <RoomHeader room="library"><p class="eyebrow">LIBRARY</p><h1>すべての資料</h1><p>タイトル、話者、テーマから、読みたい資料や章を見つける。</p></RoomHeader>
  <div class="aw-library-desk"><div><p class="aw-section-kicker">ACCESSION REGISTER / 収蔵台帳</p><h2>読みたい一冊を見つける。</h2><p>{ds.length}資料 · {chapters.length}章を収蔵</p></div><RandomChapter docs={ds}/></div>
- <div class="library-toolbar"><label for="find">検索<input type="search" id="find" placeholder="例：ジジェク、映画、AI"/></label><span id="result-count" aria-live="polite">{ds.length}資料</span></div>
+ <ArchiveSearch inputId="find" label="資料・章の検索" placeholder="例：ジジェク、映画、AI" countId="result-count" count={ds.length} unit="資料"/>
  <div class="library-filters" data-library-controls hidden>
- <div class="library-tabs" role="group" aria-label="検索対象"><button type="button" data-scope="docs" aria-pressed="true">資料</button><button type="button" data-scope="chapters" aria-pressed="false">章</button></div>
- <details class="library-filter-details"><summary>絞り込み</summary><div class="library-filter-inputs">
+ <div class="library-tabs" role="group" aria-label="検索対象"><button type="button" data-scope="docs" aria-pressed="true"><ArchiveGlyph name="book" size={19}/>資料</button><button type="button" data-scope="chapters" aria-pressed="false"><ArchiveGlyph name="chapter" size={19}/>章</button></div>
+ <details class="library-filter-details"><summary><ArchiveGlyph name="filter" size={18}/>絞り込み<span class="aw-active-filter-count" id="active-filter-count" hidden></span></summary><div class="library-filter-inputs">
  <label>長さ<select id="filter-time"><option value="">すべて</option><option value="5">5分以内</option><option value="15">15分以内</option><option value="30">30分以内</option><option value="long">30分超</option><option value="unknown">不明</option></select></label>
  <label>形式<select id="filter-format"><option value="">すべて</option>{formats.map(x=><option>{x}</option>)}</select></label>
  {levels.length>0&&<label>推定難易度<select id="filter-difficulty"><option value="">すべて</option>{levels.map(x=><option>{x}</option>)}</select></label>}
@@ -51,6 +53,7 @@ function filter(){
  for(const button of scopeButtons)button.setAttribute('aria-pressed',String(button.dataset.scope===scope));
  document.getElementById('result-grid')!.hidden=scope!=='docs';document.getElementById('chapter-results')!.hidden=scope!=='chapters';
  for(const card of scope==='docs'?cards:chapters){const matches=q.every(t=>card.dataset.search?.includes(t))&&filters.every(([id,select])=>{const value=select?.value;if(!value)return true;if(id==='feature')return (JSON.parse(card.dataset.features||'[]') as string[]).includes(value);if(id==='time'&&value!=='unknown'&&value!=='long'){const allowed=['5','15','30'];return allowed.indexOf(card.dataset.time||'')>=0&&allowed.indexOf(card.dataset.time||'')<=allowed.indexOf(value);}return card.dataset[id]===value;});card.hidden=!matches;if(matches)n++;}
+ const filterCount=filters.filter(([,select])=>select?.value).length;const filterIndicator=document.getElementById('active-filter-count')!;filterIndicator.hidden=!filterCount;filterIndicator.textContent=String(filterCount)+'件';
  document.getElementById('aw-shelf-scope')!.textContent=scope==='docs'?'資料':'章';
  document.getElementById('result-count')!.textContent=n+(scope==='docs'?'資料':'章');document.getElementById('no-documents')!.hidden=n!==0;
  storeQuery();

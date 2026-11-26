@@ -8,8 +8,8 @@ const chapters=d.data.chapterIndex.filter(c=>c.seconds!==null);
 ---
 {vid&&<section class="source-video study-video" id="source-video" data-video={embed}>
 <div class="section-heading aw-cinema-heading"><h2><span class="aw-cinema-serial" aria-hidden="true">07 /</span> Original video <small>映写室 / 元動画</small></h2><a href={d.data.source} target="_blank" rel="noopener noreferrer">YouTube ↗</a></div>
-<div class="video-frame"><iframe id="original-player" src={embed} title={d.data.title+' — 元動画'} loading="eager" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-<div class="video-quick-controls" data-video-enhancement hidden>
+<div class="video-frame aw-film-gate"><iframe id="original-player" src={embed} title={d.data.title+' — 元動画'} loading="eager" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<div class="video-quick-controls aw-film-controls" data-video-enhancement hidden>
  <button type="button" id="play-pause" class="study-control" disabled aria-label="再生 — 動画を再生">▶ 再生</button>
  <label class="speed-label">速度 <select id="playback-speed" disabled aria-label="再生速度"><option value="1">1×</option></select></label>
  <button type="button" id="follow-video" aria-pressed="false" class="study-control" disabled>自動追従</button>

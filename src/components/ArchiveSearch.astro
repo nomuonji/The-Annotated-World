@@ -1,0 +1,9 @@
+---
+import ArchiveGlyph from './ArchiveGlyph.astro';
+interface Props {inputId:string;label:string;placeholder:string;countId:string;count:number;unit:string;index?:boolean}
+const {inputId,label,placeholder,countId,count,unit,index=false}=Astro.props;
+---
+<div class="library-toolbar aw-search-station" data-index-controls={index?'':undefined} hidden={index}>
+ <label class="aw-search-label" for={inputId}><span class="aw-search-caption">{label}</span><span class="aw-search-field"><ArchiveGlyph name="search" size={22}/><input type="search" id={inputId} placeholder={placeholder}/></span></label>
+ <div class="aw-search-result"><small aria-hidden="true">RESULTS</small><span id={countId} data-index-count={index?'':undefined} data-unit={unit} aria-live="polite">{count}{unit}</span></div>
+</div>
