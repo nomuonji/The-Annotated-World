@@ -191,3 +191,37 @@ html[data-theme] .video-quick-controls .study-control:disabled{opacity:.65}
  .library-toolbar>[aria-live]{justify-self:end}
  html[data-theme] .study-original .en .annotation-group .in-situ-annotation{padding-inline:2px;border-left-width:1px}
 }
+
+/* Atelier second pass: additive art at the moment of entering a text.
+   Retain the accepted book frames, navigation and all source imagery.
+   These two signatures are not a reusable border for every small control. */
+:root{--aw-reading-plaque:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20180%2072%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22paper%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23fff4df%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23e7c9b2%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M3%2036Q8%2029%2010%2017L24%2017Q28%204%2042%203Q56%203%2066%2012H154Q163%2012%20166%2021L177%2036L166%2051Q163%2060%20154%2060H66Q55%2069%2042%2069Q27%2068%2024%2055H10Q8%2043%203%2036Z%22%20fill%3D%22url(%23paper)%22%20stroke%3D%22%2395617d%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M10%2036L15%2022H28Q32%208%2042%208Q55%208%2064%2017H154Q159%2017%20161%2023L171%2036L161%2049Q159%2055%20154%2055H64Q54%2064%2042%2064Q32%2064%2028%2050H15Z%22%20fill%3D%22none%22%20stroke%3D%22%23ae846f%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M155%2026l5%2010-5%2010M66%2019v34%22%20fill%3D%22none%22%20stroke%3D%22%2395617d%22%20stroke-width%3D%221%22%2F%3E%3Cpath%20d%3D%22M42%203l2%204-2%204-2-4zM42%2061l2%204-2%204-2-4z%22%20fill%3D%22%2395617d%22%2F%3E%3C%2Fsvg%3E");--aw-plaque-ink:#522e46;--aw-plaque-fill:#f2dece}
+html[data-theme=dark]{--aw-reading-plaque:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20180%2072%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22paper%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%2365415e%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2339273e%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M3%2036Q8%2029%2010%2017L24%2017Q28%204%2042%203Q56%203%2066%2012H154Q163%2012%20166%2021L177%2036L166%2051Q163%2060%20154%2060H66Q55%2069%2042%2069Q27%2068%2024%2055H10Q8%2043%203%2036Z%22%20fill%3D%22url(%23paper)%22%20stroke%3D%22%23d5ac88%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M10%2036L15%2022H28Q32%208%2042%208Q55%208%2064%2017H154Q159%2017%20161%2023L171%2036L161%2049Q159%2055%20154%2055H64Q54%2064%2042%2064Q32%2064%2028%2050H15Z%22%20fill%3D%22none%22%20stroke%3D%22%23e9caa5%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M155%2026l5%2010-5%2010M66%2019v34%22%20fill%3D%22none%22%20stroke%3D%22%23e9caa5%22%20stroke-width%3D%221%22%2F%3E%3Cpath%20d%3D%22M42%203l2%204-2%204-2-4zM42%2061l2%204-2%204-2-4z%22%20fill%3D%22%23f8dfaf%22%2F%3E%3C%2Fsvg%3E");--aw-plaque-ink:#fff0df;--aw-plaque-fill:#4d314b}
+/* The illustrated book crest physically rises from the scalloped reading plaque. */
+html[data-theme] .document-entry .read-link{position:relative;isolation:isolate;align-items:center;justify-content:space-between;gap:10px;min-height:62px;width:max-content;max-width:100%;padding:11px 21px 11px 59px!important;color:var(--aw-plaque-ink)!important;font:600 13px/1.45 'Noto Sans JP',sans-serif;background:transparent!important;overflow-wrap:anywhere}
+.document-entry .read-link::before{inset:0;border:0;border-image:none;background:var(--aw-reading-plaque) center/100% 100% no-repeat;z-index:-2}
+.document-entry .read-link::after{content:"";position:absolute;left:4px;top:50%;width:55px;height:48px;transform:translateY(-50%);background:var(--aw-art-book) center/contain no-repeat;pointer-events:none;z-index:-1}
+.document-entry .read-link .aw-reading-label{min-width:0;display:flex;flex-direction:column;gap:1px}
+.document-entry .read-link .aw-reading-label small{font:500 10px/1.2 'Newsreader',Georgia,serif;letter-spacing:.04em;color:inherit}
+.document-entry .read-link .aw-reading-arrow{flex:none;font-size:15px;line-height:1;color:inherit}
+.document-entry .read-link:hover{filter:brightness(1.06)}
+/* Keep the original ornamental folio edge; add a binding marker rather than
+   a new surrounding frame. The source thumbnail stays completely unobscured. */
+.document-entry:not(.aw-video-document) .document-cover.aw-illustrated-cover::after{width:23px;right:9px;padding:5px 0 14px;background:linear-gradient(90deg,#713650,#ad6486 48%,#854362);color:#fff0cf;clip-path:polygon(0 0,100% 0,100% 100%,50% 74%,0 100%);font-size:13px}
+.document-entry:not(.aw-video-document) .document-info h3{font-family:'Newsreader','Noto Sans JP',serif;line-height:1.24;margin-bottom:6px}
+.document-entry:not(.aw-video-document) .document-info .document-facts{font-variant-numeric:tabular-nums;line-height:1.65}
+/* Active room: artwork occupies a moonlit arch rather than a white rectangle
+   stretched behind the label. Preserve the existing arched navigation. */
+.platform-header nav a[aria-current]::before{background:radial-gradient(ellipse at 50% 35%,#fff2d6 0%,#ead0c0 52%,#d9b4bb 100%);border:1px solid #a67979;border-radius:50% 50% 2px 2px/15px 15px 2px 2px}
+.platform-header nav a[aria-current] .aw-nav-art{filter:drop-shadow(0 1px 1px #55304740)}
+@media(max-width:640px){
+ html[data-theme] .document-entry .read-link{min-height:54px;padding:9px 14px 9px 43px!important;gap:5px;font-size:12px}
+ .document-entry .read-link::after{left:2px;width:43px;height:39px}
+ .document-entry .read-link .aw-reading-label small{font-size:9px}
+ .document-entry .read-link .aw-reading-arrow{font-size:12px}
+ .platform-header nav a[aria-current]::before{border-radius:45% 45% 0 0/8px 8px 0 0}
+}
+@media(max-width:350px){
+ html[data-theme] .document-entry .read-link{padding-left:34px!important;padding-right:9px!important;font-size:11px;gap:3px}
+ .document-entry .read-link::after{width:33px;height:34px;left:1px}
+}
