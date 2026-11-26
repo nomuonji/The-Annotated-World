@@ -335,3 +335,8 @@ html[data-theme] .video-quick-controls #play-pause{display:inline-flex;align-ite
 #play-pause:not(:disabled):hover .aw-play-dial{filter:brightness(1.18)}
 @media(max-width:899px){.study-mode button::before{width:15px;height:15px}.video-pinned .aw-play-dial{width:27px;height:27px}.video-pinned .aw-play-dial::after{inset:8px 8px 8px 10px}.video-pinned #play-pause[data-playing=true] .aw-play-dial::after{inset:8px 9px}.video-pinned .study-mode button::before{display:none}}
 @media(max-width:380px){.study-mode button::before{display:none}html[data-theme] .study-mode button{padding-inline:8px}}
+
+/* Preserve the complete canonical heading text. Set the existing promotional
+   suffix in a secondary measure instead of deleting source metadata. */
+.reader-page>.hero h1 .aw-title-subtitle{display:block;font:500 clamp(13px,1.35vw,17px)/1.5 'Noto Sans JP',sans-serif;letter-spacing:.015em;margin-top:8px;color:var(--aw-component-muted)}
+.document-entry h3 .aw-title-subtitle{display:block;font:500 12px/1.5 'Noto Sans JP',sans-serif;letter-spacing:0;margin-top:4px;color:var(--aw-component-muted)}
