@@ -4,11 +4,12 @@ import {displayDocumentTitle,documentUrl,genreById,genreUrl,personUrl,docTopics,
 interface Props{doc:Doc;featured?:boolean;reason?:string; presentation?:'edition'|'video'}
 const {doc:d,featured=false,reason,presentation='edition'}=Astro.props;
 const g=genreById(d.data.genre);
+const displayTitle=displayDocumentTitle(d.data.title);
 ---
 <article class:list={['document-entry','discovery-card',{'featured-document':featured,'aw-video-document':presentation==='video'}]} data-document data-search={[searchText(d),d.data.difficulty,...d.data.englishFeatures,d.data.series].join(' ').toLowerCase()} data-format={d.data.category} data-difficulty={d.data.difficulty||''} data-time={timeBand(durationSeconds(d.data.duration))} data-features={JSON.stringify(d.data.englishFeatures)} data-series={d.data.series||''}>
  <DocumentCover doc={d} featured={featured} genreColor={g?.color} genreName={g?.name} presentation={presentation}/>
  <div class="document-info"><div class="card-kicker">{g&&<a href={genreUrl(g.id)}>{g.name}</a>}<span>{d.data.category}</span>{reason&&<span>{reason}</span>}</div>
- <h3><a href={documentUrl(d)}>{displayDocumentTitle(d.data.title)}</a></h3>
+ <h3><a href={documentUrl(d)}>{displayTitle}{displayTitle!==d.data.title&&<span class="aw-title-subtitle">{d.data.title.slice(displayTitle.length)}</span>}</a></h3>
  <div class="document-author">{d.data.people.length?d.data.people.map(p=><a href={personUrl(p.id)}>{p.name}</a>):d.data.author}</div>
  <p class="document-deck">{d.data.description}</p>
  <p class="document-facts">{d.data.duration&&d.data.duration+' · '}{d.data.chapterCount}章 · {d.data.utteranceCount}発話 {d.data.difficulty&&' · 推定 '+d.data.difficulty}</p>
