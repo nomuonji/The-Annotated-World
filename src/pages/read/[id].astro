@@ -7,7 +7,7 @@ import {matchingConcepts,conceptUrl} from '../../lib/lexicon';
 import DocumentCard from '../../components/DocumentCard.astro';
 import {getCollection,type CollectionEntry} from 'astro:content';
 import {load} from 'cheerio';
-import {genreById,genreUrl,personUrl,docTopics,topicUrl,related,documents,chapterSeconds} from '../../lib/discovery';
+import {displayDocumentTitle,genreById,genreUrl,personUrl,docTopics,topicUrl,related,documents,chapterSeconds} from '../../lib/discovery';
 export async function getStaticPaths(){return (await getCollection('documents')).map(document=>({params:{id:document.id},props:{document}}));}
 interface Props{document:CollectionEntry<'documents'>}
 const doc=Astro.props.document,d=doc.data;
@@ -15,7 +15,11 @@ const g=genreById(d.genre),ts=docTopics(doc);
 const allDocuments=await documents();
 const recommendations=related(allDocuments,doc);
 const $=load(d.bodyHtml,null,false);
-const hero=$('.hero').first().toString();$('.hero').first().remove();
+const heroNode=$('.hero').first();
+const heroTitle=heroNode.find('h1').first();
+const visibleTitle=displayDocumentTitle(heroTitle.text());
+if(visibleTitle!==heroTitle.text())heroTitle.text(visibleTitle);
+const hero=heroNode.toString();heroNode.remove();
 for(const c of d.chapterIndex){
  const head=$('section.sec').filter((_,el)=>$(el).attr('id')===c.anchor).find('.sec-header').first();
  if(!head.length)continue;
