@@ -10,5 +10,5 @@ function setup(reader:HTMLElement){
  function search(){clear();const q=input.value.trim().toLowerCase();results=q?original.filter(o=>o.text.includes(q)).map(o=>o.el):[];index=-1;for(const el of results)el.classList.add('search-hit');prev.disabled=next.disabled=!results.length;count.textContent=q?results.length+' 発話に一致':'一致した発話に移動';}
  input.addEventListener('input',search);input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();showHit(index+1);}});prev.addEventListener('click',()=>showHit(index<0?results.length-1:index-1));next.addEventListener('click',()=>showHit(index+1));
  // A compact search toolbar remains accessible from the sticky reading toolbar.
- const quick=document.createElement('button');quick.type='button';quick.textContent='本文検索';quick.className='study-control quick-reader-tools';quick.addEventListener('click',()=>{controls.setAttribute('open','');controls.scrollIntoView({block:'start'});input.focus({preventScroll:true});});document.querySelector('.study-secondary')?.append(quick);
+ const quick=document.getElementById('quick-reader-tools');quick?.addEventListener('click',()=>{controls.setAttribute('open','');controls.scrollIntoView({block:'start'});input.focus({preventScroll:true});});
 }

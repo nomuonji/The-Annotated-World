@@ -1,0 +1,5 @@
+---
+interface Props { href:string; title:string; detail?:string; meta:string; search?:string; english?:boolean }
+const {href,title,detail,meta,search,english=false}=Astro.props;
+---
+<a class="word-card aw-index-record" href={href} data-index-search={search}><strong lang={english?'en':undefined}>{title}</strong>{detail&&<span>{detail}</span>}<small>{meta}</small></a>

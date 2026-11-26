@@ -12,6 +12,7 @@ const {doc:d}=Astro.props;
  <div class="study-secondary">
  <label class="study-chapter-label"><span class="sr-only">章に移動</span><select id="study-chapter-nav" aria-label="章に移動"><option value="">目次・章へ移動</option>{d.data.chapterIndex.map(c=><option value={c.anchor}>第{c.order}章｜{c.title}</option>)}</select></label>
  <button type="button" id="study-size" class="study-control" aria-label="文字サイズを変更">A↗</button>
+ <button type="button" class="study-control quick-reader-tools" id="quick-reader-tools">本文検索</button>
  <button type="button" id="reader-annotations" class="study-control" aria-pressed="true" aria-label="文中注釈を非表示にする">注釈 ON</button>
  </div>
 </div>

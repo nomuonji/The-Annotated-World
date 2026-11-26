@@ -181,6 +181,7 @@ for(const c of d.chapterIndex){
 // Add in-place exits between chapters, without changing the canonical source text.
 for(const c of d.chapterIndex){
  const section=$('section.sec').filter((_,el)=>$(el).attr('id')===c.anchor);
+ section.find('.sec-header').first().prepend($('<p>').addClass('aw-reader-chapter-no').text('CHAPTER '+String(c.order).padStart(2,'0')+' / '+String(d.chapterIndex.length).padStart(2,'0')));
  const duration=chapterSeconds(doc,c);
  if(duration!==null)section.find('.sec-header').first().append($('<p>').addClass('chapter-duration').text('動画内の区間：約'+Math.ceil(duration/60)+'分'));
  const trail=$('<nav>').addClass('chapter-trail').attr('aria-label','章単位モード：章から章へ');
@@ -227,7 +228,7 @@ const labels={coverage:{full:'全文（照合済みの範囲）',excerpt:'抜粋
    const style=document.createElement('style');
    style.id='aw-initial-chapter';
    const id=CSS.escape(chapter);
-   style.textContent='.study-original section.sec:not(#'+id+'),.study-original .toc,.study-original .sources{display:none!important}';
+   style.textContent='.study-original section.sec:not(#'+id+'),.study-original .toc,.study-original .sources{display:none!important}.study-original #'+id+' .chapter-trail{display:block}';
    document.head.append(style);
   }
  </script>
