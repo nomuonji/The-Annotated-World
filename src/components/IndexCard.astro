@@ -1,5 +1,5 @@
 ---
-interface Props { href:string; title:string; detail?:string; meta:string; search?:string; english?:boolean }
-const {href,title,detail,meta,search,english=false}=Astro.props;
+interface Props { href:string; title:string; detail?:string; meta:string; search?:string; english?:boolean; kind?:string; serial?:number }
+const {href,title,detail,meta,search,english=false,kind,serial}=Astro.props;
 ---
-<a class="word-card aw-index-record" href={href} data-index-search={search}><strong lang={english?'en':undefined}>{title}</strong>{detail&&<span>{detail}</span>}<small>{meta}</small></a>
+<a class:list={["word-card","aw-index-record",english?"aw-word-specimen":"aw-concept-file"]} href={href} data-index-search={search} data-kind={kind}><span class="aw-index-tab" aria-hidden="true">{serial!==undefined?String(serial).padStart(3,"0"):"·"}{kind&&<span>{kind}</span>}</span><strong lang={english?'en':undefined}>{title}</strong>{detail&&<span>{detail}</span>}<small>{meta}</small></a>

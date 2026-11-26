@@ -41,6 +41,8 @@ try{
     if(path==='/'){
      const violations=await page.evaluate(()=>[...document.querySelectorAll('.aw-atlas-center-art .aw-atlas-annotator,.aw-atlas-object img')].filter(img=>{const r=img.getBoundingClientRect(),p=img.parentElement.getBoundingClientRect();return r.left<p.left-1||r.right>p.right+1||r.top<p.top-1||r.bottom>p.bottom+1}).map(img=>img.src));
      assert.deepEqual(violations,[],width+' atlas artwork spills beyond its layer');
+     const portals=page.locator('.aw-atlas-portal img');assert.equal(await portals.count(),6);assert.ok(await portals.evaluateAll(imgs=>imgs.every(i=>i.naturalWidth>0&&i.getBoundingClientRect().width>0)),'All room views visible');
+     for(const room of await page.locator('[data-room-link]').all()){await room.scrollIntoViewIfNeeded();assert.ok(await room.evaluate(a=>{const b=a.getBoundingClientRect();return a.contains(document.elementFromPoint(b.x+b.width/2,b.y+b.height/2))}),'Room link obscured at '+width);}
      const cinema=page.locator('.aw-atlas-cinema');await cinema.scrollIntoViewIfNeeded();
      assert.ok(await cinema.evaluate(a=>{const r=a.getBoundingClientRect(),e=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return a.contains(e)}),'Cinema link obscured at '+width);
      await page.evaluate(()=>window.scrollTo(0,0));

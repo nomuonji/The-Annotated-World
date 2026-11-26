@@ -1,0 +1,73 @@
+/* Architectural edition. The six rooms are actual illustrated portals, not dashboard tiles. */
+.aw-architectural-atlas{padding:24px clamp(14px,3.5vw,48px) 12px;--atlas-gold:#d3af87}
+.aw-architectural-atlas .aw-atlas-scene{opacity:.16}
+.aw-architectural-atlas:before{background:radial-gradient(ellipse at center,#39253c00,#17132155 70%,#171321bb);z-index:-1}
+.aw-atlas-architecture{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;z-index:-2;opacity:.94}
+.aw-atlas-dust{position:absolute;inset:0;pointer-events:none;z-index:-1;opacity:.55;background-image:radial-gradient(circle at 21% 13%,#eed5b8 0 .7px,transparent 1.8px),radial-gradient(circle at 82% 31%,#f9d8ed 0 .8px,transparent 1.8px),radial-gradient(circle at 63% 70%,#e4b88a 0 .7px,transparent 1.6px);background-size:173px 193px,239px 257px,293px 317px}
+.aw-architectural-atlas .aw-atlas-nav{grid-template-columns:minmax(0,1fr) minmax(0,.76fr) minmax(0,1fr);grid-template-rows:repeat(3,minmax(145px,1fr));gap:12px clamp(12px,2.3vw,34px);min-height:510px}
+.aw-architectural-atlas .aw-atlas-room{min-height:145px;display:grid;grid-template-columns:minmax(74px,42%) minmax(0,1fr);gap:10px;align-items:center;padding:5px 0;overflow:visible;isolation:isolate}
+.aw-atlas-portal{position:relative;display:block;grid-row:1;grid-column:1;width:100%;height:134px;border:1px solid #c6a47e;overflow:hidden;border-radius:50% 50% 2px 2px / 40% 40% 2px 2px;box-shadow:0 0 0 4px #241b2d,0 0 0 5px #98795f88,inset 0 0 10px #100b16;pointer-events:none}
+.aw-atlas-portal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% center;filter:saturate(.85) brightness(.88)}
+.aw-atlas-portal:after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(0deg,#181221b8,transparent 65%);box-shadow:inset 0 0 12px #100b16;pointer-events:none}
+.aw-architectural-atlas .aw-atlas-object{position:relative;grid-row:1;grid-column:1;align-self:end;justify-self:end;margin:0 -5px -1px 0;width:clamp(43px,5.9vw,88px);height:clamp(47px,6.1vw,91px);z-index:2;pointer-events:none}
+.aw-architectural-atlas .aw-atlas-object-ring{display:none}
+.aw-architectural-atlas .aw-atlas-object img{filter:drop-shadow(0 2px 5px #100b17)}
+.aw-architectural-atlas .aw-atlas-room-label{grid-row:1;grid-column:2;align-self:stretch;justify-content:center;background:linear-gradient(90deg,#21192aef,#21192a99);border-block:1px solid #b6926e88;padding:8px 6px 8px 10px}
+.aw-architectural-atlas .aw-atlas-room-label strong{font-size:clamp(14px,1.6vw,22px)}
+.aw-architectural-atlas .aw-atlas-room-label small{letter-spacing:.02em}
+.aw-architectural-atlas .aw-atlas-center-art{height:clamp(215px,25vw,340px);width:100%;max-width:270px}
+.aw-architectural-atlas .aw-atlas-center-art:before{inset:0 8px 0;border-radius:50% 50% 3px 3px/40% 40% 3px 3px;box-shadow:0 0 0 5px #a4826433,0 0 34px #c992be1c;background:radial-gradient(ellipse at center,#ab78a125,transparent 70%)}
+.aw-architectural-atlas .aw-atlas-central-caption{width:100%;background:#1d1727f2;padding:4px 5px 10px}
+.aw-atlas-central-caption>img{display:block;margin:-1px auto 2px;width:100px;height:30px;object-fit:contain}
+.aw-architectural-atlas .aw-atlas-cinema{width:100%;justify-content:center}
+.aw-architectural-atlas .aw-atlas-room:hover .aw-atlas-portal,.aw-architectural-atlas .aw-atlas-room:focus-visible .aw-atlas-portal{box-shadow:0 0 0 4px #241b2d,0 0 0 5px #f5d1a6,0 0 20px #c6a47e77}
+.aw-architectural-atlas .aw-atlas-room:hover .aw-atlas-portal img,.aw-architectural-atlas .aw-atlas-room:focus-visible .aw-atlas-portal img{filter:saturate(1.05) brightness(1.1)}
+.aw-architectural-atlas .aw-atlas-room:hover .aw-atlas-object img,.aw-architectural-atlas .aw-atlas-room:focus-visible .aw-atlas-object img{transform:none}
+.aw-architectural-atlas .aw-atlas-room-label strong span{display:inline}
+.aw-room-return{margin-left:auto;min-height:32px;display:inline-flex;align-items:center;font-size:11px;color:inherit;text-underline-offset:3px;letter-spacing:0}
+.aw-room-full .aw-room-return{color:#f4cadd}
+.aw-room-head{border-bottom:3px double var(--aw-brass-line)}
+.aw-room-head[data-room=observatory]{--room-ink:#8b79a4}
+.aw-room-head[data-room=lexicon]{--room-ink:#b08a68}
+.aw-room-head[data-room=concepts]{--room-ink:#99799c}
+.aw-room-head[data-room=people]{--room-ink:#9d7a75}
+.aw-room-head[data-room=library]{--room-ink:#af8a63}
+.aw-room-head:before{border-color:color-mix(in srgb,var(--room-ink,#b5936c) 60%,transparent)}
+.aw-room-title .eyebrow{margin-bottom:5px}
+/* The archive shelf is a binding and accession register rather than generic dashboard cards. */
+.aw-accession-shelf{gap:22px 18px;padding:14px 0 18px;border-bottom:4px double var(--aw-brass-line)}
+.aw-accession-shelf .document-entry{position:relative;grid-template-columns:minmax(94px,30%) minmax(0,1fr);border:0;border-block:1px solid var(--hair);background:linear-gradient(90deg,var(--aw-lavender) 0 3px,var(--aw-surface) 3px);padding:18px 14px;box-shadow:none}
+.aw-accession-shelf .document-cover{box-shadow:4px 3px 0 color-mix(in srgb,var(--aw-brass-line) 45%,transparent);border-left:4px double var(--aw-brass-line)}
+.aw-accession-shelf .document-info{min-width:0}
+.aw-accession-shelf .card-kicker{border-bottom:1px solid var(--hair);padding-bottom:8px}
+.aw-accession-shelf .document-facts{border-top:1px dashed var(--hair);padding-top:7px;font-variant-numeric:tabular-nums}
+.aw-accession-shelf .read-link{border-bottom:1px solid var(--aw-brass-line);text-underline-offset:4px}
+.aw-specimen-drawer,.aw-concept-drawer{counter-reset:record;border-top:1px solid var(--hair);grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px!important}
+.platform-page .aw-specimen-drawer .aw-index-record,.platform-page .aw-concept-drawer .aw-index-record{display:grid;grid-template-columns:42px minmax(0,1fr);grid-template-rows:auto auto auto;column-gap:12px;row-gap:3px;position:relative;border:0;border-bottom:1px solid var(--hair);border-left:0;padding:14px 8px;background:transparent;min-width:0;align-content:start}
+.platform-page .aw-index-record[hidden]{display:none!important}
+.aw-index-tab{grid-column:1;grid-row:1/4;align-self:stretch;display:flex!important;flex-direction:column;gap:6px!important;color:var(--accent-text)!important;font:700 10px/1.5 monospace!important;border-right:1px solid var(--aw-brass-line);padding-right:6px;overflow-wrap:anywhere}
+.aw-index-tab>span{font:500 10px/1.5 'Noto Sans JP',sans-serif;color:var(--mute)}
+.aw-index-record>strong,.aw-index-record>span:not(.aw-index-tab),.aw-index-record>small{grid-column:2;min-width:0}
+.aw-word-specimen>strong{font-size:clamp(20px,2.2vw,27px)}
+.aw-concept-file .aw-index-tab{border-right-style:double;border-right-width:3px}
+.aw-concept-file[data-kind=書籍] .aw-index-tab{border-right-color:#ac845f}.aw-concept-file[data-kind=映画] .aw-index-tab{border-right-color:#ae7897}.aw-concept-file[data-kind=人物] .aw-index-tab{border-right-color:#8d7eae}
+.platform-page:has(.aw-room-head) .aw-topic-register{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}
+.platform-page:has(.aw-room-head) .aw-topic-register .topic-index-link{display:grid;grid-template-columns:30px minmax(0,1fr) auto;column-gap:8px;row-gap:4px;align-items:center;padding:12px 6px}
+.aw-topic-coordinate{font:700 11px/1.5 monospace;color:var(--accent-text);border-right:1px solid var(--aw-brass-line);grid-row:1/3}
+.aw-topic-register .topic-index-link>span:nth-child(2){font-weight:700;overflow-wrap:anywhere}
+.aw-topic-pips{display:flex;gap:3px;align-items:center;justify-content:flex-end;grid-column:3}
+.aw-topic-pips i{width:5px;height:10px;background:var(--accent);display:block}
+.aw-topic-register .topic-index-link small{grid-column:2/4}
+.aw-person-register .person-item{border-left:0!important;border-top:1px solid var(--hair);border-bottom:3px double var(--hair);background:var(--aw-surface)}
+.aw-person-register .person-monogram{border-radius:0;border:1px solid var(--aw-brass-line);box-shadow:inset 0 0 0 3px var(--aw-surface)}
+.aw-empty-genre{position:relative;border:1px solid var(--hair);border-bottom:3px double var(--aw-brass-line);padding:22px 16px;background:var(--aw-surface)}
+.aw-empty-genre img{float:right;max-width:20%;height:auto;margin:0 0 10px 12px}
+.reader-page .study-original .sec-header{border-top:3px double var(--aw-brass-line)}
+.reader-page .study-original .aw-reader-chapter-no{letter-spacing:.12em}
+.reader-page .study-original .sec-header h2{font-feature-settings:"palt"}
+.reader-page .study-original .en .in-situ-annotation{border-left-width:2px}
+@media(min-width:1001px){.aw-architectural-atlas .aw-atlas-center{justify-content:center}.aw-architectural-atlas .aw-atlas-portal{height:136px}.aw-architectural-atlas .aw-atlas-room-label{max-height:112px;align-self:center}}
+@media(max-width:1000px){.aw-architectural-atlas .aw-atlas-nav{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;min-height:0;gap:14px 18px}.aw-architectural-atlas .aw-atlas-center{grid-column:1/-1;grid-row:1;max-width:290px}.aw-architectural-atlas .aw-atlas-center-art{height:220px;width:210px}.aw-architectural-atlas .aw-atlas-room{grid-column:auto;grid-row:auto}.aw-architectural-atlas .aw-atlas-portal{height:112px}.aw-atlas-architecture{opacity:.52;object-fit:cover}}
+@media(max-width:640px){.aw-architectural-atlas{padding:12px 10px 8px}.aw-architectural-atlas .aw-atlas-nav{gap:14px 9px}.aw-architectural-atlas .aw-atlas-center-art{height:180px;width:190px}.aw-architectural-atlas .aw-atlas-room{grid-template-columns:1fr;grid-template-rows:104px auto;gap:3px;padding:2px 4px 6px;min-height:174px;align-items:start}.aw-architectural-atlas .aw-atlas-portal{height:104px;width:100%;max-width:150px;justify-self:center}.aw-architectural-atlas .aw-atlas-object{width:54px;height:60px;margin-right:0;justify-self:end}.aw-architectural-atlas .aw-atlas-room-label{grid-row:2;grid-column:1;padding:5px 3px;align-items:center;text-align:center;justify-content:flex-start;align-self:stretch}.aw-architectural-atlas .aw-atlas-room-label strong{font-size:14px}.aw-architectural-atlas .aw-atlas-room-label small{font-size:8px}.aw-architectural-atlas .aw-atlas-room-label>span{font-size:10px}.aw-accession-shelf{grid-template-columns:1fr}.aw-accession-shelf .document-entry{grid-template-columns:minmax(78px,26%) minmax(0,1fr);padding:12px 8px;gap:10px}.aw-accession-shelf .document-entry h3{font-size:19px}.aw-specimen-drawer,.aw-concept-drawer,.platform-page:has(.aw-room-head) .aw-topic-register{grid-template-columns:1fr}.aw-room-return{font-size:10px}.aw-topic-register .topic-index-link{min-height:52px}.aw-index-record>strong{font-size:21px}}
+@media(prefers-reduced-motion:no-preference){.aw-atlas-dust{animation:aw-dust-reveal 1.4s ease-out both}@keyframes aw-dust-reveal{from{opacity:.1}to{opacity:.55}}.aw-atlas-portal img{transition:filter .18s ease}.aw-atlas-portal{transition:box-shadow .18s ease}.aw-index-record,.aw-topic-register .topic-index-link{transition:background-color .16s ease}}
+@media(prefers-reduced-motion:reduce){.aw-atlas-dust{animation:none}.aw-atlas-portal,.aw-atlas-portal img{transition:none}}

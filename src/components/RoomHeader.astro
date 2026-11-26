@@ -15,7 +15,7 @@ const full=!compact&&location.wide;
 <header class:list={['browse-header','aw-room-head',{'aw-room-full':full,'aw-room-compact':compact,'aw-room-vignette':!full&&!compact}]} data-room={room}>
  {full&&<picture class="aw-room-picture" aria-hidden="true">{location.mobile&&<source media="(max-width:640px)" srcset={'/brand/rooms/'+location.mobile}/>}<img src={'/brand/rooms/'+location.desktop} alt="" decoding="async" width={room==='lexicon'?1672:1536} height={room==='lexicon'?310:864}/></picture>}
  <div class="aw-room-content">
-  <div class="aw-room-marker"><img class="aw-room-seal" src="/brand/archive-seal.svg" alt="" width="27" height="27"/><span>{location.number} / {location.name}</span><span>{location.ja}</span></div>
+  <div class="aw-room-marker"><img class="aw-room-seal" src="/brand/archive-seal.svg" alt="" width="27" height="27"/><span>{location.number} / {location.name}</span><span>{location.ja}</span><a class="aw-room-return" href="/#archive-index">案内図へ</a></div>
   <div class:list={['aw-room-title',{'person-header':person}]}><slot/></div>
  </div>
  {!full&&!compact&&<img class="aw-room-small-art" src={'/brand/rooms/'+location.desktop} alt="" width="760" height="300" decoding="async"/>}
