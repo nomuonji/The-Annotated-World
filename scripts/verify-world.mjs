@@ -9,7 +9,7 @@ let browser;const results=[];
 try{
  let ready=false;for(let i=0;i<60;i++){try{if((await fetch(base)).ok){ready=true;break;}}catch{}if(server.exitCode!==null)break;await new Promise(r=>setTimeout(r,500));}assert.ok(ready,'Preview did not start');
  browser=await chromium.launch({headless:true});
- const routes=['/','/library/','/genres/philosophy/','/genres/literature/','/topics/','/topics/psychoanalysis/','/people/','/people/slavoj-zizek/','/words/','/words/unceded-territories-3c7dd2479078/','/concepts/','/concepts/surplus-enjoyment/','/read/slavoj-zizek-signs-from-the-future/','/read/slavoj-zizek-how-to-become-free/','/read/slavoj-zizek-how-to-become-free/?chapter=ch1','/workspace/','/marginalia/','/404.html'];
+ const routes=['/','/library/','/genres/philosophy/','/genres/literature/','/topics/','/topics/psychoanalysis/','/people/','/people/slavoj-zizek/','/words/','/words/unceded-territories-3c7dd2479078/','/concepts/','/concepts/surplus-enjoyment/','/read/slavoj-zizek-signs-from-the-future/','/read/slavoj-zizek-how-to-become-free/','/read/slavoj-zizek-how-to-become-free/?chapter=ch1','/workspace/','/marginalia/','/marginalia/motion/','/404.html'];
  for(const width of [320,390,768,1440])for(const theme of ['light','dark']){
   const context=await browser.newContext({viewport:{width,height:900},reducedMotion:'reduce'});
   // Deterministic visual audit: external fonts/videos are blocked; actual playback is covered separately by mocked reader regression.
@@ -73,6 +73,8 @@ try{
  await p.goto(base+'/concepts/');await p.locator('#index-query').fill('Lacan');assert.ok(await p.locator('[data-index-search]:visible').count()>0);await p.locator('#index-query').fill('zzzz-no-result-000');assert.equal(await p.locator('#index-empty').isVisible(),true);
  await p.goto(base+'/people/');await p.locator('#index-query').fill('ジジェク');assert.ok(await p.locator('[data-index-search]:visible').count()>0);await p.goto(base+'/topics/');await p.locator('#index-query').fill('自由');assert.ok(await p.locator('[data-index-search]:visible').count()>0);
  await p.goto(base+'/');assert.equal(await p.locator('.aw-margin-entry').count(),2);
+ assert.deepEqual(await p.locator('.aw-margin-entry').evaluateAll(items=>items.map(e=>e.id)),['note-rules','note-relief'],'Active edition must select the two home journal entries');
+ assert.equal(await p.locator('.aw-atlas-section').getAttribute('data-edition'),'late-autumn');
  const atlas=p.locator('.aw-atlas-nav');
  assert.equal(await atlas.locator('[data-room-link]').count(),6);
  const expected=['/library/','/topics/','/concepts/','/words/','/people/','/workspace/'];
@@ -95,6 +97,13 @@ try{
  assert.ok(Math.abs(ratio-16/9)<.03,'Home source thumbnail must be landscape');
  assert.ok(await p.locator('#video-shelf').evaluate(el=>Boolean(el.compareDocumentPosition(document.querySelector('#archive-index'))&Node.DOCUMENT_POSITION_FOLLOWING)),'Videos should precede the exploration scene');
  await p.goto(base+'/library/');assert.equal(await p.locator('.aw-cover-illustration').count(),2,'Library keeps both original edition covers');
+ await p.goto(base+'/marginalia/motion/');
+ const stage=p.locator('#aw-motion-stage');
+ assert.equal(await stage.getAttribute('data-active-shot'),'0');
+ await p.locator('#aw-motion-next').click();assert.equal(await stage.getAttribute('data-active-shot'),'1');
+ await stage.evaluate(e=>e.dispatchEvent(new CustomEvent('aw-motion-seek',{detail:8})));assert.equal(await stage.getAttribute('data-active-shot'),'2');
+ assert.ok((await p.locator('.aw-motion-source').getAttribute('href')).includes('chapter=ch2'));
+ await p.emulateMedia({reducedMotion:'reduce'});await p.locator('#aw-motion-play').click();assert.equal(await stage.getAttribute('data-active-shot'),'0');
  await p.goto(base+'/');const href=await p.locator('.aw-margin-entry a').first().getAttribute('href');assert.ok(href?.includes('chapter='));
  await p.goto(base+'/workspace/');
  const lesson={id:'world-audit-private',title:'Private audit lesson',author:'Test',chapters:[{title:'One',blocks:[{en:'Read the world.',ja:'世界を読む。',note:'test'}]}]};

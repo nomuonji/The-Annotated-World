@@ -1,13 +1,17 @@
 ---
+import edition from '../data/archive-edition.json';
 import notes from '../data/marginalia.json';
 import {chapterReadingUrl,type Doc} from '../lib/discovery';
 interface Props { docs:Doc[]; archive?:boolean }
 const {docs,archive=false}=Astro.props;
-const entries=notes.flatMap((n,i)=>{
+const allEntries=notes.flatMap((n,i)=>{
  const d=docs.find(x=>x.id===n.document);
  const c=d?.data.chapterIndex.find(x=>x.anchor===n.chapter);
  return d&&c?[{...n,serial:String(i+1).padStart(3,'0'),href:chapterReadingUrl(d,c),source:d.data.title,chapterTitle:c.title}]:[];
-}).reverse().slice(0,archive?notes.length:2);
+}).reverse();
+// An edition selects the displayed records; new notes stay accessible in the full journal.
+const selected=edition.logIds.map(id=>allEntries.find(n=>n.id===id)).filter((n):n is NonNullable<typeof n>=>Boolean(n));
+const entries=archive?allEntries:[...selected,...allEntries.filter(n=>!edition.logIds.includes(n.id))].slice(0,2);
 ---
-{entries.length>0&&<section class:list={['aw-marginalia-section','aw-editorial-log',{'aw-log-archive':archive}]} aria-labelledby="aw-margin-title"><div class="aw-log-heading"><div><div class="aw-section-kicker">AFTER HOURS / 注釈者の余白</div><h2 id="aw-margin-title">{archive?'収蔵された編集記録':'閉館後の編集記録。'}</h2><p>読んだことと、できなかったこと。</p></div>{!archive&&<a href="/marginalia/">過去の記録を見る →</a>}</div>
-<div class="aw-margin-grid">{entries.map(n=><article class="aw-margin-entry" id={'note-'+n.id}><div class="aw-margin-portrait"><img src={'/brand/sprites/'+n.expression+'.webp'} alt="" width="120" height="120" loading="lazy" decoding="async"/><span>LOG {n.serial}</span></div><div class="aw-log-body"><small>記録 {n.serial} · 架空の編集者の日記</small><h3>{n.title}</h3><p class="aw-log-voice">{n.voice}</p><p class="aw-rabbit-reply"><img src="/brand/sprites/rabbit-reading.webp" alt="" width="34" height="34" loading="lazy" decoding="async"/><span>{n.rabbit}</span></p><p class="aw-reading-question">{n.question}</p><div class="aw-log-source"><small>読んでいた資料</small><a href={n.href}>{n.chapterTitle} →</a>{archive&&<span>{n.source}</span>}</div></div></article>)}</div><p class="aw-editorial-disclaimer">注釈者とうさぎの台詞は創作です。講演者の発言や事実の解説ではありません。</p></section>}
+{entries.length>0&&<section class:list={['aw-marginalia-section','aw-editorial-log',{'aw-log-archive':archive}]} aria-labelledby="aw-margin-title"><div class="aw-log-heading"><div><div class="aw-section-kicker">AFTER HOURS / 注釈者の余白</div><h2 id="aw-margin-title">{archive?'収蔵された編集記録':'閉館後の編集記録。'}</h2><p>{edition.label} · 読んだことと、できなかったこと。</p></div>{!archive&&<a href="/marginalia/">過去の記録を見る →</a>}</div>
+<div class="aw-margin-grid">{entries.map(n=><article class="aw-margin-entry" id={'note-'+n.id}><div class="aw-margin-portrait"><img src={'/brand/sprites/'+n.expression+'.webp'} alt="" width="120" height="120" loading="lazy" decoding="async"/><span>LOG {n.serial}</span></div><div class="aw-log-body"><small>記録 {n.serial} · 架空の編集者の日記</small><h3>{n.title}</h3><p class="aw-log-voice">{n.voice}</p><p class="aw-rabbit-reply"><img src="/brand/sprites/rabbit-reading.webp" alt="" width="34" height="34" loading="lazy" decoding="async"/><span>{n.rabbit}</span></p><p class="aw-reading-question">{n.question}</p><div class="aw-log-source"><small>読んでいた資料</small><a href={n.href}>{n.chapterTitle} →</a>{archive&&<span>{n.source}</span>}</div></div></article>)}</div><div class="aw-log-motion-link"><a href="/marginalia/motion/"><span aria-hidden="true">▷</span> 編集記録003の短い映像を見る</a></div><p class="aw-editorial-disclaimer">注釈者とうさぎの台詞は創作です。講演者の発言や事実の解説ではありません。</p></section>}
