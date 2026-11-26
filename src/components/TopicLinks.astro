@@ -3,4 +3,4 @@ import {topicUrl} from '../lib/discovery';
 interface Props{items:{id:string;name:string;count:number;chapters:number}[]; searchable?:boolean}
 const {items,searchable=false}=Astro.props;
 ---
-<div class="topic-index">{items.map(t=><a href={topicUrl(t.id)} class="topic-index-link" data-index-search={searchable?t.name+" "+t.id:undefined}><span>#{t.name}</span><small>{searchable?t.count+'資料 · '+t.chapters+'章':t.chapters?t.chapters+'章':t.count+'資料'}</small></a>)}</div>
+<div class:list={["topic-index",{"aw-topic-register":searchable}]}>{items.map((t,i)=><a href={topicUrl(t.id)} class="topic-index-link" data-index-search={searchable?t.name+" "+t.id:undefined}>{searchable&&<span class="aw-topic-coordinate" aria-hidden="true">{String(i+1).padStart(2,"0")}</span>}<span>#{t.name}</span>{searchable&&<span class="aw-topic-pips" aria-hidden="true">{Array.from({length:Math.min(6,t.count)},()=><i class="aw-topic-pip"/>)}</span>}<small>{searchable?t.count+'資料 · '+t.chapters+'章':t.chapters?t.chapters+'章':t.count+'資料'}</small></a>)}</div>

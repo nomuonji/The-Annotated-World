@@ -1,36 +1,32 @@
 ---
 import edition from '../data/archive-edition.json';
 const rooms=[
- {id:'library',number:'02',en:'LIBRARY',ja:'資料の書庫',task:'教材・講演を探す',href:'/library/',sprite:'book-stack',w:435,h:265},
- {id:'observatory',number:'03',en:'OBSERVATORY',ja:'思想観測室',task:'テーマを横断する',href:'/topics/',sprite:'armillary',w:261,h:294},
- {id:'concepts',number:'05',en:'CATALOG OF IDEAS',ja:'概念の索引',task:'概念・作品を読む',href:'/concepts/',sprite:'marginalia-cards',w:413,h:216},
- {id:'lexicon',number:'04',en:'LEXICON LAB',ja:'言葉の標本室',task:'語彙・表現を探す',href:'/words/',sprite:'open-notebook',w:639,h:367},
- {id:'people',number:'06',en:'PERSONAL ARCHIVE',ja:'人物資料室',task:'話者・著者から読む',href:'/people/',sprite:'tied-cards',w:331,h:228},
- {id:'private',number:'08',en:'PRIVATE STUDY',ja:'自分の読書室',task:'個人教材を開く',href:'/workspace/',sprite:'desk-lamp',w:367,h:364}
+ {id:'library',number:'02',en:'LIBRARY',ja:'資料の書庫',task:'教材・講演を探す',href:'/library/',view:'library-desktop.webp',sprite:'book-stack',w:435,h:265},
+ {id:'observatory',number:'03',en:'OBSERVATORY',ja:'思想観測室',task:'テーマを横断する',href:'/topics/',view:'observatory-desktop.webp',sprite:'armillary',w:261,h:294},
+ {id:'concepts',number:'05',en:'CATALOG OF IDEAS',ja:'概念の索引',task:'概念・作品を読む',href:'/concepts/',view:'concepts-vignette.webp',sprite:'marginalia-cards',w:413,h:216},
+ {id:'lexicon',number:'04',en:'LEXICON LAB',ja:'言葉の標本室',task:'語彙・表現を探す',href:'/words/',view:'lexicon-banner.webp',sprite:'open-notebook',w:639,h:367},
+ {id:'people',number:'06',en:'PERSONAL ARCHIVE',ja:'人物資料室',task:'話者・著者から読む',href:'/people/',view:'people-vignette.webp',sprite:'tied-cards',w:331,h:228},
+ {id:'private',number:'08',en:'PRIVATE STUDY',ja:'自分の読書室',task:'個人教材を開く',href:'/workspace/',view:'private-room-vignette.webp',sprite:'desk-lamp',w:367,h:364}
 ];
 ---
 <section class="aw-world-explore aw-atlas-section" data-edition={edition.season} id="archive-index" aria-labelledby="aw-explore-title">
- <div class="aw-atlas-heading"><div><p class="aw-atlas-eyebrow">03 / ATLAS OF THE ARCHIVE</p><h2 id="aw-explore-title">夜の資料室、案内図。</h2><p>言葉を集める部屋。思想を結ぶ部屋。好きな入口からどうぞ。</p></div><img src="/brand/archive-seal.svg" alt="" width="84" height="84" loading="lazy"/></div>
- <div class="aw-atlas">
+ <div class="aw-atlas-heading"><div><p class="aw-atlas-eyebrow">03 / ATLAS OF THE ARCHIVE</p><h2 id="aw-explore-title">夜の資料室、案内図。</h2><p>資料、思想、言葉。読みたいものから、部屋を選ぶ。</p></div><img src="/brand/archive-seal.svg" alt="" width="84" height="84" loading="lazy"/></div>
+ <div class="aw-atlas aw-architectural-atlas">
   <div class="aw-atlas-season-glow" aria-hidden="true"></div><div class="aw-atlas-scene" aria-hidden="true"><picture><source media="(max-width:640px)" srcset="/brand/catalog-mobile.webp"/><img src="/brand/catalog-desktop.webp" width="1536" height="864" alt="" loading="lazy"/></picture></div>
-  <svg class="aw-atlas-orbits" aria-hidden="true" viewBox="0 0 1200 630" preserveAspectRatio="none" fill="none">
-   <g stroke="currentColor" stroke-width="1"><ellipse cx="600" cy="315" rx="515" ry="245" stroke-dasharray="2 7"/><ellipse cx="600" cy="315" rx="350" ry="268" stroke-opacity=".5"/><ellipse cx="600" cy="315" rx="190" ry="245"/><ellipse cx="600" cy="315" rx="176" ry="230" stroke-opacity=".5"/>
-   <path d="M40 315H1160M600 22V608" stroke-opacity=".35" stroke-dasharray="3 7"/><path d="M600 315 255 105M600 315 255 315M600 315 255 525M600 315 945 105M600 315 945 315M600 315 945 525" stroke-opacity=".6"/>
-   <path d="M32 72V32h42m1052 0h42v40M32 558v40h42m1052 0h42v-40" stroke-width="2"/></g>
-   <g fill="currentColor"><path d="M600 40l5 12-5 12-5-12zM600 566l5 12-5 12-5-12zM82 315l12-5 12 5-12 5zM1094 315l12-5 12 5-12 5z"/><circle cx="255" cy="105" r="3"/><circle cx="255" cy="315" r="3"/><circle cx="255" cy="525" r="3"/><circle cx="945" cy="105" r="3"/><circle cx="945" cy="315" r="3"/><circle cx="945" cy="525" r="3"/></g>
-  </svg>
+  <img class="aw-atlas-architecture" src="/brand/archive-architecture.svg" width="1200" height="720" alt="" loading="lazy"/>
+  <div class="aw-atlas-dust" aria-hidden="true"></div>
   <nav class="aw-atlas-nav" aria-label="資料室の各部屋">
    <div class="aw-atlas-center">
     <div class="aw-atlas-center-art" aria-hidden="true"><img class="aw-atlas-annotator" src="/brand/sprites/annotator-standing.webp" width="370" height="1019" alt="" loading="lazy"/><img class="aw-atlas-rabbit" src="/brand/sprites/rabbit-reading.webp" width="357" height="317" alt="" loading="lazy"/></div>
-    <div class="aw-atlas-central-caption"><small>01 / THE ANNOTATOR</small><strong>中央資料室</strong><span>世界には注釈を。自分には、まだ。</span></div>
+    <div class="aw-atlas-central-caption"><img src="/brand/archive-folio.svg" width="120" height="36" alt="" loading="lazy"/><small>01 / THE ANNOTATOR</small><strong>中央資料室</strong><span>世界には注釈を。自分には、まだ。</span></div>
     <a class="aw-atlas-cinema" href="#video-shelf"><span aria-hidden="true">▷</span><span><small>07 / SCREENING ROOM</small>映写室 · 動画から読む</span></a>
    </div>
    {rooms.map(room=><a class:list={['aw-atlas-room','aw-atlas-'+room.id]} href={room.href} data-room-link={room.id}>
-    <span class="aw-atlas-object"><img src={'/brand/sprites/'+room.sprite+'.webp'} alt="" width={room.w} height={room.h} loading="lazy"/><span class="aw-atlas-object-ring" aria-hidden="true"></span></span>
+    <span class="aw-atlas-portal" aria-hidden="true"><img src={'/brand/rooms/'+room.view} alt="" width="760" height="300" loading="lazy"/></span><span class="aw-atlas-object"><img src={'/brand/sprites/'+room.sprite+'.webp'} alt="" width={room.w} height={room.h} loading="lazy"/><span class="aw-atlas-object-ring" aria-hidden="true"></span></span>
     <span class="aw-atlas-room-label"><small>{room.number} / {room.en}</small><strong>{room.ja}<span aria-hidden="true"> ↗</span></strong><span>{room.task}</span></span>
    </a>)}
   </nav>
   <div class="aw-atlas-legend"><span>EX LIBRIS · A.W. / {edition.english}</span><span>探索図 / 7つの入口</span></div>
  </div>
- <p class="aw-edition-caption"><strong>{edition.label}</strong> · {edition.caption}</p><div class="aw-atlas-foot"><a href="/concepts/surplus-enjoyment/">コーラから余剰享楽を考える ↗</a><a href="/library/">すべての教材を検索 →</a></div>
+ <div class="aw-atlas-foot"><a href="/concepts/surplus-enjoyment/">コーラから余剰享楽を考える ↗</a><a href="/library/">すべての教材を検索 →</a></div>
 </section>

@@ -3,4 +3,4 @@ import {personUrl} from '../lib/discovery';
 interface Props{items:{id:string;name:string;ja:string;count:number}[]; searchable?:boolean}
 const {items,searchable=false}=Astro.props;
 ---
-<div class="people-grid">{items.map(p=><a class="person-item" href={personUrl(p.id)} data-index-search={searchable?p.name+" "+p.ja:undefined}><span class="person-monogram" aria-hidden="true">{p.name.split(' ').map(s=>s[0]).slice(0,2).join('')}</span><div><strong>{p.name}</strong><small>{p.ja} · {p.count}資料</small></div><span aria-hidden="true">↗</span></a>)}</div>
+<div class:list={["people-grid",{"aw-person-register":searchable}]}>{items.map(p=><a class="person-item" href={personUrl(p.id)} data-index-search={searchable?p.name+" "+p.ja:undefined}><span class="person-monogram" aria-hidden="true">{p.name.split(' ').map(s=>s[0]).slice(0,2).join('')}</span><div><strong>{p.name}</strong><small>{p.ja} · {p.count}資料</small></div><span aria-hidden="true">↗</span></a>)}</div>

@@ -4,7 +4,8 @@
   "status_definition": {
     "ready": "実装用として技術利用可能。美的承認は未取得",
     "existing": "既存PRまたは素材の再利用",
-    "provisional": "小さな挿絵または仮表紙。最終用原画ではない"
+    "provisional": "小さな挿絵または仮表紙。最終用原画ではない",
+    "retired": "公開から外した試作・保管素材（採用中の素材ではない）"
   },
   "assets": [
     {
@@ -861,12 +862,10 @@
       "height": 731,
       "bytes": 199520,
       "alpha": true,
-      "status": "ready",
+      "status": "retired",
       "source": "2026-11-26 新規生成・予定表の場面専用、透過原画1312×1199から縮小",
-      "usage": "編集記録003モーション第2場面",
-      "routes": [
-        "/marginalia/motion/"
-      ],
+      "usage": "旧編集記録用の不採用素材。現在の公開画面では未使用。",
+      "routes": [],
       "placement": "透過、原画の縦横比を維持、表示はcontain、Web用軽量差分と映像用原画を分離",
       "sha256": "0e468ae7d4560e2b467735a232598f23dab92ddb940e2ec42f6dd3d1855a0447",
       "git_blob_sha": "7a01bb4d64c5a985a9ddf17e04a108f924db1447"
@@ -878,13 +877,10 @@
       "height": 292,
       "bytes": 42004,
       "alpha": true,
-      "status": "ready",
+      "status": "retired",
       "source": "2026-11-26 新規生成・予定表の場面専用、透過原画1312×1199から縮小",
-      "usage": "編集記録003の軽量表情差分",
-      "routes": [
-        "/",
-        "/marginalia/"
-      ],
+      "usage": "旧編集記録用の不採用素材。現在の公開画面では未使用。",
+      "routes": [],
       "placement": "透過、原画の縦横比を維持、表示はcontain、Web用軽量差分と映像用原画を分離",
       "sha256": "5d6a41cdd0aef90955af9c64bc0d1026ce6ce282b9b078f61ebe06b056dc9af2",
       "git_blob_sha": "4d3d473182421bc3b8585d0301537c09d5db7dcf"
@@ -892,6 +888,26 @@
   ],
   "rights_note": "本プロジェクト向けのAI生成画・既存の生成素材およびそれらの切り出し。権利の独立検証は未実施。第三者ロゴや生成ボード内の文字・肖像を完成アセットとして採用しない。既存cola素材のブランド表記は本番前に確認する。",
   "runtime_variants": {
-    "home": "入口の最適化画像と /brand/ui/ を使用。動画棚は元YouTubeサムネイル。2026-11-26に専用部屋画4点、コード描画紋章6点で仮素材を置換。"
+    "home": "入口の最適化画像と /brand/ui/ を使用。動画棚は元YouTubeサムネイル。2026-11-26に専用部屋画4点、コード描画紋章6点で仮素材を置換。",
+    "architecture": [
+      {
+        "path": "/brand/archive-architecture.svg",
+        "git_blob_sha": "2f54dcf9906915e6e6dc99135d4f285507cc009c",
+        "width": 1200,
+        "height": 720,
+        "bytes": 2296,
+        "source": "オリジナルSVGコード描画",
+        "usage": "探索図の遠近構造"
+      },
+      {
+        "path": "/brand/archive-folio.svg",
+        "git_blob_sha": "5146f2ac6521cd576ea627d8c947782e6ae080f9",
+        "width": 160,
+        "height": 48,
+        "bytes": 385,
+        "source": "オリジナルSVGコード描画",
+        "usage": "中央資料室の蔵書印と罫線"
+      }
+    ]
   }
 }
