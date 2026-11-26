@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import {mkdir,writeFile} from 'node:fs/promises';
 const base='https://the-annotated-world.pages.dev';
-const routes=['/','/library/','/topics/','/people/','/words/','/concepts/surplus-enjoyment/','/read/slavoj-zizek-how-to-become-free/','/read/slavoj-zizek-signs-from-the-future/','/workspace/','/marginalia/','/marginalia/motion/'];
+const routes=['/','/library/','/topics/','/people/','/words/','/concepts/surplus-enjoyment/','/read/slavoj-zizek-how-to-become-free/','/read/slavoj-zizek-signs-from-the-future/','/workspace/'];
 const expectedSha=process.env.GITHUB_SHA||'';
 const report={base,expectedSha,checkedAt:new Date().toISOString(),pages:[],video:[]};let browser;
 try{

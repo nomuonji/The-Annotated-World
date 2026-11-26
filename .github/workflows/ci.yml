@@ -35,10 +35,6 @@ jobs:
         run: |
           npm install --no-save --package-lock=false --no-audit --no-fund axe-core@4.14.1
           node scripts/verify-accessibility.mjs
-      - name: Export world motion prototype
-        run: |
-          if ! command -v ffmpeg >/dev/null; then sudo apt-get update && sudo apt-get install -y ffmpeg; fi
-          node scripts/render-world-motion.mjs
       - name: Live production smoke (external network)
         if: github.ref == 'refs/heads/main'
         continue-on-error: true
