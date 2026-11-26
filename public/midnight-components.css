@@ -307,3 +307,14 @@ html[data-theme] .study-original .en .annotation-group .in-situ-annotation{paddi
 @media(max-width:350px){.library-toolbar:has(.aw-lens-field)>[aria-live]{margin:0;justify-self:end}.aw-lens-field::before{border-left-width:25px}}
 @media(prefers-reduced-motion:no-preference){.aw-word-specimen,.aw-person-register .person-item>span:last-child,.lesson-card>button{transition:background-color .15s,color .15s,filter .15s}}
 :where(.aw-word-specimen,.aw-person-register .person-item,.lesson-card>button):focus-visible{outline:2px solid var(--aw-component-focus);outline-offset:3px}
+
+/* Selective subtraction after evidence: an unavailable synchronization deck is
+   not a useful control. Native video, source, chapter seeking and mobile pin stay. */
+.study-video[data-sync-state=unavailable] :is(#play-pause:disabled,.speed-label:has(select:disabled),#follow-video:disabled,#jump-current:disabled,#video-clock){display:none!important}
+@media(min-width:900px){.study-video[data-sync-state=unavailable] .video-quick-controls{display:none!important}}
+.study-video[data-sync-state=unavailable] .video-position:not(:has(#stop-repeat:not([hidden]))){display:none!important}
+.study-video[data-sync-state=unavailable] .video-quick-controls{width:max-content;max-width:100%;padding:3px 8px 3px 5px}
+.study-video[data-sync-state=unavailable] .video-state{margin-block:7px;line-height:1.65}
+.study-video[data-sync-state=unavailable] .video-note{font-size:11px;line-height:1.6}
+/* Reading title uses the source name as the focus; remaining metadata stays. */
+.reader-page>.hero h1{font-weight:500;text-wrap:balance}
