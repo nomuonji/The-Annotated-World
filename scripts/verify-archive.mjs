@@ -82,6 +82,8 @@ for(const {id,document,chapters,bodyHtml} of sources){
 
 const index=load(await readFile('dist/index.html','utf8'));
 assert.equal(index('.genre-tile').length,6);
+assert.equal(index('a[href^="/marginalia"],.aw-marginalia-section').length,0,'Removed editorial journal must not return');
+assert.ok(!(await readdir('dist')).includes('marginalia'),'Rejected editorial journal must not be published');
 const sample=load(await readFile('dist/read/slavoj-zizek-signs-from-the-future/index.html','utf8'));
 assert.equal(sample('#original-player').attr('src'),'https://www.youtube-nocookie.com/embed/j7pEsBbGg5A');
 assert.equal(sample('[data-video-seek]').length,11);

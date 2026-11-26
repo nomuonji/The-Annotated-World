@@ -6,7 +6,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 const require=createRequire(import.meta.url);
 const base='http://127.0.0.1:4179';
 const server=spawn(process.execPath,['node_modules/.bin/astro','preview','--host','127.0.0.1','--port','4179'],{stdio:'ignore'});
-const routes=['/','/library/','/genres/philosophy/','/genres/literature/','/topics/','/topics/psychoanalysis/','/people/','/people/slavoj-zizek/','/words/','/words/unceded-territories-3c7dd2479078/','/concepts/','/concepts/surplus-enjoyment/','/read/slavoj-zizek-how-to-become-free/?chapter=ch1','/read/slavoj-zizek-signs-from-the-future/?chapter=ch1','/workspace/','/marginalia/','/marginalia/motion/','/404.html'];
+const routes=['/','/library/','/genres/philosophy/','/genres/literature/','/topics/','/topics/psychoanalysis/','/people/','/people/slavoj-zizek/','/words/','/words/unceded-territories-3c7dd2479078/','/concepts/','/concepts/surplus-enjoyment/','/read/slavoj-zizek-how-to-become-free/?chapter=ch1','/read/slavoj-zizek-signs-from-the-future/?chapter=ch1','/workspace/','/404.html'];
 let browser;const report={pages:[],fallbacks:[]};
 try{
  let ready=false;for(let i=0;i<60;i++){try{if((await fetch(base)).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,500));}assert.ok(ready);
