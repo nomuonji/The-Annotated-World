@@ -12,27 +12,19 @@ html[data-theme=dark]{color-scheme:dark;--paper:#1c1925;--ink:#f2e8ed;--muted:#b
 
 .aw-private-mark{display:flex;align-items:center;gap:8px;color:var(--accent);border-bottom:1px solid var(--line);padding-bottom:10px}.editorial-note{position:relative;padding:16px;border:1px solid var(--line);border-bottom:3px double var(--line);background:var(--white)}.editorial-note img{border:1px solid var(--line);width:100%;max-width:none}.shelf-heading{border-bottom:3px double var(--line);padding-bottom:12px}.import-hint{border:1px solid var(--line);border-left:3px solid var(--accent);background:var(--white)}
 
-/* Imprint controls on the private reader; same semantic states as public reading. */
-.masthead nav button,.toolbar button,.pager button,#chapters button{border:0!important;border-bottom:2px solid var(--line)!important;border-radius:0!important;box-shadow:none!important;background:transparent;color:var(--ink)}.masthead nav button[aria-pressed=true],.toolbar button[aria-pressed=true],#chapters button[aria-current=true]{background:var(--imp-ink)!important;color:var(--imp-on-ink)!important;border-bottom-color:var(--imp-signal)!important}.masthead nav .action,.import-hint .action{background:var(--imp-ink)!important;color:var(--imp-on-ink)!important;border-radius:0!important;border:0!important;border-right:8px solid var(--imp-signal)!important;box-shadow:3px 3px 0 var(--imp-press)!important}.shelf-heading .imp-search-wrap input{border:0!important;background:transparent!important;flex:1;min-width:0;border-radius:0!important}.shelf-heading label{min-width:0;max-width:100%}
-
-/* Workspace commands: continue the public ink/terminal grammar into real actions,
- * rather than leaving imported lessons and saved passages in legacy outlines. */
-.lesson-card>button,.saved-row>button:first-of-type{
- display:inline-flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;max-width:100%;
- padding:0 0 0 12px;border:0!important;border-radius:0!important;background:var(--imp-ink)!important;
- color:var(--imp-on-ink)!important;font:700 13px/1.4 var(--imp-ui);box-shadow:3px 3px 0 var(--imp-press);
- transition:translate .14s,box-shadow .14s;
-}
-.lesson-card>button,.saved-row>button:first-of-type{position:relative;padding-right:44px;background:linear-gradient(to left,var(--imp-signal) 0 32px,var(--imp-ink) 32px)!important}
-.lesson-card>button::after,.saved-row>button:first-of-type::after{content:"";position:absolute;right:7px;top:50%;width:18px;height:18px;transform:translateY(-50%);background:var(--imp-on-signal);mask:url("/brand/ink/arrow.svg") center/contain no-repeat;pointer-events:none}
-.lesson-card>button:hover,.saved-row>button:first-of-type:hover{translate:-1px -1px;box-shadow:4px 4px 0 var(--imp-press)}
-.lesson-card>button:active,.saved-row>button:first-of-type:active{translate:2px 2px;box-shadow:1px 1px 0 var(--imp-press)}
-.masthead nav #libraryNav[aria-current=page],.masthead nav #savedNav[aria-current=page]{background:var(--imp-ink)!important;color:var(--imp-on-ink)!important;border-bottom-color:var(--imp-signal)!important}
-.masthead nav #workspace-theme[aria-pressed]{background:transparent!important;color:var(--imp-ink)!important;border-bottom-color:var(--imp-line)!important}
-.masthead nav #workspace-theme::before{content:"";width:15px;height:15px;flex:0 0 15px;margin-right:6px;background:currentColor;mask:url("/brand/ink/moon.svg") center/contain no-repeat}
-.masthead nav #workspace-theme[aria-pressed=true]::before{mask-image:url("/brand/ink/sun.svg")}
-.cover{position:relative;border:0;border-left:5px solid var(--imp-signal);outline:1px solid var(--imp-line);outline-offset:-1px;background:var(--imp-wash);color:var(--imp-ink);box-shadow:3px 3px 0 var(--imp-press)}
-.cover::after{content:"";position:absolute;right:5px;top:5px;width:9px;height:9px;border-top:1px solid var(--imp-line);border-right:1px solid var(--imp-line)}
-.block-actions button,.saved-row>button:not(:first-of-type),.head-actions button{border:0;border-radius:0;border-bottom:2px solid var(--imp-line);color:var(--imp-ink);background:transparent;min-height:36px}
-.block-actions button[aria-pressed=true]{background:var(--imp-wash);border-bottom-color:var(--imp-signal);color:var(--imp-key)}
-@media(prefers-reduced-motion:reduce){.lesson-card>button,.saved-row>button:first-of-type{transition:none;translate:none!important}}
+/* Same catalogue and paper-ticket grammar as public reader; never duplicate the old ink block. */
+.masthead nav button,.toolbar button,.pager button,#chapters button{border:0!important;border-bottom:1px solid var(--imp-line)!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;color:var(--imp-ink)}
+.masthead nav button[aria-pressed=true],.toolbar button[aria-pressed=true],#chapters button[aria-current=true],.masthead nav #libraryNav[aria-current=page],.masthead nav #savedNav[aria-current=page]{background:var(--imp-wash)!important;color:var(--imp-key)!important;border-bottom:2px solid var(--imp-key)!important;font-weight:700}
+.masthead nav .action,.import-hint .action,.lesson-card>button,.saved-row>button:first-of-type{position:relative;isolation:isolate;display:inline-flex;align-items:center;min-height:44px;padding:9px 16px!important;border:0!important;background:transparent!important;color:#3c2c35!important;border-radius:0!important;box-shadow:none!important;font:600 14px/1.4 var(--imp-ui);letter-spacing:.04em}
+.masthead nav .action:before,.import-hint .action:before,.lesson-card>button:before,.saved-row>button:first-of-type:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;clip-path:var(--imp-ticket);background:var(--imp-grain),linear-gradient(120deg,#f4eadd,#e6d5bd)}
+.masthead nav .action:after,.import-hint .action:after,.lesson-card>button:after,.saved-row>button:first-of-type:after{content:"";position:absolute;inset:4px 5px;z-index:-1;border-block:1px solid #aa927a;pointer-events:none}
+.masthead nav .action:hover:before,.import-hint .action:hover:before,.lesson-card>button:hover:before,.saved-row>button:first-of-type:hover:before{filter:brightness(1.07)}
+.masthead nav #workspace-theme[aria-pressed]{background:transparent!important;color:var(--imp-ink)!important;border-bottom-color:var(--imp-line)!important;font-weight:500}
+.masthead nav #workspace-theme:before{content:"";width:15px;height:15px;flex:0 0 15px;margin-right:6px;background:currentColor;mask:url("/brand/ink/moon.svg") center/contain no-repeat}
+.masthead nav #workspace-theme[aria-pressed=true]:before{mask-image:url("/brand/ink/sun.svg")}
+.shelf-heading .imp-search-wrap input{border:0!important;background:transparent!important;flex:1;min-width:0;border-radius:0!important;color:var(--imp-ink)}
+.shelf-heading label{min-width:0;max-width:100%}
+.cover{position:relative;border:0;border-left:4px solid var(--imp-key);outline:1px solid var(--imp-line);outline-offset:-1px;background:var(--imp-wash);color:var(--imp-ink);box-shadow:none}
+.cover:after{content:"";position:absolute;inset:5px;border-block:1px solid var(--imp-line);pointer-events:none}
+.block-actions button,.saved-row>button:not(:first-of-type),.head-actions button{border:0;border-radius:0;border-bottom:1px solid var(--imp-line);color:var(--imp-ink);background:transparent;min-height:36px}
+.block-actions button[aria-pressed=true]{background:var(--imp-wash);border-bottom-color:var(--imp-key);color:var(--imp-key)}
