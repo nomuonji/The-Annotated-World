@@ -1,0 +1,5 @@
+# Component Atelier — integration
+Owner accepted the direction of the illustrated/geometric second concept board (generation d3339039-08a5-441c-bd39-a28c7c010838) and actual code prototype, while noting quality headroom. Requested site integration. Base is main, not rejected draft PR57.
+- Exact prototype 9-slice folio, rail and ticket paths, in two themes; five transparent illustrative crops (book, lens, leaves, ruins, clouds) compressed for delivery. CSS data URLs remain independent visual primitives, not a flattened UI screenshot.
+- Actual existing routes, native controls, reader IDs, state logic and real source covers/thumbnails preserved. Room navigation uses existing original sprite artwork; existing video player does not gain the demo-only seek/CC functionality. Inline notes remain inline, with reduced illustration density. Mobile translation panel keeps existing sizing and synchronization code.
+- Compare rendered real pages with accepted prototype; verify existing build, reader and world audits. No claim of aesthetic completion, live video permission, or production deployment until verified. No invented editorial materials.

@@ -294,14 +294,14 @@ function setup(reader:HTMLElement){
  window.addEventListener('wheel',()=>{if(follow)setFollow(false);},{passive:true});
  window.addEventListener('touchmove',()=>{if(follow)setFollow(false);},{passive:true});
  function refreshRates(){if(!player||!speed)return;const rates=player.getAvailablePlaybackRates();if(!rates.length)return;speed.replaceChildren(...rates.map(rate=>{const option=document.createElement('option');option.value=String(rate);option.textContent=rate+'×';return option;}));speed.value=String(player.getPlaybackRate());speed.disabled=rates.length<=1;}
- function updatePlay(){const playing=player?.getPlayerState()===1;if(play){play.textContent=playing?'Ⅱ 停止':'▶ 再生';play.setAttribute('aria-label',playing?'停止 — 動画を一時停止':'再生 — 動画を再生');}}
- function unavailable(message:string){if(ready)return;failed=true;say(message);if(queued){const s=queued.seconds;queued=null;fallbackSeek(s);}}
+ function updatePlay(){const playing=player?.getPlayerState()===1;if(play){play.dataset.playing=String(playing);const label=play.querySelector('.aw-play-label');if(label)label.textContent=playing?'停止':'再生';play.setAttribute('aria-label',playing?'停止 — 動画を一時停止':'再生 — 動画を再生');}}
+ function unavailable(message:string){if(ready)return;failed=true;videoPanel.dataset.syncState='unavailable';say(message);if(queued){const s=queued.seconds;queued=null;fallbackSeek(s);}}
  const timer=window.setTimeout(()=>unavailable('動画同期に接続できません。時刻リンクと通常の動画操作は利用できます。'),15000);
  function connect(){if(failed||!window.YT?.Player)return;try{player=new window.YT.Player('original-player',{events:{
- onReady(e){if(failed)return;player=e.target;ready=true;clearTimeout(timer);say('');if(play)play.disabled=false;if(followButton)followButton.disabled=!entries.length;refreshRates();updatePlay();updateRepeatButtons();if(queued){const s=queued.seconds;queued=null;performSeek(s);}sync();},
+ onReady(e){if(failed)return;player=e.target;ready=true;videoPanel.dataset.syncState='ready';clearTimeout(timer);say('');if(play)play.disabled=false;if(followButton)followButton.disabled=!entries.length;refreshRates();updatePlay();updateRepeatButtons();if(queued){const s=queued.seconds;queued=null;performSeek(s);}sync();},
  onStateChange(e){if(!ready)return;updatePlay();refreshRates();updateRepeatButtons();sync();if(e.data===0&&!loop)setFollow(false);},
  onPlaybackRateChange(e){if(speed)speed.value=String(e.data);},
- onError(e){videoPanel.dataset.youtubeError=String(e.data);ready=false;clearTimeout(timer);failed=true;clearLoop();setFollow(false);if(play)play.disabled=true;if(speed)speed.disabled=true;if(followButton)followButton.disabled=true;updateRepeatButtons();say('動画を埋め込み再生できません。YouTubeで開いてください。');},
+ onError(e){videoPanel.dataset.youtubeError=String(e.data);ready=false;clearTimeout(timer);failed=true;videoPanel.dataset.syncState='unavailable';clearLoop();setFollow(false);if(play)play.disabled=true;if(speed)speed.disabled=true;if(followButton)followButton.disabled=true;updateRepeatButtons();say('動画を埋め込み再生できません。YouTubeで開いてください。');},
  onAutoplayBlocked(){say('自動再生が制限されています。プレイヤーの再生ボタンを押してください。');}
  }});}catch{unavailable('動画同期を開始できません。');}}
  videoFrame.src=frameUrl();

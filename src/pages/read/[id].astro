@@ -7,7 +7,7 @@ import {matchingConcepts,conceptUrl} from '../../lib/lexicon';
 import DocumentCard from '../../components/DocumentCard.astro';
 import {getCollection,type CollectionEntry} from 'astro:content';
 import {load} from 'cheerio';
-import {genreById,genreUrl,personUrl,docTopics,topicUrl,related,documents,chapterSeconds} from '../../lib/discovery';
+import {displayDocumentTitle,genreById,genreUrl,personUrl,docTopics,topicUrl,related,documents,chapterSeconds} from '../../lib/discovery';
 export async function getStaticPaths(){return (await getCollection('documents')).map(document=>({params:{id:document.id},props:{document}}));}
 interface Props{document:CollectionEntry<'documents'>}
 const doc=Astro.props.document,d=doc.data;
@@ -15,7 +15,12 @@ const g=genreById(d.genre),ts=docTopics(doc);
 const allDocuments=await documents();
 const recommendations=related(allDocuments,doc);
 const $=load(d.bodyHtml,null,false);
-const hero=$('.hero').first().toString();$('.hero').first().remove();
+const heroNode=$('.hero').first();
+const heroTitle=heroNode.find('h1').first();
+const fullTitle=heroTitle.text();
+const visibleTitle=displayDocumentTitle(fullTitle);
+if(visibleTitle!==fullTitle)heroTitle.text(visibleTitle).append($('<span>').addClass('aw-title-subtitle').text(fullTitle.slice(visibleTitle.length)));
+const hero=heroNode.toString();heroNode.remove();
 for(const c of d.chapterIndex){
  const head=$('section.sec').filter((_,el)=>$(el).attr('id')===c.anchor).find('.sec-header').first();
  if(!head.length)continue;
@@ -214,6 +219,18 @@ for(const c of d.chapterIndex){
  if(trail.children().length)section.append(trail);
 
 }
+// Catalogue typography: retain each canonical TOC link and its original text,
+// but give the timestamp its own measure rather than forcing it into the title.
+$('.toc-list li a').each((_,el)=>{
+ const link=$(el),time=link.find('.toc-time').first();
+ if(!time.length)return;
+ const title=$('<span>').addClass('aw-toc-title');
+ for(const node of link.contents().toArray()){
+  if(node!==time.get(0))title.append(node);
+ }
+ link.append(title);
+ link.addClass('aw-toc-entry');
+});
 const body=$.root().html()||'';
 const status=d.provenance;
 const labels={coverage:{full:'全文（照合済みの範囲）',excerpt:'抜粋',unverified:'収録範囲未確認'},transcript:{verified:'照合済み',unverified:'未確認','not-applicable':'音声なし'},translation:{verified:'確認済み',unverified:'未確認'},rights:{original:'オリジナル',licensed:'許諾・ライセンス確認済み','public-domain':'パブリックドメイン確認済み',unverified:'未確認'}};

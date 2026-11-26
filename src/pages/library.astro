@@ -14,7 +14,7 @@ const formats=distinct(ds.map(d=>d.data.category)),levels=distinct(ds.map(d=>d.d
 <Archive title="全資料 — The Annotated World" wide>
  <RoomHeader room="library"><p class="eyebrow">LIBRARY</p><h1>すべての資料</h1><p>タイトル、話者、テーマから、読みたい資料や章を見つける。</p></RoomHeader>
  <div class="aw-library-desk"><div><p class="aw-section-kicker">ACCESSION REGISTER / 収蔵台帳</p><h2>読みたい一冊を見つける。</h2><p>{ds.length}資料 · {chapters.length}章を収蔵</p></div><RandomChapter docs={ds}/></div>
- <div class="library-toolbar"><label for="find">検索<input type="search" id="find" placeholder="例：ジジェク、映画、AI"/></label><span id="result-count" aria-live="polite">{ds.length}資料</span></div>
+ <div class="library-toolbar"><label for="find">検索<span class="aw-lens-field"><input type="search" id="find" placeholder="例：ジジェク、映画、AI"/></span></label><span id="result-count" aria-live="polite">{ds.length}資料</span></div>
  <div class="library-filters" data-library-controls hidden>
  <div class="library-tabs" role="group" aria-label="検索対象"><button type="button" data-scope="docs" aria-pressed="true">資料</button><button type="button" data-scope="chapters" aria-pressed="false">章</button></div>
  <details class="library-filter-details"><summary>絞り込み</summary><div class="library-filter-inputs">

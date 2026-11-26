@@ -2,6 +2,8 @@ import {getCollection,type CollectionEntry} from 'astro:content';
 export const genres=[{"id":"philosophy","name":"Philosophy","ja":"哲学・思想・精神分析","number":"01","color":"#344f68"},{"id":"literature","name":"Literature","ja":"文学・作家・言葉","number":"02","color":"#775c49"},{"id":"film-culture","name":"Film & Culture","ja":"映画・芸術・文化批評","number":"03","color":"#864e4b"},{"id":"society","name":"Society","ja":"社会・政治・経済","number":"04","color":"#53624c"},{"id":"technology","name":"Technology","ja":"AI・科学・未来社会","number":"05","color":"#445c81"},{"id":"internet","name":"Internet","ja":"海外ネット文化・ミーム","number":"06","color":"#6d557a"}] as const;
 export type Doc=CollectionEntry<'documents'>;
 export type Chapter=Doc['data']['chapterIndex'][number];
+// Extract the display emphasis; render the complete source title, with its known suffix styled separately.
+export const displayDocumentTitle=(title:string)=>title.replace(/\s*[—–―]\s*ノンストップ英語学習・完全対訳教材$/u,'');
 export const documentUrl=(d:Doc)=>'/read/'+d.id+'/';
 export const chapterUrl=(d:Doc,c:Chapter)=>documentUrl(d)+'#'+c.anchor;
 // Explicit chapter-only reading mode: the old #anchor URL keeps its full-document meaning.

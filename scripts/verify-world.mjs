@@ -59,6 +59,25 @@ try{
     results.push({path,width,theme,...audit,initialMetrics,accessibility});
     if(!publicAudit||width===390||width===1440)await page.screenshot({path:out+'/'+theme+'-'+width+'-'+(path.replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'')||'home')+'.png',animations:'disabled'});
     if((width===390||width===1440)&&path==='/'){await page.locator('#archive-index').scrollIntoViewIfNeeded();await page.screenshot({path:out+'/'+theme+'-'+width+'-home-explore.png',animations:'disabled'});}
+    // Actual component crops, including below-the-fold cards and inline reading
+    // notes. A full first viewport alone cannot support an art review.
+    if([320,390,1440].includes(width)){
+     const detailTargets={
+      '/library/':[['library-search','.library-toolbar'],['edition-card','.document-entry.discovery-card']],
+      '/words/':[['specimen','.aw-word-specimen']],
+      '/people/':[['dossier','.aw-person-register .person-item']],
+      '/workspace/':[['private-edition','.lesson-card']],
+      '/read/slavoj-zizek-signs-from-the-future/':[['chapter-index','.study-original .toc-list'],['reader-tools','.study-toolbar'],['language-note','.study-original .en:has(.in-situ-annotation[data-note-kind=language])'],['context-note','.study-original .en:has(.in-situ-annotation[data-note-kind=context])']],
+      '/':[['home-entry','.aw-world-enter'],['video-card','#video-shelf .document-entry']]
+     };
+     for(const [name,selector] of detailTargets[path]||[]){
+      const target=page.locator(selector).first();
+      if(await target.isVisible()){
+       await target.scrollIntoViewIfNeeded();
+       await target.screenshot({path:out+'/'+theme+'-'+width+'-detail-'+name+'.png',animations:'disabled',timeout:10000});
+      }
+     }
+    }
    }
   }
   await context.close();

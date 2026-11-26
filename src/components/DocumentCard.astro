@@ -1,18 +1,19 @@
 ---
 import DocumentCover from './DocumentCover.astro';
-import {documentUrl,genreById,genreUrl,personUrl,docTopics,topicUrl,searchText,durationSeconds,timeBand,type Doc} from '../lib/discovery';
+import {displayDocumentTitle,documentUrl,genreById,genreUrl,personUrl,docTopics,topicUrl,searchText,durationSeconds,timeBand,type Doc} from '../lib/discovery';
 interface Props{doc:Doc;featured?:boolean;reason?:string; presentation?:'edition'|'video'}
 const {doc:d,featured=false,reason,presentation='edition'}=Astro.props;
 const g=genreById(d.data.genre);
+const displayTitle=displayDocumentTitle(d.data.title);
 ---
 <article class:list={['document-entry','discovery-card',{'featured-document':featured,'aw-video-document':presentation==='video'}]} data-document data-search={[searchText(d),d.data.difficulty,...d.data.englishFeatures,d.data.series].join(' ').toLowerCase()} data-format={d.data.category} data-difficulty={d.data.difficulty||''} data-time={timeBand(durationSeconds(d.data.duration))} data-features={JSON.stringify(d.data.englishFeatures)} data-series={d.data.series||''}>
  <DocumentCover doc={d} featured={featured} genreColor={g?.color} genreName={g?.name} presentation={presentation}/>
  <div class="document-info"><div class="card-kicker">{g&&<a href={genreUrl(g.id)}>{g.name}</a>}<span>{d.data.category}</span>{reason&&<span>{reason}</span>}</div>
- <h3><a href={documentUrl(d)}>{d.data.title}</a></h3>
+ <h3><a href={documentUrl(d)}>{displayTitle}{displayTitle!==d.data.title&&<span class="aw-title-subtitle">{d.data.title.slice(displayTitle.length)}</span>}</a></h3>
  <div class="document-author">{d.data.people.length?d.data.people.map(p=><a href={personUrl(p.id)}>{p.name}</a>):d.data.author}</div>
  <p class="document-deck">{d.data.description}</p>
  <p class="document-facts">{d.data.duration&&d.data.duration+' · '}{d.data.chapterCount}章 · {d.data.utteranceCount}発話 {d.data.difficulty&&' · 推定 '+d.data.difficulty}</p>
  <div class="tag-row">{docTopics(d).slice(0,featured?6:3).map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div>
- <a class="read-link" href={documentUrl(d)}>対訳全文を読む →</a>
+ <a class="read-link" href={documentUrl(d)}><span class="aw-reading-label">対訳全文を読む<small lang="en" aria-hidden="true">Open the source</small></span><span class="aw-reading-arrow" aria-hidden="true">↗</span></a>
  </div>
 </article>

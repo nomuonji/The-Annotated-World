@@ -1,0 +1,360 @@
+/* Component Atelier integration. Keep the site's existing DOM, data and event handlers.
+   The ornamental corner geometry is the approved 9-slice SVG; the cropped art
+   participates in the silhouette without replacing native controls. */
+@import url("/midnight-component-assets.css");
+:root{--aw-folio:var(--aw-folio-paper);--aw-ticket:var(--aw-ticket-paper);--aw-rail:var(--aw-rail-paper);--aw-component-ink:#37283b;--aw-component-muted:#735567;--aw-component-accent:#8e355a;--aw-component-stock:#f9efe2;--aw-component-rule:#c19a77;--aw-component-focus:#913c62}
+html[data-theme=dark]{--aw-folio:var(--aw-folio-night);--aw-ticket:var(--aw-ticket-night);--aw-rail:var(--aw-rail-night);--aw-component-ink:#f3e4da;--aw-component-muted:#ccb0bd;--aw-component-accent:#efb4cf;--aw-component-stock:#2b2035;--aw-component-rule:#c79c80;--aw-component-focus:#f7b6d3}
+/* A frame with fixed-width corners and a stretchable middle. The real hit area
+   is never clipped; backgrounds and decorative pseudo-elements cannot intercept it. */
+:where(.aw-atelier-frame,.platform-header-inner,.document-entry.discovery-card,.study-mode,.video-quick-controls,.chapter-mode-control,.mobile-translation-dock,.masthead,.lesson-card,.saved-row){--aw-frame-skin:var(--aw-folio)}
+/* The room register: arched entries and an actual current-location bookmark. */
+.platform-header{background:var(--aw-component-stock)!important;border-bottom:0}
+.platform-header-inner{position:relative;isolation:isolate;gap:12px;padding:12px clamp(12px,3vw,42px);min-width:0}
+.platform-header-inner::before{content:"";position:absolute;inset:5px 7px;z-index:-2;border:18px solid transparent;border-image:var(--aw-rail) 25 fill stretch;pointer-events:none}
+.platform-header .site-title{display:flex;align-items:center;position:relative;isolation:isolate;gap:8px;flex:0 1 auto;min-width:0;color:var(--aw-component-ink);font:600 clamp(17px,1.8vw,26px)/1.1 'Newsreader',Georgia,serif}
+.platform-header .site-title::after{content:"";position:absolute;inset:-12px -8px -10px 25%;background:var(--aw-art-leaves) right center/auto 100% no-repeat;opacity:.30;z-index:-1;pointer-events:none}
+.platform-header .site-title span{overflow-wrap:anywhere}
+.platform-header nav{display:flex;align-items:stretch;gap:0;min-width:0;flex:0 1 auto}
+.platform-header nav a{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;position:relative;isolation:isolate;flex:0 1 auto;min-width:0;min-height:54px;padding:5px clamp(6px,1vw,14px);color:var(--aw-component-ink)!important;font:500 12px/1.35 'Noto Sans JP',sans-serif;text-decoration:none!important;white-space:nowrap}
+.platform-header nav a::before{content:"";position:absolute;inset:0 0 0 -1px;border:1px solid var(--aw-component-rule);border-radius:50% 50% 1px 1px/15px 15px 1px 1px;z-index:-1;opacity:.62;pointer-events:none}
+.platform-header nav a[aria-current]::before{background:var(--aw-ticket-paper) center/100% 100% no-repeat;opacity:1}
+.platform-header nav a[aria-current]{color:#783455!important;font-weight:700}
+.platform-header nav a[aria-current]::after{content:"";position:absolute;left:calc(50% - 7px);bottom:-8px;width:14px;height:16px;background:linear-gradient(90deg,#7d3757,#c07b9a);clip-path:polygon(0 0,100% 0,100% 100%,50% 72%,0 100%);pointer-events:none}
+.platform-header nav a:hover::before{opacity:1;box-shadow:inset 0 0 0 1px var(--aw-component-rule)}
+.aw-nav-art{display:block;width:25px;height:25px;flex:none;object-fit:contain}
+.platform-header .site-theme-toggle{flex:none;color:var(--aw-component-accent);background:transparent;border:0;min-height:40px;font-size:12px}
+/* An illuminated book and arrow plaque share their outline. */
+.aw-world-actions .aw-world-enter{position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:20px;min-height:58px;max-width:100%;margin-left:8px;padding:10px 20px 10px 88px!important;background:transparent!important;color:#fff0e0!important;border:0!important;box-shadow:none!important;font:600 15px/1.4 'Noto Sans JP',sans-serif;text-decoration:none}
+.aw-world-actions .aw-world-enter::before{content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;background:#d0a380;clip-path:polygon(7% 0,94% 0,100% 50%,94% 100%,7% 100%,0 50%)}
+.aw-world-actions .aw-world-enter::after{content:"";position:absolute;inset:2px;z-index:-1;pointer-events:none;background:var(--aw-art-book) left center/88px auto no-repeat,linear-gradient(110deg,#422b48,#783d65 70%,#3d293e);clip-path:polygon(7% 0,94% 0,100% 50%,94% 100%,7% 100%,0 50%)}
+.aw-world-actions .aw-world-enter:hover{filter:brightness(1.12)}
+.aw-world-actions .aw-world-enter:active{transform:translateY(1px)}
+/* Lens is seated in the actual search field's endcap. */
+.aw-lens-field{position:relative;display:flex;align-items:stretch;isolation:isolate;min-width:0;max-width:100%;width:100%;min-height:56px;padding:6px 12px 6px 58px}
+.aw-lens-field::before{content:"";position:absolute;inset:0;z-index:-2;border:16px solid transparent;border-image:var(--aw-ticket) 25 fill stretch;pointer-events:none}
+.aw-lens-field::after{content:"";position:absolute;width:68px;height:56px;left:-3px;top:0;background:var(--aw-art-lens) left center/contain no-repeat;pointer-events:none}
+html[data-theme] :is(.library-toolbar,.reader-tools,.shelf-heading) .aw-lens-field input{display:block;flex:1;width:100%;min-width:0;max-width:100%;padding:8px 0!important;min-height:42px;border:0!important;border-radius:0!important;background:transparent!important;color:var(--aw-component-ink)!important;font-size:14px;box-shadow:none}
+.aw-lens-field input::placeholder{color:var(--aw-component-muted);opacity:1}
+.aw-lens-field:focus-within{outline:2px solid var(--aw-component-focus);outline-offset:2px}
+.library-toolbar>[aria-live]{color:var(--aw-component-accent);font-variant-numeric:tabular-nums}
+.library-toolbar>[aria-live]::before{content:"✧ ";color:var(--aw-component-accent)}
+/* Hanging catalogue tickets. No change to the underlying pressed state. */
+.library-filters .library-tabs{position:relative;gap:0;padding-top:6px;margin-top:4px}
+.library-filters .library-tabs::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(#e6c6a0,#9a735b);pointer-events:none}
+.library-filters .library-tabs button{position:relative;isolation:isolate;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:var(--aw-component-ink)!important;min-height:44px;padding:8px 18px!important;background:var(--aw-component-stock)!important}
+.library-filters .library-tabs button::before{content:"";position:absolute;inset:0;z-index:-1;border:14px solid transparent;border-image:var(--aw-ticket) 25 stretch;pointer-events:none}
+.library-filters .library-tabs button[aria-pressed=true]{color:var(--aw-selected-ink)!important;background:var(--aw-selected-stock)!important;font-weight:700}
+.library-filters .library-tabs button[aria-pressed=true]::before{border-image-source:none;border:0;border-bottom:2px solid var(--aw-marker)}
+.library-filters .library-tabs button::after{content:"";position:absolute;top:-5px;left:14px;width:3px;height:7px;border:1px solid #bf9878;border-radius:2px;pointer-events:none}
+.library-filter-inputs select{border-radius:0!important;border-color:var(--aw-component-rule)!important}
+/* Keep original book covers and source-video thumbnails. The frame surrounds
+   the real article; no screenshot substitutes for metadata or links. */
+html[data-theme] .document-entry.discovery-card{position:relative;isolation:isolate;background:transparent!important;border:0!important;box-shadow:none!important;padding:clamp(12px,2vw,24px)}
+html[data-theme] .document-entry.discovery-card::before{content:"";position:absolute;inset:0;z-index:-2;border:19px solid transparent;border-image:var(--aw-folio) 25 fill stretch;pointer-events:none}
+.document-entry.discovery-card::after{content:"";position:absolute;right:4px;top:3px;width:min(24%,92px);height:90px;background:var(--aw-art-leaves) right top/contain no-repeat;opacity:.22;z-index:-1;pointer-events:none}
+.document-entry .document-info{position:relative;min-width:0}
+.document-entry .document-cover{border-color:var(--aw-component-rule);box-shadow:none!important}
+.document-entry .document-cover.aw-illustrated-cover::after{content:"✦";position:absolute;right:9px;top:0;padding:4px 0 10px;width:18px;text-align:center;background:#a25278;color:#fff0c9;clip-path:polygon(0 0,100% 0,100% 100%,50% 76%,0 100%);pointer-events:none;z-index:3;font-size:11px}
+html[data-theme] .document-entry .read-link{display:inline-flex;align-items:center;gap:4px;position:relative;isolation:isolate;max-width:100%;min-height:42px;padding:7px 12px!important;color:var(--aw-component-accent)!important;background:transparent!important;text-decoration:none!important;border:0!important;font-size:12px;white-space:normal;overflow-wrap:anywhere}
+.document-entry .read-link::before{content:"";position:absolute;inset:0;z-index:-1;border:13px solid transparent;border-image:var(--aw-ticket) 25 fill stretch;pointer-events:none}
+.document-entry .read-link:hover{text-decoration:underline!important}
+html[data-theme] .topic-tag{position:relative;display:inline-flex;align-items:center;gap:4px;isolation:isolate;background:transparent!important;border:0!important;border-bottom:1px solid var(--aw-reader-seam)!important;color:var(--aw-component-accent)!important;border-radius:0!important;padding:3px 3px 3px 1px!important;font-size:12px;line-height:1.5}
+.topic-tag::before{content:"";width:6px;height:9px;flex:none;background:var(--aw-marker);border-radius:80% 0 80% 0;transform:rotate(-10deg);pointer-events:none}
+.topic-tag:hover{text-decoration:underline!important;text-underline-offset:3px}
+/* Reading is intentionally quieter. Use the same palette and cut corner
+   semantics on inline annotations, without changing source flow or note toggle. */
+html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=language]{color:#703750;background:#f3e4e9;border:1px solid #b27c9c;border-left:2px solid #a25c84;border-radius:6px 0 6px 0;padding:1px 4px}
+html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=context]{color:#65452e;background:#f8ecd9;border:1px solid #c49b71;border-left:2px solid #ad8359;border-radius:0 7px 0 7px;padding:1px 4px}
+html[data-theme=dark] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=language]{color:#f0d7e5;background-color:#422d43;border-color:#b27c9c}
+html[data-theme=dark] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=context]{color:#f4dfc4;background-color:#40322e;border-color:#c49b71}
+/* The reader is a working reading instrument, not an ornamental card deck.
+   Three distinct structures: binding tabs, a page marker, and a film deck. */
+:root{--aw-reader-rail:#e9d9cb;--aw-reader-seam:#b39782;--aw-selected-stock:#6f3655;--aw-selected-ink:#fff6ee;--aw-marker:#935a79;--aw-deck:#eee3d5}
+html[data-theme=dark]{--aw-reader-rail:#292333;--aw-reader-seam:#786477;--aw-selected-stock:#e7c1d2;--aw-selected-ink:#3b2539;--aw-marker:#d8a2be;--aw-deck:#282230}
+.study-mode{display:flex;align-items:stretch;gap:0;padding:0 3px 3px;background:var(--aw-reader-rail);border-bottom:1px solid var(--aw-reader-seam);border-radius:10px 10px 2px 2px}
+html[data-theme] .study-mode button{position:relative;isolation:isolate;min-width:0;border:0!important;border-radius:9px 9px 1px 1px!important;background:var(--aw-reader-rail)!important;color:var(--aw-component-ink)!important;box-shadow:none!important;padding:7px 12px;font-weight:500}
+html[data-theme] .study-mode button+button{border-left:1px solid var(--aw-reader-seam)!important}
+html[data-theme] .study-mode button[aria-pressed=true]{background:var(--aw-selected-stock)!important;color:var(--aw-selected-ink)!important;font-weight:700}
+.study-mode button[aria-pressed=true]::after{content:"";position:absolute;left:50%;bottom:-5px;width:10px;height:7px;transform:translateX(-50%);background:var(--aw-marker);clip-path:polygon(0 0,100% 0,100% 100%,50% 65%,0 100%);pointer-events:none}
+html[data-theme] .study-mode button:not([aria-pressed=true]):hover{box-shadow:inset 0 -2px var(--aw-marker)!important}
+html[data-theme] :is(.study-secondary .study-control,.video-position .study-control,.utterance-tools button){color:var(--aw-component-accent);background:var(--aw-component-stock);border:1px solid var(--aw-reader-seam);border-radius:3px 3px 0 0}
+html[data-theme] :is(.study-secondary .study-control,.utterance-tools button)[aria-pressed=true]{background:var(--aw-selected-stock);color:var(--aw-selected-ink);border-color:var(--aw-selected-stock);box-shadow:none}
+html[data-theme] :is(.study-chapter-label select,.speed-label select){border:1px solid var(--aw-reader-seam);border-radius:3px;color:var(--aw-component-ink);background:var(--aw-component-stock)}
+.study-secondary .study-chapter-label{max-width:300px}
+html[data-theme] .chapter-mode-control{position:relative;gap:8px 14px;padding:3px 0 7px;margin:8px 0;border:0;background:none}
+html[data-theme] .chapter-mode-control button{display:inline-flex;align-items:center;gap:8px;min-height:39px;padding:7px 12px 7px 10px;background:var(--aw-component-stock)!important;color:var(--aw-component-ink)!important;border:1px solid var(--aw-reader-seam)!important;border-radius:2px 8px 8px 2px!important;box-shadow:none!important}
+.chapter-mode-control button::before{content:"";width:15px;height:20px;flex:none;background:linear-gradient(90deg,var(--aw-marker) 0 4px,transparent 4px),linear-gradient(var(--aw-reader-seam),var(--aw-reader-seam)) center 6px/7px 1px no-repeat,linear-gradient(var(--aw-reader-seam),var(--aw-reader-seam)) center 10px/7px 1px no-repeat;clip-path:polygon(0 0,100% 0,100% 100%,50% 78%,0 100%);border:1px solid var(--aw-reader-seam)}
+html[data-theme] .chapter-mode-control button[aria-pressed=true]{background:var(--aw-selected-stock)!important;color:var(--aw-selected-ink)!important;border-color:var(--aw-selected-stock)!important}
+.chapter-mode-control button[aria-pressed=true]::before{background:currentColor;opacity:.9}
+html[data-theme] .reader-tools{border:0;border-bottom:1px solid var(--aw-reader-seam);background:none}
+.reader-tools summary{padding:8px 0;color:var(--aw-component-accent)}
+/* Cinema deck: circular play actuator integrated with a perforated rail,
+   speed/follow/pin are legible native controls with their own states. */
+html[data-theme] .video-quick-controls{position:relative;isolation:isolate;align-items:center;gap:4px;padding:7px 8px 7px 5px;background:var(--aw-deck);border-block:1px solid var(--aw-reader-seam);border-radius:20px 4px 4px 20px}
+.video-quick-controls::after{content:"";position:absolute;right:4px;top:4px;bottom:4px;width:3px;background:repeating-linear-gradient(to bottom,var(--aw-reader-seam) 0 3px,transparent 3px 7px);pointer-events:none;opacity:.7}
+html[data-theme] .video-quick-controls .study-control{color:var(--aw-component-ink)!important;background:var(--aw-deck)!important;border:0!important;border-bottom:1px solid var(--aw-reader-seam)!important;border-radius:0!important;box-shadow:none!important;min-width:0;font-weight:500}
+html[data-theme] .video-quick-controls .study-control[aria-pressed=true]{background:var(--aw-selected-stock)!important;color:var(--aw-selected-ink)!important;border-radius:4px!important}
+html[data-theme] .video-quick-controls .study-control:disabled{opacity:.68}
+html[data-theme] .video-quick-controls #play-pause{border:1px solid var(--aw-reader-seam)!important;border-radius:22px 9px 9px 22px!important;padding:6px 10px;min-height:40px;background:var(--aw-selected-stock)!important;color:var(--aw-selected-ink)!important}
+html[data-theme] .video-quick-controls .speed-label{color:var(--aw-component-ink)}
+html[data-theme] #video-clock{color:var(--aw-component-accent);font:600 17px/1.3 'Newsreader',Georgia,serif;font-variant-numeric:tabular-nums}
+/* Chapter index is a bound register, not 11 identical tiny picture frames.
+   Timestamp and original title have independent measures and shared spine. */
+.study-original .toc-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 22px}
+html[data-theme] .study-original .toc-list li{position:relative;isolation:auto;background:none;border:0;border-bottom:1px solid var(--aw-reader-seam);padding:0;min-width:0}
+.study-original .toc-list li::before{content:none}
+.study-original .toc-list a{position:relative;display:grid;grid-template-columns:68px minmax(0,1fr);gap:10px;align-items:start;min-height:64px;padding:12px 8px 12px 13px;color:var(--aw-component-ink);font:500 14px/1.65 'Noto Sans JP',sans-serif;overflow-wrap:anywhere;text-decoration:none}
+.study-original .toc-list a::before{content:"";position:absolute;left:0;top:12px;width:5px;height:22px;background:var(--aw-marker);clip-path:polygon(0 0,100% 0,100% 100%,50% 75%,0 100%);pointer-events:none}
+.study-original .toc-list .toc-time{font:600 13px/1.65 'Newsreader',Georgia,serif;font-variant-numeric:tabular-nums;letter-spacing:.02em;color:var(--aw-component-accent);margin:0;white-space:nowrap}
+.study-original .toc-list .aw-toc-title{min-width:0;overflow-wrap:anywhere}
+.study-original .toc-list a:hover,.study-original .toc-list a:focus-visible{background:var(--aw-component-stock);color:var(--aw-component-accent);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1150px){.study-original .toc-list{grid-template-columns:1fr}}
+@media(max-width:899px){.study-original .toc-list a{min-height:50px;padding:10px 6px 10px 12px;grid-template-columns:64px minmax(0,1fr);gap:8px;font-size:13px}.study-mode{padding:0 2px 2px}.video-pinned .study-mode button{padding:5px 8px}.video-pinned .video-quick-controls #play-pause{min-height:34px;padding:5px 7px}.video-pinned .video-quick-controls{border-radius:14px 3px 3px 14px}}
+@media(max-width:380px){html[data-theme] .study-mode button{padding:6px 8px;font-size:11px}}
+/* Fixed translation is a cloud-framed reading strip. Keep bottom/height/scroll
+   calculations in study.css and the existing observer; do not overlay text. */
+@media(max-width:899px){
+ html[data-theme] .mobile-translation-dock:not([hidden]){isolation:isolate;border:0;border-radius:0;background:transparent;color:var(--aw-component-ink);box-shadow:0 4px 16px #170f2250}
+ .mobile-translation-dock::before{content:"";position:absolute;inset:0;z-index:-2;border:16px solid transparent;border-image:var(--aw-rail) 25 fill stretch;pointer-events:none}
+ .mobile-translation-dock::after{content:"";position:absolute;right:4px;bottom:3px;width:130px;height:45px;background:var(--aw-art-cloud) right bottom/contain no-repeat;opacity:.22;z-index:-1;pointer-events:none}
+ html[data-theme] .mobile-translation-dock-head{border-bottom-color:var(--aw-component-rule);color:var(--aw-component-accent)}
+ html[data-theme] .mobile-translation-dock-body{color:var(--aw-component-ink)}
+ html[data-theme] :is(.mobile-translation-dock-head button,.mobile-translation-pin:not([hidden])){color:var(--aw-component-accent);border:1px solid var(--aw-component-rule);border-radius:0;background:var(--aw-component-stock)}
+}
+/* Private reader uses the same frame grammar without importing demo scripts. */
+.masthead,.lesson-card,.saved-row{position:relative;isolation:isolate}
+html[data-theme] :is(.lesson-card,.saved-row){border:0;padding-inline:14px}
+:is(.lesson-card,.saved-row)::before{content:"";position:absolute;inset:0;z-index:-2;border:19px solid transparent;border-image:var(--aw-folio) 25 fill stretch;pointer-events:none}
+html[data-theme] :is(.masthead nav .action,.import-hint .action,.lesson-card>button,.saved-row>button:first-of-type){position:relative;isolation:isolate;border:0!important;background:transparent!important;color:var(--aw-component-accent)!important;min-height:44px;padding:9px 14px}
+:is(.masthead nav .action,.import-hint .action,.lesson-card>button,.saved-row>button:first-of-type)::before{content:"";position:absolute;inset:0;z-index:-1;border:14px solid transparent;border-image:var(--aw-ticket) 25 fill stretch;pointer-events:none}
+html[data-theme] :is(.toolbar button,#chapters button)[aria-pressed=true],html[data-theme] #chapters button[aria-current=true]{background:var(--aw-component-stock);color:var(--aw-component-accent);border-color:var(--aw-component-rule)}
+:where(.aw-world-enter,.read-link,.topic-tag,.platform-header nav a,.library-tabs button,.study-mode button,.study-control,.aw-lens-field input):focus-visible{outline:2px solid var(--aw-component-focus)!important;outline-offset:3px}
+@media(max-width:1100px){.platform-header-inner{flex-wrap:wrap;justify-content:space-between;gap:7px 12px}.platform-header nav{order:3;flex:1 1 100%;justify-content:center;flex-wrap:wrap;row-gap:8px}.platform-header nav a{flex:1 1 auto}}
+@media(max-width:640px){.platform-header-inner{display:flex;padding:10px 13px 14px}.platform-header .site-title{font-size:18px;flex:1 1 0}.platform-header nav{width:100%;max-width:100%;margin:0;gap:6px 0;justify-content:center}.platform-header nav a{flex:0 0 25%;min-height:45px;padding:3px 2px;font-size:11px}.aw-nav-art{width:21px;height:21px}.platform-header nav a[aria-current]::after{width:10px;height:11px;bottom:-5px;left:calc(50% - 5px)}.aw-world-actions .aw-world-enter{margin-left:0;padding-left:73px!important;min-height:52px;font-size:12px;gap:9px}.aw-world-actions .aw-world-enter::after{background-size:72px auto,100% 100%}.aw-lens-field{padding-left:48px;min-height:52px}.aw-lens-field::after{width:57px;height:52px}.library-toolbar .aw-lens-field input{font-size:13px}.library-filters .library-tabs button{padding-inline:12px!important}.document-entry .read-link{padding:7px 9px!important;font-size:11px}.document-entry.discovery-card::after{opacity:.13}}
+@media(max-width:350px){.platform-header nav a{font-size:10px}.platform-header .site-title{font-size:16px}.aw-lens-field{padding-left:43px;padding-right:8px}.aw-lens-field::after{width:50px}.library-toolbar{gap:7px}.document-entry .read-link{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.aw-world-actions .aw-world-enter{transition:none!important;transform:none!important}}
+
+/* Readability pass: preserve the illustrated outer silhouettes of the primary
+   controls; reserve uncluttered text surfaces for repeated reading actions. */
+.platform-header .site-title::after{opacity:.12}
+.platform-header nav a::before{border-color:var(--aw-component-rule)}
+.platform-header nav a:not([aria-current])::before{border-bottom:0;opacity:.55}
+.platform-header nav a[aria-current]::before{opacity:1}
+.platform-header nav a{font-weight:600}
+html[data-theme] .document-entry.discovery-card{color:var(--aw-component-ink)}
+.document-entry.discovery-card::after{opacity:.12;width:min(18%,68px)}
+.document-entry .document-cover{margin:0}
+html[data-theme] .document-entry .read-link{font-size:13px;min-height:44px}
+html[data-theme] .topic-tag{font-size:12px;line-height:1.5;padding:4px 9px!important}
+.library-toolbar label{min-width:0}
+.library-toolbar>[aria-live]{flex-shrink:0;font-size:12px;white-space:nowrap}
+.aw-lens-field{box-sizing:border-box}
+html[data-theme] :is(.library-toolbar,.reader-tools,.shelf-heading) .aw-lens-field input{font-size:16px}
+.library-filters .library-tabs button{min-width:70px;font-size:14px;font-weight:600}
+html[data-theme] .study-original .en .annotation-group .in-situ-annotation{box-decoration-break:slice;-webkit-box-decoration-break:slice;overflow-wrap:anywhere;word-break:normal;margin-inline:.12em;padding-inline:4px}
+.study-original .en .annotation-group{line-height:1.6;overflow-wrap:anywhere}
+html[data-theme] .study-layout[data-annotations=off] .study-original .annotation-source{background:none!important;text-decoration:none!important}
+html[data-theme] .video-quick-controls{padding:5px 8px 5px 5px}
+html[data-theme] .video-quick-controls .study-control{font-weight:600}
+html[data-theme] .video-quick-controls .study-control:disabled{opacity:.65}
+@media(max-width:899px){
+ .mobile-translation-dock::after{opacity:.10;width:80px;height:32px}
+ html[data-theme] .mobile-translation-dock-head{padding:5px 12px;gap:6px}
+ html[data-theme] .mobile-translation-dock-body{font-size:14px;line-height:1.75;padding:8px 14px 12px}
+ .video-pinned .video-quick-controls{padding:1px 3px!important}
+}
+@media(max-width:640px){
+ .platform-header-inner{padding:9px 12px 10px;gap:4px 8px}
+ .platform-header-inner::before{inset:3px 5px;border-width:13px}
+ .platform-header nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px 0}
+ .platform-header nav a{flex:none;min-height:40px;flex-direction:row;gap:3px;padding:4px 2px;font-size:11px}
+ .platform-header nav a::before{border-radius:45% 45% 0 0/8px 8px 0 0}
+ .platform-header nav a[aria-current]::after{height:8px;bottom:-3px}
+ .aw-nav-art{width:15px;height:15px}
+ .platform-header .site-theme-toggle{min-height:36px}
+ .library-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:6px}
+ .aw-lens-field{min-height:48px;padding:3px 10px 3px 43px}
+ .aw-lens-field::after{width:48px;height:48px}
+ .library-toolbar>[aria-live]{font-size:11px}
+ html[data-theme] .document-entry.discovery-card{padding:12px}
+ html[data-theme] .document-entry .read-link{font-size:12px;padding:6px 10px!important}
+ html[data-theme] .document-entry .topic-tag{font-size:11px;padding:3px 6px!important}
+ .document-entry.discovery-card::before{border-width:13px!important}
+ .document-entry.discovery-card::after{opacity:.07}
+ .study-original .en .annotation-group{font-size:11.5px;line-height:1.65}
+ html[data-theme] .study-original .en .annotation-group .in-situ-annotation{padding-inline:3px;border-left-width:1px;margin-inline:0}
+}
+@media(max-width:350px){
+ .platform-header nav a{font-size:10px}
+ .aw-nav-art{width:13px;height:13px}
+ .library-toolbar{grid-template-columns:minmax(0,1fr)}
+ .library-toolbar>[aria-live]{justify-self:end}
+ html[data-theme] .study-original .en .annotation-group .in-situ-annotation{padding-inline:2px;border-left-width:1px}
+}
+
+/* Atelier second pass: additive art at the moment of entering a text.
+   Retain the accepted book frames, navigation and all source imagery.
+   These two signatures are not a reusable border for every small control. */
+:root{--aw-reading-plaque:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20180%2072%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22paper%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23fff4df%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23e7c9b2%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M3%2036Q8%2029%2010%2017L24%2017Q28%204%2042%203Q56%203%2066%2012H154Q163%2012%20166%2021L177%2036L166%2051Q163%2060%20154%2060H66Q55%2069%2042%2069Q27%2068%2024%2055H10Q8%2043%203%2036Z%22%20fill%3D%22url(%23paper)%22%20stroke%3D%22%2395617d%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M10%2036L15%2022H28Q32%208%2042%208Q55%208%2064%2017H154Q159%2017%20161%2023L171%2036L161%2049Q159%2055%20154%2055H64Q54%2064%2042%2064Q32%2064%2028%2050H15Z%22%20fill%3D%22none%22%20stroke%3D%22%23ae846f%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M155%2026l5%2010-5%2010M66%2019v34%22%20fill%3D%22none%22%20stroke%3D%22%2395617d%22%20stroke-width%3D%221%22%2F%3E%3Cpath%20d%3D%22M42%203l2%204-2%204-2-4zM42%2061l2%204-2%204-2-4z%22%20fill%3D%22%2395617d%22%2F%3E%3C%2Fsvg%3E");--aw-plaque-ink:#522e46;--aw-plaque-fill:#f2dece}
+html[data-theme=dark]{--aw-reading-plaque:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20180%2072%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22paper%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%2365415e%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2339273e%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M3%2036Q8%2029%2010%2017L24%2017Q28%204%2042%203Q56%203%2066%2012H154Q163%2012%20166%2021L177%2036L166%2051Q163%2060%20154%2060H66Q55%2069%2042%2069Q27%2068%2024%2055H10Q8%2043%203%2036Z%22%20fill%3D%22url(%23paper)%22%20stroke%3D%22%23d5ac88%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M10%2036L15%2022H28Q32%208%2042%208Q55%208%2064%2017H154Q159%2017%20161%2023L171%2036L161%2049Q159%2055%20154%2055H64Q54%2064%2042%2064Q32%2064%2028%2050H15Z%22%20fill%3D%22none%22%20stroke%3D%22%23e9caa5%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M155%2026l5%2010-5%2010M66%2019v34%22%20fill%3D%22none%22%20stroke%3D%22%23e9caa5%22%20stroke-width%3D%221%22%2F%3E%3Cpath%20d%3D%22M42%203l2%204-2%204-2-4zM42%2061l2%204-2%204-2-4z%22%20fill%3D%22%23f8dfaf%22%2F%3E%3C%2Fsvg%3E");--aw-plaque-ink:#fff0df;--aw-plaque-fill:#4d314b}
+/* The illustrated book crest physically rises from the scalloped reading plaque. */
+html[data-theme] .document-entry .read-link{position:relative;isolation:isolate;align-items:center;justify-content:space-between;gap:10px;min-height:62px;width:max-content;max-width:100%;padding:11px 21px 11px 59px!important;color:var(--aw-plaque-ink)!important;font:600 13px/1.45 'Noto Sans JP',sans-serif;background:transparent!important;overflow-wrap:anywhere}
+.document-entry .read-link::before{inset:0;border:0;border-image:none;background:var(--aw-reading-plaque) center/100% 100% no-repeat;z-index:-2}
+.document-entry .read-link::after{content:"";position:absolute;left:4px;top:50%;width:55px;height:48px;transform:translateY(-50%);background:var(--aw-art-book) center/contain no-repeat;pointer-events:none;z-index:-1}
+.document-entry .read-link .aw-reading-label{min-width:0;display:flex;flex-direction:column;gap:1px}
+.document-entry .read-link .aw-reading-label small{font:500 10px/1.2 'Newsreader',Georgia,serif;letter-spacing:.04em;color:inherit}
+.document-entry .read-link .aw-reading-arrow{flex:none;font-size:15px;line-height:1;color:inherit}
+.document-entry .read-link:hover{filter:brightness(1.06)}
+/* Keep the original ornamental folio edge; add a binding marker rather than
+   a new surrounding frame. The source thumbnail stays completely unobscured. */
+.document-entry:not(.aw-video-document) .document-cover.aw-illustrated-cover::after{width:23px;right:9px;padding:5px 0 14px;background:linear-gradient(90deg,#713650,#ad6486 48%,#854362);color:#fff0cf;clip-path:polygon(0 0,100% 0,100% 100%,50% 74%,0 100%);font-size:13px}
+.document-entry:not(.aw-video-document) .document-info h3{font-family:'Newsreader','Noto Sans JP',serif;line-height:1.24;margin-bottom:6px}
+.document-entry:not(.aw-video-document) .document-info .document-facts{font-variant-numeric:tabular-nums;line-height:1.65}
+/* Active room: artwork occupies a moonlit arch rather than a white rectangle
+   stretched behind the label. Preserve the existing arched navigation. */
+.platform-header nav a[aria-current]::before{background:radial-gradient(ellipse at 50% 35%,#fff2d6 0%,#ead0c0 52%,#d9b4bb 100%);border:1px solid #a67979;border-radius:50% 50% 2px 2px/15px 15px 2px 2px}
+.platform-header nav a[aria-current] .aw-nav-art{filter:drop-shadow(0 1px 1px #55304740)}
+@media(max-width:640px){
+ html[data-theme] .document-entry .read-link{min-height:54px;padding:9px 14px 9px 43px!important;gap:5px;font-size:12px}
+ .document-entry .read-link::after{left:2px;width:43px;height:39px}
+ .document-entry .read-link .aw-reading-label small{font-size:9px}
+ .document-entry .read-link .aw-reading-arrow{font-size:12px}
+ .platform-header nav a[aria-current]::before{border-radius:45% 45% 0 0/8px 8px 0 0}
+}
+@media(max-width:350px){
+ html[data-theme] .document-entry .read-link{padding-left:34px!important;padding-right:9px!important;font-size:11px;gap:3px}
+ .document-entry .read-link::after{width:33px;height:34px;left:1px}
+}
+
+/* Atelier: individual illustrated objects, not a shared decoration pasted over
+   all controls. The original room artwork and book frames stay in place. */
+:root{--atelier-lens:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%2080%22%3E%3Cpath%20d%3D%22M40%202H106Q111%202%20118%2012V68Q111%2078%20106%2078H40C16%2078%202%2062%202%2040S16%202%2040%202Z%22%20fill%3D%22%23f7e9d9%22%20stroke%3D%22%23925d77%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M40%206H105L114%2015V65L105%2074H40C20%2074%206%2059%206%2040S20%206%2040%206Z%22%20fill%3D%22none%22%20stroke%3D%22%23b68f77%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M106%2034l5%206-5%206-4-6Z%22%20fill%3D%22%23925d77%22%2F%3E%3Cpath%20d%3D%22M32%202l4%205-4%205M32%2068l4%205-4%205%22%20fill%3D%22none%22%20stroke%3D%22%23b68f77%22%2F%3E%3C%2Fsvg%3E");--atelier-specimen:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2056%2092%22%3E%3Cpath%20d%3D%22M28%202C37%202%2043%207%2048%2015L53%2039%2047%2076%2028%2090%209%2076%203%2039%208%2015C13%207%2019%202%2028%202Z%22%20fill%3D%22%23f7e9d9%22%20stroke%3D%22%23925d77%22%20stroke-width%3D%221.2%22%2F%3E%3Cpath%20d%3D%22M28%206Q38%206%2044%2017L49%2039%2043%2073%2028%2085%2013%2073%207%2039%2012%2017Q18%206%2028%206Z%22%20fill%3D%22none%22%20stroke%3D%22%23b68f77%22%20stroke-width%3D%22.65%22%2F%3E%3Cpath%20d%3D%22M28%2012v8m-4-4h8M12%2040h6M38%2040h6M28%2076l3%203-3%204-3-4z%22%20stroke%3D%22%23925d77%22%20stroke-width%3D%22.7%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");--atelier-dossier:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2090%20102%22%3E%3Cpath%20d%3D%22M45%202Q55%2010%2066%209L85%2025V79L67%20100H23L5%2079V25L24%209Q35%2010%2045%202Z%22%20fill%3D%22%23ead1c9%22%20stroke%3D%22%23925d77%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M45%208Q56%2015%2065%2015L79%2029V76L64%2094H26L11%2076V29L25%2015Q34%2015%2045%208Z%22%20fill%3D%22%23f7e9d9%22%20stroke%3D%22%23b68f77%22%20stroke-width%3D%22.9%22%2F%3E%3Cellipse%20cx%3D%2245%22%20cy%3D%2248%22%20rx%3D%2225%22%20ry%3D%2229%22%20fill%3D%22none%22%20stroke%3D%22%23925d77%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M45%2011l3%205-3%205-3-5zM45%2083l3%205-3%205-3-5z%22%20fill%3D%22%23925d77%22%2F%3E%3C%2Fsvg%3E");--atelier-book:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2096%20122%22%3E%3Cpath%20d%3D%22M10%208L25%203H82L94%2014V111L82%20120H10L2%20113V17Z%22%20fill%3D%22%23ead1c9%22%20stroke%3D%22%23925d77%22%20stroke-width%3D%221.4%22%2F%3E%3Cpath%20d%3D%22M10%208H80L87%2016V106L80%20113H10Z%22%20fill%3D%22%23f7e9d9%22%20stroke%3D%22%23b68f77%22%20stroke-width%3D%22.9%22%2F%3E%3Cpath%20d%3D%22M10%208V113M16%2011V110M82%20120V113M5%2024h10m-10%2072h10%22%20fill%3D%22none%22%20stroke%3D%22%23925d77%22%2F%3E%3Cpath%20d%3D%22M70%204h11v31l-5.5-5-5.5%205z%22%20fill%3D%22%23925d77%22%2F%3E%3C%2Fsvg%3E");}
+html[data-theme=dark]{--atelier-lens:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%2080%22%3E%3Cpath%20d%3D%22M40%202H106Q111%202%20118%2012V68Q111%2078%20106%2078H40C16%2078%202%2062%202%2040S16%202%2040%202Z%22%20fill%3D%22%2333263e%22%20stroke%3D%22%23d2a88e%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M40%206H105L114%2015V65L105%2074H40C20%2074%206%2059%206%2040S20%206%2040%206Z%22%20fill%3D%22none%22%20stroke%3D%22%23e8c8a4%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M106%2034l5%206-5%206-4-6Z%22%20fill%3D%22%23d2a88e%22%2F%3E%3Cpath%20d%3D%22M32%202l4%205-4%205M32%2068l4%205-4%205%22%20fill%3D%22none%22%20stroke%3D%22%23e8c8a4%22%2F%3E%3C%2Fsvg%3E");--atelier-specimen:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2056%2092%22%3E%3Cpath%20d%3D%22M28%202C37%202%2043%207%2048%2015L53%2039%2047%2076%2028%2090%209%2076%203%2039%208%2015C13%207%2019%202%2028%202Z%22%20fill%3D%22%2333263e%22%20stroke%3D%22%23d2a88e%22%20stroke-width%3D%221.2%22%2F%3E%3Cpath%20d%3D%22M28%206Q38%206%2044%2017L49%2039%2043%2073%2028%2085%2013%2073%207%2039%2012%2017Q18%206%2028%206Z%22%20fill%3D%22none%22%20stroke%3D%22%23e8c8a4%22%20stroke-width%3D%22.65%22%2F%3E%3Cpath%20d%3D%22M28%2012v8m-4-4h8M12%2040h6M38%2040h6M28%2076l3%203-3%204-3-4z%22%20stroke%3D%22%23d2a88e%22%20stroke-width%3D%22.7%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");--atelier-dossier:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2090%20102%22%3E%3Cpath%20d%3D%22M45%202Q55%2010%2066%209L85%2025V79L67%20100H23L5%2079V25L24%209Q35%2010%2045%202Z%22%20fill%3D%22%2349314a%22%20stroke%3D%22%23d2a88e%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M45%208Q56%2015%2065%2015L79%2029V76L64%2094H26L11%2076V29L25%2015Q34%2015%2045%208Z%22%20fill%3D%22%2333263e%22%20stroke%3D%22%23e8c8a4%22%20stroke-width%3D%22.9%22%2F%3E%3Cellipse%20cx%3D%2245%22%20cy%3D%2248%22%20rx%3D%2225%22%20ry%3D%2229%22%20fill%3D%22none%22%20stroke%3D%22%23d2a88e%22%20stroke-width%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M45%2011l3%205-3%205-3-5zM45%2083l3%205-3%205-3-5z%22%20fill%3D%22%23d2a88e%22%2F%3E%3C%2Fsvg%3E");--atelier-book:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2096%20122%22%3E%3Cpath%20d%3D%22M10%208L25%203H82L94%2014V111L82%20120H10L2%20113V17Z%22%20fill%3D%22%2349314a%22%20stroke%3D%22%23d2a88e%22%20stroke-width%3D%221.4%22%2F%3E%3Cpath%20d%3D%22M10%208H80L87%2016V106L80%20113H10Z%22%20fill%3D%22%2333263e%22%20stroke%3D%22%23e8c8a4%22%20stroke-width%3D%22.9%22%2F%3E%3Cpath%20d%3D%22M10%208V113M16%2011V110M82%20120V113M5%2024h10m-10%2072h10%22%20fill%3D%22none%22%20stroke%3D%22%23d2a88e%22%2F%3E%3Cpath%20d%3D%22M70%204h11v31l-5.5-5-5.5%205z%22%20fill%3D%22%23d2a88e%22%2F%3E%3C%2Fsvg%3E");}
+
+/* Search instrument: the lens is seated inside a circular endpiece. The 9-slice
+   keeps the large circular joint and small engraved terminal intact. */
+.aw-lens-field::before{border:16px solid transparent;border-width:16px 19px 16px 39px;border-image:var(--atelier-lens) 17 19 17 41 fill stretch}
+.aw-lens-field::after{background-position:center;left:-1px}
+.library-toolbar:has(.aw-lens-field){justify-content:flex-start;gap:14px}
+.library-toolbar:has(.aw-lens-field)>label{flex:0 1 640px;min-width:0;max-width:100%}
+.library-toolbar:has(.aw-lens-field)>[aria-live]{flex:none;align-self:flex-end;margin:0 0 12px;font-variant-numeric:tabular-nums}
+/* Word cabinet: number becomes a small engraved botanical specimen tab.
+   The source phrase, definition and occurrence metadata remain live text.
+   Ornament occupies the fixed index column, never the variable text column. */
+html[data-theme] .platform-page .aw-specimen-drawer .aw-word-specimen{grid-template-columns:44px minmax(0,1fr);column-gap:12px;row-gap:5px;padding:15px 10px 15px 5px;border-bottom:1px solid var(--aw-component-rule);border-left:0}
+html[data-theme] .aw-word-specimen .aw-index-tab{position:relative;isolation:isolate;align-self:start;min-height:67px;display:flex!important;align-items:center;justify-content:center;padding:7px 1px 21px;border:0;color:var(--aw-component-ink)!important;font:600 11px/1.2 'Plus Jakarta Sans',sans-serif!important;font-variant-numeric:tabular-nums;overflow:visible}
+.aw-word-specimen .aw-index-tab::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--atelier-specimen) center/100% 100% no-repeat;pointer-events:none}
+.aw-word-specimen .aw-index-tab::after{content:"";position:absolute;left:7px;right:7px;bottom:7px;height:23px;z-index:-1;background:var(--aw-art-leaves) center/contain no-repeat;pointer-events:none}
+html[data-theme] .aw-word-specimen>strong{font:500 clamp(20px,1.95vw,27px)/1.26 'Newsreader','Noto Sans JP',serif;color:var(--aw-component-ink);overflow-wrap:anywhere}
+.aw-word-specimen>span:not(.aw-index-tab){line-height:1.65}
+.aw-word-specimen>small{font-variant-numeric:tabular-nums}
+html[data-theme] .aw-word-specimen:hover{background:var(--aw-component-stock);box-shadow:inset 0 -2px var(--aw-marker)}
+/* Personal archive: an original heraldic nameplate rather than an arbitrary
+   portrait. Initials are still explicitly decorative, real names remain text. */
+html[data-theme] .platform-page .aw-person-register .person-item{position:relative;isolation:isolate;gap:18px;min-height:112px;padding:15px 23px 15px 17px;border:0!important;background:transparent!important}
+.aw-person-register .person-item::before{content:"";position:absolute;inset:0;z-index:-2;border:19px solid transparent;border-image:var(--aw-folio) 25 fill stretch;pointer-events:none}
+html[data-theme] .aw-person-register .person-monogram{position:relative;isolation:isolate;flex:none;width:68px;height:83px;display:grid;place-items:center;background:none;border:0!important;box-shadow:none;color:var(--aw-component-ink);font:500 24px/1 'Newsreader',Georgia,serif}
+.aw-person-register .person-monogram::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--atelier-dossier) center/100% 100% no-repeat;pointer-events:none}
+.aw-person-register .person-monogram::after{content:"";position:absolute;inset:auto 8px 5px;width:calc(100% - 16px);height:23px;background:var(--aw-art-leaves) right bottom/contain no-repeat;pointer-events:none;z-index:-1}
+.aw-person-register .person-item>div{min-width:0}
+.aw-person-register .person-item strong{font:500 26px/1.2 'Newsreader','Noto Sans JP',serif;overflow-wrap:anywhere}
+.aw-person-register .person-item small{font-size:12px;line-height:1.6}
+.aw-person-register .person-item>span:last-child{display:grid;place-items:center;flex:none;width:31px;height:31px;border:1px solid var(--aw-component-rule);border-radius:50% 50% 4px 50%;color:var(--aw-component-accent)}
+.aw-person-register .person-item:hover>span:last-child{background:var(--aw-selected-stock);color:var(--aw-selected-ink)}
+/* Private editions: a book-shaped cover with sewn edge and ribbon, rather
+   than the legacy flat category square. Preserve imported title and content. */
+html[data-theme] .lesson-card .cover{position:relative;isolation:isolate;border:0;background:transparent;color:var(--aw-component-ink);min-height:122px;font:600 29px/1 'Newsreader',Georgia,serif;padding:10px 9px 16px 15px}
+.lesson-card .cover::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--atelier-book) center/100% 100% no-repeat;pointer-events:none}
+.lesson-card .cover::after{content:"";position:absolute;inset:auto 14px 10px 23px;height:30px;z-index:-1;background:var(--aw-art-leaves) right center/contain no-repeat;pointer-events:none}
+html[data-theme] .lesson-card{gap:clamp(12px,2vw,24px);padding-block:18px}
+html[data-theme] .lesson-card>button{position:relative;min-width:64px}
+html[data-theme] .lesson-card>button:hover{filter:brightness(1.09)}
+/* Different edge grammars for each inline-note kind, without a decorative
+   margin that might force a phrase outside its line box. Keep both backgrounds
+   and all source highlight selectors from the canonical reader. */
+html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=language]{border-top-color:transparent;border-right-style:dotted;border-bottom-color:#b27c9c;border-radius:7px 0 5px 0}
+html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=context]{border-top-style:dotted;border-left-width:1px;border-bottom-width:2px;border-radius:0 6px 0 6px}
+html[data-theme] .study-original .en .annotation-group .in-situ-annotation{padding-block:1px;line-height:1.65}
+/* The active room retains its moonlit arch. Each aperture has a different
+   crown, keyed to the artwork already used for that specific room. */
+@media(min-width:641px){
+ .platform-header nav a[href="/"]::before{border-radius:50% 50% 3px 3px/24px 24px 3px 3px}
+ .platform-header nav a[href="/library/"]::before{border-radius:8px 8px 1px 1px}
+ .platform-header nav a[href="/topics/"]::before{border-radius:50% 50% 3px 3px/28px 28px 3px 3px}
+ .platform-header nav a[href="/people/"]::before{border-radius:26px 26px 8px 8px/16px 16px 8px 8px}
+ .platform-header nav a[href="/words/"]::before{border-radius:9px 50% 2px 2px/10px 18px 2px 2px}
+ .platform-header nav a[href="/concepts/"]::before{border-radius:18px 18px 2px 2px/9px 9px 2px 2px}
+ .platform-header nav a[href="/workspace/"]::before{border-radius:6px 24px 2px 2px/6px 20px 2px 2px}
+}
+@media(max-width:640px){
+ .aw-lens-field::before{border-width:12px 15px 12px 29px}
+ .library-toolbar:has(.aw-lens-field){gap:6px}
+ .library-toolbar:has(.aw-lens-field)>label{max-width:none}
+ .library-toolbar:has(.aw-lens-field)>[aria-live]{margin-bottom:8px}
+ html[data-theme] .platform-page .aw-specimen-drawer .aw-word-specimen{grid-template-columns:38px minmax(0,1fr);column-gap:10px;padding:12px 5px}
+ html[data-theme] .aw-word-specimen .aw-index-tab{min-height:60px;font-size:10px!important}
+ .aw-word-specimen .aw-index-tab::after{height:18px}
+ html[data-theme] .platform-page .aw-person-register .person-item{gap:11px;min-height:88px;padding:12px}
+ html[data-theme] .aw-person-register .person-monogram{width:51px;height:64px;font-size:20px}
+ .aw-person-register .person-monogram::after{height:17px}
+ .aw-person-register .person-item strong{font-size:21px}
+ .aw-person-register .person-item small{font-size:11px}
+ .aw-person-register .person-item>span:last-child{width:26px;height:26px}
+ html[data-theme] .lesson-card .cover{min-height:90px;font-size:23px}
+ html[data-theme] .lesson-card{gap:12px;padding-block:14px}
+ .lesson-card .cover::after{height:21px;inset:auto 10px 7px 16px}
+}
+@media(max-width:350px){.library-toolbar:has(.aw-lens-field)>[aria-live]{margin:0;justify-self:end}.aw-lens-field::before{border-left-width:25px}}
+@media(prefers-reduced-motion:no-preference){.aw-word-specimen,.aw-person-register .person-item>span:last-child,.lesson-card>button{transition:background-color .15s,color .15s,filter .15s}}
+:where(.aw-word-specimen,.aw-person-register .person-item,.lesson-card>button):focus-visible{outline:2px solid var(--aw-component-focus);outline-offset:3px}
+
+/* Selective subtraction after evidence: an unavailable synchronization deck is
+   not a useful control. Native video, source, chapter seeking and mobile pin stay. */
+.study-video[data-sync-state=unavailable] :is(#play-pause:disabled,.speed-label:has(select:disabled),#follow-video:disabled,#jump-current:disabled,#video-clock){display:none!important}
+@media(min-width:900px){.study-video[data-sync-state=unavailable] .video-quick-controls{display:none!important}}
+.study-video[data-sync-state=unavailable] .video-position:not(:has(#stop-repeat:not([hidden]))){display:none!important}
+.study-video[data-sync-state=unavailable] .video-quick-controls{width:max-content;max-width:100%;padding:3px 8px 3px 5px}
+.study-video[data-sync-state=unavailable] .video-state{margin-block:7px;line-height:1.65}
+.study-video[data-sync-state=unavailable] .video-note{font-size:11px;line-height:1.6}
+/* Reading title uses the source name as the focus; remaining metadata stays. */
+.reader-page>.hero h1{font-weight:500;text-wrap:balance}
+
+/* Reading tools inherit the original illustrated concept, at actual compact
+   control sizes. Artwork communicates the mode; the shape marks selection. */
+.study-mode{border:1px solid var(--aw-reader-seam);padding:3px;gap:1px;border-radius:12px 12px 3px 3px}
+html[data-theme] .study-mode button{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding-inline:9px}
+.study-mode button::before{content:"";width:19px;height:19px;flex:none;pointer-events:none;background-size:contain;background-position:center;background-repeat:no-repeat}
+.study-mode button[data-mode=parallel]::before{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2028%2026%22%3E%3Cpath%20d%3D%22M14%206C10%202%204%203%202%205V21C7%2019%2011%2020%2014%2023C17%2020%2021%2019%2026%2021V5C24%203%2018%202%2014%206Z%22%20fill%3D%22%23f3dfca%22%20stroke%3D%22%23b58977%22%20stroke-width%3D%221.4%22%2F%3E%3Cpath%20d%3D%22M14%206V23M5%208h6m-6%204h6m6-4h6m-6%204h6m-6%204h5%22%20stroke%3D%22%2385516d%22%20stroke-width%3D%221.15%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E")}
+.study-mode button[data-mode=english]::before{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2028%2026%22%3E%3Cpath%20d%3D%22M6%202H20L24%206V24H6Z%22%20fill%3D%22%23f3dfca%22%20stroke%3D%22%23b58977%22%20stroke-width%3D%221.2%22%2F%3E%3Cpath%20d%3D%22M20%202v5h4M10%208h6m-6%204h10m-10%204h10m-10%204h7%22%20fill%3D%22none%22%20stroke%3D%22%2385516d%22%20stroke-width%3D%221.2%22%2F%3E%3Cpath%20d%3D%22M3%203l3%202-3%202%22%20stroke%3D%22%23ce8ca8%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E")}
+.study-mode button[data-mode=listen]::before{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2028%2026%22%3E%3Cpath%20d%3D%22M4%2016V12C4%200%2024%200%2024%2012V16%22%20fill%3D%22none%22%20stroke%3D%22%23d2a88e%22%20stroke-width%3D%222.7%22%2F%3E%3Cpath%20d%3D%22M5%2013h3v10H5Q2%2022%202%2018T5%2013ZM23%2013h-3v10h3q3-1%203-5t-3-5Z%22%20fill%3D%22%23bd86a5%22%20stroke%3D%22%2380506e%22%2F%3E%3Cpath%20d%3D%22M10%203Q14%201%2018%203%22%20fill%3D%22none%22%20stroke%3D%22%23f5dfb5%22%20stroke-width%3D%221.2%22%2F%3E%3C%2Fsvg%3E")}
+html[data-theme] .study-mode button[aria-pressed=true]{box-shadow:inset 0 0 0 1px var(--aw-reader-seam)!important;border-radius:8px 8px 2px 2px!important}
+html[data-theme] .video-quick-controls #play-pause{display:inline-flex;align-items:center;gap:5px;min-height:40px;background:var(--aw-deck)!important;color:var(--aw-component-ink)!important;border:0!important;padding:2px 6px 2px 2px}
+.aw-play-dial{position:relative;width:34px;height:34px;flex:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%2218%22%20fill%3D%22%2350334d%22%20stroke%3D%22%23d9b08c%22%20stroke-width%3D%221.2%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%2214.2%22%20fill%3D%22none%22%20stroke%3D%22%23e3c09f%22%20stroke-width%3D%22.7%22%2F%3E%3Cpath%20d%3D%22M20%200l2%205-2%202-2-2zM20%2033l2%202-2%205-2-5zM0%2020l5-2%202%202-2%202zM33%2020l2-2%205%202-5%202z%22%20fill%3D%22%23e6c49d%22%2F%3E%3Cpath%20d%3D%22M7%207l26%2026M7%2033%2033%207%22%20stroke%3D%22%23c59780%22%20stroke-width%3D%22.7%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%2210%22%20fill%3D%22%23674565%22%20stroke%3D%22%23a67b85%22%20stroke-width%3D%22.6%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat}
+.aw-play-dial::after{content:"";position:absolute;inset:11px 10px 11px 13px;background:#fae5bf;clip-path:polygon(0 0,100% 50%,0 100%);pointer-events:none}
+#play-pause[data-playing=true] .aw-play-dial::after{inset:11px 12px;background:linear-gradient(90deg,#fae5bf 0 35%,transparent 35% 65%,#fae5bf 65%);clip-path:none}
+#play-pause:not(:disabled):hover .aw-play-dial{filter:brightness(1.18)}
+@media(max-width:899px){.study-mode button::before{width:15px;height:15px}.video-pinned .aw-play-dial{width:27px;height:27px}.video-pinned .aw-play-dial::after{inset:8px 8px 8px 10px}.video-pinned #play-pause[data-playing=true] .aw-play-dial::after{inset:8px 9px}.video-pinned .study-mode button::before{display:none}}
+@media(max-width:380px){.study-mode button::before{display:none}html[data-theme] .study-mode button{padding-inline:8px}}
+
+/* Preserve the complete canonical heading text. Set the existing promotional
+   suffix in a secondary measure instead of deleting source metadata. */
+.reader-page>.hero h1 .aw-title-subtitle{display:block;font:500 clamp(13px,1.35vw,17px)/1.5 'Noto Sans JP',sans-serif;letter-spacing:.015em;margin-top:8px;color:var(--aw-component-muted)}
+.document-entry h3 .aw-title-subtitle{display:block;font:500 12px/1.5 'Noto Sans JP',sans-serif;letter-spacing:0;margin-top:4px;color:var(--aw-component-muted)}
+
+/* Final local adjustments from the actual first-pass screenshots: keep the
+   existing folio decoration; remove only empty card width and the duplicate
+   square behind the crest. */
+.aw-person-register .person-item:only-child{max-width:720px}
+html[data-theme] .aw-person-register .person-monogram{background:transparent!important}
+html[data-theme] .library-filters .library-tabs button{display:inline-flex;align-items:center;min-width:80px;padding:8px 15px 8px 35px!important;background-size:23px auto!important;background-position:8px center!important;background-repeat:no-repeat!important;border-radius:7px!important}
+html[data-theme] .library-filters .library-tabs button[data-scope=docs]{background-image:url('/brand/sprites/book-stack.webp')!important}
+html[data-theme] .library-filters .library-tabs button[data-scope=chapters]{background-image:url('/brand/sprites/open-notebook.webp')!important}
+html[data-theme] .library-filters .library-tabs button[aria-pressed=true]{background-color:#f5e5d3!important;color:#783455!important}
+.library-filters .library-tabs button[aria-pressed=true]::before{border:12px solid transparent;border-image:var(--aw-ticket-paper) 25 stretch}
+html[data-theme] .aw-library-desk .random-chapter,html[data-theme] .aw-world-actions .random-chapter{display:inline-flex;align-items:center;min-height:44px;padding:7px 15px 7px 46px!important;position:relative;isolation:isolate;border:0!important;border-radius:22px 7px 7px 22px!important;background:var(--aw-component-stock)!important;color:var(--aw-component-accent)!important;font-size:13px;font-weight:600;line-height:1.5}
+:is(.aw-library-desk,.aw-world-actions) .random-chapter[hidden]{display:none!important}
+:is(.aw-library-desk,.aw-world-actions) .random-chapter::before{content:"";position:absolute;inset:0;z-index:-1;border:12px solid transparent;border-image:var(--aw-ticket) 25 stretch;pointer-events:none}
+:is(.aw-library-desk,.aw-world-actions) .random-chapter::after{content:"";position:absolute;left:4px;top:50%;width:38px;height:38px;transform:translateY(-50%);background:url('/brand/sprites/armillary.webp') center/contain no-repeat;pointer-events:none}
+:is(.aw-library-desk,.aw-world-actions) .random-chapter:hover{filter:brightness(1.1)}
+@media(max-width:640px){.platform-header .aw-nav-art{width:19px;height:19px}.platform-header-inner{padding-top:7px;padding-bottom:8px}.aw-person-register .person-item:only-child{max-width:100%}}
+@media(max-width:350px){.platform-header .aw-nav-art{width:15px;height:15px}html[data-theme] .library-filters .library-tabs button{min-width:70px;padding:8px 10px 8px 30px!important;background-position:5px center!important;background-size:20px auto!important}}
