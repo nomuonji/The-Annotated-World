@@ -853,6 +853,41 @@
       "placement": "3:4。上部の暗い余白にHTMLタイトルを配置。文字なし原画。",
       "sha256": "b256d59f87c25627b787dc07fd6f7ae95ef3d4a2c1b7947c8a4b32978837940b",
       "git_blob_sha": "12483fc328caacc4033a8db1f305c32fec7f1436"
+    },
+    {
+      "id": "annotator-planner",
+      "path": "/brand/sprites/annotator-planner.webp",
+      "width": 800,
+      "height": 731,
+      "bytes": 199520,
+      "alpha": true,
+      "status": "ready",
+      "source": "2026-11-26 新規生成・予定表の場面専用、透過原画1312×1199から縮小",
+      "usage": "編集記録003モーション第2場面",
+      "routes": [
+        "/marginalia/motion/"
+      ],
+      "placement": "透過、原画の縦横比を維持、表示はcontain、Web用軽量差分と映像用原画を分離",
+      "sha256": "0e468ae7d4560e2b467735a232598f23dab92ddb940e2ec42f6dd3d1855a0447",
+      "git_blob_sha": "7a01bb4d64c5a985a9ddf17e04a108f924db1447"
+    },
+    {
+      "id": "annotator-planner-small",
+      "path": "/brand/sprites/annotator-planner-small.webp",
+      "width": 320,
+      "height": 292,
+      "bytes": 42004,
+      "alpha": true,
+      "status": "ready",
+      "source": "2026-11-26 新規生成・予定表の場面専用、透過原画1312×1199から縮小",
+      "usage": "編集記録003の軽量表情差分",
+      "routes": [
+        "/",
+        "/marginalia/"
+      ],
+      "placement": "透過、原画の縦横比を維持、表示はcontain、Web用軽量差分と映像用原画を分離",
+      "sha256": "5d6a41cdd0aef90955af9c64bc0d1026ce6ce282b9b078f61ebe06b056dc9af2",
+      "git_blob_sha": "4d3d473182421bc3b8585d0301537c09d5db7dcf"
     }
   ],
   "rights_note": "本プロジェクト向けのAI生成画・既存の生成素材およびそれらの切り出し。権利の独立検証は未実施。第三者ロゴや生成ボード内の文字・肖像を完成アセットとして採用しない。既存cola素材のブランド表記は本番前に確認する。",
