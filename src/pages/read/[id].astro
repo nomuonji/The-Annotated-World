@@ -214,6 +214,18 @@ for(const c of d.chapterIndex){
  if(trail.children().length)section.append(trail);
 
 }
+// Catalogue typography: retain each canonical TOC link and its original text,
+// but give the timestamp its own measure rather than forcing it into the title.
+$('.toc-list li a').each((_,el)=>{
+ const link=$(el),time=link.find('.toc-time').first();
+ if(!time.length)return;
+ const title=$('<span>').addClass('aw-toc-title');
+ for(const node of link.contents().toArray()){
+  if(node!==time.get(0))title.append(node);
+ }
+ link.append(title);
+ link.addClass('aw-toc-entry');
+});
 const body=$.root().html()||'';
 const status=d.provenance;
 const labels={coverage:{full:'全文（照合済みの範囲）',excerpt:'抜粋',unverified:'収録範囲未確認'},transcript:{verified:'照合済み',unverified:'未確認','not-applicable':'音声なし'},translation:{verified:'確認済み',unverified:'未確認'},rights:{original:'オリジナル',licensed:'許諾・ライセンス確認済み','public-domain':'パブリックドメイン確認済み',unverified:'未確認'}};
