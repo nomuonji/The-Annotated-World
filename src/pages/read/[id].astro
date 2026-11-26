@@ -135,7 +135,7 @@ for(const c of d.chapterIndex){
    if(group.notes.length>1)container.addClass('annotation-group-combined');
    for(const item of group.notes){
     const gloss=$('<span>').addClass('in-situ-annotation').attr({
-     lang:'ja',role:'note','data-editorial-gloss':item.id,'data-note-kind':item.kind
+     lang:'ja',role:'note','data-editorial-gloss':item.id,'data-note-kind':item.kind,'data-note-size':Array.from(item.text).length>36?'long':'short'
     });
     gloss.text('〔'+item.text+'〕');
     container.append(gloss);
