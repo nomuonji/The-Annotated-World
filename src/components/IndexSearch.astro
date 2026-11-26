@@ -1,10 +1,11 @@
 ---
+import ArchiveSearch from './ArchiveSearch.astro';
 import EmptyState from './EmptyState.astro';
 interface Props { label:string; count:number; unit:string; placeholder:string; prefix?:string }
 const {label,count,unit,placeholder,prefix='index'}=Astro.props;
 const inputId=prefix==='word'?'word-search':prefix+'-query';
 ---
-<div class="library-toolbar" data-index-controls hidden><label for={inputId}>{label}<input type="search" id={inputId} placeholder={placeholder}/></label><span aria-live="polite" id={prefix+"-count"} data-index-count data-unit={unit}>{count}{unit}</span></div>
+<ArchiveSearch inputId={inputId} label={label} placeholder={placeholder} countId={prefix+"-count"} count={count} unit={unit} index/>
 <EmptyState id={prefix+"-empty"} message="該当する項目がありません。別の言葉を試してください。"/>
 <script>
 const toolbar=document.querySelector<HTMLElement>('[data-index-controls]');

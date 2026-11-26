@@ -1,9 +1,11 @@
 ---
+import ArchiveGlyph from '../components/ArchiveGlyph.astro';
 interface Props{title?:string;description?:string;wide?:boolean;reader?:boolean}
 const activePath=Astro.url.pathname;
 const canonical=new URL(activePath,'https://the-annotated-world.pages.dev').href;
 const buildSha=process.env.CF_PAGES_COMMIT_SHA||process.env.GITHUB_SHA||'';
-const navItems=[['/','発見'],['/library/','全資料'],['/topics/','テーマ'],['/people/','人物'],['/words/','語彙'],['/concepts/','知識索引'],['/workspace/','個人教材']];
+const navItems=[{href:'/',label:'発見',num:'01',icon:'home'},{href:'/library/',label:'全資料',num:'02',icon:'library'},{href:'/topics/',label:'テーマ',num:'03',icon:'topics'},{href:'/words/',label:'語彙',num:'04',icon:'words'},{href:'/concepts/',label:'知識索引',num:'05',icon:'concepts'},{href:'/people/',label:'人物',num:'06',icon:'people'},{href:'/workspace/',label:'個人教材',num:'08',icon:'workspace'}] as const;
+const currentNav=(href:string)=>activePath===href?'page':href!=='/'&&(activePath.startsWith(href)||href==='/library/'&&(/^\/(read|genres)\//.test(activePath)))?'location':undefined;
 const {title='The Annotated World',description='原文・日本語訳・注釈を一つの紙面で読む。',wide=false,reader=false}=Astro.props;
 ---
 <!doctype html>
@@ -22,11 +24,11 @@ const {title='The Annotated World',description='原文・日本語訳・注釈�
 <meta name="description" content={description}/>{buildSha&&<meta name="aw-build-sha" content={buildSha}/>}{activePath!=="/404.html"&&<link rel="canonical" href={canonical}/>}<meta property="og:url" content={canonical}/><link rel="icon" href="/brand/mark.svg" type="image/svg+xml"/><meta property="og:type" content="website"/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:image" content="https://the-annotated-world.pages.dev/brand/midnight-desktop.webp"/><meta name="twitter:card" content="summary_large_image"/><link rel="alternate" type="application/json" title="Content catalog" href="/catalog.json"/><title>{title}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Sans+JP:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/archive.css"/><link rel="stylesheet" href="/discovery.css"/><link rel="stylesheet" href="/knowledge.css"/>{reader&&<link rel="stylesheet" href="/study.css"/>}<link rel="stylesheet" href="/editorial.css"/><link rel="stylesheet" href="/world-rooms.css"/><link rel="stylesheet" href="/world-atlas.css"/><link rel="stylesheet" href="/world-architecture.css"/>
+<link rel="stylesheet" href="/archive.css"/><link rel="stylesheet" href="/discovery.css"/><link rel="stylesheet" href="/knowledge.css"/>{reader&&<link rel="stylesheet" href="/study.css"/>}<link rel="stylesheet" href="/editorial.css"/><link rel="stylesheet" href="/world-rooms.css"/><link rel="stylesheet" href="/world-atlas.css"/><link rel="stylesheet" href="/world-architecture.css"/><link rel="stylesheet" href="/archive-interface.css"/>
 </head>
 <body>
 <a class="skip-link" href="#main">本文へ</a>
-<header class="platform-header"><div class="platform-header-inner"><a class="site-title" href="/"><img class="aw-wordmark-symbol" src="/brand/mark.svg" alt="" width="30" height="30"/><span>The Annotated World</span></a><nav aria-label="サイト内探索">{navItems.map(([href,label])=><a href={href} aria-current={activePath===href?'page':href!=='/'&&activePath.startsWith(href)?'location':undefined}>{label}</a>)}</nav><button type="button" id="site-theme-toggle" class="site-theme-toggle" aria-pressed="false" title="サイト全体の配色を切り替える">ダーク</button></div></header>
+<header class="platform-header"><div class="platform-header-inner"><a class="site-title" href="/"><img class="aw-wordmark-symbol" src="/brand/mark.svg" alt="" width="30" height="30"/><span>The Annotated World</span></a><nav class="aw-room-nav" aria-label="サイト内探索">{navItems.map(({href,label,num,icon})=><a href={href} aria-current={currentNav(href)}><span class="aw-nav-emblem"><ArchiveGlyph name={icon} size={23}/><small aria-hidden="true">{num}</small></span><span class="aw-nav-label">{label}</span></a>)}</nav><button type="button" id="site-theme-toggle" class="site-theme-toggle" aria-pressed="false" title="サイト全体の配色を切り替える">ダーク</button></div></header>
 <main class:list={["page",{"platform-page":wide,"reader-page":reader}]} id="main" tabindex="-1"><slot/></main>
 <footer class="platform-footer"><a href="/" class="aw-footer-brand"><img src="/brand/mark.svg" width="24" height="24" alt=""/>The Annotated World</a><span>世界を読む。自分の読み方を疑う。</span><a href="/library/">資料一覧</a></footer>
 <script is:inline>
