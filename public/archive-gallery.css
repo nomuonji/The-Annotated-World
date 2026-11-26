@@ -1,0 +1,69 @@
+/* Gallery study: an illustrated architectural room built around the existing
+   Annotator, rabbit and six rooms. The artwork contains no text or controls.
+   Real room paintings, live text, anchors and all site content are preserved. */
+.aw-notebook .aw-atlas-section{--gallery-gold:#dfb98e;--gallery-ink:#fff0e6;--gallery-muted:#e6c9c2;position:relative;background:radial-gradient(ellipse at 50% 22%,#39263e,#20182a 58%,#1c1625);padding-top:clamp(32px,4vw,60px)}
+.aw-notebook .aw-atlas-heading{max-width:1450px;margin-inline:auto;margin-bottom:18px;align-items:end}
+.aw-notebook .aw-atlas-heading h2{font-size:clamp(28px,3.4vw,48px);letter-spacing:-.025em}
+.aw-notebook .aw-atlas-heading>img{filter:drop-shadow(0 0 12px #d7a97540)}
+.aw-notebook .aw-architectural-atlas{position:relative;isolation:isolate;max-width:1450px;padding:clamp(75px,10.3vw,152px) 8% clamp(40px,5vw,74px);border:1px solid #b58b76;border-radius:4px;background:#21182a}
+.aw-notebook .aw-architectural-atlas .aw-atlas-scene{opacity:1;inset:0;filter:none;z-index:-3}
+.aw-notebook .aw-atlas-scene img{object-fit:cover;object-position:center center}
+.aw-notebook .aw-atlas-architecture,.aw-notebook .aw-atlas-dust,.aw-notebook .aw-atlas-season-glow{display:none}
+.aw-notebook .aw-architectural-atlas::before{background:linear-gradient(0deg,#1e1624b5 0%,transparent 16%,transparent 90%,#23182e22);z-index:-2}
+.aw-notebook .aw-architectural-atlas .aw-atlas-nav{position:relative;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr) minmax(0,1fr);grid-template-rows:repeat(3,minmax(112px,1fr));min-height:0;gap:12px clamp(18px,4vw,57px);align-items:stretch}
+.aw-notebook .aw-architectural-atlas .aw-atlas-room{display:grid;grid-template-columns:minmax(60px,40%) minmax(0,1fr);grid-template-rows:auto;gap:9px;min-height:112px;padding:8px 0;align-items:center;isolation:isolate;background:none;border-bottom:1px solid #d6a77c77}
+.aw-notebook .aw-architectural-atlas .aw-atlas-room:last-child,.aw-notebook .aw-atlas-concepts{border-bottom:0}
+.aw-notebook .aw-architectural-atlas .aw-atlas-portal{position:relative;grid-column:1;grid-row:1;height:clamp(83px,8.4vw,120px);width:100%;border-radius:48% 48% 2px 2px/29% 29% 2px 2px;border:1px solid #cca27e;box-shadow:0 2px 8px #130d1b88;overflow:hidden}
+.aw-notebook .aw-architectural-atlas .aw-atlas-portal img{object-fit:cover;object-position:50% 50%;filter:saturate(.95) brightness(.99)}
+.aw-notebook .aw-atlas-portal::after{box-shadow:inset 0 0 10px #1e142b55;background:linear-gradient(0deg,#21182c6b,transparent 48%)}
+.aw-notebook .aw-architectural-atlas .aw-atlas-object{grid-column:1;grid-row:1;width:clamp(32px,3.5vw,50px);height:clamp(35px,4vw,57px);align-self:end;justify-self:end;margin:0 -4px -4px 0;z-index:2}
+.aw-notebook .aw-architectural-atlas .aw-atlas-room-label{grid-column:2;grid-row:1;max-height:none;align-self:center;justify-content:center;min-width:0;padding:4px 0 4px 2px;background:transparent;border:0;text-shadow:0 1px 4px #170d20}
+.aw-notebook .aw-atlas-room-label small{color:#eac99e;font-size:9px;letter-spacing:.025em}
+.aw-notebook .aw-atlas-room-label strong{color:#fff0e6;font:600 clamp(14px,1.5vw,21px)/1.4 'Noto Sans JP',sans-serif}
+.aw-notebook .aw-atlas-room-label>span{color:#e6c9c2;font-size:11px;line-height:1.55}
+.aw-notebook .aw-architectural-atlas .aw-atlas-room:is(:hover,:focus-visible) .aw-atlas-room-label{background:transparent}
+.aw-notebook .aw-architectural-atlas .aw-atlas-room:is(:hover,:focus-visible) .aw-atlas-portal{box-shadow:0 0 0 1px #f8d7a5,0 0 14px #efbb7c77}
+.aw-notebook .aw-atlas-room:is(:hover,:focus-visible) .aw-atlas-room-label strong{text-decoration:underline;text-underline-offset:3px;color:#ffe4b9}
+.aw-notebook .aw-architectural-atlas .aw-atlas-center{align-self:stretch;justify-content:flex-end;min-width:0;position:relative}
+.aw-notebook .aw-architectural-atlas .aw-atlas-center-art{width:100%;max-width:275px;height:clamp(200px,25vw,350px);position:relative}
+.aw-notebook .aw-architectural-atlas .aw-atlas-center-art::before{inset:10% -5% -4%;background:radial-gradient(ellipse at 50% 50%,#e8b6da28,transparent 64%);border:0;border-radius:50%;box-shadow:none}
+.aw-notebook .aw-atlas-annotator{object-position:center bottom;filter:drop-shadow(0 8px 9px #180e22b8)}
+.aw-notebook .aw-atlas-rabbit{right:-2%;bottom:1%;width:clamp(48px,7vw,91px)}
+.aw-notebook .aw-atlas-central-caption{width:100%;max-width:250px;padding:7px 9px 11px;background:linear-gradient(90deg,#24182b,#3c293b,#24182b);border-block:1px solid #dbb48a;box-shadow:0 3px 9px #160e2199}
+.aw-notebook .aw-atlas-central-caption>img{width:90px;height:24px}
+.aw-notebook .aw-atlas-central-caption strong{font-size:19px;color:#fff1e9}
+.aw-notebook .aw-atlas-central-caption>span{color:#e9cddb}
+.aw-notebook .aw-atlas-cinema{width:auto;min-height:44px;margin-top:9px;padding:8px 12px;background:#302238;border:1px solid #c29879;box-shadow:0 2px 8px #160e2177}
+.aw-notebook .aw-atlas-cinema:hover{background:#52364d}
+.aw-notebook .aw-atlas-legend{position:relative;margin-top:clamp(16px,3vw,42px);border-color:#c6a47e88;background:#23182bc9;padding:8px 10px}
+.aw-notebook .aw-atlas-foot{max-width:1450px;margin-inline:auto}
+@media(min-width:1001px){.aw-notebook .aw-architectural-atlas{aspect-ratio:1.5;display:flex;flex-direction:column;justify-content:center}.aw-notebook .aw-atlas-nav{flex:1 1 auto;min-height:0}.aw-notebook .aw-atlas-legend{margin-top:12px}}
+@media(max-width:1000px){
+ .aw-notebook .aw-architectural-atlas{padding:24px 5% 12px}
+ .aw-notebook .aw-atlas-scene img{object-fit:cover;object-position:50% 8%;height:460px}
+ .aw-notebook .aw-architectural-atlas::before{background:linear-gradient(0deg,#21182a 0%,#21182a 35%,#21182a00 85%)}
+ .aw-notebook .aw-architectural-atlas .aw-atlas-nav{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;gap:12px 22px}
+ .aw-notebook .aw-architectural-atlas .aw-atlas-center{grid-column:1/-1;grid-row:1;max-width:300px;justify-self:center;justify-content:start;padding-top:20px}
+ .aw-notebook .aw-architectural-atlas .aw-atlas-center-art{width:230px;height:230px}
+ .aw-notebook .aw-architectural-atlas .aw-atlas-room{grid-column:auto;grid-row:auto;min-height:100px}
+ .aw-notebook .aw-architectural-atlas .aw-atlas-portal{height:100px}
+ .aw-notebook .aw-atlas-room-label strong{font-size:17px}
+}
+@media(max-width:640px){
+ .aw-notebook .aw-architectural-atlas{padding:14px 10px 10px}
+ .aw-notebook .aw-atlas-scene img{height:380px;object-position:center top}
+ .aw-notebook .aw-architectural-atlas::before{background:linear-gradient(0deg,#21182a 0%,#21182a 48%,#21182a00 90%)}
+ .aw-notebook .aw-architectural-atlas .aw-atlas-center{padding-top:12px;max-width:240px}
+ .aw-notebook .aw-architectural-atlas .aw-atlas-center-art{width:180px;height:200px}
+ .aw-notebook .aw-atlas-annotator{height:100%}
+ .aw-notebook .aw-atlas-rabbit{width:56px}
+ .aw-notebook .aw-architectural-atlas .aw-atlas-nav{gap:8px 10px}
+ .aw-notebook .aw-architectural-atlas .aw-atlas-room{grid-template-columns:1fr;grid-template-rows:clamp(85px,27vw,135px) auto;align-items:start;gap:5px;padding:5px 3px 10px;min-height:0;border-bottom:1px solid #c6a47e66}
+ .aw-notebook .aw-architectural-atlas .aw-atlas-portal{height:100%;width:100%;max-width:100%;grid-column:1;grid-row:1}
+ .aw-notebook .aw-architectural-atlas .aw-atlas-object{width:44px;height:48px;grid-column:1;grid-row:1;margin:0 1px -3px 0}
+ .aw-notebook .aw-architectural-atlas .aw-atlas-room-label{grid-column:1;grid-row:2;align-self:start;align-items:flex-start;text-align:left;min-height:59px;padding:3px 0 0}
+ .aw-notebook .aw-atlas-room-label strong{font-size:14px}
+ .aw-notebook .aw-atlas-room-label small{font-size:8px}
+ .aw-notebook .aw-atlas-room-label>span{font-size:10px}
+ .aw-notebook .aw-atlas-legend{margin-top:9px}
+}
