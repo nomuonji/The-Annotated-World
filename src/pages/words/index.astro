@@ -1,14 +1,14 @@
 ---
 import IndexCard from '../../components/IndexCard.astro';
 import IndexSearch from '../../components/IndexSearch.astro';
-import RoomHeader from '../../components/RoomHeader.astro';
+import EditorialTitle from '../../components/EditorialTitle.astro';
 import Archive from '../../layouts/Archive.astro';
 import {documents} from '../../lib/discovery';
-import {buildLexicon,documentCount} from '../../lib/lexicon';
+import {buildLexicon,documentCount,snippet} from '../../lib/lexicon';
 const {terms}=buildLexicon(await documents());
 ---
 <Archive title="語彙・表現 — The Annotated World" wide>
-<RoomHeader room="lexicon"><p class="eyebrow"><a href="/">発見</a> / WORDS</p><h1>Words &amp; phrases</h1><p>教材で実際に使われた表現を、意味・文脈・元の発話からたどる。{terms.length}表現。</p></RoomHeader>
+<EditorialTitle section="words" label="語彙・表現" count={terms.length+'表現'} art="open-notebook"><h1 lang="en">Words in context<span class="ed-period">.</span></h1><p>言葉を、実際に使われた文脈から読む。</p></EditorialTitle>
 <IndexSearch prefix="word" label="語彙を検索" count={terms.length} unit="表現" placeholder="英語・日本語の注釈"/>
-<div class="word-grid aw-specimen-drawer" id="word-grid">{terms.map((t,i)=><IndexCard serial={i+1} href={'/words/'+t.id+'/'} title={t.label} english detail={t.occurrences.find(o=>o.termNote)?.termNote} meta={documentCount(t.occurrences)+'資料 · '+t.occurrences.length+'発話'} search={[t.label,...t.occurrences.map(o=>o.termNote||o.note)].join(' ')}/>)}</div>
+<div class="word-grid ed-word-concordance" id="word-grid">{terms.map(t=><IndexCard evidence={snippet(t.occurrences[0].en,t.label)} evidenceSource={t.occurrences[0].documentTitle} href={'/words/'+t.id+'/'} title={t.label} english detail={t.occurrences.find(o=>o.termNote)?.termNote} meta={documentCount(t.occurrences)+'資料 · '+t.occurrences.length+'発話'} search={[t.label,...t.occurrences.map(o=>o.termNote||o.note)].join(' ')}/>)}</div>
 </Archive>

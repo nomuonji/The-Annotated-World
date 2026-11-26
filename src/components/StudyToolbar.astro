@@ -3,16 +3,16 @@ import type {Doc} from '../lib/discovery';
 interface Props{doc:Doc}
 const {doc:d}=Astro.props;
 ---
-<div class="study-toolbar" id="study-toolbar" data-study-toolbar hidden>
+<div class="study-toolbar ed-reader-tools" id="study-toolbar" data-study-toolbar hidden>
  <div class="study-mode" role="group" aria-label="学習モード">
- <button type="button" data-mode="parallel" aria-pressed="true">対訳</button>
- <button type="button" data-mode="english" aria-pressed="false">英文のみ</button>
- {d.data.videoId&&<button type="button" data-mode="listen" aria-pressed="false">リスニング</button>}
+ <button type="button" data-mode="parallel" data-imprint-icon="parallel" aria-pressed="true">対訳</button>
+ <button type="button" data-mode="english" data-imprint-icon="page" aria-pressed="false">英文のみ</button>
+ {d.data.videoId&&<button type="button" data-mode="listen" data-imprint-icon="listen" aria-pressed="false">リスニング</button>}
  </div>
  <div class="study-secondary">
  <label class="study-chapter-label"><span class="sr-only">章に移動</span><select id="study-chapter-nav" aria-label="章に移動"><option value="">目次・章へ移動</option>{d.data.chapterIndex.map(c=><option value={c.anchor}>第{c.order}章｜{c.title}</option>)}</select></label>
  <button type="button" id="study-size" class="study-control" aria-label="A↗ — 文字サイズを変更">A↗</button>
- <button type="button" class="study-control quick-reader-tools" id="quick-reader-tools">本文検索</button>
- <button type="button" id="reader-annotations" class="study-control" aria-pressed="true" aria-label="注釈 ON — 文中注釈を非表示にする">注釈 ON</button>
+ <button type="button" class="study-control quick-reader-tools" id="quick-reader-tools" data-imprint-icon="search">本文検索</button>
+ <button type="button" id="reader-annotations" data-imprint-icon="note" class="study-control" aria-pressed="true" aria-label="注釈 ON — 文中注釈を非表示にする">注釈 ON</button>
  </div>
 </div>

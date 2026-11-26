@@ -1,9 +1,9 @@
 ---
 import PeopleLinks from '../../components/PeopleLinks.astro';
-import RoomHeader from '../../components/RoomHeader.astro';
+import EditorialTitle from '../../components/EditorialTitle.astro';
 import Archive from '../../layouts/Archive.astro';
 import IndexSearch from '../../components/IndexSearch.astro';
 import {documents,people} from '../../lib/discovery';
 const ps=people(await documents());
 ---
-<Archive wide title="人物 — The Annotated World"><RoomHeader room="people"><p class="eyebrow"><a href="/">発見</a> / PEOPLE</p><h1>People</h1><p>話者・著者から資料をたどる。{ps.length}人。</p></RoomHeader><IndexSearch label="人物を検索" count={ps.length} unit="人" placeholder="例：ジジェク、Žižek"/><section class="browse-section" data-index-section><div class="section-heading"><h2>話者・著者 <small>原典につながる人物資料</small></h2></div><PeopleLinks items={ps} searchable/></section></Archive>
+<Archive wide title="人物 — The Annotated World"><EditorialTitle section="people" label="人物" count={ps.length+'人'} art="tied-cards"><h1 lang="en">Voices<span class="ed-period">.</span></h1><p>話者・著者から資料をたどる。</p></EditorialTitle><IndexSearch label="人物を検索" count={ps.length} unit="人" placeholder="例：ジジェク、Žižek"/><section class="browse-section" data-index-section><div class="section-heading"><h2>話者・著者 <small>原典につながる人物資料</small></h2></div><PeopleLinks items={ps} searchable/></section></Archive>

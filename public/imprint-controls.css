@@ -1,0 +1,121 @@
+/* MARGINALIA — paper ticket, catalogue rules, annotation bracket.
+ * One functional graphic language, not a stack of interchangeable UI skins.
+ * Texture only on physical action stock, native hit area never clipped. */
+:root{--imp-stock:#f3eddf;--imp-ink:#342c36;--imp-on-ink:#faf3e5;--imp-signal:#87536a;--imp-on-signal:#fff7ec;--imp-wash:#e9e0d5;--imp-line:#aa9c8d;--imp-muted:#695d65;--imp-key:#79415b;--imp-press:#d8c9bd;--imp-ui:'Noto Sans JP','Plus Jakarta Sans',sans-serif;--imp-print:'Newsreader','Noto Serif JP','Yu Mincho',serif;--imp-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23806a50' opacity='.13' filter='url(%23g)' d='M0 0h96v96H0z'/%3E%3C/svg%3E");--imp-ticket:polygon(0 5px,5px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%)}
+html[data-theme=dark]{--imp-stock:#312b37;--imp-ink:#f0e4d7;--imp-on-ink:#2c2331;--imp-signal:#e2b19e;--imp-on-signal:#34232b;--imp-wash:#39313e;--imp-line:#82727e;--imp-muted:#c2b4bd;--imp-key:#eac2ae;--imp-press:#493b4d}
+[data-imprint-icon="search"]{--imprint-icon:url("/brand/ink/search.svg")}
+[data-imprint-icon="folio"]{--imprint-icon:url("/brand/ink/folio.svg")}
+[data-imprint-icon="page"]{--imprint-icon:url("/brand/ink/page.svg")}
+[data-imprint-icon="parallel"]{--imprint-icon:url("/brand/ink/parallel.svg")}
+[data-imprint-icon="listen"]{--imprint-icon:url("/brand/ink/listen.svg")}
+[data-imprint-icon="note"]{--imprint-icon:url("/brand/ink/note.svg")}
+[data-imprint-icon="arrow"]{--imprint-icon:url("/brand/ink/arrow.svg")}
+[data-imprint-icon="shuffle"]{--imprint-icon:url("/brand/ink/shuffle.svg")}
+[data-imprint-icon="filter"]{--imprint-icon:url("/brand/ink/filter.svg")}
+[data-imprint-icon="moon"]{--imprint-icon:url("/brand/ink/moon.svg")}
+[data-imprint-icon="sun"]{--imprint-icon:url("/brand/ink/sun.svg")}
+[data-imprint-icon="pin"]{--imprint-icon:url("/brand/ink/pin.svg")}
+[data-imprint-icon="follow"]{--imprint-icon:url("/brand/ink/follow.svg")}
+[data-imprint-icon="play"]{--imprint-icon:url("/brand/ink/play.svg")}
+[data-imprint-icon="pause"]{--imprint-icon:url("/brand/ink/pause.svg")}
+[data-imprint-icon]::before{content:"";display:inline-block;width:18px;height:18px;flex:0 0 18px;vertical-align:-4px;background:currentColor;mask:var(--imprint-icon) center/contain no-repeat;pointer-events:none}
+
+/* Entry tickets: cream engraved stock with a clipped corner, recessed rule and
+ * typographic arrow. No accent rectangle, hard offset shadow or all-over texture. */
+.platform-page .document-entry .ed-read-link,.aw-world-copy .aw-world-enter,.imp-action{
+ display:inline-flex;align-items:center;justify-content:space-between;gap:19px;position:relative;isolation:isolate;min-height:44px;max-width:100%;
+ padding:9px 15px!important;border:0!important;border-radius:0!important;background:transparent!important;color:var(--imp-ink)!important;
+ font:600 14px/1.4 var(--imp-ui);letter-spacing:.045em;text-decoration:none!important;box-shadow:none!important;
+}
+.platform-page .document-entry .ed-read-link::before,.aw-world-copy .aw-world-enter::before,.imp-action::before{
+ content:"";position:absolute;inset:0;z-index:-1;background:var(--imp-grain),linear-gradient(120deg,#f4eadd,#e6d5bd);clip-path:var(--imp-ticket);transition:filter .15s;pointer-events:none
+}
+.platform-page .document-entry .ed-read-link::after,.aw-world-copy .aw-world-enter::after,.imp-action::after{
+ content:"";position:absolute;inset:4px 5px;z-index:-1;border-top:1px solid #aa927a;border-bottom:1px solid #aa927a;pointer-events:none
+}
+.platform-page .document-entry .ed-read-link,.aw-world-copy .aw-world-enter,.imp-action{--imp-ink:#3c2c35}
+.platform-page .document-entry .ed-read-link>.imp-arrow,.aw-world-copy .aw-world-enter>span,.imp-action>.imp-terminal{display:grid;place-items:center;align-self:stretch;min-width:27px;padding-left:9px;border-left:1px solid #b5a18c;color:#79415b;font-size:0}
+.platform-page .document-entry .ed-read-link>.imp-arrow:before,.aw-world-copy .aw-world-enter>span:before,.imp-action>.imp-terminal:before{content:"";width:18px;height:18px;background:currentColor;mask:url("/brand/ink/arrow.svg") center/contain no-repeat;transform:rotate(-45deg)}
+.platform-page .document-entry .ed-read-link:hover::before,.aw-world-copy .aw-world-enter:hover::before,.imp-action:hover::before{filter:brightness(1.07)}
+.platform-page .document-entry .ed-read-link:active::before,.aw-world-copy .aw-world-enter:active::before,.imp-action:active::before{filter:brightness(.92)}
+button.random-chapter{display:inline-flex;align-items:center;gap:7px;border:0!important;background:transparent!important;box-shadow:none!important;color:var(--imp-key)!important;min-height:44px;font:500 12px/1.5 var(--imp-ui);text-decoration:none;text-underline-offset:4px}
+button.random-chapter:hover{text-decoration:underline}
+.aw-world-copy button.random-chapter{color:#f2d8c7!important}
+.random-chapter[hidden]{display:none!important}
+/* Card catalogue field: open corners, real search lens, one inset reading plane. */
+.imp-search-wrap{position:relative;display:flex;align-items:stretch;width:100%;min-width:0;background:var(--imp-stock);border-block:1px solid var(--imp-line);border-left:2px solid var(--imp-key)}
+.imp-search-wrap:before{content:"";width:35px;flex:0 0 35px;background:var(--imp-key);mask:url("/brand/ink/search.svg") center/18px 18px no-repeat;pointer-events:none}
+.imp-search-wrap:after{content:"";position:absolute;right:0;top:0;bottom:0;width:7px;border-block:1px solid var(--imp-key);border-right:1px solid var(--imp-key);pointer-events:none}
+.imp-search-wrap:focus-within{border-color:var(--imp-key);box-shadow:0 0 0 2px var(--imp-wash)}
+.ed-catalogue .library-toolbar .imp-search-wrap input,[data-index-controls].library-toolbar .imp-search-wrap input,.reader-tools .imp-search-wrap input{min-width:0;flex:1;border:0!important;background:transparent!important;padding:10px 10px 10px 0!important;outline-offset:-2px;min-height:44px;font-size:14px;border-radius:0!important;box-shadow:none;color:var(--imp-ink)}
+.imp-search-wrap input::placeholder{color:var(--imp-muted);opacity:1}
+[data-index-controls].library-toolbar>[data-index-count],.ed-results-line #result-count{font:600 14px/1.4 var(--imp-ui);color:var(--imp-key);font-variant-numeric:tabular-nums;border:0;letter-spacing:.035em}
+[data-index-controls].library-toolbar>[data-index-count]:before,.ed-results-line #result-count:before{content:"";display:inline-block;width:6px;height:6px;border:1px solid currentColor;transform:rotate(45deg);margin-right:8px;vertical-align:2px}
+/* Index tabs: actual bookmark/selection notch, not colored segmented buttons. */
+.ed-catalogue .library-tabs{gap:0;border-bottom:1px solid var(--imp-line);align-items:stretch}
+.ed-catalogue .library-tabs button{display:inline-flex;align-items:center;justify-content:center;gap:6px;position:relative;min-width:74px;padding:10px 10px!important;border:0!important;border-radius:0!important;background:transparent!important;color:var(--imp-muted)!important;box-shadow:none!important;min-height:44px;font-weight:500}
+.ed-catalogue .library-tabs button[aria-pressed=true]{background:transparent!important;color:var(--imp-key)!important;font-weight:700}
+.ed-catalogue .library-tabs button[aria-pressed=true]:after{content:"";position:absolute;left:8px;right:8px;bottom:-1px;height:5px;background:var(--imp-key);clip-path:polygon(0 60%,calc(50% - 4px) 60%,50% 0,calc(50% + 4px) 60%,100% 60%,100% 100%,0 100%)}
+.ed-catalogue .library-tabs button:hover{background:var(--imp-wash)!important}
+.ed-catalogue .library-filter-details summary{display:flex;align-items:center;gap:7px;position:relative;color:var(--imp-key);list-style:none}
+.ed-catalogue .library-filter-details summary::-webkit-details-marker{display:none}
+.ed-catalogue .library-filter-details summary:after{content:"";width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-left:auto;margin-right:4px}
+.ed-catalogue .library-filter-details[open] summary:after{transform:rotate(225deg)}
+.imp-filter-count{font:600 11px/1.5 var(--imp-ui);color:var(--imp-key);border-bottom:1px solid currentColor;padding:1px 3px;font-variant-numeric:tabular-nums}
+.imp-filter-count[hidden]{display:none!important}
+.ed-catalogue .library-filter-inputs select{background:var(--imp-stock);border:1px solid var(--imp-line);border-left:2px solid var(--imp-key);color:var(--imp-ink);border-radius:0}
+.ed-catalogue #reset-filters{border:0;border-bottom:1px solid var(--imp-line);color:var(--imp-key);background:transparent}
+/* Wayfinding is typography and a shared marginal bracket. */
+.platform-header .ed-navigation a{padding:6px 7px!important;font:500 12px/1.5 var(--imp-ui);position:relative;letter-spacing:.025em}
+.platform-header .ed-navigation a[aria-current]{background:transparent!important;color:var(--imp-key)!important;text-decoration:none;font-weight:700}
+.platform-header .ed-navigation a[aria-current]:before,.platform-header .ed-navigation a[aria-current]:after{content:"";position:absolute;top:5px;bottom:5px;width:4px;border-block:1px solid currentColor;pointer-events:none}
+.platform-header .ed-navigation a[aria-current]:before{left:0;border-left:1px solid currentColor}
+.platform-header .ed-navigation a[aria-current]:after{right:0;border-right:1px solid currentColor}
+.platform-header .site-theme-toggle{display:inline-flex;align-items:center;gap:6px;color:var(--imp-ink);border:0;border-left:1px solid var(--imp-line);padding-inline:7px;min-width:65px;background:transparent}
+.platform-header .site-theme-toggle:before{width:16px;height:16px;flex-basis:16px}
+.platform-header .site-theme-toggle[aria-pressed=true]{--imprint-icon:url("/brand/ink/sun.svg")}
+.topic-tag{position:relative;padding:4px 3px 4px 8px!important;border:0!important;border-radius:0!important;background:transparent!important;color:var(--imp-key)!important;font-size:12px;line-height:1.4;text-decoration:none!important}
+.topic-tag:before{content:"";position:absolute;left:0;top:5px;bottom:5px;width:4px;border:1px solid currentColor;border-right:0}
+.topic-tag:hover{background:var(--imp-wash)!important;text-decoration:underline!important}
+.ed-word-concordance .aw-index-record>.ed-evidence{border-left:1px solid var(--imp-key);position:relative}
+.ed-word-concordance .aw-index-record>.ed-evidence:before,.ed-word-concordance .aw-index-record>.ed-evidence:after{content:"";position:absolute;left:0;width:9px;height:1px;background:var(--imp-key)}
+.ed-word-concordance .aw-index-record>.ed-evidence:before{top:0}
+.ed-word-concordance .aw-index-record>.ed-evidence:after{bottom:0}
+.ed-evidence mark{background:linear-gradient(transparent 60%,var(--imp-wash) 60%);text-decoration:underline;text-decoration-color:var(--imp-key);text-decoration-thickness:1px;text-underline-offset:3px}
+.ed-word-concordance .aw-index-record:hover .ed-evidence{border-left-width:1px;padding-left:clamp(12px,2vw,24px)}
+/* Reading instrument: contiguous modes with a small pointer; secondary commands
+ * stay on a quiet surface. Preserve original geometry for pinned video and translation. */
+.ed-reader-tools .study-mode{gap:0;background:transparent;padding:0;border-bottom:1px solid var(--imp-line)}
+.ed-reader-tools .study-mode button,.ed-reader-tools .study-control,.video-quick-controls .study-control,.video-position .study-control,.utterance-tools button,.chapter-mode-control button{display:inline-flex;align-items:center;justify-content:center;gap:5px;position:relative;border:0!important;border-bottom:1px solid var(--imp-line)!important;background:transparent!important;color:var(--imp-ink)!important;border-radius:0!important;box-shadow:none!important;font-weight:500}
+.ed-reader-tools .study-mode button[aria-pressed=true],.ed-reader-tools .study-control[aria-pressed=true],.video-quick-controls .study-control[aria-pressed=true],.utterance-tools button[aria-pressed=true],.chapter-mode-control button[aria-pressed=true]{background:var(--imp-wash)!important;color:var(--imp-key)!important;border-bottom-color:var(--imp-key)!important;font-weight:700}
+.ed-reader-tools .study-mode button[aria-pressed=true]:after{content:"";position:absolute;bottom:-1px;left:5px;right:5px;height:4px;background:var(--imp-key);clip-path:polygon(0 60%,calc(50% - 3px) 60%,50% 0,calc(50% + 3px) 60%,100% 60%,100% 100%,0 100%)}
+.ed-reader-tools .study-mode button:hover,.ed-reader-tools .study-control:hover:not(:disabled),.video-quick-controls .study-control:hover:not(:disabled){background:var(--imp-wash)!important}
+.ed-reader-tools .study-mode button:before{width:15px;height:15px;flex-basis:15px}
+.ed-reader-tools .study-control:disabled,.video-quick-controls .study-control:disabled,.video-position .study-control:disabled{opacity:.48;cursor:default}
+.ed-reader-tools .study-control#reader-annotations[aria-pressed=false]{border-bottom-style:dashed!important}
+.ed-reader-tools select,.speed-label select{border:0!important;border-bottom:1px solid var(--imp-line)!important;border-radius:0!important;background:var(--imp-stock)!important;color:var(--imp-ink)!important}
+#play-pause:not(:disabled){background:var(--imp-wash)!important;color:var(--imp-key)!important;border-bottom-color:var(--imp-key)!important;font-weight:700}
+#video-clock{font-family:var(--imp-print);font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.04em;color:var(--imp-key)}
+.reader-tools summary{color:var(--imp-key);font-weight:600}
+.reader-tools .imp-search-wrap{margin-top:5px}
+:where(.imp-action,.ed-read-link,.random-chapter,.ed-navigation a,.library-tabs button,.study-mode button,.study-control,.imp-search-wrap input,.library-filter-details summary):focus-visible{outline:2px solid var(--imp-key)!important;outline-offset:3px}
+@media(max-width:1100px){.platform-header .ed-navigation{gap:4px 7px}}
+@media(max-width:899px){.ed-reader-tools .study-mode button:before,.ed-reader-tools .study-control[data-imprint-icon]:before,.video-quick-controls .study-control[data-imprint-icon]:before{display:none}.ed-reader-tools .study-mode button,.ed-reader-tools .study-control,.video-quick-controls .study-control{gap:0}}
+@media(max-width:640px){.platform-header .ed-navigation{gap:3px 4px;padding:0}.platform-header .ed-navigation a{padding:5px 6px!important;font-size:11px;min-height:36px}.ed-catalogue .library-tabs button{min-width:65px;padding:9px 8px!important;font-size:13px}.ed-catalogue .library-tabs button:before{width:15px;height:15px;flex-basis:15px}.platform-page .document-entry .ed-read-link{font-size:12px;gap:9px;padding-inline:11px!important}.platform-page .document-entry .ed-read-link>.imp-arrow{min-width:23px;padding-left:6px}.imp-search-wrap:before{width:30px;flex-basis:30px}.topic-tag{font-size:11px}.imp-filter-count{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.imp-action::before,.ed-read-link::before,.aw-world-enter::before{transition:none!important}}
+
+/* Bilingual signage: desktop reads as a library's room register; at mobile
+ * the secondary translation disappears rather than increasing header height. */
+.platform-header .ed-navigation .ed-nav-en{display:none}
+@media(min-width:1101px){
+ .platform-header .ed-navigation{gap:clamp(7px,1.15vw,17px)}
+ .platform-header .ed-navigation a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:42px;padding:3px 8px!important}
+ .platform-header .ed-navigation .ed-nav-en{display:block;font:500 15px/1.05 var(--imp-print);letter-spacing:.01em}
+ .platform-header .ed-navigation .ed-nav-ja{font:500 10px/1.4 var(--imp-ui);letter-spacing:.06em}
+ .platform-header .ed-navigation a[aria-current] .ed-nav-ja{font-weight:700}
+}
+
+.platform-page .document-entry .ed-read-link{padding-block:5px!important;min-height:44px}
+.ed-read-link>.imp-copy{display:flex;flex-direction:column;align-items:flex-start;gap:1px;line-height:1.35;font-family:var(--imp-print);font-size:14px;font-weight:600;white-space:nowrap}
+.ed-read-link>.imp-copy small{font:500 9px/1.15 var(--imp-ui);letter-spacing:.11em;text-transform:uppercase;color:#725649}
+@media(max-width:640px){.ed-read-link>.imp-copy{font-size:12px}.ed-read-link>.imp-copy small{font-size:8px}}
