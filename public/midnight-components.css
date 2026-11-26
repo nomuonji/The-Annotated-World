@@ -63,8 +63,8 @@ html[data-theme] .topic-tag{position:relative;isolation:isolate;background:trans
 .topic-tag:hover{text-decoration:underline!important}
 /* Reading is intentionally quieter. Use the same palette and cut corner
    semantics on inline annotations, without changing source flow or note toggle. */
-html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=language]{color:#703750;background:#f3e4e9 var(--aw-art-leaves) right top/18px auto no-repeat;border:1px solid #b27c9c;border-left:2px solid #a25c84;border-radius:6px 0 6px 0;padding-right:19px}
-html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=context]{color:#65452e;background:#f8ecd9 var(--aw-art-ruins) right bottom/18px auto no-repeat;border:1px solid #c49b71;border-left:2px solid #ad8359;border-radius:0 7px 0 7px;padding-right:19px}
+html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=language]{color:#703750;background:#f3e4e9;border:1px solid #b27c9c;border-left:2px solid #a25c84;border-radius:6px 0 6px 0;padding:1px 4px}
+html[data-theme] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=context]{color:#65452e;background:#f8ecd9;border:1px solid #c49b71;border-left:2px solid #ad8359;border-radius:0 7px 0 7px;padding:1px 4px}
 html[data-theme=dark] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=language]{color:#f0d7e5;background-color:#422d43;border-color:#b27c9c}
 html[data-theme=dark] .study-original .en .annotation-group .in-situ-annotation[data-note-kind=context]{color:#f4dfc4;background-color:#40322e;border-color:#c49b71}
 /* Compact reading instruments: retain the existing sticky geometry and native
@@ -105,3 +105,65 @@ html[data-theme] :is(.toolbar button,#chapters button)[aria-pressed=true],html[d
 @media(max-width:640px){.platform-header-inner{display:flex;padding:10px 13px 14px}.platform-header .site-title{font-size:18px;flex:1 1 0}.platform-header nav{width:100%;max-width:100%;margin:0;gap:6px 0;justify-content:center}.platform-header nav a{flex:0 0 25%;min-height:45px;padding:3px 2px;font-size:11px}.aw-nav-art{width:21px;height:21px}.platform-header nav a[aria-current]::after{width:10px;height:11px;bottom:-5px;left:calc(50% - 5px)}.aw-world-actions .aw-world-enter{margin-left:0;padding-left:73px!important;min-height:52px;font-size:12px;gap:9px}.aw-world-actions .aw-world-enter::after{background-size:72px auto,100% 100%}.aw-lens-field{padding-left:48px;min-height:52px}.aw-lens-field::after{width:57px;height:52px}.library-toolbar .aw-lens-field input{font-size:13px}.library-filters .library-tabs button{padding-inline:12px!important}.document-entry .read-link{padding:7px 9px!important;font-size:11px}.document-entry.discovery-card::after{opacity:.13}.study-mode::before,.video-quick-controls::before{border-width:9px}.video-pinned .study-mode::before,.video-pinned .video-quick-controls::before{border-width:8px}.video-pinned #play-pause:not(:disabled){border-radius:3px!important}}
 @media(max-width:350px){.platform-header nav a{font-size:10px}.platform-header .site-title{font-size:16px}.aw-lens-field{padding-left:43px;padding-right:8px}.aw-lens-field::after{width:50px}.library-toolbar{gap:7px}.document-entry .read-link{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.aw-world-actions .aw-world-enter{transition:none!important;transform:none!important}}
+
+/* Readability pass: preserve the illustrated outer silhouettes of the primary
+   controls; reserve uncluttered text surfaces for repeated reading actions. */
+.platform-header .site-title::after{opacity:.12}
+.platform-header nav a::before{border-color:var(--aw-component-rule)}
+.platform-header nav a:not([aria-current])::before{border-bottom:0;opacity:.55}
+.platform-header nav a[aria-current]::before{opacity:1}
+.platform-header nav a{font-weight:600}
+html[data-theme] .document-entry.discovery-card{color:var(--aw-component-ink)}
+.document-entry.discovery-card::after{opacity:.12;width:min(18%,68px)}
+.document-entry .document-cover{margin:0}
+html[data-theme] .document-entry .read-link{font-size:13px;min-height:44px}
+html[data-theme] .topic-tag{font-size:12px;line-height:1.5;padding:4px 9px!important}
+.topic-tag::before{border-width:8px}
+.library-toolbar label{min-width:0}
+.library-toolbar>[aria-live]{flex-shrink:0;font-size:12px;white-space:nowrap}
+.aw-lens-field{box-sizing:border-box}
+html[data-theme] :is(.library-toolbar,.reader-tools,.shelf-heading) .aw-lens-field input{font-size:16px}
+.library-filters .library-tabs button{min-width:70px;font-size:14px;font-weight:600}
+html[data-theme] .study-original .en .annotation-group .in-situ-annotation{box-decoration-break:slice;-webkit-box-decoration-break:slice;overflow-wrap:anywhere;word-break:normal;margin-inline:.12em;padding-inline:4px}
+.study-original .en .annotation-group{line-height:1.6;overflow-wrap:anywhere}
+html[data-theme] .study-layout[data-annotations=off] .study-original .annotation-source{background:none!important;text-decoration:none!important}
+.study-original .toc-list li::before{border-width:10px}
+html[data-theme] .study-original .toc-list li{background:transparent;border:0}
+html[data-theme] .video-quick-controls{padding:3px 5px}
+html[data-theme] .video-quick-controls .study-control{font-weight:600}
+html[data-theme] .video-quick-controls .study-control:disabled{opacity:.65}
+html[data-theme] #play-pause:not(:disabled){border-radius:18px 5px 18px 5px!important}
+@media(max-width:899px){
+ .mobile-translation-dock::after{opacity:.10;width:80px;height:32px}
+ html[data-theme] .mobile-translation-dock-head{padding:5px 12px;gap:6px}
+ html[data-theme] .mobile-translation-dock-body{font-size:14px;line-height:1.75;padding:8px 14px 12px}
+ .video-pinned .video-quick-controls{padding:1px 3px!important}
+}
+@media(max-width:640px){
+ .platform-header-inner{padding:9px 12px 10px;gap:4px 8px}
+ .platform-header-inner::before{inset:3px 5px;border-width:13px}
+ .platform-header nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px 0}
+ .platform-header nav a{flex:none;min-height:40px;flex-direction:row;gap:3px;padding:4px 2px;font-size:11px}
+ .platform-header nav a::before{border-radius:45% 45% 0 0/8px 8px 0 0}
+ .platform-header nav a[aria-current]::after{height:8px;bottom:-3px}
+ .aw-nav-art{width:15px;height:15px}
+ .platform-header .site-theme-toggle{min-height:36px}
+ .library-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:6px}
+ .aw-lens-field{min-height:48px;padding:3px 10px 3px 43px}
+ .aw-lens-field::after{width:48px;height:48px}
+ .library-toolbar>[aria-live]{font-size:11px}
+ html[data-theme] .document-entry.discovery-card{padding:12px}
+ html[data-theme] .document-entry .read-link{font-size:12px;padding:6px 10px!important}
+ html[data-theme] .document-entry .topic-tag{font-size:11px;padding:3px 6px!important}
+ .document-entry.discovery-card::before{border-width:13px!important}
+ .document-entry.discovery-card::after{opacity:.07}
+ .study-original .en .annotation-group{font-size:11.5px;line-height:1.65}
+ html[data-theme] .study-original .en .annotation-group .in-situ-annotation{padding-inline:3px;border-left-width:1px;margin-inline:0}
+}
+@media(max-width:350px){
+ .platform-header nav a{font-size:10px}
+ .aw-nav-art{width:13px;height:13px}
+ .library-toolbar{grid-template-columns:minmax(0,1fr)}
+ .library-toolbar>[aria-live]{justify-self:end}
+ html[data-theme] .study-original .en .annotation-group .in-situ-annotation{padding-inline:2px;border-left-width:1px}
+}
