@@ -340,3 +340,21 @@ html[data-theme] .video-quick-controls #play-pause{display:inline-flex;align-ite
    suffix in a secondary measure instead of deleting source metadata. */
 .reader-page>.hero h1 .aw-title-subtitle{display:block;font:500 clamp(13px,1.35vw,17px)/1.5 'Noto Sans JP',sans-serif;letter-spacing:.015em;margin-top:8px;color:var(--aw-component-muted)}
 .document-entry h3 .aw-title-subtitle{display:block;font:500 12px/1.5 'Noto Sans JP',sans-serif;letter-spacing:0;margin-top:4px;color:var(--aw-component-muted)}
+
+/* Final local adjustments from the actual first-pass screenshots: keep the
+   existing folio decoration; remove only empty card width and the duplicate
+   square behind the crest. */
+.aw-person-register .person-item:only-child{max-width:720px}
+html[data-theme] .aw-person-register .person-monogram{background:transparent!important}
+html[data-theme] .library-filters .library-tabs button{display:inline-flex;align-items:center;min-width:80px;padding:8px 15px 8px 35px!important;background-size:23px auto!important;background-position:8px center!important;background-repeat:no-repeat!important;border-radius:7px!important}
+html[data-theme] .library-filters .library-tabs button[data-scope=docs]{background-image:url('/brand/sprites/book-stack.webp')!important}
+html[data-theme] .library-filters .library-tabs button[data-scope=chapters]{background-image:url('/brand/sprites/open-notebook.webp')!important}
+html[data-theme] .library-filters .library-tabs button[aria-pressed=true]{background-color:#f5e5d3!important;color:#783455!important}
+.library-filters .library-tabs button[aria-pressed=true]::before{border:12px solid transparent;border-image:var(--aw-ticket-paper) 25 stretch}
+html[data-theme] .aw-library-desk .random-chapter,html[data-theme] .aw-world-actions .random-chapter{display:inline-flex;align-items:center;min-height:44px;padding:7px 15px 7px 46px!important;position:relative;isolation:isolate;border:0!important;border-radius:22px 7px 7px 22px!important;background:var(--aw-component-stock)!important;color:var(--aw-component-accent)!important;font-size:13px;font-weight:600;line-height:1.5}
+:is(.aw-library-desk,.aw-world-actions) .random-chapter[hidden]{display:none!important}
+:is(.aw-library-desk,.aw-world-actions) .random-chapter::before{content:"";position:absolute;inset:0;z-index:-1;border:12px solid transparent;border-image:var(--aw-ticket) 25 stretch;pointer-events:none}
+:is(.aw-library-desk,.aw-world-actions) .random-chapter::after{content:"";position:absolute;left:4px;top:50%;width:38px;height:38px;transform:translateY(-50%);background:url('/brand/sprites/armillary.webp') center/contain no-repeat;pointer-events:none}
+:is(.aw-library-desk,.aw-world-actions) .random-chapter:hover{filter:brightness(1.1)}
+@media(max-width:640px){.platform-header .aw-nav-art{width:19px;height:19px}.platform-header-inner{padding-top:7px;padding-bottom:8px}.aw-person-register .person-item:only-child{max-width:100%}}
+@media(max-width:350px){.platform-header .aw-nav-art{width:15px;height:15px}html[data-theme] .library-filters .library-tabs button{min-width:70px;padding:8px 10px 8px 30px!important;background-position:5px center!important;background-size:20px auto!important}}
