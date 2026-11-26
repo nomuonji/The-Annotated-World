@@ -13,6 +13,6 @@ const g=genreById(d.data.genre);
  <p class="document-deck">{d.data.description}</p>
  <p class="document-facts">{d.data.duration&&d.data.duration+' · '}{d.data.chapterCount}章 · {d.data.utteranceCount}発話 {d.data.difficulty&&' · 推定 '+d.data.difficulty}</p>
  <div class="tag-row">{docTopics(d).slice(0,featured?6:3).map(t=><a class="topic-tag" href={topicUrl(t.id)}>#{t.name}</a>)}</div>
- <a class="read-link" href={documentUrl(d)}>対訳全文を読む →</a>
+ <a class="read-link" href={documentUrl(d)}><span class="aw-reading-label">対訳全文を読む<small lang="en" aria-hidden="true">Open the source</small></span><span class="aw-reading-arrow" aria-hidden="true">↗</span></a>
  </div>
 </article>
