@@ -289,3 +289,10 @@ html[data-theme="dark"] .study-original .en .annotation-group .in-situ-annotatio
  .study-original .en .annotation-group{font-size:11.5px;line-height:1.65}
 }
 @media(max-width:380px){.study-chapter-label{max-width:none}}
+
+/* Reserve the exact control layout during the first paint, then let the reader own it. No-JS pages do not reserve blank controls. */
+html.aw-js .study-layout:not([data-layout-ready]) .study-toolbar[hidden],html.aw-js .study-layout:not([data-layout-ready]) .chapter-mode-control[hidden],html.aw-js .study-layout:not([data-layout-ready]) .video-quick-controls[hidden],html.aw-js .study-layout:not([data-layout-ready]) .video-position[hidden]{display:flex!important;visibility:hidden}
+html.aw-js .study-layout:not([data-layout-ready]) .reader-tools[hidden],html.aw-js .study-layout:not([data-layout-ready]) .video-chapter-picker[hidden]{display:block!important;visibility:hidden}
+html.aw-js .study-layout:not(.video-pinned) .video-state{min-height:3em}
+html.aw-js .study-layout:not(.video-pinned) .video-state[hidden]{display:block!important;visibility:hidden}
+body.chapter-reading-page .study-layout:not([data-layout-ready]) .chapter-mode-context[hidden]{display:inline!important;visibility:hidden}

@@ -228,7 +228,7 @@ const labels={coverage:{full:'全文（照合済みの範囲）',excerpt:'抜粋
    const style=document.createElement('style');
    style.id='aw-initial-chapter';
    const id=CSS.escape(chapter);
-   style.textContent='.study-original section.sec:not(#'+id+'),.study-original .toc,.study-original .sources{display:none!important}.study-original #'+id+' .chapter-trail{display:block}';
+   style.textContent='.study-original section.sec:not(#'+id+'),.study-original .toc,.study-original .sources{display:none!important}.study-original #'+id+' .chapter-trail{display:flex;flex-wrap:wrap;gap:10px 12px;border-top:1px solid var(--hair);padding-top:18px;margin-top:26px}.study-original #'+id+'{padding-top:22px;margin-top:0;border-top:0}';
    document.head.append(style);
   }
  </script>

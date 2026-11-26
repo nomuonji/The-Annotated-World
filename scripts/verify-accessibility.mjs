@@ -45,5 +45,6 @@ try{
  await nojs.close();
  const counts={};for(const p of report.pages)for(const v of p.violations)counts[v.id]=(counts[v.id]||0)+v.nodes.length;
  report.violationCounts=counts;console.log('AXE audit: '+report.pages.length+' cases; violations '+JSON.stringify(counts)+'; fallbacks '+report.fallbacks.length);
- // Report all legacy violations rather than pretending axe is a full manual WCAG test.
+ // Automated WCAG findings are a release gate; incomplete/manual checks remain separate.
+ assert.deepEqual(counts,{},'Automated WCAG violations must be resolved');
 }finally{await mkdir('world-audit',{recursive:true});await writeFile('world-audit/accessibility.json',JSON.stringify(report,null,2));await browser?.close();server.kill();}

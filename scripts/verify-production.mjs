@@ -33,7 +33,7 @@ try{
     result.actualPlayback='clock-advanced';
     result.clockAfter=await page.locator('#video-clock').textContent();
     await page.locator('#play-pause').click({timeout:5000}).catch(()=>{});
-   }catch(e){result.reason=String(e).slice(0,350);result.state=await page.locator('#video-state').textContent().catch(()=>null);}
+   }catch(e){result.reason=String(e).slice(0,350);result.state=await page.locator('#video-state').textContent().catch(()=>null);result.youtubeError=await page.locator('#source-video').getAttribute('data-youtube-error').catch(()=>null);}
    report.video.push(result);
   }
  }
