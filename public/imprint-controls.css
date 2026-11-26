@@ -103,3 +103,14 @@ button.random-chapter:hover{text-decoration:underline}
 @media(max-width:899px){.ed-reader-tools .study-mode button:before,.ed-reader-tools .study-control[data-imprint-icon]:before,.video-quick-controls .study-control[data-imprint-icon]:before{display:none}.ed-reader-tools .study-mode button,.ed-reader-tools .study-control,.video-quick-controls .study-control{gap:0}}
 @media(max-width:640px){.platform-header .ed-navigation{gap:3px 4px;padding:0}.platform-header .ed-navigation a{padding:5px 6px!important;font-size:11px;min-height:36px}.ed-catalogue .library-tabs button{min-width:65px;padding:9px 8px!important;font-size:13px}.ed-catalogue .library-tabs button:before{width:15px;height:15px;flex-basis:15px}.platform-page .document-entry .ed-read-link{font-size:12px;gap:9px;padding-inline:11px!important}.platform-page .document-entry .ed-read-link>span{min-width:23px;padding-left:6px}.imp-search-wrap:before{width:30px;flex-basis:30px}.topic-tag{font-size:11px}.imp-filter-count{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.imp-action::before,.ed-read-link::before,.aw-world-enter::before{transition:none!important}}
+
+/* Bilingual signage: desktop reads as a library's room register; at mobile
+ * the secondary translation disappears rather than increasing header height. */
+.platform-header .ed-navigation .ed-nav-en{display:none}
+@media(min-width:1101px){
+ .platform-header .ed-navigation{gap:clamp(7px,1.15vw,17px)}
+ .platform-header .ed-navigation a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:42px;padding:3px 8px!important}
+ .platform-header .ed-navigation .ed-nav-en{display:block;font:500 15px/1.05 var(--imp-print);letter-spacing:.01em}
+ .platform-header .ed-navigation .ed-nav-ja{font:500 10px/1.4 var(--imp-ui);letter-spacing:.06em}
+ .platform-header .ed-navigation a[aria-current] .ed-nav-ja{font-weight:700}
+}
